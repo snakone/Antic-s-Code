@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+  padding: 0 30px;
+  margin: 0;
+  font-family: Muli, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  background-color: #fff;
+  margin-bottom: 35px;
+}
+
+* {
+  font-family: Muli, sans-serif;
+  font-size: 16px;
+}
+
+.cdk-overlay-connected-position-bounding-box {
+  top: 68px !important;
+}

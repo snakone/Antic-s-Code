@@ -1,0 +1,29 @@
+<div class="navbar">
+  <div class="navbar-logo">
+    <img src="assets/img/logo.png"/>
+  </div>
+  <div class="navbar-nav">
+    <ul>
+      <li><button mat-button>Home</button></li>
+      <li><button mat-button>Code</button></li>
+      <li><button mat-button>Contact</button></li>
+      <li>
+        <button mat-button
+               [matMenuTriggerFor]="menu"
+               (click)="collapse = !collapse">
+            Menu
+          <span [ngClass]="{'collapsed' : collapse}"
+                class="dropdown">&#x25BC;
+          </span>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>Item 1</button>
+          <button mat-menu-item>Item 2</button>
+        </mat-menu>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+

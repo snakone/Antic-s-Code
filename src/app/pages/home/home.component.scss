@@ -1,0 +1,25 @@
+.header {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-image: url(http://aazztech.com/demos/themes/html/direo/img/intro.jpg);
+  -webkit-background-size: cover !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+.home:before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(15,18,12,.9);
+  z-index: 0;
+}
