@@ -22,11 +22,15 @@ body {
   font-size: 16px;
 }
 
-.cdk-overlay-connected-position-bounding-box {
-  top: var(--navbar-menu-dropdown) !important;
+.mat-menu-panel {
+  margin-top: var(--navbar-menu-dropdown) !important;
   margin-left: -10px !important;
 }
 
-.btn {
-  @include button;
+.btn-pink {
+  @include button-pink;
+}
+
+.btn-purple {
+  @include button-purple;
 }
