@@ -1,17 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "./assets/styles/main.scss";
 
 body {
-  padding: 0 30px;
+  padding: 0;
   margin: 0;
+  width: 100%;
+  min-width: 250px;
+  height: 100%;
   font-family: Muli, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   text-align: left;
   background-color: #fff;
-  margin-bottom: 35px;
 }
 
 * {
@@ -20,5 +23,10 @@ body {
 }
 
 .cdk-overlay-connected-position-bounding-box {
-  top: 68px !important;
+  top: var(--navbar-menu-dropdown) !important;
+  margin-left: -10px !important;
+}
+
+.btn {
+  @include button;
 }

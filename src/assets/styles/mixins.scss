@@ -1,0 +1,18 @@
+// Dropdown Rotation
+
+@mixin rotation($deg) {
+  -ms-transform: rotate($deg); /* IE 9 */
+  -webkit-transform: rotate($deg); /* Safari 3-8 */
+  transform: rotate($deg);
+  transition: all .3s;
+}
+
+@mixin button {
+  background: linear-gradient(90deg, rgba(252,124,67,1) 0%,
+                                     rgba(236,70,252,1) 100%);
+
+  &:hover {
+    background: linear-gradient(270deg, rgba(252,124,67,1) 0%,
+                                        rgba(236,70,252,1) 100%);
+  }
+}

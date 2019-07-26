@@ -9,13 +9,8 @@ import { MatMenu } from '@angular/material/menu';
 
 export class NavBarComponent implements OnInit {
 
-  collapse = false;
-  @ViewChild('menu', { static: true}) menu: MatMenu;
-
   constructor() { }
 
-  ngOnInit() {
-    this.menu.closed.subscribe(() => this.collapse = !this.collapse);
-  }
+  ngOnInit() {}
 
 }

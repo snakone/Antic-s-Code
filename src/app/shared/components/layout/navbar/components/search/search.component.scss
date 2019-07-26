@@ -1,0 +1,36 @@
+input {
+  background: transparent;
+  border: none;
+  position: relative;
+  left: 18px;
+  top: -4px;
+  color: #fff;
+  width: 80%;
+}
+
+.search-area {
+  padding: 8px 8px 2px 8px;
+  position: relative;
+  display: flex;
+  width: 255px;
+
+  @media (max-width: 1098px) {
+    display: none;
+  }
+
+  &.has-focus {
+    background: #fff;
+    border-radius: 4px 4px 0 0;
+    transition: all .8s;
+
+    & mat-icon { color: var(--primary-color) }
+
+    & input {
+      border-color: rgba(39, 43, 65, .1);
+      color: #272b41;
+
+      &:focus { outline: none }
+    }
+ }
+}
+

@@ -1,0 +1,28 @@
+<div class="navbar-wrapper">
+  <div class="navbar-menu">
+    <ul>
+      <li *ngFor="let i of items">
+        <button class="hvr-underline-from-left" mat-button>{{i.name}}</button></li>
+      <li>
+        <button mat-button
+                class="navbar-menu-btn"
+                [matMenuTriggerFor]="menu"
+                (click)="collapse = !collapse">
+            Menu
+          <span [ngClass]="{'collapsed' : collapse}"
+                class="navbar-menu-dropdown">&#x25BC;
+          </span>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>Item 1</button>
+          <button mat-menu-item>Item 2</button>
+        </mat-menu>
+      </li>
+    </ul>
+  </div>
+  <div class="navbar-menu-mobile">
+    MOBILE
+  </div>
+</div>
+
+
