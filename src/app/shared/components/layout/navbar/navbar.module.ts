@@ -3,21 +3,20 @@ import { CommonModule } from '@angular/common';
 import { NavBarComponent } from './navbar.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { SharedModule } from '@shared/shared.module';
-import { SearchComponent } from './components/search/search.component';
+import { NavBarSearchComponent } from './components/navbar-search/navbar-search.component';
 
 @NgModule({
   declarations: [
     NavBarComponent,
     MenuComponent,
-    SearchComponent
+    NavBarSearchComponent
   ],
   imports: [
     CommonModule,
     SharedModule
   ],
   exports: [
-    NavBarComponent,
-    MenuComponent
+    NavBarComponent
   ]
 })
 

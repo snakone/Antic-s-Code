@@ -4,6 +4,7 @@ import { PipesModule } from '@shared/pipes/pipes.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageModule } from '@app/core/language/language.module';
 import { MaterialModule } from './material/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [],
@@ -12,13 +13,17 @@ import { MaterialModule } from './material/material.module';
     PipesModule,
     TranslateModule,
     LanguageModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     PipesModule,
     TranslateModule,
     LanguageModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: []
 })

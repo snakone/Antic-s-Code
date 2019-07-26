@@ -1,13 +1,13 @@
-import { Component, OnInit, Renderer2, Inject, ElementRef } from '@angular/core';
+import { Component, OnInit, Renderer2, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  selector: 'app-navbar-search',
+  templateUrl: './navbar-search.component.html',
+  styleUrls: ['./navbar-search.component.scss']
 })
 
-export class SearchComponent implements OnInit {
+export class NavBarSearchComponent implements OnInit {
 
   area: HTMLCollectionOf<Element>;
 

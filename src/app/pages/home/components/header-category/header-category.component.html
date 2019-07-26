@@ -1,0 +1,8 @@
+<ul class="category-list">
+  <li *ngFor="let c of categories">
+    <span [class]="c.class">
+      <mat-icon>{{c.icon}}</mat-icon>
+    </span>
+    {{c.name}}
+  </li>
+</ul>
