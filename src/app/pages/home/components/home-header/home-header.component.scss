@@ -1,0 +1,40 @@
+.header {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: calc(100% - var(--navbar-height));
+  z-index: 5;
+  width: 100%;
+  position: absolute;
+
+  &-container {
+    max-width: 1140px;
+    text-align: center;
+    padding: 0 16px;
+    margin-top: -12px;
+  }
+
+   &-slogan {
+    margin-bottom: 1.8rem;
+  }
+
+  &-categories {
+    margin-top: 2.2rem;
+  }
+}
+
+h1 {
+  color: #fff;
+  line-height: 4.13333rem;
+  font-size: 2.66667rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+p {
+  font-size: 1.13333rem;
+  color: rgba(255, 255, 255, .8);
+  margin: 0;
+}
