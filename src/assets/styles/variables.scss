@@ -5,14 +5,15 @@
 
   // CONTENT
   --navbar-height: 75px;
+  --navbar-height-mobile: 65px;
   --navbar-menu-dropdown: 22px;
-  --navbar-logo-width: 150px;
+  --navbar-logo-width: 120px;
 
   // FONTS
   --primary-font: Muli, sans-serif;
 
   ::-webkit-scrollbar {
-    width: 4px; }
+    width: 6px; }
 
   ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);

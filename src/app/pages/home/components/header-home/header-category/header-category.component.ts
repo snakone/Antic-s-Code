@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CATEGORIES } from '@app/shared/shared.data';
+import { POPULAR_CATEGORIES } from '@app/shared/shared.data';
 
 @Component({
   selector: 'app-header-category',
@@ -9,7 +9,7 @@ import { CATEGORIES } from '@app/shared/shared.data';
 
 export class HeaderCategoryComponent implements OnInit {
 
-  categories = CATEGORIES;
+  categories = POPULAR_CATEGORIES;
 
   constructor() { }
 

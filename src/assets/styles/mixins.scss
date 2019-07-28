@@ -7,24 +7,34 @@
   transition: all .3s;
 }
 
-@mixin button-pink {
-  color: var(--color-light);
-  background: linear-gradient(90deg, rgba(252, 124, 67, 1) 0%,
-                                     rgba(236, 70, 252, 1) 100%);
+@mixin button-animated($color1, $color2, $color3) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-image: linear-gradient(90deg, $color1, $color2, $color3, $color1);
+  background-size: 400%;
+  position: relative;
+  color: #fff;
 
-  &:hover {
-    background: linear-gradient(270deg, rgba(252, 124, 67, 1) 0%,
-                                        rgba(236, 70, 252, 1) 100%);
+  &:before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    background-image: linear-gradient(90deg, $color1, $color2, $color3, $color1);
+    background-size: 400%;
+    opacity: 0;
+    transition: .5s;
   }
-}
 
-@mixin button-purple {
-  color: var(--color-light);
-  background: linear-gradient(90deg, rgba(121, 8, 81, 1) 0%,
-                                     rgba(236, 70, 252, 1) 100%);
+  &:hover, :hover:before { animation: animate 8s linear infinite }
 
-  &:hover {
-    background: linear-gradient(270deg, rgba(121, 8, 81, 1) 0%,
-                                        rgba(236, 70, 252, 1) 100%);
+  @keyframes animate {
+    0% { background-position: 0% }
+    100% { background-position: 400% }
   }
 }
