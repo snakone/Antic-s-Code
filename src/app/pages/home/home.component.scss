@@ -1,6 +1,6 @@
 .header-bg {
   position: absolute;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   top: 0;
   left: 0;
@@ -13,7 +13,7 @@
   opacity: 1;
 }
 
-.home:before {
+.header-bg:before {
   position: absolute;
   content: '';
   width: 100%;

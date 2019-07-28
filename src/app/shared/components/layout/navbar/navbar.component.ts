@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatMenu } from '@angular/material/menu';
+import { Component, OnInit } from '@angular/core';
+import { SwipeMenuService } from './services/swipe-menu/swipe-menu.service';
+import { MENU } from '@app/shared/shared.data';
 
 @Component({
   selector: 'app-navbar',
@@ -9,8 +10,13 @@ import { MatMenu } from '@angular/material/menu';
 
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
+  show = false;
+  items = MENU;
 
-  ngOnInit() {}
+  constructor(private swipeMenu: SwipeMenuService) { }
+
+  ngOnInit() {
+    this.swipeMenu.show.subscribe((res: boolean) => this.show = res);
+  }
 
 }

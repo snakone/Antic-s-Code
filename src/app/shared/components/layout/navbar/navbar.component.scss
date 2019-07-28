@@ -24,29 +24,49 @@
 
     &:hover {
       cursor: pointer;
-      img { filter: brightness(1.4); }
+
+      img {
+        filter: brightness(1.4);
+        -webkit-animation: ClockwiseSpin 10s infinite linear;
+        animation: ClockwiseSpin 10s infinite linear;
+
+        @keyframes ClockwiseSpin {
+          0%  {transform: rotate(0deg);}
+          100% {transform: rotate(360deg);}
+        }
+      }
     }
   }
 
   & img {
-    width: 90px;
+    width: 62px;
     height: 55px;
-    padding: 0 25px;
-    margin-top: 2px;
+    padding: 0 10px;
   }
 
   &-mobile-menu {
     display: none;
 
     @media (max-width: 789px) {
-      position: absolute;
       left: 20px;
       height: 100%;
       -webkit-box-ordinal-group: 1;
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-left: 24px;
+      margin-right: 32px;
     }
+
+    @media(max-width: 550px) {
+      margin-left: 16px;
+    }
+  }
+}
+
+@media(max-width: 750px) {
+  .navbar {
+    height: var(--navbar-height-mobile);
   }
 }
 
@@ -63,9 +83,83 @@
 
   & button {
     margin-left: 35px;
+    min-width: 46px;
+  }
+
+  @media(max-width: 550px) {
+    right: 16px;
+  }
+
+  & .btn-mobile mat-icon {
+    position: relative;
+    top: -1px;
   }
 }
 
+.toogler {
+  background: transparent;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, .7);
 
+  & i {
+    outline: 0;
+    color: rgba(255, 255, 255, .7);
+    margin-top: 4px;
+  }
 
+  & span {
+    width: 1.5em;
+    height: 1.5em;
+    font-size: 1.33333rem;
+    display: inline-block;
+    line-height: normal;
+    margin-bottom: -3px;
+  }
 
+  &:focus { outline: none }
+  &:hover { cursor:pointer }
+}
+
+.menu-logo {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+
+    & img {
+    width: 125px;
+    height: 110px;
+    padding: 0 10px;
+
+    @media(max-width: 615px) {
+      width: 85px;
+      height: 75px;
+    }
+  }
+}
+
+ul {
+  list-style-type: none;
+  margin-top: -10px;
+  padding: 0;
+  width: 100%;
+
+  & li {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+  }
+}
+
+@media(max-width: 615px) {
+  .btn-desktop { display: none }
+  .btn-mobile {
+    display: inline-block;
+    padding: 0 5px;
+  }
+}
+
+@media(min-width: 615px) {
+  .btn-desktop { display: inline-block }
+  .btn-mobile { display: none }
+}

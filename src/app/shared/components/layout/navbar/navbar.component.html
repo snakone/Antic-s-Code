@@ -1,16 +1,32 @@
 <div class="navbar">
-  <div class="navbar-logo">
+  <div class="navbar-logo">  <!-- LOGO -->
     <img src="assets/img/logo.png"/>
   </div>
-  <div class="navbar-mobile-menu">
-    MENU
+  <div class="navbar-mobile-menu">  <!-- MOBILE TOOGLER -->
+    <button class="toogler" (click)="show = true">
+      <span>
+        <i class="material-icons">reorder</i>
+      </span>
+    </button>
   </div>
-  <app-menu></app-menu>
-  <div class="navbar-search">
+  <app-menu></app-menu>  <!-- MENU -->
+  <div class="navbar-search">  <!-- SEARCH BAR -->
     <app-navbar-search></app-navbar-search>
-    <button class="btn-pink" mat-button>Contact</button>
+    <button class="btn-pink btn-desktop" mat-button>Contact</button>  <!-- CONTACT -->
+    <button class="btn-pink btn-mobile" mat-button>
+      <mat-icon>email</mat-icon>
+    </button>
   </div>
 </div>
+
+<app-mobile-menu [show]="show">  <!-- MOBILE MENU -->
+  <div class="menu-logo">
+    <img src="assets/img/logo.png"/>
+  </div>
+  <ul>
+    <li *ngFor="let i of items">{{i.name}}</li>
+  </ul>
+<app-mobile-menu>
 
 
 

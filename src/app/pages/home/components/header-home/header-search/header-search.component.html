@@ -1,19 +1,21 @@
 <div class="search-header">
   <form [formGroup]="searchForm" #f="ngForm" (ngSubmit)="onSubmit()">
     <div class="row">
-      <mat-form-field color="accent">
-        <input matInput placeholder="Title" formControlName="title">
+      <mat-form-field color="accent">  <!-- VALUE -->
+        <input matInput
+               placeholder="What are you looking for?"
+               formControlName="title">
       </mat-form-field>
-      <mat-form-field class="category" color="accent">
-        <mat-label>Category</mat-label>
+      <mat-form-field class="category" color="accent">  <!-- CATEGORY -->
+        <mat-label>Select a Category</mat-label>
         <mat-select formControlName="category">
           <mat-option *ngFor="let cat of caterogies" [value]="cat">
             {{cat}}
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field class="category" color="accent">
-        <mat-label>Code</mat-label>
+      <mat-form-field class="category" color="accent">  <!-- SUB -->
+        <mat-label>Select a Sub Category</mat-label>
         <mat-select formControlName="code">
           <mat-option *ngFor="let cat of caterogies" [value]="cat">
             {{cat}}

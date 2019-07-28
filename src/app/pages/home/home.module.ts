@@ -1,21 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
-import { HomeHeaderComponent } from './components/home-header/home-header.component';
-import { HeaderSearchComponent } from './components/header-search/header-search.component';
 import { SharedModule } from '@app/shared/shared.module';
-import { HeaderCategoryComponent } from './components/header-category/header-category.component';
+import { HeaderHomeModule } from './components/header-home/header-home.module';
+import { CategoryHomeModule } from './components/category-home/category-home.module';
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    HomeHeaderComponent,
-    HeaderSearchComponent,
-    HeaderCategoryComponent
+    HomeComponent
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    HeaderHomeModule,
+    CategoryHomeModule
   ]
 })
 
