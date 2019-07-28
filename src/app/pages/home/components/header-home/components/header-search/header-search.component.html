@@ -1,7 +1,7 @@
 <div class="search-header">
   <form [formGroup]="searchForm" #f="ngForm" (ngSubmit)="onSubmit()">
     <div class="row">
-      <mat-form-field color="accent">  <!-- VALUE -->
+      <mat-form-field class="default" color="accent">  <!-- VALUE -->
         <input matInput
                placeholder="What are you looking for?"
                formControlName="title">

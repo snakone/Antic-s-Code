@@ -3,8 +3,8 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  background: #fff;
-  padding: 1rem 3rem;
+  background: var(--bg-color);
+  padding: 1rem 2.8rem;
   -webkit-border-radius: .1875rem;
   border-radius: .1875rem;
   color: black;
@@ -12,6 +12,10 @@
   @media(max-width: 550px) {
     padding: 1rem 2rem;
   }
+}
+
+::ng-deep .mat-form-field-underline {
+    display: none;
 }
 
 form {
@@ -26,10 +30,17 @@ form {
 
 mat-form-field {
   padding-right: 30px;
+  transition: all .5s;
+  @media(min-width: 960px) { padding-right: 45px }
+  @media(max-width: 756px) { padding-right: 25px }
+}
+
+.default {
+  top: 0px;
 }
 
 .category {
-  top: -1px;
+  top: 1px;
 }
 
 @media (max-width: 929px) {

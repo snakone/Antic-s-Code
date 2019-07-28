@@ -1,0 +1,17 @@
+.card {
+  &-content {
+    background: #fff;
+    margin-bottom: 2rem;
+  }
+
+  & figure {
+    margin: 0;
+    position: relative;
+
+    & img {
+      width: 100%;
+      vertical-align: middle;
+      border-style: none;
+    }
+  }
+}

@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-left: 15px;
+  margin-left: var(--small-padding);
 
   &-btn {
     padding-right: 20px;
@@ -38,7 +38,7 @@ ul {
 
 li {
   float: left;
-  color: var(--color-light);
+  color: var(--light-color);
   text-align: center;
   padding: 10px 5px;
   text-decoration: none;

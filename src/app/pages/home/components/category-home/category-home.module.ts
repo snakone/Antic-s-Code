@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from '@app/shared/shared.module';
+import { ComponentsModule } from '@app/shared/components/components.module';
+
 import { CategoryHomeComponent } from './category-home.component';
 import { CategoryGridComponent } from './components/category-grid/category-grid.component';
-import { SharedModule } from '@app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -11,10 +13,12 @@ import { SharedModule } from '@app/shared/shared.module';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    ComponentsModule
   ],
   exports: [
     CategoryHomeComponent
   ]
 })
+
 export class CategoryHomeModule { }

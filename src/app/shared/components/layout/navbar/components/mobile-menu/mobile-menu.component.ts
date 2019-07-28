@@ -1,12 +1,5 @@
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { SwipeMenuService } from '../../services/swipe-menu/swipe-menu.service';
-
-import {
-  Component,
-  OnInit,
-  Input,
-  ViewChild,
-  ElementRef
-} from '@angular/core';
 
 @Component({
   selector: 'app-mobile-menu',
@@ -21,16 +14,13 @@ export class MobileMenuComponent implements OnInit {
 
   constructor(private swipeMenu: SwipeMenuService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   closeMenu(): void {
     const menu = this.menu.nativeElement.classList;
     menu.remove('fadeInLeft');
     menu.add('fadeOutLeft');
-    setTimeout(() => {
-      this.swipeMenu.showMenuOnSwipe(false);
-    }, 500);
+    setTimeout(() => { this.swipeMenu.showMenuOnSwipe(false); }, 500);
   }
 
 }

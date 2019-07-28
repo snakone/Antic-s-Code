@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { SwipeMenuService } from './shared/components/layout/navbar/services/swipe-menu/swipe-menu.service';
+import { SwipeMenuService } from '@layout/navbar/services/swipe-menu/swipe-menu.service';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
@@ -13,7 +13,6 @@ export class AppComponent {
   constructor(private swipeService: SwipeMenuService,
               @Inject(DOCUMENT) private document: Document) { }
 
-  title = 'Angular 8 Seed';
   opened: boolean;
 
   swipe(e: any) {

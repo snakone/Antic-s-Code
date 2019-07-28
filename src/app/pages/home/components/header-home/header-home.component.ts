@@ -10,7 +10,6 @@ export class HeaderHomeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

@@ -1,0 +1,22 @@
+.flex {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.col-lg-4 {
+  max-width: 350px;
+  text-align: center;
+  @media(max-width: 800px) { max-width: 300px }
+  @media(max-width: 696px) { max-width: 260px }
+  @media(max-width: 616px) {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  @media(max-width: 550px) {
+   padding-right: 3px;
+   padding-left: 3px;
+  }
+}
