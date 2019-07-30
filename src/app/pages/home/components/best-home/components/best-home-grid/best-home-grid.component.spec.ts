@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FeaturesHomeListComponent } from './features-home-list.component';
+import { BestHomeGridComponent } from './best-home-grid.component';
 
-describe('FeaturesHomeListComponent', () => {
-  let component: FeaturesHomeListComponent;
-  let fixture: ComponentFixture<FeaturesHomeListComponent>;
+describe('BestHomeGridComponent', () => {
+  let component: BestHomeGridComponent;
+  let fixture: ComponentFixture<BestHomeGridComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FeaturesHomeListComponent ]
+      declarations: [ BestHomeGridComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FeaturesHomeListComponent);
+    fixture = TestBed.createComponent(BestHomeGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

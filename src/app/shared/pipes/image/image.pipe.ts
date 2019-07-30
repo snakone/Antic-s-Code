@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({ name: 'category' })
+@Pipe({ name: 'image' })
 
-export class CategoryImagePipe implements PipeTransform {
+export class ImagePipe implements PipeTransform {
   transform(value: string): any { return `assets/img/${value}`; }
 }

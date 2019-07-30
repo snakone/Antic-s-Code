@@ -8,7 +8,9 @@
 .col-lg-4 {
   max-width: 350px;
   @media(max-width: 800px) { max-width: 300px }
-  @media(max-width: 696px) {
+  @media(max-width: 700px) { max-width: 275px }
+  @media(max-width: 650px) { max-width: 260px }
+  @media(max-width: 620px) {
     width: 100%;
     max-width: 100%;
   }

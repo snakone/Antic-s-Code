@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  padding: 4.4444rem 0 3.8888rem;
+  padding: 4.4444rem 1rem 3.8888rem;
 
   &-container {
     padding-right: 15px;
@@ -8,6 +8,15 @@
     margin-right: auto;
     margin-left: auto;
     max-width: var(--container-width);
+  }
+
+  & .row {
+    display: flex;
+    justify-content: center;
+    margin-right: -15px;
+    margin-left: -15px;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
   }
 
   &-title {
@@ -29,15 +38,8 @@
     }
   }
 
-  @media (max-width: 992px) { padding: 3.06667rem 0 2.66667rem }
-  @media (max-width: 650px) { padding: 2.06667rem 0 1.66667rem }
-}
-
-.col-lg-12 {
-  @media(max-width: 550px) {
-    padding-right: 3px;
-    padding-left: 3px;
-   }
+  @media (max-width: 992px) { padding: 3.06667rem 1rem 2.66667rem }
+  @media (max-width: 550px) { padding: 2.06667rem 1rem 1.66667rem }
 }
 
 @media(max-width: 750px) {

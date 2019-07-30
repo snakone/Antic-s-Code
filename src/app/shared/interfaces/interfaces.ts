@@ -4,3 +4,8 @@ export interface Category {
   class?: string;
   picture?: string;
 }
+
+export interface Place {
+  name: string;
+  picture: string;
+}

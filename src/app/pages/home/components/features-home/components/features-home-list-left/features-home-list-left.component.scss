@@ -14,6 +14,12 @@ li {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   margin-bottom: 2.33333rem;
+  padding-right: 45px;
+
+  @media(max-width: 1029px) {
+    padding-right: 0;
+    padding-left: 0;
+  }
 
   & .icon {
     margin-right: 1.66666rem;
@@ -39,7 +45,7 @@ li {
     }
   }
 
-  & .icon.default span {
+  & .icon.purple span {
     color: #903af9;
     background: rgba(144,58,249,.1);
   }
@@ -73,7 +79,7 @@ li {
 h4 {
   font-size: 1.2rem;
   margin-bottom: .2rem;
-  margin-top: -5px;
+  margin-top: 5px;
   font-weight: 700;
   line-height: 1.2;
   color: #272b41;
@@ -83,8 +89,12 @@ h4 {
   ul { margin-top: 0 }
 }
 
-@media(max-width: 450px) {
-  h4 { font-size: 1rem }
+@media(max-width: 620px) {
+  h4 {
+    font-size: 1rem;
+    position: relative;
+    top: -5px;
+   }
   p { font-size: .8rem }
 
   li .icon span {
