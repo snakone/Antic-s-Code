@@ -53,6 +53,9 @@
         margin: 0;
         font-size: 1.2rem;
 
+        @media(max-width: 325px) { font-size: 1rem }
+        @media(max-width: 650px) and (min-width: 620px) { font-size: 1rem }
+
         &:hover {
           color: var(--primary-color);
           cursor: pointer;
@@ -120,6 +123,7 @@
 
         & span {
           @media(max-width: 325px) { font-size: .8rem }
+          @media(max-width: 650px) and (min-width: 620px) { font-size: .8rem }
         }
       }
     }
@@ -180,6 +184,7 @@
         font-size: .93333rem;
 
         @media(max-width: 325px) { font-size: .8rem }
+        @media(max-width: 650px) and (min-width: 620px) { font-size: .8rem }
       }
     }
 
@@ -217,6 +222,7 @@
 
         & span {
           @media(max-width: 325px) { font-size: .8rem }
+          @media(max-width: 650px) and (min-width: 620px) { font-size: .8rem }
         }
 
         & mat-icon {

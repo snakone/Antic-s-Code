@@ -1,17 +1,17 @@
-.category {
+.card {
   &-image {
     -webkit-border-radius: 3px;
     border-radius: 3px;
     overflow: hidden;
     margin-bottom: 2rem;
 
-  & figure {
-      position: relative;
-      -webkit-border-radius: 3px;
-      border-radius: 3px;
-      overflow: hidden;
-      margin-bottom: 0;
-  }
+    & figure {
+        position: relative;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        overflow: hidden;
+        margin-bottom: 0;
+    }
 
     &-content {
       border: 0 none;
@@ -29,50 +29,36 @@
     }
   }
 
-  &-icon {
-    border: 0 none;
-    background: initial;
-    display: block;
-    text-align: center;
+  &-title {
+    position: absolute;
+    left: 1.8rem;
+    top: 1.2rem;
 
-    & mat-icon {
-      font-size: 2.2rem;
-      color: var(--light-color);
-      margin-bottom: .7rem;
-      width: auto;
-    }
-  }
+    & h3 {
+      color: #fff;
+      margin: 0 0 .46667rem;
+      font-size: 1.33rem;
 
-  &-badge {
-    transition: all .3s ease;
-    color: var(--light-color);
-    background-color: var(--success-color);
-    padding: .7rem 1.5rem;
-    -webkit-border-radius: 10rem;
-    border-radius: 10rem;
-    display: inline-block;
-    font-size: .9rem;
-    font-weight: 600;
-    line-height: 1;
-    text-align: center;
-    white-space: nowrap;
-
-    @media(max-width: 400px) {
-      font-size: .8rem;
-      padding: .5rem 1.2rem;
+      @media (max-width: 1140px) {
+        font-size: calc(1.158rem + .096vw);
+      }
     }
 
-    @media(min-width: 620px) and (max-width: 800px) {
-      font-size: .8rem;
-      padding: .5rem 1.2rem;
+    & p {
+      margin: 0;
+      color: #fff;
+      line-height: 1.8rem;
     }
   }
 }
 
-.col-lg-4 {
-  max-width: 350px;
-  @media(max-width: 800px) { max-width: 290px }
-  @media(max-width: 696px) { max-width: 260px }
+.col-lg-6 {
+  max-width: 545px;
+  @media(max-width: 1190px) { max-width: 450px }
+  @media(max-width: 1000px) { max-width: 400px }
+  @media(max-width: 905px) { max-width: 350px }
+  @media(max-width: 800px) { max-width: 300px }
+  @media(max-width: 700px) { max-width: 250px }
   @media(max-width: 620px) {
     width: 100%;
     max-width: 100%;
@@ -153,5 +139,5 @@ figcaption {
   -o-transition-timing-function: cubic-bezier(.14,.6,.83,.67);
   transition-timing-function: cubic-bezier(.14,.6,.83,.67);
   z-index: 1;
-  background: rgba(23,27,46,.6);
+  background: rgba(23,27,46,.3);
 }
