@@ -3,17 +3,16 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 200px;
+  width: var(--menu-width);
   min-height: 100vh;
   text-align: center;
   z-index: 550;
   border: 0;
   top: 0;
   left: 0;
-  background: #fff;
+  background: var(--bg-color);
   margin-left: 0;
   border-radius: 0;
-  background: white;
   background-repeat: repeat;
 }
 
@@ -22,7 +21,7 @@
   top: 0;
   left:  0;
   z-index: 500;
-  background:  rgba(0,0,0,0.5);
+  background:  rgba(0, 0, 0, .5);
   width:  100vw;
   height: 100%;
 }

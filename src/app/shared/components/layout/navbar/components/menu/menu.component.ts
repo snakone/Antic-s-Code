@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+
 import { MatMenu } from '@angular/material/menu';
 import { MENU } from '@app/shared/shared.data';
 
@@ -17,6 +18,10 @@ export class MenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.listenCloseMenu();
+  }
+
+  private listenCloseMenu(): void {
     this.menu.closed.subscribe(() => this.collapse = !this.collapse);
   }
 

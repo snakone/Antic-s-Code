@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 
 export class SwipeMenuService {
 
@@ -16,4 +14,5 @@ export class SwipeMenuService {
     this.show.next(value);
     this.opened = value;
   }
+
 }

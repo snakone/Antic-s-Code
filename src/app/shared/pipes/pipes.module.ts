@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { CategoryImagePipe } from './category/category-image.pipe';
+
+import { CategoryImagePipe } from './category-image/category-image.pipe';
+import { SectionBackgroundPipe } from './section-background/section-background.pipe';
 
 @NgModule({
   declarations: [
-    CategoryImagePipe
+    CategoryImagePipe,
+    SectionBackgroundPipe
   ],
-  imports: [
-    CommonModule
-  ],
+  imports: [],
   exports: [
-    CategoryImagePipe
+    CategoryImagePipe,
+    SectionBackgroundPipe
   ]
 })
 

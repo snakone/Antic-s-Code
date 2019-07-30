@@ -1,19 +1,29 @@
 :root {
   // COLORS
   --primary-color: #E51284;
-  --color-light: #fefefe;
+  --light-color: #fefefe;
+  --bg-color: #fff;
+  --border-color: rgba(255, 255, 255, .15);
+  --title-color: #272b41;
+  --p-color: #7a82a6;
+  --success-color: #32cc6f;
 
   // CONTENT
   --navbar-height: 75px;
   --navbar-height-mobile: 65px;
   --navbar-menu-dropdown: 22px;
   --navbar-logo-width: 120px;
+  --small-padding: 16px;
+  --big-padding: 24px;
+  --menu-width: 200px;
+  --container-width: 1140px;
 
   // FONTS
   --primary-font: Muli, sans-serif;
+  --primary-font-size: 16px;
 
-  ::-webkit-scrollbar {
-    width: 6px; }
+  // SCROLLBAR
+  ::-webkit-scrollbar { width: 6px }
 
   ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);

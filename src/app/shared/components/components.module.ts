@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared.module';
+
 import { Error404Component } from './error404/error404.component';
 import { NavbarModule } from './layout/navbar/navbar.module';
+import { SectionComponent } from './layout/section/section.component';
 
 @NgModule({
   declarations: [
-    Error404Component
+    Error404Component,
+    SectionComponent
   ],
   imports: [
     CommonModule,
@@ -15,6 +18,7 @@ import { NavbarModule } from './layout/navbar/navbar.module';
   ],
   exports: [
     Error404Component,
+    SectionComponent,
     NavbarModule
   ]
 })

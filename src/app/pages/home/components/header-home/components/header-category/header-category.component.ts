@@ -13,7 +13,6 @@ export class HeaderCategoryComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

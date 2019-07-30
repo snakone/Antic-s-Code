@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderSearchComponent } from './header-search/header-search.component';
-import { HeaderHomeComponent } from './header-home.component';
-import { HeaderCategoryComponent } from './header-category/header-category.component';
 import { SharedModule } from '@app/shared/shared.module';
+
+import { HeaderSearchComponent } from './components/header-search/header-search.component';
+import { HeaderCategoryComponent } from './components/header-category/header-category.component';
+import { HeaderHomeComponent } from './header-home.component';
 
 @NgModule({
   declarations: [

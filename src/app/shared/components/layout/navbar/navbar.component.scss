@@ -6,12 +6,12 @@
   top: 0;
   left: 0;
   z-index: 3;
-  border-bottom: 2px solid rgba(255, 255, 255, .1);
+  border-bottom: 2px solid var(--border-color);
 
   &-logo {
     width: var(--navbar-logo-width);
     height: 100%;
-    border-right: 1px solid rgba(255, 255, 255, .15);
+    border-right: 1px solid var(--border-color);
     -webkit-box-ordinal-group: 1;
     display: flex;
     align-items: center;
@@ -22,44 +22,42 @@
       border-right: 0;
     }
 
+    & img {
+      width: 62px;
+      height: 55px;
+      padding: 0 10px;
+      margin-left: 1px;
+      -webkit-animation: SpinBack .5s;
+      animation: SpinBack .5s;
+    }
+
     &:hover {
       cursor: pointer;
 
       img {
         filter: brightness(1.4);
-        -webkit-animation: ClockwiseSpin 10s infinite linear;
-        animation: ClockwiseSpin 10s infinite linear;
-
-        @keyframes ClockwiseSpin {
-          0%  {transform: rotate(0deg);}
-          100% {transform: rotate(360deg);}
-        }
+        -webkit-animation: ClockwiseSpin 2s infinite linear;
+        animation: ClockwiseSpin 2s infinite linear;
       }
     }
-  }
-
-  & img {
-    width: 62px;
-    height: 55px;
-    padding: 0 10px;
   }
 
   &-mobile-menu {
     display: none;
 
     @media (max-width: 789px) {
-      left: 20px;
+      // left: 20px;
       height: 100%;
       -webkit-box-ordinal-group: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-left: 24px;
+      margin-left: var(--big-padding);
       margin-right: 32px;
     }
 
     @media(max-width: 550px) {
-      margin-left: 16px;
+      margin-left: var(--small-padding);
     }
   }
 }
@@ -78,7 +76,7 @@
   align-items: center;
   justify-content: flex-end;
   height: 100%;
-  color: var(--color-light);
+  color: var(--light-color);
   min-width: auto;
 
   & button {
@@ -87,7 +85,7 @@
   }
 
   @media(max-width: 550px) {
-    right: 16px;
+    right: var(--small-padding);
   }
 
   & .btn-mobile mat-icon {
@@ -162,4 +160,13 @@ ul {
 @media(min-width: 615px) {
   .btn-desktop { display: inline-block }
   .btn-mobile { display: none }
+}
+
+@keyframes ClockwiseSpin {
+  0%  {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
+@keyframes SpinBack {
+  to {transform: rotate(360deg);}
 }

@@ -1,5 +1,5 @@
 .header {
-  color: #fff;
+  color: var(--light-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,7 +10,7 @@
   position: relative;
 
   &-container {
-    max-width: 1140px;
+    max-width: var(--container-width);
     text-align: center;
     padding: 0 30px;
     margin-top: var(--navbar-height);
@@ -26,7 +26,7 @@
 }
 
 h1 {
-  color: #fff;
+  color: var(--light-color);
   font-size: 2.5rem;
   font-weight: 700;
   margin: 0;

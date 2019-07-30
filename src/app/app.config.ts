@@ -13,8 +13,8 @@ export interface AppConfig extends ModuleConfig {
 }
 
 export const APP_CONSTANTS: AppConfig = {
-  TITLE: 'Angular 8 Seed',
-  DEFAULT_LANGUAGE: 'en',
+  TITLE: 'Antic\'s Code',
+  DEFAULT_LANGUAGE: 'es',
   NAVIGATION: {
     EMPTY: '',
     ROOT: '',
