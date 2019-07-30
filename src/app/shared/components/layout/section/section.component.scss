@@ -16,7 +16,7 @@
 
     & h2 {
         margin: -3px 0 .86667rem;
-        font-size: 2rem;
+        font-size: 1.9rem;
         font-weight: 700;
         color: var(--title-color);
     }
@@ -50,8 +50,15 @@
   .section-title { margin-bottom: 1.2rem }
 }
 
+@media(max-width: 450px) { .section-title p { line-height: 1.4rem; } }
+
 @media(max-width: 330px) {
   .section-title h2 { font-size: 1.2rem }
   .section-title p { font-size: .8rem }
   .section-title { margin-bottom: .8rem }
 }
+
+.border-bottom {
+  border-bottom: 1px solid #e3e6ef!important;
+}
+

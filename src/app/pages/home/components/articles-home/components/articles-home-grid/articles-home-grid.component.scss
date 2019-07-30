@@ -7,10 +7,8 @@
 
 .col-lg-4 {
   max-width: 350px;
-  text-align: center;
   @media(max-width: 800px) { max-width: 300px }
-  @media(max-width: 696px) { max-width: 260px }
-  @media(max-width: 616px) {
+  @media(max-width: 696px) {
     width: 100%;
     max-width: 100%;
   }
@@ -19,4 +17,27 @@
    padding-right: 3px;
    padding-left: 3px;
   }
+}
+
+.explore {
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+
+  & button {
+    color: #fff;
+    font-weight: 700;
+    border: 0 none;
+    line-height: 3rem;
+    position: relative;
+    z-index: 1;
+
+
+    & span {
+      font-size: .9rem;
+    }
+  }
+
+  @media(max-width: 616px) { margin-top: 10px }
+  @media(max-width: 450px) { margin-top: 0 }
 }

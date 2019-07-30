@@ -1,0 +1,13 @@
+.flex {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.flex-nowrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
