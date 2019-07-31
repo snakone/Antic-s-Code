@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { SWIPER_CONFIG, SwiperDirective } from 'ngx-swiper-wrapper';
+import { Component, OnInit } from '@angular/core';
+import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 import { TESTIMONIALS } from '@shared/shared.data';
 
 @Component({
@@ -13,20 +13,17 @@ export class CarouselHomeComponent implements OnInit {
   index = 0;
   config = SWIPER_CONFIG;
   testimonials = TESTIMONIALS;
-  @ViewChild(SwiperDirective, { static: false }) directiveRef?: SwiperDirective;
-  first = true;
-  last = false;
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   navigate(value: number): void {
     const i = this.index + value;
+    const n = this.testimonials.length - 1;
 
-    if (i >= (this.testimonials.length - 1)) {
-      this.index = this.testimonials.length - 1;
+    if (i >= n) {
+      this.index = n;
       return;
     }
 

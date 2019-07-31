@@ -1,0 +1,17 @@
+<div class="input">
+  <form class="input-form" #form ngForm="form" (onsubmit)="onSubmit()">
+    <div class="input-form-group">
+      <mat-icon>mail_outline</mat-icon>
+      <input type="text"
+          [(ngModel)]="email"
+          [ngModelOptions]="{standalone: true}"
+          placeholder="Enter your email"
+          required/>
+    </div>
+    <button class="btn-purple"
+            mat-button
+            type="submit">
+      <span>Submit</span>
+    </button>
+  </form>
+</div>

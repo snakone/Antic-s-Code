@@ -5,11 +5,13 @@ import { SharedModule } from '../shared.module';
 import { Error404Component } from './error404/error404.component';
 import { NavbarModule } from './layout/navbar/navbar.module';
 import { SectionComponent } from './layout/section/section.component';
+import { IntersectionObserverComponent } from './layout/intersection-observer/intersection-observer.component';
 
 @NgModule({
   declarations: [
     Error404Component,
-    SectionComponent
+    SectionComponent,
+    IntersectionObserverComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { SectionComponent } from './layout/section/section.component';
   exports: [
     Error404Component,
     SectionComponent,
-    NavbarModule
+    NavbarModule,
+    IntersectionObserverComponent
   ]
 })
 

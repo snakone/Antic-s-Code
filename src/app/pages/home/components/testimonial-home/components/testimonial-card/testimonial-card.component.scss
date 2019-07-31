@@ -2,10 +2,7 @@
   &-card {
     text-align: center;
     margin-top: .66666rem;
-
-    &:hover {
-      cursor: pointer;
-    }
+    cursor: pointer;
 
     @media(max-width: 750px) { margin-top: 0 }
     @media(max-width: 550px) { margin-top: .66666rem }
@@ -46,7 +43,7 @@
       line-height: 1.93333rem;
       color: #7a82a6;
 
-      @media(max-width: 750px) { font-size: .85rem }
+      @media(max-width: 550px) { font-size: 1rem }
       @media(max-width: 330px) { font-size: .8rem }
     }
   }
