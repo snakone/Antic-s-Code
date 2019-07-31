@@ -1,5 +1,6 @@
-<section class="section" [style]="background | sectionBg"
-          [ngClass]="{'border-bottom': background === 'border-bottom'}">
+<section class="section" [style]="input | background"
+          [ngClass]="{'border-bottom': input === 'border-bottom',
+                      'margin-top': input === 'margin-top' }">
   <div class="section-container">
     <div class="row">
       <div class="col-lg-12">

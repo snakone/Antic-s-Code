@@ -2,6 +2,7 @@
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "./assets/styles/main.scss";
+@import '~swiper/dist/css/swiper.min.css';
 
 body {
   padding: 0;
@@ -19,4 +20,11 @@ body {
 * {
   font-family: var(--primary-font);
   font-size: var(--primary-font-size);
+}
+
+.slider {
+  width: 100%;
+  min-width: 1140px;
+  height: 300px;
+  background: red;
 }

@@ -1,4 +1,4 @@
-import { Category, Place } from './interfaces/interfaces';
+import { Category, Place, Testimonial } from './interfaces/interfaces';
 
 export const MENU = [
   { name: 'Home' },
@@ -124,6 +124,37 @@ export const COUNTRIES = [
   'Manchester (60)',
   'Glasgow (52)'
 ];
+
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    avatar: 'a1.jpg',
+    name: 'Francis Burton',
+    location: 'Toronto, Canada',
+    testimonial: `Excepteur sint occaecat cupidatat non
+                  proident sunt in culpa officia deserunt
+                  mollit anim laborum sint occaecat cupidatat non proident.
+                  Occaecat cupidatat non proident culpa officia deserunt mollit.`
+  },
+  {
+    avatar: 'a1.jpg',
+    name: 'Ulises Prieto',
+    location: 'Barcelona, Spain',
+    testimonial: `Excepteur sint occaecat cupidatat non
+                  proident sunt in culpa officia deserunt
+                  mollit anim laborum sint occaecat cupidatat non proident.
+                  Occaecat cupidatat non proident culpa officia deserunt mollit.`
+  },
+  {
+    avatar: 'a1.jpg',
+    name: 'Alex Arriaga',
+    location: 'México DC',
+    testimonial: `Excepteur sint occaecat cupidatat non
+                  proident sunt in culpa officia deserunt
+                  mollit anim laborum sint occaecat cupidatat non proident.
+                  Occaecat cupidatat non proident culpa officia deserunt mollit.`
+  }
+];
+
 
 
 

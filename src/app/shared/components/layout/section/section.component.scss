@@ -44,7 +44,7 @@
 
 @media(max-width: 750px) {
   .section-title h2 { font-size: 1.8rem}
-  .section-title p { font-size: .95rem }
+  .section-title p { font-size: .85rem }
 }
 
 @media(max-width: 550px) {
@@ -52,7 +52,10 @@
   .section-title { margin-bottom: 1.2rem }
 }
 
-@media(max-width: 450px) { .section-title p { line-height: 1.4rem; } }
+@media(max-width: 450px) {
+  .section-title p { line-height: 1.4rem; }
+  .section-title h2 { font-size: 1.3rem }
+}
 
 @media(max-width: 330px) {
   .section-title h2 { font-size: 1.2rem }
@@ -62,5 +65,17 @@
 
 .border-bottom {
   border-bottom: 1px solid #e3e6ef!important;
+}
+
+.margin-top {
+  margin-top: -50px;
+}
+
+@media(max-width: 992px) {
+  .margin-top { margin-top: -40px }
+}
+
+@media(max-width: 550px) {
+  .margin-top { margin-top: -10px }
 }
 

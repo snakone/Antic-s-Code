@@ -9,6 +9,7 @@ import { CategoryHomeModule } from './components/category-home/category-home.mod
 import { ArticlesHomeModule } from './components/articles-home/articles-home.module';
 import { FeaturesHomeModule } from './components/features-home/features-home.module';
 import { BestHomeModule } from './components/best-home/best-home.module';
+import { TestimonialHomeModule } from './components/testimonial-home/testimonial-home.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BestHomeModule } from './components/best-home/best-home.module';
     CategoryHomeModule,
     ArticlesHomeModule,
     FeaturesHomeModule,
-    BestHomeModule
+    BestHomeModule,
+    TestimonialHomeModule
   ]
 })
 
