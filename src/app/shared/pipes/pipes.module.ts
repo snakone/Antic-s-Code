@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 
 import { ImagePipe } from './image/image.pipe';
-import { SectionBackgroundPipe } from './section-background/section-background.pipe';
+import { BackgroundPipe } from './background/background.pipe';
 
 @NgModule({
   declarations: [
     ImagePipe,
-    SectionBackgroundPipe
+    BackgroundPipe
   ],
   imports: [],
   exports: [
     ImagePipe,
-    SectionBackgroundPipe
+    BackgroundPipe
   ]
 })
 

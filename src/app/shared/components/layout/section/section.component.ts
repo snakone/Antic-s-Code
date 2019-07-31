@@ -10,7 +10,7 @@ export class SectionComponent implements OnInit {
 
   @Input() title: string;
   @Input() description: string;
-  @Input() background: string;
+  @Input() input: string;
 
   constructor() { }
 

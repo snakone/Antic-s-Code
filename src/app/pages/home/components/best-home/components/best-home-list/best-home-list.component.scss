@@ -31,6 +31,11 @@
         list-style: none;
         color: #5d658c;
 
+        &:hover {
+          color: #f5548e;
+          cursor: pointer;
+        }
+
         @media (max-width: 991.98px) { width: 33.3333% }
         @media (max-width: 800px) { width: 50% }
         @media (max-width: 550px) { width: 100% }

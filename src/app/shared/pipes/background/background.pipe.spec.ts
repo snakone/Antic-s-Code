@@ -1,11 +1,11 @@
-import { SectionBackgroundPipe } from './section-background.pipe';
+import { BackgroundPipe } from './background.pipe';
 import { DomSanitizer } from '@angular/platform-browser';
 
-describe('SectionBackgroundPipe', () => {
+describe('BackgroundPipe', () => {
   it('create an instance', () => {
     // tslint:disable-next-line: prefer-const
     let sanitizer: DomSanitizer;
-    const pipe = new SectionBackgroundPipe(sanitizer);
+    const pipe = new BackgroundPipe(sanitizer);
     expect(pipe).toBeTruthy();
   });
 });
