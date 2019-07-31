@@ -9,8 +9,11 @@
   border-radius: .1875rem;
   color: black;
 
+  @media(max-width: 750px) { padding-bottom: 1.5rem }
+
   @media(max-width: 550px) {
-    padding: 1rem 2rem;
+    padding: 1rem 2.5rem;
+    padding-bottom: 1.5rem
   }
 }
 
@@ -26,6 +29,10 @@ form {
   & button {
     padding: 5px 35px;
     left: 8px;
+    top: 3px;
+    margin-right: 7px;
+
+    @media(max-width: 750px) { top: 6px }
   }
 }
 

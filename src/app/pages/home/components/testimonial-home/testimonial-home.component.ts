@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { NguCarouselConfig } from '@ngu/carousel';
-
 @Component({
   selector: 'app-testimonial-home',
   templateUrl: './testimonial-home.component.html',

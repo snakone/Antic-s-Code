@@ -103,7 +103,7 @@
   .button-prev { left: 30px }
 }
 
-@media(min-width: 600px) {
+@media(min-width: 768px) {
   .swiper-navigation {
     display: block;
   }
@@ -113,7 +113,7 @@
   }
 }
 
-@media(max-width: 600px) {
+@media(max-width: 768px) {
   .swiper-navigation {
     display: none;
   }
