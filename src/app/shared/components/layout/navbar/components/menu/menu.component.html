@@ -1,7 +1,7 @@
 <div class="navbar-wrapper">
   <div class="navbar-menu">
     <ul>
-      <li *ngFor="let i of items">
+      <li *ngFor="let i of items">  <!-- MENU LIST -->
         <button class="hvr-underline-from-left"
                 mat-button>{{i.name}}
         </button>
@@ -10,7 +10,7 @@
         <button mat-button
                 class="navbar-menu-btn"
                 [matMenuTriggerFor]="menu"
-                (click)="collapse = !collapse">
+                (click)="collapse = !collapse">  <!-- MENU BUTTON -->
             Menu
           <span [ngClass]="{'collapsed' : collapse}"
                 class="navbar-menu-dropdown">&#x25BC;

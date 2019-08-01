@@ -23,8 +23,7 @@ import { MaterialModule } from './material/material.module';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule
-  ],
-  providers: []
+  ]
 })
 
 export class SharedModule { }

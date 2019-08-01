@@ -15,6 +15,7 @@ export class ContactHomeInputComponent implements OnInit {
   ngOnInit() { }
 
   onSubmit(): void {
+    if (this.email === '') { return; }
     console.log(this.email);
   }
 

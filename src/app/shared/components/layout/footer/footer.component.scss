@@ -43,7 +43,6 @@
 
       & p {
         color: var(--p-color);
-
         @media(max-width: 768px) { padding: 0 30px }
         @media(max-width: 475px) { padding: 0 50px }
       }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 import { TESTIMONIALS } from '@shared/shared.data';
 

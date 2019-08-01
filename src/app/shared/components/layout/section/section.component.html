@@ -1,7 +1,7 @@
 <section class="section" [style]="input | background"
          [ngClass]="{'border-bottom': input === 'border-bottom',
                      'margin-top': input === 'margin-top',
-                     'contact': input === 'email' }">
+                     'contact': input === 'email' }">  <!-- CUSTOM VALUES -->
   <div class="section-container">
     <div class="row">
       <div class="col-lg-12">
@@ -11,6 +11,6 @@
         </div>
       </div>
     </div>
-    <ng-content></ng-content>
+    <ng-content></ng-content>  <!-- SECTION CONTENT -->
   </div>
 </section>

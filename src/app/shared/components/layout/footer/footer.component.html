@@ -1,39 +1,20 @@
 <div class="footer">
  <div class="footer-content">
-     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6"
+          *ngFor="let l of list">  <!-- FOOTER LIST -->
       <div class="footer-content-column">
-        <h2>Company Info</h2>
+        <h2>{{l.title}}</h2>
         <ul>
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Support</li>
-          <li>Privacy Policy</li>
+          <li *ngFor="let i of l.list"
+              [ngClass]="{'twitter': i === 'Twitter',
+                          'facebook': i === 'Facebook',
+                          'youtube': i === 'Youtube'}">
+            {{i}}
+          </li>
         </ul>
       </div>
      </div>
-     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-      <div class="footer-content-column">
-        <h2>Helpful Links</h2>
-        <ul>
-          <li>Join Direo</li>
-          <li>How it Work</li>
-          <li>Advantages</li>
-          <li>Packages</li>
-        </ul>
-      </div>
-     </div>
-     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-      <div class="footer-content-column">
-        <h2>Connect with Us</h2>
-        <ul>
-          <li>Contact Support</li>
-          <li class="twitter">Twitter</li>
-          <li class="facebook">Facebook</li>
-          <li class="youtube">Youtube</li>
-        </ul>
-      </div>
-     </div>
-     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">  <!-- DOWNLOAD -->
       <div class="footer-content-column">
         <h2>Direo on Mobile</h2>
         <p>
@@ -48,4 +29,4 @@
     </div>
  </div>
 </div>
-<app-footer-bar></app-footer-bar>
+<app-footer-bar></app-footer-bar>  <!-- BOTTOM FOOTER BAR -->

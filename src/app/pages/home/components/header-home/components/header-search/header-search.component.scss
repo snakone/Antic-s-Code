@@ -10,16 +10,10 @@
   color: black;
 
   @media(max-width: 750px) { padding-bottom: 1.5rem }
-
   @media(max-width: 550px) {
     padding: 1rem 2.5rem;
     padding-bottom: 1.5rem
   }
-}
-
-::ng-deep .mat-form-field-underline {
-    margin-top: 5px;
-    width: 1px;
 }
 
 form {
@@ -31,7 +25,6 @@ form {
     left: 8px;
     top: 3px;
     margin-right: 7px;
-
     @media(max-width: 750px) { top: 6px }
   }
 }
@@ -41,29 +34,24 @@ mat-form-field {
   transition: all .5s;
   @media(min-width: 960px) { padding-right: 45px }
   @media(max-width: 756px) { padding-right: 25px }
-}
-
-.default {
-  top: 0px;
-}
-
-.category {
-  top: 1px;
-}
-
-@media (max-width: 929px) {
-  mat-form-field:last-of-type {
+  @media (max-width: 750px) {
+    display: block;
     padding-right: 0;
   }
+}
+
+// MATERIAL SELECT CORRECTION
+.default { top: 0px }
+.category { top: 1px }
+
+@media (max-width: 929px) {
+  mat-form-field:last-of-type { padding-right: 0 }
+  mat-form-field-wrapper { padding-bottom: .4rem !important }
 
   form button {
     display: block;
     width: 100%;
     left: 0;
-  }
-
-  mat-form-field-wrapper {
-    padding-bottom: .4rem !important;
   }
 
   button {
@@ -72,9 +60,4 @@ mat-form-field {
   }
 }
 
-@media (max-width: 750px) {
-  mat-form-field {
-    display: block;
-    padding-right: 0;
-  }
-}
+

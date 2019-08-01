@@ -3,7 +3,6 @@
     text-align: center;
     margin-top: .66666rem;
     cursor: pointer;
-
     @media(max-width: 750px) { margin-top: 0 }
     @media(max-width: 550px) { margin-top: .66666rem }
 
@@ -25,13 +24,13 @@
       font-family: Muli,sans-serif;
       font-weight: 700;
       line-height: 1.2;
-      color: #272b41;
+      color: var(--title-color);
       font-size: 1.2rem;
     }
 
     & span {
       font-size: .93333rem;
-      color: #7a82a6;
+      color: var(--p-color);
       display: block;
       margin-top: 5px;
     }
@@ -41,22 +40,14 @@
       margin: 1.66667rem auto 0;
       font-size: 1.13333rem;
       line-height: 1.93333rem;
-      color: #7a82a6;
-
-      @media(max-width: 550px) { font-size: 1rem }
+      color: var(--p-color);
+      @media (max-width: 767.98px) { width: 80% }
+      @media(max-width: 550px) {
+        font-size: 1rem;
+        width: 100%;
+       }
       @media(max-width: 330px) { font-size: .8rem }
     }
   }
 }
 
-@media (max-width: 767.98px) {
-  .testimonial-card p {
-    width: 80%;
-  }
-}
-
-@media (max-width: 550px) {
-  .testimonial-card p {
-    width: 100%;
-  }
-}

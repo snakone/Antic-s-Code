@@ -45,30 +45,6 @@
   }
 }
 
-.button-prev:hover,
-.button-next:hover,
-.button-next-mobile:hover,
-.button-prev-mobile:hover {
-  cursor: pointer;
-  background: rgba(190, 197, 228, 0.65);
-  -webkit-box-shadow: 2px 5px 1.6666rem rgba(146,153,184,.15);
-  box-shadow: 2px 5px 1.6666rem rgba(146,153,184,.15);
-
-  & mat-icon {
-    color: #f5548e;
-  }
-}
-
-.button-prev:hover,
-.button-prev-mobile:hover {
-  & mat-icon { margin-right: 2px }
-}
-
-.button-next:hover,
-.button-next-mobile:hover {
-  & mat-icon { margin-left: 2px }
-}
-
 .button-next-mobile, .button-prev-mobile {
   display: inline-block;
   margin: 30px 20px;
@@ -88,6 +64,30 @@
   text-align: center;
 }
 
+// HOVER STATE
+.button-prev:hover,
+.button-next:hover,
+.button-next-mobile:hover,
+.button-prev-mobile:hover {
+  cursor: pointer;
+  background: rgba(190, 197, 228, 0.65);
+  -webkit-box-shadow: 2px 5px 1.6666rem rgba(146,153,184,.15);
+  box-shadow: 2px 5px 1.6666rem rgba(146,153,184,.15);
+
+  & mat-icon { color: var(--primary-color) }
+}
+
+.button-prev:hover,
+.button-prev-mobile:hover {
+  & mat-icon { margin-right: 2px }
+}
+
+.button-next:hover,
+.button-next-mobile:hover {
+  & mat-icon { margin-left: 2px }
+}
+
+// MEDIA QUERIES
 @media(max-width: 850px) {
   .button-next { right: 20px }
   .button-prev { left: 20px }
@@ -104,19 +104,12 @@
 }
 
 @media(min-width: 768px) {
-  .swiper-navigation {
-    display: block;
-  }
-
-  .swiper-navigation-mobile {
-    display: none;
-  }
+  .swiper-navigation { display: block }
+  .swiper-navigation-mobile { display: none }
 }
 
 @media(max-width: 768px) {
-  .swiper-navigation {
-    display: none;
-  }
+  .swiper-navigation { display: none }
 
   .swiper-navigation-mobile {
     display: flex;

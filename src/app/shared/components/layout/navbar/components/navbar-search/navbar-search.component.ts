@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LOGOS } from '@app/shared/shared.data';
 
 @Component({
   selector: 'app-navbar-search',
@@ -9,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavBarSearchComponent implements OnInit {
 
   focused = false;
+  logos = LOGOS;
 
   constructor() { }
 

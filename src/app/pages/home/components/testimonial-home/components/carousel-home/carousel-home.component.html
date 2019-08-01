@@ -1,12 +1,12 @@
-<div class="swiper-container" [swiper]="config"
-                              [(index)]="index">
+<div class="swiper-container"
+    [swiper]="config"
+    [(index)]="index">
   <div class="swiper-wrapper">
-    <div class="swiper-slide" *ngFor="let t of testimonials">
+    <div class="swiper-slide" *ngFor="let t of testimonials">  <!-- TESTIMONIALS -->
       <app-testimonial-card [t]="t"></app-testimonial-card>
     </div>
   </div>
-
-  <div class="swiper-navigation">  <!-- DESKTOP -->
+  <div class="swiper-navigation">  <!-- DESKTOP NAVIGATION -->
     <div class="button-prev"
          (click)="navigate(-1)"
          [ngClass]="{'disabled': index === 0}">
@@ -19,7 +19,7 @@
     </div>
   </div>
 
-  <div class="swiper-navigation-mobile">   <!-- MOBILE -->
+  <div class="swiper-navigation-mobile">   <!-- MOBILE NAVIGATION -->
     <div class="button-prev-mobile"
          (click)="navigate(-1)"
          [ngClass]="{'disabled': index === 0}">

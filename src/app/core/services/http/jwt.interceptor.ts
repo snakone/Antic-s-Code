@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Observable, throwError } from 'rxjs';
+import { tap } from 'rxjs/operators';
+
 import {
   HttpRequest,
   HttpHandler,
@@ -8,13 +11,10 @@ import {
   HttpErrorResponse,
 } from '@angular/common/http';
 
-import { Observable, throwError } from 'rxjs';
-import { tap } from 'rxjs/operators';
-
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor() { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(tap(((res: HttpResponse<any>) => {

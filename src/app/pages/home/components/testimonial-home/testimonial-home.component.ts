@@ -8,12 +8,8 @@ import { Component, OnInit } from '@angular/core';
 
 export class TestimonialHomeComponent implements OnInit {
 
-  images: any;
-
   constructor() { }
 
-  ngOnInit() {
-    this.images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
-  }
+  ngOnInit() { }
 
 }

@@ -9,8 +9,7 @@ import { IntersectionService } from './services/intersection.service';
 
 export class IntersectionObserverComponent implements OnInit {
 
-  @ViewChild('observer', { static: true }) element: ElementRef;
-
+  @ViewChild('observer', {static: true}) element: ElementRef;
 
   constructor(private intersection: IntersectionService) { }
 
@@ -18,13 +17,12 @@ export class IntersectionObserverComponent implements OnInit {
     this.observerSection();
   }
 
-  observerSection() {
+  observerSection(): void {
     const inter = new IntersectionObserver((int) => {
       int[0].isIntersecting ?
       this.intersection.hasEntered.emit(true) :
       this.intersection.hasEntered.emit(false);
     });
-
     inter.observe(this.element.nativeElement);
   }
 

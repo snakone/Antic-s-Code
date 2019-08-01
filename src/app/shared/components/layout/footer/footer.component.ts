@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FOOTER_LIST } from '@app/shared/shared.data';
 
 @Component({
   selector: 'app-footer',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class FooterComponent implements OnInit {
+
+  list = FOOTER_LIST;
 
   constructor() { }
 

@@ -9,7 +9,7 @@
       <mat-form-field class="category" color="accent">  <!-- CATEGORY -->
         <mat-label>Select a Category</mat-label>
         <mat-select formControlName="category">
-          <mat-option *ngFor="let cat of caterogies" [value]="cat">
+          <mat-option *ngFor="let cat of categories" [value]="cat">
             {{cat}}
           </mat-option>
         </mat-select>
@@ -17,7 +17,7 @@
       <mat-form-field class="category" color="accent">  <!-- SUB -->
         <mat-label>Select a Sub Category</mat-label>
         <mat-select formControlName="code">
-          <mat-option *ngFor="let cat of caterogies" [value]="cat">
+          <mat-option *ngFor="let cat of categories" [value]="cat">
             {{cat}}
           </mat-option>
         </mat-select>

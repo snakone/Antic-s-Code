@@ -4,7 +4,6 @@ import { StorageService } from './storage.service';
 import { STORAGE_CONFIG, STORAGE_CONSTANTS } from './storage.config';
 
 @NgModule({
-  declarations: [],
   imports: [
     CommonModule
   ],

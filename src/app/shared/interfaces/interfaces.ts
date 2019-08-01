@@ -5,7 +5,7 @@ export interface Category {
   picture?: string;
 }
 
-export interface Place {
+export interface List {
   name: string;
   picture: string;
 }
@@ -15,4 +15,14 @@ export interface Testimonial {
   name: string;
   location: string;
   testimonial: string;
+}
+
+export interface FooterList {
+  title: string;
+  list: string[];
+}
+
+export interface MenuLink {
+  name: string;
+  link: string;
 }

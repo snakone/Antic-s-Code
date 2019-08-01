@@ -1,10 +1,20 @@
-import { Category, Place, Testimonial } from './interfaces/interfaces';
+import { Category, List, Testimonial, FooterList, MenuLink } from './interfaces/interfaces';
 
-export const MENU = [
-  { name: 'Home' },
-  { name: 'Code' },
-  { name: 'Articles' },
-  { name: 'Tutorials' }
+export const MENU: MenuLink[] = [
+  { name: 'Home', link: '/home' },
+  { name: 'Code', link: '/code' },
+  { name: 'Articles', link: '/articles' },
+  { name: 'Tutorials', link: '/tutorials' }
+];
+
+export const CATEGORIES: string[] = [
+  'Code',
+  'Video',
+  'Gaming',
+  'Lifestyle',
+  'Interview',
+  'Review',
+  'Antic'
 ];
 
 export const POPULAR_CATEGORIES: Category[] = [
@@ -63,26 +73,14 @@ export const MAIN_CATEGORIES: Category[] = [
   },
 ];
 
-export const PLACES: Place[] = [
-  {
-    name: 'London, UK',
-    picture: 'place1.jpg'
-  },
-  {
-    name: 'New York',
-    picture: 'place2.png'
-  },
-  {
-    name: 'Sydney',
-    picture: 'place3.png'
-  },
-  {
-    name: 'Paris, France',
-    picture: 'place4.png'
-  }
+export const PLACES: List[] = [
+  { name: 'London, UK', picture: 'place1.jpg' },
+  { name: 'New York', picture: 'place2.png' },
+  { name: 'Sydney', picture: 'place3.png' },
+  { name: 'Paris, France', picture: 'place4.png'}
 ];
 
-export const COUNTRIES = [
+export const COUNTRIES: string[] = [
   'Dubai (45)',
   'Melbourne (95)',
   'Sydney (90)',
@@ -154,6 +152,33 @@ export const TESTIMONIALS: Testimonial[] = [
                   Occaecat cupidatat non proident culpa officia deserunt mollit.`
   }
 ];
+
+export const LOGOS: List[] = [
+  { name: 'Vanilla Javascript', picture: 'javascript-logo.png' },
+  { name: 'Markup HTML5', picture: 'html-logo.png' },
+  { name: 'Stylesheet CSS3', picture: 'css-logo.png' },
+  { name: 'Angular Framework', picture: 'angular-logo.png' },
+  { name: 'Server Javascript', picture: 'node-logo.png' },
+  { name: 'Mongo Database', picture: 'mongo-logo.png' },
+  { name: 'Ionic Framework', picture: 'ionic-logo.png' }
+];
+
+export const FOOTER_LIST: FooterList[] = [
+  {
+    title: 'Company Info',
+    list: ['About Us', 'Contact Us', 'Support', 'Privacy Policy']
+  },
+  {
+    title: 'Helpful Links',
+    list: ['Join Direo', 'How it Work', 'Advantages', 'Packages']
+  },
+  {
+    title: 'Connect with Us',
+    list: ['Contact Support', 'Twitter', 'Facebook', 'Youtube']
+  }
+];
+
+
 
 
 

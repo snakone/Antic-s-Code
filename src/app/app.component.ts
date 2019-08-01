@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { SwipeMenuService } from '@layout/navbar/services/swipe-menu/swipe-menu.service';
+import { IntersectionService } from '@layout/intersection-observer/services/intersection.service';
 import { DOCUMENT } from '@angular/common';
-import { IntersectionService } from '@shared/components/layout/intersection-observer/services/intersection.service';
 
 @Component({
   selector: 'app-root',
@@ -13,17 +13,23 @@ export class AppComponent implements OnInit {
 
   disabled: boolean;
 
-  constructor(private swipeService: SwipeMenuService,
-              @Inject(DOCUMENT) private document: Document,
+  constructor(@Inject(DOCUMENT) private document: Document,
+              private swipeService: SwipeMenuService,
               private intersection: IntersectionService) { }
 
   ngOnInit(): void {
-    this.intersection.hasEntered.subscribe((res: boolean) => { this.disabled = res; });
+    this.subscribeIntersection();
   }
 
-  swipe(e: any) {
-    if (e.center.x >= 200 || this.document.body.clientWidth >= 789 || this.disabled) { return; }
+  swipe(e: any): void {
+    const x = e.center.x;
+    const w = this.document.body.clientWidth;
+    if (x >= 200 || w >= 789 || this.disabled) { return; }
     this.swipeService.showMenuOnSwipe(true);
+  }
+
+  private subscribeIntersection(): void {
+    this.intersection.hasEntered.subscribe((res: boolean) => this.disabled = res );
   }
 
 }

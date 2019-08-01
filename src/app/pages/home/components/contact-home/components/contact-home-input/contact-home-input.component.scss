@@ -16,12 +16,11 @@
     width: 36rem;
     margin-left: auto;
     margin-right: auto;
-    -webkit-box-shadow: 1px 10px 10px rgba(144,58,249,.2);
-    box-shadow: 1px 10px 10px rgba(144,58,249,.2);
+    -webkit-box-shadow: 1px 10px 10px rgba(144, 58, 249, .2);
+    box-shadow: 1px 10px 10px rgba(144, 58, 249, .2);
     -webkit-border-radius: 20rem;
     border-radius: 20rem;
     overflow: hidden;
-
     @media(max-width: 675px) { width: 90% }
 
     & input {
@@ -31,7 +30,6 @@
       padding: 0 1rem 0 3.66667rem;
       outline: 0;
       box-sizing: border-box;
-
       @media(max-width: 425px) { line-height: 1.9rem }
       @media(max-width: 325px) { padding-left: 2.88887rem }
     }
@@ -72,7 +70,6 @@
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-
     @media(max-width: 325px) { left: .8rem }
   }
 }

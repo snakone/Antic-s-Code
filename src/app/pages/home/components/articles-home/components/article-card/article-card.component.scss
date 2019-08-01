@@ -1,6 +1,6 @@
 .card {
   &-content {
-    background: #fff;
+    background: var(--light-color);
     margin-bottom: 2rem;
   }
 
@@ -49,12 +49,11 @@
       & h4 {
         font-weight: 700;
         line-height: 1.2;
-        color: #272b41;
+        color: var(--title-color);
         margin: 0;
         font-size: 1.2rem;
-
-        @media(max-width: 325px) { font-size: 1rem }
         @media(max-width: 650px) and (min-width: 620px) { font-size: 1rem }
+        @media(max-width: 325px) { font-size: 1rem }
 
         &:hover {
           color: var(--primary-color);
@@ -75,7 +74,7 @@
     }
 
     &-rating {
-      background: #32cc6f;
+      background: var(--success-color);
 
       & mat-icon {
         font-size: 0.86667rem;
@@ -86,7 +85,7 @@
     }
 
     &-message {
-      background: #f5548e;
+      background: var(--primary-color);
 
       & mat-icon {
         font-size: 1.2rem;
@@ -111,19 +110,19 @@
       & p {
         margin: 0;
         line-height: 1.8rem;
-        color: #7a82a6;
+        color: var(--p-color);
 
         & mat-icon {
           font-size: 1.1rem;
           position: relative;
           top: 3px;
-          color: #f5548e;
+          color: var(--primary-color);
           padding-right: 5px;
         }
 
         & span {
-          @media(max-width: 325px) { font-size: .8rem }
           @media(max-width: 650px) and (min-width: 620px) { font-size: .8rem }
+          @media(max-width: 325px) { font-size: .8rem }
         }
       }
     }
@@ -182,9 +181,8 @@
         padding-left: 10px;
         color: #5d658c;
         font-size: .93333rem;
-
-        @media(max-width: 325px) { font-size: .8rem }
         @media(max-width: 650px) and (min-width: 620px) { font-size: .8rem }
+        @media(max-width: 325px) { font-size: .8rem }
       }
     }
 
@@ -221,8 +219,8 @@
         cursor: pointer;
 
         & span {
-          @media(max-width: 325px) { font-size: .8rem }
           @media(max-width: 650px) and (min-width: 620px) { font-size: .8rem }
+          @media(max-width: 325px) { font-size: .8rem }
         }
 
         & mat-icon {
@@ -252,7 +250,7 @@
           margin-top: 7px;
         }
 
-        &:hover mat-icon { color: #f5548e }
+        &:hover mat-icon { color: var(--primary-color) }
       }
     }
     @media(max-width: 350px) { padding: 1rem .8rem; }
@@ -260,7 +258,7 @@
 }
 
 .card-info-rating, .card-info-message {
-  color: #fff;
+  color: var(--light-color);
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

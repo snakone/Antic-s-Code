@@ -18,8 +18,6 @@ input {
 
   & mat-icon:hover { cursor: pointer }
 
-  @media (max-width: 1098px) { display: none }
-
   &.has-focus {
     background: var(--bg-color);
     border-radius: 4px 4px 0 0;
@@ -34,6 +32,8 @@ input {
       &:focus { outline: none }
     }
  }
+
+ @media (max-width: 1098px) { display: none }
 }
 
 .search-hint {
@@ -45,14 +45,14 @@ input {
   left: 0;
   top: 2.6rem;
   z-index: 100;
-  -webkit-box-shadow: 0 5px 0.66667rem rgba(39,43,65,.1);
-  box-shadow: 0 5px 0.66667rem rgba(39,43,65,.1);
+  -webkit-box-shadow: 0 5px 0.66667rem rgba(39, 43, 65, .1);
+  box-shadow: 0 5px 0.66667rem rgba(39, 43, 65, .1);
   visibility: hidden;
   opacity: 0;
   -webkit-transition: all .5s ease;
   -o-transition: all .5s ease;
   transition: all .5s ease;
-  background: #fff;
+  background: var(--light-color);
 }
 
 .display {
@@ -69,7 +69,7 @@ ul {
   & li {
     padding: 5px 10px 5px var(--small-padding);
 
-    & svg, img {
+    & img {
       border-radius: 25%;
       display: inline-block;
       padding: 4px;

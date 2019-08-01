@@ -34,10 +34,7 @@
     position: relative;
     z-index: 1;
 
-
-    & span {
-      font-size: .9rem;
-    }
+    & span { font-size: .9rem }
   }
 
   @media(max-width: 616px) { margin-top: 10px }

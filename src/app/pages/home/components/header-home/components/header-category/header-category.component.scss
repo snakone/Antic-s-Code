@@ -38,7 +38,6 @@ li {
   -webkit-transition: all .5s ease;
   -o-transition: all .5s ease;
   transition: all .5s ease;
-
   &:hover {cursor: pointer }
   &:hover span { color: var(--light-color) !important }
 }
@@ -63,17 +62,8 @@ span.icon {
   }
 }
 
-@media (max-width: 489px) and (min-width: 388px) {
- .category-list {
-   padding: 0 60px;
- }
-}
-
-@media (max-height: 750px) {
-  .category-list {
-    display: none;
-  }
-}
+@media (max-width: 489px) and (min-width: 388px) { .category-list { padding: 0 60px } }
+@media (max-height: 750px) { .category-list { display: none } }
 
 @media (max-width: 388px) {
   .category-list {

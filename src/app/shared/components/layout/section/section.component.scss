@@ -64,15 +64,17 @@
   .section-title { margin-bottom: .8rem }
 }
 
-.border-bottom {
-  border-bottom: 1px solid #e3e6ef!important;
+.border-bottom {  // Setting Border to Section
+  border-bottom: 1px solid var(--light-color)!important;
 }
 
 .margin-top {
   margin-top: -50px;
+  @media(max-width: 992px) { margin-top: -40px }
+  @media(max-width: 550px) { margin-top: -10px }
 }
 
-.contact {
+.contact {  // for Contact Section
   padding: 5rem 0 5.33337rem;
   position: relative;
   text-align: center;
@@ -82,15 +84,7 @@
   background-size: cover;
   background-position: center;
   border-top: 1px solid #e3e6ef!important;
-
   @media (max-width: 991.98px) { padding: 3.7666rem 0 }
 }
 
-@media(max-width: 992px) {
-  .margin-top { margin-top: -40px }
-}
-
-@media(max-width: 550px) {
-  .margin-top { margin-top: -10px }
-}
 

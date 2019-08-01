@@ -1,3 +1,4 @@
+// ANIMATED CSS LIBRARY
 .animated {
   -webkit-animation-duration: .5s;
   animation-duration: .5s;
@@ -66,3 +67,14 @@
   -webkit-animation-name: fadeOutLeft;
   animation-name: fadeOutLeft;
 }
+
+// CUSTOM ANIMATIONS
+@keyframes ClockwiseSpin {
+  0%  {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
+@keyframes SpinBack {
+  to {transform: rotate(360deg);}
+}
+
