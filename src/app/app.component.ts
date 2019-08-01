@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { SwipeMenuService } from '@layout/navbar/services/swipe-menu/swipe-menu.service';
+import { IntersectionService } from '@layout/intersection-observer/services/intersection.service';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +9,29 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
-  title = 'Angular 8 Seed';
+export class AppComponent implements OnInit {
+
+  disabled: boolean;
+
+  constructor(@Inject(DOCUMENT) private document: Document,
+              private swipeService: SwipeMenuService,
+              private intersection: IntersectionService) { }
+
+  ngOnInit(): void {
+    this.subscribeIntersection();
+  }
+
+  swipe(e: any): void {
+    const x = e.center.x;
+    const w = this.document.body.clientWidth;
+    if (x >= 200 || w >= 789 || this.disabled) { return; }
+    this.swipeService.showMenuOnSwipe(true);
+  }
+
+  private subscribeIntersection(): void {
+    this.intersection.hasEntered.subscribe((res: boolean) => this.disabled = res );
+  }
+
 }
+
+

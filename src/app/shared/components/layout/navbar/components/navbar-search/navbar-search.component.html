@@ -1,0 +1,24 @@
+<div class="search-area"
+    [ngClass]="{'has-focus': focused}">
+  <span matPrefix>  <!-- INPUT PREFIX -->
+    <mat-icon aria-hidden="false"
+              aria-label="Search">
+              search
+    </mat-icon>
+  </span>
+  <input (focus)="focused = true"
+         (focusout)="focused = false"
+         type="text"
+         placeholder="What are you looking for?">  <!-- INPUT -->
+
+  <div class="search-hint"
+      [ngClass]="{'display': focused}">
+    <ul>
+      <li *ngFor="let l of logos">
+        <img [src]="l.picture | image:'logos'"/>  <!-- LOGO LIST -->
+        <span>{{l.name}}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+

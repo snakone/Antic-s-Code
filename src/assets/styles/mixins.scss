@@ -1,0 +1,40 @@
+// Dropdown Rotation
+
+@mixin rotation($deg) {
+  -ms-transform: rotate($deg); /* IE 9 */
+  -webkit-transform: rotate($deg); /* Safari 3-8 */
+  transform: rotate($deg);
+  transition: all .3s;
+}
+
+@mixin button-animated($color1, $color2, $color3) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-image: linear-gradient(90deg, $color1, $color2, $color3, $color1);
+  background-size: 400%;
+  position: relative;
+  color: #fff;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    background-image: linear-gradient(90deg, $color1, $color2, $color3, $color1);
+    background-size: 400%;
+    opacity: 0;
+    transition: .5s;
+  }
+
+  &:hover, :hover:before { animation: animate 8s linear infinite }
+
+  @keyframes animate {
+    0% { background-position: 0% }
+    100% { background-position: 400% }
+  }
+}

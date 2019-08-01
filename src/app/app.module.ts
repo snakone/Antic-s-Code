@@ -1,14 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PagesModule } from './pages/pages.module';
-import { CoreModule } from './core/core.module';
-import { APP_CONFIG, APP_CONSTANTS } from './app.config';
-import { ComponentsModule } from './shared/components/components.module';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { APP_CONFIG, APP_CONSTANTS } from './app.config';
+import { CoreModule } from '@core/core.module';
+import { HammerConfig } from './core/hammer.config';
+
+import { PagesModule } from './pages/pages.module';
+import { ComponentsModule } from '@shared/components/components.module';
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,10 +22,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PagesModule,
     CoreModule,
     ComponentsModule,
+    SharedModule,
     BrowserAnimationsModule
   ],
   providers: [
     { provide: APP_CONFIG, useValue: APP_CONSTANTS },
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: HammerConfig
+},
   ],
   bootstrap: [AppComponent]
 })

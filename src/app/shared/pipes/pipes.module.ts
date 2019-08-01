@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
+import { ImagePipe } from './image/image.pipe';
+import { BackgroundPipe } from './background/background.pipe';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
+  declarations: [
+    ImagePipe,
+    BackgroundPipe
   ],
-  exports: []
+  imports: [],
+  exports: [
+    ImagePipe,
+    BackgroundPipe
+  ]
 })
 
 export class PipesModule { }

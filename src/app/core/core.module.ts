@@ -32,7 +32,6 @@ export function createTranslateLoader(http: HttpClient) {
       }
     }),
   ],
-  declarations: [],
   providers: [
     HttpService,
     LanguageService,

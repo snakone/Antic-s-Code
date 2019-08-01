@@ -1,0 +1,90 @@
+.section {
+  position: relative;
+  padding: 4.4444rem 1rem 3.8888rem;
+
+  &-container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: var(--container-width);
+  }
+
+  & .row {
+    display: flex;
+    justify-content: center;
+    margin-right: -15px;
+    margin-left: -15px;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  &-title {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    & h2 {
+        margin: -3px 0 .86667rem;
+        font-size: 1.9rem;
+        font-weight: 700;
+        color: var(--title-color);
+    }
+
+    & p {
+        margin: 0 auto;
+        font-size: 1.1rem;
+        line-height: 1.8rem;
+        color: var(--p-color);
+        padding: 0 6px;
+    }
+  }
+
+  @media (max-width: 992px) { padding: 3.06667rem 1rem 2.66667rem }
+  @media (max-width: 550px) { padding: 2.06667rem 1rem 1.66667rem }
+}
+
+@media(max-width: 750px) {
+  .section-title h2 { font-size: 1.8rem }
+}
+
+@media(max-width: 550px) {
+  .section-title h2 { font-size: 1.6rem }
+  .section-title { margin-bottom: 1.2rem }
+  .section-title p { font-size: 1rem }
+}
+
+@media(max-width: 450px) {
+  .section-title p { line-height: 1.4rem; }
+  .section-title h2 { font-size: 1.3rem }
+}
+
+@media(max-width: 330px) {
+  .section-title h2 { font-size: 1.2rem }
+  .section-title p { font-size: .85rem }
+  .section-title { margin-bottom: .8rem }
+}
+
+.border-bottom {  // Setting Border to Section
+  border-bottom: 1px solid var(--light-color)!important;
+}
+
+.margin-top {
+  margin-top: -50px;
+  @media(max-width: 992px) { margin-top: -40px }
+  @media(max-width: 550px) { margin-top: -10px }
+}
+
+.contact {  // for Contact Section
+  padding: 5rem 0 5.33337rem;
+  position: relative;
+  text-align: center;
+  background: url('assets/img/sb-shape.svg');
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  border-top: 1px solid #e3e6ef!important;
+  @media (max-width: 991.98px) { padding: 3.7666rem 0 }
+}
+
+

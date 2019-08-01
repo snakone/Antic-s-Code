@@ -1,21 +1,31 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared.module';
+
 import { Error404Component } from './error404/error404.component';
-import { NavBarComponent } from './layout/navbar/navbar.component';
+import { NavbarModule } from './layout/navbar/navbar.module';
+import { SectionComponent } from './layout/section/section.component';
+import { IntersectionObserverComponent } from './layout/intersection-observer/intersection-observer.component';
+import { FooterModule } from './layout/footer/footer.module';
 
 @NgModule({
   declarations: [
     Error404Component,
-    NavBarComponent
+    SectionComponent,
+    IntersectionObserverComponent
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    NavbarModule,
+    FooterModule
   ],
   exports: [
     Error404Component,
-    NavBarComponent
+    SectionComponent,
+    NavbarModule,
+    FooterModule,
+    IntersectionObserverComponent
   ]
 })
 

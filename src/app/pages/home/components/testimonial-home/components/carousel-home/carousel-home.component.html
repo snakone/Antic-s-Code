@@ -1,0 +1,36 @@
+<div class="swiper-container"
+    [swiper]="config"
+    [(index)]="index">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" *ngFor="let t of testimonials">  <!-- TESTIMONIALS -->
+      <app-testimonial-card [t]="t"></app-testimonial-card>
+    </div>
+  </div>
+  <div class="swiper-navigation">  <!-- DESKTOP NAVIGATION -->
+    <div class="button-prev"
+         (click)="navigate(-1)"
+         [ngClass]="{'disabled': index === 0}">
+      <mat-icon>arrow_back</mat-icon>
+    </div>
+    <div class="button-next"
+         (click)="navigate(1)"
+         [ngClass]="{'disabled': index === testimonials.length - 1}">
+      <mat-icon>arrow_forward</mat-icon>
+    </div>
+  </div>
+
+  <div class="swiper-navigation-mobile">   <!-- MOBILE NAVIGATION -->
+    <div class="button-prev-mobile"
+         (click)="navigate(-1)"
+         [ngClass]="{'disabled': index === 0}">
+      <mat-icon>arrow_back</mat-icon>
+    </div>
+    <div class="button-next-mobile"
+         (click)="navigate(1)"
+         [ngClass]="{'disabled': index === testimonials.length - 1}">
+      <mat-icon>arrow_forward</mat-icon>
+    </div>
+  </div>
+</div>
+
+

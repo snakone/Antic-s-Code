@@ -10,12 +10,12 @@ export interface StorageConfig extends ModuleConfig {
 
 export const STORAGE_CONSTANTS: StorageConfig = {
   KEY: 'settings',
-  LANGUAGE: 'en'
+  LANGUAGE: 'es'
 };
 
 export class LocalSettings {
 // tslint:disable-next-line: no-inferrable-types
-  lang: string = 'en';
+  lang: string = 'es';
 }
 
 export let STORAGE_CONFIG = new InjectionToken<StorageConfig>('storage.config');

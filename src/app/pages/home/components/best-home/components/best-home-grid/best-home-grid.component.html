@@ -1,0 +1,16 @@
+<div class="row flex">
+  <div class="col-lg-6"
+      *ngFor="let p of places">
+    <div class="card-image">
+      <figure>
+        <img [src]="p.picture | image"/>
+        <figcaption class="overlay-bg">
+          <div class="card-title">
+            <h3>{{p.name}}</h3>
+            <p>68 Listings</p>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</div>

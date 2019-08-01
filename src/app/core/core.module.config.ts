@@ -11,7 +11,7 @@ export interface CoreModuleConfig extends ModuleConfig {
 
 export const CORE_MODULE_CONSTANTS: CoreModuleConfig = {
   WEBSTORAGE_CONFIG: {
-    prefix: 'angular-7-seed',
+    prefix: 'anticscode',
     separator: '.',
     caseSensitive: false
   },

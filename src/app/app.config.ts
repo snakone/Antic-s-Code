@@ -2,6 +2,7 @@
 // application elements such as components or services.
 
 import { InjectionToken } from '@angular/core';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 
 export interface ModuleConfig {
   NAVIGATION?: any;
@@ -13,13 +14,18 @@ export interface AppConfig extends ModuleConfig {
 }
 
 export const APP_CONSTANTS: AppConfig = {
-  TITLE: 'Angular 8 Seed',
-  DEFAULT_LANGUAGE: 'en',
+  TITLE: 'Antic\'s Code',
+  DEFAULT_LANGUAGE: 'es',
   NAVIGATION: {
     EMPTY: '',
-    ROOT: '',
+    ROOT: 'Home',
     HOME: 'Home'
   }
+};
+
+export const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
+  direction: 'horizontal',
+  slidesPerView: 1,
 };
 
 export let APP_CONFIG = new InjectionToken<AppConfig>('app.config');

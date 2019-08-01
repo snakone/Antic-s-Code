@@ -1,0 +1,98 @@
+.footer-bar {
+  padding: 0;
+  border-top: 1px solid #e3e6ef;
+
+  &-content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: center;
+    -ms-flex-pack: justify;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 1rem 0;
+    box-sizing: border-box;
+    height: var(--footer-bar-height);
+    max-height: var(--footer-bar-height);
+
+    & p {
+      color: var(--p-color);
+      -webkit-box-flex: 2;
+      -webkit-flex: 2;
+      -ms-flex: 2;
+      flex: 2;
+      text-align: center;
+      @media(max-width: 325px) { font-size: .9rem }
+    }
+
+    & ul {
+      margin: 0;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      text-align: right;
+      padding-left: 0;
+      list-style: none;
+
+      & li button {
+        border: 1px solid #e3e6ef;
+        line-height: 2.13333rem;
+        display: inline-block;
+        padding: 0 .8rem;
+        -webkit-border-radius: 2px;
+        border-radius: 2px;
+        color: var(--p-color);
+        background: transparent;
+        outline: none;
+        margin-top: -5px;
+        &:hover { cursor: pointer }
+      }
+
+      @media(max-width: 455px) { display: none }
+    }
+
+    & mat-icon {
+      position: relative;
+      font-size: 1rem;
+      width: auto;
+      height: auto;
+      top: 2px;
+      left: -1px;
+    }
+  }
+
+  &-logo {
+    width: var(--navbar-logo-width);
+    height: 100%;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    margin-top: -5px;
+
+    & img {
+      width: 62px;
+      height: 55px;
+      &:hover { cursor: pointer }
+    }
+
+    @media(max-width: 588px) { display: none }
+  }
+}
+
+// Reset Boostrap Padding/Margin
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.container {
+  padding-left: 0;
+  padding-right: 0;
+}

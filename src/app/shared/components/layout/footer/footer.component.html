@@ -1,0 +1,32 @@
+<div class="footer">
+ <div class="footer-content">
+     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6"
+          *ngFor="let l of list">  <!-- FOOTER LIST -->
+      <div class="footer-content-column">
+        <h2>{{l.title}}</h2>
+        <ul>
+          <li *ngFor="let i of l.list"
+              [ngClass]="{'twitter': i === 'Twitter',
+                          'facebook': i === 'Facebook',
+                          'youtube': i === 'Youtube'}">
+            {{i}}
+          </li>
+        </ul>
+      </div>
+     </div>
+     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">  <!-- DOWNLOAD -->
+      <div class="footer-content-column">
+        <h2>Direo on Mobile</h2>
+        <p>
+          Download the app today,
+          find your events anytime
+        </p>
+        <button mat-button class="btn-pink">
+          <mat-icon>phone_android</mat-icon>
+          Google Play
+        </button>
+      </div>
+    </div>
+ </div>
+</div>
+<app-footer-bar></app-footer-bar>  <!-- BOTTOM FOOTER BAR -->
