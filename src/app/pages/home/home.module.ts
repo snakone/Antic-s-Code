@@ -13,6 +13,7 @@ import {
   TestimonialHomeModule,
   ContactHomeModule
 } from './home.index';
+import { ComponentsModule } from '@app/shared/components/components.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {
   ],
   imports: [
     CommonModule,
+    ComponentsModule,
     HomeRoutingModule,
     SharedModule,
     HeaderHomeModule,
