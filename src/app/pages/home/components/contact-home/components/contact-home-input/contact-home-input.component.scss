@@ -32,8 +32,6 @@
       outline: 0;
       box-sizing: border-box;
 
-      @media(max-width: 675px) { height: 2.5rem }
-      @media(max-width: 550px) { height: 2.1rem }
       @media(max-width: 425px) { line-height: 1.9rem }
       @media(max-width: 325px) { padding-left: 2.88887rem }
     }
@@ -58,8 +56,6 @@
       z-index: 1;
       padding-left: 1.2rem;
       padding-right: 1.3rem;
-
-      @media(max-width: 425px) { line-height: 2.2rem }
     }
 
     @media(max-width: 425px) {

@@ -6,6 +6,7 @@ import { Error404Component } from './error404/error404.component';
 import { NavbarModule } from './layout/navbar/navbar.module';
 import { SectionComponent } from './layout/section/section.component';
 import { IntersectionObserverComponent } from './layout/intersection-observer/intersection-observer.component';
+import { FooterModule } from './layout/footer/footer.module';
 
 @NgModule({
   declarations: [
@@ -16,12 +17,14 @@ import { IntersectionObserverComponent } from './layout/intersection-observer/in
   imports: [
     CommonModule,
     SharedModule,
-    NavbarModule
+    NavbarModule,
+    FooterModule
   ],
   exports: [
     Error404Component,
     SectionComponent,
     NavbarModule,
+    FooterModule,
     IntersectionObserverComponent
   ]
 })
