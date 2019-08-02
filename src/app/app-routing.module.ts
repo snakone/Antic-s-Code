@@ -11,7 +11,18 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then(mod => mod.HomeModule)
+    loadChildren: () => import('./pages/home/home.module').then(mod => mod.HomeModule),
+    data: {name: 'Home'}
+  },
+  {
+    path: 'articles',
+    loadChildren: () => import('./pages/articles/articles.module').then(mod => mod.ArticlesModule),
+    data: {name: 'Articles'}
+  },
+  {
+    path: 'article/:slug',
+    loadChildren: () => import('./pages/single-article/single-article.module').then(mod => mod.SingleArticleModule),
+    data: {name: 'Article'}
   },
   {
     path: '**',

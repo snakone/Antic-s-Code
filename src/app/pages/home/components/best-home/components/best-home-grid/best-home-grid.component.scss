@@ -42,7 +42,7 @@
       margin: 0 0 .46667rem;
       font-size: 1.33rem;
 
-      @media (max-width: 1140px) {
+      @media (max-width: 1var(--container-width)) {
         font-size: calc(1.158rem + .096vw);
       }
     }
