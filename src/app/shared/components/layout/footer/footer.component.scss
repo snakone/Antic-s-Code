@@ -33,6 +33,7 @@
           &.twitter { color: #00acee }
           &.facebook { color: #3b5998 }
           &.youtube { color: #c4302b }
+          &.twitter, &.facebook, &.youtube { font-weight: bold }
 
           &:hover {
             cursor: pointer;
@@ -43,12 +44,13 @@
 
       & p {
         color: var(--p-color);
+        margin-top: -2px;
         @media(max-width: 768px) { padding: 0 30px }
         @media(max-width: 475px) { padding: 0 50px }
       }
 
       & button {
-        margin-top: 5px;
+        margin-top: 4px;
 
         & mat-icon {
           position: relative;

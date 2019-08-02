@@ -1,3 +1,14 @@
 .bold {
   color: var(--primary-color);
+
+  &:hover { cursor: pointer }
+}
+
+.active {
+  color: var(--primary-color);
+}
+
+h1 {
+  font-weight: 700;
+  line-height: 1.2;
 }

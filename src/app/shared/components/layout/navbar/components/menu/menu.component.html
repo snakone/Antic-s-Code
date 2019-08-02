@@ -1,7 +1,9 @@
 <div class="navbar-wrapper">
   <div class="navbar-menu">
     <ul>
-      <li *ngFor="let i of items">  <!-- MENU LIST -->
+      <li *ngFor="let i of items"
+          [routerLink]="i.link"
+          routerLinkActive="active">  <!-- MENU LIST -->
         <button class="hvr-underline-from-left"
                 mat-button>{{i.name}}
         </button>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MAIN_CATEGORIES } from '@shared/shared.data';
+import { MAIN_CATEGORIES } from '@app/shared/shared.data';
 
 @Component({
   selector: 'app-category-grid',

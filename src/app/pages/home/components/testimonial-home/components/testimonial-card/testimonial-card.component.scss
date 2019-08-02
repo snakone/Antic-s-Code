@@ -41,6 +41,7 @@
       font-size: 1.13333rem;
       line-height: 1.93333rem;
       color: var(--p-color);
+      @media (max-width: 820px) { width: 90% }
       @media (max-width: 767.98px) { width: 80% }
       @media(max-width: 550px) {
         font-size: 1rem;
