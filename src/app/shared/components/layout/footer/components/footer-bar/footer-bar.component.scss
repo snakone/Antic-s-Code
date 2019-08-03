@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .footer-bar {
   padding: 0;
   border-top: 1px solid #e3e6ef;
@@ -30,33 +34,6 @@
       @media(max-width: 325px) { font-size: .9rem }
     }
 
-    & ul {
-      margin: 0;
-      -webkit-box-flex: 1;
-      -webkit-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      text-align: right;
-      padding-left: 0;
-      list-style: none;
-
-      & li button {
-        border: 1px solid #e3e6ef;
-        line-height: 2.13333rem;
-        display: inline-block;
-        padding: 0 .8rem;
-        -webkit-border-radius: 2px;
-        border-radius: 2px;
-        color: var(--p-color);
-        background: transparent;
-        outline: none;
-        margin-top: -5px;
-        &:hover { cursor: pointer }
-      }
-
-      @media(max-width: 455px) { display: none }
-    }
-
     & mat-icon {
       position: relative;
       font-size: 1rem;
@@ -66,38 +43,5 @@
       left: -1px;
     }
   }
-
-  &-logo {
-    width: var(--navbar-logo-width);
-    height: 100%;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    margin-top: -5px;
-
-    & img {
-      width: 62px;
-      height: 55px;
-      &:hover { cursor: pointer }
-    }
-
-    @media(max-width: 588px) { display: none }
-  }
 }
 
-// Reset Boostrap Padding/Margin
-.row {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.container {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.col-lg-12 {
-  padding-right: 0;
-  padding-left: 0;
-}

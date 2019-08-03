@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { SwipeMenuService } from '@layout/navbar/services/swipe-menu/swipe-menu.service';
 import { IntersectionService } from '@layout/intersection-observer/services/intersection.service';
 import { DOCUMENT } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',

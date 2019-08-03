@@ -2,98 +2,6 @@
   box-sizing: border-box;
 }
 
-.category {
-  &-header {
-    margin-bottom: calc(var(--category-header-height) + var(--navbar-height) + 12px);
-
-    &-content {
-      height: 100%;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-      -ms-flex-align: center;
-      align-items: center;
-      position: relative;
-      z-index: 2;
-      padding: 4.4444rem 1rem 3.8888rem;
-      margin-top: var(--navbar-height);
-
-      @media (max-width: 991px) { padding: 3.36667rem 1rem 2.66667rem }
-      @media (max-width: 750px) { padding: 3.06667rem 1rem 1.66667rem }
-      @media (max-width: 360px) { padding: 3.06667rem 0 1.66667rem }
-
-      & ul {
-        padding-left: 0;
-        list-style: none;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        align-items: center;
-        -webkit-align-items: center;
-        -ms-flex-align: center;
-
-        & li {
-          margin-right: .4rem;
-          @media (max-width: 360px) { margin-right: .2rem }
-          & span { color: var(--light-color) }
-         }
-
-        &.badge {
-          margin: 0 0 1.26667rem;
-          & li { margin-right: .8rem }
-         }
-
-        &.meta {
-          display: -webkit-box;
-          display: -webkit-flex;
-          display: -ms-flexbox;
-          display: flex;
-          -webkit-box-align: center;
-          -webkit-align-items: center;
-          -ms-flex-align: center;
-          align-items: center;
-          margin-bottom: 1.46667rem;
-          @media (max-width: 991px) { margin-bottom: 1.16667rem }
-
-          & li.meta-review span {
-            position: relative;
-            top: -1.3667px;
-          }
-
-          & strong {
-            display: block;
-            line-height: .9rem;
-           }
-        }
-      }
-
-      &-left {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: end;
-        -webkit-justify-content: flex-end;
-        -ms-flex-pack: end;
-        justify-content: flex-end;
-        -webkit-box-align: end;
-        -webkit-align-items: flex-end;
-        -ms-flex-align: end;
-        align-items: flex-end;
-        height: 198.23px;
-
-        &-buttons { display: flex }
-        @media (max-width: 991px) {
-          justify-content: start;
-          -webkit-justify-content: flex-start;
-          height: auto;
-          margin-top: 1.36667rem;
-         }
-      }
-    }
-   }
- }
-
 .header-bg {
   position: absolute;
   height: calc(var(--category-header-height) + var(--navbar-height));
@@ -124,20 +32,48 @@
 
 .header { min-width: var(--app-min-width) }
 
-h1 {
-  color: var(--light-color);
-  font-size: 2rem;
-  margin-bottom: 0;
-  margin-top: 0;
-  @media (max-width: 991px) { font-size: 1.4rem }
-  @media (max-width: 320px) { font-size: 1.2rem }
-}
+.category {
+  &-header {
+    margin-bottom: calc(var(--category-header-height) + var(--navbar-height) + 12px);
 
-p {
-  margin: .8rem 0 0 0;
-  color: var(--light-color);
-}
+    &-content {
+      height: 100%;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      padding: 4.4444rem 1rem 3.8888rem;
+      margin-top: var(--navbar-height);
 
-.hide-mobile {
-  @media(max-width: 320px) { display: none }
-}
+      @media (max-width: 991px) { padding: 3.36667rem 1rem 2.66667rem }
+      @media (max-width: 750px) { padding: 3.06667rem 1rem 1.66667rem }
+      @media (max-width: 360px) { padding: 3.06667rem 0 1.66667rem }
+
+      &-right {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: end;
+        -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        -webkit-box-align: end;
+        -webkit-align-items: flex-end;
+        -ms-flex-align: end;
+        align-items: flex-end;
+        height: 198.23px;
+
+        @media (max-width: 991px) {
+          justify-content: start;
+          -webkit-justify-content: flex-start;
+          height: auto;
+          margin-top: 1.36667rem;
+        }
+      }
+    }
+   }
+ }
+

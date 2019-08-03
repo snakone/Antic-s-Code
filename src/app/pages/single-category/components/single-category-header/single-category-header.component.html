@@ -4,49 +4,10 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-6">
-            <ul class="badge">
-              <li>
-                <span class="badge-featured">Featured</span>
-              </li>
-              <li>
-                <span class="badge-popular">Popular</span>
-              </li>
-              <li>
-                <div class="badge-category hide-mobile">
-                  <mat-icon>hotel</mat-icon>
-                  <span>Interview</span>
-                </div>
-              </li>
-            </ul>
-            <ul class="meta">
-              <li>
-                <span class="meta-type">
-                  Development
-                </span>
-              </li>
-              <li>
-                <span class="meta-star meta-star-rating">
-                  4.5 <mat-icon>star_rate</mat-icon>
-                </span>
-              </li>
-              <li>
-                <span class="meta-review meta-review-note">
-                  4.5 <mat-icon>event_note</mat-icon>
-                </span>
-              </li>
-            </ul>
-            <h1>Strawberry Basil Lemonade</h1>
-            <p>Best place for delicious foods</p>
+            <app-single-category-header-left></app-single-category-header-left>
           </div>
-          <div class="col-lg-4 col-md-6 category-header-content-left">
-            <div class="category-header-content-left-buttons">
-              <span class="meta-type meta-type-like">
-                <mat-icon>favorite_outline</mat-icon> Like
-              </span>
-              <span class="meta-type meta-type-like">
-                <mat-icon>share</mat-icon> Share
-              </span>
-            </div>
+          <div class="col-lg-4 col-md-6 category-header-content-right">
+            <app-single-category-header-right></app-single-category-header-right>
           </div>
         </div>
       </div>
