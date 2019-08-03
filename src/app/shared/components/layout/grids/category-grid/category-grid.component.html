@@ -2,7 +2,7 @@
   <div class="col-lg-4 col-sm-6"
       *ngFor="let c of categories">
     <div class="category-image">
-      <figure>
+      <figure [routerLink]="'/category/' + c.name">
         <img [src]="c.picture | image"/>
         <figcaption class="overlay-bg">
           <div class="category-image-content">

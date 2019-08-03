@@ -16,13 +16,14 @@
   }
 
   @media(max-width: 550px) {
-   padding-right: 3px;
-   padding-left: 3px;
+   padding-right: 0;
+   padding-left: 0;
   }
 }
 
 .explore {
   margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
   width: 100%;
 

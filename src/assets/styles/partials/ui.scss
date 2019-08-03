@@ -1,0 +1,40 @@
+// BADGES
+.badge-featured {
+  @include badge(#fa8b0c);
+}
+
+.badge-popular {
+  @include badge(#fd4868);
+}
+
+.badge-category {
+  @include badge-category(var(--light-color), rgba(223, 216, 230, 0.1), 15px, var(--primary-color));
+}
+
+.badge-card-category {
+  @include badge-category(#903af9, rgba(144,58,249,.1), 0, #fa8b0c)
+}
+
+.meta-star {
+  @include meta-data(var(--success-color), 2.3rem);
+}
+
+.meta-message {
+  @include meta-data(var(--primary-color), 2.3rem);
+}
+
+.meta-review {
+  @include meta-data(#6f32cc, 2.3rem)
+}
+
+.meta-type {
+  @include meta-data(transparent, 2.13rem);
+  border: 1px solid rgba(255,255,255,.5);
+  padding-left: 0;
+  padding: 0 1rem;
+  &:hover {
+    color: var(--primary-color) !important;
+    border: 1px solid var(--primary-color) !important;
+   }
+}
+

@@ -37,13 +37,13 @@ input {
 }
 
 .search-hint {
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(39,43,65,.1);
   -webkit-border-radius: 0 0 4px 4px;
   border-radius: 0 0 4px 4px;
   position: absolute;
   width: 99.4%;
   left: 0;
-  top: 2.6rem;
+  top: 2.5rem;
   z-index: 100;
   -webkit-box-shadow: 0 5px 0.66667rem rgba(39, 43, 65, .1);
   box-shadow: 0 5px 0.66667rem rgba(39, 43, 65, .1);

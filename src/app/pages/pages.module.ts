@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '@app/shared/shared.module';
 import { HomeModule } from './home/home.module';
 import { SingleArticleModule } from './single-article/single-article.module';
-import { ArticlesModule } from './articles/articles.module';
+import { CategoriesModule } from './categories/categories.module';
+import { SingleCategoryModule } from './single-category/single-category.module';
 
 @NgModule({
   declarations: [],
@@ -13,7 +14,8 @@ import { ArticlesModule } from './articles/articles.module';
     SharedModule,
     HomeModule,
     SingleArticleModule,
-    ArticlesModule
+    CategoriesModule,
+    SingleCategoryModule
   ]
 })
 

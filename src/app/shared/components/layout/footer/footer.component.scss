@@ -4,6 +4,7 @@
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  @media(max-width: 550px) { padding-top: 2.46667rem }
 
   &-content {
     padding-bottom: 1.86666rem;
@@ -11,6 +12,7 @@
     width: 100%;
     position: relative;
     left: -3px;
+    @media(max-width: 550px) { padding-top: .9667rem }
 
     &-column {
       margin-bottom: 2.36667rem;

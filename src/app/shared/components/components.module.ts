@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared.module';
 
 import { Error404Component } from './error404/error404.component';
@@ -26,7 +27,8 @@ import { CategoryGridComponent } from './layout/grids/category-grid/category-gri
     CommonModule,
     SharedModule,
     NavbarModule,
-    FooterModule
+    FooterModule,
+    RouterModule
   ],
   exports: [
     Error404Component,
