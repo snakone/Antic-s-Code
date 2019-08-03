@@ -2,17 +2,9 @@
   margin-top: 20px;
 
   &-form {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
     width: 36rem;
     margin-left: auto;
     margin-right: auto;
@@ -46,7 +38,7 @@
     & button {
       -webkit-border-radius: 0;
       border-radius: 0;
-      color: #fff;
+      color: var(--light-color);
       font-weight: 700;
       border: 0 none;
       line-height: 3.1rem;

@@ -1,1 +1,33 @@
+.col-lg-4 {
+  max-width: 350px;
+  @media(max-width: 800px) { max-width: 300px }
+  @media(max-width: 700px) { max-width: 275px }
+  @media(max-width: 650px) { max-width: 260px }
+  @media(max-width: 620px) {
+    width: 100%;
+    max-width: 100%;
+  }
 
+  @media(max-width: 550px) {
+   padding-right: 0;
+   padding-left: 0;
+  }
+}
+
+.col-lg-6 {
+  max-width: 545px;
+  @media(max-width: 1190px) { max-width: 450px }
+  @media(max-width: 1000px) { max-width: 400px }
+  @media(max-width: 905px) { max-width: 350px }
+  @media(max-width: 800px) { max-width: 300px }
+  @media(max-width: 700px) { max-width: 250px }
+  @media(max-width: 620px) {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  @media(max-width: 550px) {
+   padding-right: 0;
+   padding-left: 0;
+  }
+}

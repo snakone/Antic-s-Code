@@ -5,18 +5,18 @@ import { ComponentsModule } from '@app/shared/components/components.module';
 
 import { SingleCategoryRoutingModule } from './single-category-routing.module';
 import { SingleCategoryComponent } from './single-category.component';
-import { SingleCategoryHeaderComponent } from './components/single-category-header/single-category-header.component';
+import { SingleCategoryHeaderModule } from './single-category.index';
 
 @NgModule({
   declarations: [
     SingleCategoryComponent,
-    SingleCategoryHeaderComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     ComponentsModule,
-    SingleCategoryRoutingModule
+    SingleCategoryRoutingModule,
+    SingleCategoryHeaderModule
   ]
 })
 

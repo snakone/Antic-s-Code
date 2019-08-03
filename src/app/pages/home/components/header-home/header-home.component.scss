@@ -13,7 +13,7 @@
     max-width: var(--container-width);
     text-align: center;
     padding: 0 30px;
-    margin-top: var(--navbar-height);
+    margin-top: calc(var(--navbar-height) - var(--small-padding));
   }
 
    &-slogan { margin-bottom: 1.8rem }
@@ -21,16 +21,16 @@
 }
 
 h1 {
-  color: var(--light-color);
   font-size: 2.5rem;
-  font-weight: 700;
   margin: 0;
+  line-height: 1.5
 }
 
 p {
   font-size: 1.08rem;
   color: rgba(255, 255, 255, .8);
   margin: 0;
+  padding: 0 10px;
 }
 
 @media(max-width: 750px) {

@@ -33,12 +33,12 @@ import { CategoryGridComponent } from './layout/grids/category-grid/category-gri
   exports: [
     Error404Component,
     SectionComponent,
-    NavbarModule,
-    FooterModule,
     IntersectionObserverComponent,
     ArticlesGridComponent,
+    PageHeaderComponent,
     CategoryGridComponent,
-    PageHeaderComponent
+    NavbarModule,
+    FooterModule,
   ]
 })
 
