@@ -1,6 +1,6 @@
 <div class="navbar">
   <div class="navbar-logo">  <!-- LOGO -->
-    <img src="assets/img/logo.png"/>
+    <img routerLink="/home" src="assets/img/logo.png"/>
   </div>
   <div class="navbar-mobile-menu">  <!-- MOBILE TOOGLER -->
     <button class="toogler" (click)="show = true">
@@ -21,7 +21,10 @@
 
 <app-mobile-menu [show]="show">  <!-- MOBILE MENU -->
   <ul>
-    <li *ngFor="let i of items">{{i.name}}</li>
+    <li *ngFor="let i of items"
+        [routerLink]="i.link"
+        routerLinkActive="active"
+        (click)="show = false">{{i.name}}</li>
   </ul>
 <app-mobile-menu>
 

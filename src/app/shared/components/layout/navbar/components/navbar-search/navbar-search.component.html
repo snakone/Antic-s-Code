@@ -12,7 +12,7 @@
          placeholder="What are you looking for?">  <!-- INPUT -->
 
   <div class="search-hint"
-      [ngClass]="{'display': focused}">
+      [ngClass]="{'display': focused}">  <!-- POP UP SEARCH -->
     <ul>
       <li *ngFor="let l of logos">
         <img [src]="l.picture | image:'logos'"/>  <!-- LOGO LIST -->

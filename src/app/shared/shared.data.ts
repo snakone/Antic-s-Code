@@ -3,7 +3,7 @@ import { Category, List, Testimonial, FooterList, MenuLink } from './interfaces/
 export const MENU: MenuLink[] = [
   { name: 'Home', link: '/home' },
   { name: 'Code', link: '/code' },
-  { name: 'Articles', link: '/articles' },
+  { name: 'Categories', link: '/categories' },
   { name: 'Tutorials', link: '/tutorials' }
 ];
 
@@ -70,7 +70,7 @@ export const MAIN_CATEGORIES: Category[] = [
     name: 'Food & Drink',
     icon: 'fastfood',
     picture: 'cat6.jpg'
-  },
+  }
 ];
 
 export const PLACES: List[] = [
@@ -159,8 +159,7 @@ export const LOGOS: List[] = [
   { name: 'Stylesheet CSS3', picture: 'css-logo.png' },
   { name: 'Angular Framework', picture: 'angular-logo.png' },
   { name: 'Server Javascript', picture: 'node-logo.png' },
-  { name: 'Mongo Database', picture: 'mongo-logo.png' },
-  { name: 'Ionic Framework', picture: 'ionic-logo.png' }
+  { name: 'Mongo Database', picture: 'mongo-logo.png' }
 ];
 
 export const FOOTER_LIST: FooterList[] = [

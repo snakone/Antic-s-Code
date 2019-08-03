@@ -6,6 +6,10 @@
   animation-fill-mode: both;
 }
 
+img {
+  animation: fadeIn 1s ease-in;
+}
+
 @-webkit-keyframes fadeInLeft {
   from {
     opacity: 0;
@@ -77,4 +81,33 @@
 @keyframes SpinBack {
   to {transform: rotate(360deg);}
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  animation-name: fadeOut;
+}
+
 
