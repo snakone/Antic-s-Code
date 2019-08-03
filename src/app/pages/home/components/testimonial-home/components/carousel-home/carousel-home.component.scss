@@ -1,3 +1,5 @@
+@import "../../../../../../../assets/styles/mixins/flex.scss";
+
 .button-prev, .button-next {
   position: absolute;
   top: 50%;
@@ -21,19 +23,8 @@
   -o-transition: all .5s ease;
   transition: all .5s ease;
   outline: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   border: none;
+  @include flex-box();
 
   &.disabled {
     background: rgba(190, 197, 228, 0.25);
@@ -75,16 +66,6 @@
   box-shadow: 2px 5px 1.6666rem rgba(146,153,184,.15);
 
   & mat-icon { color: var(--primary-color) }
-}
-
-.button-prev:hover,
-.button-prev-mobile:hover {
-  & mat-icon { margin-right: 2px }
-}
-
-.button-next:hover,
-.button-next-mobile:hover {
-  & mat-icon { margin-left: 2px }
 }
 
 // MEDIA QUERIES

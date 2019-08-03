@@ -1,5 +1,6 @@
 .footer {
-  padding-top: 3.66667rem;
+  padding-top: 3.36667rem;
+  padding-bottom: 1.06666rem;
   max-width: calc(var(--container-width) - 120px);
   margin: 0 auto;
   display: flex;
@@ -7,7 +8,6 @@
   @media(max-width: 550px) { padding-top: 2.46667rem }
 
   &-content {
-    padding-bottom: 1.86666rem;
     text-align: center;
     width: 100%;
     position: relative;
@@ -64,8 +64,5 @@
   }
 }
 
-.col-lg-3 {
-  box-sizing: border-box;
-}
-
+.col-lg-3 { box-sizing: border-box }
 @media(max-width: 475px) { .col-xs-6 { width: 100% } }
