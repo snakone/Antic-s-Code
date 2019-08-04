@@ -105,9 +105,17 @@
     margin-right: 5px;
   }
 
-  &-like mat-icon {
-    font-size: 1.05rem;
-    position: relative;
-    top: 5px;
+  &-like {
+    margin: 0 0 .46667rem .46667rem;
+
+    @media(max-width: 992px) { margin: 0 .46667rem .46667rem 0 }
+
+    & mat-icon {
+      font-size: 1.05rem;
+      position: relative;
+      top: 5px;
+    }
   }
+
+
 }

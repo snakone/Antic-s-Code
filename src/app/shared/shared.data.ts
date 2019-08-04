@@ -177,6 +177,26 @@ export const FOOTER_LIST: FooterList[] = [
   }
 ];
 
+export const CATEGORY_INFO: List[] = [
+  {
+    name: '25 East Valley Road, Michigan',
+    picture: 'place'
+  },
+  {
+    name: '(213) 995-7799',
+    picture: 'phone'
+  },
+  {
+    name: 'support@aazztech.com',
+    picture: 'email'
+  },
+  {
+    name: 'http://anticscode.epizy.com',
+    picture: 'public'
+  }
+];
+
+
 
 
 

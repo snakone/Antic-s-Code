@@ -1,7 +1,7 @@
 .footer {
   padding-top: 3.36667rem;
   padding-bottom: 1.06666rem;
-  max-width: calc(var(--container-width) - 120px);
+  max-width: var(--container-width);
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -47,8 +47,6 @@
       & p {
         color: var(--p-color);
         margin-top: -2px;
-        @media(max-width: 768px) { padding: 0 30px }
-        @media(max-width: 475px) { padding: 0 50px }
       }
 
       & button {
