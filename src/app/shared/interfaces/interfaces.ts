@@ -26,3 +26,15 @@ export interface MenuLink {
   name: string;
   link: string;
 }
+
+export interface FAQ {
+  question: string;
+  answer: string;
+}
+
+export interface Related {
+  title: string;
+  picture: string;
+  category: string;
+  icon: string;
+}

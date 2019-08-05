@@ -1,0 +1,22 @@
+.m-top {
+  position: relative;
+  top: -16px;
+}
+
+.mat-expansion-panel-header-description {
+  color: #000;
+  @media(max-width: 450px) { font-size: .8rem }
+}
+
+::ng-deep .mat-expansion-panel-body {
+  & p {
+    color: var(--p-color)!important;
+    @media(max-width: 450px) { font-size: .8rem }
+    }
+   }
+
+
+.mat-accordion .mat-expansion-panel:not(.mat-expanded),
+.mat-accordion .mat-expansion-panel:not(.mat-expansion-panel-spacing) {
+  margin-top: 20px;
+}

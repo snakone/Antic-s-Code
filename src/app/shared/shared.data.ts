@@ -1,4 +1,4 @@
-import { Category, List, Testimonial, FooterList, MenuLink } from './interfaces/interfaces';
+import { Category, List, Testimonial, FooterList, MenuLink, FAQ, Related } from './interfaces/interfaces';
 
 export const MENU: MenuLink[] = [
   { name: 'Home', link: '/home' },
@@ -195,6 +195,68 @@ export const CATEGORY_INFO: List[] = [
     picture: 'public'
   }
 ];
+
+export const TAGS: string[] = [
+  'New York',
+  'Car Parking',
+  'Food',
+  'Travelling',
+  'Home',
+  'Office',
+  'Restaurant',
+  'Bike Parking'
+];
+
+export const FAQS: FAQ[] = [
+  {
+    question: 'Question number one',
+    answer: `Ensuring productivity and growth is essential
+             for architecture and engineering teams. The industry requires a
+             high level of precision, full legal compliance`
+  },
+  {
+    question: 'Question number two and others',
+    answer: `Ensuring productivity and growth is essential
+             for architecture and engineering teams. The industry requires a
+             high level of precision, full legal compliance`
+  },
+  {
+    question: 'Question number three and others',
+    answer: `Ensuring productivity and growth is essential
+             for architecture and engineering teams. The industry requires a
+             high level of precision, full legal compliance`
+  }
+];
+
+export const RELATED_ARTICLES: Related[] = [
+  {
+    title: 'Clothing Shopping Mall',
+    picture: 'sl1.jpg',
+    category: 'Food & Drink',
+    icon: 'restaurant'
+  },
+  {
+    title: 'Flanders Heat & Air Systems',
+    picture: 'sl2.jpg',
+    category: 'Hotel & Travel',
+    icon: 'hotel'
+  },
+  {
+    title: 'Favorite Place Fog Bank',
+    picture: 'sl3.jpg',
+    category: 'Art & History',
+    icon: 'account_balance'
+  },
+  {
+    title: 'Favortie Place on Summer',
+    picture: 'sl4.jpg',
+    category: 'Shopping',
+    icon: 'flight_takeoff'
+  }
+];
+
+
+
 
 
 

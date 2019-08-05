@@ -9,3 +9,7 @@ button {
     font-size: 1.2rem !important;
   }
 }
+
+.display {
+  @media(max-width: 992px) { display: none }
+}

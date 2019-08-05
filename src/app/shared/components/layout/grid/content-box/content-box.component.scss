@@ -37,6 +37,7 @@
 
     &-body {
       padding: 1.8rem 2rem;
+      @media(max-width: 350px) { padding: 1.3rem 1.5rem }
 
       & p {
         margin: 0;
@@ -45,6 +46,7 @@
         color: var(--p-color);
         @media(max-width: 1140px) { font-size: 1rem }
         @media(max-width: 359px) { font-size: .9rem }
+        @media(max-width: 320px) { line-height: 1.5rem }
       }
     }
   }
