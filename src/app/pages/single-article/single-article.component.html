@@ -1,1 +1,18 @@
-
+<app-page-header title="Article"
+                 subTitle="Article">
+</app-page-header>
+<app-section input="#f5f7fc">
+  <div class="row">
+    <div class="col-lg-8 col-md-8">
+      <app-article-card>
+        <div *ngIf="article">
+          <app-article-maker [article]="article"></app-article-maker>
+        </div>
+      </app-article-card>
+    </div>
+    <div class="col-lg-4 col-md-4">
+      <app-articles-sidebar></app-articles-sidebar>
+    </div>
+  </div>
+</app-section>
+<app-footer></app-footer>

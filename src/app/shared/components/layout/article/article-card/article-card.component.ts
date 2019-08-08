@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-article-card',
@@ -8,8 +9,12 @@ import { Component, OnInit } from '@angular/core';
 
 export class ArticleCardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() { }
+
+  goToArticle(article: string): void {
+    this.router.navigateByUrl('/article/' + article);
+  }
 
 }

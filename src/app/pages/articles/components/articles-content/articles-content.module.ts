@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ArticlesContentComponent } from './articles-content.component';
-import { ArticlesContentCardComponent } from './components/articles-content-card/articles-content-card.component';
+import { ComponentsModule } from '@app/shared/components/components.module';
 
 @NgModule({
   declarations: [
-    ArticlesContentComponent,
-    ArticlesContentCardComponent
+    ArticlesContentComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ComponentsModule
   ],
   exports: [
     ArticlesContentComponent

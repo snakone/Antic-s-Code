@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Renderer2, OnDestroy } from '@angular/core';
+import { Directive, ElementRef, Renderer2, OnDestroy, AfterViewInit } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
@@ -6,13 +6,16 @@ import { debounceTime } from 'rxjs/operators';
   selector: '[appStickyBox]'
 })
 
-export class StickyBoxDirective implements OnDestroy {
+export class StickyBoxDirective implements AfterViewInit, OnDestroy {
 
-    height: number;
+  height: number;
 
   constructor(private el: ElementRef,
               private renderer: Renderer2) {
     this.makeSticky();
+   }
+
+   ngAfterViewInit(): void {
     fromEvent(window, 'resize').pipe(debounceTime(1000)).subscribe(() => this.makeSticky());
    }
 

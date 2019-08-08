@@ -1,4 +1,14 @@
-* { box-sizing: border-box}
+* { box-sizing: border-box }
+
+.container {
+  padding-right: 0;
+  padding-left: 0;
+
+  @media (max-width: 550px) {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
 
 .header-bg {
   position: absolute;

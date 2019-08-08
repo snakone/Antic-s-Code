@@ -1,6 +1,6 @@
 <div class="article-wrapper">
  <div class="article-card">
-   <figure>
+   <figure (click)="goToArticle('custom-article')">
      <img src="assets/img/b1.jpg"/>
    </figure>
    <div class="article-card-body">
@@ -17,12 +17,7 @@
             <span class="category-tag">Meeting</span>
           </div>
       </div>
-      <p>
-        Investig ationes demons trave runt lectores legere liusry
-        quod ii legunt saepius claritas Investig ationes. Pharetra dui,
-        nec tincidunt ante mauris eu diam. Phasellus viverra nisl vitae
-        cursus aei uismod suspendisse saepius claritas investig.
-      </p>
+       <ng-content></ng-content>
     </div>
  </div>
 </div>

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SingleArticleRoutingModule } from './single-article-routing.module';
 import { SingleArticleComponent } from './single-article.component';
 import { ComponentsModule } from '@app/shared/components/components.module';
+import { ArticlesSidebarModule } from '../articles/components/articles-sidebar/articles-sidebar.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { ComponentsModule } from '@app/shared/components/components.module';
   imports: [
     CommonModule,
     SingleArticleRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    ArticlesSidebarModule
   ]
 })
 

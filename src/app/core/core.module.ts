@@ -18,6 +18,7 @@ import javascript from 'highlight.js/lib/languages/javascript';
 import typescript from 'highlight.js/lib/languages/typescript';
 import css from 'highlight.js/lib/languages/css';
 import scss from 'highlight.js/lib/languages/scss';
+import xml from 'highlight.js/lib/languages/xml';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, CORE_MODULE_CONSTANTS.TRANSLATE_CONFIG.I18N_PATH,
@@ -29,7 +30,8 @@ export function hljsLanguages() {
     {name: 'typescript', func: typescript},
     {name: 'javascript', func: javascript },
     {name: 'css', func: css},
-    {name: 'scss', func: scss}
+    {name: 'scss', func: scss},
+    {name: 'xml', func: xml}
   ];
 }
 
