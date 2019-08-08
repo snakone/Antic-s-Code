@@ -1,10 +1,10 @@
-import { Category, List, Testimonial, FooterList, MenuLink, FAQ, Related } from './interfaces/interfaces';
+import { Category, List, Testimonial, FooterList, MenuLink, FAQ, Related, ToC } from './interfaces/interfaces';
 
 export const MENU: MenuLink[] = [
   { name: 'Home', link: '/home' },
   { name: 'Code', link: '/code' },
   { name: 'Categories', link: '/categories' },
-  { name: 'Tutorials', link: '/tutorials' }
+  { name: 'Articles', link: '/articles' }
 ];
 
 export const CATEGORIES: string[] = [
@@ -215,13 +215,13 @@ export const FAQS: FAQ[] = [
              high level of precision, full legal compliance`
   },
   {
-    question: 'Question number two and others',
+    question: 'Question number two',
     answer: `Ensuring productivity and growth is essential
              for architecture and engineering teams. The industry requires a
              high level of precision, full legal compliance`
   },
   {
-    question: 'Question number three and others',
+    question: 'Question number three',
     answer: `Ensuring productivity and growth is essential
              for architecture and engineering teams. The industry requires a
              high level of precision, full legal compliance`
@@ -254,6 +254,30 @@ export const RELATED_ARTICLES: Related[] = [
     icon: 'flight_takeoff'
   }
 ];
+
+export const CATEGORY_TOC: ToC[] = [
+  {
+    index: 'Introduction',
+    description: 'A brief introduction',
+    anchor: 'cat-intro'
+  },
+  {
+    index: 'Concepts',
+    description: 'Technology concepts',
+    anchor: 'cat-concept'
+  },
+  {
+    index: 'Examples',
+    description: 'Learning bit a bit',
+    anchor: 'cat-examples'
+  },
+  {
+    index: 'FAQ\'s',
+    description: 'Frequently asked questions',
+    anchor: 'cat-faq'
+  },
+];
+
 
 
 

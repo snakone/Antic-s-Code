@@ -1,22 +1,30 @@
 .m-top {
   position: relative;
-  top: -16px;
+  top: -5px;
 }
 
 .mat-expansion-panel-header-description {
   color: #000;
-  @media(max-width: 450px) { font-size: .8rem }
+  @media(max-width: 350px) { font-size: .9rem }
 }
 
 ::ng-deep .mat-expansion-panel-body {
+  padding: 0 16px 0px!important;
   & p {
     color: var(--p-color)!important;
-    @media(max-width: 450px) { font-size: .8rem }
+    margin: 5px auto;
+    line-height: 1.5rem;
+    @media(max-width: 350px) { font-size: .9rem }
     }
-   }
+}
+
+::ng-deep .mat-expansion-panel-header {
+  padding: 10px 5px!important;
+  @media(min-width: 450px) { padding: 1px 5px!important; }
+}
 
 
 .mat-accordion .mat-expansion-panel:not(.mat-expanded),
 .mat-accordion .mat-expansion-panel:not(.mat-expansion-panel-spacing) {
-  margin-top: 20px;
+  margin-top: 1px;
 }

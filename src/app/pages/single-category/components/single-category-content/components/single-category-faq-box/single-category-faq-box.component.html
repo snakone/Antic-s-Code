@@ -1,9 +1,10 @@
-<app-content-box title="Listing FAQ's"
+<div id="cat-faq">
+  <app-content-box title="Listing FAQ's"
                   icon="help_outline">
     <mat-accordion class="m-top">
         <mat-expansion-panel class="mat-elevation-z0"
-                             *ngFor="let f of faqs; let i = index"
-                             [expanded]="i === 0">
+                              *ngFor="let f of faqs; let i = index"
+                              [expanded]="i === 0">
           <mat-expansion-panel-header>
             <mat-panel-description>
               {{f.question}}
@@ -12,4 +13,5 @@
           <p>{{f.answer}}</p>
         </mat-expansion-panel>
       </mat-accordion>
-</app-content-box>
+  </app-content-box>
+</div>

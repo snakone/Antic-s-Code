@@ -28,13 +28,10 @@ ul {
 }
 
 li {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   border-bottom: 1px solid #e3e6ef;
   padding-bottom: .93333rem;
   margin-bottom: 1.3rem;
+  justify-content: flex-start;
   @media(max-width: 992px) and (min-width: 750px) {
     display: -webkit-inline-box;
     display: -webkit-inline-flex;
@@ -54,20 +51,15 @@ li:last-child {
   padding-bottom: .5rem;
 }
 
-p, h4 {
-  margin: 0;
-}
-
-p {
-  justify-content: flex-start;
-}
+p, h4 { margin: 0 }
+p { justify-content: flex-start }
 
 h4 {
   margin-top: -5px;
   font-size: .9rem;
   @media(max-width: 320px) {
     font-size: .8rem;
-    margin-top: -8px;
+    margin-top: -2px;
     line-height: 1.4rem;
     margin-bottom: 10px;
    }

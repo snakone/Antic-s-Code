@@ -1,7 +1,8 @@
 <app-content-box title="Related Articles"
-                  icon="chrome_reader_mode">
+                 icon="chrome_reader_mode">
     <ul class="related">
-      <li *ngFor="let r of relateds">
+      <li *ngFor="let r of relateds"
+          class="flex-box">
         <div class="related-img">
           <img [src]="r.picture | image"/>
         </div>

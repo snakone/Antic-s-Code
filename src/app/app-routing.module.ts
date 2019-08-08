@@ -16,6 +16,16 @@ const routes: Routes = [
                         .then(mod => mod.CategoriesModule), data: {name: 'Categories'}
   },
   {
+    path: 'articles',
+    loadChildren: () => import('./pages/articles/articles.module')
+                        .then(mod => mod.ArticlesModule), data: {name: 'Articles'}
+  },
+  {
+    path: 'code',
+    loadChildren: () => import('./pages/code/code.module')
+                        .then(mod => mod.CodeModule), data: {name: 'Code'}
+  },
+  {
     path: 'category/:category',
     loadChildren: () => import('./pages/single-category/single-category.module')
                         .then(mod => mod.SingleCategoryModule), data: {name: 'Category'}
@@ -29,7 +39,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled',
+    anchorScrolling: 'enabled'})],
   exports: [RouterModule]
 })
 

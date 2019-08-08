@@ -16,11 +16,9 @@
       color: #272b41;
 
       & span {
-        font-size: 1.3rem;
-        @media(max-width: 1140px) { font-size: 1.2rem }
+        font-size: 1.2rem;
         @media(max-width: 359px) { font-size: 1rem }
        }
-
       & mat-icon { margin: 0 var(--small-padding) }
      }
     }
@@ -41,10 +39,9 @@
 
       & p {
         margin: 0;
-        font-size: 1.1rem;
+        font-size: 1rem;
         line-height: 1.8rem;
         color: var(--p-color);
-        @media(max-width: 1140px) { font-size: 1rem }
         @media(max-width: 359px) { font-size: .9rem }
         @media(max-width: 320px) { line-height: 1.5rem }
       }

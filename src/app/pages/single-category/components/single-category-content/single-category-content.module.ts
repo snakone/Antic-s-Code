@@ -8,7 +8,9 @@ import { SingleCategoryIndexBoxComponent } from './components/single-category-in
 import { SingleCategoryIntroBoxComponent } from './components/single-category-intro-box/single-category-intro-box.component';
 import { SingleCategorySidebarModule } from '../single-category-sidebar/single-category-sidebar.module';
 import { SingleCategoryFaqBoxComponent } from './components/single-category-faq-box/single-category-faq-box.component';
-import { SingleCategoryMainBoxComponent } from './components/single-category-main-box/single-category-main-box.component';
+import { SingleCategoryConceptBoxComponent } from './components/single-category-concept-box/single-category-concept-box.component';
+import { SingleCategoryExampleBoxComponent } from './components/single-category-example-box/single-category-example-box.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,12 +18,14 @@ import { SingleCategoryMainBoxComponent } from './components/single-category-mai
     SingleCategoryIndexBoxComponent,
     SingleCategoryIntroBoxComponent,
     SingleCategoryFaqBoxComponent,
-    SingleCategoryMainBoxComponent
+    SingleCategoryConceptBoxComponent,
+    SingleCategoryExampleBoxComponent
   ],
   imports: [
     CommonModule,
     ComponentsModule,
     SharedModule,
+    RouterModule,
     SingleCategorySidebarModule
   ],
   exports: [
