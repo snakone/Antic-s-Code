@@ -14,6 +14,8 @@ import { ArticlesGridComponent } from './layout/grid/articles-grid/articles-grid
 import { CategoryGridComponent } from './layout/grid/category-grid/category-grid.component';
 import { ContentBoxComponent } from './layout/grid/content-box/content-box.component';
 import { ArticleMakerComponent } from './article-maker/article-maker.component';
+import { ArticlesRelatedBoxComponent } from './layout/boxes/articles-related-box/articles-related-box.component';
+import { TabBoxComponent } from './layout/boxes/tab-box/tab-box.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ArticleMakerComponent } from './article-maker/article-maker.component';
     PageHeaderComponent,
     CategoryGridComponent,
     ContentBoxComponent,
-    ArticleMakerComponent
+    ArticleMakerComponent,
+    ArticlesRelatedBoxComponent,
+    TabBoxComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +48,9 @@ import { ArticleMakerComponent } from './article-maker/article-maker.component';
     NavbarModule,
     FooterModule,
     ContentBoxComponent,
-    ArticleMakerComponent
+    ArticleMakerComponent,
+    ArticlesRelatedBoxComponent,
+    TabBoxComponent
   ]
 })
 

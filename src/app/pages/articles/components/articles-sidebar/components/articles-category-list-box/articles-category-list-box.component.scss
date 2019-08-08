@@ -1,0 +1,16 @@
+ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+li {
+  margin-bottom: .66rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  & mat-icon { margin-right: 10px }
+
+  &:hover span { color: var(--primary-color) }
+}

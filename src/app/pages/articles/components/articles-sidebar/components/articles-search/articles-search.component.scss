@@ -1,0 +1,40 @@
+.search-bar {
+  margin-bottom: 2rem;
+
+  &-input {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    width: 100%;
+
+    & input {
+      width: 100%;
+      -webkit-border-radius: .26667rem;;
+      border-radius: .26667rem;;
+      background: #e5ddec;
+      border: 0 none;
+      height: 3.33333rem;
+      padding: 0 4rem 0 1.66667rem;
+      outline: none;
+    }
+
+    & mat-icon {
+      padding: 0 1.33333rem;
+      position: absolute;
+      right: 0;
+      top: 14px;
+      background: 0 0;
+      border: 0;
+      cursor: pointer;
+    }
+  }
+}
