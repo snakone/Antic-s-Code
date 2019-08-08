@@ -1,0 +1,23 @@
+p {
+  margin: 0;
+  padding-left: 5px;
+  margin-bottom: 5px;
+  color: var(--p-color);
+}
+
+ul {
+  list-style-type: circle;
+  padding-left: var(--big-padding);
+}
+
+li:not(p) {
+  color: black;
+  margin-top: var(--big-padding);
+  outline: none;
+  &:first-child { margin-top: 0 }
+
+  &:hover {
+    color: var(--primary-color);
+    cursor: pointer;
+  }
+}

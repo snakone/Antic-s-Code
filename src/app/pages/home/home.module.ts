@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SharedModule } from '@app/shared/shared.module';
 import { HomeRoutingModule } from './home.routing';
 import { HomeComponent } from './home.component';
 import { ComponentsModule } from '@app/shared/components/components.module';
@@ -23,7 +22,6 @@ import {
     CommonModule,
     ComponentsModule,
     HomeRoutingModule,
-    SharedModule,
     HeaderHomeModule,
     CategoryHomeModule,
     ArticlesHomeModule,

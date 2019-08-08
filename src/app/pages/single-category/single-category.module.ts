@@ -5,7 +5,12 @@ import { ComponentsModule } from '@app/shared/components/components.module';
 
 import { SingleCategoryRoutingModule } from './single-category-routing.module';
 import { SingleCategoryComponent } from './single-category.component';
-import { SingleCategoryHeaderModule } from './single-category.index';
+
+import {
+  SingleCategoryHeaderModule,
+  SingleCategoryContentModule,
+  SingleCategorySidebarModule
+} from './single-category.index';
 
 @NgModule({
   declarations: [
@@ -16,7 +21,9 @@ import { SingleCategoryHeaderModule } from './single-category.index';
     SharedModule,
     ComponentsModule,
     SingleCategoryRoutingModule,
-    SingleCategoryHeaderModule
+    SingleCategoryHeaderModule,
+    SingleCategoryContentModule,
+    SingleCategorySidebarModule
   ]
 })
 

@@ -26,3 +26,47 @@ export interface MenuLink {
   name: string;
   link: string;
 }
+
+export interface FAQ {
+  question: string;
+  answer: string;
+}
+
+export interface Related {
+  title: string;
+  picture: string;
+  category: string;
+  icon: string;
+}
+
+export interface ToC {
+  index: string;
+  description: string;
+  anchor: string;
+}
+
+export interface Article {
+  _id?: string;
+  title?: string;
+  category?: string;
+  author?: string;
+  created?: string;
+  message?: string;
+  comments?: number;
+  slug?: string;
+  cover?: string;
+  code?: Code[];
+}
+
+export interface ArticleResponse {
+  ok: boolean;
+  message: string;
+  articles?: Article[];
+  article?: Article;
+}
+
+export interface Code {
+  code: string;
+  lang: string;
+  tooltip: boolean;
+}

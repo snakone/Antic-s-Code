@@ -1,0 +1,14 @@
+.sticky {
+  top: 2rem;
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 50;
+  width: 100%;
+  opacity: 1;
+  animation-name: fadeIn;
+}
+
+.display {
+  animation-name: fadeOut;
+  will-change: opacity;
+}

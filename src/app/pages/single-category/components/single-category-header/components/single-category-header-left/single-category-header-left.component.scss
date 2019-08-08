@@ -12,7 +12,7 @@ ul {
   & li {
     margin-right: .4rem;
     & span { color: var(--light-color) }
-    @media (max-width: 360px) { margin-right: .2rem }
+    @media (max-width: 360px) { margin-right: 0 }
    }
 
   &.badge {

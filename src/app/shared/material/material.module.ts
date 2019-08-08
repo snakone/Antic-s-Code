@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [],
@@ -17,7 +18,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatIconModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatExpansionModule
   ],
   exports: [
     MatMenuModule,
@@ -26,7 +28,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatIconModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatExpansionModule
   ]
 })
 

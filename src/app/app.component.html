@@ -1,4 +1,8 @@
 <app-navbar></app-navbar>
 <main class="outlet" (swiperight)="swipe($event)">
   <router-outlet #outlet></router-outlet>
+  <a appTopButton class="go-top-button"
+     (click)="goTop()">
+    <mat-icon>open_in_browser</mat-icon>
+  </a>
 </main>

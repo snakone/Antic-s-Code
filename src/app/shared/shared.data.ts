@@ -1,10 +1,10 @@
-import { Category, List, Testimonial, FooterList, MenuLink } from './interfaces/interfaces';
+import { Category, List, Testimonial, FooterList, MenuLink, FAQ, Related, ToC } from './interfaces/interfaces';
 
 export const MENU: MenuLink[] = [
   { name: 'Home', link: '/home' },
   { name: 'Code', link: '/code' },
   { name: 'Categories', link: '/categories' },
-  { name: 'Tutorials', link: '/tutorials' }
+  { name: 'Articles', link: '/articles' }
 ];
 
 export const CATEGORIES: string[] = [
@@ -176,6 +176,112 @@ export const FOOTER_LIST: FooterList[] = [
     list: ['Contact Support', 'Twitter', 'Facebook', 'Youtube']
   }
 ];
+
+export const CATEGORY_INFO: List[] = [
+  {
+    name: '25 East Valley Road, Michigan',
+    picture: 'place'
+  },
+  {
+    name: '(213) 995-7799',
+    picture: 'phone'
+  },
+  {
+    name: 'support@aazztech.com',
+    picture: 'email'
+  },
+  {
+    name: 'http://anticscode.epizy.com',
+    picture: 'public'
+  }
+];
+
+export const TAGS: string[] = [
+  'New York',
+  'Car Parking',
+  'Food',
+  'Travelling',
+  'Home',
+  'Office',
+  'Restaurant',
+  'Bike Parking'
+];
+
+export const FAQS: FAQ[] = [
+  {
+    question: 'Question number one',
+    answer: `Ensuring productivity and growth is essential
+             for architecture and engineering teams. The industry requires a
+             high level of precision, full legal compliance`
+  },
+  {
+    question: 'Question number two',
+    answer: `Ensuring productivity and growth is essential
+             for architecture and engineering teams. The industry requires a
+             high level of precision, full legal compliance`
+  },
+  {
+    question: 'Question number three',
+    answer: `Ensuring productivity and growth is essential
+             for architecture and engineering teams. The industry requires a
+             high level of precision, full legal compliance`
+  }
+];
+
+export const RELATED_ARTICLES: Related[] = [
+  {
+    title: 'Clothing Shopping Mall',
+    picture: 'sl1.jpg',
+    category: 'Food & Drink',
+    icon: 'restaurant'
+  },
+  {
+    title: 'Flanders Heat & Air Systems',
+    picture: 'sl2.jpg',
+    category: 'Hotel & Travel',
+    icon: 'hotel'
+  },
+  {
+    title: 'Favorite Place Fog Bank',
+    picture: 'sl3.jpg',
+    category: 'Art & History',
+    icon: 'account_balance'
+  },
+  {
+    title: 'Favortie Place on Summer',
+    picture: 'sl4.jpg',
+    category: 'Shopping',
+    icon: 'flight_takeoff'
+  }
+];
+
+export const CATEGORY_TOC: ToC[] = [
+  {
+    index: 'Introduction',
+    description: 'A brief introduction',
+    anchor: 'cat-intro'
+  },
+  {
+    index: 'Concepts',
+    description: 'Technology concepts',
+    anchor: 'cat-concept'
+  },
+  {
+    index: 'Examples',
+    description: 'Learning bit a bit',
+    anchor: 'cat-examples'
+  },
+  {
+    index: 'FAQ\'s',
+    description: 'Frequently asked questions',
+    anchor: 'cat-faq'
+  },
+];
+
+
+
+
+
 
 
 
