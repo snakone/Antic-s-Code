@@ -27,11 +27,36 @@
   border-radius: 2px;
   @media(max-width: 1072px) { font-size: .9rem }
   @media(max-width: 993px) { font-size: 1rem }
-  @media(max-width: 450px) { font-size: .9rem }
+  @media(max-width: 450px) {
+    font-size: .8rem;
+    margin-right: 5px;
+   }
 
   &:hover {
     color: var(--light-color);
     background: var(--primary-color);
+    cursor: pointer;
+  }
+}
+
+.category-tag-purple {
+  line-height: 2.33333rem;
+  padding: .50667rem;
+  border: 1px solid #903af9 !important;
+  color: #903af9;
+  margin-right: 12px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  @media(max-width: 1072px) { font-size: .9rem }
+  @media(max-width: 993px) { font-size: 1rem }
+  @media(max-width: 450px) {
+    font-size: .8rem;
+    margin-right: 5px;
+   }
+
+  &:hover {
+    color: var(--light-color);
+    background: #903af9;
     cursor: pointer;
   }
 }

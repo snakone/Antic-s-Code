@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Article } from '@app/shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-article-card',
@@ -8,6 +9,9 @@ import { Router } from '@angular/router';
 })
 
 export class ArticleCardComponent implements OnInit {
+
+  @Input() article: Article;
+  @Input() shadow: boolean;
 
   constructor(private router: Router) { }
 

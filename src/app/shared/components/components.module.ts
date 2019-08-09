@@ -17,6 +17,8 @@ import { ArticlesRelatedBoxComponent } from './layout/boxes/articles-related-box
 import { TagBoxComponent } from './layout/boxes/tag-box/tag-box.component';
 import { IntersectionObserverComponent } from './layout/intersection-observer/intersection-observer.component';
 import { ArticleCardComponent } from './layout/article/article-card/article-card.component';
+import { StickyBoxComponent } from './layout/boxes/sticky-box/sticky-box.component';
+import { CommentBoxComponent } from './layout/boxes/comment-box/comment-box.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { ArticleCardComponent } from './layout/article/article-card/article-card
     ArticlesRelatedBoxComponent,
     TagBoxComponent,
     ArticleCardComponent,
-    IntersectionObserverComponent
+    IntersectionObserverComponent,
+    StickyBoxComponent,
+    CommentBoxComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +57,9 @@ import { ArticleCardComponent } from './layout/article/article-card/article-card
     ArticleMakerComponent,
     ArticlesRelatedBoxComponent,
     TagBoxComponent,
-    ArticleCardComponent
+    ArticleCardComponent,
+    StickyBoxComponent,
+    CommentBoxComponent
   ]
 })
 

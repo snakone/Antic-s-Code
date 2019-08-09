@@ -1,0 +1,29 @@
+.article {
+  &-comments {
+    margin-top: 3rem;
+    border-top: 1px solid #e3e6ef;
+    margin-bottom: -3.6rem;
+
+    &-wrapper {
+      padding: 0 2rem 1.6rem;
+      border: 1px solid #e3e6ef;
+      -webkit-border-radius: .26667rem;
+      border-radius: .26667rem;
+      margin: 2rem auto;
+      margin-top: 3rem;
+      @media(max-width: 450px) { padding: 0 1rem 1.6rem }
+    }
+  }
+}
+
+.flex-box {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+mat-icon { margin-right: .6rem }
+
+button:hover mat-icon {
+  -webkit-animation: AntiClockwiseSpin 2s infinite linear;
+  animation: AntiClockwiseSpin 2s infinite linear;
+}

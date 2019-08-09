@@ -1,15 +1,15 @@
 <div class="article-wrapper">
- <div class="article-card">
-   <figure (click)="goToArticle('custom-article')">
-     <img src="assets/img/b1.jpg"/>
+ <div class="article-card" [ngClass]="{'article-card-shadow' : shadow}">
+   <figure (click)="goToArticle(article.slug)">
+     <img [src]="article.cover"/>
    </figure>
    <div class="article-card-body">
-      <h3>How to run successful business metting</h3>
+      <h3 (click)="goToArticle(article.slug)">{{article.title}}</h3>
       <div class="article-card-info">
           <ul>
-            <li>Aug 12, 2019</li>
-            <li>by Sergi</li>
-            <li>6 Comments</li>
+            <li>{{article.created}}</li>
+            <li>by {{article.author}}</li>
+            <li>3 Comments</li>
           </ul>
           <div class="article-card-tags">
             <span class="category-tag">Code</span>
@@ -17,7 +17,7 @@
             <span class="category-tag">Meeting</span>
           </div>
       </div>
-       <ng-content></ng-content>
-    </div>
+      <ng-content></ng-content>
+  </div>
  </div>
 </div>

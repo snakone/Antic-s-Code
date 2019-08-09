@@ -1,0 +1,43 @@
+.message {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    border-bottom: 1px solid #e3e6ef;
+    padding-top: 2rem;
+
+    &-body {
+      padding-bottom: 1rem;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+
+      & h6 {
+        font-size: 1rem;
+        margin: .76667rem 0 0 .86667rem;
+
+        & p {
+          margin-top: 0;
+          font-size: .9rem;
+          font-weight: normal;
+        }
+      }
+
+      & span { color: var(--p-color) }
+    }
+}
+
+.user-avatar {
+  display: flex;
+  & img {
+    vertical-align: middle;
+    border-style: none;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+  }
+}

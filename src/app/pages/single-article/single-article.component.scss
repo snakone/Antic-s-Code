@@ -20,3 +20,14 @@
    padding-left: 0;
   }
 }
+
+.col-lg-12 {
+  @media(max-width: 550px) {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.display {
+  @media(min-width: 993px) { display: none }
+}

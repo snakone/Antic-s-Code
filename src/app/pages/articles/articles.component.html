@@ -3,8 +3,8 @@
 </app-page-header>
 <app-section input="#f5f7fc">
   <div class="row">
-    <div class="col-lg-8 col-md-8">
-      <app-articles-content></app-articles-content>
+    <div class="col-lg-8 col-md-8" id="articles-section">
+      <app-articles-content [articles]="articles"></app-articles-content>
     </div>
     <div class="col-lg-4 col-md-4">
       <app-articles-sidebar></app-articles-sidebar>

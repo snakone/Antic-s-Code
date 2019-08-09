@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ArticlesContentComponent } from './articles-content.component';
 import { ComponentsModule } from '@app/shared/components/components.module';
+import { ArticlesSidebarModule } from '../articles-sidebar/articles-sidebar.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { ComponentsModule } from '@app/shared/components/components.module';
   ],
   imports: [
     CommonModule,
-    ComponentsModule
+    ComponentsModule,
+    ArticlesSidebarModule
   ],
   exports: [
     ArticlesContentComponent
