@@ -1,0 +1,82 @@
+.category {
+  &-image {
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+
+  & figure {
+      position: relative;
+      -webkit-border-radius: 3px;
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 0;
+  }
+
+    &-content {
+      border: 0 none;
+      background: initial;
+      display: block;
+      text-align: center;
+
+      & h4 {
+        color: var(--light-color);
+        font-weight: 500;
+        margin-top: 8px;
+        margin-bottom: 12px;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  &-icon {
+    border: 0 none;
+    background: initial;
+    display: block;
+    text-align: center;
+
+    & mat-icon {
+      font-size: 2.2rem;
+      color: var(--light-color);
+      margin-bottom: .7rem;
+      width: auto;
+    }
+  }
+
+  &-badge {
+    transition: all .3s ease;
+    color: var(--light-color);
+    background-color: var(--success-color);
+    padding: .7rem 1.5rem;
+    -webkit-border-radius: 10rem;
+    border-radius: 10rem;
+    display: inline-block;
+    font-size: .9rem;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+
+    @media(max-width: 400px) {
+      font-size: .8rem;
+      padding: .5rem 1.2rem;
+    }
+
+    @media(min-width: 620px) and (max-width: 800px) {
+      font-size: .8rem;
+      padding: .5rem 1.2rem;
+    }
+  }
+}
+
+img {
+  vertical-align: middle;
+  border-style: none;
+  width: 100%;
+}
+
+figure {
+  margin: 0 0 1rem;
+}
+
+

@@ -1,0 +1,9 @@
+<app-content-box title="Table of Contents"
+                 icon="list">
+    <ul>
+      <li (click)="scroll(t.anchor)"
+          *ngFor="let t of toc">{{t.index}}
+          <p>{{t.description}}</p>
+      </li>
+    </ul>
+</app-content-box>

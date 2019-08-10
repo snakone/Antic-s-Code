@@ -27,10 +27,7 @@ import { SharedModule } from '@shared/shared.module';
   ],
   providers: [
     { provide: APP_CONFIG, useValue: APP_CONSTANTS },
-    {
-      provide: HAMMER_GESTURE_CONFIG,
-      useClass: HammerConfig
-},
+    { provide: HAMMER_GESTURE_CONFIG, useClass: HammerConfig }
   ],
   bootstrap: [AppComponent]
 })

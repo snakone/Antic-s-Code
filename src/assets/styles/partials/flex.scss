@@ -11,3 +11,7 @@
   align-items: center;
   margin-top: 10px;
 }
+
+.flex-box {
+  @include flex-box();
+}

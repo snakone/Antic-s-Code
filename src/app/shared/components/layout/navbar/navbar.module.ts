@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
 
 import { NavBarComponent } from './navbar.component';
@@ -16,7 +17,8 @@ import { MobileMenuComponent } from './components/mobile-menu/mobile-menu.compon
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   exports: [
     NavBarComponent

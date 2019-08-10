@@ -1,0 +1,23 @@
+* { box-sizing: border-box}
+
+.display {
+  @media(min-width: 993px) { display: none }
+}
+
+button {
+  width: 100%;
+  padding: 8px 0;
+  margin-bottom: 2rem;
+}
+
+.col-md-6 {
+  max-width: 50%;
+  width: 50%;
+  display: inline-block;
+
+  @media(max-width: 750px) {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+  }
+}

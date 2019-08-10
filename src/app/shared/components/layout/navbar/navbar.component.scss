@@ -29,6 +29,7 @@
       margin-left: 1px;
       -webkit-animation: SpinBack .5s;
       animation: SpinBack .5s;
+      outline: none;
     }
 
     &:hover {
@@ -122,6 +123,7 @@ ul {
     margin-top: 25px;
     margin-bottom: 25px;
     font-size: 1.1rem;
+    outline: none;
   }
 }
 

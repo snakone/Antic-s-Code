@@ -1,0 +1,87 @@
+// BADGES
+.badge-featured {
+  @include badge(#fa8b0c);
+}
+
+.badge-popular {
+  @include badge(#fd4868);
+}
+
+.badge-category {
+  @include badge-category(var(--light-color), rgba(223, 216, 230, 0.1), 15px, var(--primary-color));
+}
+
+.badge-card-category {
+  @include badge-category(#903af9, rgba(144,58,249,.1), 0, #fa8b0c)
+}
+
+.meta-star {
+  @include meta-data(var(--success-color), 2.3rem);
+}
+
+.meta-message {
+  @include meta-data(var(--primary-color), 2.3rem);
+}
+
+.meta-review {
+  @include meta-data(#6f32cc, 2.3rem)
+}
+
+.meta-type {
+  @include meta-data(transparent, 2.13rem);
+  border: 1px solid rgba(255,255,255,.5);
+  padding-left: 0;
+  padding: 0 1rem;
+  &:hover {
+    color: var(--primary-color) !important;
+    border: 1px solid var(--primary-color) !important;
+   }
+}
+
+.verified {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 1.06667rem;
+  height: 1.06667rem;
+  -webkit-border-radius: 20rem;
+  border-radius: 20rem;
+  margin-left: .96667rem;
+  position: relative;
+  background: var(--success-color);
+}
+
+.verified::before {
+  position: absolute;
+    content: "";
+    width: 2px;
+    height: .26667rem;
+    background: #fff;
+    left: 4px;
+    top: 7px;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.verified::after {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: .53333rem;
+  background: #fff;
+  left: 9px;
+  top: 5px;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

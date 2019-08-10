@@ -1,0 +1,6 @@
+@mixin rotation($deg) {
+  -ms-transform: rotate($deg); /* IE 9 */
+  -webkit-transform: rotate($deg); /* Safari 3-8 */
+  transform: rotate($deg);
+  transition: all .3s;
+}

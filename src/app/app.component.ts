@@ -28,8 +28,13 @@ export class AppComponent implements OnInit {
     this.swipeService.showMenuOnSwipe(true);
   }
 
+  goTop(): void {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
   private subscribeIntersection(): void {
-    this.intersection.hasEntered.subscribe((res: boolean) => this.disabled = res );
+    this.intersection.hasEntered
+     .subscribe((res: boolean) => this.disabled = res);
   }
 
 }

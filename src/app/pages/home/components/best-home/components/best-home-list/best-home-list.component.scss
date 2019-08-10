@@ -8,8 +8,8 @@
     margin-left: 10px;
 
     @media(max-width: 620px) {
-      margin-right: 2px;
-      margin-left: 2px;
+      margin-right: 0;
+      margin-left: 0;
     }
 
     & ul {
@@ -45,8 +45,8 @@
 }
 
 .col-lg-12 {
-  width: 1140px;
-  min-width: 1140px;
+  width: var(--container-width);
+  min-width: var(--container-width);
 
   @media(max-width: 1190px) {
     width: 952px;

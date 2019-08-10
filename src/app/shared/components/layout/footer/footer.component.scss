@@ -1,16 +1,18 @@
 .footer {
-  padding-top: 3.66667rem;
-  max-width: calc(var(--container-width) - 120px);
+  padding-top: 3.36667rem;
+  padding-bottom: 1.06666rem;
+  max-width: var(--container-width);
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  @media(max-width: 550px) { padding-top: 2.46667rem }
 
   &-content {
-    padding-bottom: 1.86666rem;
     text-align: center;
     width: 100%;
     position: relative;
     left: -3px;
+    @media(max-width: 550px) { padding-top: .9667rem }
 
     &-column {
       margin-bottom: 2.36667rem;
@@ -33,6 +35,7 @@
           &.twitter { color: #00acee }
           &.facebook { color: #3b5998 }
           &.youtube { color: #c4302b }
+          &.twitter, &.facebook, &.youtube { font-weight: bold }
 
           &:hover {
             cursor: pointer;
@@ -43,12 +46,11 @@
 
       & p {
         color: var(--p-color);
-        @media(max-width: 768px) { padding: 0 30px }
-        @media(max-width: 475px) { padding: 0 50px }
+        margin-top: -2px;
       }
 
       & button {
-        margin-top: 5px;
+        margin-top: 4px;
 
         & mat-icon {
           position: relative;
@@ -60,8 +62,5 @@
   }
 }
 
-.col-lg-3 {
-  box-sizing: border-box;
-}
-
+.col-lg-3 { box-sizing: border-box }
 @media(max-width: 475px) { .col-xs-6 { width: 100% } }

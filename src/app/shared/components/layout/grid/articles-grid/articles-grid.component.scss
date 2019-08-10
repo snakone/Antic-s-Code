@@ -1,0 +1,20 @@
+.explore {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+
+  & button {
+    color: var(--light-color);
+    font-weight: 700;
+    border: 0 none;
+    line-height: 3rem;
+    position: relative;
+    z-index: 1;
+
+    & span { font-size: .9rem }
+  }
+
+  @media(max-width: 616px) { margin-top: 10px }
+  @media(max-width: 450px) { margin-top: 0 }
+}

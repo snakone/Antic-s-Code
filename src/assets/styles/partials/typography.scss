@@ -1,3 +1,20 @@
 .bold {
   color: var(--primary-color);
+  font-weight: bold;
+  &:hover { cursor: pointer }
+}
+
+.active { color: var(--primary-color) }
+
+p { color: var(--p-color) }
+
+h1 {
+  color: var(--light-color);
+  font-size: 2rem;
+  margin-bottom: 0;
+  margin-top: 0;
+  font-weight: 700;
+  line-height: 1.2;
+  @media (max-width: 991px) { font-size: 1.4rem }
+  @media (max-width: 320px) { font-size: 1.2rem }
 }

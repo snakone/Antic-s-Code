@@ -1,0 +1,26 @@
+<app-page-header title="Article"
+                 subTitle="Article">
+</app-page-header>
+<app-section input="#f5f7fc">
+  <div class="row">
+    <div class="col-lg-12 display">  <!-- SEARCH BAR -->
+      <app-articles-search></app-articles-search>
+    </div>
+    <div class="col-lg-8 col-md-8" id="article-section">  <!-- ARTICLE CONTENT -->
+      <app-article-card *ngIf="article"
+                        [article]="article"
+                        [padding]="0">
+        <app-article-maker [article]="article"></app-article-maker>
+        <app-single-article-comments></app-single-article-comments>
+      </app-article-card>
+    </div>
+    <div class="col-lg-4 col-md-4">  <!-- SIDEBAR -->
+      <app-articles-sidebar></app-articles-sidebar>
+      <app-single-article-share></app-single-article-share>
+      <app-sticky-box selector="article-section">
+        <app-comment-box></app-comment-box>
+      </app-sticky-box>
+    </div>
+  </div>
+</app-section>
+<app-footer></app-footer>

@@ -5,6 +5,8 @@ import { LanguageModule } from '@app/core/language/language.module';
 
 import { PipesModule } from '@shared/pipes/pipes.module';
 import { MaterialModule } from './material/material.module';
+import { DirectivesModule } from './directives/directives.module';
+import { HighlightModule } from 'ngx-highlightjs';
 
 @NgModule({
   declarations: [],
@@ -14,7 +16,9 @@ import { MaterialModule } from './material/material.module';
     LanguageModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    DirectivesModule,
+    HighlightModule
   ],
   exports: [
     PipesModule,
@@ -22,7 +26,9 @@ import { MaterialModule } from './material/material.module';
     LanguageModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    DirectivesModule,
+    HighlightModule
   ]
 })
 
