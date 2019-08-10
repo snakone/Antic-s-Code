@@ -1,8 +1,7 @@
 <div class="article-comments">
   <div class="article-comments-wrapper">
-    <app-single-article-message></app-single-article-message>
-    <app-single-article-message></app-single-article-message>
-    <app-single-article-message></app-single-article-message>
+    <app-single-article-message *ngFor="let i of [1,2,3]">
+    </app-single-article-message>
     <div class="flex-box">
       <button mat-button class="category-tag-purple">
         <mat-icon>loop</mat-icon> Load More

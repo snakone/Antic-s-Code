@@ -1,4 +1,13 @@
-import { Category, List, Testimonial, FooterList, MenuLink, FAQ, Related, ToC } from './interfaces/interfaces';
+import {
+  Category,
+  List,
+  Testimonial,
+  FooterList,
+  MenuLink,
+  FAQ,
+  Related,
+  ToC
+} from './interfaces/interfaces';
 
 export const MENU: MenuLink[] = [
   { name: 'Home', link: '/home' },

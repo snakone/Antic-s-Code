@@ -30,7 +30,7 @@
 
     &-info {
       margin-bottom: 1.33333rem;
-      border-bottom: 1px solid #e3e6ef;
+      border-bottom: 1px solid var(--section-border-color);
     }
 
     &-body {
@@ -38,7 +38,8 @@
       -webkit-flex: 1 1 auto;
       -ms-flex: 1 1 auto;
       flex: 1 1 auto;
-      padding: 2rem 0;
+      padding: 2rem;
+      @media(max-width: 350px) { padding: 2rem 1rem }
 
       & h3 {
         margin-bottom: 1rem;
@@ -48,7 +49,7 @@
         @media(max-width: 650px) { font-size: 1.33rem }
 
         &:hover {
-          color: #903af9;
+          color: var(--violet-color);
           cursor: pointer;
         }
       }

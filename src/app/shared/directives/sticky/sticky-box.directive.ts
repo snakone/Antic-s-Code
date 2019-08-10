@@ -25,10 +25,14 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
     if (width < 985) { this.renderer.setStyle(el, 'height', `100%`); return; }
 
     setTimeout(() => {
+      if (!this.selector) { return; }
       if (!this.height) { this.height = this.el.nativeElement.getBoundingClientRect().height; }
-      const section = document.getElementById(this.selector).getBoundingClientRect().height;
-      const top = this.el.nativeElement.getBoundingClientRect().top + window.scrollY;
-      this.setElementHeight(this.height, section, top, el);
+      try {
+        const section = document.getElementById(this.selector).getBoundingClientRect().height;
+        if (!section) { this.makeSticky(); return; }
+        const top = this.el.nativeElement.getBoundingClientRect().top + window.scrollY;
+        this.setElementHeight(this.height, section, top, el);
+      } catch (err) {}
     }, 3000);
   }
 

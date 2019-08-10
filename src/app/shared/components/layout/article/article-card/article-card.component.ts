@@ -12,6 +12,7 @@ export class ArticleCardComponent implements OnInit {
 
   @Input() article: Article;
   @Input() shadow: boolean;
+  @Input() padding: number;
 
   constructor(private router: Router) { }
 

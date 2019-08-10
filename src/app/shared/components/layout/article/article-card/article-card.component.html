@@ -3,7 +3,7 @@
    <figure (click)="goToArticle(article.slug)">
      <img [src]="article.cover"/>
    </figure>
-   <div class="article-card-body">
+   <div class="article-card-body" [ngStyle]="{'padding': '2rem ' + padding + 'rem'}">
       <h3 (click)="goToArticle(article.slug)">{{article.title}}</h3>
       <div class="article-card-info">
           <ul>

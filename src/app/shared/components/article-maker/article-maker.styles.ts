@@ -1,5 +1,7 @@
 export const ARTICLE_STYLES = `
 
+* { user-select: text }
+
 code {
   font-size: 1em !important;
   padding: 20px;
@@ -9,7 +11,6 @@ code {
   border-top: 0;
   box-sizing: border-box;
   cursor: pointer;
-  user-select: text;
 }
 
 code::-webkit-scrollbar {

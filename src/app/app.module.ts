@@ -1,5 +1,5 @@
 import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +11,6 @@ import { HammerConfig } from './core/hammer.config';
 import { PagesModule } from './pages/pages.module';
 import { ComponentsModule } from '@shared/components/components.module';
 import { SharedModule } from '@shared/shared.module';
-import { ArticleService } from '@core/services/article/article.service';
 
 @NgModule({
   declarations: [
