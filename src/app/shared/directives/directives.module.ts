@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { StickyBoxDirective } from './sticky-box.directive';
-import { TopButtonDirective } from './top-button.directive';
+import { StickyBoxDirective } from './sticky/sticky-box.directive';
+import { TopButtonDirective } from './go-top-button/top-button.directive';
 
 @NgModule({
   declarations: [

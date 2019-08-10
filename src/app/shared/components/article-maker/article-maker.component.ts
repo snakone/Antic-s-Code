@@ -11,7 +11,7 @@ declare var ClipboardJS: any;
 
 @Component({
   selector: 'app-article-maker',
-  template: `<div><ng-container #vc></ng-container></div>`
+  template: `<div highlightChildren><ng-container #vc></ng-container></div>`
 })
 
 export class ArticleMakerComponent implements AfterViewInit, OnDestroy {

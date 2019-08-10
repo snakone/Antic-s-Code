@@ -1,8 +1,6 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 
 export class IntersectionService {
 

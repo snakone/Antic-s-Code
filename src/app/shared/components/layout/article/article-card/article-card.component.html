@@ -1,0 +1,23 @@
+<div class="article-wrapper">
+ <div class="article-card" [ngClass]="{'article-card-shadow' : shadow}">
+   <figure (click)="goToArticle(article.slug)">
+     <img [src]="article.cover"/>
+   </figure>
+   <div class="article-card-body" [ngStyle]="{'padding': '2rem ' + padding + 'rem'}">
+      <h3 (click)="goToArticle(article.slug)">{{article.title}}</h3>
+      <div class="article-card-info">
+          <ul>
+            <li>{{article.created}}</li>
+            <li>by {{article.author}}</li>
+            <li>3 Comments</li>
+          </ul>
+          <div class="article-card-tags">
+            <span class="category-tag">Code</span>
+            <span class="category-tag">Business</span>
+            <span class="category-tag">Meeting</span>
+          </div>
+      </div>
+      <ng-content></ng-content>
+  </div>
+ </div>
+</div>

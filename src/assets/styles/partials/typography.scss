@@ -1,11 +1,12 @@
 .bold {
   color: var(--primary-color);
+  font-weight: bold;
   &:hover { cursor: pointer }
 }
 
-.active {
-  color: var(--primary-color);
-}
+.active { color: var(--primary-color) }
+
+p { color: var(--p-color) }
 
 h1 {
   color: var(--light-color);

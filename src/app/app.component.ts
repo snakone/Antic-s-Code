@@ -33,7 +33,8 @@ export class AppComponent implements OnInit {
   }
 
   private subscribeIntersection(): void {
-    this.intersection.hasEntered.subscribe((res: boolean) => this.disabled = res );
+    this.intersection.hasEntered
+     .subscribe((res: boolean) => this.disabled = res);
   }
 
 }

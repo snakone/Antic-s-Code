@@ -52,7 +52,6 @@ export interface Article {
   author?: string;
   created?: string;
   message?: string;
-  comments?: number;
   slug?: string;
   cover?: string;
   code?: Code[];

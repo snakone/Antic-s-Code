@@ -1,0 +1,21 @@
+<app-content-box title="Leave a Comment"
+                  icon="comment">
+  <form [formGroup]="commentForm" #f="ngForm" (ngSubmit)="onSubmit()">
+    <mat-form-field color="accent">
+      <input matInput
+             placeholder="Your Name"
+             formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+      <input matInput
+             placeholder="Your Comment"
+             formControlName="comment">
+    </mat-form-field>
+    <button type="submit"
+            class="btn-purple"
+            mat-button>
+      Reply
+    </button>
+  </form>
+</app-content-box>
