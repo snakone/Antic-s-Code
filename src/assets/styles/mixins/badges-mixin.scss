@@ -53,7 +53,7 @@
 
   & span {
     padding-left: 10px;
-    color: #5d658c;
+    color: var(--tag-color);
     font-size: .93333rem;
     @media(max-width: 650px) and (min-width: 620px) { font-size: .8rem }
     @media(max-width: 340px) { font-size: .8rem }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-articles-search',
@@ -8,8 +10,24 @@ import { Component, OnInit } from '@angular/core';
 
 export class ArticlesSearchComponent implements OnInit {
 
-  constructor() { }
+  value: string;
+  valueChanged: Subject<string> = new Subject<string>();
+
+  constructor() {
+    this.valueChanged
+      .pipe(
+        debounceTime(2000),
+        distinctUntilChanged()
+      )
+      .subscribe((change: string) => {
+        console.log(change);
+    });
+   }
 
   ngOnInit() { }
+
+  changed(value: string): void {
+    this.valueChanged.next(value);
+  }
 
 }

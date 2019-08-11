@@ -26,7 +26,7 @@
   }
 
   &-info {
-    border: 1px solid #e3e6ef;
+    border: 1px solid var(--section-border-color);
     width: 100%;
     position: relative;
     left: -0.5px;
@@ -94,7 +94,7 @@
   }
 
   &-bottom {
-    border-top: 1px solid #e3e6ef;
+    border-top: 1px solid var(--section-border-color);
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -144,7 +144,7 @@
 
       & span {
         padding-left: 10px;
-        color: #5d658c;
+        color: var(--tag-color);
         font-size: .93333rem;
         @media(max-width: 650px) and (min-width: 620px) { font-size: .8rem }
         @media(max-width: 325px) { font-size: .8rem }
@@ -180,7 +180,7 @@
         align-items: center;
         list-style: none;
         margin-right: 1rem;
-        color: #5d658c;
+        color: var(--tag-color);
         cursor: pointer;
 
         & span {

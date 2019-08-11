@@ -19,6 +19,8 @@ import { IntersectionObserverComponent } from './layout/intersection-observer/in
 import { ArticleCardComponent } from './layout/article/article-card/article-card.component';
 import { StickyBoxComponent } from './layout/boxes/sticky-box/sticky-box.component';
 import { CommentBoxComponent } from './layout/boxes/comment-box/comment-box.component';
+import { LoadingComponent } from './layout/loading/loading.component';
+import { StarRatingComponent } from './snippets/star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { CommentBoxComponent } from './layout/boxes/comment-box/comment-box.comp
     ArticleCardComponent,
     IntersectionObserverComponent,
     StickyBoxComponent,
-    CommentBoxComponent
+    CommentBoxComponent,
+    LoadingComponent,
+    StarRatingComponent
   ],
   imports: [
     CommonModule,
@@ -59,7 +63,9 @@ import { CommentBoxComponent } from './layout/boxes/comment-box/comment-box.comp
     TagBoxComponent,
     ArticleCardComponent,
     StickyBoxComponent,
-    CommentBoxComponent
+    CommentBoxComponent,
+    LoadingComponent,
+    StarRatingComponent
   ]
 })
 

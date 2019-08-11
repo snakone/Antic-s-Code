@@ -14,11 +14,16 @@ import { StorageModule } from './services/storage/storage.module';
 import { ServicesModule } from './services/services.module';
 
 import { HighlightModule } from 'ngx-highlightjs';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { ArticleEffects } from './ngrx/effects/article.effects';
+
 import javascript from 'highlight.js/lib/languages/javascript';
 import typescript from 'highlight.js/lib/languages/typescript';
 import css from 'highlight.js/lib/languages/css';
 import scss from 'highlight.js/lib/languages/scss';
 import xml from 'highlight.js/lib/languages/xml';
+import { reducer } from './ngrx/reducer/article.reducer';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, CORE_MODULE_CONSTANTS.TRANSLATE_CONFIG.I18N_PATH,
@@ -42,6 +47,8 @@ export function hljsLanguages() {
     StorageModule,
     ServicesModule,
     NgxWebstorageModule.forRoot(CORE_MODULE_CONSTANTS.WEBSTORAGE_CONFIG),
+    EffectsModule.forRoot([ArticleEffects]),
+    StoreModule.forRoot({articles: reducer}),
     LanguageModule.forRoot(),
     HighlightModule.forRoot({
       languages: hljsLanguages

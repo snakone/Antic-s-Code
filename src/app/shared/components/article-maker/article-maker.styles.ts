@@ -7,7 +7,7 @@ code {
   padding: 20px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
-  border: 1px solid #e3e6ef;
+  border: 1px solid var(--section-border-color);
   border-top: 0;
   box-sizing: border-box;
   cursor: pointer;

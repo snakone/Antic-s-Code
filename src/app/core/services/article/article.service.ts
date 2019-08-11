@@ -1,7 +1,7 @@
 import { Injectable} from '@angular/core';
 import { APP_CONSTANTS } from '@app/app.config';
 import { HttpService } from '../http/http.service';
-import { ArticleResponse, Article } from '@shared/interfaces/interfaces';
+import { ArticleResponse } from '@shared/interfaces/interfaces';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -15,6 +15,7 @@ export class ArticleService {
   }
 
   public getArticles(): Observable<ArticleResponse> {
+    console.log('API');
     return this.http.get(this.API_ARTICLES);
   }
 
@@ -22,9 +23,9 @@ export class ArticleService {
     return this.http.get(this.API_ARTICLES + '/' + id);
   }
 
-  public getArticleBySlug(slug: string): Observable<ArticleResponse> {
-    return this.http.get(this.API_ARTICLES + '/slug/' + slug);
-  }
+  // public getArticleBySlug(slug: string): Observable<ArticleResponse> {
+  //   return this.http.get(this.API_ARTICLES + '/slug/' + slug);
+  // }
 
   public getArticlesByCategory(category: string): Observable<ArticleResponse> {
     return this.http.get(APP_CONSTANTS.END_POINT + 'category' + '/' + category);

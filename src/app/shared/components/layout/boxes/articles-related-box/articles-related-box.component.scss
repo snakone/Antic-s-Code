@@ -28,7 +28,7 @@ ul {
 }
 
 li {
-  border-bottom: 1px solid #e3e6ef;
+  border-bottom: 1px solid var(--section-border-color);
   padding-bottom: .93333rem;
   margin-bottom: 1.3rem;
   justify-content: flex-start;

@@ -1,12 +1,12 @@
 .content {
   &-box {
-    border: 1px solid #e3e6ef;
+    border: 1px solid var(--section-border-color);
     background: var(--light-color);
     margin-bottom: 2rem;
 
     &-header {
       padding: 1.1666rem;
-      border-bottom: 1px solid #e3e6ef;
+      border-bottom: 1px solid var(--section-border-color);
 
     & h4 {
       margin-bottom: 0;

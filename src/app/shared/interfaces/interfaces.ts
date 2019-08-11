@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+
 export interface Category {
   name: string;
   icon: string;
@@ -55,6 +57,11 @@ export interface Article {
   slug?: string;
   cover?: string;
   code?: Code[];
+  tags?: string[];
+  level?: string;
+  likes?: number;
+  views?: number;
+  stars?: number;
 }
 
 export interface ArticleResponse {
@@ -68,4 +75,5 @@ export interface Code {
   code: string;
   lang: string;
   tooltip: boolean;
+  description: string;
 }

@@ -3,11 +3,26 @@
 
 import { InjectionToken } from '@angular/core';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { Article } from './shared/interfaces/interfaces';
 
 const DEV = 'http://localhost:3000/';
 const PRE = 'http://192.168.1.97:3000/';
 const PROD = 'https://antics-space.herokuapp.com/';
 const APP_VERSION = '0.0.2';
+
+export interface AppState {
+  articles: Article[];
+  loading: boolean;
+  error: string;
+  selected: Article;
+}
+
+export const State: AppState = {
+  articles: [],
+  loading: false,
+  error: null,
+  selected: null
+};
 
 export interface ModuleConfig {
   NAVIGATION?: any;

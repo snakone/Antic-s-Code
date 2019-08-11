@@ -17,13 +17,23 @@ export const MENU: MenuLink[] = [
 ];
 
 export const CATEGORIES: string[] = [
-  'Code',
-  'Video',
-  'Gaming',
-  'Lifestyle',
-  'Interview',
-  'Review',
-  'Antic'
+  'HTML',
+  'CSS',
+  'Javascript',
+  'Angular',
+  'Nodejs',
+  'MongoDB'
+];
+
+export const TAGS: string[] = [
+  'Development',
+  'Typescript',
+  'Frontend',
+  'Backend',
+  'Design',
+  'SCSS',
+  'Ionic',
+  'Database'
 ];
 
 export const POPULAR_CATEGORIES: Category[] = [
@@ -203,17 +213,6 @@ export const CATEGORY_INFO: List[] = [
     name: 'http://anticscode.epizy.com',
     picture: 'public'
   }
-];
-
-export const TAGS: string[] = [
-  'New York',
-  'Car Parking',
-  'Food',
-  'Travelling',
-  'Home',
-  'Office',
-  'Restaurant',
-  'Bike Parking'
 ];
 
 export const FAQS: FAQ[] = [

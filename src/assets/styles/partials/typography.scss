@@ -18,3 +18,9 @@ h1 {
   @media (max-width: 991px) { font-size: 1.4rem }
   @media (max-width: 320px) { font-size: 1.2rem }
 }
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  outline: none;
+}

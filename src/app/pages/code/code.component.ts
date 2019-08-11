@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Article } from '@app/shared/interfaces/interfaces';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { AppState } from '@app/app.config';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-code',
@@ -8,7 +13,12 @@ import { Component, OnInit } from '@angular/core';
 
 export class CodeComponent implements OnInit {
 
-  constructor() { }
+  articles$: Observable<Article[]>;
+
+  constructor(store: Store<AppState>) {
+    this.articles$ = store.select(state => state.articles)
+      .pipe(map((res: any) => res.articles));
+  }
 
   ngOnInit() { }
 

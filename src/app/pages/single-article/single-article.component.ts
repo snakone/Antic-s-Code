@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ArticleService } from '@app/core/services/services.index';
+import { Store } from '@ngrx/store';
+import { AppState } from '@app/app.config';
+import * as ArticleActions from '@core/ngrx/actions/article.actions';
 import { Article } from '@app/shared/interfaces/interfaces';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-single-article',
@@ -11,28 +11,18 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./single-article.component.scss']
 })
 
-export class SingleArticleComponent implements OnInit, OnDestroy {
+export class SingleArticleComponent implements OnInit {
 
   article: Article;
-  private unsubscribe$ = new Subject<void>();
 
   constructor(private route: ActivatedRoute,
-              private articleService: ArticleService) { }
+              private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.articleService.getArticleBySlug(this.getRoute())
-    .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(res => {
-        if (res.ok) { this.article = res.article[0]; }
-    });
+    this.store.dispatch(ArticleActions.getArticleBySlug({ slug: this.getRoute() }));
   }
 
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
-  }
-
-  getRoute(): string {
+  private getRoute(): string {
     return this.route.snapshot.params.slug;
   }
 
