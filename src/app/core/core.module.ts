@@ -1,29 +1,35 @@
 import { NgModule, Optional, SkipSelf, ErrorHandler } from '@angular/core';
+import { CORE_MODULE_CONSTANTS, CORE_MODULE_CONFIG } from './core.module.config';
 import { CommonModule } from '@angular/common';
+
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { LanguageModule } from './language/language.module';
+import { LanguageService } from './language/services/language.service';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpService } from '@core/services/http/http.service';
-import { ErrorHandlerService } from '@core/error-handler/error-handler.service';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { LanguageModule } from './language/language.module';
-import { CORE_MODULE_CONSTANTS, CORE_MODULE_CONFIG } from './core.module.config';
-import { LanguageService } from './language/services/language.service';
 import { JwtInterceptor } from './services/http/jwt.interceptor';
-import { NgxWebstorageModule } from 'ngx-webstorage';
-import { StorageModule } from './services/storage/storage.module';
-import { ServicesModule } from './services/services.module';
 
-import { HighlightModule } from 'ngx-highlightjs';
+import { ServicesModule } from './services/services.module';
+import { StorageModule } from './services/storage/storage.module';
+import { NgxWebstorageModule } from 'ngx-webstorage';
+import { ErrorHandlerService } from '@core/error-handler/error-handler.service';
+import { DisqusModule } from 'ngx-disqus';
+
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { ArticleEffects } from './ngrx/effects/article.effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
+import { HighlightModule } from 'ngx-highlightjs';
 import javascript from 'highlight.js/lib/languages/javascript';
 import typescript from 'highlight.js/lib/languages/typescript';
 import css from 'highlight.js/lib/languages/css';
 import scss from 'highlight.js/lib/languages/scss';
 import xml from 'highlight.js/lib/languages/xml';
 import { reducer } from './ngrx/reducer/article.reducer';
+import { APP_CONSTANTS } from '../app.config';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, CORE_MODULE_CONSTANTS.TRANSLATE_CONFIG.I18N_PATH,
@@ -48,11 +54,13 @@ export function hljsLanguages() {
     ServicesModule,
     NgxWebstorageModule.forRoot(CORE_MODULE_CONSTANTS.WEBSTORAGE_CONFIG),
     EffectsModule.forRoot([ArticleEffects]),
-    StoreModule.forRoot({articles: reducer}),
+    StoreModule.forRoot({ articles: reducer }),
+    StoreDevtoolsModule.instrument({maxAge: 25}),
     LanguageModule.forRoot(),
     HighlightModule.forRoot({
       languages: hljsLanguages
     }),
+    DisqusModule.forRoot(APP_CONSTANTS.DISQUS),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

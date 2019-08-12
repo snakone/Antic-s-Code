@@ -12,7 +12,7 @@
 }
 
 .badge-card-category {
-  @include badge-category(#903af9, rgba(144,58,249,.1), 0, #fa8b0c)
+  @include badge-category(var(--violet-color), rgba(144,58,249,.1), 0, #fa8b0c)
 }
 
 .meta-star {

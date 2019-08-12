@@ -4,7 +4,10 @@
 <app-section input="#f5f7fc">
   <div class="row">
     <div class="col-lg-8 col-md-8" id="articles-section">
-      <app-articles-content [articles]="articles$ | async"></app-articles-content>
+      <app-articles-content *ngIf="articles$ | async"
+                            [articles]="articles$ | async">
+      </app-articles-content>
+      <app-loading *ngIf="!articles$ | async"></app-loading>
     </div>
     <div class="col-lg-4 col-md-4">
       <app-articles-sidebar></app-articles-sidebar>

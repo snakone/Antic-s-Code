@@ -17,10 +17,7 @@ export class ArticlesComponent implements OnInit {
 
   constructor(store: Store<AppState>) {
     this.articles$ = store.select(state => state.articles)
-      .pipe(map((res: any) => {
-        console.log(res);
-        return res.articles;
-      }));
+      .pipe(map((res: any) => res.articles));
   }
 
   ngOnInit() { }

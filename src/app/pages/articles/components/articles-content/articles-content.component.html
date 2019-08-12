@@ -5,18 +5,14 @@
     </div>
   </div>
 </div>
-<div *ngIf="articles">
-  <app-article-card shadow="true"
-                   *ngFor="let a of articles"
-                   [article]="a"
-                   [padding]="2">   <!-- ARTICLES GRID -->
-    <p>
-      Investig ationes demons trave runt lectores legere liusry
-      quod ii legunt saepius claritas Investig ationes. Pharetra dui,
-      nec tincidunt ante mauris eu diam. Phasellus viverra nisl vitae
-      cursus aei uismod suspendisse saepius claritas investig.
-    </p>
-  </app-article-card>
-</div>
-
-<app-loading *ngIf="!articles"></app-loading>
+<app-article-card shadow="true"
+                  *ngFor="let a of articles"
+                  [article]="a"
+                  [padding]="2">   <!-- ARTICLES GRID -->
+  <p>
+    Investig ationes demons trave runt lectores legere liusry
+    quod ii legunt saepius claritas Investig ationes. Pharetra dui,
+    nec tincidunt ante mauris eu diam. Phasellus viverra nisl vitae
+    cursus aei uismod suspendisse saepius claritas investig.
+  </p>
+</app-article-card>

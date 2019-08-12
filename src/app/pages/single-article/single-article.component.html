@@ -11,15 +11,12 @@
                         [article]="article"
                         [padding]="0">
         <app-article-maker [article]="article"></app-article-maker>
-        <app-single-article-comments></app-single-article-comments>
+        <app-disqus [identifier]="article.slug"></app-disqus>
       </app-article-card>
       <app-loading *ngIf="!article"></app-loading>
     </div>
     <div class="col-lg-4 col-md-4">  <!-- SIDEBAR -->
       <app-articles-sidebar></app-articles-sidebar>
-      <app-sticky-box selector="article-section">
-        <app-comment-box></app-comment-box>
-      </app-sticky-box>
     </div>
   </div>
 </app-section>

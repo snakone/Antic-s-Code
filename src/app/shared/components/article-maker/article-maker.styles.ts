@@ -38,15 +38,21 @@ code::-webkit-scrollbar-thumb {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  background: #e5ddec !important;
 }
 
 .btn {
-  color: var(--light-color);
+  color: var(--p-color);
   cursor: pointer
 }
 
+.btn:hover {
+  transform: scale(1.1);
+  transition: .2s transform ease-in;
+}
+
 .code-box span {
-  color: var(--light-color);
+  color: var(--p-color);
   font-weight: bold;
   font-size: 1.2rem;
 }
@@ -79,7 +85,7 @@ img.inline {
   position: relative;
   margin: 0;
   font-weight: bold;
-  color: var(--light-color);
+  color: var(--p-color);
 }
 
 h4 {

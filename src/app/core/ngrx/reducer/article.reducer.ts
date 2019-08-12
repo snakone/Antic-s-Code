@@ -12,13 +12,9 @@ const featureReducer = createReducer(
   )),
   on(ArticleActions.GetArticlesFailure, (state, { error }) => (
     { ...state, loading: false, error }
-  )),
-  on(ArticleActions.getArticleBySlug, (state, { slug }) => (
-    { ...state, error: null, selected: state.articles.filter(x => x.slug === slug)[0] }))
+  ))
 );
 
 export function reducer(state: AppState | undefined, action: Action) {
-  console.log('State ', state);
-  console.log('Action ', action);
   return featureReducer(state, action);
 }

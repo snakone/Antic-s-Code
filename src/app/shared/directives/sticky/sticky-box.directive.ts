@@ -33,11 +33,11 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
         const top = this.el.nativeElement.getBoundingClientRect().top + window.scrollY;
         this.setElementHeight(this.height, section, top, el);
       } catch (err) {}
-    }, 3000);
+    }, 1500);
   }
 
   private setElementHeight(h: number, s: number, t: number, el: any): void {
-    this.renderer.setStyle(el, 'height', `${s - t + h - 46}px`);
+    this.renderer.setStyle(el, 'height', `${s - t + h + 270}px`);
   }
 
   ngOnDestroy(): void {

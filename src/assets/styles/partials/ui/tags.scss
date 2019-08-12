@@ -7,5 +7,6 @@
  }
 
  .category-tag-purple {
-  @include category-tag(#903af9, #903af9);
+   &:hover { background: var(--violet-color) !important }
+  @include category-tag(var(--violet-color), var(--violet-color));
  }

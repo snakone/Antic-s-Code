@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ArticlesRelatedBoxComponent } from './articles-related-box.component';
+import { LastArticlesBoxComponent } from './last-articles-box.component';
 
-describe('ArticlesRelatedBoxComponent', () => {
-  let component: ArticlesRelatedBoxComponent;
-  let fixture: ComponentFixture<ArticlesRelatedBoxComponent>;
+describe('LastArticlesBoxComponent', () => {
+  let component: LastArticlesBoxComponent;
+  let fixture: ComponentFixture<LastArticlesBoxComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArticlesRelatedBoxComponent ]
+      declarations: [ LastArticlesBoxComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ArticlesRelatedBoxComponent);
+    fixture = TestBed.createComponent(LastArticlesBoxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -14,14 +14,12 @@ export interface AppState {
   articles: Article[];
   loading: boolean;
   error: string;
-  selected: Article;
 }
 
 export const State: AppState = {
   articles: [],
   loading: false,
-  error: null,
-  selected: null
+  error: null
 };
 
 export interface ModuleConfig {
@@ -33,6 +31,7 @@ export interface AppConfig extends ModuleConfig {
   DEFAULT_LANGUAGE: string;
   END_POINT: string;
   APP_VERSION: string;
+  DISQUS: string;
 }
 
 export const APP_CONSTANTS: AppConfig = {
@@ -40,6 +39,7 @@ export const APP_CONSTANTS: AppConfig = {
   DEFAULT_LANGUAGE: 'es',
   END_POINT: PROD,
   APP_VERSION,
+  DISQUS: 'antics-code',
   NAVIGATION: {
     EMPTY: '',
     ROOT: 'Home',

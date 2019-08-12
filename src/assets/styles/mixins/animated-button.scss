@@ -6,7 +6,7 @@
   background-image: linear-gradient(90deg, $color1, $color2, $color3, $color1);
   background-size: 400%;
   position: relative;
-  color: #fff;
+  color: var(--bg-color);
 
   &:before {
     content: "";

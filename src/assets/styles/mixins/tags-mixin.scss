@@ -19,7 +19,7 @@
 
 @mixin category-tag($color, $border) {
   padding: .50667rem;
-  border: 1px solid $border;
+  border: 1px solid $border !important;
   color: $color;
   margin-right: 12px;
   margin-bottom: 12px;

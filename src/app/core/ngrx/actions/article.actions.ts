@@ -9,5 +9,3 @@ export const getArticlesSuccess =   createAction('[Articles API] Get Success',
 export const GetArticlesFailure =   createAction('[Articles API] Get Failure',
                                     props<{ error: string }>());
 
-export const getArticleBySlug =     createAction('[Articles API] Get Article By Slug',
-                                    props<{ slug: string }>());
