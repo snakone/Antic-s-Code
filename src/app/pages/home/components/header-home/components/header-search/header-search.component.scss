@@ -42,7 +42,7 @@ mat-form-field {
 
 // MATERIAL SELECT CORRECTION
 .default { top: 0px }
-.category { top: 1px }
+.select { top: -1px }
 
 @media (max-width: 929px) {
   mat-form-field:last-of-type { padding-right: 0 }

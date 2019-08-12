@@ -1,36 +1,25 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ArticleService } from '@core/services/article/article.service';
-import { Subject } from 'rxjs';
-import { Article, ArticleResponse } from '@app/shared/interfaces/interfaces';
-import { takeUntil } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
+import { Article } from '@app/shared/interfaces/interfaces';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { AppState } from '@app/app.config';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-articles',
   templateUrl: './articles.component.html',
   styleUrls: ['./articles.component.scss']
 })
-export class ArticlesComponent implements OnInit, OnDestroy {
 
-  articles: Article[];
-  private unsubscribe$ = new Subject<void>();
+export class ArticlesComponent implements OnInit {
 
-  constructor(private articleService: ArticleService) { }
+  articles$: Observable<Article[]>;
 
-  ngOnInit() {
-    this.getArticles();
+  constructor(store: Store<AppState>) {
+    this.articles$ = store.select(state => state.articles)
+      .pipe(map((res: any) => res.articles));
   }
 
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
-  }
-
-  private getArticles(): void {
-    this.articleService.getArticles()
-    .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((res: ArticleResponse) => {
-      if (res.ok) { this.articles = res.articles; }
-    });
-  }
+  ngOnInit() { }
 
 }

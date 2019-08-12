@@ -1,6 +1,6 @@
 .list {
   &-wrapper {
-    border: 1px solid #e3e6ef;
+    border: 1px solid var(--section-border-color);
     padding: 3rem 3.33333rem 2.13333rem;
     -webkit-box-shadow: 0 5px 1rem rgba(146,153,184,.1);
     box-shadow: 0 5px 1rem rgba(146,153,184,.1);
@@ -29,7 +29,7 @@
         text-align: center;
         padding-left: 0;
         list-style: none;
-        color: #5d658c;
+        color: var(--tag-color);
 
         &:hover {
           color: var(--primary-color);

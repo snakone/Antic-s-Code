@@ -1,7 +1,11 @@
 <div class="search-bar">
   <form>
     <div class="search-bar-input">
-      <input type="text" placeholder="Search">
+      <input type="text"
+             name="value"
+             [ngModel]="value"
+             (ngModelChange)="changed($event)"
+             placeholder="Search">
       <mat-icon>search</mat-icon>
     </div>
   </form>

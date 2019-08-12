@@ -80,3 +80,8 @@ figure {
 }
 
 
+@media(max-width: 820px) and (min-width: 803px) {
+  .col-lg-4 {
+    max-width: 340px;
+  }
+}

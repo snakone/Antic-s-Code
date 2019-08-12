@@ -3,5 +3,8 @@
 </app-page-header>
 <app-section input="#f5f7fc">
   Code Works
+  <div *ngFor="let a of articles$ | async">
+    {{a.code | json}}
+  </div>
 </app-section>
 <app-footer></app-footer>

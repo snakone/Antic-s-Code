@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CommentBoxComponent } from './comment-box.component';
+import { DisqusComponent } from './disqus.component';
 
-describe('CommentBoxComponent', () => {
-  let component: CommentBoxComponent;
-  let fixture: ComponentFixture<CommentBoxComponent>;
+describe('DisqusComponent', () => {
+  let component: DisqusComponent;
+  let fixture: ComponentFixture<DisqusComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CommentBoxComponent ]
+      declarations: [ DisqusComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CommentBoxComponent);
+    fixture = TestBed.createComponent(DisqusComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

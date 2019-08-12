@@ -1,0 +1,42 @@
+@mixin tag() {
+  line-height: 2.33333rem;
+  padding: 0 .50667rem;
+  display: block;
+  border: 1px solid var(--section-border-color);
+  color: var(--tag-color);
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  @media(max-width: 1072px) { font-size: .9rem }
+  @media(max-width: 993px) { font-size: 1rem }
+  @media(max-width: 550px) { font-size: .9rem }
+
+  &:hover {
+    color: var(--light-color);
+    background: var(--primary-color);
+    cursor: pointer;
+  }
+}
+
+@mixin category-tag($color, $border) {
+  padding: .50667rem;
+  border: 1px solid $border !important;
+  color: $color;
+  margin-right: 12px;
+  margin-bottom: 12px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  display: inline-block;
+  @media(max-width: 1072px) { font-size: .9rem }
+  @media(max-width: 993px) { font-size: 1rem }
+  @media(max-width: 550px) {
+    font-size: .8rem;
+    margin-right: 5px;
+    margin-bottom: 5px;
+   }
+
+  &:hover {
+    color: var(--light-color);
+    background: var(--primary-color);
+    cursor: pointer;
+  }
+}

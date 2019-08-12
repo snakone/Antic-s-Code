@@ -3,11 +3,24 @@
 
 import { InjectionToken } from '@angular/core';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { Article } from './shared/interfaces/interfaces';
 
 const DEV = 'http://localhost:3000/';
 const PRE = 'http://192.168.1.97:3000/';
 const PROD = 'https://antics-space.herokuapp.com/';
 const APP_VERSION = '0.0.2';
+
+export interface AppState {
+  articles: Article[];
+  loading: boolean;
+  error: string;
+}
+
+export const State: AppState = {
+  articles: [],
+  loading: false,
+  error: null
+};
 
 export interface ModuleConfig {
   NAVIGATION?: any;
@@ -18,6 +31,7 @@ export interface AppConfig extends ModuleConfig {
   DEFAULT_LANGUAGE: string;
   END_POINT: string;
   APP_VERSION: string;
+  DISQUS: string;
 }
 
 export const APP_CONSTANTS: AppConfig = {
@@ -25,6 +39,7 @@ export const APP_CONSTANTS: AppConfig = {
   DEFAULT_LANGUAGE: 'es',
   END_POINT: PROD,
   APP_VERSION,
+  DISQUS: 'antics-code',
   NAVIGATION: {
     EMPTY: '',
     ROOT: 'Home',

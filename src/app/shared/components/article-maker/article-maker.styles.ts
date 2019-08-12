@@ -7,7 +7,7 @@ code {
   padding: 20px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
-  border: 1px solid #e3e6ef;
+  border: 1px solid var(--section-border-color);
   border-top: 0;
   box-sizing: border-box;
   cursor: pointer;
@@ -38,15 +38,21 @@ code::-webkit-scrollbar-thumb {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  background: #e5ddec !important;
 }
 
 .btn {
-  color: var(--light-color);
+  color: var(--p-color);
   cursor: pointer
 }
 
+.btn:hover {
+  transform: scale(1.1);
+  transition: .2s transform ease-in;
+}
+
 .code-box span {
-  color: var(--light-color);
+  color: var(--p-color);
   font-weight: bold;
   font-size: 1.2rem;
 }
@@ -79,7 +85,7 @@ img.inline {
   position: relative;
   margin: 0;
   font-weight: bold;
-  color: var(--light-color);
+  color: var(--p-color);
 }
 
 h4 {

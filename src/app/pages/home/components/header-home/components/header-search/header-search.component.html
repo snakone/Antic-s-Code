@@ -6,7 +6,7 @@
                placeholder="What are you looking for?"
                formControlName="title">
       </mat-form-field>
-      <mat-form-field class="category" color="accent">  <!-- CATEGORY -->
+      <mat-form-field class="select" color="accent">  <!-- CATEGORY -->
         <mat-label>Select a Category</mat-label>
         <mat-select formControlName="category">
           <mat-option *ngFor="let cat of categories" [value]="cat">
@@ -14,11 +14,11 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field class="category" color="accent">  <!-- SUB -->
+      <mat-form-field class="select" color="accent">  <!-- SUB -->
         <mat-label>Select a Sub Category</mat-label>
-        <mat-select formControlName="code">
-          <mat-option *ngFor="let cat of categories" [value]="cat">
-            {{cat}}
+        <mat-select formControlName="tag">
+          <mat-option *ngFor="let tag of tags" [value]="tag">
+            {{tag}}
           </mat-option>
         </mat-select>
       </mat-form-field>

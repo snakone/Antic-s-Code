@@ -7,7 +7,7 @@
     -webkit-align-items: flex-start;
     -ms-flex-align: start;
     align-items: flex-start;
-    border-bottom: 1px solid #e3e6ef;
+    border-bottom: 1px solid var(--section-border-color);
     padding-top: 2rem;
 
     &-body {
