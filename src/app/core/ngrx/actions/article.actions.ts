@@ -9,3 +9,5 @@ export const getArticlesSuccess =   createAction('[Articles API] Get Success',
 export const GetArticlesFailure =   createAction('[Articles API] Get Failure',
                                     props<{ error: string }>());
 
+export const SeachArticles =        createAction('[Articles API] Search Article',
+                                    props<{ value: string }>());

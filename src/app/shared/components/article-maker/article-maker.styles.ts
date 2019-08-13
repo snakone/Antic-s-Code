@@ -38,11 +38,11 @@ code::-webkit-scrollbar-thumb {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  background: #e5ddec !important;
+  background: #a4a7b2;
 }
 
 .btn {
-  color: var(--p-color);
+  color: #1C1D21;
   cursor: pointer
 }
 
@@ -52,9 +52,7 @@ code::-webkit-scrollbar-thumb {
 }
 
 .code-box span {
-  color: var(--p-color);
-  font-weight: bold;
-  font-size: 1.2rem;
+  color: #1C1D21;
 }
 
 pre { margin: 0 }
@@ -82,10 +80,31 @@ img.inline {
 }
 
 .copied {
-  position: relative;
+  position: absolute;
   margin: 0;
+  right: 15px;
+  margin-top: -45px;
+  padding: 1px 16px;
+  padding-bottom: 3px;
+  border-radius: 10%;
   font-weight: bold;
-  color: var(--p-color);
+  color: var(--light-color);
+  background: var(--tag-color);
+}
+
+@media(max-width: 550px) {
+  .copied { right: 0 }
+}
+
+.copied:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: 13px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--tag-color) transparent transparent transparent;
 }
 
 h4 {

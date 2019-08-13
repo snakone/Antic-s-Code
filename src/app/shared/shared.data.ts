@@ -61,33 +61,33 @@ export const POPULAR_CATEGORIES: Category[] = [
 
 export const MAIN_CATEGORIES: Category[] = [
   {
-    name: 'Restaurants',
-    icon: 'restaurant_menu',
-    picture: 'cat1.jpg'
+    name: 'Markup HTML5',
+    icon: 'html-logo.png',
+    picture: 'html.png'
   },
   {
-    name: 'Places & Destination',
-    icon: 'place',
+    name: 'Stylesheet CSS3',
+    icon: 'css-logo.png',
     picture: 'cat2.jpg'
   },
   {
-    name: 'Shooping',
-    icon: 'shopping_cart',
-    picture: 'cat3.jpg'
+    name: 'Vanilla Javascript',
+    icon: 'javascript-logo.png',
+    picture: 'javascript.jpg'
   },
   {
-    name: 'Art & History',
-    icon: 'account_balance',
-    picture: 'cat4.jpg'
+    name: 'Angular Framework',
+    icon: 'angular-logo.png',
+    picture: 'angular.png'
   },
   {
-    name: 'Hotel & Travel',
-    icon: 'hotel',
+    name: 'Server Javascript',
+    icon: 'node-logo.png',
     picture: 'cat5.jpg'
   },
   {
-    name: 'Food & Drink',
-    icon: 'fastfood',
+    name: 'Mongo Database',
+    icon: 'mongo-logo.png',
     picture: 'cat6.jpg'
   }
 ];
@@ -173,9 +173,9 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const LOGOS: List[] = [
-  { name: 'Vanilla Javascript', picture: 'javascript-logo.png' },
   { name: 'Markup HTML5', picture: 'html-logo.png' },
   { name: 'Stylesheet CSS3', picture: 'css-logo.png' },
+  { name: 'Vanilla Javascript', picture: 'javascript-logo.png' },
   { name: 'Angular Framework', picture: 'angular-logo.png' },
   { name: 'Server Javascript', picture: 'node-logo.png' },
   { name: 'Mongo Database', picture: 'mongo-logo.png' }

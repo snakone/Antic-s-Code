@@ -13,6 +13,7 @@ export class ArticlesContentComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
 }

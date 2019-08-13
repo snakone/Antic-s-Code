@@ -3,14 +3,12 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '@app/shared/shared.module';
 import { ComponentsModule } from '@shared/components/components.module';
 
-import { ArticlesSearchComponent } from './components/articles-search/articles-search.component';
 import { ArticlesSidebarComponent } from './articles-sidebar.component';
 import { ArticlesCategoryListBoxComponent } from './components/articles-category-list-box/articles-category-list-box.component';
 
 @NgModule({
   declarations: [
     ArticlesSidebarComponent,
-    ArticlesSearchComponent,
     ArticlesCategoryListBoxComponent
   ],
   imports: [
@@ -19,8 +17,7 @@ import { ArticlesCategoryListBoxComponent } from './components/articles-category
     ComponentsModule
   ],
   exports: [
-    ArticlesSidebarComponent,
-    ArticlesSearchComponent
+    ArticlesSidebarComponent
   ]
 })
 

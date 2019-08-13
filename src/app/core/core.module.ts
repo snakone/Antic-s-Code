@@ -54,7 +54,7 @@ export function hljsLanguages() {
     ServicesModule,
     NgxWebstorageModule.forRoot(CORE_MODULE_CONSTANTS.WEBSTORAGE_CONFIG),
     EffectsModule.forRoot([ArticleEffects]),
-    StoreModule.forRoot({ articles: reducer }),
+    StoreModule.forRoot({articleState: reducer}),
     StoreDevtoolsModule.instrument({maxAge: 25}),
     LanguageModule.forRoot(),
     HighlightModule.forRoot({

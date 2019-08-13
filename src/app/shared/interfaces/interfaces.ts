@@ -1,5 +1,3 @@
-import { Observable } from 'rxjs';
-
 export interface Category {
   name: string;
   icon: string;
@@ -76,4 +74,5 @@ export interface Code {
   lang: string;
   tooltip: boolean;
   description: string;
+  level: string;
 }

@@ -17,8 +17,8 @@ export class LastArticlesBoxComponent implements OnInit {
   articles$: Observable<Article[]>;
 
   constructor(store: Store<AppState>) {
-    this.articles$ = store.select(state => state.articles)
-    .pipe(map((res: any) => res.articles));
+    this.articles$ = store.select('articleState')
+    .pipe(map((res: AppState) => res.articles));
    }
 
   ngOnInit() { }

@@ -11,8 +11,7 @@
             <div class="basic-flex">
               <li>{{article.created}}</li>
               <li>by {{article.author}}</li>
-              <li>3 Comments</li>
-              <app-star-rating class="stars"></app-star-rating>
+              <app-star-rating *ngIf="stars" class="stars"></app-star-rating>
             </div>
           </ul>
           <div class="article-card-tags">

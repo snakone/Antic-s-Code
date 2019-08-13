@@ -12,6 +12,9 @@ const featureReducer = createReducer(
   )),
   on(ArticleActions.GetArticlesFailure, (state, { error }) => (
     { ...state, loading: false, error }
+  )),
+  on(ArticleActions.SeachArticles, (state, { value }) => (
+    { ...state, loading: false, error: null, search: value }
   ))
 );
 

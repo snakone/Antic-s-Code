@@ -2,10 +2,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
-import * as ArticleActions from '@core/ngrx/actions/article.actions';
+
 import { Article } from '@app/shared/interfaces/interfaces';
-import { Observable, Subject, merge, combineLatest } from 'rxjs';
-import { map, take, takeLast, takeUntil, switchMap, delay } from 'rxjs/operators';
+import { Subject, combineLatest } from 'rxjs';
+import { takeUntil} from 'rxjs/operators';
 
 @Component({
   selector: 'app-single-article',
@@ -26,14 +26,16 @@ export class SingleArticleComponent implements OnInit, OnDestroy {
   }
 
   private getArticlyBySlug(): void {
-    const store$ = this.store.select(state => state.articles);
+    const store$ = this.store.select('articleState');
     const route$ = this.route.params;
     // tslint:disable-next-line: deprecation
     combineLatest(store$, route$)
+     .pipe(takeUntil(this.unsubscribe$))
       .subscribe(([s, r]: any) => {
         this.article = null;
         setTimeout(() => {
-          this.article = s.articles.filter((x: Article) => x.slug === r.slug)[0] || null;
+          this.article = s.articles
+            .filter((x: Article) => x.slug === r.slug)[0] || null;
         }, 500);
     });
   }

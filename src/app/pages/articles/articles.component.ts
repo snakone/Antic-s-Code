@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Article } from '@app/shared/interfaces/interfaces';
-import { Observable } from 'rxjs';
+import * as ArticleActions from '@core/ngrx/actions/article.actions';
+import { Observable, of } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
 import { map } from 'rxjs/operators';
@@ -11,15 +12,29 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./articles.component.scss']
 })
 
-export class ArticlesComponent implements OnInit {
+export class ArticlesComponent implements OnInit, OnDestroy {
 
   articles$: Observable<Article[]>;
 
-  constructor(store: Store<AppState>) {
-    this.articles$ = store.select(state => state.articles)
-      .pipe(map((res: any) => res.articles));
+  constructor(private store: Store<AppState>) { }
+
+  ngOnInit() {
+    this.getArticles();
+   }
+
+  private getArticles(): void {
+    this.articles$ = this.store.select('articleState')
+      .pipe(map((res: AppState) => {
+      if (res.search) {
+        return res.articles
+          .filter((x: Article) => x.title.toLowerCase().includes(res.search) || of(null));
+      }
+      return res.articles;
+    }));
   }
 
-  ngOnInit() { }
+  ngOnDestroy(): void {
+    this.store.dispatch(ArticleActions.SeachArticles({value: null}));
+  }
 
 }

@@ -1,18 +1,25 @@
 <div class="display">
   <div class="row">
     <div class="col-lg-12">
-      <app-articles-search></app-articles-search>
+      <app-article-search></app-article-search>
     </div>
   </div>
 </div>
-<app-article-card shadow="true"
-                  *ngFor="let a of articles"
-                  [article]="a"
-                  [padding]="2">   <!-- ARTICLES GRID -->
-  <p>
-    Investig ationes demons trave runt lectores legere liusry
-    quod ii legunt saepius claritas Investig ationes. Pharetra dui,
-    nec tincidunt ante mauris eu diam. Phasellus viverra nisl vitae
-    cursus aei uismod suspendisse saepius claritas investig.
-  </p>
-</app-article-card>
+<div *ngIf="articles">
+  <app-article-card shadow="true"
+                    *ngFor="let a of articles"
+                    [article]="a"
+                    [padding]="2"
+                    [stars]="false">   <!-- ARTICLES GRID -->
+    <p>
+      Investig ationes demons trave runt lectores legere liusry
+      quod ii legunt saepius claritas Investig ationes. Pharetra dui,
+      nec tincidunt ante mauris eu diam. Phasellus viverra nisl vitae
+      cursus aei uismod suspendisse saepius claritas investig.
+    </p>
+  </app-article-card>
+</div>
+<div *ngIf="articles.length === 0">
+  NO ARTICLES
+</div>
+
