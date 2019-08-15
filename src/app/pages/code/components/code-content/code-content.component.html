@@ -1,0 +1,6 @@
+<div highlightChildren *ngIf="code.length > 0" class="code-wrapper">
+  <app-code-box *ngFor="let c of code | randomizer; let i = index"
+                [code]="c"
+                [index]="i + 1">
+  </app-code-box>
+</div>

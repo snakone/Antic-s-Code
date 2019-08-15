@@ -36,6 +36,21 @@ export const TAGS: string[] = [
   'Database'
 ];
 
+export const CODE_TAGS: string[] = [
+  'Consola',
+  'Comando',
+  'Javascript',
+  'Nodejs',
+  'Design',
+  'CSS',
+  'SCSS',
+  'Angular',
+  'Material',
+  'Ionic',
+  'Database',
+  'Config'
+];
+
 export const POPULAR_CATEGORIES: Category[] = [
   {
     name: 'Restaurants',

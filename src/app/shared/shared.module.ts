@@ -3,7 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageModule } from '@app/core/language/language.module';
 
-import { PipesModule } from '@shared/pipes/pipes.module';
+import { PipesModule } from '@app/shared/pipes/pipes.module';
 import { MaterialModule } from './material/material.module';
 import { DirectivesModule } from './directives/directives.module';
 import { HighlightModule } from 'ngx-highlightjs';

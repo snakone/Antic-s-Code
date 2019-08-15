@@ -27,7 +27,7 @@ export class StickyBoxComponent implements OnInit {
       this.display = true;
       return;
     }
-    this.display = !((s / h) * 100 > 75);
+    this.display = !((s / h) * 100 > 80);
   }
 
 }

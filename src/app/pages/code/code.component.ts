@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Article } from '@app/shared/interfaces/interfaces';
-import { Observable } from 'rxjs';
+import { Article, Code } from '@app/shared/interfaces/interfaces';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-code',
@@ -13,13 +11,33 @@ import { map } from 'rxjs/operators';
 
 export class CodeComponent implements OnInit {
 
-  articles$: Observable<Article[]>;
+  code: Code[] = [];
+  filtered: Code[] = [];
 
-  constructor(store: Store<AppState>) {
-    this.articles$ = store.select('articleState')
-      .pipe(map((res: AppState) => res.articles));
+  constructor(private store: Store<AppState>) { }
+
+  ngOnInit() {
+    this.getCode();
   }
 
-  ngOnInit() { }
+  getCode(): void {
+    this.store.select('articleState')
+      .subscribe((res: AppState) => {
+        if (res.articles) {
+          res.articles.forEach((x: Article) => {
+            this.code.push(...x.code);
+          });
+          this.filtered = this.code;
+        }
+    });
+  }
+
+  filter(tag: string): void {
+    this.filtered = this.code.map((x: Code) => {
+      if (x.tags.includes(tag)) { return x; }
+    });
+
+
+  }
 
 }
