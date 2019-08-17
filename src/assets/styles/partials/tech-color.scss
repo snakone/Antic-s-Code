@@ -2,8 +2,9 @@
 .ionic,
 .react,
 .vue,
-.css,
-.ts {
+.css-code,
+.ts,
+.node {
   font-weight: bold;
 }
 
@@ -11,5 +12,6 @@
 .ionic { color: var(--ionic-color) }
 .react { color: var(--react-color) }
 .vue { color: var(--vue-color) }
-.css { color: var(--css-color) }
+.css-code { color: var(--css-color) }
 .ts { color: var(--ts-color) }
+.node { color: var(--node-color) }

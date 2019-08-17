@@ -33,11 +33,9 @@ export class CodeComponent implements OnInit {
   }
 
   filter(tag: string): void {
-    this.filtered = this.code.map((x: Code) => {
+    this.filtered = this.code.filter((x: Code) => {
       if (x.tags.includes(tag)) { return x; }
     });
-
-
   }
 
 }

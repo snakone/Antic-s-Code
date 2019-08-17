@@ -5,14 +5,13 @@
   <div class="row">
     <div class="col-lg-8 col-md-8" id="code-section">
       <app-code-content [code]="filtered"
-                        *ngIf="filtered.length > 0">
+                        *ngIf="filtered">
       </app-code-content>
-      <app-loading *ngIf="!code || filtered.length === 0"></app-loading>
+      <app-loading *ngIf="!code"></app-loading>
     </div>
     <div class="col-lg-4 col-md-4">
       <app-code-sidebar (tag)="filter($event)"></app-code-sidebar>
     </div>
   </div>
-
 </app-section>
 <app-footer></app-footer>

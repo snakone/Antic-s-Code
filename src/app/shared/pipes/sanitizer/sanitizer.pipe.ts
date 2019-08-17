@@ -10,7 +10,7 @@ export class SanitizerPipe implements PipeTransform {
     if (args) {
       if (args === 'html') {
         return this.sanitizer.bypassSecurityTrustHtml(value);
-      } else if (args === 'css') {
+      } else if (args === 'style') {
         return this.sanitizer.bypassSecurityTrustStyle(value);
       }
     } else { return value; }

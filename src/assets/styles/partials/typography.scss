@@ -6,7 +6,10 @@
 
 .active { color: var(--primary-color) }
 
-p { color: var(--p-color) }
+p {
+  color: var(--p-color);
+  line-height: 1.5rem;
+}
 
 h1 {
   color: var(--light-color);
@@ -19,6 +22,8 @@ h1 {
   @media (max-width: 320px) { font-size: 1.2rem }
 }
 
+h4 { color: var(--tag-color) }
+
 a {
   text-decoration: none;
   color: var(--primary-color);
@@ -28,4 +33,20 @@ a {
     cursor: pointer;
     font-weight: bold;
   }
+}
+
+p.first::first-letter {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+@media(max-width: 550px) {
+  p, a, span { font-size: .9rem !important }
+  p { margin: 1rem auto !important }
+}
+
+br {
+  display: block;
+  content: "";
+  margin-top: 12px;
 }

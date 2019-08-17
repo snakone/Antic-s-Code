@@ -5,8 +5,8 @@ import { SharedModule } from '@app/shared/shared.module';
 import { Subscription } from 'rxjs';
 import { Article, Code } from '@app/shared/interfaces/interfaces';
 import { CommonModule } from '@angular/common';
-import { ARTICLE_STYLES } from './article-maker.styles';
 import { BoxesModule } from '../layout/boxes/boxes.module';
+import { ARTICLE_STYLES } from './article-maker.styles';
 
 declare var ClipboardJS: any;
 

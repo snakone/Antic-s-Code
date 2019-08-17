@@ -1,7 +1,6 @@
 .article {
   &-wrapper {
-    margin-bottom: 2.5rem;
-    &:last-child { margin-bottom: 2rem }
+    margin-bottom: 2rem;
    }
 
   &-card {
@@ -26,11 +25,6 @@
         border-style: none;
         &:hover { cursor: pointer }
       }
-    }
-
-    &-info {
-      margin-bottom: 1.6667rem;
-      border-bottom: 1px solid var(--section-border-color);
     }
 
     &-body {
@@ -70,7 +64,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
         @media(max-width: 625px) {
           margin-bottom: 1rem;
         }
@@ -81,6 +75,7 @@
         color: var(--p-color);
         margin-right: 1rem;
         line-height: 1.6rem;
+        display: inline-block;
       }
 
       & p {
@@ -89,7 +84,6 @@
         color: var(--p-color);
       }
     }
-
     &-tags { margin-bottom: 1.5rem }
   }
 }
@@ -112,7 +106,8 @@
 @media(min-width: 626px) {
   .stars {
     position: absolute;
-    right: 2rem;
+    right: 1.2rem;
     margin-top: -2px;
    }
 }
+

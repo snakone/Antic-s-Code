@@ -5,8 +5,9 @@
     margin-bottom: 2rem;
 
     &-header {
-      padding: 1.1666rem;
+      padding: 1.1666rem 2rem;
       border-bottom: 1px solid var(--section-border-color);
+      @media(max-width: 450px) { padding: 1rem 1.5rem }
 
     & h4 {
       margin-bottom: 0;
@@ -16,11 +17,11 @@
       color: var(--title-color);
 
       & span {
-        font-size: 1.2rem;
+        font-size: 1.2rem !important;
         @media(max-width: 359px) { font-size: 1rem }
        }
       & mat-icon {
-        margin: 0 var(--small-padding) }
+        margin-right: var(--small-padding) }
      }
     }
 
@@ -35,17 +36,8 @@
     }
 
     &-body {
-      padding: 1.8rem 2rem;
-      @media(max-width: 350px) { padding: 1.3rem 1.5rem }
-
-      & p {
-        margin: 0;
-        font-size: 1rem;
-        line-height: 1.8rem;
-        color: var(--p-color);
-        @media(max-width: 359px) { font-size: .9rem }
-        @media(max-width: 320px) { line-height: 1.5rem }
-      }
+      padding: 1.5rem 2rem;
+      @media(max-width: 450px) { padding: 1rem 1.5rem }
     }
   }
 }

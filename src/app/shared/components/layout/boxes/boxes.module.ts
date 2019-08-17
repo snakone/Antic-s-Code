@@ -22,7 +22,7 @@ import { HighlightModule } from 'ngx-highlightjs';
     CommonModule,
     SharedModule,
     RouterModule,
-    HighlightModule
+    HighlightModule,
   ],
   exports: [
     ContentBoxComponent,

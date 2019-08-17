@@ -78,17 +78,17 @@ export const MAIN_CATEGORIES: Category[] = [
   {
     name: 'Markup HTML5',
     icon: 'html-logo.png',
-    picture: 'html.png'
+    picture: 'angular.png'
   },
   {
     name: 'Stylesheet CSS3',
     icon: 'css-logo.png',
-    picture: 'cat2.jpg'
+    picture: 'angular.png'
   },
   {
     name: 'Vanilla Javascript',
     icon: 'javascript-logo.png',
-    picture: 'javascript.jpg'
+    picture: 'angular.png'
   },
   {
     name: 'Angular Framework',
@@ -98,14 +98,21 @@ export const MAIN_CATEGORIES: Category[] = [
   {
     name: 'Server Javascript',
     icon: 'node-logo.png',
-    picture: 'cat5.jpg'
+    picture: 'angular.png'
   },
   {
     name: 'Mongo Database',
     icon: 'mongo-logo.png',
-    picture: 'cat6.jpg'
+    picture: 'angular.png'
   }
 ];
+
+export const PAGE_BG = {
+  code: 'https://media0.giphy.com/media/l3q2XB76CaWPggiNW/giphy.gif',
+  categories: 'https://media2.giphy.com/media/hLzncGRSaC5Nu/giphy.gif',
+  articles: 'https://media0.giphy.com/media/xUA7bgk0V4eUyNVaAo/giphy.gif',
+  article: 'https://media2.giphy.com/media/b93B4aJQQakRG/giphy.gif'
+};
 
 export const PLACES: List[] = [
   { name: 'London, UK', picture: 'place1.jpg' },
