@@ -80,7 +80,7 @@ pre { margin: 0 }
 .copied {
   position: absolute;
   margin: 0;
-  right: 15px;
+  right: 48px;
   margin-top: -45px;
   padding: 1px 16px;
   padding-bottom: 3px;
@@ -89,8 +89,6 @@ pre { margin: 0 }
   color: var(--light-color);
   background: var(--tag-color);
 }
-
-.code-list { right: 48px !important }
 
 @media(max-width: 550px) {
   .copied { right: 0 }
