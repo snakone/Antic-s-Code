@@ -11,9 +11,9 @@ import {
 
 export const MENU: MenuLink[] = [
   { name: 'Home', link: '/home' },
-  { name: 'Code', link: '/code' },
-  { name: 'Categories', link: '/categories' },
-  { name: 'Articles', link: '/articles' }
+  { name: 'Código', link: '/code' },
+  { name: 'Categorias', link: '/categories' },
+  { name: 'Artículos', link: '/articles' }
 ];
 
 export const CATEGORIES: string[] = [
@@ -26,11 +26,11 @@ export const CATEGORIES: string[] = [
 ];
 
 export const TAGS: string[] = [
-  'Development',
+  'Desarollo',
   'Typescript',
   'Frontend',
   'Backend',
-  'Design',
+  'Diseño',
   'SCSS',
   'Ionic',
   'Database'
@@ -53,22 +53,22 @@ export const CODE_TAGS: string[] = [
 
 export const POPULAR_CATEGORIES: Category[] = [
   {
-    name: 'Restaurants',
+    name: 'Cógido',
     icon: 'restaurant_menu',
     class: 'icon-pink'
   },
   {
-    name: 'Places',
+    name: 'Artículos',
     icon: 'place',
     class: 'icon-green'
   },
   {
-    name: 'Shooping',
+    name: 'Tutoriales',
     icon: 'shopping_cart',
     class: 'icon-orange'
   },
   {
-    name: 'Hotels',
+    name: 'Ejemplos',
     icon: 'hotel',
     class: 'icon-red'
   },
@@ -205,16 +205,16 @@ export const LOGOS: List[] = [
 
 export const FOOTER_LIST: FooterList[] = [
   {
-    title: 'Company Info',
-    list: ['About Us', 'Contact Us', 'Support', 'Privacy Policy']
+    title: 'Antic\'s Info',
+    list: ['Sobre mí', 'Contacto', 'Soporte', 'Políticas']
   },
   {
-    title: 'Helpful Links',
-    list: ['Join Direo', 'How it Work', 'Advantages', 'Packages']
+    title: 'Enlaces Útiles',
+    list: ['Registrarse', '¿Cómo funciona?', 'Ventajas', 'Colabora']
   },
   {
-    title: 'Connect with Us',
-    list: ['Contact Support', 'Twitter', 'Facebook', 'Youtube']
+    title: 'Conecta Conmigo',
+    list: ['Ayuda', 'Twitter', 'Facebook', 'Youtube']
   }
 ];
 
@@ -287,17 +287,17 @@ export const RELATED_ARTICLES: Related[] = [
 
 export const CATEGORY_TOC: ToC[] = [
   {
-    index: 'Introduction',
+    index: 'Introducción',
     description: 'A brief introduction',
     anchor: 'cat-intro'
   },
   {
-    index: 'Concepts',
+    index: 'Conceptos',
     description: 'Technology concepts',
     anchor: 'cat-concept'
   },
   {
-    index: 'Examples',
+    index: 'Ejemplos',
     description: 'Learning bit a bit',
     anchor: 'cat-examples'
   },

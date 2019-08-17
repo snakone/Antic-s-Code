@@ -6,12 +6,15 @@
     <div class="col-lg-12 display">  <!-- SEARCH BAR -->
       <app-article-search></app-article-search>
     </div>
-    <div class="col-lg-8 col-md-8" id="article-section">  <!-- ARTICLE CONTENT -->
+    <div class="col-lg-8 col-md-8">  <!-- ARTICLE CONTENT -->
       <app-article-card *ngIf="article"
                         [article]="article"
                         [padding]="0"
                         [stars]="true">
         <app-article-maker [article]="article"></app-article-maker>
+        <app-article-links-box *ngIf="article.links.length > 0"
+                               [article]="article">
+        </app-article-links-box>
         <app-disqus [identifier]="article.slug"></app-disqus>
       </app-article-card>
       <app-loading *ngIf="!article"></app-loading>

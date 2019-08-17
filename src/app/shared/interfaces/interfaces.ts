@@ -60,6 +60,7 @@ export interface Article {
   likes?: number;
   views?: number;
   stars?: number;
+  links?: Link[];
 }
 
 export interface ArticleResponse {
@@ -75,4 +76,9 @@ export interface Code {
   description: string;
   level: string;
   tags: string[];
+}
+
+export interface Link {
+  name: string;
+  url: string;
 }
