@@ -5,6 +5,7 @@ import { SharedModule } from '@app/shared/shared.module';
 import { Subscription } from 'rxjs';
 import { Article, Code } from '@app/shared/interfaces/interfaces';
 import { CommonModule } from '@angular/common';
+import { BoxesModule } from '../layout/boxes/boxes.module';
 import { ARTICLE_STYLES } from './article-maker.styles';
 
 declare var ClipboardJS: any;
@@ -45,7 +46,8 @@ export class ArticleMakerComponent implements AfterViewInit, OnDestroy {
           imports: [
             SharedModule,
             RouterModule,
-            CommonModule
+            CommonModule,
+            BoxesModule
           ],
         })(class {});
         this.compiler.compileModuleAndAllComponentsAsync(tmpModule)

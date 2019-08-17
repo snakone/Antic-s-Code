@@ -5,16 +5,16 @@ import { AppState, State } from '@app/app.config';
 const featureReducer = createReducer(
   State,
   on(ArticleActions.getArticles, state => (
-    { ...state, loading: true, error: null }
+    { ...state, loaded: false, error: null }
   )),
   on(ArticleActions.getArticlesSuccess, (state, { articles }) => (
-    { ...state, loading: false, error: null, articles }
+    { ...state, loaded: true, error: null, articles }
   )),
   on(ArticleActions.GetArticlesFailure, (state, { error }) => (
-    { ...state, loading: false, error }
+    { ...state, loaded: false, error }
   )),
   on(ArticleActions.SeachArticles, (state, { value }) => (
-    { ...state, loading: false, error: null, search: value }
+    { ...state, loaded: true, error: null, search: value }
   ))
 );
 

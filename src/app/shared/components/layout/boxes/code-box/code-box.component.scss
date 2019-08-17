@@ -1,0 +1,137 @@
+* { user-select: text }
+
+code {
+  font-size: 1em;
+  padding: 20px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+code::-webkit-scrollbar {
+  height: 10px;
+  display: block;
+}
+
+code::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+  box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+  border-radius: 5px;
+}
+
+code::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 3px var(--primary-color);
+  box-shadow: inset 0 0 3px var(--primary-color);
+}
+
+.code-box { margin: 30px auto }
+
+.copy {
+  padding: 8px 20px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background: #a4a7b2;
+}
+
+.code-category {
+  margin: 0 .8rem;
+  cursor: pointer;
+  padding: 0 5px;
+}
+
+.icon-level, .icon-tags {
+  margin-right: 1rem;
+  position: relative;
+  top: 8px;
+  color: #afafaf;
+}
+
+.icon-level { font-size: 1.8rem }
+
+.basic, .medium, .hard {
+  font-weight: bold;
+  margin-left: 5px;
+ }
+
+.basic { color: var(--success-color) }
+.medium { color: var(--ionic-color) }
+.hard { color: var(--angular-color) }
+
+.btn {
+  color: #1C1D21;
+  cursor: pointer
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  transition: .2s transform ease-in;
+}
+
+.code-box span { color: #1C1D21 }
+pre { margin: 0 }
+
+.copied {
+  position: absolute;
+  margin: 0;
+  right: 15px;
+  margin-top: -45px;
+  padding: 1px 16px;
+  padding-bottom: 3px;
+  border-radius: 5%;
+  font-weight: bold;
+  color: var(--light-color);
+  background: var(--tag-color);
+}
+
+.code-list { right: 48px !important }
+
+@media(max-width: 550px) {
+  .copied { right: 0 }
+  .code-list { right: 29px !important }
+  span { font-size: .8rem !important }
+  .code-category { margin-right: .4rem}
+  code { font-size: .9rem !important }
+}
+
+.copied:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: 13px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--tag-color) transparent transparent transparent;
+}
+
+h3 {
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  margin-bottom: .6667rem;
+}
+
+h4 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  @media(max-width: 650px) { font-size: 1.1rem }
+}
+
+.code-tag {
+  margin-left: 5px;
+  cursor: pointer;
+  &:hover { color: var(--primary-color) }
+ }
+
+.black { color: black }
+
+
+
+

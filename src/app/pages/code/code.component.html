@@ -2,9 +2,16 @@
                  subTitle="Code">
 </app-page-header>
 <app-section input="#f5f7fc">
-  Code Works
-  <div *ngFor="let a of articles$ | async">
-    {{a.code | json}}
+  <div class="row">
+    <div class="col-lg-8 col-md-8" id="code-section">
+      <app-code-content [code]="filtered"
+                        *ngIf="filtered">
+      </app-code-content>
+      <app-loading *ngIf="!code"></app-loading>
+    </div>
+    <div class="col-lg-4 col-md-4">
+      <app-code-sidebar (tag)="filter($event)"></app-code-sidebar>
+    </div>
   </div>
 </app-section>
 <app-footer></app-footer>

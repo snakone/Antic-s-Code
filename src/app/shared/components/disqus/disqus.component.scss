@@ -1,11 +1,4 @@
-.wrapper {
-  margin-top: 30px;
-  margin-bottom: -20px;
-  padding-bottom: 20px;
-  box-sizing: border-box;
-
-  @media(max-width: 992px) { padding-bottom: 40px }
-}
+.wrapper { box-sizing: border-box }
 
 .disqus {
   position: relative;

@@ -5,7 +5,7 @@
     </div>
   </div>
 </div>
-<div *ngIf="articles">
+<div *ngIf="articles.length > 0">
   <app-article-card shadow="true"
                     *ngFor="let a of articles"
                     [article]="a"
@@ -19,7 +19,9 @@
     </p>
   </app-article-card>
 </div>
-<div *ngIf="articles.length === 0">
-  NO ARTICLES
-</div>
+<app-content-box *ngIf="articles.length === 0"
+                        title="Oops!"
+                        icon="cancel">
+        <p>No se han encontrado resultados</p>
+</app-content-box>
 

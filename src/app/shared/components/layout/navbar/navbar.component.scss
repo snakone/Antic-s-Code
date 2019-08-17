@@ -94,6 +94,8 @@
   -webkit-border-radius: 3px;
   border-radius: 3px;
   border: 1px solid rgba(255, 255, 255, .7);
+  width: 46px;
+  height: 36px;
 
   & i {
     outline: 0;
@@ -102,12 +104,11 @@
   }
 
   & span {
-    width: 1.5em;
-    height: 1.5em;
     font-size: 1.33333rem;
     display: inline-block;
     line-height: normal;
     margin-bottom: -3px;
+
   }
 
   &:focus { outline: none }

@@ -19,7 +19,7 @@ export class ArticleSearchComponent implements OnInit {
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
-    // this.subscribeToChanges();
+    this.subscribeToChanges();
   }
 
   private subscribeToChanges(): void {
@@ -32,6 +32,7 @@ export class ArticleSearchComponent implements OnInit {
   }
 
   changed(value: string): void {
+    if (value === '') { value = null; }
     this.valueChanged.next(value);
   }
 

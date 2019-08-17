@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Article } from '@app/shared/interfaces/interfaces';
 import * as ArticleActions from '@core/ngrx/actions/article.actions';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
 import { map } from 'rxjs/operators';
@@ -27,7 +27,7 @@ export class ArticlesComponent implements OnInit, OnDestroy {
       .pipe(map((res: AppState) => {
       if (res.search) {
         return res.articles
-          .filter((x: Article) => x.title.toLowerCase().includes(res.search) || of(null));
+          .filter((x: Article) => x.title.toLowerCase().includes(res.search) || null);
       }
       return res.articles;
     }));

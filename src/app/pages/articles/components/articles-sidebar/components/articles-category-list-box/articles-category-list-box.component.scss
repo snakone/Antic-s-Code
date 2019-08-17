@@ -10,6 +10,7 @@ li {
   display: flex;
   align-items: center;
   cursor: pointer;
+  &:last-child { margin-bottom: 0 }
   & mat-icon { margin-right: 10px }
   &:hover span { color: var(--primary-color) }
 }

@@ -66,7 +66,6 @@ export interface ArticleResponse {
   ok: boolean;
   message: string;
   articles?: Article[];
-  article?: Article;
 }
 
 export interface Code {
@@ -75,4 +74,5 @@ export interface Code {
   tooltip: boolean;
   description: string;
   level: string;
+  tags: string[];
 }

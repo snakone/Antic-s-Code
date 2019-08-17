@@ -6,6 +6,7 @@ label.star {
   font-size: 1.2rem;
   color: #444;
   transition: all .2s;
+  @media(max-width: 625px) { float: left }
 }
 
  input.star:checked ~ label.star:before {

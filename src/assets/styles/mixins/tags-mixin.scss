@@ -1,5 +1,5 @@
 @mixin tag() {
-  line-height: 2.33333rem;
+  line-height: 1.8rem;
   padding: 0 .50667rem;
   display: block;
   border: 1px solid var(--section-border-color);
@@ -8,7 +8,11 @@
   border-radius: 2px;
   @media(max-width: 1072px) { font-size: .9rem }
   @media(max-width: 993px) { font-size: 1rem }
-  @media(max-width: 550px) { font-size: .9rem }
+  @media(max-width: 550px) {
+    font-size: .8rem;
+    margin-right: 5px;
+    margin-bottom: 5px;
+   }
 
   &:hover {
     color: var(--light-color);
@@ -18,7 +22,8 @@
 }
 
 @mixin category-tag($color, $border) {
-  padding: .50667rem;
+  line-height: 1.8rem;
+  padding: 0 .50667rem;
   border: 1px solid $border !important;
   color: $color;
   margin-right: 12px;
@@ -29,7 +34,7 @@
   @media(max-width: 1072px) { font-size: .9rem }
   @media(max-width: 993px) { font-size: 1rem }
   @media(max-width: 550px) {
-    font-size: .8rem;
+    font-size: .8rem !important;
     margin-right: 5px;
     margin-bottom: 5px;
    }

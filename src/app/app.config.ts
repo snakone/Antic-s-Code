@@ -12,14 +12,14 @@ const APP_VERSION = '0.0.2';
 
 export interface AppState {
   articles: Article[];
-  loading: boolean;
+  loaded: boolean;
   error: string;
   search: string;
 }
 
 export const State: AppState = {
   articles: [],
-  loading: false,
+  loaded: false,
   error: null,
   search: null
 };

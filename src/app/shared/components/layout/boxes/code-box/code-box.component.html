@@ -1,0 +1,36 @@
+<div class="code-description" *ngIf="code">
+  <div *ngIf="list">
+    <p class="description"
+       [innerHTML]="code.description | sanitizer:'html'">
+    </p>
+    <span class="black bold">Nivel: </span>
+    <span [ngClass]="{'basic': code.level === 'Basic',
+                      'medium': code.level === 'Medium',
+                      'hard': code.level === ' Hard'}">{{code.level}}
+    </span>
+    <div class="code-tags">
+      <span class="black bold">Tags: </span>
+      <span class="code-tag"
+            *ngFor="let t of code.tags">
+        {{t}}
+      </span>
+    </div>
+  </div>
+
+  <div class='code-box'>
+    <div text-right class='copy'>
+    <span>{{code.lang}}</span>
+      <p class="copied animated fadeIn slow" [ngClass]="{'code-list': list}"
+        *ngIf="code.tooltip">¡Copiado!</p>
+      <mat-icon [attr.data-clipboard-text]="code.code"
+                class="btn" name="copy"
+                (click)="showTooltip(code)">code
+      </mat-icon>
+    </div>
+    <pre><code [textContent]="code.code"></code></pre>
+  </div>
+</div>
+
+
+
+

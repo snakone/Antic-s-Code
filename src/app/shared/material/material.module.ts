@@ -19,7 +19,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatIconModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatSidenavModule,
     MatExpansionModule,
     MatProgressSpinnerModule
   ],
@@ -30,7 +29,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatIconModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatSidenavModule,
     MatExpansionModule,
     MatProgressSpinnerModule
   ]

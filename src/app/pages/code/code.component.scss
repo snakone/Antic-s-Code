@@ -1,0 +1,23 @@
+* { box-sizing: border-box }
+
+.col-lg-4 {
+  max-width: 380px;
+  @media(max-width: 992px) {
+    width: 100%;
+    max-width: 100%;
+   }
+}
+
+.col-lg-8 {
+  max-width: 760px;
+  @media(max-width: 992px) {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  @media(max-width: 550px) {
+   padding-right: 0;
+   padding-left: 0;
+  }
+}
+
