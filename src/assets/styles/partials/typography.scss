@@ -1,7 +1,6 @@
 .bold {
   color: var(--primary-color);
   font-weight: bold;
-  &:hover { cursor: pointer }
 }
 
 .active { color: var(--primary-color) }
@@ -9,6 +8,7 @@
 p {
   color: var(--p-color);
   line-height: 1.5rem;
+  margin: 0;
 }
 
 h1 {
@@ -37,7 +37,6 @@ a {
 
 p.first::first-letter {
   font-size: 2rem;
-  color: var(--primary-color);
 }
 
 @media(max-width: 550px) {

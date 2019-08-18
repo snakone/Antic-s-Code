@@ -46,17 +46,7 @@ code::-webkit-scrollbar-thumb {
   padding: 0 5px;
 }
 
-.icon-level, .icon-tags {
-  margin-right: 1rem;
-  position: relative;
-  top: 8px;
-  color: #afafaf;
-}
-
-.icon-level { font-size: 1.8rem }
-
 .basic, .medium, .hard {
-  font-weight: bold;
   margin-left: 5px;
  }
 
@@ -128,8 +118,13 @@ h4 {
   &:hover { color: var(--primary-color) }
  }
 
-.black { color: black }
+.color { color: var(--p-color) }
 
+ul {
+  padding-left: 20px;
+  list-style-type: circle;
+
+}
 
 
 

@@ -10,7 +10,7 @@ import {
 } from './interfaces/interfaces';
 
 export const MENU: MenuLink[] = [
-  { name: 'Home', link: '/home' },
+  { name: 'Inicio', link: '/home' },
   { name: 'Código', link: '/code' },
   { name: 'Categorias', link: '/categories' },
   { name: 'Artículos', link: '/articles' }
@@ -54,22 +54,22 @@ export const CODE_TAGS: string[] = [
 export const POPULAR_CATEGORIES: Category[] = [
   {
     name: 'Cógido',
-    icon: 'restaurant_menu',
+    icon: 'code',
     class: 'icon-pink'
   },
   {
     name: 'Artículos',
-    icon: 'place',
-    class: 'icon-green'
-  },
-  {
-    name: 'Tutoriales',
-    icon: 'shopping_cart',
+    icon: 'receipt',
     class: 'icon-orange'
   },
   {
+    name: 'Tutoriales',
+    icon: 'nature_people',
+    class: 'icon-green'
+  },
+  {
     name: 'Ejemplos',
-    icon: 'hotel',
+    icon: 'wallpaper',
     class: 'icon-red'
   },
 ];
@@ -205,7 +205,7 @@ export const LOGOS: List[] = [
 
 export const FOOTER_LIST: FooterList[] = [
   {
-    title: 'Antic\'s Info',
+    title: 'Información',
     list: ['Sobre mí', 'Contacto', 'Soporte', 'Políticas']
   },
   {

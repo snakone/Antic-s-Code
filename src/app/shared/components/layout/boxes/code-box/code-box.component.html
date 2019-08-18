@@ -2,21 +2,24 @@
   <div *ngIf="list">
     <p class="description"
        [innerHTML]="code.description | sanitizer:'html'">
-    </p>
-    <span class="black bold">Nivel: </span>
-    <span [ngClass]="{'basic': code.level === 'Basic',
-                      'medium': code.level === 'Medium',
-                      'hard': code.level === ' Hard'}">{{code.level}}
-    </span>
-    <div class="code-tags">
-      <span class="black bold">Tags: </span>
-      <span class="code-tag"
-            *ngFor="let t of code.tags">
-        {{t}}
-      </span>
-    </div>
+    </p><br>
+    <ul>
+      <li>
+        <span class="color">Nivel: </span>
+        <span [ngClass]="{'basic': code.level === 'Básico',
+                          'medium': code.level === 'Medio',
+                          'hard': code.level === ' Avanzado'}">{{code.level}}
+        </span>
+      </li>
+      <li>
+        <span class="color">Temas: </span>
+        <span class="code-tag"
+              *ngFor="let t of code.tags">
+          {{t}}
+        </span>
+      </li>
+    </ul>
   </div>
-
   <div class='code-box'>
     <div text-right class='copy'>
     <span>{{code.lang}}</span>
