@@ -61,6 +61,7 @@ export interface Article {
   views?: number;
   stars?: number;
   links?: Link[];
+  summary?: string;
 }
 
 export interface ArticleResponse {
@@ -81,4 +82,10 @@ export interface Code {
 export interface Link {
   name: string;
   url: string;
+}
+
+export interface MenuDropdown {
+  name: string;
+  link: string;
+  icon: string;
 }

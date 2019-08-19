@@ -35,6 +35,7 @@
     "highlight.js": "^9.15.9",
     "ngx-disqus": "^2.4.3",
     "ngx-highlightjs": "^3.0.3",
+    "ngx-pagination": "^4.1.0",
     "ngx-swiper-wrapper": "^8.0.1",
     "ngx-webstorage": "^3.0.2",
     "rxjs": "~6.5.2",

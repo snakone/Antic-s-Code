@@ -10,16 +10,10 @@ import { Code } from '@app/shared/interfaces/interfaces';
 export class CodeBoxComponent implements OnInit {
 
   @Input() code: Code;
-  @Input() index: number;
   @Input() list: boolean;
 
   constructor() { }
 
   ngOnInit() { }
-
-  showTooltip(code: Code): void {
-    code.tooltip = true;
-    setTimeout(() => { code.tooltip = false; }, 2000);
-  }
 
 }

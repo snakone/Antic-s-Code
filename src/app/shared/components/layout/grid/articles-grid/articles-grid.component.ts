@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from '@app/app.config';
+import { Subject, Observable } from 'rxjs';
+import { takeUntil, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-articles-grid',
@@ -6,10 +10,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./articles-grid.component.scss']
 })
 
-export class ArticlesGridComponent implements OnInit {
+export class ArticlesGridComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  total: Observable<number>;
+  private unsubscribe$ = new Subject<void>();
 
-  ngOnInit() { }
+  constructor(private store: Store<AppState>) { }
+
+  ngOnInit() {
+    this.total = this.getTotalPost();
+  }
+
+  getTotalPost(): Observable<number> {
+    return this.store.select('articleState')
+      .pipe(
+        takeUntil(this.unsubscribe$),
+        map((res: AppState) => {
+        return res.articles.length;
+      }));
+  }
+
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
 
 }

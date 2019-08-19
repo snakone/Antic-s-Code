@@ -49,3 +49,16 @@ li {
   color: var(--primary-color);
   @include rotation(-270deg);
 }
+
+.menu-dropdown {
+  padding-left: .6rem;
+  padding-right: 2rem;
+
+  &:hover { mat-icon { color: var(--primary-color) !important } }
+}
+
+mat-icon {
+  padding-left: .5rem;
+  margin-top: -3px;
+  color: black !important;
+}

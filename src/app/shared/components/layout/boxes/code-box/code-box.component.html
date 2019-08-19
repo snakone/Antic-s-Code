@@ -21,14 +21,8 @@
     </ul>
   </div>
   <div class='code-box'>
-    <div text-right class='copy'>
-    <span>{{code.lang}}</span>
-      <p class="copied animated fadeIn slow" [ngClass]="{'code-list': list}"
-        *ngIf="code.tooltip">¡Copiado!</p>
-      <mat-icon [attr.data-clipboard-text]="code.code"
-                class="btn" name="copy"
-                (click)="showTooltip(code)">code
-      </mat-icon>
+    <div class='code-box-header'>
+      <span>{{code.lang}}</span>
     </div>
     <pre><code [textContent]="code.code"></code></pre>
   </div>

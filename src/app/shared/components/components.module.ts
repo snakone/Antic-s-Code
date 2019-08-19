@@ -20,6 +20,8 @@ import { DisqusModule } from 'ngx-disqus';
 import { ArticleGridCardComponent } from './layout/grid/articles-grid/components/article-grid-card/article-grid-card.component';
 import { ArticlesGridComponent } from './layout/grid/articles-grid/articles-grid.component';
 import { CategoryGridComponent } from './layout/grid/category-grid/category-grid.component';
+import { PaginationComponent } from './layout/pagination/pagination.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { CategoryGridComponent } from './layout/grid/category-grid/category-grid
     ArticleMakerComponent,
     IntersectionObserverComponent,
     LoadingComponent,
-    DisqusComponent
+    DisqusComponent,
+    PaginationComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +45,8 @@ import { CategoryGridComponent } from './layout/grid/category-grid/category-grid
     RouterModule,
     DisqusModule,
     BoxesModule,
-    ArticleLayoutModule
+    ArticleLayoutModule,
+    NgxPaginationModule
   ],
   exports: [
     NavbarModule,
@@ -57,7 +61,8 @@ import { CategoryGridComponent } from './layout/grid/category-grid/category-grid
     CategoryGridComponent,
     ArticleMakerComponent,
     LoadingComponent,
-    DisqusComponent
+    DisqusComponent,
+    PaginationComponent
   ]
 })
 

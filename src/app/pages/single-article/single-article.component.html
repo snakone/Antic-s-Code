@@ -3,9 +3,6 @@
 </app-page-header>
 <app-section input="#f5f7fc">
   <div class="row">
-    <div class="col-lg-12 display">  <!-- SEARCH BAR -->
-      <app-article-search></app-article-search>
-    </div>
     <div class="col-lg-8 col-md-8">  <!-- ARTICLE CONTENT -->
       <app-article-card *ngIf="article"
                         [article]="article"
@@ -20,7 +17,7 @@
       <app-loading *ngIf="!article"></app-loading>
     </div>
     <div class="col-lg-4 col-md-4">  <!-- SIDEBAR -->
-      <app-articles-sidebar></app-articles-sidebar>
+      <app-articles-sidebar [single]="true"></app-articles-sidebar>
     </div>
   </div>
 </app-section>

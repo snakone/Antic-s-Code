@@ -2,12 +2,12 @@
 
 code {
   font-size: 1em;
-  padding: 20px;
+  padding: .66667rem 1rem;
+  border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   border-top: 0;
   box-sizing: border-box;
-  cursor: pointer;
 }
 
 code::-webkit-scrollbar {
@@ -27,17 +27,22 @@ code::-webkit-scrollbar-thumb {
   box-shadow: inset 0 0 3px var(--primary-color);
 }
 
-.code-box { margin: 30px auto }
+.code-box {
+  margin: 30px auto;
 
-.copy {
-  padding: 8px 20px;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  background: #a4a7b2;
+  &-header {
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+
+    & span {
+      padding: .2rem .66667rem;
+      background: rgba(165, 165, 165, 0.384);
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+      font-size: .9rem;
+     }
+  }
 }
 
 .code-category {
@@ -48,55 +53,20 @@ code::-webkit-scrollbar-thumb {
 
 .basic, .medium, .hard {
   margin-left: 5px;
- }
+}
 
 .basic { color: var(--success-color) }
 .medium { color: var(--ionic-color) }
 .hard { color: var(--angular-color) }
 
-.btn {
-  color: #1C1D21;
-  cursor: pointer
-}
-
-.btn:hover {
-  transform: scale(1.1);
-  transition: .2s transform ease-in;
-}
-
 .code-box span { color: #1C1D21 }
 pre { margin: 0 }
 
-.copied {
-  position: absolute;
-  margin: 0;
-  right: 48px;
-  margin-top: -45px;
-  padding: 1px 16px;
-  padding-bottom: 3px;
-  border-radius: 5%;
-  font-weight: bold;
-  color: var(--light-color);
-  background: var(--tag-color);
-}
-
 @media(max-width: 550px) {
-  .copied { right: 0 }
   .code-list { right: 29px !important }
-  span { font-size: .8rem !important }
   .code-category { margin-right: .4rem}
+  span { font-size: .8rem !important }
   code { font-size: .9rem !important }
-}
-
-.copied:after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: 13px;
-  border-width: 6px;
-  border-style: solid;
-  border-color: var(--tag-color) transparent transparent transparent;
 }
 
 h3 {

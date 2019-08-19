@@ -1,9 +1,15 @@
 <app-page-header title="Todo el Código"
-                 subTitle="Code">
+                 subTitle="Código">
 </app-page-header>
 <app-section input="#f5f7fc">
   <div class="row">
+    <div class="col-lg-12 mobile">  <!-- CATEGORIES -->
+      <app-code-intro></app-code-intro>
+      <app-code-sidebar (tag)="filter($event)"></app-code-sidebar>
+      <app-pagination id="code-pagination"></app-pagination>
+    </div>
     <div class="col-lg-8 col-md-8" id="code-section">
+      <app-code-intro class="display"></app-code-intro>
       <app-code-content [code]="filtered"
                         *ngIf="filtered">
       </app-code-content>
@@ -11,6 +17,7 @@
     </div>
     <div class="col-lg-4 col-md-4">
       <app-code-sidebar (tag)="filter($event)"></app-code-sidebar>
+      <app-pagination class="mobile" id="code-pagination"></app-pagination>
     </div>
   </div>
 </app-section>

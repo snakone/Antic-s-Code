@@ -8,8 +8,6 @@ import { CommonModule } from '@angular/common';
 import { BoxesModule } from '../layout/boxes/boxes.module';
 import { ARTICLE_STYLES } from './article-maker.styles';
 
-declare var ClipboardJS: any;
-
 @Component({
   selector: 'app-article-maker',
   template: `<div highlightChildren><ng-container #vc></ng-container></div>`
@@ -20,7 +18,6 @@ export class ArticleMakerComponent implements AfterViewInit, OnDestroy {
   @Input() article: Article;
   @ViewChild('vc', { read: ViewContainerRef, static: true }) vc: ViewContainerRef;
   routerOb: Subscription = null;
-  clipboard = new ClipboardJS('.btn');
 
   constructor(private route: ActivatedRoute,
               private compiler: Compiler,
@@ -57,7 +54,6 @@ export class ArticleMakerComponent implements AfterViewInit, OnDestroy {
             const cmpRef = f.create(this.injector, [], null, this.module);
             cmpRef.instance.name = 'dynamic';
             cmpRef.instance.code = this.article.code;
-            cmpRef.instance.clipboard = this.clipboard;
             this.vc.insert(cmpRef.hostView);
           });
         });
@@ -66,10 +62,6 @@ export class ArticleMakerComponent implements AfterViewInit, OnDestroy {
   ngOnDestroy() {
     if (this.routerOb) {
       this.routerOb.unsubscribe();
-    }
-
-    if (this.clipboard) {
-      this.clipboard.destroy();
     }
   }
 

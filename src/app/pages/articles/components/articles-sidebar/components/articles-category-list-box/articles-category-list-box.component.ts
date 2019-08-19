@@ -15,4 +15,8 @@ export class ArticlesCategoryListBoxComponent implements OnInit {
 
   ngOnInit() { }
 
+  sortByCategory(category: string): void {
+    console.log(category);
+  }
+
 }

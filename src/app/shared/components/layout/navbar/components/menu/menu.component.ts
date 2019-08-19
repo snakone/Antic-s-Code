@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { MatMenu } from '@angular/material/menu';
-import { MENU } from '@app/shared/shared.data';
+import { MENU, HOME_MENU } from '@app/shared/shared.data';
 
 @Component({
   selector: 'app-menu',
@@ -14,6 +14,7 @@ export class MenuComponent implements OnInit {
   @ViewChild('menu', { static: true }) menu: MatMenu;
   collapse = false;
   items = MENU;
+  dropdown = HOME_MENU;
 
   constructor() { }
 

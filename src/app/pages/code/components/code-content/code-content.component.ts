@@ -1,5 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Code } from '@app/shared/interfaces/interfaces';
+import { PaginationService } from 'ngx-pagination';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-code-content',
@@ -7,12 +10,36 @@ import { Code } from '@app/shared/interfaces/interfaces';
   styleUrls: ['./code-content.component.scss']
 })
 
-export class CodeContentComponent implements OnInit {
+export class CodeContentComponent implements OnInit, OnDestroy {
 
   @Input() code: Code[];
+  private unsubscribe$ = new Subject<void>();
+  page = 1;
+  itemsPerPage = 10;
 
-  constructor() { }
+  constructor(private pagination: PaginationService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.getCurrentPage();
+  }
+
+  getCurrentPage(): void {
+    this.pagination.change
+     .pipe(takeUntil(this.unsubscribe$))
+     .subscribe((res: string) => {
+        if (res) {
+          this.page = this.pagination.getCurrentPage(res);
+       }
+     });
+  }
+
+  absoluteIndex(indexOnPage: number): number {
+    return this.itemsPerPage * (this.page - 1) + indexOnPage;
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
 
 }

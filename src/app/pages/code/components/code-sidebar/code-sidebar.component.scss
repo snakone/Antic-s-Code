@@ -14,3 +14,7 @@ li {
   & mat-icon { margin-right: 10px }
   &:hover span { color: var(--primary-color) }
 }
+
+.display {
+  @media(max-width: 993px) { display: none }
+}

@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
+import * as ArticleActions from '@core/ngrx/actions/article.actions';
 
 import { Article } from '@app/shared/interfaces/interfaces';
 import { Subject, combineLatest } from 'rxjs';
@@ -32,6 +33,7 @@ export class SingleArticleComponent implements OnInit, OnDestroy {
     combineLatest(store$, route$)
      .pipe(takeUntil(this.unsubscribe$))
       .subscribe(([s, r]: any) => {
+        if (s.search) { return; }
         this.article = null;
         setTimeout(() => {
           this.article = s.articles
@@ -41,6 +43,7 @@ export class SingleArticleComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.store.dispatch(ArticleActions.SeachArticles({value: null}));
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }

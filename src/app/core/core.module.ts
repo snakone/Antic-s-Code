@@ -1,5 +1,6 @@
 import { NgModule, Optional, SkipSelf, ErrorHandler } from '@angular/core';
 import { CORE_MODULE_CONSTANTS, CORE_MODULE_CONFIG } from './core.module.config';
+import { APP_CONSTANTS } from '../app.config';
 import { CommonModule } from '@angular/common';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -21,6 +22,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { ArticleEffects } from './ngrx/effects/article.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducer } from './ngrx/reducer/article.reducer';
 
 import { HighlightModule } from 'ngx-highlightjs';
 import javascript from 'highlight.js/lib/languages/javascript';
@@ -28,8 +30,6 @@ import typescript from 'highlight.js/lib/languages/typescript';
 import css from 'highlight.js/lib/languages/css';
 import scss from 'highlight.js/lib/languages/scss';
 import xml from 'highlight.js/lib/languages/xml';
-import { reducer } from './ngrx/reducer/article.reducer';
-import { APP_CONSTANTS } from '../app.config';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, CORE_MODULE_CONSTANTS.TRANSLATE_CONFIG.I18N_PATH,
@@ -54,7 +54,12 @@ export function hljsLanguages() {
     ServicesModule,
     NgxWebstorageModule.forRoot(CORE_MODULE_CONSTANTS.WEBSTORAGE_CONFIG),
     EffectsModule.forRoot([ArticleEffects]),
-    StoreModule.forRoot({articleState: reducer}),
+    StoreModule.forRoot({ articleState: reducer }, {
+      runtimeChecks: {
+        strictStateImmutability: false,
+        strictActionImmutability: false
+      }
+    }),
     StoreDevtoolsModule.instrument({maxAge: 25}),
     LanguageModule.forRoot(),
     HighlightModule.forRoot({

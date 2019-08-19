@@ -1,5 +1,5 @@
 <app-sticky-box selector="code-section">
-  <app-content-box title="Buscar Código"
+  <app-content-box title="Lista de Categorías"
                    icon="search">
     <ul>
       <li *ngFor="let c of codeTags"
@@ -9,5 +9,6 @@
       </li>
     </ul>
   </app-content-box>
+  <app-pagination class="display" id="code-pagination"></app-pagination>
 </app-sticky-box>
 

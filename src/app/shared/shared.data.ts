@@ -6,14 +6,22 @@ import {
   MenuLink,
   FAQ,
   Related,
-  ToC
+  ToC,
+  MenuDropdown
 } from './interfaces/interfaces';
 
 export const MENU: MenuLink[] = [
   { name: 'Inicio', link: '/home' },
   { name: 'Código', link: '/code' },
-  { name: 'Categorias', link: '/categories' },
+  { name: 'Categorías', link: '/categories' },
   { name: 'Artículos', link: '/articles' }
+];
+
+export const HOME_MENU: MenuDropdown[] = [
+  { name: 'Ventajas', link: '/home', icon: 'autorenew' },
+  { name: 'Colabora', link: '/code', icon: 'present_to_all' },
+  { name: 'Soporte', link: '/categories', icon: 'help_outline' },
+  { name: 'Sobre mí', link: '/articles', icon: 'directions_run' }
 ];
 
 export const CATEGORIES: string[] = [
@@ -48,7 +56,8 @@ export const CODE_TAGS: string[] = [
   'Material',
   'Ionic',
   'Database',
-  'Config'
+  'Config',
+  'Todas'
 ];
 
 export const POPULAR_CATEGORIES: Category[] = [

@@ -21,3 +21,18 @@
   }
 }
 
+.col-lg-12 {
+  @media(max-width: 550px) {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.mobile {
+  @media(min-width: 993px) { display: none }
+}
+
+.display {
+  @media(max-width: 992px) { display: none }
+}
+

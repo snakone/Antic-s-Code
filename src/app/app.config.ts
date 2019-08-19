@@ -15,13 +15,15 @@ export interface AppState {
   loaded: boolean;
   error: string;
   search: string;
+  category: string;
 }
 
 export const State: AppState = {
   articles: [],
   loaded: false,
   error: null,
-  search: null
+  search: null,
+  category: null
 };
 
 export interface ModuleConfig {

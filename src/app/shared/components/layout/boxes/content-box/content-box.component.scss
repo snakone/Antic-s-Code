@@ -16,10 +16,6 @@
       line-height: 1.2;
       color: var(--title-color);
 
-      & span {
-        font-size: 1.2rem !important;
-        @media(max-width: 359px) { font-size: 1rem }
-       }
       & mat-icon {
         margin-right: var(--small-padding) }
      }
@@ -41,3 +37,9 @@
     }
   }
 }
+
+.title {
+  font-size: 1.2rem !important;
+  @media(max-width: 359px) { font-size: 1rem !important }
+  @media(min-width: 1080px) { font-size: 1.4rem !important }
+ }
