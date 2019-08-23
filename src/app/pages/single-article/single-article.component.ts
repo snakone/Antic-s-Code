@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
-import * as ArticleActions from '@core/ngrx/actions/article.actions';
+import * as AppActions from '@core/ngrx/actions/app.actions';
 
 import { Article } from '@app/shared/interfaces/interfaces';
 import { Subject, combineLatest } from 'rxjs';
@@ -27,7 +27,7 @@ export class SingleArticleComponent implements OnInit, OnDestroy {
   }
 
   private getArticlyBySlug(): void {
-    const store$ = this.store.select('articleState');
+    const store$ = this.store.select('AppState');
     const route$ = this.route.params;
     // tslint:disable-next-line: deprecation
     combineLatest(store$, route$)
@@ -43,7 +43,7 @@ export class SingleArticleComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.store.dispatch(ArticleActions.SeachArticles({value: null}));
+    this.store.dispatch(AppActions.SeachArticles({value: null}));
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }

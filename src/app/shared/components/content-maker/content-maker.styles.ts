@@ -1,4 +1,4 @@
-export const ARTICLE_STYLES = `
+export const CONTENT_STYLES = `
 .normal {
   font-weight: normal;
   font-size: 1.3rem;
@@ -8,6 +8,11 @@ ol {
   padding-left: 16px;
   margin-top: .1rem;
   margin-bottom: 1.5rem;
+}
+
+ul {
+  padding-left: 16px;
+  margin: 1rem auto;
 }
 
 li { margin: 10px auto }
@@ -23,7 +28,7 @@ p:last-child {
 img {
   max-width: 100%;
   display: block;
-  margin: 2rem auto;
+  margin: 1.5rem auto;
   border-radius: 4px;
 }
 
@@ -31,4 +36,6 @@ img.inline {
   width: 50%;
   display: inline-block;
 }
+
+.black { color: black !important }
 `;

@@ -1,5 +1,4 @@
 import {
-  Category,
   List,
   Testimonial,
   FooterList,
@@ -7,7 +6,8 @@ import {
   FAQ,
   Related,
   ToC,
-  MenuDropdown
+  MenuDropdown,
+  Categories
 } from './interfaces/interfaces';
 
 export const MENU: MenuLink[] = [
@@ -46,10 +46,10 @@ export const TAGS: string[] = [
 
 export const CODE_TAGS: string[] = [
   'Consola',
-  'Comando',
   'Javascript',
+  'HTML',
   'Nodejs',
-  'Design',
+  'Diseño',
   'CSS',
   'SCSS',
   'Angular',
@@ -60,7 +60,7 @@ export const CODE_TAGS: string[] = [
   'Todas'
 ];
 
-export const POPULAR_CATEGORIES: Category[] = [
+export const POPULAR_CATEGORIES: Categories[] = [
   {
     name: 'Cógido',
     icon: 'code',
@@ -83,36 +83,42 @@ export const POPULAR_CATEGORIES: Category[] = [
   },
 ];
 
-export const MAIN_CATEGORIES: Category[] = [
+export const MAIN_CATEGORIES: Categories[] = [
   {
     name: 'Markup HTML5',
     icon: 'html-logo.png',
-    picture: 'angular.png'
+    class: 'HTML',
+    picture: 'odd.png'
   },
   {
     name: 'Stylesheet CSS3',
     icon: 'css-logo.png',
-    picture: 'angular.png'
+    class: 'CSS',
+    picture: 'even.png'
   },
   {
     name: 'Vanilla Javascript',
     icon: 'javascript-logo.png',
-    picture: 'angular.png'
+    class: 'Javascript',
+    picture: 'odd.png'
   },
   {
     name: 'Angular Framework',
     icon: 'angular-logo.png',
-    picture: 'angular.png'
+    class: 'Angular',
+    picture: 'even.png'
   },
   {
     name: 'Server Javascript',
     icon: 'node-logo.png',
-    picture: 'angular.png'
+    class: 'Nodejs',
+    picture: 'odd.png'
   },
   {
     name: 'Mongo Database',
     icon: 'mongo-logo.png',
-    picture: 'angular.png'
+    class: 'MongoDB',
+    picture: 'even.png'
   }
 ];
 
@@ -227,25 +233,6 @@ export const FOOTER_LIST: FooterList[] = [
   }
 ];
 
-export const CATEGORY_INFO: List[] = [
-  {
-    name: '25 East Valley Road, Michigan',
-    picture: 'place'
-  },
-  {
-    name: '(213) 995-7799',
-    picture: 'phone'
-  },
-  {
-    name: 'support@aazztech.com',
-    picture: 'email'
-  },
-  {
-    name: 'http://anticscode.epizy.com',
-    picture: 'public'
-  }
-];
-
 export const FAQS: FAQ[] = [
   {
     question: 'Question number one',
@@ -264,33 +251,6 @@ export const FAQS: FAQ[] = [
     answer: `Ensuring productivity and growth is essential
              for architecture and engineering teams. The industry requires a
              high level of precision, full legal compliance`
-  }
-];
-
-export const RELATED_ARTICLES: Related[] = [
-  {
-    title: 'Clothing Shopping Mall',
-    picture: 'sl1.jpg',
-    category: 'Food & Drink',
-    icon: 'restaurant'
-  },
-  {
-    title: 'Flanders Heat & Air Systems',
-    picture: 'sl2.jpg',
-    category: 'Hotel & Travel',
-    icon: 'hotel'
-  },
-  {
-    title: 'Favorite Place Fog Bank',
-    picture: 'sl3.jpg',
-    category: 'Art & History',
-    icon: 'account_balance'
-  },
-  {
-    title: 'Favortie Place on Summer',
-    picture: 'sl4.jpg',
-    category: 'Shopping',
-    icon: 'flight_takeoff'
   }
 ];
 

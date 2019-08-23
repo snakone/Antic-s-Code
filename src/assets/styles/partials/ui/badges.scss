@@ -7,6 +7,10 @@
   @include badge(#fd4868);
 }
 
+.badge-new {
+  @include badge(#4471ee);
+}
+
 .badge-category {
   @include badge-category(var(--light-color), rgba(223, 216, 230, 0.1), 15px, var(--primary-color));
 }

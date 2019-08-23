@@ -10,7 +10,6 @@ import { Error404Component } from './error404/error404.component';
 import { SectionComponent } from './layout/section/section.component';
 import { PageHeaderComponent } from './layout/page-header/page-header.component';
 import { ArticleLayoutModule } from './layout/article-layout/article-layout.module';
-import { ArticleMakerComponent } from './article-maker/article-maker.component';
 import { IntersectionObserverComponent } from './layout/intersection-observer/intersection-observer.component';
 import { LoadingComponent } from './layout/loading/loading.component';
 import { BoxesModule } from './layout/boxes/boxes.module';
@@ -23,6 +22,8 @@ import { CategoryGridComponent } from './layout/grid/category-grid/category-grid
 import { PaginationComponent } from './layout/pagination/pagination.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 
+import { ContentMakerComponent } from './content-maker/content-maker.component';
+
 @NgModule({
   declarations: [
     Error404Component,
@@ -31,7 +32,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ArticleGridCardComponent,
     PageHeaderComponent,
     CategoryGridComponent,
-    ArticleMakerComponent,
+    ContentMakerComponent,
     IntersectionObserverComponent,
     LoadingComponent,
     DisqusComponent,
@@ -59,7 +60,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ArticlesGridComponent,
     PageHeaderComponent,
     CategoryGridComponent,
-    ArticleMakerComponent,
+    ContentMakerComponent,
     LoadingComponent,
     DisqusComponent,
     PaginationComponent

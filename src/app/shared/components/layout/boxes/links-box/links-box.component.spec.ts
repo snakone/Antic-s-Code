@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ArticleLinksBoxComponent } from './article-links-box.component';
+import { LinksBoxComponent } from './links-box.component';
 
-describe('ArticleLinksBoxComponent', () => {
-  let component: ArticleLinksBoxComponent;
-  let fixture: ComponentFixture<ArticleLinksBoxComponent>;
+describe('LinksBoxComponent', () => {
+  let component: LinksBoxComponent;
+  let fixture: ComponentFixture<LinksBoxComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArticleLinksBoxComponent ]
+      declarations: [ LinksBoxComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ArticleLinksBoxComponent);
+    fixture = TestBed.createComponent(LinksBoxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

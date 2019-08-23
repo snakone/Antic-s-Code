@@ -1,6 +1,6 @@
 import { Directive, ElementRef, Renderer2, OnDestroy, AfterViewInit, Input } from '@angular/core';
 import { fromEvent, Subject } from 'rxjs';
-import { debounceTime, map, takeUntil } from 'rxjs/operators';
+import { debounceTime, takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
 
@@ -24,7 +24,7 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
   }
 
   private checkCode(): void {
-    this.store.select('articleState')
+    this.store.select('AppState')
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((res: AppState) => {
         if (res.loaded) {
@@ -46,19 +46,22 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
 
   private makeSticky(): void {
     const el = this.el.nativeElement;
+    let div: number;
 
-    if (!this.selector) { return; }
+    if (!this.selector || !el) { return; }
     if (!this.height && el) { this.height = el.getBoundingClientRect().height; }
 
-    const section = document.getElementById(this.selector).getBoundingClientRect().height;
+    const section = document.getElementById(this.selector);
+    section ? div = section.getBoundingClientRect().height : div = 1;
+
     const width = window.document.body.clientWidth;
     const top = el.getBoundingClientRect().top + window.scrollY;
     const padding = 50;
 
-    if (width < 985 || section === 1) { this.renderer.setStyle(el, 'height', `auto`); return; }
+    if (width < 985 || div === 1) { this.renderer.setStyle(el, 'height', `auto`); return; }
 
     try {
-      this.setElementHeight(this.height, section, top, el, padding);
+      this.setElementHeight(this.height, div, top, el, padding);
     } catch (err) {}
   }
 

@@ -1,19 +1,19 @@
 import { createReducer, on, Action } from '@ngrx/store';
-import * as ArticleActions from './../actions/article.actions';
+import * as AppActions from './../actions/app.actions';
 import { AppState, State } from '@app/app.config';
 
 const featureReducer = createReducer(
   State,
-  on(ArticleActions.getArticles, state => (
+  on(AppActions.getData, state => (
     { ...state, loaded: false, error: null }
   )),
-  on(ArticleActions.getArticlesSuccess, (state, { articles }) => (
-    { ...state, loaded: true, error: null, articles }
+  on(AppActions.getDataSuccess, (state, { data }) => (
+    { ...state, loaded: true, error: null, articles: data.articles, categories: data.categories }
   )),
-  on(ArticleActions.GetArticlesFailure, (state, { error }) => (
+  on(AppActions.GetDataFailure, (state, { error }) => (
     { ...state, loaded: false, error }
   )),
-  on(ArticleActions.SeachArticles, (state, { value }) => (
+  on(AppActions.SeachArticles, (state, { value }) => (
     { ...state, loaded: true, error: null, search: value }
   ))
 );

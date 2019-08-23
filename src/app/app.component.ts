@@ -4,7 +4,7 @@ import { IntersectionService } from '@layout/intersection-observer/services/inte
 import { DOCUMENT } from '@angular/common';
 import { AppState } from './app.config';
 import { Store } from '@ngrx/store';
-import * as ArticleActions from '@core/ngrx/actions/article.actions';
+import * as AppActions from '@core/ngrx/actions/app.actions';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscribeIntersection();
-    this.store.dispatch(ArticleActions.getArticles());
+    this.store.dispatch(AppActions.getData());
   }
 
   swipe(e: any): void {

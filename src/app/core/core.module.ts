@@ -20,9 +20,8 @@ import { DisqusModule } from 'ngx-disqus';
 
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { ArticleEffects } from './ngrx/effects/article.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { reducer } from './ngrx/reducer/article.reducer';
+import { reducer } from './ngrx/reducer/app.reducer';
 
 import { HighlightModule } from 'ngx-highlightjs';
 import javascript from 'highlight.js/lib/languages/javascript';
@@ -30,6 +29,7 @@ import typescript from 'highlight.js/lib/languages/typescript';
 import css from 'highlight.js/lib/languages/css';
 import scss from 'highlight.js/lib/languages/scss';
 import xml from 'highlight.js/lib/languages/xml';
+import { AppEffects } from './ngrx/effects/app.effects';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, CORE_MODULE_CONSTANTS.TRANSLATE_CONFIG.I18N_PATH,
@@ -53,8 +53,8 @@ export function hljsLanguages() {
     StorageModule,
     ServicesModule,
     NgxWebstorageModule.forRoot(CORE_MODULE_CONSTANTS.WEBSTORAGE_CONFIG),
-    EffectsModule.forRoot([ArticleEffects]),
-    StoreModule.forRoot({ articleState: reducer }, {
+    EffectsModule.forRoot([AppEffects]),
+    StoreModule.forRoot({AppState: reducer}, {
       runtimeChecks: {
         strictStateImmutability: false,
         strictActionImmutability: false

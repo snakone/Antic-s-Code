@@ -48,20 +48,16 @@ li {
     margin: 0 5px 2rem 5px;
     padding-bottom: 20px;
     box-sizing: border-box;
-    // &:nth-last-child(2) {
-    //   margin-bottom: 0;
-    //   border-bottom: 0;
-    //   padding-bottom: .5rem;
-    // }
   }
 }
 
-li:last-child {
-  margin-bottom: 0;
-  border-bottom: 0;
-  padding-bottom: .5rem;
+@media (min-width: 993px) {
+  li:last-child {
+    margin-bottom: 0;
+    border-bottom: 0;
+    padding-bottom: .5rem;
+  }
 }
-
 
 h4 {
   font-size: 1rem;

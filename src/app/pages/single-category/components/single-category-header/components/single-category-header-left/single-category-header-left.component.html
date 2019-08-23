@@ -1,18 +1,21 @@
 <ul class="badge">  <!-- FIRST LINE -->
-  <li><span class="badge-featured">Featured</span></li>
-  <li><span class="badge-popular">Popular</span></li>
+  <li *ngFor="let b of category.badges">
+    <span [ngClass]="{'badge-featured' : b === 'Destacado',
+                      'badge-popular': b === 'Popular',
+                      'badge-new': b === 'Nuevo'}">
+                      {{b}}
+    </span>
+  </li>
   <li>
     <div class="badge-category hide-mobile">
-      <mat-icon>hotel</mat-icon>
-      <span>Interview</span>
+      <img [src]="category.icon | image: 'logos'"/>
+      <span>{{category.category}}</span>
     </div>
   </li>
 </ul>
 <ul class="meta">  <!-- SECOND LINE -->
-  <li>
-    <span class="meta-type">
-      Development
-    </span>
+  <li *ngFor="let c of category.tags | slice:0:2">
+    <span class="meta-type">{{c}}</span>
   </li>
   <li>
     <span class="meta-star meta-star-rating">
@@ -20,10 +23,10 @@
     </span>
   </li>
   <li>
-    <span class="meta-review meta-review-note">
-      4.5 <mat-icon>event_note</mat-icon>
+    <span class="meta-review meta-review-heart">
+      4.5 <mat-icon>favorite</mat-icon>
     </span>
   </li>
 </ul>  <!-- THRID LINE -->
-<h1>Strawberry Basil Lemonade</h1>
-<p>Best place for delicious foods</p>
+<h1>{{category.name}}</h1>
+<p>{{category.title}}</p>

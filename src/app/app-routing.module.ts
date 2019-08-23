@@ -26,7 +26,7 @@ const routes: Routes = [
                         .then(mod => mod.CodeModule), data: {name: 'Code'}
   },
   {
-    path: 'category/:category',
+    path: 'category/:name',
     loadChildren: () => import('./pages/single-category/single-category.module')
                         .then(mod => mod.SingleCategoryModule), data: {name: 'Category'}
   },

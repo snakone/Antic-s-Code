@@ -1,8 +1,13 @@
-export interface Category {
+export interface Categories {
   name: string;
   icon: string;
   class?: string;
   picture?: string;
+}
+
+export interface AppData {
+  articles: Article[];
+  categories: Category[];
 }
 
 export interface List {
@@ -48,10 +53,10 @@ export interface ToC {
 export interface Article {
   _id?: string;
   title?: string;
-  category?: string;
-  author?: string;
-  created?: string;
   message?: string;
+  author?: string;
+  category?: string;
+  created?: string;
   slug?: string;
   cover?: string;
   code?: Code[];
@@ -68,6 +73,30 @@ export interface ArticleResponse {
   ok: boolean;
   message: string;
   articles?: Article[];
+}
+
+export interface Category {
+  _id?: string;
+  name?: string;
+  title?: string;
+  category?: string;
+  info?: Info;
+  message?: string;
+  icon?: string;
+  cover?: string;
+  code?: Code[];
+  badges?: string[];
+  tags?: string[];
+  likes?: number;
+  stars?: number;
+  links?: Link[];
+}
+
+export interface CategoryResponse {
+  ok: boolean;
+  message: string;
+  category?: Category;
+  categories?: Category[];
 }
 
 export interface Code {
@@ -88,4 +117,11 @@ export interface MenuDropdown {
   name: string;
   link: string;
   icon: string;
+}
+
+export interface Info {
+  creator?: string;
+  where?: string;
+  site?: string;
+  age?: string;
 }
