@@ -8,3 +8,14 @@ p {
  }
 
  .summary { margin-bottom: 5px }
+
+.scroll-wrapper {
+  height: 1700px;
+  margin-bottom: 2rem;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    display: none;
+  }
+}

@@ -1,6 +1,6 @@
 .article {
   &-wrapper {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
    }
 
   &-card {
@@ -32,6 +32,7 @@
       -ms-flex: 1 1 auto;
       flex: 1 1 auto;
       padding: 2rem;
+      padding-bottom: 3rem !important;
 
       &-padding {
         @media(max-width: 650px) { padding: 2rem 1.5rem !important }

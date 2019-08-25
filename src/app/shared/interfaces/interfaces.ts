@@ -13,6 +13,7 @@ export interface AppData {
 export interface List {
   name: string;
   picture: string;
+  link?: string;
 }
 
 export interface Testimonial {
@@ -73,6 +74,7 @@ export interface ArticleResponse {
   ok: boolean;
   message: string;
   articles?: Article[];
+  count?: number;
 }
 
 export interface Category {
@@ -106,6 +108,12 @@ export interface Code {
   description: string;
   level: string;
   tags: string[];
+}
+
+export interface CodeResponse {
+  ok: boolean;
+  message: string;
+  code?: Code[];
 }
 
 export interface Link {

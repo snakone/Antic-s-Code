@@ -2,7 +2,7 @@
                  icon="chrome_reader_mode">
   <ul>
     <li *ngFor="let c of categories"
-        (click)="sortByCategory(c)">
+        [routerLink]="'/category/' + c">
       <mat-icon>keyboard_arrow_right</mat-icon>
       <span>{{c}}</span>
     </li>

@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import * as fromCode from '@core/ngrx/selectors/code.selectors';
 
 @Component({
   selector: 'app-code',
@@ -24,15 +25,11 @@ export class CodeComponent implements OnInit, OnDestroy {
   }
 
   getCode(): void {
-    this.store.select('AppState')
+    this.store.select(fromCode.getAllCode)
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((res: AppState) => {
-        if (res.articles) {
-          res.articles.forEach((x: Article) => {
-          this.code.push(...x.code);
-        });
-          this.filtered = this.code;
-        }
+      .subscribe((res: Code[]) => {
+        this.code = res;
+        this.filtered = this.code;
     });
   }
 

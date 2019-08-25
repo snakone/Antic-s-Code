@@ -2,11 +2,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
-import * as AppActions from '@core/ngrx/actions/app.actions';
-
 import { Category } from '@app/shared/interfaces/interfaces';
 import { Subject, combineLatest } from 'rxjs';
 import { takeUntil} from 'rxjs/operators';
+import * as fromCategories from '@core/ngrx/selectors/category.selectors';
 
 @Component({
   selector: 'app-single-category',
@@ -23,27 +22,24 @@ export class SingleCategoryComponent implements OnInit, OnDestroy {
               private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.getArticleByName();
+    this.getCategoryByName();
   }
 
-  private getArticleByName(): void {
-    const store$ = this.store.select('AppState');
+  private getCategoryByName(): void {
+    const store$ = this.store.select(fromCategories.getAllCategories);
     const route$ = this.route.params;
-    // tslint:disable-next-line: deprecation
-    combineLatest(store$, route$)
+    combineLatest([store$, route$])
      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(([s, r]: any) => {
-        if (s.search) { return; }
-        this.category = null;
-        setTimeout(() => {
-          this.category = s.categories
-            .filter((x: Category) => x.category === r.name)[0] || null;
-        }, 500);
+     .subscribe(([s, r]: any) => {
+      this.category = null;
+      setTimeout(() => {
+        this.category = s
+          .filter((x: Category) => x.category === r.name)[0] || null;
+      }, 500);
     });
   }
 
   ngOnDestroy(): void {
-    this.store.dispatch(AppActions.SeachArticles({value: null}));
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }

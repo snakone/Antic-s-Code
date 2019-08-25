@@ -1,24 +1,23 @@
-<div class="mobile">
+<!-- <div class="mobile">
   <div class="row">
     <div class="col-lg-12">
       <app-article-search></app-article-search>
-      <app-pagination id="articles-pagination"></app-pagination>
     </div>
   </div>
-</div>
-<div *ngIf="articles.length > 0">
+</div> -->
+<div class="scroll-wrapper"
+     scrollable
+     (scrollPosition)="onScroll($event)">
   <app-article-card shadow="true"
-                    *ngFor="let a of articles
-                            | paginate: { itemsPerPage: 4,
-                                          currentPage: page,
-                                          id: 'articles-pagination' }"
+                    *ngFor="let a of articles$ | async"
                     [article]="a"
                     [padding]="2"
                     [stars]="false">   <!-- ARTICLES GRID -->
     <span class="summary" [innerHTML]="a.summary"></span>
   </app-article-card>
 </div>
-<app-content-box *ngIf="articles.length === 0"
+
+<app-content-box *ngIf="!articles$ | async"
                         title="Oops!"
                         icon="cancel">
         <p>No se han encontrado resultados</p>

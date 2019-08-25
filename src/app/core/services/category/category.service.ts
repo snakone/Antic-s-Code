@@ -15,7 +15,6 @@ export class CategoryService {
   }
 
   public getCategories(): Observable<CategoryResponse> {
-    console.log('API');
     return this.http.get(this.API_CATEGORIES);
   }
 

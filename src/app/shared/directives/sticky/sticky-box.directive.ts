@@ -3,6 +3,7 @@ import { fromEvent, Subject } from 'rxjs';
 import { debounceTime, takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
+import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 
 @Directive({
   selector: '[appStickyBox]'
@@ -19,15 +20,15 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
               private store: Store<AppState>) { }
 
   ngAfterViewInit(): void {
-    this.checkCode();
+    this.checkCodeLoaded();
     this.subscribeToResize();
   }
 
-  private checkCode(): void {
-    this.store.select('AppState')
+  private checkCodeLoaded(): void {
+    this.store.select(fromArticles.getLoadedArticles)
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((res: AppState) => {
-        if (res.loaded) {
+      .subscribe((res: boolean) => {
+        if (res) {
           setTimeout(() => {
             this.makeSticky();
           }, 200);
@@ -49,24 +50,24 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
     let div: number;
 
     if (!this.selector || !el) { return; }
-    if (!this.height && el) { this.height = el.getBoundingClientRect().height; }
 
     const section = document.getElementById(this.selector);
     section ? div = section.getBoundingClientRect().height : div = 1;
 
     const width = window.document.body.clientWidth;
-    const top = el.getBoundingClientRect().top + window.scrollY;
-    const padding = 50;
 
-    if (width < 985 || div === 1) { this.renderer.setStyle(el, 'height', `auto`); return; }
+    if (width < 985 || div === 1 || this.height === 0) {
+      this.renderer.setStyle(el, 'height', `auto`);
+      return;
+    }
 
     try {
-      this.setElementHeight(this.height, div, top, el, padding);
+      this.setElementHeight(div, el);
     } catch (err) {}
   }
 
-  private setElementHeight(h: number, s: number, t: number, el: any, p: number): void {
-    this.renderer.setStyle(el, 'height', `${s - t + h - p}px`);
+  private setElementHeight(d: number, el: any): void {
+    this.renderer.setStyle(el, 'height', `${d}px`);
   }
 
   ngOnDestroy(): void {

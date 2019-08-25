@@ -13,4 +13,5 @@ li {
   &:last-child { margin-bottom: 0 }
   & mat-icon { margin-right: 10px }
   &:hover span { color: var(--primary-color) }
+  outline: none;
 }

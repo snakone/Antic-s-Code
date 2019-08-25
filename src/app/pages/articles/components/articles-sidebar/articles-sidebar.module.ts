@@ -5,6 +5,7 @@ import { ComponentsModule } from '@shared/components/components.module';
 
 import { ArticlesSidebarComponent } from './articles-sidebar.component';
 import { ArticlesCategoryListBoxComponent } from './components/articles-category-list-box/articles-category-list-box.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ArticlesCategoryListBoxComponent } from './components/articles-category
   imports: [
     CommonModule,
     SharedModule,
-    ComponentsModule
+    ComponentsModule,
+    RouterModule
   ],
   exports: [
     ArticlesSidebarComponent

@@ -16,7 +16,7 @@ export class StickyBoxComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    fromEvent(window, 'scroll').pipe(debounceTime(69)).subscribe(() => this.onScroll());
+    // fromEvent(window, 'scroll').pipe(debounceTime(69)).subscribe(() => this.onScroll());
   }
 
   private onScroll(): void {

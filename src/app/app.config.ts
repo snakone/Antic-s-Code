@@ -3,28 +3,21 @@
 
 import { InjectionToken } from '@angular/core';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
-import { Article, Category } from './shared/interfaces/interfaces';
+
+import * as fromArticles from '@core/ngrx/reducers/article.reducer';
+import * as fromCategories from '@core/ngrx/reducers/category.reducer';
+import * as fromCode from '@core/ngrx/reducers/code.reducer';
 
 const DEV = 'http://localhost:3000/';
 const PRE = 'http://192.168.1.97:3000/';
 const PROD = 'https://antics-code.herokuapp.com/';
-const APP_VERSION = '0.1.0';
+const APP_VERSION = '0.2.2';
 
 export interface AppState {
-  articles: Article[];
-  categories: Category[];
-  loaded: boolean;
-  error: string;
-  search: string;
+  articles: fromArticles.ArticleState;
+  categories: fromCategories.CategoryState;
+  code: fromCode.CodeState;
 }
-
-export const State: AppState = {
-  articles: [],
-  categories: [],
-  loaded: false,
-  error: null,
-  search: null
-};
 
 export interface ModuleConfig {
   NAVIGATION?: any;

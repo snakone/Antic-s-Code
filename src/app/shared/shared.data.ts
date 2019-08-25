@@ -210,12 +210,12 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const LOGOS: List[] = [
-  { name: 'Markup HTML5', picture: 'html-logo.png' },
-  { name: 'Stylesheet CSS3', picture: 'css-logo.png' },
-  { name: 'Vanilla Javascript', picture: 'javascript-logo.png' },
-  { name: 'Angular Framework', picture: 'angular-logo.png' },
-  { name: 'Server Javascript', picture: 'node-logo.png' },
-  { name: 'Mongo Database', picture: 'mongo-logo.png' }
+  { name: 'Markup HTML5', picture: 'html-logo.png', link: 'HTML' },
+  { name: 'Stylesheet CSS3', picture: 'css-logo.png', link: 'CSS' },
+  { name: 'Vanilla Javascript', picture: 'javascript-logo.png', link: 'Javascript' },
+  { name: 'Angular Framework', picture: 'angular-logo.png', link: 'Angular' },
+  { name: 'Server Javascript', picture: 'node-logo.png', link: 'Nodejs' },
+  { name: 'Mongo Database', picture: 'mongo-logo.png', link: 'MongoDB' }
 ];
 
 export const FOOTER_LIST: FooterList[] = [

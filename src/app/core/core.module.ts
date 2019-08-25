@@ -1,6 +1,6 @@
 import { NgModule, Optional, SkipSelf, ErrorHandler } from '@angular/core';
 import { CORE_MODULE_CONSTANTS, CORE_MODULE_CONFIG } from './core.module.config';
-import { APP_CONSTANTS } from '../app.config';
+import { APP_CONSTANTS, AppState } from '../app.config';
 import { CommonModule } from '@angular/common';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -21,7 +21,6 @@ import { DisqusModule } from 'ngx-disqus';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { reducer } from './ngrx/reducer/app.reducer';
 
 import { HighlightModule } from 'ngx-highlightjs';
 import javascript from 'highlight.js/lib/languages/javascript';
@@ -29,7 +28,11 @@ import typescript from 'highlight.js/lib/languages/typescript';
 import css from 'highlight.js/lib/languages/css';
 import scss from 'highlight.js/lib/languages/scss';
 import xml from 'highlight.js/lib/languages/xml';
-import { AppEffects } from './ngrx/effects/app.effects';
+
+import { ArticleEffects } from './ngrx/effects/article.effects';
+import { CategoryEffects } from './ngrx/effects/category.effects';
+import { CodeEffects } from './ngrx/effects/code.effects';
+import { reducers } from './ngrx/reducers/reducers.index';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, CORE_MODULE_CONSTANTS.TRANSLATE_CONFIG.I18N_PATH,
@@ -53,13 +56,12 @@ export function hljsLanguages() {
     StorageModule,
     ServicesModule,
     NgxWebstorageModule.forRoot(CORE_MODULE_CONSTANTS.WEBSTORAGE_CONFIG),
-    EffectsModule.forRoot([AppEffects]),
-    StoreModule.forRoot({AppState: reducer}, {
-      runtimeChecks: {
-        strictStateImmutability: false,
-        strictActionImmutability: false
-      }
-    }),
+    EffectsModule.forRoot([
+      ArticleEffects,
+      CategoryEffects,
+      CodeEffects
+    ]),
+    StoreModule.forFeature('AppState', reducers),
     StoreDevtoolsModule.instrument({maxAge: 25}),
     LanguageModule.forRoot(),
     HighlightModule.forRoot({

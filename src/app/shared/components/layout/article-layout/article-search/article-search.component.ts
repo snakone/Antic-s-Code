@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
-import * as AppActions from '@core/ngrx/actions/app.actions';
+import * as ArticleActions from '@core/ngrx/actions/article.actions';
+import { ArticleService } from '@core/services/article/article.service';
 
 @Component({
   selector: 'app-article-search',
@@ -11,12 +12,14 @@ import * as AppActions from '@core/ngrx/actions/app.actions';
   styleUrls: ['./article-search.component.scss']
 })
 
-export class ArticleSearchComponent implements OnInit {
+export class ArticleSearchComponent implements OnInit, OnDestroy {
 
   value: string;
   valueChanged: Subject<string> = new Subject<string>();
+  private unsubscribe$ = new Subject<void>();
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>,
+              private articleService: ArticleService) { }
 
   ngOnInit() {
     this.subscribeToChanges();
@@ -26,14 +29,23 @@ export class ArticleSearchComponent implements OnInit {
     this.valueChanged
       .pipe(
         debounceTime(2000),
-        distinctUntilChanged()
+        distinctUntilChanged(),
+        takeUntil(this.unsubscribe$)
       )
-      .subscribe((change: string) => this.store.dispatch(AppActions.SeachArticles({value: change})));
+      .subscribe((change: string) => console.log(change));
   }
 
   changed(value: string): void {
-    if (value === '') { value = null; }
+    if (value === '') {
+      this.store.dispatch(ArticleActions.getArticles());
+      return;
+     }
     this.valueChanged.next(value);
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
 }

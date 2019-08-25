@@ -11,6 +11,7 @@ import { HammerConfig } from './core/hammer.config';
 import { PagesModule } from './pages/pages.module';
 import { ComponentsModule } from '@shared/components/components.module';
 import { SharedModule } from '@shared/shared.module';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,13 @@ import { SharedModule } from '@shared/shared.module';
     CoreModule,
     ComponentsModule,
     SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    StoreModule.forRoot({}, {
+      runtimeChecks: {
+        strictStateImmutability: false,
+        strictActionImmutability: false
+      }
+    }),
   ],
   providers: [
     { provide: APP_CONFIG, useValue: APP_CONSTANTS },
