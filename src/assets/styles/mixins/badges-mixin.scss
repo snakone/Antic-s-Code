@@ -84,9 +84,11 @@
   & mat-icon { font-size: .86667rem }
 
   &-rating mat-icon {
+    font-size: 1rem;
     position: relative;
-    left: 5px;
-    top: 6px;
+    left: 7px;
+    top: 4px;
+    padding-right: 4px;
   }
 
   &-email mat-icon {
@@ -97,11 +99,10 @@
     padding-right: 8px;
   }
 
-  &-note mat-icon {
-    font-size: 1.05rem;
+  &-heart mat-icon {
     position: relative;
-    left: 7px;
-    top: 5px;
+    left: 8px;
+    top: 6px;
     margin-right: 5px;
   }
 

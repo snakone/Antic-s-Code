@@ -1,12 +1,12 @@
-<app-content-box title="Information"
+<app-content-box title="Informacíon"
                  icon="event_note">
     <div class="info-box flex-box">
       <div class="info-box-avatar">
-        <img src="assets/img/avatar.jpg"/>
+        <img [src]="category.icon | image: 'logos'"/>
       </div>
       <div class="info-box-data">
           <h4 class="flex-box">
-          Zephy Real State
+          {{category.name}}
           <span class="verified"></span>
         </h4>
         <span class="info-box-time">
@@ -16,9 +16,23 @@
     </div>
     <div class="info-box-list">  <!-- ICON LIST -->
       <ul>
-        <li *ngFor="let i of list">
-          <mat-icon>{{i.picture}}</mat-icon>
-          <span>{{i.name}}</span>
+        <li>
+          <mat-icon>school</mat-icon>
+          <span>{{category.info.creator}}</span>
+        </li>
+        <li>
+          <mat-icon>public</mat-icon>
+          <span>{{category.info.where}}</span>
+        </li>
+        <li>
+          <mat-icon>link</mat-icon>
+          <a [href]="category.info.site" target="_NEW">
+            <span>{{category.info.site}}</span>
+          </a>
+        </li>
+        <li>
+          <mat-icon>schedule</mat-icon>
+          <span>Creado en {{category.info.age}}</span>
         </li>
       </ul>
     </div>

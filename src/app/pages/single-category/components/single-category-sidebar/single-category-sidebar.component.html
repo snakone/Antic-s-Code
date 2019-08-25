@@ -1,6 +1,7 @@
 <div class="display">
-  <app-single-category-info-box></app-single-category-info-box>
-  <button mat-button class="btn-pink font">Favorite</button>
+  <app-single-category-info-box [category]="category">
+  </app-single-category-info-box>
+  <button mat-button class="btn-pink font">Favorito</button>
 </div>
   <app-tag-box></app-tag-box>
 <app-last-articles-box></app-last-articles-box>

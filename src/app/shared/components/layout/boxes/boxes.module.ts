@@ -9,7 +9,7 @@ import { StickyBoxComponent } from './sticky-box/sticky-box.component';
 import { TagBoxComponent } from './tag-box/tag-box.component';
 import { CodeBoxComponent } from './code-box/code-box.component';
 import { HighlightModule } from 'ngx-highlightjs';
-import { ArticleLinksBoxComponent } from './article-links-box/article-links-box.component';
+import { LinksBoxComponent } from './links-box/links-box.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { ArticleLinksBoxComponent } from './article-links-box/article-links-box.
     StickyBoxComponent,
     TagBoxComponent,
     CodeBoxComponent,
-    ArticleLinksBoxComponent
+    LinksBoxComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +32,7 @@ import { ArticleLinksBoxComponent } from './article-links-box/article-links-box.
     StickyBoxComponent,
     TagBoxComponent,
     CodeBoxComponent,
-    ArticleLinksBoxComponent
+    LinksBoxComponent
   ]
 })
 

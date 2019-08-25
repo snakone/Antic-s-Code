@@ -24,13 +24,13 @@ export class CodeComponent implements OnInit, OnDestroy {
   }
 
   getCode(): void {
-    this.store.select('articleState')
+    this.store.select('AppState')
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((res: AppState) => {
         if (res.articles) {
           res.articles.forEach((x: Article) => {
-            this.code.push(...x.code);
-          });
+          this.code.push(...x.code);
+        });
           this.filtered = this.code;
         }
     });

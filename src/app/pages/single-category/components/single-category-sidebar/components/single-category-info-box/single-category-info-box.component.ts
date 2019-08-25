@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { CATEGORY_INFO } from '@app/shared/shared.data';
+import { Component, OnInit, Input } from '@angular/core';
+import { Category } from '@app/shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-single-category-info-box',
@@ -9,7 +9,7 @@ import { CATEGORY_INFO } from '@app/shared/shared.data';
 
 export class SingleCategoryInfoBoxComponent implements OnInit {
 
-  list = CATEGORY_INFO;
+  @Input() category: Category;
 
   constructor() { }
 

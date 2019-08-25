@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
-import * as ArticleActions from '@core/ngrx/actions/article.actions';
+import * as AppActions from '@core/ngrx/actions/app.actions';
 
 @Component({
   selector: 'app-article-search',
@@ -28,7 +28,7 @@ export class ArticleSearchComponent implements OnInit {
         debounceTime(2000),
         distinctUntilChanged()
       )
-      .subscribe((change: string) => this.store.dispatch(ArticleActions.SeachArticles({value: change})));
+      .subscribe((change: string) => this.store.dispatch(AppActions.SeachArticles({value: change})));
   }
 
   changed(value: string): void {

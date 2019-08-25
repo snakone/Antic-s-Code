@@ -22,7 +22,7 @@ export class ArticlesGridComponent implements OnInit, OnDestroy {
   }
 
   getTotalPost(): Observable<number> {
-    return this.store.select('articleState')
+    return this.store.select('AppState')
       .pipe(
         takeUntil(this.unsubscribe$),
         map((res: AppState) => {

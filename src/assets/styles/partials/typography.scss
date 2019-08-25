@@ -41,7 +41,10 @@ p.first::first-letter {
 
 @media(max-width: 550px) {
   p, a, span { font-size: .9rem !important }
-  p { margin: 1rem auto !important }
+  p {
+    margin: 1rem auto !important;
+    &:first-child { margin-top: .5rem!important }
+   }
 }
 
 br {

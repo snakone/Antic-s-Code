@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Article } from '@app/shared/interfaces/interfaces';
-import * as ArticleActions from '@core/ngrx/actions/article.actions';
+import * as AppActions from '@core/ngrx/actions/app.actions';
 import { Subject } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
@@ -24,7 +24,7 @@ export class ArticlesComponent implements OnInit, OnDestroy {
    }
 
   private getArticles(): void {
-    this.store.select('articleState')
+    this.store.select('AppState')
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((res: AppState) => {
         if (res.search) {
@@ -37,7 +37,7 @@ export class ArticlesComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.store.dispatch(ArticleActions.SeachArticles({value: null}));
+    this.store.dispatch(AppActions.SeachArticles({value: null}));
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }

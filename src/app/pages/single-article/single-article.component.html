@@ -8,10 +8,10 @@
                         [article]="article"
                         [padding]="0"
                         [stars]="true">
-        <app-article-maker [article]="article"></app-article-maker>
-        <app-article-links-box *ngIf="article.links.length > 0"
-                               [article]="article">
-        </app-article-links-box>
+        <app-content-maker [template]="article"></app-content-maker>
+        <app-links-box *ngIf="article.links.length > 0"
+                       [links]="article.links">
+        </app-links-box>
         <app-disqus [identifier]="article.slug"></app-disqus>
       </app-article-card>
       <app-loading *ngIf="!article"></app-loading>

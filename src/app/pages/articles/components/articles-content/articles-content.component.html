@@ -9,7 +9,7 @@
 <div *ngIf="articles.length > 0">
   <app-article-card shadow="true"
                     *ngFor="let a of articles
-                            | paginate: { itemsPerPage: 3,
+                            | paginate: { itemsPerPage: 4,
                                           currentPage: page,
                                           id: 'articles-pagination' }"
                     [article]="a"
