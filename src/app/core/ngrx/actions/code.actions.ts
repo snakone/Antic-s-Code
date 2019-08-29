@@ -6,7 +6,7 @@ export const getCode =
 
 export const getCodeSuccess =
   createAction('[App Init] Get Code Success',
-  props<{ code: Code[] }>());
+  props<{ code: Code[], count: number }>());
 
 export const GetCodeFailure =
   createAction('[App Init] Get Code Failure',

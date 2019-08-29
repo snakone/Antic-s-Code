@@ -12,4 +12,8 @@ export const getAllCode = createSelector(
   getCodeState, fromCode.getAll
 );
 
+export const getArticlesCount = createSelector(
+  getCodeState, fromCode.getCount
+);
+
 

@@ -114,6 +114,7 @@ export interface CodeResponse {
   ok: boolean;
   message: string;
   code?: Code[];
+  count?: number;
 }
 
 export interface Link {

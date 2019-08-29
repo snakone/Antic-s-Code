@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import {
   HttpService,
   ArticleService,
-  CategoryService,
-  DataService
+  CategoryService
   } from './services.index';
 
 @NgModule({
@@ -11,8 +10,7 @@ import {
   providers: [
     HttpService,
     ArticleService,
-    CategoryService,
-    DataService
+    CategoryService
   ]
 })
 

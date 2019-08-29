@@ -5,17 +5,15 @@
     </div>
   </div>
 </div> -->
-<div class="scroll-wrapper"
-     scrollable
-     (scrollPosition)="onScroll($event)">
-  <app-article-card shadow="true"
-                    *ngFor="let a of articles$ | async"
-                    [article]="a"
-                    [padding]="2"
-                    [stars]="false">   <!-- ARTICLES GRID -->
-    <span class="summary" [innerHTML]="a.summary"></span>
-  </app-article-card>
-</div>
+<app-article-card shadow="true"
+                  *ngFor="let a of articles$ | async"
+                  [article]="a"
+                  [padding]="2"
+                  [stars]="false">   <!-- ARTICLES GRID -->
+  <span class="summary" [innerHTML]="a.summary"></span>
+</app-article-card>
+
+<app-loading *ngIf="loading"></app-loading>
 
 <app-content-box *ngIf="!articles$ | async"
                         title="Oops!"

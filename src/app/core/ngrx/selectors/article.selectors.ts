@@ -16,15 +16,15 @@ export const getLoadedArticles = createSelector(
   getArticlesState, fromArticles.getLoaded
 );
 
-export const getSearchArticles = createSelector(
-  getArticlesState, fromArticles.getSearch
-);
-
 export const getFullLoaded = createSelector(
   getArticlesState, fromArticles.getFull
 );
 
 export const getArticleBySlug = createSelector(
   getArticlesState, fromArticles.getSlug
+);
+
+export const getLastArticles = createSelector(
+  getArticlesState, fromArticles.getLast
 );
 

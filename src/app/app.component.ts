@@ -25,9 +25,13 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscribeIntersection();
-    this.store.dispatch(ArticleActions.getArticles());
+    this.getStoreData();
+  }
+
+  getStoreData(): void {
     this.store.dispatch(CategoryActions.getCategories());
     this.store.dispatch(CodeActions.getCode());
+    this.store.dispatch(ArticleActions.getLastArticles());
   }
 
   swipe(e: any): void {

@@ -13,6 +13,18 @@ export const GetArticlesFailure =
   createAction('[Articles API] Get Articles Failure',
   props<{ error: string }>());
 
+// GET LAST ARTICLES
+export const getLastArticles =
+  createAction('[Articles API] Get Last Articles');
+
+export const getLastArticlesSuccess =
+  createAction('[Articles API] Get Last Articles Success',
+  props<{ articles: Article[] }>());
+
+export const GetLastArticlesFailure =
+  createAction('[Articles API] Get Last Articles Failure',
+  props<{ error: string }>());
+
 // GET ARTICLE BY SLUG
 export const getArticleBySlug =
   createAction('[Articles API] Get Article by Slug',
@@ -26,17 +38,11 @@ export const GetArticleBySlugFailure =
   createAction('[Articles API] Get Article by Slug Failure',
   props<{ error: string }>());
 
-// SEARCH ARTICLES
-export const SeachArticles =
-  createAction('[Articles API] Search Article',
-  props<{ value: string }>());
+// RESET ARTICLES
+export const ResetArticles =
+createAction('[Articles API] Reset Articles');
 
-export const SeachArticlesSuccess =
-  createAction('[Articles API] Search Article Success',
-  props<{ articles: Article[] }>());
-
-export const SeachArticlesFailure =
-  createAction('[Articles API] Search Article Failure',
-  props<{ error: string }>());
+export const ResetSlug =
+createAction('[Articles API] Reset Article Slug');
 
 

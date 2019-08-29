@@ -42,17 +42,17 @@ export class ArticleEffects {
     )
   );
 
-  loadSearchArticlesEffect$ = createEffect(() => this.actions
-  .pipe(
-    ofType(ArticleActions.SeachArticles),
-    concatMap((action) =>
-    this.articleService.searchArticles(action.value)
-      .pipe(
-        map(res => ArticleActions.SeachArticlesSuccess({articles: res.articles})),
-        catchError(error =>
-            of(ArticleActions.SeachArticlesFailure({ error: error.message }))
+  loadLastArticlesEffect$ = createEffect(() => this.actions
+    .pipe(
+      ofType(ArticleActions.getLastArticles),
+      concatMap(() =>
+        this.articleService.getLastArticles()
+          .pipe(
+            map(res => ArticleActions.getLastArticlesSuccess({ articles: res.articles })),
+            catchError(error =>
+              of(ArticleActions.GetLastArticlesFailure({ error: error.message }))
+            )
           )
-        )
       )
     )
   );

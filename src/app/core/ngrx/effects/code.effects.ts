@@ -18,7 +18,7 @@ export class CodeEffects {
       concatMap(() =>
       this.articleService.getArticlesCode()
         .pipe(
-          map(res => CodeActions.getCodeSuccess({code: res.code})),
+          map(res => CodeActions.getCodeSuccess({ code: res.code, count: res.count })),
           catchError(error =>
               of(CodeActions.GetCodeFailure({ error: error.message }))
             )

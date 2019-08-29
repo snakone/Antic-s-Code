@@ -2,9 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subject, Observable } from 'rxjs';
 import { takeUntil, map } from 'rxjs/operators';
-import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 import { AppState } from '@app/app.config';
 import { Article } from '@app/shared/interfaces/interfaces';
+import * as fromCode from '@core/ngrx/selectors/code.selectors';
 
 
 @Component({
@@ -25,12 +25,8 @@ export class ArticlesGridComponent implements OnInit, OnDestroy {
   }
 
   getTotalPost(): Observable<number> {
-    return this.store.select(fromArticles.getAllArticles)
-      .pipe(
-        takeUntil(this.unsubscribe$),
-        map((res: Article[]) => {
-          return res.length;
-      }));
+    return this.store.select(fromCode.getArticlesCount)
+     .pipe(takeUntil(this.unsubscribe$));
   }
 
 

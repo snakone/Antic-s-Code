@@ -18,8 +18,7 @@ export class ArticleSearchComponent implements OnInit, OnDestroy {
   valueChanged: Subject<string> = new Subject<string>();
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private store: Store<AppState>,
-              private articleService: ArticleService) { }
+  constructor() { }
 
   ngOnInit() {
     this.subscribeToChanges();
@@ -36,10 +35,6 @@ export class ArticleSearchComponent implements OnInit, OnDestroy {
   }
 
   changed(value: string): void {
-    if (value === '') {
-      this.store.dispatch(ArticleActions.getArticles());
-      return;
-     }
     this.valueChanged.next(value);
   }
 

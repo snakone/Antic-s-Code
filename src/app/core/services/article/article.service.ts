@@ -24,13 +24,12 @@ export class ArticleService {
     return this.http.get(this.API_ARTICLES + '/code');
   }
 
-  public getArticleBySlug(slug: string): Observable<ArticleResponse> {
-    return this.http.get(APP_CONSTANTS.END_POINT + 'article/' + slug);
+  public getLastArticles(): Observable<ArticleResponse> {
+    return this.http.get(this.API_ARTICLES + '/last');
   }
 
-  public searchArticles(value: string): Observable<ArticleResponse> {
-    this.page++;
-    return this.http.get(APP_CONSTANTS.END_POINT + 'search/articles/' + value + '?page=' + this.page);
+  public getArticleBySlug(slug: string): Observable<ArticleResponse> {
+    return this.http.get(APP_CONSTANTS.END_POINT + 'article/' + slug);
   }
 
   public resetPage(): void {

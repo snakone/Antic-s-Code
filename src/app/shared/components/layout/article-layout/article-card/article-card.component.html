@@ -1,4 +1,4 @@
-<div class="article-wrapper">
+<div class="article-wrapper animated fadeIn" *ngIf="article">
  <div class="article-card" [ngClass]="{'article-card-shadow' : shadow}">
    <figure (click)="goToArticle(article.slug)">
      <img [src]="article.cover"/>

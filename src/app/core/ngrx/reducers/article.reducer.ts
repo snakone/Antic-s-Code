@@ -4,24 +4,27 @@ import { Article } from '@app/shared/interfaces/interfaces';
 
 export interface ArticleState {
   articles: Article[];
+  last: Article[];
   slug: Article;
   loaded: boolean;
   full: boolean;
   error: string;
-  search: Article[];
+  count: number;
 }
 
 export const inititalState: ArticleState = {
   articles: [],
+  last: [],
   slug: null,
   loaded: false,
   full: false,
   error: null,
-  search: []
+  count: 0
 };
 
 const featureReducer = createReducer(
   inititalState,
+  // GET ARTICLES
   on(ArticleActions.getArticles, state => (
     { ...state, loaded: false, error: null }
   )),
@@ -31,15 +34,28 @@ const featureReducer = createReducer(
       loaded: true,
       error: null,
       articles: [...state.articles, ...articles],
-      search: [...state.articles, ...articles],
       full: completed(articles)
     }
   )),
   on(ArticleActions.GetArticlesFailure, (state, { error }) => (
     { ...state, loaded: false, error }
   )),
-
-
+  // GET LAST ARTICLES
+  on(ArticleActions.getLastArticles, state => {
+    return ({ ...state, loaded: false, error: null });
+  }),
+  on(ArticleActions.getLastArticlesSuccess, (state, { articles }) => (
+    {
+      ...state,
+      loaded: true,
+      error: null,
+      last: articles
+    }
+  )),
+  on(ArticleActions.GetLastArticlesFailure, (state, { error }) => (
+    { ...state, loaded: false, error }
+  )),
+  // ARTICLE BY SLUG
   on(ArticleActions.getArticleBySlug, (state, { slug }) => (
     { ...state, loaded: false, error: null }
   )),
@@ -54,22 +70,13 @@ const featureReducer = createReducer(
   on(ArticleActions.GetArticlesFailure, (state, { error }) => (
     { ...state, loaded: false, error }
   )),
-
-
-  on(ArticleActions.SeachArticles, (state, { value }) => (
-    { ...state, loaded: false, error: null }
+  // RESET
+  on(ArticleActions.ResetArticles, (state) => (
+    { ...state, loaded: true, error: null, articles: [] }
   )),
-  on(ArticleActions.SeachArticlesSuccess, (state, { articles }) => (
-    {
-      ...state,
-      loaded: true,
-      error: null,
-      search: articles
-    }
+  on(ArticleActions.ResetSlug, (state) => (
+    { ...state, loaded: true, error: null, slug: null }
   )),
-  on(ArticleActions.SeachArticlesFailure, (state, { error }) => (
-    { ...state, loaded: false, error }
-  ))
 );
 
 export function reducer(state: ArticleState | undefined, action: Action) {
@@ -78,9 +85,9 @@ export function reducer(state: ArticleState | undefined, action: Action) {
 
 export const getAll = (state: ArticleState) => state.articles;
 export const getLoaded = (state: ArticleState) => state.loaded;
-export const getSearch = (state: ArticleState) => state.search;
 export const getFull = (state: ArticleState) => state.full;
 export const getSlug = (state: ArticleState) => state.slug;
+export const getLast = (state: ArticleState) => state.last;
 
 function completed(articles: Article[]): boolean {
   return articles.length === 0 ? true : false;

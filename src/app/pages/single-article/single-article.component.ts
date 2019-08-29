@@ -6,7 +6,7 @@ import * as ArticleActions from '@core/ngrx/actions/article.actions';
 
 import { Article } from '@app/shared/interfaces/interfaces';
 import { Subject } from 'rxjs';
-import { takeUntil} from 'rxjs/operators';
+import { takeUntil, delay, distinctUntilChanged } from 'rxjs/operators';
 import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 
 @Component({
@@ -24,27 +24,33 @@ export class SingleArticleComponent implements OnInit, OnDestroy {
               private store: Store<AppState>) { }
 
   ngOnInit() {
+    this.article = null;
     this.getArticlyBySlug();
   }
 
   private getArticlyBySlug(): void {
     this.route.params
      .pipe(takeUntil(this.unsubscribe$))
-     .subscribe(params => {
+      .subscribe(params => {
         this.store.dispatch(ArticleActions.getArticleBySlug({ slug: params.slug }));
      });
 
     this.store.select(fromArticles.getArticleBySlug)
-     .pipe(takeUntil(this.unsubscribe$))
+      .pipe(
+        takeUntil(this.unsubscribe$),
+        distinctUntilChanged())
       .subscribe((res: Article) => {
-        this.article = null;
-        setTimeout(() => { this.article = res; }, 200);
+        if (res) {
+          this.article = null;
+          setTimeout(() => { this.article = res; }, 400);
+        }
       });
   }
 
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+    this.store.dispatch(ArticleActions.ResetSlug());
   }
 
 }
