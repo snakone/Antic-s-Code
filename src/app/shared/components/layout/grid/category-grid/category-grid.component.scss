@@ -26,6 +26,10 @@
         margin-bottom: 12px;
         font-size: 1.2rem;
       }
+
+      & img {
+        width: 50px;
+      }
     }
   }
 
@@ -47,7 +51,7 @@
     transition: all .3s ease;
     color: var(--light-color);
     background-color: var(--success-color);
-    padding: .7rem 1.5rem;
+    padding: .5rem 1rem;
     -webkit-border-radius: 10rem;
     border-radius: 10rem;
     display: inline-block;
@@ -79,4 +83,8 @@ figure {
   margin: 0 0 1rem;
 }
 
-
+@media(max-width: 820px) and (min-width: 803px) {
+  .col-lg-4 {
+    max-width: 340px;
+  }
+}

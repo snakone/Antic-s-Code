@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, NgForm, FormControl } from '@angular/forms';
-import { CATEGORIES } from '@app/shared/shared.data';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { CATEGORIES, TAGS } from '@app/shared/shared.data';
 
 @Component({
   selector: 'app-header-search',
@@ -10,9 +10,9 @@ import { CATEGORIES } from '@app/shared/shared.data';
 
 export class HeaderSearchComponent implements OnInit {
 
-  @ViewChild('f', { static: true }) ngForm: NgForm;
   searchForm: FormGroup;
   categories = CATEGORIES;
+  tags = TAGS;
 
   constructor() { }
 
@@ -24,7 +24,7 @@ export class HeaderSearchComponent implements OnInit {
     this.searchForm = new FormGroup({
        title: new FormControl(null, []),
     category: new FormControl(null, []),
-        code: new FormControl(null, [])
+    tag: new FormControl(null, [])
     });
   }
 

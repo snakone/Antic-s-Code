@@ -7,12 +7,16 @@
   @include badge(#fd4868);
 }
 
+.badge-new {
+  @include badge(#4471ee);
+}
+
 .badge-category {
   @include badge-category(var(--light-color), rgba(223, 216, 230, 0.1), 15px, var(--primary-color));
 }
 
 .badge-card-category {
-  @include badge-category(#903af9, rgba(144,58,249,.1), 0, #fa8b0c)
+  @include badge-category(var(--violet-color), rgba(144,58,249,.1), 0, #fa8b0c)
 }
 
 .meta-star {

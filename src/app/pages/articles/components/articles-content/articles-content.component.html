@@ -1,19 +1,23 @@
-<div class="display">
+<!-- <div class="mobile">
   <div class="row">
     <div class="col-lg-12">
-      <app-articles-search></app-articles-search>
+      <app-article-search></app-article-search>
     </div>
   </div>
-</div>
-
+</div> -->
 <app-article-card shadow="true"
-                 *ngFor="let a of articles"
-                 [article]="a"
-                 [padding]="1">
-  <p>
-    Investig ationes demons trave runt lectores legere liusry
-    quod ii legunt saepius claritas Investig ationes. Pharetra dui,
-    nec tincidunt ante mauris eu diam. Phasellus viverra nisl vitae
-    cursus aei uismod suspendisse saepius claritas investig.
-  </p>
+                  *ngFor="let a of articles$ | async"
+                  [article]="a"
+                  [padding]="2"
+                  [stars]="false">   <!-- ARTICLES GRID -->
+  <span class="summary" [innerHTML]="a.summary"></span>
 </app-article-card>
+
+<app-loading *ngIf="loading"></app-loading>
+
+<app-content-box *ngIf="!articles$ | async"
+                        title="Oops!"
+                        icon="cancel">
+        <p>No se han encontrado resultados</p>
+</app-content-box>
+

@@ -1,8 +1,8 @@
-
-<app-content-box title="Categories"
+<app-content-box title="Categorías"
                  icon="chrome_reader_mode">
   <ul>
-    <li *ngFor="let c of categories">
+    <li *ngFor="let c of categories"
+        [routerLink]="'/category/' + c">
       <mat-icon>keyboard_arrow_right</mat-icon>
       <span>{{c}}</span>
     </li>

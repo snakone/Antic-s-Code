@@ -1,86 +1,133 @@
 import {
-  Category,
   List,
   Testimonial,
   FooterList,
   MenuLink,
   FAQ,
   Related,
-  ToC
+  ToC,
+  MenuDropdown,
+  Categories
 } from './interfaces/interfaces';
 
 export const MENU: MenuLink[] = [
-  { name: 'Home', link: '/home' },
-  { name: 'Code', link: '/code' },
-  { name: 'Categories', link: '/categories' },
-  { name: 'Articles', link: '/articles' }
+  { name: 'Inicio', link: '/home' },
+  { name: 'Código', link: '/code' },
+  { name: 'Categorías', link: '/categories' },
+  { name: 'Artículos', link: '/articles' }
+];
+
+export const HOME_MENU: MenuDropdown[] = [
+  { name: 'Ventajas', link: '/home', icon: 'autorenew' },
+  { name: 'Colabora', link: '/code', icon: 'present_to_all' },
+  { name: 'Soporte', link: '/categories', icon: 'help_outline' },
+  { name: 'Sobre mí', link: '/articles', icon: 'directions_run' }
 ];
 
 export const CATEGORIES: string[] = [
-  'Code',
-  'Video',
-  'Gaming',
-  'Lifestyle',
-  'Interview',
-  'Review',
-  'Antic'
+  'HTML',
+  'CSS',
+  'Javascript',
+  'Angular',
+  'Nodejs',
+  'MongoDB'
 ];
 
-export const POPULAR_CATEGORIES: Category[] = [
+export const TAGS: string[] = [
+  'Desarollo',
+  'Typescript',
+  'Frontend',
+  'Backend',
+  'Diseño',
+  'SCSS',
+  'Ionic',
+  'Database'
+];
+
+export const CODE_TAGS: string[] = [
+  'Consola',
+  'Javascript',
+  'HTML',
+  'Nodejs',
+  'Diseño',
+  'CSS',
+  'SCSS',
+  'Angular',
+  'Material',
+  'Ionic',
+  'Database',
+  'Config',
+  'Todas'
+];
+
+export const POPULAR_CATEGORIES: Categories[] = [
   {
-    name: 'Restaurants',
-    icon: 'restaurant_menu',
+    name: 'Cógido',
+    icon: 'code',
     class: 'icon-pink'
   },
   {
-    name: 'Places',
-    icon: 'place',
-    class: 'icon-green'
-  },
-  {
-    name: 'Shooping',
-    icon: 'shopping_cart',
+    name: 'Artículos',
+    icon: 'receipt',
     class: 'icon-orange'
   },
   {
-    name: 'Hotels',
-    icon: 'hotel',
+    name: 'Tutoriales',
+    icon: 'nature_people',
+    class: 'icon-green'
+  },
+  {
+    name: 'Ejemplos',
+    icon: 'wallpaper',
     class: 'icon-red'
   },
 ];
 
-export const MAIN_CATEGORIES: Category[] = [
+export const MAIN_CATEGORIES: Categories[] = [
   {
-    name: 'Restaurants',
-    icon: 'restaurant_menu',
-    picture: 'cat1.jpg'
+    name: 'Markup HTML5',
+    icon: 'html-logo.png',
+    class: 'HTML',
+    picture: 'odd.png'
   },
   {
-    name: 'Places & Destination',
-    icon: 'place',
-    picture: 'cat2.jpg'
+    name: 'Stylesheet CSS3',
+    icon: 'css-logo.png',
+    class: 'CSS',
+    picture: 'even.png'
   },
   {
-    name: 'Shooping',
-    icon: 'shopping_cart',
-    picture: 'cat3.jpg'
+    name: 'Vanilla Javascript',
+    icon: 'javascript-logo.png',
+    class: 'Javascript',
+    picture: 'odd.png'
   },
   {
-    name: 'Art & History',
-    icon: 'account_balance',
-    picture: 'cat4.jpg'
+    name: 'Angular Framework',
+    icon: 'angular-logo.png',
+    class: 'Angular',
+    picture: 'even.png'
   },
   {
-    name: 'Hotel & Travel',
-    icon: 'hotel',
-    picture: 'cat5.jpg'
+    name: 'Server Javascript',
+    icon: 'node-logo.png',
+    class: 'Nodejs',
+    picture: 'odd.png'
   },
   {
-    name: 'Food & Drink',
-    icon: 'fastfood',
-    picture: 'cat6.jpg'
+    name: 'Mongo Database',
+    icon: 'mongo-logo.png',
+    class: 'MongoDB',
+    picture: 'even.png'
   }
 ];
+
+export const PAGE_BG = {
+  code: 'https://media0.giphy.com/media/l3q2XB76CaWPggiNW/giphy.gif',
+  categories: 'https://media2.giphy.com/media/hLzncGRSaC5Nu/giphy.gif',
+  articles: 'https://media0.giphy.com/media/xUA7bgk0V4eUyNVaAo/giphy.gif',
+  article: 'https://media2.giphy.com/media/b93B4aJQQakRG/giphy.gif'
+};
 
 export const PLACES: List[] = [
   { name: 'London, UK', picture: 'place1.jpg' },
@@ -163,57 +210,27 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const LOGOS: List[] = [
-  { name: 'Vanilla Javascript', picture: 'javascript-logo.png' },
-  { name: 'Markup HTML5', picture: 'html-logo.png' },
-  { name: 'Stylesheet CSS3', picture: 'css-logo.png' },
-  { name: 'Angular Framework', picture: 'angular-logo.png' },
-  { name: 'Server Javascript', picture: 'node-logo.png' },
-  { name: 'Mongo Database', picture: 'mongo-logo.png' }
+  { name: 'Markup HTML5', picture: 'html-logo.png', link: 'HTML' },
+  { name: 'Stylesheet CSS3', picture: 'css-logo.png', link: 'CSS' },
+  { name: 'Vanilla Javascript', picture: 'javascript-logo.png', link: 'Javascript' },
+  { name: 'Angular Framework', picture: 'angular-logo.png', link: 'Angular' },
+  { name: 'Server Javascript', picture: 'node-logo.png', link: 'Nodejs' },
+  { name: 'Mongo Database', picture: 'mongo-logo.png', link: 'MongoDB' }
 ];
 
 export const FOOTER_LIST: FooterList[] = [
   {
-    title: 'Company Info',
-    list: ['About Us', 'Contact Us', 'Support', 'Privacy Policy']
+    title: 'Información',
+    list: ['Sobre mí', 'Contacto', 'Soporte', 'Políticas']
   },
   {
-    title: 'Helpful Links',
-    list: ['Join Direo', 'How it Work', 'Advantages', 'Packages']
+    title: 'Enlaces Útiles',
+    list: ['Registrarse', '¿Cómo funciona?', 'Ventajas', 'Colabora']
   },
   {
-    title: 'Connect with Us',
-    list: ['Contact Support', 'Twitter', 'Facebook', 'Youtube']
+    title: 'Conecta Conmigo',
+    list: ['Ayuda', 'Twitter', 'Facebook', 'Youtube']
   }
-];
-
-export const CATEGORY_INFO: List[] = [
-  {
-    name: '25 East Valley Road, Michigan',
-    picture: 'place'
-  },
-  {
-    name: '(213) 995-7799',
-    picture: 'phone'
-  },
-  {
-    name: 'support@aazztech.com',
-    picture: 'email'
-  },
-  {
-    name: 'http://anticscode.epizy.com',
-    picture: 'public'
-  }
-];
-
-export const TAGS: string[] = [
-  'New York',
-  'Car Parking',
-  'Food',
-  'Travelling',
-  'Home',
-  'Office',
-  'Restaurant',
-  'Bike Parking'
 ];
 
 export const FAQS: FAQ[] = [
@@ -237,46 +254,19 @@ export const FAQS: FAQ[] = [
   }
 ];
 
-export const RELATED_ARTICLES: Related[] = [
-  {
-    title: 'Clothing Shopping Mall',
-    picture: 'sl1.jpg',
-    category: 'Food & Drink',
-    icon: 'restaurant'
-  },
-  {
-    title: 'Flanders Heat & Air Systems',
-    picture: 'sl2.jpg',
-    category: 'Hotel & Travel',
-    icon: 'hotel'
-  },
-  {
-    title: 'Favorite Place Fog Bank',
-    picture: 'sl3.jpg',
-    category: 'Art & History',
-    icon: 'account_balance'
-  },
-  {
-    title: 'Favortie Place on Summer',
-    picture: 'sl4.jpg',
-    category: 'Shopping',
-    icon: 'flight_takeoff'
-  }
-];
-
 export const CATEGORY_TOC: ToC[] = [
   {
-    index: 'Introduction',
+    index: 'Introducción',
     description: 'A brief introduction',
     anchor: 'cat-intro'
   },
   {
-    index: 'Concepts',
+    index: 'Conceptos',
     description: 'Technology concepts',
     anchor: 'cat-concept'
   },
   {
-    index: 'Examples',
+    index: 'Ejemplos',
     description: 'Learning bit a bit',
     anchor: 'cat-examples'
   },

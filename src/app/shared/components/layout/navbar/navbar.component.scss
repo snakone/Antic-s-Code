@@ -85,6 +85,7 @@
   & .btn-mobile mat-icon {
     position: relative;
     top: -1px;
+    color: var(--light-color);
   }
 }
 
@@ -93,6 +94,8 @@
   -webkit-border-radius: 3px;
   border-radius: 3px;
   border: 1px solid rgba(255, 255, 255, .7);
+  width: 46px;
+  height: 36px;
 
   & i {
     outline: 0;
@@ -101,12 +104,11 @@
   }
 
   & span {
-    width: 1.5em;
-    height: 1.5em;
     font-size: 1.33333rem;
     display: inline-block;
     line-height: normal;
     margin-bottom: -3px;
+
   }
 
   &:focus { outline: none }
@@ -124,6 +126,7 @@ ul {
     margin-bottom: 25px;
     font-size: 1.1rem;
     outline: none;
+    cursor: pointer;
   }
 }
 

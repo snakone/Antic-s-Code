@@ -1,9 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ArticleService } from '@app/core/services/services.index';
+import { Store } from '@ngrx/store';
+import { AppState } from '@app/app.config';
+import * as ArticleActions from '@core/ngrx/actions/article.actions';
+
 import { Article } from '@app/shared/interfaces/interfaces';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, delay, distinctUntilChanged } from 'rxjs/operators';
+import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 
 @Component({
   selector: 'app-single-article',
@@ -17,23 +21,36 @@ export class SingleArticleComponent implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject<void>();
 
   constructor(private route: ActivatedRoute,
-              private articleService: ArticleService) { }
+              private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.articleService.getArticleBySlug(this.getRoute())
-    .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(res => {
-        if (res.ok) { this.article = res.article[0]; }
-    });
+    this.article = null;
+    this.getArticlyBySlug();
+  }
+
+  private getArticlyBySlug(): void {
+    this.route.params
+     .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(params => {
+        this.store.dispatch(ArticleActions.getArticleBySlug({ slug: params.slug }));
+     });
+
+    this.store.select(fromArticles.getArticleBySlug)
+      .pipe(
+        takeUntil(this.unsubscribe$),
+        distinctUntilChanged())
+      .subscribe((res: Article) => {
+        if (res) {
+          this.article = null;
+          setTimeout(() => { this.article = res; }, 400);
+        }
+      });
   }
 
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
-  }
-
-  getRoute(): string {
-    return this.route.snapshot.params.slug;
+    this.store.dispatch(ArticleActions.ResetSlug());
   }
 
 }

@@ -42,3 +42,8 @@ p {
 .hide-mobile {
   @media(max-width: 330px) { display: none }
 }
+
+img {
+  width: 30px;
+  height: 30px;
+}

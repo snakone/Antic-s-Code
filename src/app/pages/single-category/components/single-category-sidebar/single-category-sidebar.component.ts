@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Category } from '@app/shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-single-category-sidebar',
@@ -7,6 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 
 export class SingleCategorySidebarComponent implements OnInit {
+
+  @Input() category: Category;
 
   constructor() { }
 

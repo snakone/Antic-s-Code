@@ -17,13 +17,17 @@
   min-width: var(--app-min-width);
   top: 0;
   left: 0;
-  background-image: url(http://aazztech.com/demos/themes/html/direo/img/details-img.jpg);
   -webkit-background-size: cover !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat;
   z-index: 0;
   opacity: 1;
+}
+
+.bg-top {
+  background-position: top !important;
+  background-size: 100% 150% !important;
 }
 
 .category {

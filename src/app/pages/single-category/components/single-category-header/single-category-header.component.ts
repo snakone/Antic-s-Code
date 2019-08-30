@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Category } from '@app/shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-single-category-header',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class SingleCategoryHeaderComponent implements OnInit {
+
+  @Input() category: Category;
 
   constructor() { }
 

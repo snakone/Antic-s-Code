@@ -6,10 +6,6 @@
   animation-fill-mode: both;
 }
 
-img {
-  animation: fadeIn 1s ease-in;
-}
-
 @-webkit-keyframes fadeInLeft {
   from {
     opacity: 0;

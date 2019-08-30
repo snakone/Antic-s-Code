@@ -11,7 +11,7 @@ export class StorageService {
 
   constructor() {
     this.loadStorage();
-   }
+  }
 
   loadStorage() {
     if (!this.localSettings) {

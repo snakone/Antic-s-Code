@@ -3,3 +3,8 @@
   margin-bottom: var(--navbar-menu-dropdown) !important;
   margin-left: -10px !important;
 }
+
+.mat-menu-item {
+  font-size: var(--primary-font-size) !important;
+  font-family: var(--primary-font) !important;
+}

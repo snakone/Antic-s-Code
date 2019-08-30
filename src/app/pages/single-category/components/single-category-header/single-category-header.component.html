@@ -1,16 +1,24 @@
 <div class="category-header">
-  <div class="header-bg">
+  <div class="header-bg"
+       *ngIf="category"
+       [style.background-image]="'url('+ category.cover +')' | sanitizer: 'style'"
+       [ngClass]="{'bg-top' : category.category === 'Angular' ||
+                              category.category === 'Nodejs'  ||
+                              category.category === 'Javascript' }">
     <div class="category-header-content">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-8">
-            <app-single-category-header-left></app-single-category-header-left>
+            <app-single-category-header-left [category]="category">
+            </app-single-category-header-left>
           </div>
           <div class="col-lg-4 col-md-4 category-header-content-right">
-            <app-single-category-header-right></app-single-category-header-right>
+            <app-single-category-header-right [category]="category">
+            </app-single-category-header-right>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <div class="header-bg" *ngIf="!category"></div>
 </div>

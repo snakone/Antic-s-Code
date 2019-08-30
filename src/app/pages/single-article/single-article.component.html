@@ -1,25 +1,23 @@
-<app-page-header title="Article"
-                 subTitle="Article">
+<app-page-header title="Artículo"
+                 subTitle="Artículo">
 </app-page-header>
 <app-section input="#f5f7fc">
   <div class="row">
-    <div class="col-lg-12 display">  <!-- SEARCH BAR -->
-      <app-articles-search></app-articles-search>
-    </div>
-    <div class="col-lg-8 col-md-8" id="article-section">  <!-- ARTICLE CONTENT -->
+    <div class="col-lg-8 col-md-8">  <!-- ARTICLE CONTENT -->
       <app-article-card *ngIf="article"
                         [article]="article"
-                        [padding]="0">
-        <app-article-maker [article]="article"></app-article-maker>
-        <app-single-article-comments></app-single-article-comments>
+                        [padding]="0"
+                        [stars]="true">
+        <app-content-maker [template]="article"></app-content-maker>
+        <app-links-box *ngIf="article.links.length > 0"
+                       [links]="article.links">
+        </app-links-box>
+        <app-disqus [identifier]="article.slug"></app-disqus>
       </app-article-card>
+      <app-loading *ngIf="!article"></app-loading>
     </div>
     <div class="col-lg-4 col-md-4">  <!-- SIDEBAR -->
-      <app-articles-sidebar></app-articles-sidebar>
-      <app-single-article-share></app-single-article-share>
-      <app-sticky-box selector="article-section">
-        <app-comment-box></app-comment-box>
-      </app-sticky-box>
+      <app-articles-sidebar [single]="true"></app-articles-sidebar>
     </div>
   </div>
 </app-section>
