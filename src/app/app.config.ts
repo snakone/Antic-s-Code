@@ -11,7 +11,7 @@ import * as fromCode from '@core/ngrx/reducers/code.reducer';
 const DEV = 'http://localhost:3000/';
 const PRE = 'http://192.168.1.97:3000/';
 const PROD = 'https://antics-code.herokuapp.com/';
-const APP_VERSION = '0.2.2';
+const APP_VERSION = '0.2.3';
 
 export interface AppState {
   articles: fromArticles.ArticleState;

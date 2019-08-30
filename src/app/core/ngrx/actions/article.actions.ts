@@ -40,9 +40,9 @@ export const GetArticleBySlugFailure =
 
 // RESET ARTICLES
 export const ResetArticles =
-createAction('[Articles API] Reset Articles');
+  createAction('[Articles API] Reset Articles');
 
 export const ResetSlug =
-createAction('[Articles API] Reset Article Slug');
+  createAction('[Articles API] Reset Article Slug');
 
 

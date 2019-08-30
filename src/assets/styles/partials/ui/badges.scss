@@ -1,30 +1,50 @@
 // BADGES
 .badge-featured {
-  @include badge(#fa8b0c);
+  @include badge(#fa8b0c, 0);
 }
 
 .badge-popular {
-  @include badge(#fd4868);
+  @include badge(#fd4868, 0);
 }
 
 .badge-new {
-  @include badge(#4471ee);
+  @include badge(#4471ee, 0);
+}
+
+.badge-featured-article {
+  @include badge(#fa8b0c, 10px);
+}
+
+.badge-popular-article {
+  @include badge(#fd4868, 10px);
+}
+
+.badge-new-article {
+  @include badge(#4471ee, 10px);
 }
 
 .badge-category {
-  @include badge-category(var(--light-color), rgba(223, 216, 230, 0.1), 15px, var(--primary-color));
+  @include badge-category(15px);
 }
 
 .badge-card-category {
-  @include badge-category(var(--violet-color), rgba(144,58,249,.1), 0, #fa8b0c)
+  @include badge-category(0)
 }
 
 .meta-star {
   @include meta-data(var(--success-color), 2.3rem);
 }
 
-.meta-message {
+.meta-star-card {
+  @include meta-data(#28db70d5, 1.8rem);
+}
+
+.meta-like {
   @include meta-data(var(--primary-color), 2.3rem);
+}
+
+.meta-like-card {
+  @include meta-data(#f5548fd2, 1.5rem);
 }
 
 .meta-review {

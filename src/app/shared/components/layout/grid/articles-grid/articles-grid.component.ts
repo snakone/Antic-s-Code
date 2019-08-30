@@ -5,6 +5,7 @@ import { takeUntil, map } from 'rxjs/operators';
 import { AppState } from '@app/app.config';
 import { Article } from '@app/shared/interfaces/interfaces';
 import * as fromCode from '@core/ngrx/selectors/code.selectors';
+import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 
 
 @Component({
@@ -15,13 +16,20 @@ import * as fromCode from '@core/ngrx/selectors/code.selectors';
 
 export class ArticlesGridComponent implements OnInit, OnDestroy {
 
-  total: Observable<number>;
+  articles$: Observable<Article[]>;
+  total$: Observable<number>;
   private unsubscribe$ = new Subject<void>();
 
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.total = this.getTotalPost();
+    this.articles$ = this.getLastArticles();
+    this.total$ = this.getTotalPost();
+  }
+
+  getLastArticles(): Observable<Article[]> {
+    return this.store.select(fromArticles.getLastArticles)
+      .pipe(takeUntil(this.unsubscribe$));
   }
 
   getTotalPost(): Observable<number> {

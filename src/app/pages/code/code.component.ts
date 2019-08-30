@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Article, Code } from '@app/shared/interfaces/interfaces';
+import { Code } from '@app/shared/interfaces/interfaces';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
 import { Subject } from 'rxjs';

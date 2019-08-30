@@ -6,8 +6,7 @@ import { SharedModule } from '@app/shared/shared.module';
 import { ArticleSearchComponent } from './article-search/article-search.component';
 import { ArticleCardComponent } from './article-card/article-card.component';
 import { StarRatingComponent } from '../../snippets/star-rating/star-rating.component';
-import { LoadingComponent } from '../loading/loading.component';
-import { ComponentsModule } from '../../components.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,8 @@ import { ComponentsModule } from '../../components.module';
   imports: [
     CommonModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   exports: [
     ArticleCardComponent,

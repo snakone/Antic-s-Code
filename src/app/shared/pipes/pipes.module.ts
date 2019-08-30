@@ -5,6 +5,7 @@ import { BackgroundPipe } from './background/background.pipe';
 import { RandomizerPipe } from './randomizer/randomizer.pipe';
 import { SanitizerPipe } from './sanitizer/sanitizer.pipe';
 import { DigitsPipe } from './digits/digits.pipe';
+import { LogoPipe } from './logo/logo.pipe';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { DigitsPipe } from './digits/digits.pipe';
     BackgroundPipe,
     RandomizerPipe,
     SanitizerPipe,
-    DigitsPipe
+    DigitsPipe,
+    LogoPipe
   ],
   imports: [],
   exports: [
@@ -20,7 +22,8 @@ import { DigitsPipe } from './digits/digits.pipe';
     BackgroundPipe,
     RandomizerPipe,
     SanitizerPipe,
-    DigitsPipe
+    DigitsPipe,
+    LogoPipe
   ]
 })
 
