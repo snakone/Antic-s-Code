@@ -104,10 +104,10 @@ export interface CategoryResponse {
 export interface Code {
   code: string;
   lang: string;
-  tooltip: boolean;
   description: string;
   level: string;
   tags: string[];
+  from: From;
 }
 
 export interface CodeResponse {
@@ -133,4 +133,9 @@ export interface Info {
   where?: string;
   site?: string;
   age?: string;
+}
+
+export interface From {
+  article: string;
+  slug: string;
 }

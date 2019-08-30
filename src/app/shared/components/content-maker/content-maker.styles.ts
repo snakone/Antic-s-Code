@@ -6,16 +6,19 @@ export const CONTENT_STYLES = `
 
 ol {
   padding-left: 16px;
-  margin-top: .1rem;
+  margin-top: 1rem;
   margin-bottom: 1.5rem;
 }
 
 ul {
   padding-left: 16px;
-  margin: 1rem auto;
+  list-style-type: circle;
+  margin: .5rem auto;
 }
 
-li { margin: 10px auto }
+.margin { margin: 1.5rem auto }
+
+li { margin: .5rem auto }
 
 @media(max-width: 550px) { li { font-size: .9rem !important } }
 

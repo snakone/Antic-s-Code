@@ -1,5 +1,5 @@
 <div class="code-description" *ngIf="code">
-  <div *ngIf="list">
+  <div *ngIf="list">  <!-- CODE DESCRIPTION -->
     <p class="description"
        [innerHTML]="code.description | sanitizer:'html'">
     </p><br>
@@ -11,7 +11,14 @@
                           'hard': code.level === ' Avanzado'}">{{code.level}}
         </span>
       </li>
-      <li>
+      <li class="m-t-4">
+        <span class="color">Visto en: </span>
+        <span class="link"
+              [routerLink]="'/article/' + code.from.slug">
+          {{code.from.article}}
+        </span>
+      </li>
+      <li class="m-t-4">
         <span class="color">Temas: </span>
         <span class="code-tag"
               *ngFor="let t of code.tags">
@@ -20,11 +27,12 @@
       </li>
     </ul>
   </div>
-  <div class='code-box'>
+  <div class='code-box'>  <!-- CODE BOX -->
     <div class='code-box-header'>
       <span>{{code.lang}}</span>
     </div>
-    <pre><code [textContent]="code.code"></code></pre>
+    <pre><code [languages]="[code.lang.toLowerCase()]"
+               [highlight]="code.code"></code></pre>
   </div>
 </div>
 

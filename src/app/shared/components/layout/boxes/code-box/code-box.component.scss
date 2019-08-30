@@ -64,7 +64,7 @@ pre { margin: 0 }
 
 @media(max-width: 550px) {
   .code-list { right: 29px !important }
-  .code-category { margin-right: .4rem}
+  .code-category { margin-right: .4rem }
   span { font-size: .8rem !important }
   code { font-size: .9rem !important }
 }
@@ -80,6 +80,15 @@ h4 {
   margin-bottom: 1rem;
   font-size: 1.3rem;
   @media(max-width: 650px) { font-size: 1.1rem }
+}
+
+.m-t-4 { margin-top: .4rem }
+
+.link {
+  cursor: pointer;
+  color: var(--primary-color);
+  margin-left: 5px;
+  &:hover { font-weight: bold }
 }
 
 .code-tag {
