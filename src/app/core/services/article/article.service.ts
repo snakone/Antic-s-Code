@@ -32,6 +32,14 @@ export class ArticleService {
     return this.http.get(APP_CONSTANTS.END_POINT + 'article/' + slug);
   }
 
+  public sendLike(id: string): Observable<ArticleResponse> {
+    return this.http.post(this.API_ARTICLES + '/likes/' + id, null);
+  }
+
+  public sendStar(id: string, stars: number): Observable<ArticleResponse> {
+    return this.http.post(this.API_ARTICLES + '/stars/' + id, {stars});
+  }
+
   public resetPage(): void {
     this.page = 0;
   }

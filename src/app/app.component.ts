@@ -30,8 +30,8 @@ export class AppComponent implements OnInit {
 
   getStoreData(): void {
     this.store.dispatch(CategoryActions.getCategories());
-    this.store.dispatch(CodeActions.getCode());
     this.store.dispatch(ArticleActions.getLastArticles());
+    this.store.dispatch(CodeActions.getCode());
   }
 
   swipe(e: any): void {

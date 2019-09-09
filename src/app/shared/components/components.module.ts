@@ -23,6 +23,7 @@ import { PaginationComponent } from './layout/pagination/pagination.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { ContentMakerComponent } from './content-maker/content-maker.component';
+import { BottomSheetComponent } from './layout/sheets/bottom-sheet/bottom-sheet.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ContentMakerComponent } from './content-maker/content-maker.component';
     IntersectionObserverComponent,
     LoadingComponent,
     DisqusComponent,
-    PaginationComponent
+    PaginationComponent,
+    BottomSheetComponent
   ],
   imports: [
     CommonModule,
@@ -63,8 +65,10 @@ import { ContentMakerComponent } from './content-maker/content-maker.component';
     ContentMakerComponent,
     LoadingComponent,
     DisqusComponent,
-    PaginationComponent
-  ]
+    PaginationComponent,
+    BottomSheetComponent
+  ],
+  entryComponents: [BottomSheetComponent]
 })
 
 export class ComponentsModule { }
