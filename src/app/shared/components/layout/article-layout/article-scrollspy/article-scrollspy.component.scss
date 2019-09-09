@@ -1,7 +1,9 @@
 p {
   margin: 0;
   margin-bottom: 5px;
+  margin-top: -3px;
   color: var(--p-color);
+  font-size: .8rem !important;
 }
 
 ul {
@@ -12,12 +14,17 @@ ul {
 
 li:not(p) {
   color: black;
-  margin-top: var(--big-padding);
+  margin-top: .75rem;
   outline: none;
+  font-size: .8rem;
   &:first-child { margin-top: 0 }
-
   &:hover {
     color: var(--primary-color);
     cursor: pointer;
   }
+}
+
+.active {
+  color: var(--primary-color);
+  font-weight: bold;
 }

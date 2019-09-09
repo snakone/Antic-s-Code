@@ -6,7 +6,7 @@ import * as ArticleActions from '@core/ngrx/actions/article.actions';
 
 import { Article } from '@app/shared/interfaces/interfaces';
 import { Subject } from 'rxjs';
-import { takeUntil, delay, distinctUntilChanged } from 'rxjs/operators';
+import { takeUntil, distinctUntilChanged } from 'rxjs/operators';
 import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 
 @Component({

@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { IntersectionService } from './intersection.service';
+import { ScrollspyService } from './scrollspy.service';
 
-describe('IntersectionService', () => {
+describe('ScrollspyService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: IntersectionService = TestBed.get(IntersectionService);
+    const service: ScrollspyService = TestBed.get(ScrollspyService);
     expect(service).toBeTruthy();
   });
 });

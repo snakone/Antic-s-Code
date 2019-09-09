@@ -55,7 +55,8 @@
       </div>
       <div class="card-bottom">  <!-- CARD BOTTOM -->
         <div class="card-bottom-left">
-          <div class="badge-card-category">
+          <div class="badge-card-category"
+               [routerLink]="'/category/' + article.category">
             <img [src]="(article.category | logo) | image:'logos'">
             <span>{{article.category}}</span>
           </div>

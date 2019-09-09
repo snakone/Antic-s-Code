@@ -46,7 +46,7 @@
         margin: 0;
         font-size: 1.2rem;
         @media(max-width: 650px) and (min-width: 620px) { font-size: 1rem }
-        @media(max-width: 325px) { font-size: 1rem }
+        @media(max-width: 620px) { font-size: 1rem }
 
         &:hover {
           color: var(--primary-color);
@@ -81,12 +81,13 @@
         margin: 0;
         line-height: 1.8rem;
         color: var(--p-color);
+        @media(max-width: 550px) { line-height: 1rem }
 
         & mat-icon {
           font-size: 1.1rem;
           position: relative;
           top: 3px;
-          color: var(--primary-color);
+          color: var(--p-color);
           padding-right: 8px;
         }
 
@@ -112,7 +113,8 @@
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    padding: 1rem 1.3rem;
+    padding: 1rem 1.233rem;
+    @media(max-width: 550px) { padding: .8rem 1.233rem; }
 
     &-left img {
       border-radius: 25%;
@@ -210,7 +212,6 @@
         &:hover mat-icon { color: #3957ff }
       }
     }
-    @media(max-width: 350px) { padding: 1rem .8rem; }
   }
 }
 
@@ -221,4 +222,14 @@
 
 .slash { font-weight: normal !important }
 .article-level { margin-left: -5px; }
+
+.badge-card-category {
+ outline: none;
+  & span {
+    cursor: pointer;
+    &:hover {
+      font-weight: bold;
+    }
+  }
+}
 

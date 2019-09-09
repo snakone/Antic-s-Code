@@ -16,6 +16,7 @@ export interface Article {
   stars?: number;
   links?: Link[];
   summary?: string;
+  index?: Index[];
 }
 
 export interface ArticleResponse {
@@ -94,6 +95,7 @@ export interface Category {
   likes?: number;
   stars?: number;
   links?: Link[];
+  index?: Index[];
 }
 
 export interface CategoryResponse {
@@ -142,4 +144,15 @@ export interface CategoryInfo {
 export interface From {
   article: string;
   slug: string;
+}
+
+export interface Index {
+  title: string;
+  subtitle: string;
+  id: string;
+}
+
+export interface ScrollSpy {
+  onViewport?: boolean;
+  id?: string;
 }

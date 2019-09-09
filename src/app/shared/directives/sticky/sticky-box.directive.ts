@@ -47,28 +47,28 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
 
   private makeSticky(): void {
     const el = this.el.nativeElement;
-    const padding = 33; // 2rem
+    const padding = 34;
+    const height = el.offsetHeight;
     let div: number;
 
-    if (!this.selector || !el) { return; }
+    if (!this.selector || !el || height === 0) { return; }
 
     const section = document.getElementById(this.selector);
     section ? div = section.getBoundingClientRect().height : div = 1;
-
     const width = window.document.body.clientWidth;
 
-    if (width < 985 || div === 1 || this.height === 0) {
+    if (width < 985 || div === 1) {
       this.renderer.setStyle(el, 'height', `auto`);
       return;
     }
 
     try {
-      this.setElementHeight(div, el, padding);
+      this.setElementHeight(div, height, padding, el);
     } catch (err) {}
   }
 
-  private setElementHeight(d: number, el: any, p: number): void {
-    this.renderer.setStyle(el, 'height', `${d - p}px`);
+  private setElementHeight(d: number, h: number, p: number, el: any): void {
+    this.renderer.setStyle(el, 'height', `${d - h + p}px`);
   }
 
   ngOnDestroy(): void {

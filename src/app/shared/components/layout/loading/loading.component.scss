@@ -3,6 +3,12 @@
   width: 100%;
   height: auto;
   margin: 2rem auto;
+  margin-bottom: 3rem;
+
+  @media(max-width: 650px) {
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+  }
 }
 
 mat-spinner {

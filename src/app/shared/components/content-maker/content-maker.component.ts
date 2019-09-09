@@ -25,32 +25,33 @@ export class ContentMakerComponent implements AfterViewInit, OnDestroy {
               private module: NgModuleRef<any>) {}
 
   ngAfterViewInit() {
-      this.routerOb = this.route.params.subscribe(() => {
-        const tmpCmp = Component({
-          template: this.template.message,
-          styles: [CONTENT_STYLES]
-        })(class TempComponent {
-          public code: Code[];
+    this.routerOb = this.route.params.subscribe(() => {
+      const tmpCmp = Component({
+        template: this.template.message,
+        styles: [CONTENT_STYLES]
+      })(class TempComponent {  // Custom Component
+        public code: Code[];
+      });
+      const tmpModule = NgModule({  // Custom Module
+        declarations: [tmpCmp],
+        imports: [
+          SharedModule,
+          RouterModule,
+          CommonModule,
+          BoxesModule
+        ],
+      })(class {});
+      this.compiler.compileModuleAndAllComponentsAsync(tmpModule)
+        .then((factories) => {
+          this.vc.clear();
+          const f = factories.componentFactories[factories.componentFactories.length - 1];
+          const cmpRef = f.create(this.injector, [], null, this.module);
+          cmpRef.instance.name = 'dynamic';
+          cmpRef.instance.index = this.template.index;
+          cmpRef.instance.code = this.template.code;
+          this.vc.insert(cmpRef.hostView);
         });
-        const tmpModule = NgModule({
-          declarations: [tmpCmp],
-          imports: [
-            SharedModule,
-            RouterModule,
-            CommonModule,
-            BoxesModule
-          ],
-        })(class {});
-        this.compiler.compileModuleAndAllComponentsAsync(tmpModule)
-          .then((factories) => {
-            this.vc.clear();
-            const f = factories.componentFactories[factories.componentFactories.length - 1];
-            const cmpRef = f.create(this.injector, [], null, this.module);
-            cmpRef.instance.name = 'dynamic';
-            cmpRef.instance.code = this.template.code;
-            this.vc.insert(cmpRef.hostView);
-          });
-        });
+      });
   }
 
   ngOnDestroy() {

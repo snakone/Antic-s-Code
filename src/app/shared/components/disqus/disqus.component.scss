@@ -1,7 +1,10 @@
-.wrapper { box-sizing: border-box }
+.wrapper {
+  box-sizing: border-box;
+  @media(max-width: 992px) { margin-bottom: 2rem }
+}
 
 .disqus {
   position: relative;
-  top: 30px;
+  top: -10px;
   box-sizing: border-box;
 }

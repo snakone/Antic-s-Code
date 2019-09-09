@@ -7,22 +7,27 @@ import { ArticleSearchComponent } from './article-search/article-search.componen
 import { ArticleCardComponent } from './article-card/article-card.component';
 import { StarRatingComponent } from '../../snippets/star-rating/star-rating.component';
 import { RouterModule } from '@angular/router';
+import { ArticleScrollspyComponent } from './article-scrollspy/article-scrollspy.component';
+import { BoxesModule } from '../boxes/boxes.module';
 
 @NgModule({
   declarations: [
     ArticleCardComponent,
     ArticleSearchComponent,
-    StarRatingComponent
+    StarRatingComponent,
+    ArticleScrollspyComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    BoxesModule
   ],
   exports: [
     ArticleCardComponent,
-    ArticleSearchComponent
+    ArticleSearchComponent,
+    ArticleScrollspyComponent
   ]
 })
 
