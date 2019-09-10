@@ -13,14 +13,17 @@
 
 .badge-featured-article {
   @include badge(#fa8b0c, 10px);
+  border: 1px solid #ffffffa4;
 }
 
 .badge-popular-article {
   @include badge(#fd4868, 10px);
+  border: 1px solid #ffffffa4;
 }
 
 .badge-new-article {
   @include badge(#4471ee, 10px);
+  border: 1px solid #ffffffa4;
 }
 
 .badge-category {
@@ -28,7 +31,7 @@
 }
 
 .badge-card-category {
-  @include badge-category(0)
+  @include badge-category(0);
 }
 
 .meta-star {
@@ -56,6 +59,7 @@
   border: 1px solid rgba(255,255,255,.5);
   padding-left: 0;
   padding: 0 1rem;
+  @media(max-width: 450px) { padding: 0 .8777rem }
   &:hover {
     color: var(--primary-color) !important;
     border: 1px solid var(--primary-color) !important;

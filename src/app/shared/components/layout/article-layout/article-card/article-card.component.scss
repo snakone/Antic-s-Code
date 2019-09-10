@@ -20,6 +20,11 @@
       & mat-icon {
         margin-left: 5px;
         cursor: pointer;
+        @media(max-width: 625px) { margin-left: 0 }
+        @media(max-width: 550px) {
+          position: relative;
+          top: 2px;
+         }
         &:hover { color: var(--primary-color) }
       }
     }
@@ -65,18 +70,9 @@
       & ul {
         padding-left: 0;
         list-style: none;
-        -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
         margin-bottom: 1.5rem;
         @media(max-width: 625px) {
-          margin-bottom: 1rem;
+          margin-bottom: 1.1rem;
         }
       }
 
@@ -94,7 +90,7 @@
         color: var(--p-color);
       }
     }
-    &-tags { margin-bottom: 1.5rem }
+    &-tags { margin-bottom: 2rem }
   }
 }
 
@@ -103,21 +99,51 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  @media(max-width: 625px) { display: block }
+  @media(max-width: 580px) { display: inline-block }
 }
 
-@media(max-width: 625px) {
-  .stars {
-    display: block;
-    margin-top: .5666rem;
-  }
-}
-
-@media(min-width: 626px) {
-  .stars {
-    position: absolute;
-    right: 1.2rem;
-    margin-top: -2px;
+.reaction {
+  display: inline-block;
+  @media(max-width: 580px) {
+    margin-top: .7rem;
+    position: relative;
+    top: 4px;
    }
 }
 
+.reaction-mobile {
+  & span {
+    margin-right: 1rem;
+  }
+
+  & i {
+    font-size: 1.1rem;
+    position: relative;
+    top: 1px;
+    margin-right: .3rem;
+  }
+  @media(max-width: 580px) {
+    margin-top: .8rem;
+    position: relative;
+   }
+}
+
+.fa-star { color: var(--stars-color) }
+.fa-heart { color: var(--primary-color) }
+.fa-eye { color: var(--react-color) }
+
+.stars {
+  position: absolute;
+  right: 1rem;
+  margin-top: -2px;
+  @media(max-width: 580px) {
+    position: relative;
+    right: 0;
+  }
+}
+
+.author { margin-right: 2rem !important }
+.bottom {
+  margin-bottom: 0 !important;
+  @media(max-width: 550px) { margin-bottom: 1rem !important }
+ }

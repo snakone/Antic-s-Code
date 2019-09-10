@@ -1,14 +1,13 @@
-<div class="stars">
-  <ng-container *ngFor="let s of [5,4,3,2,1]">
+<ng-container *ngFor="let s of [5,4,3,2,1]">
   <input [class]="'star star-' + s"
-         [id]="'star-' + s"
-         [value]="s"
-         type="radio"
-         [checked]="s === article.stars"
-         name="star"/>
+          [id]="'star-' + s"
+          [value]="s"
+          type="radio"
+          [checked]="s === article.stars"
+          name="star"/>
   <label [class]="'star star-' + s"
-         [for]="'star-' + s"
-         (click)="doStar(s)">
+          [for]="'star-' + s"
+          (click)="doStar(s)">
   </label>
-  </ng-container>
-</div>
+</ng-container>
+

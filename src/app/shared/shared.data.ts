@@ -4,7 +4,6 @@ import {
   FooterList,
   MenuLink,
   FAQ,
-  Related,
   ToC,
   MenuDropdown,
   Categories
@@ -52,6 +51,7 @@ export const CODE_TAGS: string[] = [
   'Diseño',
   'CSS',
   'SCSS',
+  'Typescript',
   'Angular',
   'Material',
   'Ionic',

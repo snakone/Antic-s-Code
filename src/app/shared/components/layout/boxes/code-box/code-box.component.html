@@ -5,21 +5,18 @@
     </p><br>
     <ul>
       <li>
-        <span class="color">Nivel: </span>
         <span [ngClass]="{'basic': code.level === 'Básico',
                           'medium': code.level === 'Medio',
                           'hard': code.level === ' Avanzado'}">{{code.level}}
         </span>
       </li>
       <li class="m-t-4">
-        <span class="color">Visto en: </span>
         <span class="link"
               [routerLink]="'/article/' + code.from.slug">
           {{code.from.article}}
         </span>
       </li>
-      <li class="m-t-4">
-        <span class="color">Temas: </span>
+      <li class="m-t-2">
         <span class="code-tag"
               *ngFor="let t of code.tags">
           {{t}}

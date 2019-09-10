@@ -10,7 +10,6 @@ import { Error404Component } from './error404/error404.component';
 import { SectionComponent } from './layout/section/section.component';
 import { PageHeaderComponent } from './layout/page-header/page-header.component';
 import { ArticleLayoutModule } from './layout/article-layout/article-layout.module';
-import { IntersectionObserverComponent } from './layout/intersection-observer/intersection-observer.component';
 import { LoadingComponent } from './layout/loading/loading.component';
 import { BoxesModule } from './layout/boxes/boxes.module';
 import { DisqusComponent } from './disqus/disqus.component';
@@ -34,7 +33,6 @@ import { BottomSheetComponent } from './layout/sheets/bottom-sheet/bottom-sheet.
     PageHeaderComponent,
     CategoryGridComponent,
     ContentMakerComponent,
-    IntersectionObserverComponent,
     LoadingComponent,
     DisqusComponent,
     PaginationComponent,
@@ -58,7 +56,6 @@ import { BottomSheetComponent } from './layout/sheets/bottom-sheet/bottom-sheet.
     ArticleLayoutModule,
     Error404Component,
     SectionComponent,
-    IntersectionObserverComponent,
     ArticlesGridComponent,
     PageHeaderComponent,
     CategoryGridComponent,
