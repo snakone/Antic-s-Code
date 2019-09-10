@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from '@app/app.config';
+import * as fromArticles from '@core/ngrx/selectors/article.selectors';
+import { Observable } from 'rxjs';
+import { Article } from '@app/shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-best-home',
@@ -8,8 +13,16 @@ import { Component, OnInit } from '@angular/core';
 
 export class BestHomeComponent implements OnInit {
 
-  constructor() { }
+  articles$: Observable<Article[]>;
 
-  ngOnInit() { }
+  constructor(private store: Store<AppState>) { }
+
+  ngOnInit() {
+    this.articles$ = this.getMostLikedArticles();
+   }
+
+  private getMostLikedArticles(): Observable<Article[]> {
+    return this.store.select(fromArticles.getMostLikedArticles);
+  }
 
 }

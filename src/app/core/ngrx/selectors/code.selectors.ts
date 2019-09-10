@@ -8,12 +8,8 @@ export const getCodeState = createSelector(
   (state: AppState) => state.code
 );
 
-export const getAllCode = createSelector(
-  getCodeState, fromCode.getAll
-);
-
-export const getArticlesCount = createSelector(
-  getCodeState, fromCode.getCount
+export const getArticlesCode = createSelector(
+  getCodeState, fromCode.getCode
 );
 
 

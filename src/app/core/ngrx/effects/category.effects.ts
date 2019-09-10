@@ -10,19 +10,19 @@ import { CategoryService } from '@app/core/services/category/category.service';
 export class CategoryEffects {
   constructor(private actions: Actions,
               private categoryService: CategoryService) { }
-
-  loadCategoriesEffect$ = createEffect(() => this.actions
+  // GET CATEGORY BY ID
+  loadCategoryByIdEffect$ = createEffect(() => this.actions
     .pipe(
-      ofType(CategoryActions.getCategories),
-      concatMap(() =>
-      this.categoryService.getCategories()
+      ofType(CategoryActions.getCategoryByName),
+      concatMap((action) =>
+      this.categoryService.getCategoryByName(action.name)
         .pipe(
-          map(res => CategoryActions.getCategoriesSuccess({categories: res.categories})),
+          map(res => CategoryActions.getCategoryByNameSuccess({category: res.category[0]})),
           catchError(error =>
-              of(CategoryActions.GetCategoriesFailure({ error: error.message }))
-            )
+              of(CategoryActions.getCategoryByNameFailure({ error: error.message }))
           )
         )
       )
+    )
   );
 }

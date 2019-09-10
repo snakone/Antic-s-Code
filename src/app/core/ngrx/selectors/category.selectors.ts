@@ -8,6 +8,6 @@ export const getCategoriesState = createSelector(
   (state: AppState) => state.categories
 );
 
-export const getAllCategories = createSelector(
-  getCategoriesState, fromCategories.getAll
+export const getCategoryByName = createSelector(
+  getCategoriesState, fromCategories.getByName
 );

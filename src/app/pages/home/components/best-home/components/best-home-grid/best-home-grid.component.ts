@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { PLACES } from '@app/shared/shared.data';
+import { Component, OnInit, Input } from '@angular/core';
+import { Article } from '@app/shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-best-home-grid',
@@ -9,7 +9,7 @@ import { PLACES } from '@app/shared/shared.data';
 
 export class BestHomeGridComponent implements OnInit {
 
-  places = PLACES;
+  @Input() articles: Article[];
 
   constructor() { }
 

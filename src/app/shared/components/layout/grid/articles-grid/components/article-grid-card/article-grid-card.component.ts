@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Article } from '@app/shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-article-grid-card',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ArticleGridCardComponent implements OnInit {
+
+  @Input() article: Article;
 
   constructor() { }
 

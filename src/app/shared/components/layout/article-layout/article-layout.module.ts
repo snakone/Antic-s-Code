@@ -2,27 +2,32 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '@app/shared/shared.module';
+import { BoxesModule } from '../boxes/boxes.module';
+import { RouterModule } from '@angular/router';
 
-import { ArticleSearchComponent } from './article-search/article-search.component';
 import { ArticleCardComponent } from './article-card/article-card.component';
+import { ArticleScrollspyComponent } from './article-scrollspy/article-scrollspy.component';
 import { StarRatingComponent } from '../../snippets/star-rating/star-rating.component';
-import { LoadingComponent } from '../loading/loading.component';
-import { ComponentsModule } from '../../components.module';
+import { ArticleCardBadgesComponent } from './article-card-badges/article-card-badges.component';
 
 @NgModule({
   declarations: [
     ArticleCardComponent,
-    ArticleSearchComponent,
-    StarRatingComponent
+    StarRatingComponent,
+    ArticleScrollspyComponent,
+    ArticleCardBadgesComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    RouterModule,
+    BoxesModule
   ],
   exports: [
     ArticleCardComponent,
-    ArticleSearchComponent
+    ArticleScrollspyComponent,
+    ArticleCardBadgesComponent
   ]
 })
 

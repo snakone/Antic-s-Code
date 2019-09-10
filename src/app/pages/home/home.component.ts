@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from '@app/app.config';
+import * as ArticleActions from '@core/ngrx/actions/article.actions';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +11,16 @@ import { Component, OnInit } from '@angular/core';
 
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<AppState>) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.getStoreData();
+  }
+
+  private getStoreData(): void {
+    this.store.dispatch(ArticleActions.getArticlesCount());
+    this.store.dispatch(ArticleActions.getMostLikedArticles());
+    this.store.dispatch(ArticleActions.getLastArticles());
+  }
 
 }

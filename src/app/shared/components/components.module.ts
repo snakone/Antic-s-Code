@@ -10,33 +10,30 @@ import { Error404Component } from './error404/error404.component';
 import { SectionComponent } from './layout/section/section.component';
 import { PageHeaderComponent } from './layout/page-header/page-header.component';
 import { ArticleLayoutModule } from './layout/article-layout/article-layout.module';
-import { IntersectionObserverComponent } from './layout/intersection-observer/intersection-observer.component';
 import { LoadingComponent } from './layout/loading/loading.component';
 import { BoxesModule } from './layout/boxes/boxes.module';
 import { DisqusComponent } from './disqus/disqus.component';
 import { DisqusModule } from 'ngx-disqus';
 
-import { ArticleGridCardComponent } from './layout/grid/articles-grid/components/article-grid-card/article-grid-card.component';
-import { ArticlesGridComponent } from './layout/grid/articles-grid/articles-grid.component';
 import { CategoryGridComponent } from './layout/grid/category-grid/category-grid.component';
 import { PaginationComponent } from './layout/pagination/pagination.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { ContentMakerComponent } from './content-maker/content-maker.component';
+import { BottomSheetComponent } from './layout/sheets/bottom-sheet/bottom-sheet.component';
+import { ArticlesGridModule } from './layout/grid/articles-grid/articles-grid.module';
 
 @NgModule({
   declarations: [
     Error404Component,
     SectionComponent,
-    ArticlesGridComponent,
-    ArticleGridCardComponent,
     PageHeaderComponent,
     CategoryGridComponent,
     ContentMakerComponent,
-    IntersectionObserverComponent,
     LoadingComponent,
     DisqusComponent,
-    PaginationComponent
+    PaginationComponent,
+    BottomSheetComponent
   ],
   imports: [
     CommonModule,
@@ -47,6 +44,7 @@ import { ContentMakerComponent } from './content-maker/content-maker.component';
     DisqusModule,
     BoxesModule,
     ArticleLayoutModule,
+    ArticlesGridModule,
     NgxPaginationModule
   ],
   exports: [
@@ -54,17 +52,18 @@ import { ContentMakerComponent } from './content-maker/content-maker.component';
     FooterModule,
     BoxesModule,
     ArticleLayoutModule,
+    ArticlesGridModule,
     Error404Component,
     SectionComponent,
-    IntersectionObserverComponent,
-    ArticlesGridComponent,
     PageHeaderComponent,
     CategoryGridComponent,
     ContentMakerComponent,
     LoadingComponent,
     DisqusComponent,
-    PaginationComponent
-  ]
+    PaginationComponent,
+    BottomSheetComponent
+  ],
+  entryComponents: [BottomSheetComponent]
 })
 
 export class ComponentsModule { }

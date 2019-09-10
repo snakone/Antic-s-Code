@@ -18,7 +18,10 @@ ul {
 
 .margin { margin: 1.5rem auto }
 
-li { margin: .5rem auto }
+li {
+  margin: .5rem auto;
+  font-size: .9rem;
+}
 
 @media(max-width: 550px) { li { font-size: .9rem !important } }
 

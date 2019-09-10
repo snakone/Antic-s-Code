@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { CATEGORIES, TAGS } from '@app/shared/shared.data';
+import { CATEGORIES, CODE_TAGS } from '@app/shared/shared.data';
 
 @Component({
   selector: 'app-header-search',
@@ -12,7 +12,7 @@ export class HeaderSearchComponent implements OnInit {
 
   searchForm: FormGroup;
   categories = CATEGORIES;
-  tags = TAGS;
+  tags = CODE_TAGS;
 
   constructor() { }
 

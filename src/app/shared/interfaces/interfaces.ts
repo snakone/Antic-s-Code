@@ -1,3 +1,37 @@
+export interface Article {
+  _id?: string;
+  title?: string;
+  message?: string;
+  author?: string;
+  category?: string;
+  created?: string;
+  slug?: string;
+  cover?: string;
+  code?: Code[];
+  tags?: string[];
+  badges?: string[];
+  level?: string;
+  likes?: number;
+  views?: number;
+  stars?: number;
+  links?: Link[];
+  summary?: string;
+  index?: Index[];
+}
+
+export interface ArticleResponse {
+  ok: boolean;
+  message: string;
+  articles?: Article[];
+  err?: any;
+}
+
+export interface ArticleResponseCount {
+  ok: boolean;
+  message: string;
+  count: number;
+}
+
 export interface Categories {
   name: string;
   icon: string;
@@ -51,38 +85,12 @@ export interface ToC {
   anchor: string;
 }
 
-export interface Article {
-  _id?: string;
-  title?: string;
-  message?: string;
-  author?: string;
-  category?: string;
-  created?: string;
-  slug?: string;
-  cover?: string;
-  code?: Code[];
-  tags?: string[];
-  level?: string;
-  likes?: number;
-  views?: number;
-  stars?: number;
-  links?: Link[];
-  summary?: string;
-}
-
-export interface ArticleResponse {
-  ok: boolean;
-  message: string;
-  articles?: Article[];
-  count?: number;
-}
-
 export interface Category {
   _id?: string;
   name?: string;
   title?: string;
   category?: string;
-  info?: Info;
+  info?: CategoryInfo;
   message?: string;
   icon?: string;
   cover?: string;
@@ -92,6 +100,7 @@ export interface Category {
   likes?: number;
   stars?: number;
   links?: Link[];
+  index?: Index[];
 }
 
 export interface CategoryResponse {
@@ -99,6 +108,7 @@ export interface CategoryResponse {
   message: string;
   category?: Category;
   categories?: Category[];
+  err?: any;
 }
 
 export interface Code {
@@ -115,6 +125,7 @@ export interface CodeResponse {
   message: string;
   code?: Code[];
   count?: number;
+  err?: any;
 }
 
 export interface Link {
@@ -128,7 +139,7 @@ export interface MenuDropdown {
   icon: string;
 }
 
-export interface Info {
+export interface CategoryInfo {
   creator?: string;
   where?: string;
   site?: string;
@@ -138,4 +149,15 @@ export interface Info {
 export interface From {
   article: string;
   slug: string;
+}
+
+export interface Index {
+  title: string;
+  subtitle: string;
+  id: string;
+}
+
+export interface ScrollSpy {
+  onViewport?: boolean;
+  id?: string;
 }

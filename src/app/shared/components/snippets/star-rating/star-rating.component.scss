@@ -6,17 +6,16 @@ label.star {
   font-size: 1.2rem;
   color: #444;
   transition: all .2s;
-  @media(max-width: 625px) { float: left }
 }
 
  input.star:checked ~ label.star:before {
   content: '\f005';
-  color: #FD4;
+  color: var(--stars-color);
   transition: all .25s;
 }
 
 input.star-5:checked ~ label.star:before {
-  color: #FD4;
+  color: var(--stars-color);
   text-shadow: 0 0 10px #952;
 }
 
@@ -29,5 +28,4 @@ label.star:hover {
 label.star:before {
   content: '\f006';
   font-family: FontAwesome;
-
 }

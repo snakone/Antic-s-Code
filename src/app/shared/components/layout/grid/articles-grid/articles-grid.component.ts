@@ -1,11 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Subject, Observable } from 'rxjs';
-import { takeUntil, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { AppState } from '@app/app.config';
 import { Article } from '@app/shared/interfaces/interfaces';
-import * as fromCode from '@core/ngrx/selectors/code.selectors';
-
+import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 
 @Component({
   selector: 'app-articles-grid',
@@ -13,26 +11,24 @@ import * as fromCode from '@core/ngrx/selectors/code.selectors';
   styleUrls: ['./articles-grid.component.scss']
 })
 
-export class ArticlesGridComponent implements OnInit, OnDestroy {
+export class ArticlesGridComponent implements OnInit {
 
-  total: Observable<number>;
-  private unsubscribe$ = new Subject<void>();
+  articles$: Observable<Article[]>;
+  count$: Observable<number>;
 
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.total = this.getTotalPost();
+    this.articles$ = this.getLastArticles();
+    this.count$ = this.getArticlesCount();
   }
 
-  getTotalPost(): Observable<number> {
-    return this.store.select(fromCode.getArticlesCount)
-     .pipe(takeUntil(this.unsubscribe$));
+  getLastArticles(): Observable<Article[]> {
+    return this.store.select(fromArticles.getLastArticles);
   }
 
-
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
+  getArticlesCount(): Observable<number> {
+    return this.store.select(fromArticles.getArticlesCount);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-articles-sidebar',
@@ -7,8 +7,6 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 
 export class ArticlesSidebarComponent implements OnInit {
-
-  @Input() single: boolean;
 
   constructor() { }
 

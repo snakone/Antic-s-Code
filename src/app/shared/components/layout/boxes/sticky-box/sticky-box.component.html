@@ -1,4 +1,7 @@
-<div class="sticky-container" appStickyBox [selector]="selector">
+<div class="sticky-container"
+     appStickyBox
+     [selector]="selector"
+     [code]="code">
   <div class="sticky animated fadeIn" [ngClass]="{'display' : !display}">
     <ng-content></ng-content>
   </div>

@@ -1,13 +1,13 @@
 <div class="row flex">
   <div class="col-lg-6"
-      *ngFor="let p of places">
+      *ngFor="let a of articles">
     <div class="card-image">
-      <figure>
-        <img [src]="p.picture | image"/>  <!-- IMAGE -->
+      <figure [routerLink]="'/article/' + a.slug">
+        <img [src]="a.cover"/>  <!-- IMAGE -->
         <figcaption class="overlay-bg flex-box">
           <div class="card-title">
-            <h3>{{p.name}}</h3>  <!-- INFO -->
-            <p>68 Listings</p>
+            <h3>{{a.title}}</h3>  <!-- INFO -->
+            <p>{{a.likes}} Likes</p>
           </div>
         </figcaption>
       </figure>

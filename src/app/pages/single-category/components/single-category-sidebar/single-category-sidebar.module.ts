@@ -5,6 +5,7 @@ import { ComponentsModule } from '@app/shared/components/components.module';
 
 import { SingleCategorySidebarComponent } from './single-category-sidebar.component';
 import { SingleCategoryInfoBoxComponent } from './components/single-category-info-box/single-category-info-box.component';
+import { ArticlesSidebarModule } from '@app/pages/articles/components/articles-sidebar/articles-sidebar.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SingleCategoryInfoBoxComponent } from './components/single-category-inf
   imports: [
     CommonModule,
     SharedModule,
-    ComponentsModule
+    ComponentsModule,
+    ArticlesSidebarModule
   ],
   exports: [
     SingleCategorySidebarComponent,

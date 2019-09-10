@@ -12,11 +12,12 @@ export class StickyBoxComponent implements OnInit {
 
   display = true;
   @Input() selector: string;
+  @Input() code: boolean;
 
   constructor() { }
 
   ngOnInit() {
-    // fromEvent(window, 'scroll').pipe(debounceTime(69)).subscribe(() => this.onScroll());
+    fromEvent(window, 'scroll').pipe(debounceTime(69)).subscribe(() => this.onScroll());
   }
 
   private onScroll(): void {
@@ -27,7 +28,7 @@ export class StickyBoxComponent implements OnInit {
       this.display = true;
       return;
     }
-    this.display = !((s / h) * 100 > 85);
+    this.display = !((s / h) * 100 > 88);
   }
 
 }

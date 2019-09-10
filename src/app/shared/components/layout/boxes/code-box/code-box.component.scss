@@ -41,33 +41,12 @@ code::-webkit-scrollbar-thumb {
       border-top-right-radius: 5px;
       border-top-left-radius: 5px;
       font-size: .9rem;
+      color: #1C1D21;
      }
   }
 }
 
-.code-category {
-  margin: 0 .8rem;
-  cursor: pointer;
-  padding: 0 5px;
-}
-
-.basic, .medium, .hard {
-  margin-left: 5px;
-}
-
-.basic { color: var(--success-color) }
-.medium { color: var(--ionic-color) }
-.hard { color: var(--angular-color) }
-
-.code-box span { color: #1C1D21 }
 pre { margin: 0 }
-
-@media(max-width: 550px) {
-  .code-list { right: 29px !important }
-  .code-category { margin-right: .4rem }
-  span { font-size: .8rem !important }
-  code { font-size: .9rem !important }
-}
 
 h3 {
   font-size: 1.3rem;
@@ -82,26 +61,29 @@ h4 {
   @media(max-width: 650px) { font-size: 1.1rem }
 }
 
-.m-t-4 { margin-top: .4rem }
+.m-t-2 { margin-top: .2rem }
 
 .link {
   cursor: pointer;
   color: var(--primary-color);
-  margin-left: 5px;
   &:hover { font-weight: bold }
 }
 
 .code-tag {
-  margin-left: 5px;
+  margin-right: .66667rem;
   cursor: pointer;
   &:hover { color: var(--primary-color) }
  }
 
-.color { color: var(--p-color) }
-
 ul {
   padding-left: 20px;
   list-style-type: circle;
+}
+
+@media(max-width: 550px) {
+  span { font-size: .8rem }
+  code { font-size: .9rem !important }
+  .m-t-2 { margin-top: 0 }
 }
 
 

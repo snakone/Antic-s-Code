@@ -1,17 +1,18 @@
-@mixin badge($color) {
+@mixin badge($color, $margin) {
   line-height: 1.6rem;
-  padding: 0 .66667rem;
+  padding: .36667rem .66667rem;
+  padding-bottom: 6px;
   color: #fff;
-  display: block;
   font-size: .8rem;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   font-weight: 600;
   background: $color;
+  margin-right: $margin;
   &:hover { cursor: pointer }
 }
 
-@mixin badge-category($color, $bg, $margin, $hover) {
+@mixin badge-category($margin) {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -21,35 +22,6 @@
   -ms-flex-align: center;
   align-items: center;
   margin-left: $margin;
-
-  & mat-icon {
-    display: -webkit-inline-box;
-    display: -webkit-inline-flex;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    width: 2.26667rem;
-    height: 2.26667rem;
-    background: $bg;
-    font-size: 1.2rem;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-border-radius: 20rem;
-    border-radius: 20rem;
-    margin-right: .4rem;
-    color: $color;
-    padding-bottom: 1px;
-
-    &:hover {
-      color: $hover;
-      cursor: pointer;
-     }
-  }
 
   & span {
     padding-left: 10px;
@@ -87,16 +59,16 @@
     font-size: 1rem;
     position: relative;
     left: 7px;
-    top: 4px;
-    padding-right: 4px;
+    top: 5px;
+    padding-right: 2px;
   }
 
-  &-email mat-icon {
-    font-size: 1.2rem;
+  &-favorite mat-icon {
+    font-size: 1rem;
     position: relative;
     left: 7px;
-    top: 2.5px;
-    padding-right: 8px;
+    top: 6px;
+    padding-right: 2px;
   }
 
   &-heart mat-icon {

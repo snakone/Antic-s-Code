@@ -3,11 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
 import * as ArticleActions from '@core/ngrx/actions/article.actions';
+import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 
 import { Article } from '@app/shared/interfaces/interfaces';
 import { Subject } from 'rxjs';
-import { takeUntil, delay, distinctUntilChanged } from 'rxjs/operators';
-import * as fromArticles from '@core/ngrx/selectors/article.selectors';
+import { takeUntil, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-single-article',
@@ -33,7 +33,7 @@ export class SingleArticleComponent implements OnInit, OnDestroy {
      .pipe(takeUntil(this.unsubscribe$))
       .subscribe(params => {
         this.store.dispatch(ArticleActions.getArticleBySlug({ slug: params.slug }));
-     });
+    });
 
     this.store.select(fromArticles.getArticleBySlug)
       .pipe(
@@ -44,7 +44,7 @@ export class SingleArticleComponent implements OnInit, OnDestroy {
           this.article = null;
           setTimeout(() => { this.article = res; }, 400);
         }
-      });
+    });
   }
 
   ngOnDestroy(): void {
