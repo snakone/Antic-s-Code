@@ -6,14 +6,12 @@ export interface CodeState {
   code: Code[];
   loaded: boolean;
   error: string;
-  count: number;
 }
 
 export const inititalState: CodeState = {
   code: [],
   loaded: false,
-  error: null,
-  count: 0
+  error: null
 };
 
 const featureReducer = createReducer(
@@ -21,16 +19,15 @@ const featureReducer = createReducer(
   on(CodeActions.getCode, state => (
     { ...state, loaded: false, error: null }
   )),
-  on(CodeActions.getCodeSuccess, (state, { code, count }) => (
+  on(CodeActions.getCodeSuccess, (state, { code }) => (
     {
       ...state,
       loaded: true,
       error: null,
-      code,
-      count
+      code
     }
   )),
-  on(CodeActions.GetCodeFailure, (state, { error }) => (
+  on(CodeActions.getCodeFailure, (state, { error }) => (
     { ...state, loaded: false, error }
   ))
 );
@@ -39,6 +36,5 @@ export function reducer(state: CodeState | undefined, action: Action) {
   return featureReducer(state, action);
 }
 
-export const getAll = (state: CodeState) => state.code;
-export const getCount = (state: CodeState) => state.count;
+export const getCode = (state: CodeState) => state.code;
 

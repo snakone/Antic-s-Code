@@ -8,14 +8,14 @@ import { CategoryResponse } from '@app/shared/interfaces/interfaces';
 
 export class CategoryService {
 
-  readonly API_CATEGORIES = APP_CONSTANTS.END_POINT + 'categories';
+  readonly API_CATEGORIES = APP_CONSTANTS.END_POINT + 'categories/';
 
   constructor(private http: HttpService) {
     console.log('CategoryService');
   }
 
-  public getCategories(): Observable<CategoryResponse> {
-    return this.http.get(this.API_CATEGORIES);
+  public getCategoryByName(name: string): Observable<CategoryResponse> {
+    return this.http.get(APP_CONSTANTS.END_POINT + 'category/' + name);
   }
 
 }

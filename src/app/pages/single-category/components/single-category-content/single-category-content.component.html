@@ -9,6 +9,6 @@
   <button mat-button class="btn-pink font">Favorito</button>
 </div>
 <app-single-category-faq-box></app-single-category-faq-box>
-<app-links-box *ngIf="category.links.length > 0"
-  [links]="category.links">
+<app-links-box *ngIf="category?.links.length > 0"
+  [links]="category?.links">
 </app-links-box>

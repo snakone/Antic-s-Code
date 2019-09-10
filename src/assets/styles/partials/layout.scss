@@ -1,5 +1,6 @@
 .col-lg-4 {
   max-width: 360px;
+  @media(max-width: 820px) { max-width: 350px }
   @media(max-width: 800px) { max-width: 300px }
   @media(max-width: 700px) { max-width: 275px }
   @media(max-width: 650px) { max-width: 260px }

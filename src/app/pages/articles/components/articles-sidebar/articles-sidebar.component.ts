@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Article } from '@app/shared/interfaces/interfaces';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-articles-sidebar',
@@ -8,9 +7,6 @@ import { Article } from '@app/shared/interfaces/interfaces';
 })
 
 export class ArticlesSidebarComponent implements OnInit {
-
-  @Input() single: boolean;
-  @Input() article: Article;
 
   constructor() { }
 

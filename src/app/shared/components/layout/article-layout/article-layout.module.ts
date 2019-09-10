@@ -2,20 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '@app/shared/shared.module';
-
-import { ArticleSearchComponent } from './article-search/article-search.component';
-import { ArticleCardComponent } from './article-card/article-card.component';
-import { StarRatingComponent } from '../../snippets/star-rating/star-rating.component';
-import { RouterModule } from '@angular/router';
-import { ArticleScrollspyComponent } from './article-scrollspy/article-scrollspy.component';
 import { BoxesModule } from '../boxes/boxes.module';
+import { RouterModule } from '@angular/router';
+
+import { ArticleCardComponent } from './article-card/article-card.component';
+import { ArticleScrollspyComponent } from './article-scrollspy/article-scrollspy.component';
+import { StarRatingComponent } from '../../snippets/star-rating/star-rating.component';
+import { ArticleCardBadgesComponent } from './article-card-badges/article-card-badges.component';
 
 @NgModule({
   declarations: [
     ArticleCardComponent,
-    ArticleSearchComponent,
     StarRatingComponent,
-    ArticleScrollspyComponent
+    ArticleScrollspyComponent,
+    ArticleCardBadgesComponent
   ],
   imports: [
     CommonModule,
@@ -26,8 +26,8 @@ import { BoxesModule } from '../boxes/boxes.module';
   ],
   exports: [
     ArticleCardComponent,
-    ArticleSearchComponent,
-    ArticleScrollspyComponent
+    ArticleScrollspyComponent,
+    ArticleCardBadgesComponent
   ]
 })
 

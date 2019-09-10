@@ -1,7 +1,7 @@
 <app-single-category-header [category]="category"></app-single-category-header>
 <app-section input="#f5f7fc">
     <div class="row">
-      <div class="col-lg-8 col-md-8" id="category-section" >
+      <div class="col-lg-8 col-md-8" id="category-section">
         <app-single-category-content *ngIf="category" [category]="category">
         </app-single-category-content>
         <app-loading *ngIf="!category"></app-loading>

@@ -1,15 +1,17 @@
 import { props, createAction } from '@ngrx/store';
 import { Category } from '@app/shared/interfaces/interfaces';
 
-export const getCategories =
-  createAction('[Categories API] Get Categories');
+// GET CATEGORY BY Name
+export const getCategoryByName =
+  createAction('[Categories API] Get Category By Name',
+  props<{ name: string }>());
 
-export const getCategoriesSuccess =
-  createAction('[Categories API] Get Categories Success',
-  props<{ categories: Category[] }>());
+export const getCategoryByNameSuccess =
+  createAction('[Categories API] Get Category By Name Success',
+  props<{ category: Category }>());
 
-export const GetCategoriesFailure =
-  createAction('[Categories API] Get Categories Failure',
+export const getCategoryByNameFailure =
+  createAction('[Categories API] Get Category By Name Failure',
   props<{ error: string }>());
 
 

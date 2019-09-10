@@ -23,8 +23,13 @@ export interface ArticleResponse {
   ok: boolean;
   message: string;
   articles?: Article[];
-  count?: number;
   err?: any;
+}
+
+export interface ArticleResponseCount {
+  ok: boolean;
+  message: string;
+  count: number;
 }
 
 export interface Categories {

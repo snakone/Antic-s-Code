@@ -12,6 +12,7 @@ export class StickyBoxComponent implements OnInit {
 
   display = true;
   @Input() selector: string;
+  @Input() code: boolean;
 
   constructor() { }
 

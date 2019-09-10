@@ -8,15 +8,19 @@ export const getArticlesState = createSelector(
   (state: AppState) => state.articles
 );
 
-export const getAllArticles = createSelector(
-  getArticlesState, fromArticles.getAll
+export const getArticles = createSelector(
+  getArticlesState, fromArticles.getArticles
+);
+
+export const getArticlesCount = createSelector(
+  getArticlesState, fromArticles.getCount
 );
 
 export const getLoadedArticles = createSelector(
   getArticlesState, fromArticles.getLoaded
 );
 
-export const getFullLoaded = createSelector(
+export const getFullArticles = createSelector(
   getArticlesState, fromArticles.getFull
 );
 
@@ -26,5 +30,9 @@ export const getArticleBySlug = createSelector(
 
 export const getLastArticles = createSelector(
   getArticlesState, fromArticles.getLast
+);
+
+export const getMostLikedArticles = createSelector(
+  getArticlesState, fromArticles.getMostLiked
 );
 

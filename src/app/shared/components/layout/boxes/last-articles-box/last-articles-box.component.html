@@ -1,7 +1,7 @@
 <app-content-box title="Últimos Artículos"
                  icon="chrome_reader_mode">
-    <ul class="last" *ngIf="articles$ | async">
-      <li *ngFor="let a of articles$ | async"
+    <ul class="last" *ngIf="articles$ | async as articles">
+      <li *ngFor="let a of articles"
           [routerLink]="'/article/' + a.slug">
         <div class="last-img">
           <img [src]="a.cover"/>

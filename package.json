@@ -1,6 +1,6 @@
 {
   "name": "antic-s-code",
-  "version": "0.2.3",
+  "version": "0.2.5",
   "author": "Sergi Martínez",
   "scripts": {
     "ng": "ng",

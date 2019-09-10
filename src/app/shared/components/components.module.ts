@@ -15,21 +15,18 @@ import { BoxesModule } from './layout/boxes/boxes.module';
 import { DisqusComponent } from './disqus/disqus.component';
 import { DisqusModule } from 'ngx-disqus';
 
-import { ArticleGridCardComponent } from './layout/grid/articles-grid/components/article-grid-card/article-grid-card.component';
-import { ArticlesGridComponent } from './layout/grid/articles-grid/articles-grid.component';
 import { CategoryGridComponent } from './layout/grid/category-grid/category-grid.component';
 import { PaginationComponent } from './layout/pagination/pagination.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { ContentMakerComponent } from './content-maker/content-maker.component';
 import { BottomSheetComponent } from './layout/sheets/bottom-sheet/bottom-sheet.component';
+import { ArticlesGridModule } from './layout/grid/articles-grid/articles-grid.module';
 
 @NgModule({
   declarations: [
     Error404Component,
     SectionComponent,
-    ArticlesGridComponent,
-    ArticleGridCardComponent,
     PageHeaderComponent,
     CategoryGridComponent,
     ContentMakerComponent,
@@ -47,6 +44,7 @@ import { BottomSheetComponent } from './layout/sheets/bottom-sheet/bottom-sheet.
     DisqusModule,
     BoxesModule,
     ArticleLayoutModule,
+    ArticlesGridModule,
     NgxPaginationModule
   ],
   exports: [
@@ -54,9 +52,9 @@ import { BottomSheetComponent } from './layout/sheets/bottom-sheet/bottom-sheet.
     FooterModule,
     BoxesModule,
     ArticleLayoutModule,
+    ArticlesGridModule,
     Error404Component,
     SectionComponent,
-    ArticlesGridComponent,
     PageHeaderComponent,
     CategoryGridComponent,
     ContentMakerComponent,

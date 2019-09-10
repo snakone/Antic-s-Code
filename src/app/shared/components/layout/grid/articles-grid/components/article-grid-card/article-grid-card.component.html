@@ -2,14 +2,7 @@
   <article class="card-content">
     <figure [routerLink]="'/article/' + article.slug">  <!-- CARD IMAGE -->
       <img [src]="article.cover"/>
-      <div class="card-badge-content">
-        <span [ngClass]="{'badge-featured-article': b === 'Destacado',
-                          'badge-new-article': b === 'Nuevo',
-                          'badge-popular-article': b === 'Popular'}"
-              *ngFor="let b of article.badges">
-              {{b}}
-      </span>
-      </div>
+      <app-article-card-badges [badges]="article.badges"></app-article-card-badges>
     </figure>
     <div class="card-info">  <!-- CARD TITLE -->
       <div class="card-info-content">

@@ -30,11 +30,11 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
 
   getArticles(): void {
     this.store.dispatch(ArticleActions.getArticles());
-    this.articles$ = this.store.select(fromArticles.getAllArticles);
+    this.articles$ = this.store.select(fromArticles.getArticles);
   }
 
   hasEnded(): void {
-    this.store.select(fromArticles.getFullLoaded)
+    this.store.select(fromArticles.getFullArticles)
       .pipe(takeUntil(this.unsubscribe$),
         switchMap((loaded: boolean) => {
           if (!loaded) {

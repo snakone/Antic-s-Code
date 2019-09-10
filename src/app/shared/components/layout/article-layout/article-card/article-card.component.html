@@ -4,11 +4,12 @@
  <div class="article-card" [ngClass]="{'article-card-shadow' : shadow}">
    <figure [routerLink]="'/article/' + article.slug">  <!-- ARTICLE IMAGE -->
      <img [src]="article.cover"/>
+     <app-article-card-badges [badges]="article.badges"></app-article-card-badges>
    </figure>
    <div class="article-card-body"
-        [ngStyle]="{'padding': '2rem ' + padding + 'rem'}"
+        [ngStyle]="{'padding': '1.8rem ' + padding + 'rem'}"
         [ngClass]="{'article-card-body-padding': padding === 2}">
-      <h3 [routerLink]="'/article/' + article.slug">{{article.title}}</h3>
+      <h3 *ngIf="!single" [routerLink]="'/article/' + article.slug">{{article.title}}</h3>
       <div class="article-card-info">  <!-- ARTICLE CARD -->
         <ul>
           <div class="basic-flex">
@@ -44,7 +45,7 @@
             </div>
           </div>
         </ul>
-        <div class="article-card-tags">  <!-- ARTICLE TAGS -->
+        <div class="article-card-body-tags">  <!-- ARTICLE TAGS -->
           <span class="category-tag"
                 *ngFor="let t of article.tags">
                 {{t}}

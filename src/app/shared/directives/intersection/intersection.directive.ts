@@ -20,7 +20,6 @@ export class IntersectionDirective implements AfterViewInit {
       const id = this.el.nativeElement.getAttribute('id');
       const inter = new IntersectionObserver((int) => {
         if (!int[0].isIntersecting) { return; }
-        console.log('observing');
         this.scrollSpy.hasEntered.next({ onViewport: int[0].isIntersecting, id });
       });
       inter.observe(this.el.nativeElement);

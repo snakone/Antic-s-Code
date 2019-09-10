@@ -1,8 +1,5 @@
 .article {
-  &-wrapper {
-    margin-bottom: 3rem;
-   }
-
+  &-wrapper { margin-bottom: 3rem }
   &-card {
     -webkit-border-radius: .26667rem;
     border-radius: .26667rem;
@@ -20,16 +17,18 @@
       & mat-icon {
         margin-left: 5px;
         cursor: pointer;
-        @media(max-width: 625px) { margin-left: 0 }
-        @media(max-width: 550px) {
+        @media(max-width: 625px) { margin-left: -12px }
+        @media(max-width: 580px) {
+          margin-left: 0;
           position: relative;
-          top: 2px;
+          top: 2.5px;
          }
         &:hover { color: var(--primary-color) }
       }
     }
 
     & figure {
+      position: relative;
       margin: 0;
       outline: none;
       & img {
@@ -46,11 +45,39 @@
       -ms-flex: 1 1 auto;
       flex: 1 1 auto;
       padding: 2rem;
-      padding-bottom: 3rem !important;
+      padding-bottom: 2rem !important;
+      padding-top: 0rem !important;
 
       &-padding {
-        @media(max-width: 650px) { padding: 2rem 1.5rem !important }
-        @media(max-width: 350px) { padding: 2rem 1rem !important }
+        padding-top: 1.8rem !important;
+        @media(max-width: 650px) { padding: 1.8rem 1.5rem !important }
+        @media(max-width: 350px) { padding: 1.8rem 1rem !important }
+
+        & ul {
+          margin-bottom: 1.2rem !important;
+        }
+      }
+
+      & ul {
+        padding-left: 0;
+        list-style: none;
+        margin-bottom: .7rem;
+        margin-top: 1.1rem;
+        @media(max-width: 580px) { margin-bottom: 1.2rem; }
+      }
+
+      & li {
+        font-size: .93333rem;
+        color: var(--p-color);
+        margin-right: 1rem;
+        line-height: 1.6rem;
+        display: inline-block;
+      }
+
+      & p {
+        margin: 0;
+        line-height: 1.8rem;
+        color: var(--p-color);
       }
 
       & h3 {
@@ -67,30 +94,8 @@
         }
       }
 
-      & ul {
-        padding-left: 0;
-        list-style: none;
-        margin-bottom: 1.5rem;
-        @media(max-width: 625px) {
-          margin-bottom: 1.1rem;
-        }
-      }
-
-      & li {
-        font-size: .93333rem;
-        color: var(--p-color);
-        margin-right: 1rem;
-        line-height: 1.6rem;
-        display: inline-block;
-      }
-
-      & p {
-        margin: 0;
-        line-height: 1.8rem;
-        color: var(--p-color);
-      }
+      &-tags { margin-bottom: 1.5rem }
     }
-    &-tags { margin-bottom: 2rem }
   }
 }
 
@@ -105,7 +110,7 @@
 .reaction {
   display: inline-block;
   @media(max-width: 580px) {
-    margin-top: .7rem;
+    margin-top: .5rem;
     position: relative;
     top: 4px;
    }
@@ -134,7 +139,7 @@
 
 .stars {
   position: absolute;
-  right: 1rem;
+  right: .4rem;
   margin-top: -2px;
   @media(max-width: 580px) {
     position: relative;

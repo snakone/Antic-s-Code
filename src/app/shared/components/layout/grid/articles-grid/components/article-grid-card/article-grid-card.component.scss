@@ -23,12 +23,6 @@
     }
   }
 
-  &-badge-content {
-    position: absolute;
-    left: 1rem;
-    top: 1rem;
-  }
-
   &-info {
     border: 1px solid var(--section-border-color);
     width: 100%;
@@ -46,7 +40,8 @@
         margin: 0;
         font-size: 1.2rem;
         @media(max-width: 650px) and (min-width: 620px) { font-size: 1rem }
-        @media(max-width: 620px) { font-size: 1rem }
+        @media(max-width: 620px) { font-size: 1.2rem }
+        @media(max-width: 475px) { font-size: 1.1rem }
 
         &:hover {
           color: var(--primary-color);

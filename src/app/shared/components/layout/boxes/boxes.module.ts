@@ -24,7 +24,7 @@ import { LinksBoxComponent } from './links-box/links-box.component';
     CommonModule,
     SharedModule,
     RouterModule,
-    HighlightModule,
+    HighlightModule
   ],
   exports: [
     ContentBoxComponent,

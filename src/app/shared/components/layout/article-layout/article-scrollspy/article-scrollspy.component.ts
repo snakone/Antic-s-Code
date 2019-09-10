@@ -12,8 +12,8 @@ import { takeUntil } from 'rxjs/operators';
 
 export class ArticleScrollspyComponent implements OnInit, OnDestroy {
 
-  @Input() single: boolean;
   @Input() index: Index;
+  @Input() mobile: boolean;
   private unsubscribe$ = new Subject<void>();
   spySection: ScrollSpy = {};
 
@@ -29,11 +29,10 @@ export class ArticleScrollspyComponent implements OnInit, OnDestroy {
   }
 
   spyScroll(): void {
+    if (this.mobile) { return; }
     this.scrollSpy.hasEntered
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((res: ScrollSpy) => {
-        // Emits TWICE!!
-        console.log(res);
         this.spySection = res;
     });
   }

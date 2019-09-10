@@ -6,6 +6,7 @@ import { ComponentsModule } from '@app/shared/components/components.module';
 import { BestHomeComponent } from './best-home.component';
 import { BestHomeGridComponent } from './components/best-home-grid/best-home-grid.component';
 import { BestHomeListComponent } from './components/best-home-list/best-home-list.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BestHomeListComponent } from './components/best-home-list/best-home-lis
   imports: [
     CommonModule,
     SharedModule,
-    ComponentsModule
+    ComponentsModule,
+    RouterModule
   ],
   exports: [
     BestHomeComponent
