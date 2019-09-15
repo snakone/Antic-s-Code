@@ -22,8 +22,18 @@ export class CodeComponent implements OnInit, OnDestroy {
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.store.dispatch(CodeActions.getCode());
+    this.checkData();
     this.getCode();
+  }
+
+  private checkData(): void {
+    this.store.select(fromCode.getCodeLoaded)
+     .pipe(takeUntil(this.unsubscribe$))
+     .subscribe((res: boolean) => {
+       if (!res) {
+         this.store.dispatch(CodeActions.getCode());
+       }
+    });
   }
 
   private getCode(): void {

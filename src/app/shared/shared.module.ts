@@ -17,8 +17,7 @@ import { HighlightModule } from 'ngx-highlightjs';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    DirectivesModule,
-    HighlightModule
+    DirectivesModule
   ],
   exports: [
     PipesModule,
@@ -27,8 +26,7 @@ import { HighlightModule } from 'ngx-highlightjs';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    DirectivesModule,
-    HighlightModule
+    DirectivesModule
   ]
 })
 

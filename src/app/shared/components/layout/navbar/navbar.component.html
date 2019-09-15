@@ -9,13 +9,23 @@
       </span>
     </button>
   </div>
-  <app-menu></app-menu>  <!-- MENU -->
+  <app-navigation></app-navigation>  <!-- NAVIGATION -->
   <div class="navbar-search">  <!-- SEARCH BAR -->
     <app-navbar-search></app-navbar-search>
-    <button class="btn-pink btn-desktop" mat-button>Entrar</button>  <!-- CONTACT -->
-    <button class="btn-pink btn-mobile" mat-button>
-      <mat-icon>person</mat-icon>
-    </button>
+      <button class="btn-pink btn-desktop"
+              *ngIf="!(user$ | async)"
+              (click)="openLogin()"
+              mat-button>Entrar
+      </button>  <!-- LOGIN -->
+      <button class="btn-pink btn-desktop"
+              (click)="logOut()"
+              *ngIf="user$ | async"
+              mat-button>Salir
+      </button>  <!-- LOGOUT -->
+      <button class="btn-pink btn-mobile"
+              mat-button>
+        <mat-icon>person</mat-icon>
+      </button>
   </div>
 </nav>
 
@@ -24,7 +34,8 @@
     <li *ngFor="let i of items"
         [routerLink]="i.link"
         routerLinkActive="active"
-        (click)="show = false">{{i.name}}</li>
+        (click)="show = false">{{i.name}}
+    </li>
   </ul>
 <app-mobile-menu>
 

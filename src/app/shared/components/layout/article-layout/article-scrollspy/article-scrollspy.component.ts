@@ -28,7 +28,7 @@ export class ArticleScrollspyComponent implements OnInit, OnDestroy {
     if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   }
 
-  spyScroll(): void {
+  private spyScroll(): void {
     if (this.mobile) { return; }
     this.scrollSpy.hasEntered
       .pipe(takeUntil(this.unsubscribe$))

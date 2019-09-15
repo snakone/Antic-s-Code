@@ -35,6 +35,7 @@
         width: 100%;
         vertical-align: middle;
         border-style: none;
+        margin-top: 1px;  // Border of SideBar
         &:hover { cursor: pointer }
       }
     }
@@ -94,7 +95,7 @@
         }
       }
 
-      &-tags { margin-bottom: 1.5rem }
+      &-tags { margin-bottom: 1rem }
     }
   }
 }
@@ -151,4 +152,5 @@
 .bottom {
   margin-bottom: 0 !important;
   @media(max-width: 550px) { margin-bottom: 1rem !important }
+  .article-card-body-tags { margin-bottom: 1.5rem }
  }

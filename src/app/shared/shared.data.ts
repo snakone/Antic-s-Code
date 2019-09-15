@@ -129,13 +129,6 @@ export const PAGE_BG = {
   article: 'https://media2.giphy.com/media/b93B4aJQQakRG/giphy.gif'
 };
 
-export const PLACES: List[] = [
-  { name: 'London, UK', picture: 'place1.jpg' },
-  { name: 'New York', picture: 'place2.png' },
-  { name: 'Sydney', picture: 'place3.png' },
-  { name: 'Paris, France', picture: 'place4.png'}
-];
-
 export const COUNTRIES: string[] = [
   'Dubai (45)',
   'Melbourne (95)',

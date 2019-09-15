@@ -29,60 +29,8 @@ export interface ArticleResponse {
 export interface ArticleResponseCount {
   ok: boolean;
   message: string;
-  count: number;
-}
-
-export interface Categories {
-  name: string;
-  icon: string;
-  class?: string;
-  picture?: string;
-}
-
-export interface AppData {
-  articles: Article[];
-  categories: Category[];
-}
-
-export interface List {
-  name: string;
-  picture: string;
-  link?: string;
-}
-
-export interface Testimonial {
-  avatar: string;
-  name: string;
-  location: string;
-  testimonial: string;
-}
-
-export interface FooterList {
-  title: string;
-  list: string[];
-}
-
-export interface MenuLink {
-  name: string;
-  link: string;
-}
-
-export interface FAQ {
-  question: string;
-  answer: string;
-}
-
-export interface Related {
-  title: string;
-  picture: string;
-  category: string;
-  icon: string;
-}
-
-export interface ToC {
-  index: string;
-  description: string;
-  anchor: string;
+  count?: number;
+  err?: any;
 }
 
 export interface Category {
@@ -124,8 +72,71 @@ export interface CodeResponse {
   ok: boolean;
   message: string;
   code?: Code[];
-  count?: number;
   err?: any;
+}
+
+export interface Categories {
+  name: string;
+  icon: string;
+  class?: string;
+  picture?: string;
+}
+
+export interface User {
+  _id?: string;
+  name: string;
+  email: string;
+  password: string;
+  account: string;
+}
+
+export interface UserResponse {
+  ok: boolean;
+  message: string;
+  user: User;
+  token?: string;
+  err?: any;
+}
+
+export interface List {
+  name: string;
+  picture: string;
+  link?: string;
+}
+
+export interface Testimonial {
+  avatar: string;
+  name: string;
+  location: string;
+  testimonial: string;
+}
+
+export interface FooterList {
+  title: string;
+  list: string[];
+}
+
+export interface MenuLink {
+  name: string;
+  link: string;
+}
+
+export interface FAQ {
+  question: string;
+  answer: string;
+}
+
+export interface Related {
+  title: string;
+  picture: string;
+  category: string;
+  icon: string;
+}
+
+export interface ToC {
+  index: string;
+  description: string;
+  anchor: string;
 }
 
 export interface Link {

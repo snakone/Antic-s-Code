@@ -1,6 +1,6 @@
 {
   "name": "antic-s-code",
-  "version": "0.2.5",
+  "version": "0.3.0",
   "author": "Sergi Martínez",
   "scripts": {
     "ng": "ng",
@@ -27,7 +27,6 @@
     "@ngrx/effects": "^8.3.0",
     "@ngrx/entity": "^8.3.0",
     "@ngrx/store": "^8.3.0",
-    "@ngrx/store-devtools": "^8.3.0",
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
     "core-js": "^2.5.4",
@@ -39,7 +38,6 @@
     "ngx-swiper-wrapper": "^8.0.2",
     "ngx-webstorage": "^3.0.2",
     "rxjs": "~6.5.2",
-    "swipejs": "^2.2.14",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
   },

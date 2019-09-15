@@ -8,3 +8,11 @@
   font-size: var(--primary-font-size) !important;
   font-family: var(--primary-font) !important;
 }
+
+.cdk-overlay-pane {
+  max-width: 90vw !important;
+}
+
+.mat-checkbox-label {
+  margin-left: 5px !important;
+}

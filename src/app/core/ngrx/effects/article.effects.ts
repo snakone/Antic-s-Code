@@ -82,9 +82,9 @@ export class ArticleEffects {
           catchError(error =>
             of(ArticleActions.getMostLikedArticlesFailure({ error: error.message }))
         )
-      )
+       )
+     )
     )
-  )
-);
+  );
 
 }

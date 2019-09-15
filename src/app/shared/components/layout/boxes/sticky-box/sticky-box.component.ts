@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { debounceTime } from 'rxjs/operators';
-import { fromEvent } from 'rxjs';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { debounceTime, takeUntil } from 'rxjs/operators';
+import { fromEvent, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-sticky-box',
@@ -8,16 +8,19 @@ import { fromEvent } from 'rxjs';
   styleUrls: ['./sticky-box.component.scss']
 })
 
-export class StickyBoxComponent implements OnInit {
+export class StickyBoxComponent implements OnInit, OnDestroy {
 
   display = true;
   @Input() selector: string;
   @Input() code: boolean;
+  private unsubscribe$ = new Subject<void>();
 
   constructor() { }
 
   ngOnInit() {
-    fromEvent(window, 'scroll').pipe(debounceTime(69)).subscribe(() => this.onScroll());
+    fromEvent(window, 'scroll').pipe(debounceTime(100))
+     .pipe(takeUntil(this.unsubscribe$))
+     .subscribe(() => this.onScroll());
   }
 
   private onScroll(): void {
@@ -29,6 +32,11 @@ export class StickyBoxComponent implements OnInit {
       return;
     }
     this.display = !((s / h) * 100 > 88);
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
 }

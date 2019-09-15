@@ -42,13 +42,13 @@ export class ContentMakerComponent implements AfterViewInit, OnDestroy {
         ],
       })(class {});
       this.compiler.compileModuleAndAllComponentsAsync(tmpModule)
-        .then((factories) => {
+        .then((f) => {
           this.vc.clear();
-          const f = factories.componentFactories[factories.componentFactories.length - 1];
-          const cmpRef = f.create(this.injector, [], null, this.module);
+          const factory = f.componentFactories[f.componentFactories.length - 1];
+          const cmpRef = factory.create(this.injector, [], null, this.module);
           cmpRef.instance.name = 'dynamic';
           cmpRef.instance.index = this.template.index;
-          cmpRef.instance.code = this.template.code;
+          cmpRef.instance.code = this.template.code;  // Code Assignement
           this.vc.insert(cmpRef.hostView);
         });
       });

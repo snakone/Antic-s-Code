@@ -23,6 +23,7 @@ export class SingleCategoryComponent implements OnInit, OnDestroy {
               private store: Store<AppState>) { }
 
   ngOnInit() {
+    this.category = null;
     this.getCategoryById();
   }
 
@@ -30,7 +31,9 @@ export class SingleCategoryComponent implements OnInit, OnDestroy {
     this.route.params
      .pipe(takeUntil(this.unsubscribe$))
       .subscribe(params => {
-        this.store.dispatch(CategoryActions.getCategoryByName({ name: params.name }));
+        this.store.dispatch(
+          CategoryActions.getCategoryByName({ name: params.name })
+        );
     });
 
     this.store.select(fromCategories.getCategoryByName)
@@ -48,6 +51,7 @@ export class SingleCategoryComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+    this.store.dispatch(CategoryActions.resetCategory());
   }
 
 }

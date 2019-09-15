@@ -1,7 +1,5 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { Article, ArticleResponse } from '@app/shared/interfaces/interfaces';
-import { BottomSheetComponent } from '../../sheets/bottom-sheet/bottom-sheet.component';
-import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { Article } from '@app/shared/interfaces/interfaces';
 import { ArticleService } from '@app/core/services/services.index';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -20,8 +18,7 @@ export class ArticleCardComponent implements OnInit, OnDestroy {
   @Input() single: boolean;
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private articleService: ArticleService,
-              private bottomSheet: MatBottomSheet) { }
+  constructor(private articleService: ArticleService) { }
 
   ngOnInit() { }
 
