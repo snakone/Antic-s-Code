@@ -1,0 +1,30 @@
+.login-wrapper {
+  border-radius: 4px;
+  padding: 1rem;
+  padding-top: 0;
+  text-align: center;
+  max-width: 350px;
+  min-height: 100%;
+  position: relative;
+  transition: all .5s;
+  @media (max-width: 450px) { padding: 0 }
+
+  & img { width: 75px; }
+
+  & h3 {
+    margin: 0 auto;
+    font-size: 1.8rem;
+  }
+
+}
+
+span {
+  position: absolute;
+  font-size: .8rem;
+  top: -10px;
+  right: -8px;
+  cursor: pointer;
+  &:hover { color: var(--primary-color) }
+}
+
+

@@ -8,7 +8,6 @@ import { APP_CONFIG, APP_CONSTANTS } from './app.config';
 import { CoreModule } from '@core/core.module';
 import { HammerConfig } from './core/hammer.config';
 
-import { PagesModule } from './pages/pages.module';
 import { ComponentsModule } from '@shared/components/components.module';
 import { SharedModule } from '@shared/shared.module';
 import { StoreModule } from '@ngrx/store';
@@ -20,7 +19,6 @@ import { StoreModule } from '@ngrx/store';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PagesModule,
     CoreModule,
     ComponentsModule,
     SharedModule,

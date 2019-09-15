@@ -1,0 +1,18 @@
+.wrapper {
+  position: relative;
+}
+
+form { margin-top: 1rem }
+mat-form-field { width: 98% }
+mat-hint { font-size: .8rem }
+.invalid { color: red }
+.valid { color: var(--success-color) }
+
+button {
+  width: 100%;
+  color: var(--light-color);
+  margin-top: 1.2rem;
+}
+
+
+

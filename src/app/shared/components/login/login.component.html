@@ -1,0 +1,10 @@
+<div class="login-wrapper">
+ <span *ngIf="isRegistering"
+       (click)="isRegistering = false">Volver
+  </span>
+ <h3>Antic's Code</h3>
+ <app-sign-in *ngIf="!isRegistering"
+              (changed)="isRegistering = $event">
+ </app-sign-in>
+ <app-sign-up *ngIf="isRegistering"></app-sign-up>
+</div>

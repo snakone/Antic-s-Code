@@ -28,12 +28,12 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
     this.hasEnded();
   }
 
-  getArticles(): void {
+  private getArticles(): void {
     this.store.dispatch(ArticleActions.getArticles());
     this.articles$ = this.store.select(fromArticles.getArticles);
   }
 
-  hasEnded(): void {
+  private hasEnded(): void {
     this.store.select(fromArticles.getFullArticles)
       .pipe(takeUntil(this.unsubscribe$),
         switchMap((loaded: boolean) => {
@@ -47,7 +47,7 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
         })).subscribe(e => { if (e) { this.makeScroll(e); }});
   }
 
-  makeScroll(e): void {
+  private makeScroll(e): void {
     try {
       const top = e.target.scrollingElement.scrollTop;
       const offset = document.getElementById('articles-section').offsetHeight;
@@ -65,7 +65,7 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
     this.articleService.resetPage();
-    this.store.dispatch(ArticleActions.ResetArticles());
+    this.store.dispatch(ArticleActions.resetArticles());
   }
 
 }

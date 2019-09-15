@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from '@app/shared/shared.module';
-import { ComponentsModule } from '@app/shared/components/components.module';
+import { LayoutModule } from '@app/shared/components/layout/layout.module';
+import { RouterModule } from '@angular/router';
 
 import { BestHomeComponent } from './best-home.component';
 import { BestHomeGridComponent } from './components/best-home-grid/best-home-grid.component';
 import { BestHomeListComponent } from './components/best-home-list/best-home-list.component';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,8 +15,7 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    SharedModule,
-    ComponentsModule,
+    LayoutModule,
     RouterModule
   ],
   exports: [

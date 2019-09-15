@@ -23,7 +23,7 @@ export class CodeContentComponent implements OnInit, OnDestroy {
     this.getCurrentPage();
   }
 
-  getCurrentPage(): void {
+  private getCurrentPage(): void {
     this.pagination.change
      .pipe(takeUntil(this.unsubscribe$))
      .subscribe((res: string) => {
@@ -37,7 +37,7 @@ export class CodeContentComponent implements OnInit, OnDestroy {
     return this.itemsPerPage * (this.page - 1) + indexOnPage;
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }

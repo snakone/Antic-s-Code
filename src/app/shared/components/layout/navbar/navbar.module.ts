@@ -4,14 +4,14 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
 
 import { NavBarComponent } from './navbar.component';
-import { MenuComponent } from './components/menu/menu.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 import { NavBarSearchComponent } from './components/navbar-search/navbar-search.component';
 import { MobileMenuComponent } from './components/mobile-menu/mobile-menu.component';
 
 @NgModule({
   declarations: [
     NavBarComponent,
-    MenuComponent,
+    NavigationComponent,
     NavBarSearchComponent,
     MobileMenuComponent
   ],

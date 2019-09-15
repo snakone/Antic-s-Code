@@ -63,10 +63,10 @@ export const getArticleBySlugFailure =
   props<{ error: string }>());
 
 // RESET ARTICLES
-export const ResetArticles =
+export const resetArticles =
   createAction('[Articles API] Reset Articles');
 
-export const ResetSlug =
+export const resetSlug =
   createAction('[Articles API] Reset Article Slug');
 
 

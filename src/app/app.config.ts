@@ -7,6 +7,7 @@ import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import * as fromArticles from '@core/ngrx/reducers/article.reducer';
 import * as fromCategories from '@core/ngrx/reducers/category.reducer';
 import * as fromCode from '@core/ngrx/reducers/code.reducer';
+import * as fromUser from '@core/ngrx/reducers/user.reducer';
 
 const DEV = 'http://localhost:3000/';
 const PRE = 'http://192.168.1.97:3000/';
@@ -17,6 +18,7 @@ export interface AppState {
   articles: fromArticles.ArticleState;
   categories: fromCategories.CategoryState;
   code: fromCode.CodeState;
+  user: fromUser.UserState;
 }
 
 export interface ModuleConfig {

@@ -2,6 +2,7 @@ ul {
   margin: 0;
   padding-left: 0;
   list-style: none;
+  margin-left: -3px;
 }
 
 li {
@@ -11,7 +12,7 @@ li {
   align-items: center;
   width: 50%;
   cursor: pointer;
-  & mat-icon { margin-right: 10px }
+  & mat-icon { margin-right: 5px }
   &:hover span { color: var(--primary-color) }
 }
 

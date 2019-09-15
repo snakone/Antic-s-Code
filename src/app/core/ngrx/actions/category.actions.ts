@@ -14,5 +14,8 @@ export const getCategoryByNameFailure =
   createAction('[Categories API] Get Category By Name Failure',
   props<{ error: string }>());
 
+// RESET CATEGORY
+export const resetCategory =
+  createAction('[Categories API] Reset Category');
 
 

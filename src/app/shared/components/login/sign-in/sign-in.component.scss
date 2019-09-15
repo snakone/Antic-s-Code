@@ -1,0 +1,25 @@
+form { margin-top: 1rem }
+
+mat-form-field {
+  width: 98%;
+  margin-bottom: -.5rem;
+}
+
+button {
+  width: 100%;
+  color: var(--light-color);
+  margin-top: 1.2rem;
+}
+
+mat-checkbox {
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-top: 1rem;
+  font-size: .9rem;
+}
+
+span { cursor: pointer }

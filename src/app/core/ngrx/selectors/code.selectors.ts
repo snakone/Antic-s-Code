@@ -12,4 +12,8 @@ export const getArticlesCode = createSelector(
   getCodeState, fromCode.getCode
 );
 
+export const getCodeLoaded = createSelector(
+  getCodeState, fromCode.getCodeLoaded
+);
+
 

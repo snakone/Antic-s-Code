@@ -22,7 +22,7 @@ export class BestHomeComponent implements OnInit {
    }
 
   private getMostLikedArticles(): Observable<Article[]> {
-    return this.store.select(fromArticles.getMostLikedArticles);
+    return this.store.select(fromArticles.getMostLiked);
   }
 
 }

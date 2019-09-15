@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { StorageService } from '@app/core/storage/storage.service';
 
 @Injectable()
 
@@ -12,7 +13,8 @@ export class HttpService {
   private readonly type = 'application/json';
   private readonly default = 'application/json';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+              private storage: StorageService) { }
 
   public get<T>(url: string,
                 headers?: HttpHeaders,
@@ -45,9 +47,8 @@ export class HttpService {
     const contentType = _headers ? (_headers.get(this.type) || this.default) : this.default;
     const accept = _headers ? (_headers.get(this.accept) || this.default) : this.default;
     const headers = _headers || new HttpHeaders();
-
     return headers
-      .set(this.auth, 'Insert Token here')
+      .set(this.auth, this.storage.get('token') || '')
       .set(this.content, contentType)
       .set(this.accept, accept);
   }

@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { SharedModule } from '@app/shared/shared.module';
-import { ComponentsModule } from '@shared/components/components.module';
+import { RouterModule } from '@angular/router';
+import { BoxesModule } from '@layout/boxes/boxes.module';
 
 import { ArticlesSidebarComponent } from './articles-sidebar.component';
 import { ArticlesCategoryListBoxComponent } from './components/articles-category-list-box/articles-category-list-box.component';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     SharedModule,
-    ComponentsModule,
+    BoxesModule,
     RouterModule
   ],
   exports: [

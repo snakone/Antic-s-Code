@@ -16,7 +16,6 @@ import { LogoPipe } from './logo/logo.pipe';
     DigitsPipe,
     LogoPipe
   ],
-  imports: [],
   exports: [
     ImagePipe,
     BackgroundPipe,

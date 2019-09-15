@@ -2,12 +2,12 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
-import * as ArticleActions from '@core/ngrx/actions/article.actions';
-import * as fromArticles from '@core/ngrx/selectors/article.selectors';
-
 import { Article } from '@app/shared/interfaces/interfaces';
 import { Subject } from 'rxjs';
 import { takeUntil, distinctUntilChanged } from 'rxjs/operators';
+
+import * as ArticleActions from '@core/ngrx/actions/article.actions';
+import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 
 @Component({
   selector: 'app-single-article',
@@ -50,7 +50,7 @@ export class SingleArticleComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
-    this.store.dispatch(ArticleActions.ResetSlug());
+    this.store.dispatch(ArticleActions.resetSlug());
   }
 
 }

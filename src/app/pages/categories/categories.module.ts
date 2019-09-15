@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { CategoriesRoutingModule } from './categories-routing.module';
 import { CategoriesComponent } from './categories.component';
-import { ComponentsModule } from '@app/shared/components/components.module';
+import { LayoutModule } from '@app/shared/components/layout/layout.module';
 
 @NgModule({
   declarations: [CategoriesComponent],
   imports: [
     CommonModule,
-    ComponentsModule,
+    LayoutModule,
     CategoriesRoutingModule
   ]
 })
