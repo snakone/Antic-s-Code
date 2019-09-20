@@ -7,26 +7,28 @@
       <app-article-card *ngIf="article"
                         id="single-article-section"
                         [article]="article"
-                        [padding]="0"
                         [single]="true">
-        <app-article-scrollspy class="mobile"
+        <app-article-scrollspy-box class="mobile"
                                [index]="article.index"
                                [mobile]="true">
-        </app-article-scrollspy>
+        </app-article-scrollspy-box>
         <app-content-maker [template]="article"></app-content-maker>
         <app-links-box *ngIf="article.links.length > 0"
                        [links]="article.links">
         </app-links-box>
+        <app-article-reaction-box></app-article-reaction-box>
       </app-article-card>
       <app-disqus *ngIf="article" [identifier]="article.slug"></app-disqus>
-      <app-loading *ngIf="!article"></app-loading>
+      <div class="loader" *ngIf="!article">
+        <app-loading ></app-loading>
+      </div>
     </div>
     <div class="col-lg-4 col-md-4">  <!-- SIDEBAR -->
       <app-articles-sidebar></app-articles-sidebar>
-      <app-article-scrollspy *ngIf="article"
+      <app-article-scrollspy-box *ngIf="article"
                              class="desktop"
                              [index]="article.index">
-      </app-article-scrollspy>
+      </app-article-scrollspy-box>
     </div>
   </div>
 </app-section>

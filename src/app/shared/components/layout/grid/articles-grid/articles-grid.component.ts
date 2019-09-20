@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { AppState } from '@app/app.config';
+
 import { Article } from '@app/shared/interfaces/interfaces';
 import * as fromArticles from '@core/ngrx/selectors/article.selectors';
+import * as ArticleActions from '@core/ngrx/actions/article.actions';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-articles-grid',
@@ -11,24 +14,38 @@ import * as fromArticles from '@core/ngrx/selectors/article.selectors';
   styleUrls: ['./articles-grid.component.scss']
 })
 
-export class ArticlesGridComponent implements OnInit {
+export class ArticlesGridComponent implements OnInit, OnDestroy {
 
   articles$: Observable<Article[]>;
   count$: Observable<number>;
+  private unsubscribe$ = new Subject<void>();
 
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.articles$ = this.getLastArticles();
-    this.count$ = this.getArticlesCount();
+    this.checkData();
+    this.getArticles();
   }
 
-  getLastArticles(): Observable<Article[]> {
-    return this.store.select(fromArticles.getLastArticles);
+  private checkData(): void {
+    this.store.select(fromArticles.getLastArticlesAndCountLoaded)
+     .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((res: boolean) => {
+       if (!res) {
+         this.store.dispatch(ArticleActions.getLastArticles());
+         this.store.dispatch(ArticleActions.getArticlesCount());
+       }
+    });
   }
 
-  getArticlesCount(): Observable<number> {
-    return this.store.select(fromArticles.getArticlesCount);
+  private getArticles(): void {
+    this.articles$ = this.store.select(fromArticles.getLastArticles);
+    this.count$ = this.store.select(fromArticles.getArticlesCount);
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
 }

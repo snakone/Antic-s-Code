@@ -1,0 +1,36 @@
+<div class="navbar-wrapper">
+  <div class="navbar-menu">
+    <ul>
+      <li *ngFor="let i of items"
+          [routerLink]="i.link"
+          routerLinkActive="active">  <!-- MENU LIST -->
+        <button class="hvr-underline-from-left"
+                mat-button>{{i.name | translate}}
+        </button>
+      </li>
+      <li>
+        <button mat-button
+                class="navbar-menu-btn"
+                [matMenuTriggerFor]="menu"
+                (click)="collapse = !collapse">  <!-- MENU BUTTON -->
+            {{'menu' | translate}}
+          <span [ngClass]="{'collapsed' : collapse}"
+                class="navbar-menu-dropdown">&#x25BC;
+          </span>
+        </button>
+        <mat-menu #menu="matMenu">
+          <div class="flex-box" *ngFor="let m of dropdown">
+            <button class="menu-dropdown"
+                    mat-menu-item
+                    [routerLink]="m.link">
+              <mat-icon>{{m.icon}}</mat-icon>
+                  {{m.name | translate}}
+            </button>
+          </div>
+        </mat-menu>
+      </li>
+    </ul>
+  </div>
+</div>
+
+

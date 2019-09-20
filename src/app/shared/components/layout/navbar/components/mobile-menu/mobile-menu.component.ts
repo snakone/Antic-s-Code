@@ -17,9 +17,11 @@ export class MobileMenuComponent implements OnInit {
   ngOnInit() { }
 
   closeMenu(): void {
-    const menu = this.menu.nativeElement.classList;
-    menu.remove('fadeInLeft');
-    menu.add('fadeOutLeft');
+    try {
+      const menu = this.menu.nativeElement.classList;
+      menu.remove('fadeInLeft');
+      menu.add('fadeOutLeft');
+    } catch (err) {}
     setTimeout(() => { this.swipeMenu.showMenuOnSwipe(false); }, 500);
   }
 

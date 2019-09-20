@@ -1,31 +1,29 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
 import { HomeRoutingModule } from './home.routing';
 import { HomeComponent } from './home.component';
-import { ComponentsModule } from '@app/shared/components/components.module';
+import { LayoutModule } from '@app/shared/components/layout/layout.module';
+
+import { ArticlesHomeComponent } from './components/articles-home/articles-home.component';
+import { CategoryHomeComponent } from './components/category-home/category-home.component';
 
 import {
   HeaderHomeModule,
-  CategoryHomeModule,
-  ArticlesHomeModule,
-  BestHomeModule,
+  LikedHomeModule,
   TestimonialHomeModule,
   ContactHomeModule
 } from './home.index';
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    ArticlesHomeComponent,
+    CategoryHomeComponent
   ],
   imports: [
-    CommonModule,
-    ComponentsModule,
+    LayoutModule,
     HomeRoutingModule,
     HeaderHomeModule,
-    CategoryHomeModule,
-    ArticlesHomeModule,
-    BestHomeModule,
+    LikedHomeModule,
     TestimonialHomeModule,
     ContactHomeModule
   ]

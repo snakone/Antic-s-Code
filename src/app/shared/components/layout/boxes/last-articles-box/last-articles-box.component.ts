@@ -27,7 +27,7 @@ export class LastArticlesBoxComponent implements OnInit {
     .pipe(map((res: Article[]) => {
       if (res.length === 0) {
         this.store.dispatch(ArticleActions.getLastArticles());
-        return;
+        return res;
       }
       return res.slice(0, 4);
     }));

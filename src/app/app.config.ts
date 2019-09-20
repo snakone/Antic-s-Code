@@ -7,28 +7,27 @@ import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import * as fromArticles from '@core/ngrx/reducers/article.reducer';
 import * as fromCategories from '@core/ngrx/reducers/category.reducer';
 import * as fromCode from '@core/ngrx/reducers/code.reducer';
+import * as fromUser from '@core/ngrx/reducers/user.reducer';
 
 const DEV = 'http://localhost:3000/';
 const PRE = 'http://192.168.1.97:3000/';
 const PROD = 'https://antics-code.herokuapp.com/';
-const APP_VERSION = '0.2.3';
+const APP_VERSION = '0.3.0';
 
 export interface AppState {
   articles: fromArticles.ArticleState;
   categories: fromCategories.CategoryState;
   code: fromCode.CodeState;
+  user: fromUser.UserState;
 }
 
-export interface ModuleConfig {
-  NAVIGATION?: any;
-}
-
-export interface AppConfig extends ModuleConfig {
+export interface AppConfig {
   TITLE: string;
   DEFAULT_LANGUAGE: string;
   END_POINT: string;
   APP_VERSION: string;
   DISQUS: string;
+  THEME: string;
 }
 
 export const APP_CONSTANTS: AppConfig = {
@@ -37,11 +36,7 @@ export const APP_CONSTANTS: AppConfig = {
   END_POINT: PROD,
   APP_VERSION,
   DISQUS: 'antics-code',
-  NAVIGATION: {
-    EMPTY: '',
-    ROOT: 'Home',
-    HOME: 'Home'
-  }
+  THEME: 'default'
 };
 
 export const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {

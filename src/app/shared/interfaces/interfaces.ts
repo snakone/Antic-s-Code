@@ -1,53 +1,97 @@
-export interface Article {
+interface Content {
   _id?: string;
   title?: string;
-  message?: string;
-  author?: string;
   category?: string;
-  created?: string;
-  slug?: string;
+  message?: string;
   cover?: string;
   code?: Code[];
   tags?: string[];
   badges?: string[];
-  level?: string;
   likes?: number;
-  views?: number;
   stars?: number;
-  links?: Link[];
-  summary?: string;
-  index?: Index[];
+  links?: List[];
+  index?: List[];
 }
 
-export interface ArticleResponse {
+interface ServerResponse {
   ok: boolean;
   message: string;
-  articles?: Article[];
   err?: any;
 }
 
-export interface ArticleResponseCount {
-  ok: boolean;
-  message: string;
-  count: number;
+export interface Article extends Content {
+  author?: string;
+  created?: string;
+  slug?: string;
+  level?: string;
+  views?: number;
+  summary?: string;
 }
 
-export interface Categories {
+export interface Category extends Content {
+  name?: string;
+  info?: CategoryInfo;
+  icon?: string;
+}
+
+export interface ArticleResponse extends ServerResponse {
+  articles?: Article[];
+  page?: number;
+}
+
+export interface CategoryResponse extends ServerResponse {
+  category?: Category;
+}
+
+export interface CodeResponse extends ServerResponse {
+  code?: Code[];
+}
+
+export interface UserResponse extends ServerResponse {
+  user: User;
+  token?: string;
+}
+
+export interface CountResponse extends ServerResponse {
+  count?: number;
+}
+
+export interface CategoryCountResponse extends ServerResponse {
+  count?: CategoryCount;
+}
+
+export interface CategoryCount {
+  HTML?: number;
+  CSS?: number;
+  Javascript?: number;
+  Angular?: number;
+  Nodejs?: number;
+  MongoDB?: number;
+}
+
+export interface Code {
+  code: string;
+  lang: string;
+  description: string;
+  level: string;
+  tags: string[];
+  from: From;
+}
+
+export interface User {
+  _id?: string;
   name: string;
-  icon: string;
-  class?: string;
-  picture?: string;
-}
-
-export interface AppData {
-  articles: Article[];
-  categories: Category[];
+  email: string;
+  password: string;
+  account: string;
 }
 
 export interface List {
   name: string;
-  picture: string;
+  icon?: string;
   link?: string;
+  category?: string;
+  class?: string;
 }
 
 export interface Testimonial {
@@ -62,81 +106,15 @@ export interface FooterList {
   list: string[];
 }
 
-export interface MenuLink {
-  name: string;
-  link: string;
-}
-
 export interface FAQ {
   question: string;
   answer: string;
-}
-
-export interface Related {
-  title: string;
-  picture: string;
-  category: string;
-  icon: string;
 }
 
 export interface ToC {
   index: string;
   description: string;
   anchor: string;
-}
-
-export interface Category {
-  _id?: string;
-  name?: string;
-  title?: string;
-  category?: string;
-  info?: CategoryInfo;
-  message?: string;
-  icon?: string;
-  cover?: string;
-  code?: Code[];
-  badges?: string[];
-  tags?: string[];
-  likes?: number;
-  stars?: number;
-  links?: Link[];
-  index?: Index[];
-}
-
-export interface CategoryResponse {
-  ok: boolean;
-  message: string;
-  category?: Category;
-  categories?: Category[];
-  err?: any;
-}
-
-export interface Code {
-  code: string;
-  lang: string;
-  description: string;
-  level: string;
-  tags: string[];
-  from: From;
-}
-
-export interface CodeResponse {
-  ok: boolean;
-  message: string;
-  code?: Code[];
-  count?: number;
-  err?: any;
-}
-
-export interface Link {
-  name: string;
-  url: string;
-}
-
-export interface MenuDropdown {
-  name: string;
-  link: string;
-  icon: string;
 }
 
 export interface CategoryInfo {
@@ -151,7 +129,7 @@ export interface From {
   slug: string;
 }
 
-export interface Index {
+export interface ArticleIndex {
   title: string;
   subtitle: string;
   id: string;
@@ -160,4 +138,33 @@ export interface Index {
 export interface ScrollSpy {
   onViewport?: boolean;
   id?: string;
+}
+
+export interface Config {
+  name: string;
+  selector: string;
+}
+
+export class HttpError {
+  name: string;
+  message: string;
+  status: number;
+  text: string;
+  url: string;
+  author?: string;
+  date?: string;
+
+  constructor(name: string,
+              message: string,
+              status: number,
+              text: string,
+              url: string,
+              author: string) {
+    this.name = name;
+    this.message = message;
+    this.status = status;
+    this.text = text;
+    this.url = url;
+    this.author = author;
+  }
 }

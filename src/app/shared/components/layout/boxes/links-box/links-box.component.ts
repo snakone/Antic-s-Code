@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Link } from '@app/shared/interfaces/interfaces';
+import { List } from '@app/shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-links-box',
@@ -9,7 +9,7 @@ import { Link } from '@app/shared/interfaces/interfaces';
 
 export class LinksBoxComponent implements OnInit {
 
-  @Input() links: Link[];
+  @Input() links: List[];
 
   constructor() { }
 

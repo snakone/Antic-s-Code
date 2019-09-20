@@ -28,8 +28,6 @@
 
   &.disabled {
     background: rgba(190, 197, 228, 0.25);
-    -webkit-box-shadow: 2px 5px 1.6666rem rgba(146,153,184,.15);
-    box-shadow: 2px 5px 1.6666rem rgba(146,153,184,.15);
     pointer-events: none;
 
     & mat-icon { color: grey }

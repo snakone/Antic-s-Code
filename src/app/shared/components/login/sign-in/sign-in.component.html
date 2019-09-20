@@ -1,0 +1,27 @@
+<div class="animated fadeIn">
+  <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+    <mat-form-field color="accent" floatLabel="never">
+      <input matInput placeholder="Email" formControlName="email">
+    </mat-form-field>
+    <mat-form-field color="accent" floatLabel="never">
+      <input matInput
+              placeholder="Contraseña"
+              formControlName="password"
+              type="password">
+    </mat-form-field>
+
+    <mat-checkbox [(ngModel)]="remember"
+                  [ngModelOptions]="{standalone: true}">¿Recordar?
+    </mat-checkbox>
+
+    <button type="submit"
+            class="btn-orange"
+            [disabled]="signInForm.invalid"
+            mat-button>
+      Entrar
+    </button>
+
+    <p>¿No tienes una Cuenta?
+      <span class="bold" (click)="signUp()">¡Regístrate!</span></p>
+  </form>
+</div>

@@ -1,5 +1,5 @@
 import { props, createAction } from '@ngrx/store';
-import { Article } from '@app/shared/interfaces/interfaces';
+import { Article, CategoryCount } from '@app/shared/interfaces/interfaces';
 
 // GET ARTICLES
 export const getArticles =
@@ -62,11 +62,23 @@ export const getArticleBySlugFailure =
   createAction('[Articles API] Get Article by Slug Failure',
   props<{ error: string }>());
 
+// GET ARTICLES BY CATEGORY COUNT
+export const getArticlesByCategoryCount =
+  createAction('[Articles API] Get Articles by Category Count');
+
+export const getArticlesByCategoryCountSuccess =
+  createAction('[Articles API] Get Articles by Category Count Success',
+  props<{ count: CategoryCount }>());
+
+export const getArticlesByCategoryCountFailure =
+  createAction('[Articles API] Get Articles by Category Count Failure',
+  props<{ error: string }>());
+
 // RESET ARTICLES
-export const ResetArticles =
+export const resetArticles =
   createAction('[Articles API] Reset Articles');
 
-export const ResetSlug =
+export const resetSlug =
   createAction('[Articles API] Reset Article Slug');
 
 

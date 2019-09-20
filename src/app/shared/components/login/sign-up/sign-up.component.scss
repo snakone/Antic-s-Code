@@ -1,0 +1,30 @@
+.wrapper {
+  position: relative;
+}
+
+form { margin-top: 1rem }
+mat-form-field { width: 98% }
+mat-hint { font-size: .8rem }
+.invalid { color: red }
+.valid { color: var(--success-color) }
+
+button {
+  width: 100%;
+  color: var(--light-color);
+  margin-top: 1.2rem;
+}
+
+mat-checkbox {
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+}
+
+.bold {
+  font-weight: normal !important;
+  &:hover { font-weight: bold !important }
+ }
+
+
+

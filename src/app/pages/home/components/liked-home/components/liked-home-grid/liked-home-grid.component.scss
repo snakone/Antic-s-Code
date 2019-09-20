@@ -1,0 +1,84 @@
+.card {
+  &-image {
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+
+    & figure {
+        position: relative;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        overflow: hidden;
+        margin-bottom: 0;
+    }
+
+    &-content {
+      border: 0 none;
+      background: initial;
+      display: block;
+      text-align: center;
+
+      & h4 {
+        color: var(--light-color);
+        font-weight: 500;
+        margin-top: 8px;
+        margin-bottom: 12px;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  &-title {
+    padding: 1.1rem 1.6rem;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+
+    & h3 {
+      color: var(--light-color);
+      margin: 0 0 .16667rem;
+      font-size: 1.33rem;
+
+      @media(max-width: 905px) and (min-width: 801px) { font-size: 1.1rem }
+      @media(max-width: 800px) and (min-width: 701px) { font-size: 1rem }
+      @media(max-width: 700px) and (min-width: 620px) { font-size: .9rem }
+    }
+
+    & p {
+      margin: 0;
+      color: var(--light-color);
+      line-height: 1.8rem;
+      @media(max-width: 700px) and (min-width: 620px) { font-size: .9rem }
+    }
+
+    & mat-icon {
+      color: var(--primary-color);
+      font-size: 1.2rem;
+      position: relative;
+      top: 3.6px;
+      left: 4px;
+    }
+
+    @media(max-width: 800px) { padding: 1.1rem 1.5rem }
+    @media(max-width: 700px) and (min-width: 620px) { padding: 1.1rem 1.1rem }
+    @media(max-width: 415px) { padding: 1rem 1.1rem }
+  }
+}
+
+img {
+  vertical-align: middle;
+  border-style: none;
+  width: 100%;
+}
+
+.flex-box {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+figure { margin: 0 0 1rem }
+.overlay-bg:hover mat-icon { color: var(--angular-color) }
+
+
+

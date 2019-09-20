@@ -2,7 +2,6 @@
   <div *ngIf="code">  <!-- CODE GRID -->
     <div *ngIf="code.length > 0" highlightChildren>
        <app-content-box [title]="'Código #' + (absoluteIndex(i + 1) | digits)"
-                        icon="code"
                         *ngFor="let c of code | randomizer |
                                 paginate: { itemsPerPage: itemsPerPage,
                                             currentPage: page,
@@ -13,10 +12,5 @@
         </app-code-box>
       </app-content-box>
     </div>
-    <app-content-box *ngIf="code.length === 0"
-                        title="Oops!"
-                        icon="cancel">
-            <p>No se han encontrado resultados</p>
-    </app-content-box>
   </div>
 </div>

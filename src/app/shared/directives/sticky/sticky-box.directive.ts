@@ -1,67 +1,73 @@
-import { Directive, ElementRef, Renderer2, OnDestroy, AfterViewInit, Input } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  Renderer2,
+  OnDestroy,
+  AfterViewInit,
+  Input
+} from '@angular/core';
+
 import { fromEvent, Subject } from 'rxjs';
 import { debounceTime, takeUntil } from 'rxjs/operators';
-import { Store } from '@ngrx/store';
-import { AppState } from '@app/app.config';
-import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 
-@Directive({
-  selector: '[appStickyBox]'
-})
+// tslint:disable-next-line:directive-selector
+@Directive({selector: '[StickyBox]'})
 
 export class StickyBoxDirective implements AfterViewInit, OnDestroy {
 
   height: number;
-  private unsubscribe$ = new Subject<void>();
   @Input() selector: string;
   @Input() code: boolean;
+  private unsubscribe$ = new Subject<void>();
 
   constructor(private el: ElementRef,
-              private renderer: Renderer2,
-              private store: Store<AppState>) { }
+              private renderer: Renderer2) { }
 
   ngAfterViewInit(): void {
-    this.checkArticlesLoaded();
+    this.startSticky();
     this.subscribeToResize();
   }
 
-  private checkArticlesLoaded(): void {
-    this.store.select(fromArticles.getLoadedArticles)
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((res: boolean) => {
-        if (res) {
-          setTimeout(() => {
-            this.makeSticky();
-          }, 200);
-        }
-    });
+  private startSticky(): void {
+    setTimeout(() => {
+      this.makeSticky();
+    }, 2000); // Wait Content to Load
   }
 
   private subscribeToResize(): void {
     fromEvent(window, 'resize')
       .pipe(
-        debounceTime(100),
+        debounceTime(500),
         takeUntil(this.unsubscribe$)
       )
     .subscribe(() => this.makeSticky());
   }
 
   private makeSticky(): void {
-    const el = this.el.nativeElement;
-    let div: number;
-    let padding = 34;
-    let height = el.offsetHeight;
 
-    if (this.code) { height = 16; padding = 0; }
-    if (!this.selector || !el || height === 0) { return; }
+    const el = this.el.nativeElement;
+    let height = el.offsetHeight;
+    if (!el || height === 0) { return; }
+
+    const width = window.document.body.clientWidth;
+
+    if (width < 985) {
+      this.renderer.setStyle(el, 'height', `auto`);
+      return;
+    }
+
+    let div: number;
+    let padding = 32; // 2rem
+
+    if (this.code) { height = 32; padding = 0; }
     if (!this.height) { this.height = height; }
 
     const section = document.getElementById(this.selector);
     section ? div = section.getBoundingClientRect().height : div = 1;
-    const width = window.document.body.clientWidth;
 
-    if (width < 985 || div === 1) {
+    if (div === 1) { // No Selector
       this.renderer.setStyle(el, 'height', `auto`);
+      window.dispatchEvent(new Event('resize'));
       return;
     }
 

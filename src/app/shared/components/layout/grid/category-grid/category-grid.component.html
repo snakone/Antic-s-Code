@@ -2,8 +2,8 @@
   <div class="col-lg-4 col-sm-6"
       *ngFor="let c of categories">
     <div class="category-image">
-      <figure [routerLink]="'/category/' + c.class">
-        <img [src]="c.picture | image:'categories'"/>
+      <figure [routerLink]="'/category/' + c.category">
+        <img [src]="c.class | image:'categories'"/>
         <figcaption class="overlay-bg flex-box">
           <div class="category-image-content">
               <div class="category-icon">
@@ -12,7 +12,10 @@
                 </span>
               </div>
               <h4>{{c.name}}</h4>
-              <span class="category-badge">48 Artículos</span>
+              <span class="category-badge">
+                {{count[c.category] || 0}}
+                Artículo<span *ngIf="count[c.category] != 1">s</span>
+              </span>
           </div>
         </figcaption>
       </figure>

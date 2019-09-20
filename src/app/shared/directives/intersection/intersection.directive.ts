@@ -1,10 +1,8 @@
 import { Directive, ElementRef, AfterViewInit } from '@angular/core';
 import { ScrollSpyService } from '@layout/article-layout/services/scrollspy.service';
 
-@Directive({
-  // tslint:disable-next-line:directive-selector
-  selector: '[Intersection]'
-})
+// tslint:disable-next-line:directive-selector
+@Directive({ selector: '[Intersection]' })
 
 export class IntersectionDirective implements AfterViewInit {
 
@@ -12,10 +10,10 @@ export class IntersectionDirective implements AfterViewInit {
               private scrollSpy: ScrollSpyService) { }
 
   ngAfterViewInit(): void {
-    this.observerSection();
+    this.observerSection(); // Used on Content Maker ONLY
   }
 
-  observerSection(): void {
+  private observerSection(): void {
     try {
       const id = this.el.nativeElement.getAttribute('id');
       const inter = new IntersectionObserver((int) => {

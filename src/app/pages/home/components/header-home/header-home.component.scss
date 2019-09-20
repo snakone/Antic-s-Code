@@ -43,9 +43,9 @@ p {
   p { font-size: 1rem }
 }
 
-@media(max-width: 550px) {
+@media(max-width: 525px) {
   h1 {
-      font-size: 1.6rem;
+      font-size: 1.8rem;
       margin-top: 20px;
   }
 
@@ -55,7 +55,7 @@ p {
   }
 }
 
-@media(max-width: 330px) {
-  h1 { font-size: 1.3rem }
+@media(max-width: 350px) {
+  h1 { font-size: 1.4rem }
   p { font-size: .8rem }
 }

@@ -1,0 +1,39 @@
+.profile {
+  &-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: .5rem;
+    margin-bottom: 1.3rem;
+  }
+
+  &-data {
+    & img {
+      max-width: 112px;
+      border-radius: 50%;
+      width: 100%;
+    }
+
+    & h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0;
+    }
+
+    & button { margin: .6rem auto }
+  }
+
+  &-social {
+    padding-right: 1rem;
+
+    & ul {
+      list-style: none;
+      margin: 0;
+      text-align: right;
+     }
+
+    & li { margin-bottom: .5rem }
+  }
+
+  &-bio {
+    margin-bottom: 1rem;
+  }
+}

@@ -4,31 +4,31 @@ import { Code } from '@app/shared/interfaces/interfaces';
 
 export interface CodeState {
   code: Code[];
-  loaded: boolean;
+  codeLoaded: boolean;
   error: string;
 }
 
 export const inititalState: CodeState = {
   code: [],
-  loaded: false,
+  codeLoaded: false,
   error: null
 };
 
 const featureReducer = createReducer(
   inititalState,
   on(CodeActions.getCode, state => (
-    { ...state, loaded: false, error: null }
+    { ...state, codeLoaded: false, error: null }
   )),
   on(CodeActions.getCodeSuccess, (state, { code }) => (
     {
       ...state,
-      loaded: true,
+      codeLoaded: true,
       error: null,
       code
     }
   )),
   on(CodeActions.getCodeFailure, (state, { error }) => (
-    { ...state, loaded: false, error }
+    { ...state, codeLoaded: false, error }
   ))
 );
 
@@ -37,4 +37,5 @@ export function reducer(state: CodeState | undefined, action: Action) {
 }
 
 export const getCode = (state: CodeState) => state.code;
+export const getCodeLoaded = (state: CodeState) => state.codeLoaded;
 

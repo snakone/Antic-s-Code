@@ -1,10 +1,8 @@
-import { Injectable, EventEmitter } from '@angular/core';
-import { ScrollSpy } from '@app/shared/interfaces/interfaces';
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { ScrollSpy } from '@app/shared/interfaces/interfaces';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 
 export class ScrollSpyService {
 

@@ -10,8 +10,8 @@ import { CategoryService } from '@app/core/services/category/category.service';
 export class CategoryEffects {
   constructor(private actions: Actions,
               private categoryService: CategoryService) { }
-  // GET CATEGORY BY ID
-  loadCategoryByIdEffect$ = createEffect(() => this.actions
+  // GET CATEGORY BY NAME
+  loadCategoryByNameEffect$ = createEffect(() => this.actions
     .pipe(
       ofType(CategoryActions.getCategoryByName),
       concatMap((action) =>

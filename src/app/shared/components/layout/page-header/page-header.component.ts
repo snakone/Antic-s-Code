@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Renderer2 } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PAGE_BG } from '@app/shared/shared.data';
 
@@ -18,28 +18,18 @@ export class PageHeaderComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.subscribeToRoute();
+    this.background = this.getRoute();
   }
 
-  private subscribeToRoute(): void {
+  private getRoute(): string {
     const route: string = this.route.snapshot.data.name;
 
     switch (route) {
-      case 'Code':
-        this.background = this.bgs.code;
-        break;
-
-      case 'Categories':
-        this.background = this.bgs.categories;
-        break;
-
-      case 'Articles':
-        this.background = this.bgs.articles;
-        break;
-
-      case 'Article':
-        this.background = this.bgs.article;
-        break;
+      case 'Code': return this.bgs.code;
+      case 'Categories': return this.bgs.categories;
+      case 'Articles': return this.bgs.articles;
+      case 'Article': return this.bgs.article;
+      case 'Profile': return this.bgs.profile;
     }
   }
 

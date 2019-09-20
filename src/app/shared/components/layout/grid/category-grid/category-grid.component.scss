@@ -61,6 +61,8 @@
     text-align: center;
     white-space: nowrap;
 
+    & span { font-size: .9rem; }
+
     @media(max-width: 400px) {
       font-size: .8rem;
       padding: .5rem 1.2rem;

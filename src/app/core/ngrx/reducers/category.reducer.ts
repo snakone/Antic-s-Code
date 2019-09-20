@@ -31,6 +31,10 @@ const featureReducer = createReducer(
   on(CategoryActions.getCategoryByNameFailure, (state, { error }) => (
     { ...state, loaded: false, error }
   )),
+  // RESET
+  on(CategoryActions.resetCategory, (state) => (
+    { ...state, loaded: true, error: null, category: null }
+  )),
 );
 
 export const getByName = (state: CategoryState) => state.category;

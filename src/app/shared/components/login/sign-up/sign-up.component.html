@@ -1,0 +1,42 @@
+<div class="wrapper animated fadeIn">
+  <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <mat-form-field color="accent" floatLabel="never">
+      <input matInput placeholder="Nombre" formControlName="name">
+      <mat-hint align="end">3-20 Carácteres</mat-hint>
+    </mat-form-field>
+    <mat-form-field color="accent" floatLabel="never">
+      <input matInput placeholder="Email" formControlName="email">
+      <mat-hint align="end">5-35 Carácteres</mat-hint>
+    </mat-form-field>
+    <mat-form-field color="accent" floatLabel="never">
+      <input matInput
+              placeholder="Contraseña"
+              formControlName="password"
+              type="password"
+              [ngClass]="{'valid': !matchError}">
+      <mat-hint align="end">5-25 Carácteres</mat-hint>
+    </mat-form-field>
+    <mat-form-field color="accent" floatLabel="never">
+      <input matInput
+              placeholder="Repite Contraseña"
+              formControlName="password2"
+              type="password"
+              [ngClass]="matchError === true ? 'invalid' : 'valid'">
+    </mat-form-field>
+
+    <mat-checkbox [(ngModel)]="conditions"
+                  [ngModelOptions]="{standalone: true}">
+                  Acepto las
+                  <span (click)="openConditions()"
+                        class="bold">Condiciones de uso
+                  </span>
+    </mat-checkbox>
+
+    <button type="submit"
+            class="btn-orange"
+            [disabled]="signUpForm.invalid || !conditions"
+            mat-button>
+      Registrarse
+    </button>
+  </form>
+</div>
