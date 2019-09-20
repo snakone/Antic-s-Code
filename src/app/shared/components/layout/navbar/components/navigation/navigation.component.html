@@ -5,7 +5,7 @@
           [routerLink]="i.link"
           routerLinkActive="active">  <!-- MENU LIST -->
         <button class="hvr-underline-from-left"
-                mat-button>{{i.name}}
+                mat-button>{{i.name | translate}}
         </button>
       </li>
       <li>
@@ -13,7 +13,7 @@
                 class="navbar-menu-btn"
                 [matMenuTriggerFor]="menu"
                 (click)="collapse = !collapse">  <!-- MENU BUTTON -->
-            Menú
+            {{'menu' | translate}}
           <span [ngClass]="{'collapsed' : collapse}"
                 class="navbar-menu-dropdown">&#x25BC;
           </span>
@@ -24,7 +24,7 @@
                     mat-menu-item
                     [routerLink]="m.link">
               <mat-icon>{{m.icon}}</mat-icon>
-                  {{m.name}}
+                  {{m.name | translate}}
             </button>
           </div>
         </mat-menu>

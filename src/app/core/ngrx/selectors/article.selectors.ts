@@ -12,10 +12,6 @@ export const getArticles = createSelector(
   getArticlesState, fromArticles.getArticles
 );
 
-export const getArticlesLoaded = createSelector(
-  getArticlesState, fromArticles.getArticlesLoaded
-);
-
 export const getArticleBySlug = createSelector(
   getArticlesState, fromArticles.getSlug
 );
@@ -24,8 +20,16 @@ export const getLastArticles = createSelector(
   getArticlesState, fromArticles.getLast
 );
 
+export const getLastArticlesAndCountLoaded = createSelector(
+  getArticlesState, fromArticles.getLastAndCountLoaded
+);
+
 export const getMostLiked = createSelector(
   getArticlesState, fromArticles.getMostLiked
+);
+
+export const getMostLikedLoaded = createSelector(
+  getArticlesState, fromArticles.getMostLikedLoaded
 );
 
 export const getFullArticles = createSelector(
@@ -36,8 +40,12 @@ export const getArticlesCount = createSelector(
   getArticlesState, fromArticles.getCount
 );
 
-export const getHomeLoaded = createSelector(
-  getArticlesState, fromArticles.getHomeLoaded
+export const getArticlesByCategoryCount = createSelector(
+  getArticlesState, fromArticles.getCategoryCount
+);
+
+export const getCategoryCountLoaded = createSelector(
+  getArticlesState, fromArticles.getCategoryCountLoaded
 );
 
 

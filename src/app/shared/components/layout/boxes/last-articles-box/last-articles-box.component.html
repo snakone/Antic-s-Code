@@ -9,8 +9,7 @@
         <div class="last-title">
           <h4>{{a.title}}</h4>
           <div class="last-title-info">
-            <span>{{a.views}} visitas</span>
-            <span>{{a.likes}} like<span *ngIf="a.likes > 1">s</span></span>
+           <app-article-reactions [article]="a" [box]="true"></app-article-reactions>
           </div>
         </div>
       </li>

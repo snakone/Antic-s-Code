@@ -30,6 +30,8 @@ import { CodeEffects } from './ngrx/effects/code.effects';
 import { UserEffects } from './ngrx/effects/user.effects';
 import { reducers } from './ngrx/reducers/reducers.index';
 
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -55,6 +57,7 @@ import { reducers } from './ngrx/reducers/reducers.index';
         deps: [HttpClient]
       }
     }),
+    ToastrModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

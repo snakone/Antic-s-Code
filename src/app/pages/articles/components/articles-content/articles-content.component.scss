@@ -19,3 +19,17 @@ p {
     display: none;
   }
 }
+
+.loader {
+  opacity: 0;
+  visibility: 0;
+}
+
+.loading {
+  opacity: 1;
+  visibility: 1;
+}
+
+.completed {
+  display: none;
+}

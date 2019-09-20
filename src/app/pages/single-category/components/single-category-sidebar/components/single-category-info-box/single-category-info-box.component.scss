@@ -1,10 +1,10 @@
 .info {
   &-box {
     margin-bottom: 1.53333rem;
+    margin-left: .3rem;
 
     &-avatar {
       margin-right: 1rem;
-      @media(max-width: 1030px) { margin-left: -10px }
 
       & img {
         vertical-align: middle;
@@ -37,8 +37,6 @@
     }
 
     &-list {
-      margin-left: -10px;
-
       & li {
         color: var(--p-color);
         -webkit-box-flex: 1;
@@ -55,9 +53,8 @@
           @media(max-width: 1030px) { font-size: .73337rem }
           @media(max-width: 992px) { font-size: 1rem }
           @media(max-width: 802px) and (min-width: 751px) { font-size: .9rem }
-          @media(max-width: 380px) { font-size: .9rem }
-          @media(max-width: 350px) { font-size: .8rem }
-          @media(max-width: 327px) { font-size: .73337rem }
+          @media(max-width: 380px) { font-size: .8rem !important }
+          @media(max-width: 350px) { font-size: .7rem !important }
         }
 
         & mat-icon {

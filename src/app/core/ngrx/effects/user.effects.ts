@@ -25,6 +25,18 @@ export class UserEffects {
       )
   );
 
+  // SET USER EMAIL
+  setUserEmailEffect$ = createEffect(() => this.actions
+    .pipe(
+      ofType(UserActions.setUserEmail),
+      concatMap((action) =>
+         of(UserActions.setUserEmailSuccess({email: action.email}))),
+          catchError(error =>
+              of(UserActions.setUserEmailFailure({ error: error.message }))
+        )
+      )
+  );
+
   // VERIFY TOKEN
   verifyTokenEffect$ = createEffect(() => this.actions
     .pipe(

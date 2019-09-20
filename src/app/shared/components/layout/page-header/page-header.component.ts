@@ -25,14 +25,11 @@ export class PageHeaderComponent implements OnInit {
     const route: string = this.route.snapshot.data.name;
 
     switch (route) {
-      case 'Code':
-      return this.bgs.code;
-      case 'Categories':
-      return this.bgs.categories;
-      case 'Articles':
-      return this.bgs.articles;
-      case 'Article':
-      return this.bgs.article;
+      case 'Code': return this.bgs.code;
+      case 'Categories': return this.bgs.categories;
+      case 'Articles': return this.bgs.articles;
+      case 'Article': return this.bgs.article;
+      case 'Profile': return this.bgs.profile;
     }
   }
 

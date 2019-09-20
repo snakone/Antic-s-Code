@@ -14,5 +14,17 @@ button {
   margin-top: 1.2rem;
 }
 
+mat-checkbox {
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+}
+
+.bold {
+  font-weight: normal !important;
+  &:hover { font-weight: bold !important }
+ }
+
 
 

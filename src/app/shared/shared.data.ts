@@ -2,25 +2,23 @@ import {
   List,
   Testimonial,
   FooterList,
-  MenuLink,
   FAQ,
   ToC,
-  MenuDropdown,
-  Categories
+  Config
 } from './interfaces/interfaces';
 
-export const MENU: MenuLink[] = [
-  { name: 'Inicio', link: '/home' },
-  { name: 'Código', link: '/code' },
-  { name: 'Categorías', link: '/categories' },
-  { name: 'Artículos', link: '/articles' }
+export const MENU: List[] = [
+  { name: 'home', link: '/home' },
+  { name: 'code', link: '/code' },
+  { name: 'categories', link: '/categories' },
+  { name: 'articles', link: '/articles' }
 ];
 
-export const HOME_MENU: MenuDropdown[] = [
-  { name: 'Ventajas', link: '/home', icon: 'autorenew' },
-  { name: 'Colabora', link: '/code', icon: 'present_to_all' },
-  { name: 'Soporte', link: '/categories', icon: 'help_outline' },
-  { name: 'Sobre mí', link: '/articles', icon: 'directions_run' }
+export const HOME_MENU: List[] = [
+  { name: 'advantages', link: '/home', icon: 'autorenew' },
+  { name: 'collaborate', link: '/code', icon: 'present_to_all' },
+  { name: 'support', link: '/categories', icon: 'help_outline' },
+  { name: 'about.me', link: '/articles', icon: 'directions_run' }
 ];
 
 export const CATEGORIES: string[] = [
@@ -33,7 +31,7 @@ export const CATEGORIES: string[] = [
 ];
 
 export const TAGS: string[] = [
-  'Desarollo',
+  'Desarrollo',
   'Typescript',
   'Frontend',
   'Backend',
@@ -60,7 +58,7 @@ export const CODE_TAGS: string[] = [
   'Todas'
 ];
 
-export const POPULAR_CATEGORIES: Categories[] = [
+export const POPULAR_CATEGORIES: List[] = [
   {
     name: 'Cógido',
     icon: 'code',
@@ -83,50 +81,64 @@ export const POPULAR_CATEGORIES: Categories[] = [
   },
 ];
 
-export const MAIN_CATEGORIES: Categories[] = [
+export const MAIN_CATEGORIES: List[] = [
   {
     name: 'Markup HTML5',
     icon: 'html-logo.png',
-    class: 'HTML',
-    picture: 'odd.png'
+    category: 'HTML',
+    class: 'odd.png'
   },
   {
     name: 'Stylesheet CSS3',
     icon: 'css-logo.png',
-    class: 'CSS',
-    picture: 'even.png'
+    category: 'CSS',
+    class: 'even.png'
   },
   {
     name: 'Vanilla Javascript',
     icon: 'javascript-logo.png',
-    class: 'Javascript',
-    picture: 'odd.png'
+    category: 'Javascript',
+    class: 'odd.png'
   },
   {
     name: 'Angular Framework',
     icon: 'angular-logo.png',
-    class: 'Angular',
-    picture: 'even.png'
+    category: 'Angular',
+    class: 'even.png'
   },
   {
     name: 'Server Javascript',
     icon: 'node-logo.png',
-    class: 'Nodejs',
-    picture: 'odd.png'
+    category: 'Nodejs',
+    class: 'odd.png'
   },
   {
     name: 'Mongo Database',
     icon: 'mongo-logo.png',
-    class: 'MongoDB',
-    picture: 'even.png'
+    category: 'MongoDB',
+    class: 'even.png'
   }
+];
+
+export const LANGUAGES: Config[] = [
+  { name: 'Spanish', selector: 'es' },
+  { name: 'English', selector: 'en' }
+];
+
+export const THEMES: Config[] = [
+  { name: 'Default', selector: 'default' },
+  { name: 'Deep Blue', selector: 'deepblue' },
+  { name: 'Deep Green', selector: 'deepgreen' },
+  { name: 'Dark Red', selector: 'darkred' },
+  { name: 'Sky Blue', selector: 'skyblue' }
 ];
 
 export const PAGE_BG = {
   code: 'https://media0.giphy.com/media/l3q2XB76CaWPggiNW/giphy.gif',
   categories: 'https://media2.giphy.com/media/hLzncGRSaC5Nu/giphy.gif',
   articles: 'https://media0.giphy.com/media/xUA7bgk0V4eUyNVaAo/giphy.gif',
-  article: 'https://media2.giphy.com/media/b93B4aJQQakRG/giphy.gif'
+  article: 'https://media2.giphy.com/media/b93B4aJQQakRG/giphy.gif',
+  profile: 'https://media3.giphy.com/media/h0Ti6XKcFKBby/giphy.gif'
 };
 
 export const COUNTRIES: string[] = [
@@ -203,12 +215,12 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const LOGOS: List[] = [
-  { name: 'Markup HTML5', picture: 'html-logo.png', link: 'HTML' },
-  { name: 'Stylesheet CSS3', picture: 'css-logo.png', link: 'CSS' },
-  { name: 'Vanilla Javascript', picture: 'javascript-logo.png', link: 'Javascript' },
-  { name: 'Angular Framework', picture: 'angular-logo.png', link: 'Angular' },
-  { name: 'Server Javascript', picture: 'node-logo.png', link: 'Nodejs' },
-  { name: 'Mongo Database', picture: 'mongo-logo.png', link: 'MongoDB' }
+  { name: 'Markup HTML5', icon: 'html-logo.png', link: 'HTML' },
+  { name: 'Stylesheet CSS3', icon: 'css-logo.png', link: 'CSS' },
+  { name: 'Vanilla Javascript', icon: 'javascript-logo.png', link: 'Javascript' },
+  { name: 'Angular Framework', icon: 'angular-logo.png', link: 'Angular' },
+  { name: 'Server Javascript', icon: 'node-logo.png', link: 'Nodejs' },
+  { name: 'Mongo Database', icon: 'mongo-logo.png', link: 'MongoDB' }
 ];
 
 export const FOOTER_LIST: FooterList[] = [

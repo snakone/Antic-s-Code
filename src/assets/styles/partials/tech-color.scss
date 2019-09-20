@@ -4,7 +4,10 @@
 .vue,
 .css-code,
 .ts,
-.node {
+.node,
+.twitter,
+.facebook,
+.youtube {
   font-weight: bold;
 }
 
@@ -15,6 +18,10 @@
 .css-code { color: var(--css-color) }
 .ts { color: var(--ts-color) }
 .node { color: var(--node-color) }
+
+.twitter { color: #00acee !important }
+.facebook { color: #3b5998 !important }
+.youtube { color: #c4302b !important }
 
 .basic { color: var(--success-color) }
 .medium { color: var(--ionic-color) }

@@ -1,0 +1,27 @@
+<app-content-box [title]="'settings' | translate"
+                 icon="settings">
+    <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
+      <mat-form-field color="accent">
+        <mat-label>{{'language' | translate}}</mat-label>
+        <mat-select formControlName="language">
+          <mat-option *ngFor="let l of languages" [value]="l.selector">
+            {{l.selector | translate}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field color="accent">
+        <mat-label>{{'theme' | translate}}</mat-label>
+        <mat-select formControlName="theme">
+          <mat-option *ngFor="let t of themes" [value]="t.selector">
+            {{t.selector | translate}}
+            <span [class]="'theme-sample ' + t.selector"></span>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button type="submit"
+              mat-button
+              class="btn-pink">{{'save' | translate}}
+      </button>
+    </form>
+</app-content-box>

@@ -10,6 +10,7 @@ export class StorageService {
   public storage: Storage;
 
   constructor() {
+    console.log('StorageService');
     this.loadStorage();
   }
 
@@ -25,11 +26,8 @@ export class StorageService {
     this.storage = this.storage;
   }
 
-  getStorage(): Storage {
-    return this.storage;
-  }
-
   get(value: string) {
+    if (!this.storage) { this.storage = new Storage(); }
     if (this.storage[value] === undefined) { return; }
     return this.storage[value];
   }

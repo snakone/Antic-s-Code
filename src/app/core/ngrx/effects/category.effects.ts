@@ -11,7 +11,7 @@ export class CategoryEffects {
   constructor(private actions: Actions,
               private categoryService: CategoryService) { }
   // GET CATEGORY BY NAME
-  loadCategoryByIdEffect$ = createEffect(() => this.actions
+  loadCategoryByNameEffect$ = createEffect(() => this.actions
     .pipe(
       ofType(CategoryActions.getCategoryByName),
       concatMap((action) =>

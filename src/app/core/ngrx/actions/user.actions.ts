@@ -24,7 +24,20 @@ export const setUserSuccess =
   props<{ user: User }>());
 
 export const setUserFailure =
-  createAction('[Users] Get User Failure',
+  createAction('[Users] Set User Failure',
+  props<{ error: string }>());
+
+// SET USER EMAIL TOKEN
+export const setUserEmail =
+  createAction('[Users] Set User Email',
+  props<{ email: string }>());
+
+export const setUserEmailSuccess =
+  createAction('[Users] Set User Email Success',
+  props<{ email: string }>());
+
+export const setUserEmailFailure =
+  createAction('[Users] Set User Email Failure',
   props<{ error: string }>());
 
 // VERIFY TOKEN

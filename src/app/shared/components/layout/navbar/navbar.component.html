@@ -12,20 +12,21 @@
   <app-navigation></app-navigation>  <!-- NAVIGATION -->
   <div class="navbar-search">  <!-- SEARCH BAR -->
     <app-navbar-search></app-navbar-search>
-      <button class="btn-pink btn-desktop"
+      <button class="btn-pink btn"
               *ngIf="!(user$ | async)"
               (click)="openLogin()"
-              mat-button>Entrar
-      </button>  <!-- LOGIN -->
-      <button class="btn-pink btn-desktop"
-              (click)="logOut()"
-              *ngIf="user$ | async"
-              mat-button>Salir
-      </button>  <!-- LOGOUT -->
-      <button class="btn-pink btn-mobile"
               mat-button>
-        <mat-icon>person</mat-icon>
-      </button>
+              <span class="btn-mobile">
+                <i class="fa fa-sign-in"></i>
+              </span>
+              <span class="btn-desktop">{{'enter' | translate}}</span>
+      </button>  <!-- LOGIN -->
+      <button class="btn-pink btn"
+              *ngIf="user$ | async"
+              routerLink="/profile"
+              mat-button>
+            <mat-icon>person</mat-icon>
+      </button>  <!-- LOGOUT -->
   </div>
 </nav>
 
@@ -34,7 +35,7 @@
     <li *ngFor="let i of items"
         [routerLink]="i.link"
         routerLinkActive="active"
-        (click)="show = false">{{i.name}}
+        (click)="show = false">{{i.name | translate}}
     </li>
   </ul>
 <app-mobile-menu>

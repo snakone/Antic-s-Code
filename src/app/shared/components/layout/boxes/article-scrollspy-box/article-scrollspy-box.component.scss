@@ -1,0 +1,30 @@
+ul {
+  list-style-type: circle;
+  padding-left: var(--small-padding);
+  margin: 0 auto;
+}
+
+li:not(p) {
+  color: black;
+  margin-top: .9rem;
+  outline: none;
+  font-size: .9rem;
+  &:first-child { margin-top: 0 }
+  &:hover {
+    color: var(--primary-color);
+    cursor: pointer;
+  }
+}
+
+p {
+  margin: 0;
+  margin-bottom: 5px;
+  margin-top: -3px;
+  color: var(--p-color);
+  font-size: .85rem !important;
+}
+
+.active {
+  color: var(--primary-color);
+  font-weight: bold;
+}

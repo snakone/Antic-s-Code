@@ -8,7 +8,7 @@ import { CategoryHomeComponent } from './components/category-home/category-home.
 
 import {
   HeaderHomeModule,
-  BestHomeModule,
+  LikedHomeModule,
   TestimonialHomeModule,
   ContactHomeModule
 } from './home.index';
@@ -23,7 +23,7 @@ import {
     LayoutModule,
     HomeRoutingModule,
     HeaderHomeModule,
-    BestHomeModule,
+    LikedHomeModule,
     TestimonialHomeModule,
     ContactHomeModule
   ]

@@ -1,0 +1,15 @@
+<app-page-header [title]="(user$ | async)?.name || ''"
+                 [subTitle]="'welcome.profile' | translate">
+</app-page-header>
+<app-section input="#f5f7fc">
+  <div class="row">
+    <div class="col-lg-8 col-md-8">  <!-- CONTENT -->
+      <app-profile-content [user]="user$ | async"></app-profile-content>
+    </div>
+    <div class="col-lg-4 col-md-4">  <!-- FOOTER -->
+      <app-settings-box></app-settings-box>
+      <app-articles-sidebar></app-articles-sidebar>
+    </div>
+  </div>
+</app-section>
+<app-footer></app-footer>

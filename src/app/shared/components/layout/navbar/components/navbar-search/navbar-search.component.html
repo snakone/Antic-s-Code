@@ -9,14 +9,14 @@
   <input (focus)="focused = true"
          (focusout)="focused = false"
          type="text"
-         placeholder="¿Buscas algo en particular?">  <!-- INPUT -->
+         [placeholder]="'nav.search' | translate">  <!-- INPUT -->
 
   <div class="search-hint"
       [ngClass]="{'display': focused}">  <!-- POP UP SEARCH -->
     <ul>
       <li *ngFor="let l of logos"
           [routerLink]="'category/' + l.link">
-        <img [src]="l.picture | image:'logos'"/>  <!-- LOGO LIST -->
+        <img [src]="l.icon | image:'logos'"/>  <!-- LOGO LIST -->
         <span>{{l.name}}</span>
       </li>
     </ul>

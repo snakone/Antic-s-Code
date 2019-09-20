@@ -32,11 +32,6 @@
           font-size: .95rem;
           color: var(--p-color);
 
-          &.twitter { color: #00acee }
-          &.facebook { color: #3b5998 }
-          &.youtube { color: #c4302b }
-          &.twitter, &.facebook, &.youtube { font-weight: bold }
-
           &:hover {
             cursor: pointer;
             color: var(--primary-color);

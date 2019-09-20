@@ -24,9 +24,17 @@
               [ngClass]="matchError === true ? 'invalid' : 'valid'">
     </mat-form-field>
 
+    <mat-checkbox [(ngModel)]="conditions"
+                  [ngModelOptions]="{standalone: true}">
+                  Acepto las
+                  <span (click)="openConditions()"
+                        class="bold">Condiciones de uso
+                  </span>
+    </mat-checkbox>
+
     <button type="submit"
             class="btn-orange"
-            [disabled]="signUpForm.invalid"
+            [disabled]="signUpForm.invalid || !conditions"
             mat-button>
       Registrarse
     </button>

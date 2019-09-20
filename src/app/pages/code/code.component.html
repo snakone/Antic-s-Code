@@ -17,9 +17,11 @@
       <app-code-content [code]="filtered"
                         *ngIf="code">
       </app-code-content>
-      <app-loading *ngIf="code?.length === 0"></app-loading>
+      <div class="loader">
+        <app-loading *ngIf="code?.length === 0"></app-loading>
+      </div>
     </div>
-    <div class="col-lg-4 col-md-4">  <!-- FOOTER -->
+    <div class="col-lg-4 col-md-4">  <!-- SIDEBAR -->
       <app-code-sidebar *ngIf="code?.length > 0"
                         (tag)="filter($event)">
       </app-code-sidebar>

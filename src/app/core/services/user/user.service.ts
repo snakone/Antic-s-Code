@@ -45,8 +45,9 @@ export class UserService {
   }
 
   public logout(): void {
-    if (this.ls) { this.ls.setKey('token', null); }
+    this.ls.setKey('token', null);
     this.store.dispatch(UserActions.userLogOut());
+    this.ls.loadStorage();
   }
 
 }

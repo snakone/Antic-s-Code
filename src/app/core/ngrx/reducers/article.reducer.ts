@@ -1,10 +1,12 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import * as ArticleActions from '../actions/article.actions';
-import { Article } from '@app/shared/interfaces/interfaces';
+import { Article, CategoryCount } from '@app/shared/interfaces/interfaces';
 
 export interface ArticleState {
   articles: Article[];
   articlesLoaded: boolean;
+  categoryCount: CategoryCount;
+  categoryCountLoaded: boolean;
   last: Article[];
   lastLoaded: boolean;
   liked: Article[];
@@ -12,6 +14,7 @@ export interface ArticleState {
   count: number;
   countLoaded: boolean;
   slug: Article;
+  slugLoaded: boolean;
   full: boolean;
   error: string;
 }
@@ -19,6 +22,8 @@ export interface ArticleState {
 export const inititalState: ArticleState = {
   articles: [],
   articlesLoaded: false,
+  categoryCount: {},
+  categoryCountLoaded: false,
   last: [],
   lastLoaded: false,
   liked: [],
@@ -26,6 +31,7 @@ export const inititalState: ArticleState = {
   count: 0,
   countLoaded: false,
   slug: null,
+  slugLoaded: false,
   full: false,
   error: null,
 };
@@ -95,25 +101,46 @@ const featureReducer = createReducer(
   )),
   // ARTICLE BY SLUG
   on(ArticleActions.getArticleBySlug, (state, { slug }) => (
-    { ...state, loaded: false, error: null }
+    { ...state, slugLoaded: false, error: null }
   )),
   on(ArticleActions.getArticleBySlugSuccess, (state, { article }) => (
     {
       ...state,
-      loaded: true,
+      slugLoaded: true,
       error: null,
       slug: article
     }
   )),
   on(ArticleActions.getArticleBySlugFailure, (state, { error }) => (
-    { ...state, loaded: false, error }
+    { ...state, slugLoaded: false, error }
+  )),
+  // ARTICLES BY CATEGORY COUNT
+  on(ArticleActions.getArticlesByCategoryCount, state => (
+    { ...state, categoryCountLoaded: false, error: null }
+  )),
+  on(ArticleActions.getArticlesByCategoryCountSuccess, (state, { count }) => (
+    {
+      ...state,
+      categoryCountLoaded: true,
+      error: null,
+      categoryCount: count
+    }
+  )),
+  on(ArticleActions.getArticlesByCategoryCountFailure, (state, { error }) => (
+    { ...state, categoryCountLoaded: false, error }
   )),
   // RESET
   on(ArticleActions.resetArticles, (state) => (
-    { ...state, loaded: true, error: null, articles: [] }
+    {
+      ...state,
+      articlesLoaded: false,
+      error: null,
+      articles: [],
+      full: false
+    }
   )),
   on(ArticleActions.resetSlug, (state) => (
-    { ...state, loaded: true, error: null, slug: null }
+    { ...state, slugLoaded: false, error: null, slug: null }
   )),
 );
 
@@ -122,17 +149,18 @@ export function reducer(state: ArticleState | undefined, action: Action) {
 }
 
 export const getArticles = (state: ArticleState) => state.articles;
-export const getArticlesLoaded = (state: ArticleState) => state.articlesLoaded;
 export const getFull = (state: ArticleState) => state.full;
 export const getSlug = (state: ArticleState) => state.slug;
 export const getLast = (state: ArticleState) => state.last;
-export const getLastLoaded = (state: ArticleState) => state.lastLoaded;
 export const getMostLiked = (state: ArticleState) => state.liked;
-export const getMostLikedLoaded = (state: ArticleState) => state.liked;
+export const getMostLikedLoaded = (state: ArticleState) => state.likedLoaded;
 export const getCount = (state: ArticleState) => state.count;
-export const getCountLoaded = (state: ArticleState) => state.count;
-export const getHomeLoaded = (state: ArticleState) => {
-  return state.lastLoaded && state.likedLoaded && state.countLoaded ? true : false;
+export const getCategoryCount = (state: ArticleState) => state.categoryCount;
+export const getCategoryCountLoaded = (state: ArticleState) => state.categoryCountLoaded;
+
+export const getLastAndCountLoaded = (state: ArticleState) => {
+  return state.lastLoaded &&
+         state.countLoaded ? true : false;
 };
 
 function completed(articles: Article[]): boolean {
