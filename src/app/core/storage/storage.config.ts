@@ -1,4 +1,5 @@
 import { InjectionToken } from '@angular/core';
+import { APP_CONSTANTS } from '../../app.config';
 
 export interface ModuleConfig {
   KEY: string;
@@ -6,19 +7,26 @@ export interface ModuleConfig {
 
 export interface StorageConfig extends ModuleConfig {
   LANGUAGE: string;
+  THEME: string;
+  REMEMBER: boolean;
 }
 
 export const STORAGE_CONSTANTS: StorageConfig = {
   KEY: 'storage',
-  LANGUAGE: 'es'
+  THEME: 'default',
+  LANGUAGE: APP_CONSTANTS.DEFAULT_LANGUAGE,
+  REMEMBER: false
 };
 
 export class Storage {
-// tslint:disable-next-line: no-inferrable-types
-  lang: string = 'es';
-  token = null;
-  user = null;
-  remember = false;
+// tslint:disable: no-inferrable-types
+// tslint:disable: variable-name
+  lang: string = APP_CONSTANTS.DEFAULT_LANGUAGE;
+  token: string = null;
+  user: string = null;
+  remember: boolean = false;
+  user_lang: boolean = false;
+  theme: string = 'default';
 }
 
 export let STORAGE_CONFIG = new InjectionToken<StorageConfig>('storage.config');

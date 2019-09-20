@@ -1,11 +1,24 @@
 .btn-pink {
-  @include button-animated(#fa51b1, #ff793b, #930ee0);
+  @include button-animated(
+    var(--primary-color),
+    var(--tertiary-color),
+    var(--secondary-color)
+  );
 }
 
 .btn-purple {
-  @include button-animated(#930ee0, #fa51b1, #ff793b);
+  @include button-animated(
+    var(--secondary-color),
+    var(--primary-color),
+    var(--tertiary-color)
+
+  );
 }
 
 .btn-orange {
-  @include button-animated(#ff793b, #fa51b1, #930ee0);
+  @include button-animated(
+    var(--tertiary-color),
+    var(--primary-color),
+    var(--secondary-color)
+  );
 }

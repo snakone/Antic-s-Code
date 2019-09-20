@@ -4,12 +4,14 @@ import { User } from '@app/shared/interfaces/interfaces';
 
 export interface UserState {
   user: User;
+  email: string;
   loaded: boolean;
   error: string;
 }
 
 export const inititalState: UserState = {
   user: null,
+  email: null,
   loaded: false,
   error: null
 };
@@ -32,7 +34,23 @@ const featureReducer = createReducer(
       error: null
     }
   )),
-  on(UserActions.setUserFailure, (state, { error }) => (
+  // SET USER EMAIL
+  on(UserActions.setUserEmail, (state, { email }) => (
+    {
+      ...state,
+      loaded: false,
+      error: null
+    }
+  )),
+  on(UserActions.setUserEmailSuccess, (state, { email }) => (
+    {
+      ...state,
+      loaded: true,
+      error: null,
+      email
+    }
+  )),
+  on(UserActions.setUserEmailFailure, (state, { error }) => (
     { ...state, loaded: false, error }
   )),
   // VERIFY TOKEN
@@ -89,3 +107,4 @@ export function reducer(state: UserState | undefined, action: Action) {
 }
 
 export const getUser = (state: UserState) => state.user;
+export const getEmail = (state: UserState) => state.email;

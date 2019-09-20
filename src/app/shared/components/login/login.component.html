@@ -1,10 +1,22 @@
-<div class="login-wrapper">
- <span *ngIf="isRegistering"
-       (click)="isRegistering = false">Volver
-  </span>
- <h3>Antic's Code</h3>
- <app-sign-in *ngIf="!isRegistering"
-              (changed)="isRegistering = $event">
- </app-sign-in>
- <app-sign-up *ngIf="isRegistering"></app-sign-up>
-</div>
+<mat-dialog-content>
+  <div class="login-wrapper">
+    <span *ngIf="isRegistering"
+          (click)="isRegistering = false;
+                    conditions = false">Volver
+    </span>
+    <h3>Antic's Code</h3>
+    <app-sign-in *ngIf="!isRegistering && !conditions"
+                  (changed)="isRegistering = $event">
+    </app-sign-in>
+    <app-sign-up *ngIf="isRegistering"
+                  [conditions]="conditions"
+                  (changed)="conditions = $event;
+                            isRegistering = false">
+    </app-sign-up>
+    <app-conditions *ngIf="conditions && !isRegistering"
+                      (accepted)="conditions = $event;
+                                  isRegistering = true">
+    </app-conditions>
+  </div>
+</mat-dialog-content>
+

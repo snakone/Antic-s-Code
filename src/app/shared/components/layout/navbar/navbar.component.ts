@@ -25,8 +25,7 @@ export class NavBarComponent implements OnInit {
 
   constructor(public dialog: MatDialog,
               private swipeMenu: SwipeMenuService,
-              private store: Store<AppState>,
-              private user: UserService) { }
+              private store: Store<AppState>) { }
 
   ngOnInit() {
     this.listenMenu();
@@ -40,10 +39,6 @@ export class NavBarComponent implements OnInit {
 
   openLogin(): void {
     this.dialog.open(LoginComponent);
-  }
-
-  logOut(): void {
-    this.user.logout();
   }
 
 }

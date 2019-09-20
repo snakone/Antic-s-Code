@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, OnDestroy, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User, UserResponse } from '@app/shared/interfaces/interfaces';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -14,10 +14,11 @@ import { takeUntil } from 'rxjs/operators';
 
 export class SignUpComponent implements OnInit, OnDestroy {
 
+  @Input() conditions = false;
+  @Output() changed = new EventEmitter<boolean>();
   signUpForm: FormGroup;
   namePattern = '^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$';
   matchError = false;
-  @Output() change = new EventEmitter<boolean>();
   private unsubscribe$ = new Subject<void>();
 
   constructor(private login: LoginService) { }
@@ -78,6 +79,10 @@ export class SignUpComponent implements OnInit, OnDestroy {
         error: true
       };
     };
+  }
+
+  openConditions(): void {
+    this.changed.emit(true);
   }
 
   ngOnDestroy(): void {

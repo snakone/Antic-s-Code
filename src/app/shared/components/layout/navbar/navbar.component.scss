@@ -80,13 +80,19 @@
     min-width: 46px;
   }
 
-  @media(max-width: 550px) { right: var(--small-padding) }
-
-  & .btn-mobile mat-icon {
+  & .btn mat-icon {
     position: relative;
     top: -1px;
     color: var(--light-color);
   }
+
+  & .btn i {
+    position: relative;
+    font-size: 1.25rem;
+    top: 1px;
+  }
+
+  @media(max-width: 550px) { right: var(--small-padding) }
 }
 
 .toogler {
@@ -131,14 +137,12 @@ ul {
 }
 
 @media(max-width: 615px) {
-  .btn-desktop { display: none }
-  .btn-mobile {
-    display: inline-block;
-    padding: 0 5px;
-  }
+  .btn { padding: 0 5px }
+  .btn-mobile { display: block; }
+  .btn-desktop { display: none; }
 }
 
-@media(min-width: 615px) {
-  .btn-desktop { display: inline-block }
-  .btn-mobile { display: none }
+@media(min-width: 616px) {
+  .btn-mobile { display: none; }
+  .btn-desktop { display: block; }
 }

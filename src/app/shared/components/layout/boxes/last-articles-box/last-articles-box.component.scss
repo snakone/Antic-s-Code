@@ -43,6 +43,7 @@ li {
   @media(max-width: 992px) and (min-width: 750px) {
     width: 48%;
     display: inline-flex;
+    justify-content: flex-start;
     flex-wrap: wrap;
     padding: 0 10px;
     margin: 0 5px 2rem 5px;
@@ -63,6 +64,13 @@ h4 {
   font-size: 1rem;
   margin: .56667rem auto;
   line-height: 1.4rem;
+
+  @media(max-width: 750px) {
+    position: relative;
+    font-size: 1.2rem;
+    padding: 1rem 0 0 .8rem;
+  }
+
   @media(max-width: 320px) {
     font-size: .8rem;
     margin-bottom: 10px;

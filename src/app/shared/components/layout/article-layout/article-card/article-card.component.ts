@@ -14,7 +14,6 @@ export class ArticleCardComponent implements OnInit, OnDestroy {
 
   @Input() article: Article;
   @Input() shadow: boolean;
-  @Input() padding: number;
   @Input() single: boolean;
   private unsubscribe$ = new Subject<void>();
 

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { Error404Component } from './shared/components/error404/error404.component';
+import { ProfileGuard } from './core/guards/profile.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -35,11 +36,19 @@ const routes: Routes = [
     loadChildren: () => import('./pages/single-article/single-article.module')
                         .then(mod => mod.SingleArticleModule), data: {name: 'Article'}
   },
-  { path: '**', component: Error404Component }
+  {
+    path: 'profile',
+    canActivate: [ProfileGuard],
+    loadChildren: () => import('./pages/profile/profile.module')
+                        .then(mod => mod.ProfileModule), data: {name: 'Profile'}
+  },
+  { path: '**', component: Error404Component },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
+  imports: [RouterModule.forRoot(
+    routes, { scrollPositionRestoration: 'enabled' }
+  )],
   exports: [RouterModule]
 })
 

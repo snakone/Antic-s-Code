@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
 import {
   ArticleResponse,
   CodeResponse,
-  ArticleResponseCount
+  CountResponse,
+  CategoryCountResponse
 } from '@shared/interfaces/interfaces';
 
 @Injectable()
@@ -33,7 +34,7 @@ export class ArticleService {
     return this.http.get(this.API_ARTICLES + 'last');
   }
 
-  public getArticlesCount(): Observable<ArticleResponseCount> {
+  public getArticlesCount(): Observable<CountResponse> {
     return this.http.get(this.API_ARTICLES + 'count');
   }
 
@@ -43,6 +44,10 @@ export class ArticleService {
 
   public getArticleBySlug(slug: string): Observable<ArticleResponse> {
     return this.http.get(APP_CONSTANTS.END_POINT + 'article/' + slug);
+  }
+
+  public getArticlesByCategoryCount(): Observable<CategoryCountResponse> {
+    return this.http.get(this.API_ARTICLES + 'categories/count');
   }
 
   public sendLike(id: string): Observable<ArticleResponse> {

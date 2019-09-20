@@ -1,4 +1,3 @@
-import { ModuleConfig } from '@app/app.config';
 import { InjectionToken } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -8,8 +7,9 @@ import typescript from 'highlight.js/lib/languages/typescript';
 import css from 'highlight.js/lib/languages/css';
 import scss from 'highlight.js/lib/languages/scss';
 import xml from 'highlight.js/lib/languages/xml';
+import json from 'highlight.js/lib/languages/json';
 
-export interface CoreModuleConfig extends ModuleConfig {
+export interface CoreModuleConfig {
   WEBSTORAGE_CONFIG: IWebstorageConfig;
   TRANSLATE_CONFIG: {
     I18N_PATH: string,
@@ -43,10 +43,11 @@ export function createTranslateLoader(http: HttpClient) {
 export function hljsLanguages() {
   return [
     {name: 'typescript', func: typescript},
-    {name: 'javascript', func: javascript },
+    {name: 'javascript', func: javascript},
     {name: 'css', func: css},
     {name: 'scss', func: scss},
-    {name: 'xml', func: xml}
+    {name: 'xml', func: xml},
+    {name: 'json', func: json}
   ];
 }
 

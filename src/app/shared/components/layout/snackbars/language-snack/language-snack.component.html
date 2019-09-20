@@ -1,0 +1,17 @@
+<div class="snack-bar">
+  <mat-icon (click)="closeSnackBar()">close</mat-icon>
+  <p>
+    The default Language is Spanish. <br>
+    Do you want to change to <span class="bold">English</span>?
+  </p>
+
+  <div class="snack-bar-answer">
+    <button (click)="setLanguage('en')"
+            mat-button>Yes, please
+    </button>
+    <button (click)="setLanguage()"
+            mat-button class="no">No
+    </button>
+  </div>
+</div>
+

@@ -5,13 +5,13 @@ export const CONTENT_STYLES = `
  }
 
 ol {
-  padding-left: 16px;
+  padding-left: var(--small-padding);
   margin-top: 1rem;
   margin-bottom: 1.5rem;
 }
 
 ul {
-  padding-left: 16px;
+  padding-left: var(--small-padding);
   list-style-type: circle;
   margin: .5rem auto;
 }
@@ -23,7 +23,7 @@ li {
   font-size: .9rem;
 }
 
-@media(max-width: 550px) { li { font-size: .9rem !important } }
+@media(max-width: 550px) { li, li .black { font-size: .8rem !important } }
 
 p { margin: 0 }
 

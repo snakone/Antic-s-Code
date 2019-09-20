@@ -3,6 +3,9 @@
   font-weight: bold;
 }
 
+.black { color: black !important }
+.white { color: var(--bg-color) !important }
+
 .active { color: var(--primary-color) }
 
 p {
@@ -51,3 +54,4 @@ br {
   content: "";
   margin-top: 12px;
 }
+

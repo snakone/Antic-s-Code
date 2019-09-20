@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { LoginService, UserService } from '@app/core/services/services.index';
+import { LoginService, UserService, ErrorService } from '@app/core/services/services.index';
 import { UserResponse } from '@app/shared/interfaces/interfaces';
 import { HttpErrorResponse } from '@angular/common/http';
 import { StorageService } from '@app/core/storage/storage.service';
@@ -8,9 +8,11 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { AppState } from '@app/app.config';
 import { Store } from '@ngrx/store';
 import * as UserActions from '@core/ngrx/actions/user.actions';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import * as fromUsers from '@core/ngrx/selectors/user.selectors';
+import { Subject, Observable, of } from 'rxjs';
+import { takeUntil, switchMap } from 'rxjs/operators';
 import { LoginComponent } from '../login.component';
+import { CrafterService } from '@core/services/crafter/crafter.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -20,20 +22,23 @@ import { LoginComponent } from '../login.component';
 
 export class SignInComponent implements OnInit, OnDestroy {
 
-  signInForm: FormGroup;
-  remember = false;
   @Output() changed = new EventEmitter<boolean>();
+  signInForm: FormGroup;
+  userEmail$: Observable<string>;
+  remember = false;
   private unsubscribe$ = new Subject<void>();
 
   constructor(private login: LoginService,
               private ls: StorageService,
               private store: Store<AppState>,
               private userService: UserService,
+              private crafter: CrafterService,
               public dialogRef: MatDialogRef<LoginComponent>) { }
 
   ngOnInit() {
     this.createSignInForm();
     this.rememberMe();
+    this.userEmail$ = this.store.select(fromUsers.getUserEmail);
   }
 
   onSubmit(): void {
@@ -47,17 +52,11 @@ export class SignInComponent implements OnInit, OnDestroy {
     this.login.signIn(e, p)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((res: UserResponse) => {
-        if (res.ok) {
-          this.store.dispatch(UserActions.setUser({ user: res.user }));
-          this.setStorage(res);
-          this.dialogRef.close();
-        }
-      }, (err: HttpErrorResponse) => {
-          if (err.status === 0) {
-            console.log(err);  // Login Error
-          } else {
-            console.log(err);  // Invalid Credentials
-          }
+        if (res.ok) { this.handleSignIn(res); }
+      },
+        (err: HttpErrorResponse) => {
+          err.status === 0 ?
+          this.handleError('server') : this.handleError();
       });
   }
 
@@ -81,21 +80,41 @@ export class SignInComponent implements OnInit, OnDestroy {
     const re = this.ls.get('remember');
 
     if ( re && id) {
-      this.userService.getUserById(id)
-       .pipe(takeUntil(this.unsubscribe$))
-       .subscribe((res: UserResponse) => {
-         if (res.ok) {
-          this.signInForm.controls.email.setValue(res.user.email);
-          this.remember = true;
-        }
+      this.store.select(fromUsers.getUserEmail)
+        .pipe(takeUntil(this.unsubscribe$),
+          switchMap((email: string) => {
+            if (email) {
+              this.signInForm.controls.email.setValue(email);
+              this.remember = true;
+            }
+            return email ? of({}) : this.userService.getUserById(id);
+          })).subscribe((res: UserResponse) => {
+          if (res.ok) {
+            this.store.dispatch(UserActions.setUserEmail({ email: res.user.email }));
+          }
       });
     }
   }
 
-  private setStorage(data: UserResponse): void {
+  private handleSignIn(data: UserResponse): void {
+    this.dialogRef.close();
+    this.store.dispatch(UserActions.setUser({user: data.user}));
     this.ls.setKey('token', data.token);
     this.ls.setKey('user', data.user._id);
     this.ls.setKey('remember', this.remember);
+    this.crafter.toaster(data.user.name, 'Bienvenido', 'info');
+  }
+
+  private handleError(type?: string): void {
+    if (type === 'server') {
+      this.crafter.toaster('Error de Servidor',
+                           'Algo malo ocurrió',
+                           'error');
+    } else {
+      this.crafter.toaster('Credenciales incorrectas',
+                           'Prueba de nuevo',
+                           'error');
+    }
   }
 
   ngOnDestroy(): void {

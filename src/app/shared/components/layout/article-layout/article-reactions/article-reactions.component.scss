@@ -1,0 +1,56 @@
+.reaction {
+  position: relative;
+  margin-left: 1.5rem;
+  & span {
+    margin-right: 1rem;
+    color: var(--p-color);
+  }
+
+  & i {
+    font-size: 1.1rem;
+    position: relative;
+    top: 1px;
+    margin-right: .3rem;
+  }
+
+  @media(max-width: 700px) {
+    margin-top: .5rem;
+    position: relative;
+    margin-left: 0;
+  }
+
+  @media(min-width: 701px) {
+    position: absolute;
+    margin-top: -2px;
+    right: 1.8rem;
+  }
+}
+
+.reaction.single {
+  @media(min-width: 701px) {
+    right: .2rem !important;
+  }
+}
+
+.reaction.box {
+  @media(min-width: 701px) {
+    right: 1.4rem !important;
+    position: relative;
+  }
+
+  @media(max-width: 749px) and (min-width: 675px) {
+    position: absolute;
+    margin-top: -33px;
+    right: 2.4rem !important;
+  }
+
+  @media(max-width: 674px) {
+    margin-top: 0.5rem;
+    position: relative;
+    margin-left: 0.8rem;
+  }
+}
+
+.fa-star { color: var(--stars-color) }
+.fa-heart { color: var(--primary-color) }
+.fa-eye { color: var(--react-color) }

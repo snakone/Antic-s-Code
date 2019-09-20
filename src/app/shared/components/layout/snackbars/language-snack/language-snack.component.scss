@@ -1,0 +1,40 @@
+.snack-bar {
+  position: relative;
+  text-align: center;
+
+  & p {
+    color: var(--bg-color);
+    font-size: .8rem;
+    line-height: .5rem;
+    & span { font-size: .8rem }
+  }
+
+  & mat-icon {
+    position: absolute;
+    color: var(--bg-color);
+    right: -12px;
+    margin-top: -7px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    &:hover { color: var(--primary-color)}
+  }
+
+  &-answer {
+    margin-top: 1.1rem;
+    width: 100%;
+    & button {
+      font-size: .8rem;
+      max-width: 100%;
+      display: inline-block;
+      line-height: 25px;
+      margin: 0 7px;
+      background: var(--p-color);
+    }
+
+    & button.no {
+      background: transparent;
+      border: 1px solid var(--p-color);
+   }
+  }
+}
+

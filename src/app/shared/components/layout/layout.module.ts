@@ -6,6 +6,7 @@ import { FooterModule } from './footer/footer.module';
 import { NavbarModule } from './navbar/navbar.module';
 import { ArticlesGridModule } from './grid/articles-grid/articles-grid.module';
 import { ArticleLayoutModule } from './article-layout/article-layout.module';
+import { SnackbarsModule } from './snackbars/snackbars.module';
 
 import { CategoryGridComponent } from './grid/category-grid/category-grid.component';
 import { SectionComponent } from './section/section.component';
@@ -15,6 +16,7 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { SharedModule } from '../../shared.module';
 import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { GoTopComponent } from './go-top/go-top.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CategoryGridComponent,
     SectionComponent,
     PageHeaderComponent,
-    PaginationComponent
+    PaginationComponent,
+    GoTopComponent
   ],
   imports: [
     ArticleLayoutModule,
@@ -34,6 +37,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CommonModule,
     SharedModule,
     RouterModule,
+    SnackbarsModule
   ],
   exports: [
     ArticleLayoutModule,
@@ -46,7 +50,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     PageHeaderComponent,
     PaginationComponent,
     SectionComponent,
-    NgxPaginationModule
+    NgxPaginationModule,
+    SnackbarsModule,
+    GoTopComponent
   ]
 })
 

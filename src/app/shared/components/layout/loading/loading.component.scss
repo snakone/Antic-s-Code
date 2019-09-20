@@ -2,15 +2,15 @@
   position: relative;
   width: 100%;
   height: auto;
-  margin: 3rem auto;
-  margin-bottom: 3.5rem;
+  margin: 1rem auto;
 
-  @media(max-width: 650px) {
+  @media(max-width: 991px) {
     margin-top: 1rem;
-    margin-bottom: 4.5rem;
+    margin-bottom: 3.2rem;
   }
 }
 
 mat-spinner {
    max-width: 100%;
+   color: var(--primary-color);
 }

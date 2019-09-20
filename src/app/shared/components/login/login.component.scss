@@ -1,7 +1,6 @@
 .login-wrapper {
   border-radius: 4px;
-  padding: 1rem;
-  padding-top: 0;
+  padding: 0 1rem;
   text-align: center;
   max-width: 350px;
   min-height: 100%;
@@ -15,13 +14,17 @@
     margin: 0 auto;
     font-size: 1.8rem;
   }
+}
 
+mat-dialog-content {
+  max-height: 80vh !important; // Make it Scrollable
+  padding: 24px !important;
 }
 
 span {
   position: absolute;
   font-size: .8rem;
-  top: -10px;
+  top: -25px;
   right: -8px;
   cursor: pointer;
   &:hover { color: var(--primary-color) }

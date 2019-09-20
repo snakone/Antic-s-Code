@@ -87,4 +87,20 @@ export class ArticleEffects {
     )
   );
 
+  // GET ARTICLES BY CATEGORY COUNT
+  loadArticlesByCategoryCountEffect$ = createEffect(() => this.actions
+  .pipe(
+    ofType(ArticleActions.getArticlesByCategoryCount),
+    concatMap(() =>
+      this.articleService.getArticlesByCategoryCount()
+        .pipe(
+          map(res => ArticleActions.getArticlesByCategoryCountSuccess({ count: res.count })),
+          catchError(error =>
+            of(ArticleActions.getArticlesByCategoryCountFailure({ error: error.message }))
+        )
+       )
+     )
+    )
+  );
+
 }

@@ -10,6 +10,7 @@ export class LanguageService {
   constructor(private translateService: TranslateService,
               private ls: StorageService,
               @Inject(APP_CONFIG) private appConfig: AppConfig) {
+    console.log('LanguageService');
     this.setDefault();
   }
 
@@ -17,16 +18,16 @@ export class LanguageService {
     if (!this.translateService.getDefaultLang()) {
       this.translateService.setDefaultLang(this.appConfig.DEFAULT_LANGUAGE);
     }
-    this.translateService.use(this.ls.storage.lang ||
+    this.translateService.use(this.ls.get('lang') ||
                               this.appConfig.DEFAULT_LANGUAGE);
   }
 
-  public change(lang: string) {
+  change(lang: string) {
     this.translateService.use(lang);
-    this.ls.storage.lang = lang;
+    this.ls.setKey('lang', lang);
   }
 
-  public getCurrent(): string {
+  getCurrent(): string {
     return this.translateService.currentLang;
   }
 }

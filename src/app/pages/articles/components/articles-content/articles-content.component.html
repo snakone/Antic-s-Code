@@ -1,16 +1,13 @@
 <app-article-card shadow="true"
                   *ngFor="let a of articles$ | async"
                   [article]="a"
-                  [padding]="2"
                   [single]="false">   <!-- ARTICLES GRID -->
   <span class="summary" [innerHTML]="a.summary"></span>
 </app-article-card>
 
-<app-loading *ngIf="loading"></app-loading>
+<div class="loader" #loading>
+  <app-loading></app-loading>
+</div>
 
-<app-content-box *ngIf="!articles$ | async"
-                        title="Oops!"
-                        icon="cancel">
-        <p>No se han encontrado resultados</p>
-</app-content-box>
+
 
