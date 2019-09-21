@@ -1,4 +1,4 @@
-<div class="wrapper animated fadeIn">
+<div class="sign-up-wrapper animated fadeIn">
   <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
     <mat-form-field color="accent" floatLabel="never">
       <input matInput placeholder="Nombre" formControlName="name">
@@ -24,13 +24,15 @@
               [ngClass]="matchError === true ? 'invalid' : 'valid'">
     </mat-form-field>
 
-    <mat-checkbox [(ngModel)]="conditions"
-                  [ngModelOptions]="{standalone: true}">
-                  Acepto las
-                  <span (click)="openConditions()"
-                        class="bold">Condiciones de uso
-                  </span>
-    </mat-checkbox>
+    <div class="check">
+      <mat-checkbox [(ngModel)]="conditions"
+                    [ngModelOptions]="{standalone: true}">
+            Acepto las
+      </mat-checkbox>
+      <span (click)="openConditions()"
+            class="bold"> Condiciones de uso
+      </span>
+    </div>
 
     <button type="submit"
             class="btn-orange"

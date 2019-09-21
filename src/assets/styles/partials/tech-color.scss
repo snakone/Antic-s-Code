@@ -26,3 +26,7 @@
 .basic { color: var(--success-color) }
 .medium { color: var(--ionic-color) }
 .hard { color: var(--angular-color) }
+
+.twitter:hover, .facebook:hover, .youtube:hover {
+  filter: brightness(1.3);
+}

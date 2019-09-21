@@ -4,7 +4,7 @@ import { LayoutModule } from '@app/shared/components/layout/layout.module';
 import { SharedModule } from '@app/shared/shared.module';
 
 import { ProfileContentComponent } from './profile-content.component';
-import { ProfileInfoComponent } from './profile-info/profile-info.component';
+import { ProfileInfoComponent } from './components/profile-info/profile-info.component';
 
 @NgModule({
   declarations: [

@@ -1,21 +1,21 @@
-<mat-dialog-content>
+<mat-dialog-content [ngClass]="{'overflow': isReg }">
   <div class="login-wrapper">
-    <span *ngIf="isRegistering"
-          (click)="isRegistering = false;
-                    conditions = false">Volver
+    <span *ngIf="isReg"
+          (click)="isReg = false;
+                   isCon = false">
+          Volver
     </span>
     <h3>Antic's Code</h3>
-    <app-sign-in *ngIf="!isRegistering && !conditions"
-                  (changed)="isRegistering = $event">
+    <app-sign-in *ngIf="!isReg && !isCon"
+                 (changed)="isReg = $event">
     </app-sign-in>
-    <app-sign-up *ngIf="isRegistering"
-                  [conditions]="conditions"
-                  (changed)="conditions = $event;
-                            isRegistering = false">
+    <app-sign-up [ngClass]="{'display': isReg }"
+                 (changed)="isCon = $event;
+                            isReg = false">
     </app-sign-up>
-    <app-conditions *ngIf="conditions && !isRegistering"
-                      (accepted)="conditions = $event;
-                                  isRegistering = true">
+    <app-conditions *ngIf="isCon && !isReg"
+                    (close)="isReg = $event;
+                             conditions = $event">
     </app-conditions>
   </div>
 </mat-dialog-content>

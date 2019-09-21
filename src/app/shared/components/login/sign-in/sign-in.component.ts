@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { LoginService, UserService, ErrorService } from '@app/core/services/services.index';
+import { LoginService, UserService } from '@app/core/services/services.index';
 import { UserResponse } from '@app/shared/interfaces/interfaces';
 import { HttpErrorResponse } from '@angular/common/http';
 import { StorageService } from '@app/core/storage/storage.service';
@@ -13,6 +13,7 @@ import { Subject, Observable, of } from 'rxjs';
 import { takeUntil, switchMap } from 'rxjs/operators';
 import { LoginComponent } from '../login.component';
 import { CrafterService } from '@core/services/crafter/crafter.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -33,6 +34,7 @@ export class SignInComponent implements OnInit, OnDestroy {
               private store: Store<AppState>,
               private userService: UserService,
               private crafter: CrafterService,
+              private router: Router,
               public dialogRef: MatDialogRef<LoginComponent>) { }
 
   ngOnInit() {
@@ -103,6 +105,7 @@ export class SignInComponent implements OnInit, OnDestroy {
     this.ls.setKey('user', data.user._id);
     this.ls.setKey('remember', this.remember);
     this.crafter.toaster(data.user.name, 'Bienvenido', 'info');
+    this.router.navigateByUrl('/profile');
   }
 
   private handleError(type?: string): void {
