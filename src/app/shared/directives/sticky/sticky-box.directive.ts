@@ -66,18 +66,28 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
     section ? div = section.getBoundingClientRect().height : div = 1;
 
     if (div === 1) { // No Selector
-      this.renderer.setStyle(el, 'height', `auto`);
+      this.setAutoHeight(el);
       window.dispatchEvent(new Event('resize'));
-      return;
     }
+
+    console.log(div - this.height + padding);
+
+    if (div - this.height + padding <= 700) {
+      this.setAutoHeight(el);
+      return;
+     }
 
     try {
       this.setElementHeight(div, this.height, padding, el);
-    } catch (err) {}
+    } catch (err) { console.log(err); }
   }
 
   private setElementHeight(d: number, h: number, p: number, el: any): void {
     this.renderer.setStyle(el, 'height', `${d - h + p}px`);
+  }
+
+  private setAutoHeight(el: any): void {
+    this.renderer.setStyle(el, 'height', `auto`);
   }
 
   ngOnDestroy(): void {

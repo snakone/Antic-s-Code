@@ -22,7 +22,7 @@
                 <mat-icon>place</mat-icon>
                 <span class="hover"
                       *ngFor="let t of article.tags | slice:0:2; let i = index">
-                  <span class="slash" *ngIf="i >= 1"> - </span>{{t}}
+                  <span class="slash" *ngIf="i >= 1"> - </span>{{t | translate}}
                 </span>
               </p>
             </li>
@@ -33,7 +33,7 @@
                       [ngClass]="{'basic': article.level === 'Básico',
                                   'medium': article.level === 'Medio',
                                   'hard': article.level === ' Avanzado'}">
-                      {{article.level}}
+                      {{article.level | translate}}
                 </span>
               </p>
             </li>
@@ -57,7 +57,7 @@
         <div class="card-bottom-right">
           <ul>
             <li class="card-bottom-right-count">
-              <mat-icon matTooltip="Visitas"
+              <mat-icon [matTooltip]="'views' | translate"
                         matTooltipPosition="above">
                         visibility
               </mat-icon>

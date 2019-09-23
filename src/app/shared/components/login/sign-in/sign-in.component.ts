@@ -104,18 +104,18 @@ export class SignInComponent implements OnInit, OnDestroy {
     this.ls.setKey('token', data.token);
     this.ls.setKey('user', data.user._id);
     this.ls.setKey('remember', this.remember);
-    this.crafter.toaster(data.user.name, 'Bienvenido', 'info');
+    this.crafter.toaster(data.user.name, 'welcome', 'info');
     this.router.navigateByUrl('/profile');
   }
 
   private handleError(type?: string): void {
     if (type === 'server') {
-      this.crafter.toaster('Error de Servidor',
-                           'Algo malo ocurrió',
+      this.crafter.toaster('server.error',
+                           'server.bad',
                            'error');
     } else {
-      this.crafter.toaster('Credenciales incorrectas',
-                           'Prueba de nuevo',
+      this.crafter.toaster('incorrect.login',
+                           'try.again',
                            'error');
     }
   }

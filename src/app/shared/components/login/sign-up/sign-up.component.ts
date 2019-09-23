@@ -99,18 +99,18 @@ export class SignUpComponent implements OnInit, OnDestroy {
     this.store.dispatch(UserActions.setUser({user: data.user}));
     this.ls.setKey('token', data.token);
     this.ls.setKey('user', data.user._id);
-    this.crafter.toaster(data.user.name, 'Bienvenido', 'info');
+    this.crafter.toaster(data.user.name, 'welcome', 'info');
     this.router.navigateByUrl('/profile');
   }
 
   private handleError(type?: string): void {
     if (type === 'server') {
-      this.crafter.toaster('Error de Servidor',
-                           'Algo malo ocurrió',
+      this.crafter.toaster('server.error',
+                           'server.bad',
                            'error');
     } else {
-      this.crafter.toaster('Error de Registro',
-                           'Email debe ser único',
+      this.crafter.toaster('sign.in.error',
+                           'email.unique',
                            'error');
     }
   }

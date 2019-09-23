@@ -19,14 +19,16 @@ export const inititalState: UserState = {
 const featureReducer = createReducer(
   inititalState,
   // SET USER
-  on(UserActions.setUser, (state, { user }) => (
-    {
-      ...state,
-      loaded: false,
-      error: null,
-      user
-    }
-  )),
+  on(UserActions.setUser, (state, { user }) => {
+    if (!user.profile) { user.profile = {}; }
+    return (
+      {
+        ...state,
+        loaded: false,
+        error: null,
+        user
+      }
+    ); }),
   on(UserActions.setUserSuccess, (state) => (
     {
       ...state,

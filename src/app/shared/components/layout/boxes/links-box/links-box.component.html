@@ -1,4 +1,4 @@
-<app-content-box title="Enlaces Relacionados">
+<app-content-box [title]="'related.links' | translate">
   <ul>
     <li *ngFor="let l of links">
       <a [href]="l.link" target="NEW">{{l.name}}</a>

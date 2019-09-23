@@ -3,7 +3,7 @@
     <span *ngIf="isReg"
           (click)="isReg = false;
                    isCon = false">
-          Volver
+          {{'back' | translate}}
     </span>
     <h3>Antic's Code</h3>
     <app-sign-in *ngIf="!isReg && !isCon"

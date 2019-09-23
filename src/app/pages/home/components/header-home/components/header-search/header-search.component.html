@@ -3,22 +3,22 @@
     <div class="row">
       <mat-form-field class="default" color="accent">  <!-- VALUE -->
         <input matInput
-               placeholder="¿Qué estás buscando?"
+               [placeholder]="'search.for' | translate"
                formControlName="title">
       </mat-form-field>
       <mat-form-field class="select" color="accent">  <!-- CATEGORY -->
-        <mat-label>Elige una categoría</mat-label>
+        <mat-label>{{'choose.category' | translate}}</mat-label>
         <mat-select formControlName="category">
           <mat-option *ngFor="let cat of categories" [value]="cat">
-            {{cat}}
+            {{cat | translate}}
           </mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field class="select" color="accent">  <!-- SUB -->
-        <mat-label>Escoge un tema</mat-label>
+        <mat-label>{{'pick.thread' | translate}}</mat-label>
         <mat-select formControlName="tag">
           <mat-option *ngFor="let tag of tags" [value]="tag">
-            {{tag}}
+            {{tag | translate}}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -26,7 +26,7 @@
               class="btn-purple"
               [disabled]="searchForm.invalid"
               mat-button>
-        Buscar
+        {{'search' | translate}}
       </button>
     </div>
   </form>

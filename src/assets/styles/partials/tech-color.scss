@@ -7,7 +7,9 @@
 .node,
 .twitter,
 .facebook,
-.youtube {
+.youtube,
+.github,
+.portfolio {
   font-weight: bold;
 }
 
@@ -22,11 +24,17 @@
 .twitter { color: #00acee !important }
 .facebook { color: #3b5998 !important }
 .youtube { color: #c4302b !important }
+.github { color: #6cc644 !important }
+.portfolio { color: var(--primary-color) }
 
 .basic { color: var(--success-color) }
 .medium { color: var(--ionic-color) }
 .hard { color: var(--angular-color) }
 
-.twitter:hover, .facebook:hover, .youtube:hover {
+.twitter:not(.not):hover,
+.facebook:not(.not):hover,
+.youtube:hover,
+.portfolio:not(.not):hover,
+.github:not(.not):hover {
   filter: brightness(1.3);
 }

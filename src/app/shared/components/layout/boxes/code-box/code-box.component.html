@@ -7,7 +7,8 @@
       <li>
         <span [ngClass]="{'basic': code.level === 'Básico',
                           'medium': code.level === 'Medio',
-                          'hard': code.level === ' Avanzado'}">{{code.level}}
+                          'hard': code.level === ' Avanzado'}">
+                  {{code.level | translate}}
         </span>
       </li>
       <li class="m-t-4">
@@ -19,7 +20,7 @@
       <li class="m-t-2">
         <span class="code-tag"
               *ngFor="let t of code.tags">
-          {{t}}
+          {{t | translate}}
         </span>
       </li>
     </ul>

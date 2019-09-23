@@ -3,22 +3,49 @@
     <img src="assets/img/profile/no-photo.jpg"/>
     <h3>{{user.name}}</h3>
     <p>{{user.email}}</p>
-    <button mat-button class="btn-purple">Software Developer</button>
+    <button mat-button class="btn-purple">
+      {{(user.profile.rol | translate) || ('not.defined' | translate)}}
+    </button>
   </div>
   <div class="profile-social">
     <ul>
-      <li class="facebook">Facebook</li>
-      <li class="twitter">Twitter</li>
-      <li class="bold">Portfolio</li>
+     <a *ngIf="user.profile.facebook"
+        [href]="user.profile.facebook" target="_NEW">
+        <li class="facebook">Facebook <img src="assets/icon/facebook.svg"/></li>
+     </a>
+     <li class="facebook not"
+        *ngIf="!user.profile.facebook">
+        Facebook <img src="assets/icon/facebook.svg"/>
+     </li>
+     <a *ngIf="user.profile.twitter"
+        [href]="user.profile.twitter" target="_NEW">
+        <li class="twitter">Twitter <img src="assets/icon/twitter.svg"/></li>
+     </a>
+     <li class="twitter not"
+        *ngIf="!user.profile.twitter">
+        Twitter <img src="assets/icon/twitter.svg"/>
+     </li>
+     <a *ngIf="user.profile.github"
+        [href]="user.profile.github" target="_NEW">
+        <li class="github">Github <img src="assets/icon/github.svg"/></li>
+     </a>
+     <li class="github not"
+        *ngIf="!user.profile.github">
+        Github <img src="assets/icon/github.svg"/>
+     </li>
+     <a *ngIf="user.profile.portfolio"
+        [href]="user.profile.portfolio" target="_NEW">
+        <li class="portfolio">Portfolio <img src="assets/icon/website.svg"/></li>
+     </a>
+     <li class="portfolio not"
+        *ngIf="!user.profile.portfolio">
+        Portfolio <img src="assets/icon/website.svg"/>
+     </li>
     </ul>
   </div>
 </div>
 <div class="profile-bio">
-  <p class="first">
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-    Eum officiis maiores iusto id ex odio quasi assumenda?
-    Praesentium obcaecati doloribus quasi beatae cumque, repudiandae
-    tempore dicta, corporis amet eius laboriosam!
-  </p>
+  <p class="first" *ngIf="user.profile.bio">{{user.profile.bio}}</p>
+  <p *ngIf="!user.profile.bio">{{'bio.not.defined' | translate}}</p>
 </div>
 

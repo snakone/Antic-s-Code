@@ -8,3 +8,9 @@ button {
 .display {
   @media(max-width: 992px) { display: none }
 }
+
+::ng-deep {
+  .font .mat-button-wrapper {
+    font-size: 1.2rem !important;
+  }
+}
