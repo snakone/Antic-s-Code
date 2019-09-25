@@ -7,10 +7,12 @@ import { SharedModule } from '@app/shared/shared.module';
 import { ProfileComponent } from './profile.component';
 import { ArticlesSidebarModule } from '../articles/components/articles-sidebar/articles-sidebar.module';
 import { ProfileContentModule } from './components/profile-content/profile-content.module';
+import { ProfileActionsComponent } from './components/profile-actions/profile-actions.component';
 
 @NgModule({
   declarations: [
-    ProfileComponent
+    ProfileComponent,
+    ProfileActionsComponent
   ],
   imports: [
     CommonModule,

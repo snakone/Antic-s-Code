@@ -47,7 +47,6 @@ export class ContentMakerComponent implements AfterViewInit, OnDestroy {
           const factory = f.componentFactories[f.componentFactories.length - 1];
           const cmpRef = factory.create(this.injector, [], null, this.module);
           cmpRef.instance.name = 'dynamic';
-          cmpRef.instance.index = this.template.index;
           cmpRef.instance.code = this.template.code;  // Code Assignement
           this.vc.insert(cmpRef.hostView);
         });

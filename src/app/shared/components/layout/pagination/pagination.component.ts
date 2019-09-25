@@ -17,7 +17,7 @@ export class PaginationComponent implements OnInit {
 
   changeFrom(id: string, page: number): void {
     this.pagination.setCurrentPage(id, page);
-    window.dispatchEvent(new Event('resize'));
+    window.dispatchEvent(new Event('resize'));  // Sticky
   }
 
 }

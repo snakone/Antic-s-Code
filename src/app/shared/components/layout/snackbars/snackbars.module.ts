@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { LanguageSnackComponent } from './language-snack/language-snack.component';
 import { SharedModule } from '@app/shared/shared.module';
 

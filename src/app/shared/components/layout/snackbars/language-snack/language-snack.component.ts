@@ -14,8 +14,7 @@ export class LanguageSnackComponent implements OnInit {
               private ls: StorageService,
               public snackbar: MatSnackBarRef<LanguageSnackComponent>) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   closeSnackBar(): void {
     this.snackbar.dismiss();

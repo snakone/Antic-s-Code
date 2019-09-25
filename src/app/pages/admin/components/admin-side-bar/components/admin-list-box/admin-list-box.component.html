@@ -1,0 +1,9 @@
+<app-content-box [title]="'admin.list' | translate"
+                  icon="security">
+    <ul>
+      <li *ngFor="let a of admins$ | async">
+        <mat-icon>star_border</mat-icon>
+        <span>{{a.name}}</span>
+      </li>
+    </ul>
+</app-content-box>

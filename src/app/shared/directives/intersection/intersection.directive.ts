@@ -21,6 +21,6 @@ export class IntersectionDirective implements AfterViewInit {
         this.scrollSpy.hasEntered.next({ onViewport: int[0].isIntersecting, id });
       });
       inter.observe(this.el.nativeElement);
-    } catch (err) { }
+    } catch (err) { console.log(err); }
   }
 }

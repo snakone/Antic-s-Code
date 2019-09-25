@@ -134,6 +134,12 @@ export const THEMES: Config[] = [
   { name: 'Sky Blue', selector: 'skyblue' }
 ];
 
+export const SOCIAL_PROFILE: Config[] = [
+  { name: 'Twitter', selector: 'twitter' },
+  { name: 'Github', selector: 'github' },
+  { name: 'Portfolio', selector: 'portfolio' }
+];
+
 export const ROLES: Role[] = [
   { name: 'Web Developer', translate: 'web.dev' },
   { name: 'Frontend Developer', translate: 'front.dev' },
@@ -159,7 +165,8 @@ export const PAGE_BG = {
   categories: 'https://media2.giphy.com/media/hLzncGRSaC5Nu/giphy.gif',
   articles: 'https://media0.giphy.com/media/xUA7bgk0V4eUyNVaAo/giphy.gif',
   article: 'https://media2.giphy.com/media/b93B4aJQQakRG/giphy.gif',
-  profile: 'https://media3.giphy.com/media/h0Ti6XKcFKBby/giphy.gif'
+  profile: 'https://media3.giphy.com/media/h0Ti6XKcFKBby/giphy.gif',
+  admin: 'https://media.giphy.com/media/BHNfhgU63qrks/giphy.gif'
 };
 
 export const COUNTRIES: string[] = [

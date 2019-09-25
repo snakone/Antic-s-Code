@@ -3,13 +3,15 @@
 </app-page-header>
 <app-section input="#f5f7fc">
   <div class="row">
-    <div class="col-lg-8 col-md-8">  <!-- CONTENT -->
-      <app-profile-content [user]="user$ | async"></app-profile-content>
+    <div class="col-lg-8 col-md-8" *ngIf="user$ | async as user">  <!-- CONTENT -->
+      <app-profile-content [user]="user"></app-profile-content>
+      <app-settings-box class="mobile"></app-settings-box>
+      <app-profile-actions class="mobile"></app-profile-actions>
     </div>
-    <div class="col-lg-4 col-md-4">
-      <app-settings-box></app-settings-box>
+    <div class="col-lg-4 col-md-4">   <!-- SIDEBAR -->
+      <app-settings-box class="desktop"></app-settings-box>
       <app-articles-sidebar></app-articles-sidebar>
-      <app-profile-actions></app-profile-actions>
+      <app-profile-actions class="desktop"></app-profile-actions>
     </div>
   </div>
 </app-section>

@@ -45,9 +45,11 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
                 takeUntil(this.unsubscribe$)
               );
           } else {
-            const div = this.loading.nativeElement;
-            this.renderer.addClass(div, 'completed');
-            return of(null);
+            try {
+              const div = this.loading.nativeElement;
+              this.renderer.addClass(div, 'completed');
+              return of(null);
+            } catch (err) { console.log(err); }
           }
         })).subscribe(e => { if (e) { this.makeScroll(e); }});
   }
@@ -64,7 +66,7 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
           this.store.dispatch(ArticleActions.getArticles());
         }, 500);
      }
-    } catch (err) {}
+    } catch (err) { console.log(err); }
   }
 
   ngOnDestroy(): void {

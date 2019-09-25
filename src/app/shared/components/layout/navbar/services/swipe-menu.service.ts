@@ -5,7 +5,7 @@ import { Subject } from 'rxjs';
 
 export class SwipeMenuService {
 
-  show: Subject<boolean> = new Subject<boolean>();
+  show = new Subject<boolean>();
   opened = false;
 
   constructor() { }

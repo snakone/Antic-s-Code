@@ -17,6 +17,7 @@ import { SharedModule } from '../../shared.module';
 import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { GoTopComponent } from './go-top/go-top.component';
+import { DialogsModule } from './dialogs/dialogs.module';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { GoTopComponent } from './go-top/go-top.component';
     CommonModule,
     SharedModule,
     RouterModule,
-    SnackbarsModule
+    SnackbarsModule,
+    DialogsModule
   ],
   exports: [
     ArticleLayoutModule,
@@ -52,7 +54,8 @@ import { GoTopComponent } from './go-top/go-top.component';
     SectionComponent,
     NgxPaginationModule,
     SnackbarsModule,
-    GoTopComponent
+    GoTopComponent,
+    DialogsModule
   ]
 })
 

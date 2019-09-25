@@ -25,6 +25,10 @@ export class UserService {
     return this.http.get(this.API_USERS + `/${id}`);
   }
 
+  public getUsers(): Observable<UserResponse> {
+    return this.http.get(this.API_USERS);
+  }
+
   public updateUser(user: User): Observable<UserResponse> {
     return this.http.put(this.API_USERS, user);
   }

@@ -1,6 +1,6 @@
 <div class="profile-info">
   <div class="profile-data">
-    <img src="assets/img/profile/no-photo.jpg"/>
+    <img [src]="user.profile.avatar || 'assets/img/profile/no-photo.jpg'"/>
     <h3>{{user.name}}</h3>
     <p>{{user.email}}</p>
     <button mat-button class="btn-purple">
@@ -9,43 +9,27 @@
   </div>
   <div class="profile-social">
     <ul>
-     <a *ngIf="user.profile.facebook"
-        [href]="user.profile.facebook" target="_NEW">
-        <li class="facebook">Facebook <img src="assets/icon/facebook.svg"/></li>
-     </a>
-     <li class="facebook not"
-        *ngIf="!user.profile.facebook">
-        Facebook <img src="assets/icon/facebook.svg"/>
-     </li>
-     <a *ngIf="user.profile.twitter"
-        [href]="user.profile.twitter" target="_NEW">
-        <li class="twitter">Twitter <img src="assets/icon/twitter.svg"/></li>
-     </a>
-     <li class="twitter not"
-        *ngIf="!user.profile.twitter">
-        Twitter <img src="assets/icon/twitter.svg"/>
-     </li>
-     <a *ngIf="user.profile.github"
-        [href]="user.profile.github" target="_NEW">
-        <li class="github">Github <img src="assets/icon/github.svg"/></li>
-     </a>
-     <li class="github not"
-        *ngIf="!user.profile.github">
-        Github <img src="assets/icon/github.svg"/>
-     </li>
-     <a *ngIf="user.profile.portfolio"
-        [href]="user.profile.portfolio" target="_NEW">
-        <li class="portfolio">Portfolio <img src="assets/icon/website.svg"/></li>
-     </a>
-     <li class="portfolio not"
-        *ngIf="!user.profile.portfolio">
-        Portfolio <img src="assets/icon/website.svg"/>
-     </li>
+      <div *ngFor="let s of social">
+        <a *ngIf="user.profile[s.selector]"
+           [href]="user.profile[s.selector]"
+           target="_NEW">
+          <li [class]="s.selector">{{s.name}}
+            <img src="assets/icon/{{s.selector}}.svg"/>
+          </li>
+        </a>
+        <li [class]="s.selector + ' not'"
+            *ngIf="!user.profile[s.selector]">
+            {{s.name}} <img src="assets/icon/{{s.selector}}.svg"/>
+        </li>
+      </div>
     </ul>
   </div>
 </div>
 <div class="profile-bio">
-  <p class="first" *ngIf="user.profile.bio">{{user.profile.bio}}</p>
+  <p class="first"
+     *ngIf="user.profile.bio"
+     [innerHTML]="user.profile.bio | sanitizer: 'html'">
+  </p>
   <p *ngIf="!user.profile.bio">{{'bio.not.defined' | translate}}</p>
 </div>
 

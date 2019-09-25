@@ -10,7 +10,7 @@ import { Code } from '@app/shared/interfaces/interfaces';
 export class CodeBoxComponent implements OnInit {
 
   @Input() code: Code;
-  @Input() list: boolean;
+  @Input() list: boolean;  // to show on Code Page
 
   constructor() { }
 
