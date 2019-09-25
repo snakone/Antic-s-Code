@@ -3,6 +3,11 @@
   "rulesDirectory": [
     "codelyzer"
   ],
+  "linterOptions": {
+    "exclude": [
+        "node_modules"
+      ]
+  },
   "rules": {
     "array-type": false,
     "arrow-parens": false,

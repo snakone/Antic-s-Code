@@ -1,0 +1,10 @@
+<app-content-box [title]="'actions' | translate">
+  <button class="btn-purple"
+          (click)="logOut()"
+          mat-button>{{'log.out' | translate}}
+  </button>
+  <button class="btn-danger"
+         (click)="delete()"
+         mat-button>{{'delete.acc' | translate}}
+  </button>
+</app-content-box>

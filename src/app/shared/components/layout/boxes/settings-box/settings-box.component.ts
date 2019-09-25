@@ -43,7 +43,7 @@ export class SettingsBoxComponent implements OnInit {
     this.theme.remove(this.ls.get('theme'));
     this.theme.set(theme);
     this.language.change(lang);
-    this.crafter.toaster('Actualizado', 'Configuración guardada', 'info');
+    this.crafter.toaster('updated', 'config.save', 'info');
   }
 
 }

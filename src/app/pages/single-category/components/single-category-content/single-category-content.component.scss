@@ -21,3 +21,9 @@ button {
     display: block;
   }
 }
+
+::ng-deep {
+  .font .mat-button-wrapper {
+    font-size: 1.2rem !important;
+  }
+}

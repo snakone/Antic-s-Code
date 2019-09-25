@@ -1,11 +1,11 @@
 <app-sticky-box selector="code-section" [code]="true">
-  <app-content-box title="Lista de Categorías"
+  <app-content-box [title]="'category.list' | translate"
                    icon="search">
     <ul>
       <li *ngFor="let c of codeTags"
           (click)="filter(c)">
         <mat-icon>keyboard_arrow_right</mat-icon>
-        <span>{{c}}</span>
+        <span>{{c | translate}}</span>
       </li>
     </ul>
   </app-content-box>

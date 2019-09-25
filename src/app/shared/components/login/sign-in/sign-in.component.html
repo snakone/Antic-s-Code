@@ -1,27 +1,32 @@
 <div class="animated fadeIn">
   <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
     <mat-form-field color="accent" floatLabel="never">
-      <input matInput placeholder="Email" formControlName="email">
+      <input matInput
+             [placeholder]="'email' | translate"
+             formControlName="email">
     </mat-form-field>
     <mat-form-field color="accent" floatLabel="never">
       <input matInput
-              placeholder="Contraseña"
+              [placeholder]="'password' | translate"
               formControlName="password"
               type="password">
     </mat-form-field>
 
     <mat-checkbox [(ngModel)]="remember"
-                  [ngModelOptions]="{standalone: true}">¿Recordar?
+                  [ngModelOptions]="{standalone: true}">
+                  {{'remember' | translate}}
     </mat-checkbox>
 
     <button type="submit"
             class="btn-orange"
             [disabled]="signInForm.invalid"
             mat-button>
-      Entrar
+      {{'sign.in' | translate}}
     </button>
 
-    <p>¿No tienes una Cuenta?
-      <span class="bold" (click)="signUp()">¡Regístrate!</span></p>
+    <p>{{'no.account' | translate}}
+      <span class="bold" (click)="signUp()">
+        {{'register.now' | translate}}
+      </span></p>
   </form>
 </div>

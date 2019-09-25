@@ -6,6 +6,7 @@ import { User } from '@app/shared/interfaces/interfaces';
   templateUrl: './profile-info.component.html',
   styleUrls: ['./profile-info.component.scss']
 })
+
 export class ProfileInfoComponent implements OnInit {
 
   @Input() user: User;

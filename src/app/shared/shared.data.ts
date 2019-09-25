@@ -4,7 +4,8 @@ import {
   FooterList,
   FAQ,
   ToC,
-  Config
+  Config,
+  Role
 } from './interfaces/interfaces';
 
 export const MENU: List[] = [
@@ -60,22 +61,22 @@ export const CODE_TAGS: string[] = [
 
 export const POPULAR_CATEGORIES: List[] = [
   {
-    name: 'Cógido',
+    name: 'code',
     icon: 'code',
     class: 'icon-pink'
   },
   {
-    name: 'Artículos',
+    name: 'articles',
     icon: 'receipt',
     class: 'icon-orange'
   },
   {
-    name: 'Tutoriales',
+    name: 'tutorials',
     icon: 'nature_people',
     class: 'icon-green'
   },
   {
-    name: 'Ejemplos',
+    name: 'examples',
     icon: 'wallpaper',
     class: 'icon-red'
   },
@@ -131,6 +132,26 @@ export const THEMES: Config[] = [
   { name: 'Deep Green', selector: 'deepgreen' },
   { name: 'Dark Red', selector: 'darkred' },
   { name: 'Sky Blue', selector: 'skyblue' }
+];
+
+export const ROLES: Role[] = [
+  { name: 'Web Developer', translate: 'web.dev' },
+  { name: 'Frontend Developer', translate: 'front.dev' },
+  { name: 'Backend Developer', translate: 'back.dev' },
+  { name: 'Full-Stack Developer', translate: 'full.dev' },
+  { name: 'Designer', translate: 'design.dev' },
+  { name: 'Web Designer', translate: 'design.web' }
+];
+
+export const PRO_LANGS: string[] = [
+  'JavaScript',
+  'Python',
+  'Java',
+  'C++',
+  'Typescript',
+  'Swift',
+  'PHP',
+  'Dart'
 ];
 
 export const PAGE_BG = {
@@ -225,16 +246,16 @@ export const LOGOS: List[] = [
 
 export const FOOTER_LIST: FooterList[] = [
   {
-    title: 'Información',
-    list: ['Sobre mí', 'Contacto', 'Soporte', 'Políticas']
+    title: 'info',
+    list: ['about.me', 'contact', 'support', 'politics']
   },
   {
-    title: 'Enlaces Útiles',
-    list: ['Registrarse', '¿Cómo funciona?', 'Ventajas', 'Colabora']
+    title: 'useful.links',
+    list: ['register', 'how.it.works', 'advantages', 'collaborate']
   },
   {
-    title: 'Conecta Conmigo',
-    list: ['Ayuda', 'Twitter', 'Facebook', 'Youtube']
+    title: 'connect.me',
+    list: ['help', 'Twitter', 'Facebook', 'Youtube']
   }
 ];
 

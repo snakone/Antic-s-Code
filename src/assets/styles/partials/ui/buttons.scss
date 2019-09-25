@@ -22,3 +22,11 @@
     var(--secondary-color)
   );
 }
+
+.btn-danger {
+  @include button-animated(
+    var(--angular-color),
+    #8d060f,
+    #f14223
+  )
+}

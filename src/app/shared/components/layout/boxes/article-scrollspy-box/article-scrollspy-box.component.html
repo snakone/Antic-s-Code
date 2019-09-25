@@ -1,5 +1,5 @@
 <app-sticky-box selector="single-article-section">
-  <app-content-box title="Índice"
+  <app-content-box [title]="'index' | translate"
                    icon="list">
       <ul *ngIf="index">
         <li *ngFor="let i of index"

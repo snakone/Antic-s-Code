@@ -1,7 +1,6 @@
 .profile {
   &-info {
-    display: flex;
-    justify-content: space-between;
+    position: relative;
     margin-top: .5rem;
     margin-bottom: 1.3rem;
   }
@@ -18,22 +17,46 @@
       margin-bottom: 0;
     }
 
-    & button { margin: .6rem auto }
+    & button {
+      margin-bottom: .6rem;
+      margin-top: .8rem;
+    }
   }
 
   &-social {
-    padding-right: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
 
     & ul {
       list-style: none;
       margin: 0;
       text-align: right;
+      margin-right: 1.5rem;
      }
 
-    & li { margin-bottom: .5rem }
+    & li {
+      margin-bottom: .5rem;
+      margin-right: 1rem;
+      position: relative;
+      cursor: pointer;
+
+      & img {
+        width: 25px;
+        margin-left: .9rem;
+        position: absolute;
+       }
+     }
   }
 
   &-bio {
     margin-bottom: 1rem;
   }
 }
+
+.bright:hover {
+  filter: brightness(1.3);
+  & img { filter: brightness(1.3) }
+ }
+
+ .not { color: var(--p-color) !important }

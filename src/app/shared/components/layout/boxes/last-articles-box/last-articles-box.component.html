@@ -1,4 +1,4 @@
-<app-content-box title="Últimos Artículos"
+<app-content-box [title]="'last.article' | translate"
                  icon="chrome_reader_mode">
     <ul class="last" *ngIf="articles$ | async as articles">
       <li *ngFor="let a of articles"

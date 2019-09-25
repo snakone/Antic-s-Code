@@ -1,8 +1,8 @@
-<app-content-box title="Temas Populares"
+<app-content-box [title]="'popular.thread' | translate"
                  icon="bookmark_border">
   <ul>
     <li *ngFor="let t of tags">
-      <span class="tag">{{t}}</span>
+      <span class="tag">{{t | translate}}</span>
     </li>
   </ul>
 </app-content-box>

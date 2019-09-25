@@ -19,6 +19,10 @@ interface ServerResponse {
   err?: any;
 }
 
+interface Translation {
+  translate: string;
+}
+
 export interface Article extends Content {
   author?: string;
   created?: string;
@@ -84,6 +88,23 @@ export interface User {
   email: string;
   password: string;
   account: string;
+  profile?: UserProfile;
+}
+
+interface UserProfile {
+  avatar?: string;
+  rol?: string;
+  bio?: string;
+  facebook?: string;
+  twitter?: string;
+  github?: string;
+  portfolio?: string;
+  language?: string;
+}
+
+export interface Role extends Translation {
+  name: string;
+  translate: string;
 }
 
 export interface List {

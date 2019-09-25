@@ -3,4 +3,7 @@
     <app-profile-info [user]="user"></app-profile-info>
 </app-content-box>
 
-<button class="btn-pink" (click)="logOut()" mat-button>Log Out</button>
+<app-content-box [title]="'edit.profile' | translate"
+                  icon="edit">
+    <app-edit-profile [user]="user"></app-edit-profile>
+</app-content-box>
