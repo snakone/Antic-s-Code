@@ -14,6 +14,7 @@ import { TagBoxComponent } from './tag-box/tag-box.component';
 import { ArticleReactionBoxComponent } from './article-reaction-box/article-reaction-box.component';
 import { ArticleScrollspyBoxComponent } from './article-scrollspy-box/article-scrollspy-box.component';
 import { SettingsBoxComponent } from './settings-box/settings-box.component';
+import { ProfileInfoBoxComponent } from './profile-info-box/profile-info-box.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SettingsBoxComponent } from './settings-box/settings-box.component';
     TagBoxComponent,
     ArticleReactionBoxComponent,
     ArticleScrollspyBoxComponent,
-    SettingsBoxComponent
+    SettingsBoxComponent,
+    ProfileInfoBoxComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +45,8 @@ import { SettingsBoxComponent } from './settings-box/settings-box.component';
     TagBoxComponent,
     ArticleReactionBoxComponent,
     ArticleScrollspyBoxComponent,
-    SettingsBoxComponent
+    SettingsBoxComponent,
+    ProfileInfoBoxComponent
   ]
 })
 

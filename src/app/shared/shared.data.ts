@@ -131,7 +131,8 @@ export const THEMES: Config[] = [
   { name: 'Deep Blue', selector: 'deepblue' },
   { name: 'Deep Green', selector: 'deepgreen' },
   { name: 'Dark Red', selector: 'darkred' },
-  { name: 'Sky Blue', selector: 'skyblue' }
+  { name: 'Sky Blue', selector: 'skyblue' },
+  { name: 'Super Orange', selector: 'superorange' }
 ];
 
 export const SOCIAL_PROFILE: Config[] = [
@@ -166,7 +167,8 @@ export const PAGE_BG = {
   articles: 'https://media0.giphy.com/media/xUA7bgk0V4eUyNVaAo/giphy.gif',
   article: 'https://media2.giphy.com/media/b93B4aJQQakRG/giphy.gif',
   profile: 'https://media3.giphy.com/media/h0Ti6XKcFKBby/giphy.gif',
-  admin: 'https://media.giphy.com/media/BHNfhgU63qrks/giphy.gif'
+  admin: 'https://media.giphy.com/media/BHNfhgU63qrks/giphy.gif',
+  public: 'https://media2.giphy.com/media/l4KihuqeuJEi9qLSM/giphy.gif'
 };
 
 export const COUNTRIES: string[] = [

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { SwipeMenuService } from './services/swipe-menu.service';
-import { MENU } from '@app/shared/shared.data';
+import { MENU, HOME_MENU } from '@app/shared/shared.data';
 import { LoginComponent } from '../../login/login.component';
 import { AppState } from '@app/app.config';
 import { Store } from '@ngrx/store';
@@ -20,6 +20,7 @@ export class NavBarComponent implements OnInit {
 
   show = false;
   items = MENU;
+  menu = HOME_MENU;
   user$: Observable<User>;
 
   constructor(private crafter: CrafterService,

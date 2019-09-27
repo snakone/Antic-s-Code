@@ -35,6 +35,21 @@
         routerLinkActive="active"
         (click)="show = false">{{i.name | translate}}
     </li>
+    <div class="division"><hr></div>
+    <li *ngFor="let m of menu"
+        [routerLink]="m.link"
+        routerLinkActive="active"
+        (click)="show = false">{{m.name | translate}}
+    </li>
+    <div class="division"><hr></div>
+    <div *ngIf="user$ | async as user">
+      <li *ngIf="user.account === 'Admin' || user.account === 'Super'"
+          routerLink="/admin"
+          routerLinkActive="active"
+          (click)="show = false">
+          Admin
+      </li>
+    </div>
   </ul>
 <app-mobile-menu>
 

@@ -12,12 +12,15 @@
       </h3>
       <ul class="basic-flex">
         <li>
-          <span class="bold">{{'published' | translate}} </span>
+          <span class="bold black">{{'published' | translate}} </span>
           {{article.created}}
         </li>
         <li class="author">
-          <span class="bold">{{'written' | translate}} </span>
-          {{article.author}}
+          <span class="bold black">{{'written' | translate}} </span>
+          <span class="bold link"
+                [routerLink]="'/profile/' + article.author">
+                {{article.author}}
+          </span>
         </li>
         <app-article-reactions [article]="article"
                                [single]="single"

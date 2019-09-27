@@ -24,6 +24,7 @@
   "deepgreen": "Verde Oscuro",
   "darkred": "Rojo Fuerte",
   "skyblue": "Azul Cielo",
+  "superorange": "Naranja Chillón",
   "Desarrollo": "Desarrollo",
   "Diseño": "Diseño",
   "Consola": "Consola",
@@ -155,10 +156,17 @@
   "article.ready": "Si crees que el artículo está listo para publicarse...",
   "remember.edit": "Recuerda que puedes editar el artículo",
   "no.published": "No tienes ningún artículo publicado",
-  "no.archived": "No tienes ningún artículo archivado. Crea uno",
+  "no.archived": "No tienes ningún artículo archivado. Puedes crear uno",
   "you.sure" : "¿Estás seguro?",
   "cancel": "Cancelar",
   "yes": "Sí",
   "update.error": "Error de Actualización",
-  "archive": "Archivar"
+  "archive": "Archivar",
+  "loved.lang": "Lenguaje Preferido",
+  "visit.public.profile": "Visita tu Perfil público",
+  "delete.account.p": "si eliminas tu cuenta, tu información que perteneza a este portal será <span class='bold'>eliminada</span>, esto incluye tu perfil, tus likes y puntuaciones en los artículos. Este proceso no puede deshacerse.<br>¿Realmente estás seguro de eliminar tu cuenta?",
+  "put.sentence": "Vuelve a escribir la frase aquí...",
+  "delete.sentence": "Estoy seguro de que voy a borrar mi cuenta, adelante.",
+  "goodbye": "Hasta siempre",
+  "miss.you": "Te extrañaremos"
  }

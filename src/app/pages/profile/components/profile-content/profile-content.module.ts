@@ -4,13 +4,11 @@ import { LayoutModule } from '@app/shared/components/layout/layout.module';
 import { SharedModule } from '@app/shared/shared.module';
 
 import { ProfileContentComponent } from './profile-content.component';
-import { ProfileInfoComponent } from './components/profile-info/profile-info.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
     ProfileContentComponent,
-    ProfileInfoComponent,
     EditProfileComponent
   ],
   imports: [

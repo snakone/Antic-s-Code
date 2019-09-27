@@ -3,12 +3,12 @@ import { User } from '@app/shared/interfaces/interfaces';
 import { SOCIAL_PROFILE } from '@app/shared/shared.data';
 
 @Component({
-  selector: 'app-profile-info',
-  templateUrl: './profile-info.component.html',
-  styleUrls: ['./profile-info.component.scss']
+  selector: 'app-profile-info-box',
+  templateUrl: './profile-info-box.component.html',
+  styleUrls: ['./profile-info-box.component.scss']
 })
 
-export class ProfileInfoComponent implements OnInit {
+export class ProfileInfoBoxComponent implements OnInit {
 
   @Input() user: User;
   social = SOCIAL_PROFILE;

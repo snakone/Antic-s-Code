@@ -6,7 +6,7 @@
         <span [routerLink]="'/article/' + p.slug">{{p.title}}</span>
           <mat-icon [matTooltip]="'archive' | translate"
                     matTooltipPosition="left"
-                    (click)="archive(p._id)">vpn_key
+                    (click)="archive(p._id)">update
           </mat-icon>
       </li>
     </ul>
@@ -26,7 +26,9 @@
     </ul>
     <p class="first" *ngIf="archived.length === 0">
         {{'no.archived' | translate}}
-      <a href="https://antics-cms.netlify.com" target="_NEW">{{'here' | translate}}</a>.
+      <a href="https://antics-cms.netlify.com" target="_NEW">
+        {{'here' | translate}}
+      </a>.
     </p>
 </app-content-box>
 

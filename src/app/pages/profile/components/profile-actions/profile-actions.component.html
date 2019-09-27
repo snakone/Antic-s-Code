@@ -1,10 +1,14 @@
 <app-content-box [title]="'actions' | translate">
+  <button class="btn-dark"
+          [routerLink]="'/profile/' + user.name"
+          mat-button>{{'visit.public.profile' | translate}}
+  </button>
   <button class="btn-purple"
           (click)="logOut()"
           mat-button>{{'log.out' | translate}}
   </button>
   <button class="btn-danger"
-         (click)="delete()"
+         (click)="delete(user._id)"
          mat-button>{{'delete.acc' | translate}}
   </button>
 </app-content-box>

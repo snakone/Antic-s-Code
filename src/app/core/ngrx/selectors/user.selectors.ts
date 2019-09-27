@@ -15,3 +15,13 @@ export const getUser = createSelector(
 export const getUserEmail = createSelector(
   getUserState, fromUsers.getEmail
 );
+
+export const getUserByName = createSelector(
+  getUserState, fromUsers.getUserByName
+);
+
+export const getUserByNameLoaded = createSelector(
+  getUserState, fromUsers.getUserByNameLoaded
+);
+
+

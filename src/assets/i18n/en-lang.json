@@ -25,6 +25,7 @@
   "deepgreen": "Deep Green",
   "darkred": "Dark Red",
   "skyblue": "Sky Blue",
+  "superorange": "Super Orange",
   "Desarrollo": "Develop",
   "Diseño": "Design",
   "Consola": "Console",
@@ -156,10 +157,17 @@
   "article.ready": "Do You think the article is ready to be published?",
   "remember.edit": "Remember You can edit the article",
   "no.published": "You don't have any articles published",
-  "no.archived": "You don't have any articles archived. Create one",
+  "no.archived": "You don't have any articles archived. You can create one",
   "you.sure" : "Are You sure?",
   "cancel": "Cancel",
   "yes": "Yes",
   "update.error": "Updating Error",
-  "archive": "Archive"
+  "archive": "Archive",
+  "loved.lang": "Favorite Language",
+  "visit.public.profile": "Visit your public Profile",
+  "delete.account.p": "if you delete your account, your information thah belongs to this portal will be <span class='bold'>erased</span>, this includes your profile, your likes and article scores. This process cannot be undone.<br>Are you really sure you want to delete your account?",
+  "put.sentence": "Write the sentence here again...",
+  "delete.sentence": "I am sure to delete my account, go ahead.",
+  "goodbye": "Farewell",
+  "miss.you": "We'll miss You"
 }

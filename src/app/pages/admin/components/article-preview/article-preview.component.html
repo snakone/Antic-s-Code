@@ -1,5 +1,5 @@
 <app-article-card *ngIf="article"
-                  id="single-article-section"
+                  id="article-preview-section"
                   [article]="article"
                   [single]="true">
   <app-content-maker [template]="article"></app-content-maker>  <!-- PREVIEW -->
@@ -7,20 +7,8 @@
                   [links]="article.links">
   </app-links-box>
 
-  <app-content-box [title]="'publish' | translate"
-                   icon="event_available">   <!-- PUBLISH -->
-      <p class="first">
-        {{'article.ready' | translate}}
-      </p><br>
-      <p>{{'remember.edit' | translate}}
-        <a href="https://antics-cms.netlify.com" target="_NEW">{{'here' | translate}}</a>.
-      </p><br>
-      <button mat-button
-              class="btn-purple"
-              (click)="publish(article._id)">
-              {{'publish' | translate}}
-      </button>
-  </app-content-box>
+ <app-article-publish-box [article]="article"></app-article-publish-box>
+
 </app-article-card>
 <div class="loader" *ngIf="!article">
   <app-loading ></app-loading>

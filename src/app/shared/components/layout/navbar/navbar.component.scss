@@ -146,3 +146,16 @@ ul {
   .btn-mobile { display: none; }
   .btn-desktop { display: block; }
 }
+
+.division {
+  max-width: 33%;
+  margin: 0 auto;
+  margin-bottom: -5px;
+
+  & hr {
+    background-color: var(--primary-color);
+    border: none;
+    height: 2px;
+    border-radius: 50px;
+  }
+}

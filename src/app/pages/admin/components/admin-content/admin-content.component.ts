@@ -32,9 +32,8 @@ export class AdminContentComponent implements OnInit, OnDestroy {
   private getArticlesByUser() {
     this.store.select(fromUsers.getUser)
       .pipe(switchMap((res: User) => {
-        if (res) {
-          return this.articleService.getArticlesByUser();
-        } else { return of({ok: false}); }
+        return res ? this.articleService.getArticlesByUser() :
+        of({ok: false});
       }), takeUntil(this.unsubscribe$))
       .subscribe((res: ArticleResponse) => {
         if (res.ok) {
@@ -47,10 +46,10 @@ export class AdminContentComponent implements OnInit, OnDestroy {
   archive(id: string): void {
     this.crafter.dialog(ConfirmComponent).afterClosed()
       .pipe(switchMap((res: boolean) => {
-        if (res) {
-          return this.articleService.publishArticle(id, true);
-        } else { return of({ok: false}); }
-      })).subscribe((res: ArticleResponse) => {
+        return res ? this.articleService.publishArticle(id, true) :
+        of({ok: false});
+      }), takeUntil(this.unsubscribe$))
+      .subscribe((res: ArticleResponse) => {
         if (res.ok) {
           this.crafter.toaster('success', 'article.archived', 'info');
           this.getArticlesByUser();

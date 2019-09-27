@@ -4,15 +4,19 @@ import { User } from '@app/shared/interfaces/interfaces';
 
 export interface UserState {
   user: User;
+  public: User;
   email: string;
   loaded: boolean;
+  publicLoaded: boolean;
   error: string;
 }
 
 export const inititalState: UserState = {
   user: null,
+  public: null,
   email: null,
   loaded: false,
+  publicLoaded: false,
   error: null
 };
 
@@ -35,6 +39,21 @@ const featureReducer = createReducer(
       loaded: true,
       error: null
     }
+  )),
+   // USER BY NAME
+   on(UserActions.getUserByName, (state, { name }) => (
+    { ...state, publicLoaded: false, error: null }
+  )),
+  on(UserActions.getUserByNameSuccess, (state, { user }) => (
+    {
+      ...state,
+      publicLoaded: true,
+      error: null,
+      public: user
+    }
+  )),
+  on(UserActions.getUserByNameFailure, (state, { error }) => (
+    { ...state, publicLoaded: false, error }
   )),
   // SET USER EMAIL
   on(UserActions.setUserEmail, (state, { email }) => (
@@ -101,6 +120,15 @@ const featureReducer = createReducer(
       error: null,
       user: null
     }
+  )),
+  // RESET
+  on(UserActions.resetUserName, (state) => (
+    {
+      ...state,
+      loaded: false,
+      error: null,
+      public: null
+    }
   ))
 );
 
@@ -109,4 +137,6 @@ export function reducer(state: UserState | undefined, action: Action) {
 }
 
 export const getUser = (state: UserState) => state.user;
+export const getUserByName = (state: UserState) => state.public;
+export const getUserByNameLoaded = (state: UserState) => state.publicLoaded;
 export const getEmail = (state: UserState) => state.email;

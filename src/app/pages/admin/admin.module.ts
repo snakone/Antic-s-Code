@@ -10,6 +10,7 @@ import { AdminListBoxComponent } from './components/admin-side-bar/components/ad
 import { ArticlesSidebarModule } from '@app/pages/articles/components/articles-sidebar/articles-sidebar.module';
 import { AdminContentComponent } from './components/admin-content/admin-content.component';
 import { ArticlePreviewComponent } from './components/article-preview/article-preview.component';
+import { ArticlePublishBoxComponent } from './components/article-publish-box/article-publish-box.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { ArticlePreviewComponent } from './components/article-preview/article-pr
     AdminSideBarComponent,
     AdminListBoxComponent,
     AdminContentComponent,
-    ArticlePreviewComponent],
+    ArticlePreviewComponent,
+    ArticlePublishBoxComponent
+  ],
   imports: [
     CommonModule,
     ComponentsModule,

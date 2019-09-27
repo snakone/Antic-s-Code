@@ -141,7 +141,7 @@ const featureReducer = createReducer(
   )),
   on(ArticleActions.resetSlug, (state) => (
     { ...state, slugLoaded: false, error: null, slug: null }
-  )),
+  ))
 );
 
 export function reducer(state: ArticleState | undefined, action: Action) {

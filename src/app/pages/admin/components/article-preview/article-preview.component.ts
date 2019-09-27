@@ -8,9 +8,6 @@ import { Article, ArticleResponse } from '@app/shared/interfaces/interfaces';
 import { takeUntil, distinctUntilChanged } from 'rxjs/operators';
 import * as ArticleActions from '@core/ngrx/actions/article.actions';
 import * as fromArticles from '@core/ngrx/selectors/article.selectors';
-import { ArticleService, CrafterService } from '@app/core/services/services.index';
-import { HttpErrorResponse } from '@angular/common/http';
-
 
 @Component({
   selector: 'app-article-preview',
@@ -23,10 +20,7 @@ export class ArticlePreviewComponent implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject<void>();
 
   constructor(private route: ActivatedRoute,
-              private store: Store<AppState>,
-              private articleService: ArticleService,
-              private crafter: CrafterService,
-              private router: Router) { }
+              private store: Store<AppState>) { }
 
   ngOnInit() {
     this.article = null;
@@ -50,32 +44,6 @@ export class ArticlePreviewComponent implements OnInit, OnDestroy {
           setTimeout(() => { this.article = res; }, 400);
         }
     });
-  }
-
-  publish(id: string): void {
-    this.articleService.publishArticle(id, false)
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((res: ArticleResponse) => {
-        if (res.ok) {
-          this.crafter.toaster('success', 'article.published', 'info');
-          this.router.navigateByUrl('/admin');
-        }
-    }, (err: HttpErrorResponse) => {
-      err.status === 0 ?
-      this.handleError('server') : this.handleError();
-    });
-  }
-
-  private handleError(type?: string): void {
-    if (type === 'server') {
-      this.crafter.toaster('server.error',
-                           'server.bad',
-                           'error');
-    } else {
-      this.crafter.toaster('update.error',
-                           'server.bad',
-                           'error');
-    }
   }
 
   ngOnDestroy(): void {

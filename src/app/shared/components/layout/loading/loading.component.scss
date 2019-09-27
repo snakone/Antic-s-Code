@@ -10,4 +10,10 @@
   }
 }
 
-mat-spinner { max-width: 100% }
+mat-spinner {
+  max-width: 100%;
+}
+
+::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+  stroke: var(--primary-color);
+ }

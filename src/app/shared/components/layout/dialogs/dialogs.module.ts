@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
-import { ConfirmComponent } from './confirm/confirm.component';
+import { CommonModule } from '@angular/common';
 import { SharedModule } from '@app/shared/shared.module';
+
+import { ConfirmComponent } from './confirm/confirm.component';
+import { DeleteAccountComponent } from './delete-account/delete-account.component';
 
 @NgModule({
   declarations: [
-    ConfirmComponent
+    ConfirmComponent,
+    DeleteAccountComponent
   ],
   imports: [
-    SharedModule
+    SharedModule,
+    CommonModule
   ],
   entryComponents: [
-    ConfirmComponent
+    ConfirmComponent,
+    DeleteAccountComponent
   ]
 })
 

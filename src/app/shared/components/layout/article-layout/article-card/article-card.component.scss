@@ -22,7 +22,10 @@
         vertical-align: middle;
         border-style: none;
         margin-top: 1px;  // Border of SideBar
-        &:hover { cursor: pointer }
+        &:hover {
+          cursor: pointer;
+          filter: brightness(1.1);
+        }
       }
     }
 
@@ -86,7 +89,6 @@
 }
 
 .author { color: var(--tag-color) }
-.bold { color: var(--p-color) !important }
 
 .single {
   margin-bottom: 0 !important;
@@ -94,4 +96,11 @@
   .article-card-body { padding: 1.8rem 0 !important }
   .article-card-body-tags { margin-bottom: 1.7rem }
  }
+
+.link {
+  cursor: pointer;
+  outline: none;
+  font-weight: normal !important;
+  &:hover { font-weight: bold !important }
+}
 

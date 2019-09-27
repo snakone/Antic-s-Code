@@ -88,9 +88,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
         return null;
       }
       this.matchError = true;
-      return {
-        error: true
-      };
+      return { error: true };
     };
   }
 

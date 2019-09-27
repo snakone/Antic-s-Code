@@ -44,6 +44,11 @@ const routes: Routes = [
                         .then(mod => mod.ProfileModule), data: {name: 'Profile'}
   },
   {
+    path: 'profile/:name',
+    loadChildren: () => import('./pages/public-profile/public-profile.module')
+                        .then(mod => mod.PublicProfileModule), data: {name: 'Public Profile'}
+  },
+  {
     path: 'admin',
     canActivate: [AdminGuard],
     loadChildren: () => import('./pages/admin/admin.module')

@@ -15,18 +15,24 @@ li {
   position: relative;
   outline: none;
   margin: .8rem auto;
-  & span { outline: none }
-
-  &:hover {
-    color: var(--primary-color);
-    & mat-icon { color: var(--angular-color) }
+  & span {
+    outline: none;
+    @media(max-width: 450px) { font-size: .75rem !important}
   }
+
+  &:hover { color: var(--primary-color) }
 
   & mat-icon {
     position: absolute;
     right: 0;
-    top: -6px;
+    top: 1px;
     color: var(--p-color);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    @media(max-width: 450px) {
+      font-size: 1.3rem !important;
+      top: 2px;
+    }
+
+    &:hover { color: var(--angular-color) }
   }
 }

@@ -11,6 +11,7 @@ import { ArticleService } from '@app/core/services/article/article.service';
 export class ArticleEffects {
   constructor(private actions: Actions,
               private articleService: ArticleService) { }
+
   // GET ARTICLES
   loadArticlesEffect$ = createEffect(() => this.actions
     .pipe(
@@ -26,6 +27,7 @@ export class ArticleEffects {
       )
     )
   );
+
   // GET ARTICLES COUNT
   loadArticlesCountEffect$ = createEffect(() => this.actions
     .pipe(
@@ -41,6 +43,7 @@ export class ArticleEffects {
       )
     )
   );
+
   // GET ARTICLE BY SLUG
   loadArticleBySlugEffect$ = createEffect(() => this.actions
   .pipe(
@@ -56,6 +59,7 @@ export class ArticleEffects {
       )
     )
   );
+
   // GET LAST ARTICLES
   loadLastArticlesEffect$ = createEffect(() => this.actions
     .pipe(
@@ -71,6 +75,7 @@ export class ArticleEffects {
       )
     )
   );
+
   // GET MOST LIKED ARTICLES
   loadMostLikedEffect$ = createEffect(() => this.actions
   .pipe(

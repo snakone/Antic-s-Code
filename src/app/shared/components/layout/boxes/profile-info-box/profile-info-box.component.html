@@ -1,0 +1,37 @@
+<app-content-box [title]="'your.profile' | translate"
+                 icon="person">
+  <div class="profile-info">
+    <div class="profile-data">
+      <img [src]="user.profile.avatar || 'assets/img/profile/no-photo.jpg'"/>
+      <h3>{{user.name}}</h3>
+      <p *ngIf="user.email">{{user.email}}</p>
+      <button mat-button class="btn-purple">
+        {{(user.profile.rol | translate) || ('not.defined' | translate)}}
+      </button>
+    </div>
+    <div class="profile-social">
+      <ul>
+        <div *ngFor="let s of social">
+          <a *ngIf="user.profile[s.selector]"
+            [href]="user.profile[s.selector]"
+            target="_NEW">
+            <li [class]="s.selector">{{s.name}}
+              <img src="assets/icon/{{s.selector}}.svg"/>
+            </li>
+          </a>
+          <li [class]="s.selector + ' not'"
+              *ngIf="!user.profile[s.selector]">
+              {{s.name}} <img src="assets/icon/{{s.selector}}.svg"/>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+  <div class="profile-bio">
+    <p class="first"
+      *ngIf="user.profile.bio"
+      [innerHTML]="user.profile.bio | sanitizer: 'html'">
+    </p>
+    <p *ngIf="!user.profile.bio">{{'bio.not.defined' | translate}}</p>
+  </div>
+</app-content-box>
