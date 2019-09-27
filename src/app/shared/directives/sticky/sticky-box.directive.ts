@@ -15,10 +15,10 @@ import { debounceTime, takeUntil } from 'rxjs/operators';
 
 export class StickyBoxDirective implements AfterViewInit, OnDestroy {
 
-  height: number;
   @Input() selector: string;
-  @Input() code: boolean;
+  @Input() code: boolean;  // Are We in Code Page?
   private unsubscribe$ = new Subject<void>();
+  height: number;
 
   constructor(private el: ElementRef,
               private renderer: Renderer2) { }
@@ -29,9 +29,7 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
   }
 
   private startSticky(): void {
-    setTimeout(() => {
-      this.makeSticky();
-    }, 2000); // Wait Content to Load
+    setTimeout(() => { this.makeSticky(); }, 2000); // Wait Content to Load
   }
 
   private subscribeToResize(): void {
@@ -52,7 +50,7 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
     const width = window.document.body.clientWidth;
 
     if (width < 985) {
-      this.renderer.setStyle(el, 'height', `auto`);
+      this.setAutoHeight(el);
       return;
     }
 
@@ -65,14 +63,12 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
     const section = document.getElementById(this.selector);
     section ? div = section.getBoundingClientRect().height : div = 1;
 
-    if (div === 1) { // No Selector
+    if (div === 1) { // No Selector or NOT loaded yet
       this.setAutoHeight(el);
       window.dispatchEvent(new Event('resize'));
     }
 
-    console.log(div - this.height + padding);
-
-    if (div - this.height + padding <= 700) {
+    if (div - this.height + padding <= 800) {  // Not enough Content
       this.setAutoHeight(el);
       return;
      }

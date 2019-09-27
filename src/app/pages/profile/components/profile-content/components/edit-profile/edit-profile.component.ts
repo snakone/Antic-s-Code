@@ -12,7 +12,6 @@ import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
 import { HttpErrorResponse } from '@angular/common/http';
 
-
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
@@ -25,7 +24,7 @@ export class EditProfileComponent implements OnInit, OnDestroy {
   editProfileForm: FormGroup;
   roles = ROLES;
   languages = PRO_LANGS;
-  urlPattern = '^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$';
+  urlPattern = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
   private unsubscribe$ = new Subject<void>();
 
   constructor(private userService: UserService,
@@ -44,11 +43,14 @@ export class EditProfileComponent implements OnInit, OnDestroy {
                                                               Validators.email]),
                rol: new FormControl(this.user.profile.rol || null, []),
                bio: new FormControl(this.user.profile.bio || null, []),
-          facebook: new FormControl(this.user.profile.facebook || null,
+            avatar: new FormControl(this.user.profile.avatar || null,
                                     [Validators.pattern(this.urlPattern)]),
-           twitter: new FormControl(this.user.profile.twitter || null, []),
-            github: new FormControl(this.user.profile.github || null, []),
-         portfolio: new FormControl(this.user.profile.portfolio || null, []),
+           twitter: new FormControl(this.user.profile.twitter || null,
+                                    [Validators.pattern(this.urlPattern)]),
+            github: new FormControl(this.user.profile.github || null,
+                                    [Validators.pattern(this.urlPattern)]),
+         portfolio: new FormControl(this.user.profile.portfolio || null,
+                                    [Validators.pattern(this.urlPattern)]),
           language: new FormControl(this.user.profile.language || null, []),
     });
   }
@@ -59,6 +61,7 @@ export class EditProfileComponent implements OnInit, OnDestroy {
     this.user.email = this.editProfileForm.value.email;
     this.user.profile.rol = this.editProfileForm.value.rol;
     this.user.profile.bio = this.editProfileForm.value.bio;
+    this.user.profile.avatar = this.editProfileForm.value.avatar;
     this.user.profile.facebook = this.editProfileForm.value.facebook;
     this.user.profile.twitter = this.editProfileForm.value.twitter;
     this.user.profile.github = this.editProfileForm.value.github;

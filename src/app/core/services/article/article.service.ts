@@ -26,6 +26,10 @@ export class ArticleService {
     return this.http.get(this.API_ARTICLES + '?page=' + this.page);
   }
 
+  public publishArticle(id: string, draft: boolean): Observable<ArticleResponse> {
+    return this.http.post(this.API_ARTICLES + 'publish/' + id, {draft});
+  }
+
   public getArticlesCode(): Observable<CodeResponse> {
     return this.http.get(this.API_ARTICLES + 'code');
   }
@@ -42,6 +46,10 @@ export class ArticleService {
     return this.http.get(this.API_ARTICLES + 'liked');
   }
 
+  public getArticlesByUser(): Observable<ArticleResponse> {
+    return this.http.get(this.API_ARTICLES + 'user');
+  }
+
   public getArticleBySlug(slug: string): Observable<ArticleResponse> {
     return this.http.get(APP_CONSTANTS.END_POINT + 'article/' + slug);
   }
@@ -52,10 +60,6 @@ export class ArticleService {
 
   public sendLike(id: string): Observable<ArticleResponse> {
     return this.http.post(this.API_ARTICLES + 'likes/' + id, null);
-  }
-
-  public sendStar(id: string, stars: number): Observable<ArticleResponse> {
-    return this.http.post(this.API_ARTICLES + 'stars/' + id, {stars});
   }
 
   public resetPage(): void {

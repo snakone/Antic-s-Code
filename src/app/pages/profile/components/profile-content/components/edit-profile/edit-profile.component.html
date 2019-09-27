@@ -1,13 +1,13 @@
 <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
   <mat-form-field color="accent">
     <input matInput
-           [placeholder]="'user.name' | translate"
-           formControlName="name">
+          [placeholder]="'user.name' | translate"
+          formControlName="name">
   </mat-form-field>
   <mat-form-field color="accent">
     <input matInput
-           [placeholder]="'user.email' | translate"
-           formControlName="email">
+          [placeholder]="'user.email' | translate"
+          formControlName="email">
   </mat-form-field>
   <mat-form-field color="accent" class="select">  <!-- ROL -->
     <mat-label>{{'select.rol' | translate}}</mat-label>
@@ -27,28 +27,28 @@
   </mat-form-field>
   <mat-form-field color="accent">
     <input matInput
-           [placeholder]="'fb.page' | translate"
-           formControlName="facebook">
+          [placeholder]="'url.avatar' | translate"
+          formControlName="avatar">
   </mat-form-field>
   <mat-form-field color="accent">
     <input matInput
-           [placeholder]="'twitter.page' | translate"
-           formControlName="twitter">
+          [placeholder]="'twitter.page' | translate"
+          formControlName="twitter">
   </mat-form-field>
   <mat-form-field color="accent">
     <input matInput
-           [placeholder]="'github.page' | translate"
-           formControlName="github">
+          [placeholder]="'github.page' | translate"
+          formControlName="github">
   </mat-form-field>
   <mat-form-field color="accent">
     <input matInput
-           [placeholder]="'portfolio.page' | translate"
-           formControlName="portfolio">
+          [placeholder]="'portfolio.page' | translate"
+          formControlName="portfolio">
   </mat-form-field>
   <mat-form-field color="accent" class="textarea">  <!-- BIO -->
     <textarea matInput
-           [placeholder]="'my.bio' | translate"
-           formControlName="bio">
+          [placeholder]="'my.bio' | translate"
+          formControlName="bio">
     </textarea>
   </mat-form-field>
 
@@ -59,3 +59,4 @@
           {{'save' | translate}}
   </button>
 </form>
+

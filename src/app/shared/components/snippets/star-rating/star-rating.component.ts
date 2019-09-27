@@ -19,12 +19,6 @@ export class StarRatingComponent implements OnInit, OnDestroy {
 
   ngOnInit() { }
 
-  doStar(star: number): void {
-    this.articleService.sendStar(this.article._id, star)
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe();
-  }
-
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();

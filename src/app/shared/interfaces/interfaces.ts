@@ -9,8 +9,8 @@ interface Content {
   badges?: string[];
   likes?: number;
   stars?: number;
-  links?: List[];
-  index?: List[];
+  links?: Link[];
+  index?: ArticleIndex[];
 }
 
 interface ServerResponse {
@@ -23,6 +23,11 @@ interface Translation {
   translate: string;
 }
 
+export interface Link {
+  name: string;
+  url: string;
+}
+
 export interface Article extends Content {
   author?: string;
   created?: string;
@@ -30,6 +35,7 @@ export interface Article extends Content {
   level?: string;
   views?: number;
   summary?: string;
+  draft?: boolean;
 }
 
 export interface Category extends Content {
@@ -53,6 +59,7 @@ export interface CodeResponse extends ServerResponse {
 
 export interface UserResponse extends ServerResponse {
   user: User;
+  users?: User[];
   token?: string;
 }
 
@@ -104,7 +111,6 @@ interface UserProfile {
 
 export interface Role extends Translation {
   name: string;
-  translate: string;
 }
 
 export interface List {

@@ -1,8 +1,5 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Article } from '@app/shared/interfaces/interfaces';
-import { ArticleService } from '@app/core/services/services.index';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-article-card',
@@ -10,26 +7,14 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./article-card.component.scss']
 })
 
-export class ArticleCardComponent implements OnInit, OnDestroy {
+export class ArticleCardComponent implements OnInit {
 
   @Input() article: Article;
   @Input() shadow: boolean;
-  @Input() single: boolean;
-  private unsubscribe$ = new Subject<void>();
+  @Input() single: boolean;  // Single or GRID
 
-  constructor(private articleService: ArticleService) { }
+  constructor() { }
 
   ngOnInit() { }
-
-  doLike(article: Article): void {
-    this.articleService.sendLike(article._id)
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe();
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
-  }
 
 }
