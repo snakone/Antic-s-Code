@@ -19,13 +19,25 @@
           </span>
         </button>
         <mat-menu #menu="matMenu">
-          <div class="flex-box" *ngFor="let m of dropdown">
+          <div class="flex-box"
+               *ngFor="let m of dropdown">
             <button class="menu-dropdown"
                     mat-menu-item
                     [routerLink]="m.link">
               <mat-icon>{{m.icon}}</mat-icon>
                   {{m.name | translate}}
             </button>
+          </div>
+          <div *ngIf="(user$ | async) as user">
+            <div class="flex-box"
+                *ngIf="user.account === 'Admin' || user.account === 'Super'">
+              <button class="menu-dropdown"
+                      mat-menu-item
+                      routerLink="/admin">
+                <mat-icon>security</mat-icon>
+                    Admin
+              </button>
+            </div>
           </div>
         </mat-menu>
       </li>

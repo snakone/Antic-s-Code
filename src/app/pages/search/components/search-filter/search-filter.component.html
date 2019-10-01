@@ -1,0 +1,91 @@
+<!-- <app-sticky-box selector="search-section" [empty]="true"> -->
+<app-content-box>
+  <div class="filter-box">
+    <form [formGroup]="searchForm" (ngSubmit)="submit()">
+      <mat-form-field appearance="outline" color="accent">  <!-- VALUE -->
+        <mat-label>¿Qué estás buscando?</mat-label>
+        <input matInput
+               formControlName="value"
+               placeholder="Artículo, Categoría...">
+      </mat-form-field>
+      <mat-form-field appearance="outline" color="accent">  <!-- CATEGORY -->
+        <mat-label>{{'choose.category' | translate}}</mat-label>
+        <mat-select formControlName="category">
+          <mat-option *ngFor="let cat of categories" [value]="cat">
+            {{cat | translate}}
+          </mat-option>
+          <mat-option value="">{{'all.a' | translate}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline" color="accent">  <!-- TAG -->
+        <mat-label>{{'pick.thread' | translate}}</mat-label>
+        <mat-select formControlName="tag">
+          <mat-option *ngFor="let t of tags" [value]="t">
+            {{t | translate}}
+          </mat-option>
+          <mat-option value="">{{'all.a' | translate}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <h3>{{'level' | translate}}</h3>   <!-- LEVEL -->
+      <div class="checkbox-group">
+        <mat-checkbox *ngFor="let l of levels"
+                      #level
+                      name="level"
+                      [value]="l"
+                      [disabled]="levelsArray?.length >= 2 && !level.checked"
+                      (change)="levelChanged($event)">{{l}}
+        </mat-checkbox>
+      </div>
+      <h3>{{'label' | translate}}</h3>   <!-- BADGES -->
+      <div class="checkbox-group">
+        <mat-checkbox *ngFor="let b of badges"
+                      #badge
+                      name="badge"
+                      [value]="b"
+                      [disabled]="badgesArray?.length >= 2 && !badge.checked"
+                      (change)="badgeChanged($event)">{{b}}
+        </mat-checkbox>
+      </div>
+      <h3 class="order">{{'order.title' | translate}}</h3>   <!-- ORDER -->
+      <mat-form-field appearance="outline" color="accent">
+        <mat-label>{{'order.type' | translate}}</mat-label>
+        <mat-select #max formControlName="type" multiple>
+          <mat-option *ngFor="let t of types"
+                      #option
+                      [value]="t"
+                      [disabled]="max?.selected.length >= 2 && !option.selected">
+                      {{t | translate}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline" color="accent">
+        <mat-label>{{'type' | translate}}</mat-label>
+        <mat-select formControlName="sort">
+          <mat-option value="1">{{'order.asc' | translate}}</mat-option>
+          <mat-option value="-1">{{'order.desc' | translate}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <h3 class="order">{{'score' | translate}}</h3>   <!-- STARS -->
+      <div class="checkbox-group">
+        <mat-checkbox *ngFor="let s of list"
+                      name="star"
+                      [value]="s.number"
+                      (change)="starChanged($event, s.active = !s.active)">
+                      {{s.number}}
+              <div class="stars">
+                <span [ngClass]="{'active': s.active && (i !== s.number && i < s.number)}"
+                      *ngFor="let icon of [5,4,3,2,1]; let i = index">
+                  <mat-icon>star_border</mat-icon>
+                </span>
+              </div>
+       </mat-checkbox>
+      </div>
+      <button mat-button
+              class="btn-pink"
+              type="submit">{{'search' | translate}}
+      </button>
+    </form>
+  </div>
+</app-content-box>
+
+

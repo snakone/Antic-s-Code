@@ -4,29 +4,27 @@
   </div>
   <div class="navbar-mobile-menu">  <!-- MOBILE TOOGLER -->
     <button class="toogler" (click)="show = true">
-      <span>
-        <i class="material-icons">reorder</i>
-      </span>
+      <span><i class="material-icons">reorder</i></span>
     </button>
   </div>
   <app-navigation></app-navigation>  <!-- NAVIGATION -->
   <div class="navbar-search">  <!-- SEARCH BAR -->
     <app-navbar-search></app-navbar-search>
-      <button class="btn-pink btn"
-              *ngIf="!(user$ | async)"
-              (click)="openLogin()"
-              mat-button>
-              <span class="btn-mobile">
-                <i class="fa fa-sign-in"></i>
-              </span>
-              <span class="btn-desktop">{{'enter' | translate}}</span>
-      </button>  <!-- LOGIN -->
-      <button class="btn-pink btn"
-              *ngIf="user$ | async"
-              routerLink="/profile"
-              mat-button>
-            <mat-icon>person</mat-icon>
-      </button>  <!-- LOGOUT -->
+    <button class="btn-pink btn"
+            *ngIf="!(user$ | async)"
+            (click)="openLogin()"
+            mat-button>
+            <span class="btn-mobile">
+              <i class="fa fa-sign-in"></i>
+            </span>
+            <span class="btn-desktop">{{'sign.in' | translate}}</span>
+    </button>  <!-- LOGIN -->
+    <button class="btn-pink btn"
+            *ngIf="user$ | async"
+            routerLink="/profile"
+            mat-button>
+          <mat-icon>person</mat-icon>
+    </button>  <!-- PROFILE -->
   </div>
 </nav>
 
@@ -37,6 +35,21 @@
         routerLinkActive="active"
         (click)="show = false">{{i.name | translate}}
     </li>
+    <div class="division"><hr></div>
+    <li *ngFor="let m of menu"
+        [routerLink]="m.link"
+        routerLinkActive="active"
+        (click)="show = false">{{m.name | translate}}
+    </li>
+    <div class="division"><hr></div>
+    <div *ngIf="user$ | async as user">
+      <li *ngIf="user.account === 'Admin' || user.account === 'Super'"
+          routerLink="/admin"
+          routerLinkActive="active"
+          (click)="show = false">
+          Admin
+      </li>
+    </div>
   </ul>
 <app-mobile-menu>
 

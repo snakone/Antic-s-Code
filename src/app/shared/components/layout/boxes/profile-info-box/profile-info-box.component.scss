@@ -1,0 +1,65 @@
+.profile {
+  &-info {
+    position: relative;
+    margin-top: .5rem;
+    margin-bottom: 1.3rem;
+  }
+
+  &-data {
+    & img {
+      max-width: 112px;
+      border-radius: 50%;
+      width: 100%;
+      height: 107px;
+    }
+
+    & h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0;
+    }
+
+    & button {
+      margin-bottom: .6rem;
+      margin-top: .8rem;
+    }
+  }
+
+  &-social {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    & ul {
+      list-style: none;
+      margin: 0;
+      margin-top: .6rem;
+      text-align: right;
+      margin-right: .3rem;
+     }
+
+    & li {
+      margin-bottom: .5rem;
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      justify-content: flex-end;
+
+      & img {
+        width: 25px;
+        margin-left: .9rem;
+       }
+     }
+  }
+
+  &-bio { margin-bottom: 1rem }
+}
+
+.bright:hover {
+  filter: brightness(1.3);
+  & img { filter: brightness(1.3) }
+ }
+
+.not {
+  color: var(--p-color) !important;
+  font-weight: bold;
+}

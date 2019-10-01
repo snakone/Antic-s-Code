@@ -25,6 +25,22 @@ export class UserEffects {
       )
   );
 
+  // GET USER BY NAME
+  getUserByNameEffect$ = createEffect(() => this.actions
+  .pipe(
+    ofType(UserActions.getUserByName),
+    concatMap((action) =>
+    this.user.getUserByName(action.name)
+      .pipe(
+        map(res => UserActions.getUserByNameSuccess({user: res.user})),
+        catchError(error =>
+            of(UserActions.getUserByNameFailure({ error: error.message }))
+          )
+        )
+      )
+    )
+  );
+
   // SET USER EMAIL
   setUserEmailEffect$ = createEffect(() => this.actions
     .pipe(

@@ -1,17 +1,12 @@
-<div class="reaction" [ngClass]="{'box' : box,
-                                  'single': single}">
-  <li>
-    <span>
-      <i class="fa fa-eye"></i>
-      {{article.views}}
+<div class="reaction"
+     [ngClass]="{'box' : box, 'single': single}">
+   <span class="meta-star-card meta-star-icon">
+      {{article.stars}} <mat-icon>star_rate</mat-icon>
     </span>
-    <span>
-      <i class="fa fa-star"></i>
-      {{article.stars}}
+    <span class="meta-like-card meta-like-icon">
+      {{article.likes}} <mat-icon>favorite</mat-icon>
     </span>
-    <span>
-      <i class="fa fa-heart"></i>
-      {{article.likes}}
+    <span class="meta-view-card meta-view-icon">
+      {{article.views}} <mat-icon>visibility</mat-icon>
     </span>
-  </li>
 </div>

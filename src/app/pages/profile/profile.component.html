@@ -2,14 +2,18 @@
                  [subTitle]="'welcome.profile' | translate">
 </app-page-header>
 <app-section input="#f5f7fc">
-  <div class="row">
+  <div class="row" *ngIf="user$ | async as user">
     <div class="col-lg-8 col-md-8">  <!-- CONTENT -->
-      <app-profile-content [user]="user$ | async"></app-profile-content>
+      <app-profile-content [user]="user"></app-profile-content>
+      <app-settings-box class="mobile"></app-settings-box>
+      <app-profile-actions [user]="user" class="mobile"></app-profile-actions>
     </div>
-    <div class="col-lg-4 col-md-4">  <!-- FOOTER -->
-      <app-settings-box></app-settings-box>
+    <div class="col-lg-4 col-md-4">   <!-- SIDEBAR -->
+      <app-settings-box class="desktop"></app-settings-box>
       <app-articles-sidebar></app-articles-sidebar>
+      <app-profile-actions [user]="user" class="desktop"></app-profile-actions>
     </div>
   </div>
+  <app-loading *ngIf="!(user$ | async)"></app-loading>
 </app-section>
 <app-footer></app-footer>

@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UserService } from '@app/core/services/user/user.service';
 import { User } from '@app/shared/interfaces/interfaces';
 
 @Component({
@@ -12,12 +11,8 @@ export class ProfileContentComponent implements OnInit {
 
   @Input() user: User;
 
-  constructor(private userService: UserService) { }
+  constructor() { }
 
   ngOnInit() { }
-
-  logOut(): void {
-    this.userService.logout();
-  }
 
 }

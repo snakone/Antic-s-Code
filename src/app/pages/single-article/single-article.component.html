@@ -1,5 +1,5 @@
 <app-page-header [title]="article?.title || 'Artículo'"
-                 subTitle="Artículo">
+                 [subTitle]="'article' | translate">
 </app-page-header>
 <app-section input="#f5f7fc">
   <div class="row">  <!-- ARTICLE CONTENT -->
@@ -16,12 +16,10 @@
         <app-links-box *ngIf="article.links.length > 0"
                        [links]="article.links">
         </app-links-box>
-        <app-article-reaction-box></app-article-reaction-box>
+        <!-- <app-article-reaction-box></app-article-reaction-box> -->
       </app-article-card>
       <app-disqus *ngIf="article" [identifier]="article.slug"></app-disqus>
-      <div class="loader" *ngIf="!article">
-        <app-loading ></app-loading>
-      </div>
+      <app-loading *ngIf="!article"></app-loading>
     </div>
     <div class="col-lg-4 col-md-4">  <!-- SIDEBAR -->
       <app-articles-sidebar></app-articles-sidebar>

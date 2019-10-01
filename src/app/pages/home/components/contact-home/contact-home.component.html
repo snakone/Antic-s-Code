@@ -1,5 +1,5 @@
-<app-section title="Subscribirse al Boletín"
-             description="Subscríbete para recibir la última información y actualizaciones. ¡No enviamos spam!"
+<app-section [title]="'subscribe' | translate"
+             [description]="'subscribe.sub' | translate"
              input="email">  <!-- CUSTOM SECTION PARAMETERS -->
   <app-contact-home-input></app-contact-home-input>
 </app-section>

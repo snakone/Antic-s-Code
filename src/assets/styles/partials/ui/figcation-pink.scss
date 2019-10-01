@@ -13,9 +13,9 @@ figcaption {
     height: 100%;
     left: 0;
     top: 0;
-    background: -webkit-linear-gradient(45deg,rgba(245,84,142,.85),rgba(144,58,249,.85));
-    background: -o-linear-gradient(45deg,rgba(245,84,142,.85),rgba(144,58,249,.85));
-    background: linear-gradient(45deg,rgba(245,84,142,.85),rgba(144,58,249,.85));
+    background: -webkit-linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    background: -o-linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
     z-index: -1;
     -webkit-transition: all .3s ease;
     -o-transition: all .3s ease;

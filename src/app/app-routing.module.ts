@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { Error404Component } from './shared/components/error404/error404.component';
 import { ProfileGuard } from './core/guards/profile.guard';
+import { AdminGuard } from './core/guards/admin.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -41,6 +42,22 @@ const routes: Routes = [
     canActivate: [ProfileGuard],
     loadChildren: () => import('./pages/profile/profile.module')
                         .then(mod => mod.ProfileModule), data: {name: 'Profile'}
+  },
+  {
+    path: 'profile/:name',
+    loadChildren: () => import('./pages/public-profile/public-profile.module')
+                        .then(mod => mod.PublicProfileModule), data: {name: 'Public Profile'}
+  },
+  {
+    path: 'search',
+    loadChildren: () => import('./pages/search/search.module')
+                        .then(mod => mod.SearchModule), data: {name: 'Search'}
+  },
+  {
+    path: 'admin',
+    canActivate: [AdminGuard],
+    loadChildren: () => import('./pages/admin/admin.module')
+                        .then(mod => mod.AdminModule), data: {name: 'Admin'}
   },
   { path: '**', component: Error404Component },
 ];

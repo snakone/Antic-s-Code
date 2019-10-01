@@ -3,7 +3,7 @@
   text-align: center;
 
   & p {
-    color: var(--bg-color);
+    color: var(--button-color);
     font-size: .8rem;
     line-height: .5rem;
     & span { font-size: .8rem }
@@ -11,7 +11,7 @@
 
   & mat-icon {
     position: absolute;
-    color: var(--bg-color);
+    color: var(--button-color);
     right: -12px;
     margin-top: -7px;
     font-size: 1.2rem;

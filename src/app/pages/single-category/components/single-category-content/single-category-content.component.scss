@@ -1,12 +1,11 @@
 * { box-sizing: border-box}
 
-.display {
+.mobile {
   @media(min-width: 993px) { display: none }
 }
 
 button {
   width: 100%;
-  padding: 8px 0;
   margin-bottom: 2rem;
 }
 

@@ -9,7 +9,8 @@ import {
   UserService,
   CrafterService,
   ErrorService,
-  ThemeService
+  ThemeService,
+  SearchService
   } from './services.index';
 
 @NgModule({
@@ -24,7 +25,8 @@ import {
     UserService,
     CrafterService,
     ErrorService,
-    ThemeService
+    ThemeService,
+    SearchService
   ]
 })
 

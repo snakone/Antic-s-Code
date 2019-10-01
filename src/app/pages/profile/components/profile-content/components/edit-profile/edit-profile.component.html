@@ -1,0 +1,62 @@
+<form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
+  <mat-form-field color="accent">
+    <input matInput
+          [placeholder]="'user.name' | translate"
+          formControlName="name">
+  </mat-form-field>
+  <mat-form-field color="accent">
+    <input matInput
+          [placeholder]="'user.email' | translate"
+          formControlName="email">
+  </mat-form-field>
+  <mat-form-field color="accent" class="select">  <!-- ROL -->
+    <mat-label>{{'select.rol' | translate}}</mat-label>
+    <mat-select formControlName="rol">
+      <mat-option *ngFor="let r of roles" [value]="r.translate">
+        {{r.translate | translate}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field color="accent" class="select">  <!-- ROL -->
+    <mat-label>{{'favorite.lang' | translate}}</mat-label>
+    <mat-select formControlName="language">
+      <mat-option *ngFor="let l of languages" [value]="l">
+        {{l}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field color="accent">
+    <input matInput
+          [placeholder]="'url.avatar' | translate"
+          formControlName="avatar">
+  </mat-form-field>
+  <mat-form-field color="accent">
+    <input matInput
+          [placeholder]="'twitter.page' | translate"
+          formControlName="twitter">
+  </mat-form-field>
+  <mat-form-field color="accent">
+    <input matInput
+          [placeholder]="'github.page' | translate"
+          formControlName="github">
+  </mat-form-field>
+  <mat-form-field color="accent">
+    <input matInput
+          [placeholder]="'portfolio.page' | translate"
+          formControlName="portfolio">
+  </mat-form-field>
+  <mat-form-field color="accent" class="textarea">  <!-- BIO -->
+    <textarea matInput
+          [placeholder]="'my.bio' | translate"
+          formControlName="bio">
+    </textarea>
+  </mat-form-field>
+
+  <button type="submit"
+          mat-button
+          class="btn-pink"
+          [disabled]="editProfileForm.invalid">
+          {{'save' | translate}}
+  </button>
+</form>
+

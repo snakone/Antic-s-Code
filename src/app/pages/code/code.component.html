@@ -1,5 +1,5 @@
-<app-page-header title="Todo el Código"
-                 subTitle="Código">
+<app-page-header [title]="'all.code' | translate"
+                 [subTitle]="'code' | translate">
 </app-page-header>
 <app-section input="#f5f7fc">
   <div class="row">
@@ -8,26 +8,30 @@
       <app-code-sidebar *ngIf="code?.length > 0"
                         (tag)="filter($event)">
       </app-code-sidebar>
-      <app-pagination id="code-pagination"></app-pagination>
+      <app-pagination id="code-pagination"
+                      selector="code-section"
+                      *ngIf="code?.length > 0">
+      </app-pagination>
     </div>
     <div class="col-lg-8 col-md-8" id="code-section">  <!-- CONTENT -->
-      <app-code-intro class="display"
+      <app-code-intro class="desktop"
                       [total]="code?.length">
       </app-code-intro>
       <app-code-content [code]="filtered"
                         *ngIf="code">
       </app-code-content>
-      <div class="loader">
-        <app-loading *ngIf="code?.length === 0"></app-loading>
-      </div>
+      <app-loading *ngIf="code?.length === 0"></app-loading>
     </div>
     <div class="col-lg-4 col-md-4">  <!-- SIDEBAR -->
+      <app-pagination class="mobile"
+                      *ngIf="code?.length > 0"
+                      id="code-pagination"
+                      selector="code-section">
+      </app-pagination>
       <app-code-sidebar *ngIf="code?.length > 0"
                         (tag)="filter($event)">
       </app-code-sidebar>
-      <app-pagination class="mobile"
-                      id="code-pagination">
-      </app-pagination>
+
     </div>
   </div>
 </app-section>

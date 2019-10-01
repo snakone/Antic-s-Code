@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { StorageService } from '@app/core/storage/storage.service';
+import { environment } from '@env/environment';
 
 @Injectable()
 
@@ -14,7 +15,9 @@ export class HttpService {
   private readonly default = 'application/json';
 
   constructor(private http: HttpClient,
-              private storage: StorageService) { }
+              private storage: StorageService) {
+      if (!environment.production) { console.log('HttpService'); }
+    }
 
   public get<T>(url: string,
                 headers?: HttpHeaders,

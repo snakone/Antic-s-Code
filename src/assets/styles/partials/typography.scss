@@ -43,10 +43,7 @@ p.first::first-letter {
 }
 
 @media(max-width: 550px) {
-  p, a, span { font-size: .9rem !important }
-  // p {
-  //   &:first-child { margin-top: .5rem!important }
-  //  }
+  p, a, span { font-size: .85rem !important }
 }
 
 br {

@@ -13,21 +13,33 @@
   & h3 {
     margin: 0 auto;
     font-size: 1.8rem;
+    margin-top: -.5rem;
   }
 }
 
 mat-dialog-content {
-  max-height: 80vh !important; // Make it Scrollable
+  max-height: 60vh !important; // Make it Scrollable
   padding: 24px !important;
 }
 
 span {
   position: absolute;
   font-size: .8rem;
-  top: -25px;
+  top: -20px;
   right: -8px;
   cursor: pointer;
   &:hover { color: var(--primary-color) }
 }
+
+.display { display: block !important }
+
+app-sign-up { display: none }
+
+.overflow {
+  overflow: hidden !important;
+  @media(max-height: 600px) { overflow: auto !important }
+}
+
+
 
 

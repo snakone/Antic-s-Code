@@ -1,32 +1,12 @@
-<div class="conditions">
-  <p>
-    <span>1.</span> La utilización de este portal es totalmente gratuita.
-    No necesitas una cuenta para poder ver el contenido del mismo.
-  </p>
-  <p>
-    <span>2.</span> Con una cuenta en tu haber podrás interactuar con el portal,
-    hacer un seguimiento de tu aprendizaje conforme lo vayas utilizando.
-    Tendrás acceso a tu propio perfil el cuál podrás compartir para enseñar
-    a los demás de que estás hecho.
-  </p>
-  <p>
-    <span>3.</span> Tus datos se usarán exclusivamente para el uso de este portal.
-    En ningún caso se proporcionarán a terceros. Los datos más delicados como las
-    contraseñas están encriptados, solamente tú tendrás acceso a ellos.
-  </p>
-  <p>
-    <span>4.</span> Recuerda mantener una actitud sana a la hora de interactuar
-    con otros usuarios. Todos queremos aprender. Tú también puedes enseñar algo a los demás.
-  </p>
-  <p>
-    <span>5.</span> El contenido del portal es extrictamente orientado a un público tecnológico
-     de cualquier nivel, sobretodo centrado en desarrollo web con Javacript. También es un buen lugar
-     para aprender desde cero alguna tecnología web moderna.
-  </p>
-
-  <button (click)="accept()"
+<div class="conditions animated fadeIn">
+  <p><span>1.</span> {{'term.one' | translate}}</p>
+  <p><span>2.</span> {{'term.two' | translate}}</p>
+  <p><span>3.</span> {{'term.three' | translate}}</p>
+  <p><span>4.</span> {{'term.four' | translate}}</p>
+  <p><span>5.</span> {{'term.five' | translate}}</p>
+  <button (click)="closeConditions()"
           class="btn-orange"
           mat-button>
-    Aceptar
+    {{'accept' | translate}}
   </button>
 </div>

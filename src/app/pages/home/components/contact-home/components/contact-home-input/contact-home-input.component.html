@@ -7,13 +7,13 @@
       <input type="text"
           [(ngModel)]="email"
           name="email"
-          placeholder="Introduce tu email"
+          [placeholder]="'enter.email' | translate"
           required/>
     </div>
     <button class="btn-purple"
             mat-button
             type="submit">
-      <span>Enviar</span>
+      <span>{{'send' | translate}}</span>
     </button>
   </form>
 </div>

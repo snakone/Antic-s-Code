@@ -18,7 +18,7 @@
 
       &:hover {
         cursor: pointer;
-        filter: brightness(1.2);
+        filter: brightness(1.1);
       }
     }
   }
@@ -52,9 +52,6 @@
 
     &-meta {
       margin-top: 1.2rem;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
       display: flex;
       -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
@@ -96,12 +93,7 @@
 
   &-bottom {
     border-top: 1px solid var(--section-border-color);
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
     -webkit-box-pack: justify;
@@ -118,31 +110,16 @@
     }
 
     &-category {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
       display: flex;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
       -ms-flex-align: center;
       align-items: center;
 
       & mat-icon {
-        display: -webkit-inline-box;
-        display: -webkit-inline-flex;
-        display: -ms-inline-flexbox;
         display: inline-flex;
         width: 2.26667rem;
         height: 2.26667rem;
         background: rgba(144,58,249,.1);
-        font-size: 1.2rem;
-        -webkit-box-align: center;
-        -webkit-align-items: center;
-        -ms-flex-align: center;
         align-items: center;
-        -webkit-box-pack: center;
-        -webkit-justify-content: center;
-        -ms-flex-pack: center;
         justify-content: center;
         -webkit-border-radius: 20rem;
         border-radius: 20rem;
@@ -163,13 +140,7 @@
       & ul {
         margin: 0;
         padding: 0;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-align: center;
-        -webkit-align-items: center;
-        -ms-flex-align: center;
         align-items: center;
         -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
@@ -178,13 +149,7 @@
 
       &-count {
         font-size: .86667rem;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-align: center;
-        -webkit-align-items: center;
-        -ms-flex-align: center;
         align-items: center;
         list-style: none;
         margin-left: 1.2rem;
@@ -203,7 +168,6 @@
           margin-right: 3px;
           margin-top: 6px;
         }
-
         &:hover mat-icon { color: #3957ff }
       }
     }
@@ -222,9 +186,26 @@
  outline: none;
   & span {
     cursor: pointer;
-    &:hover {
-      font-weight: bold;
-    }
+    &:hover { font-weight: bold }
   }
 }
+
+.search {
+  @media(min-width: 550px) {
+    display: flex;
+    & figure {
+      flex: 1;
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: none;
+      }
+     }
+    & .card-info {
+      flex: 2;
+     }
+  }
+}
+
+.title h4 { font-size: 1.1rem }
 

@@ -14,6 +14,19 @@ export const getUserByIdFailure =
   createAction('[Users] Get User By ID Failure',
   props<{ error: string }>());
 
+// GET USER BY NAME
+export const getUserByName =
+  createAction('[Users] Get User By Name',
+  props<{ name: string }>());
+
+export const getUserByNameSuccess =
+  createAction('[Users] Get User By Name Success',
+  props<{ user: User }>());
+
+export const getUserByNameFailure =
+  createAction('[Users] Get User By Name Failure',
+  props<{ error: string }>());
+
 // SET USER
 export const setUser =
   createAction('[Users] Set User',
@@ -27,7 +40,7 @@ export const setUserFailure =
   createAction('[Users] Set User Failure',
   props<{ error: string }>());
 
-// SET USER EMAIL TOKEN
+// SET USER EMAIL
 export const setUserEmail =
   createAction('[Users] Set User Email',
   props<{ email: string }>());
@@ -68,3 +81,7 @@ export const refreshTokenFailure =
 // USER LOGOUT
 export const userLogOut =
   createAction('[Users] User Log Out');
+
+// RESET ARTICLES
+export const resetUserName =
+  createAction('[Articles API] Reset User Name');

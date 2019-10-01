@@ -40,6 +40,10 @@ mat-form-field {
   }
 }
 
+mat-label {
+  @media(max-width:550px) { font-size: .85rem }
+}
+
 // MATERIAL SELECT CORRECTION
 .default { top: 0px }
 .select { top: -1px }

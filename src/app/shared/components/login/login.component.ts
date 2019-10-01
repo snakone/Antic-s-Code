@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 
 export class LoginComponent implements OnInit {
 
-  isRegistering = false;
+  isReg = false;
+  isCon = false;
   conditions = false;
 
   constructor() { }

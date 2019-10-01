@@ -6,4 +6,5 @@ export { LoginService } from './login/login.service';
 export { CrafterService } from './crafter/crafter.service';
 export { ErrorService } from './error/error.service';
 export { ThemeService } from './theme/theme.service';
+export { SearchService } from './search/search.service';
 

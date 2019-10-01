@@ -9,14 +9,18 @@ interface Content {
   badges?: string[];
   likes?: number;
   stars?: number;
-  links?: List[];
-  index?: List[];
+  links?: Link[];
+  index?: ArticleIndex[];
 }
 
 interface ServerResponse {
   ok: boolean;
-  message: string;
+  message?: string;
   err?: any;
+}
+
+interface Translation {
+  translate: string;
 }
 
 export interface Article extends Content {
@@ -26,6 +30,7 @@ export interface Article extends Content {
   level?: string;
   views?: number;
   summary?: string;
+  draft?: boolean;
 }
 
 export interface Category extends Content {
@@ -49,6 +54,7 @@ export interface CodeResponse extends ServerResponse {
 
 export interface UserResponse extends ServerResponse {
   user: User;
+  users?: User[];
   token?: string;
 }
 
@@ -84,6 +90,38 @@ export interface User {
   email: string;
   password: string;
   account: string;
+  profile?: UserProfile;
+}
+
+interface UserProfile {
+  avatar?: string;
+  rol?: string;
+  bio?: string;
+  facebook?: string;
+  twitter?: string;
+  github?: string;
+  portfolio?: string;
+  language?: string;
+}
+
+export interface Role extends Translation {
+  name: string;
+}
+
+export interface SearchRequest {
+  value: string;
+  category?: string;
+  tag?: string;
+  year?: string;
+  level?: string[];
+  badges?: string[];
+  stars?: number[];
+  type?: string[];
+  sort?: number;
+}
+
+export interface SearchResponse extends ServerResponse {
+  articles?: Article[];
 }
 
 export interface List {
@@ -140,9 +178,29 @@ export interface ScrollSpy {
   id?: string;
 }
 
+export interface Tag {
+  name: string;
+  icon: string;
+}
+
 export interface Config {
   name: string;
   selector: string;
+}
+
+export interface Link {
+  name: string;
+  url: string;
+}
+
+export class StarList {
+  number: number;
+  active: boolean;
+
+  constructor(num: number, active: boolean) {
+    this.number = num;
+    this.active = active;
+  }
 }
 
 export class HttpError {

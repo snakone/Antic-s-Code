@@ -1,0 +1,37 @@
+<app-content-box [title]="'published.articles' | translate"
+                  icon="ballot"
+                  *ngIf="published">
+    <ul>
+      <li *ngFor="let p of published">
+        <span [routerLink]="'/article/' + p.slug">{{p.title}}</span>
+          <mat-icon [matTooltip]="'archive' | translate"
+                    matTooltipPosition="left"
+                    (click)="archive(p._id)">schedule
+          </mat-icon>
+      </li>
+    </ul>
+    <p class="first" *ngIf="published.length === 0">
+      {{'no.published' | translate}}
+    </p>
+</app-content-box>
+
+<app-content-box [title]="'draft.articles' | translate"
+                  icon="ballot"
+                  *ngIf="archived">
+    <ul>
+      <li *ngFor="let a of archived"
+          [routerLink]="'preview/' + a.slug">
+        {{a.title}}
+      </li>
+    </ul>
+    <p class="first" *ngIf="archived.length === 0">
+        {{'no.archived' | translate}}
+      <a href="https://antics-cms.netlify.com" target="_NEW">
+        {{'here' | translate}}
+      </a>.
+    </p>
+</app-content-box>
+
+
+
+

@@ -1,12 +1,12 @@
 <app-single-category-index-box></app-single-category-index-box>
-<div class="display">
+<div class="mobile">
   <div class="row">
     <div class="col-lg-12">
       <app-single-category-info-box [category]="category">
       </app-single-category-info-box>
     </div>
   </div>
-  <button mat-button class="btn-pink font">Favorito</button>
+  <button mat-button class="btn-pink">{{'favorite' | translate}}</button>
 </div>
 <app-single-category-faq-box></app-single-category-faq-box>
 <app-links-box *ngIf="category?.links.length > 0"

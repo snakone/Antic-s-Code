@@ -28,7 +28,9 @@ import { ArticleEffects } from './ngrx/effects/article.effects';
 import { CategoryEffects } from './ngrx/effects/category.effects';
 import { CodeEffects } from './ngrx/effects/code.effects';
 import { UserEffects } from './ngrx/effects/user.effects';
+import { SearchEffects } from './ngrx/effects/search.effects';
 import { reducers } from './ngrx/reducers/reducers.index';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { ToastrModule } from 'ngx-toastr';
 
@@ -43,8 +45,12 @@ import { ToastrModule } from 'ngx-toastr';
       ArticleEffects,
       CategoryEffects,
       CodeEffects,
-      UserEffects
+      UserEffects,
+      SearchEffects
     ]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25
+    }),
     LanguageModule.forRoot(),
     HighlightModule.forRoot({
       languages: hljsLanguages

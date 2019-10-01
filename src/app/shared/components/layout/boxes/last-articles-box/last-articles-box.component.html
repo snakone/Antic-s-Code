@@ -1,17 +1,16 @@
-<app-content-box title="Últimos Artículos"
-                 icon="chrome_reader_mode">
-    <ul class="last" *ngIf="articles$ | async as articles">
-      <li *ngFor="let a of articles"
+<div class="last" *ngIf="articles$ | async as articles">
+  <figure *ngFor="let a of articles"
           [routerLink]="'/article/' + a.slug">
-        <div class="last-img">
-          <img [src]="a.cover"/>
-        </div>
+      <img [src]="a.cover"/>
+      <figcaption class="overlay-bg">
         <div class="last-title">
           <h4>{{a.title}}</h4>
           <div class="last-title-info">
-           <app-article-reactions [article]="a" [box]="true"></app-article-reactions>
+          <app-article-reactions [article]="a"
+                                  [box]="true">
+          </app-article-reactions>
           </div>
         </div>
-      </li>
-    </ul>
-</app-content-box>
+      </figcaption>
+  </figure>
+</div>

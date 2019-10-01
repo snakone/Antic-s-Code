@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '@app/shared/shared.module';
 import { ComponentsModule } from '@app/shared/components/components.module';
 
-import { SingleArticleRoutingModule } from './single-article-routing.module';
+import { SingleArticleRouting } from './single-article-routing';
 import { SingleArticleComponent } from './single-article.component';
 import { ArticlesSidebarModule } from '../articles/components/articles-sidebar/articles-sidebar.module';
 
@@ -13,7 +13,7 @@ import { ArticlesSidebarModule } from '../articles/components/articles-sidebar/a
   ],
   imports: [
     CommonModule,
-    SingleArticleRoutingModule,
+    SingleArticleRouting,
     ComponentsModule,
     SharedModule,
     ArticlesSidebarModule

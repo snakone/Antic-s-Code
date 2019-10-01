@@ -1,0 +1,22 @@
+<app-page-header [title]="user?.name || ''"
+                 [subTitle]="'public.profile' | translate">
+</app-page-header>
+<app-section input="#f5f7fc">
+  <div class="row">
+    <div class="col-lg-8 col-md-8">  <!-- CONTENT -->
+      <app-profile-info-box *ngIf="user"
+                            [user]="user">
+      </app-profile-info-box>
+      <app-loading *ngIf="!user"></app-loading>
+    </div>
+    <div class="col-lg-4 col-md-4">   <!-- SIDEBAR -->
+      <app-content-box [title]="'loved.lang' | translate">
+        <button mat-button class="btn-orange">
+          {{user?.profile?.language || 'not.defined' | translate}}
+        </button>
+      </app-content-box>
+      <app-articles-sidebar></app-articles-sidebar>
+    </div>
+  </div>
+</app-section>
+<app-footer></app-footer>

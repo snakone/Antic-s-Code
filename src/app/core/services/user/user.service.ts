@@ -7,6 +7,7 @@ import { StorageService } from '@app/core/storage/storage.service';
 import { Store } from '@ngrx/store';
 import * as UserActions from '@core/ngrx/actions/user.actions';
 import { map } from 'rxjs/operators';
+import { environment } from '@env/environment';
 
 @Injectable()
 
@@ -18,15 +19,27 @@ export class UserService {
   constructor(private http: HttpService,
               private ls: StorageService,
               private store: Store<AppState>) {
-      console.log('UserService');
+      if (!environment.production) { console.log('UserService'); }
   }
 
   public getUserById(id: string): Observable<UserResponse> {
     return this.http.get(this.API_USERS + `/${id}`);
   }
 
+  public getUserByName(name: string): Observable<UserResponse> {
+    return this.http.get(this.API_USERS + `/public/${name}`);
+  }
+
+  public getUsers(): Observable<UserResponse> {
+    return this.http.get(this.API_USERS);
+  }
+
   public updateUser(user: User): Observable<UserResponse> {
     return this.http.put(this.API_USERS, user);
+  }
+
+  public deleteUser(): Observable<UserResponse> {
+    return this.http.delete(this.API_USERS);
   }
 
   public refreshToken(id: string): Observable<UserResponse> {
@@ -47,7 +60,6 @@ export class UserService {
   public logout(): void {
     this.ls.setKey('token', null);
     this.store.dispatch(UserActions.userLogOut());
-    this.ls.loadStorage();
   }
 
 }

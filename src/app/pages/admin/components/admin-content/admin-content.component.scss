@@ -1,0 +1,38 @@
+h3 {
+  font-size: 1.3rem;
+  &:first-child { margin-top: 0 };
+  margin-top: 2rem;
+}
+
+ul {
+  list-style-type: circle;
+  padding-left: var(--small-padding);
+  margin: 0 auto;
+}
+
+li {
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  margin: .8rem auto;
+  & span {
+    outline: none;
+    @media(max-width: 450px) { font-size: .75rem !important}
+  }
+
+  &:hover { color: var(--primary-color) }
+
+  & mat-icon {
+    position: absolute;
+    right: 0;
+    top: 1px;
+    color: var(--p-color);
+    font-size: 1.4rem;
+    @media(max-width: 450px) {
+      font-size: 1.3rem !important;
+      top: 2px;
+    }
+
+    &:hover { color: var(--angular-color) }
+  }
+}

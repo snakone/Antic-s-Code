@@ -11,3 +11,7 @@ export const getCategoriesState = createSelector(
 export const getCategoryByName = createSelector(
   getCategoriesState, fromCategories.getByName
 );
+
+export const getCategoryByNameLoaded = createSelector(
+  getCategoriesState, fromCategories.getByNameLoaded
+);

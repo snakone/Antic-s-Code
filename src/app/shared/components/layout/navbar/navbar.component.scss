@@ -130,7 +130,7 @@ ul {
   & li {
     margin-top: 25px;
     margin-bottom: 25px;
-    font-size: 1.1rem;
+    font-size: .9rem;
     outline: none;
     cursor: pointer;
   }
@@ -145,4 +145,17 @@ ul {
 @media(min-width: 616px) {
   .btn-mobile { display: none; }
   .btn-desktop { display: block; }
+}
+
+.division {
+  max-width: 33%;
+  margin: 0 auto;
+  margin-bottom: -5px;
+
+  & hr {
+    background-color: var(--primary-color);
+    border: none;
+    height: 2px;
+    border-radius: 50px;
+  }
 }

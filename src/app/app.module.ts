@@ -28,7 +28,7 @@ import { StoreModule } from '@ngrx/store';
         strictStateImmutability: false,
         strictActionImmutability: false
       }
-    }),
+    })
   ],
   providers: [
     { provide: APP_CONFIG, useValue: APP_CONSTANTS },

@@ -1,10 +1,17 @@
-import { Component, OnInit, EventEmitter, Output, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User, UserResponse } from '@app/shared/interfaces/interfaces';
 import { HttpErrorResponse } from '@angular/common/http';
-import { LoginService } from '@app/core/services/services.index';
+import { LoginService, CrafterService } from '@app/core/services/services.index';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { MatDialogRef } from '@angular/material/dialog';
+import { LoginComponent } from '../login.component';
+import { Store } from '@ngrx/store';
+import { AppState } from '@app/app.config';
+import * as UserActions from '@core/ngrx/actions/user.actions';
+import { StorageService } from '@app/core/storage/storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,17 +21,26 @@ import { takeUntil } from 'rxjs/operators';
 
 export class SignUpComponent implements OnInit, OnDestroy {
 
-  @Input() conditions = false;
   @Output() changed = new EventEmitter<boolean>();
   signUpForm: FormGroup;
   namePattern = '^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$';
   matchError = false;
+  conditions: boolean;
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private login: LoginService) { }
+  constructor(private login: LoginService,
+              private ls: StorageService,
+              private store: Store<AppState>,
+              private crafter: CrafterService,
+              private router: Router,
+              public dialogRef: MatDialogRef<LoginComponent>) { }
 
   ngOnInit() {
     this.createSignUpForm();
+  }
+
+  openConditions(): void {
+    this.changed.emit(true);
   }
 
   onSubmit(): void {
@@ -38,14 +54,11 @@ export class SignUpComponent implements OnInit, OnDestroy {
      .pipe(takeUntil(this.unsubscribe$))
      .subscribe((res: UserResponse) => {
         if (res.ok) {
-          console.log(res);
+          this.handleSignUp(res);
         }
       }, (err: HttpErrorResponse) => {
-        if (err.status === 0) {
-          console.log(err);  // Login Error
-        } else {
-          console.log(err); // Email Unique
-        }
+        err.status === 0 ?
+        this.handleError('server') : this.handleError();
     });
   }
 
@@ -75,14 +88,29 @@ export class SignUpComponent implements OnInit, OnDestroy {
         return null;
       }
       this.matchError = true;
-      return {
-        error: true
-      };
+      return { error: true };
     };
   }
 
-  openConditions(): void {
-    this.changed.emit(true);
+  private handleSignUp(data: UserResponse): void {
+    this.dialogRef.close();
+    this.store.dispatch(UserActions.setUser({user: data.user}));
+    this.ls.setKey('token', data.token);
+    this.ls.setKey('user', data.user._id);
+    this.crafter.toaster(data.user.name, 'welcome', 'info');
+    this.router.navigateByUrl('/profile');
+  }
+
+  private handleError(type?: string): void {
+    if (type === 'server') {
+      this.crafter.toaster('server.error',
+                           'server.bad',
+                           'error');
+    } else {
+      this.crafter.toaster('sign.in.error',
+                           'email.unique',
+                           'error');
+    }
   }
 
   ngOnDestroy(): void {

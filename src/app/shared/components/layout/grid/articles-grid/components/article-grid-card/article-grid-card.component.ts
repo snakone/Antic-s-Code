@@ -10,6 +10,8 @@ import { Article } from '@app/shared/interfaces/interfaces';
 export class ArticleGridCardComponent implements OnInit {
 
   @Input() article: Article;
+  @Input() search: boolean;  // Search Grid?
+  @Input() title: boolean;   // Small Title on Search
 
   constructor() { }
 

@@ -1,7 +1,7 @@
 {
   "name": "antic-s-code",
-  "version": "0.3.0",
-  "description": "Antic's Code Application",
+  "version": "0.4.0",
+  "description": "Antic's Code Web Application",
   "author": "Sergi Martínez",
   "scripts": {
     "ng": "ng",
@@ -28,6 +28,7 @@
     "@ngrx/effects": "^8.3.0",
     "@ngrx/entity": "^8.3.0",
     "@ngrx/store": "^8.3.0",
+    "@ngrx/store-devtools": "^8.3.0",
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
     "core-js": "^2.5.4",

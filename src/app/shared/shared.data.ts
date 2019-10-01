@@ -4,7 +4,10 @@ import {
   FooterList,
   FAQ,
   ToC,
-  Config
+  Config,
+  Role,
+  Tag,
+  StarList
 } from './interfaces/interfaces';
 
 export const MENU: List[] = [
@@ -18,7 +21,8 @@ export const HOME_MENU: List[] = [
   { name: 'advantages', link: '/home', icon: 'autorenew' },
   { name: 'collaborate', link: '/code', icon: 'present_to_all' },
   { name: 'support', link: '/categories', icon: 'help_outline' },
-  { name: 'about.me', link: '/articles', icon: 'directions_run' }
+  { name: 'about.me', link: '/articles', icon: 'directions_run' },
+  { name: 'searcher', link: '/search', icon: 'search' }
 ];
 
 export const CATEGORIES: string[] = [
@@ -31,51 +35,49 @@ export const CATEGORIES: string[] = [
 ];
 
 export const TAGS: string[] = [
+  'Consola',
   'Desarrollo',
-  'Typescript',
+  'Diseño',
+  'Material',
   'Frontend',
   'Backend',
-  'Diseño',
-  'SCSS',
+  'Typescript',
+  'Database',
   'Ionic',
-  'Database'
+  'Config'
 ];
 
-export const CODE_TAGS: string[] = [
-  'Consola',
-  'Javascript',
-  'HTML',
-  'Nodejs',
-  'Diseño',
-  'CSS',
-  'SCSS',
-  'Typescript',
-  'Angular',
-  'Material',
-  'Ionic',
-  'Database',
-  'Config',
-  'Todas'
+export const TAGS_ICON: Tag[] = [
+  { name: 'Consola', icon: 'computer' },
+  { name: 'Desarrollo', icon: 'build' },
+  { name: 'Diseño', icon: 'color_lens' },
+  { name: 'Material', icon: 'view_compact' },
+  { name: 'Frontend', icon: 'personal_video' },
+  { name: 'Backend', icon: 'cast_connected' },
+  { name: 'Typescript', icon: 'language' },
+  { name: 'Database', icon: 'cloud_queue' },
+  { name: 'Ionic', icon: 'phone_android' },
+  { name: 'Config', icon: 'toc' },
 ];
 
 export const POPULAR_CATEGORIES: List[] = [
   {
-    name: 'Cógido',
+    name: 'code',
     icon: 'code',
     class: 'icon-pink'
   },
   {
-    name: 'Artículos',
+    name: 'articles',
     icon: 'receipt',
     class: 'icon-orange'
   },
   {
-    name: 'Tutoriales',
+    name: 'tutorials',
     icon: 'nature_people',
     class: 'icon-green'
   },
   {
-    name: 'Ejemplos',
+    name: 'examples',
     icon: 'wallpaper',
     class: 'icon-red'
   },
@@ -125,12 +127,66 @@ export const LANGUAGES: Config[] = [
   { name: 'English', selector: 'en' }
 ];
 
+export const LEVELS: string[] = [
+  'Básico',
+  'Medio',
+  'Avanzado'
+];
+
+export const BADGES: string[] = [
+  'Nuevo',
+  'Destacado',
+  'Popular'
+];
+
+export const SEARCH_TYPES: string[] = [
+  'likes',
+  'stars',
+  'views'
+];
+
+export const STAR_LIST: StarList[] = [
+  { number: 5, active: false },
+  { number: 4, active: false },
+  { number: 3, active: false },
+  { number: 2, active: false },
+  { number: 1, active: false },
+  { number: 0, active: false },
+];
+
 export const THEMES: Config[] = [
   { name: 'Default', selector: 'default' },
   { name: 'Deep Blue', selector: 'deepblue' },
   { name: 'Deep Green', selector: 'deepgreen' },
   { name: 'Dark Red', selector: 'darkred' },
-  { name: 'Sky Blue', selector: 'skyblue' }
+  { name: 'Sky Blue', selector: 'skyblue' },
+  { name: 'Super Orange', selector: 'superorange' }
+];
+
+export const SOCIAL_PROFILE: Config[] = [
+  { name: 'Twitter', selector: 'twitter' },
+  { name: 'Github', selector: 'github' },
+  { name: 'Portfolio', selector: 'portfolio' }
+];
+
+export const ROLES: Role[] = [
+  { name: 'Web Developer', translate: 'web.dev' },
+  { name: 'Frontend Developer', translate: 'front.dev' },
+  { name: 'Backend Developer', translate: 'back.dev' },
+  { name: 'Full-Stack Developer', translate: 'full.dev' },
+  { name: 'Designer', translate: 'design.dev' },
+  { name: 'Web Designer', translate: 'design.web' }
+];
+
+export const PRO_LANGS: string[] = [
+  'JavaScript',
+  'Python',
+  'Java',
+  'C++',
+  'Typescript',
+  'Swift',
+  'PHP',
+  'Dart'
 ];
 
 export const PAGE_BG = {
@@ -138,7 +194,10 @@ export const PAGE_BG = {
   categories: 'https://media2.giphy.com/media/hLzncGRSaC5Nu/giphy.gif',
   articles: 'https://media0.giphy.com/media/xUA7bgk0V4eUyNVaAo/giphy.gif',
   article: 'https://media2.giphy.com/media/b93B4aJQQakRG/giphy.gif',
-  profile: 'https://media3.giphy.com/media/h0Ti6XKcFKBby/giphy.gif'
+  profile: 'https://media3.giphy.com/media/h0Ti6XKcFKBby/giphy.gif',
+  admin: 'https://media.giphy.com/media/BHNfhgU63qrks/giphy.gif',
+  public: 'https://media2.giphy.com/media/l4KihuqeuJEi9qLSM/giphy.gif',
+  search: 'https://media1.giphy.com/media/fD9ZWStNB5o1q/giphy.gif'
 };
 
 export const COUNTRIES: string[] = [
@@ -214,27 +273,18 @@ export const TESTIMONIALS: Testimonial[] = [
   }
 ];
 
-export const LOGOS: List[] = [
-  { name: 'Markup HTML5', icon: 'html-logo.png', link: 'HTML' },
-  { name: 'Stylesheet CSS3', icon: 'css-logo.png', link: 'CSS' },
-  { name: 'Vanilla Javascript', icon: 'javascript-logo.png', link: 'Javascript' },
-  { name: 'Angular Framework', icon: 'angular-logo.png', link: 'Angular' },
-  { name: 'Server Javascript', icon: 'node-logo.png', link: 'Nodejs' },
-  { name: 'Mongo Database', icon: 'mongo-logo.png', link: 'MongoDB' }
-];
-
 export const FOOTER_LIST: FooterList[] = [
   {
-    title: 'Información',
-    list: ['Sobre mí', 'Contacto', 'Soporte', 'Políticas']
+    title: 'info',
+    list: ['about.me', 'contact', 'support', 'politics']
   },
   {
-    title: 'Enlaces Útiles',
-    list: ['Registrarse', '¿Cómo funciona?', 'Ventajas', 'Colabora']
+    title: 'useful.links',
+    list: ['register', 'how.it.works', 'advantages', 'collaborate']
   },
   {
-    title: 'Conecta Conmigo',
-    list: ['Ayuda', 'Twitter', 'Facebook', 'Youtube']
+    title: 'connect.me',
+    list: ['help', 'Twitter', 'Facebook', 'Youtube']
   }
 ];
 

@@ -40,7 +40,7 @@ export class SingleCategoryComponent implements OnInit, OnDestroy {
       .pipe(
         takeUntil(this.unsubscribe$),
         distinctUntilChanged())
-      .subscribe((res: Category) => {
+       .subscribe((res: Category) => {
         if (res) {
           this.category = null;
           setTimeout(() => { this.category = res; }, 400);

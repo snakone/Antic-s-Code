@@ -32,4 +32,8 @@ export class StorageService {
     return this.storage[value];
   }
 
+  reset(): void {
+    this.storage = new Storage();
+  }
+
 }

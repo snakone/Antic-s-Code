@@ -22,3 +22,19 @@
     var(--secondary-color)
   );
 }
+
+.btn-dark {
+  @include button-animated(
+    #070505,
+    #3a393a,
+    #240d24
+  )
+}
+
+.btn-danger {
+  @include button-animated(
+    var(--angular-color),
+    #8d060f,
+    #f14223
+  )
+}

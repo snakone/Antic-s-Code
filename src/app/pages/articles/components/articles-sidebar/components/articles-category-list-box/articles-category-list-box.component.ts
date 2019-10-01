@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CATEGORIES } from '@app/shared/shared.data';
+import { MAIN_CATEGORIES } from '@app/shared/shared.data';
 
 @Component({
   selector: 'app-articles-category-list-box',
@@ -9,7 +9,7 @@ import { CATEGORIES } from '@app/shared/shared.data';
 
 export class ArticlesCategoryListBoxComponent implements OnInit {
 
-  categories = CATEGORIES;
+  categories = MAIN_CATEGORIES;
 
   constructor() { }
 

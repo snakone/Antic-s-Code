@@ -1,24 +1,4 @@
-.mobile {
-  @media(min-width: 993px) { display: none }
-}
-
-p {
-  margin: 0;
-  margin-top: -0.5rem;
- }
-
  .summary { margin-bottom: 5px }
-
-.scroll-wrapper {
-  height: 1700px;
-  margin-bottom: 2rem;
-  overflow-y: scroll;
-
-  &::-webkit-scrollbar {
-    width: 0;
-    display: none;
-  }
-}
 
 .loader {
   opacity: 0;

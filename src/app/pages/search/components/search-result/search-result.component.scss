@@ -1,0 +1,17 @@
+* { box-sizing: border-box }
+
+.col-sm-12, .col-lg-12, .col-sm-6 {
+  @media(max-width: 550px) {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.col-sm-6 {
+  @media(min-width: 992px) {
+    display: inline-flex;
+    float: unset !important;
+  }
+}
+
+

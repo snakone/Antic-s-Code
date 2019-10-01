@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
-import { SwipeMenuService } from './services/swipe-menu/swipe-menu.service';
-import { MENU } from '@app/shared/shared.data';
-import { MatDialog } from '@angular/material/dialog';
+import { SwipeMenuService } from './services/swipe-menu.service';
+import { MENU, HOME_MENU } from '@app/shared/shared.data';
 import { LoginComponent } from '../../login/login.component';
 import { AppState } from '@app/app.config';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { User } from '@app/shared/interfaces/interfaces';
 import * as fromUser from '@core/ngrx/selectors/user.selectors';
-import { UserService } from '@core/services/user/user.service';
+import { CrafterService } from '@core/services/services.index';
 
 @Component({
   selector: 'app-navbar',
@@ -21,9 +20,10 @@ export class NavBarComponent implements OnInit {
 
   show = false;
   items = MENU;
+  menu = HOME_MENU;
   user$: Observable<User>;
 
-  constructor(public dialog: MatDialog,
+  constructor(private crafter: CrafterService,
               private swipeMenu: SwipeMenuService,
               private store: Store<AppState>) { }
 
@@ -38,7 +38,7 @@ export class NavBarComponent implements OnInit {
   }
 
   openLogin(): void {
-    this.dialog.open(LoginComponent);
+    this.crafter.dialog(LoginComponent);
   }
 
 }

@@ -1,10 +1,9 @@
-<app-content-box title="Categorías"
-                 icon="chrome_reader_mode">
+<app-content-box [title]="'categories' | translate">
   <ul>
     <li *ngFor="let c of categories"
-        [routerLink]="'/category/' + c">
-      <mat-icon>keyboard_arrow_right</mat-icon>
-      <span>{{c}}</span>
+        [routerLink]="'/category/' + c.category">
+        <img [src]="c.icon | image:'logos'"/>  <!-- LOGO LIST -->
+      <span>{{c.name}}</span>
     </li>
   </ul>
 </app-content-box>

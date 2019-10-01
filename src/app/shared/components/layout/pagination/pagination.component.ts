@@ -10,6 +10,8 @@ import { PaginationService } from 'ngx-pagination';
 export class PaginationComponent implements OnInit {
 
   @Input() id: string;
+  @Input() margin: number;
+  @Input() selector: string;
 
   constructor(private pagination: PaginationService) { }
 
@@ -17,7 +19,13 @@ export class PaginationComponent implements OnInit {
 
   changeFrom(id: string, page: number): void {
     this.pagination.setCurrentPage(id, page);
-    window.dispatchEvent(new Event('resize'));
+    this.scroll(this.selector);
+    window.dispatchEvent(new Event('resize'));  // Sticky
+  }
+
+  private scroll(id: string): void {
+    const el = document.getElementById(id);
+    if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   }
 
 }

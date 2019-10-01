@@ -41,7 +41,7 @@ export class CategoryGridComponent implements OnInit, OnDestroy {
     this.store.select(fromArticles.getArticlesByCategoryCount)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((res: CategoryCount) => {
-        this.count = res;
+        if (res) { this.count = res; }
     });
   }
 

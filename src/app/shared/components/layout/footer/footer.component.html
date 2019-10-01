@@ -3,21 +3,22 @@
      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6"
           *ngFor="let l of list">  <!-- FOOTER LIST -->
       <div class="footer-content-column">
-        <h2>{{l.title}}</h2>
+        <h2>{{l.title | translate}}</h2>
         <ul>
           <li *ngFor="let i of l.list"
               [ngClass]="{'twitter': i === 'Twitter',
                           'facebook': i === 'Facebook',
                           'youtube': i === 'Youtube'}">  <!-- SOCIAL -->
-            {{i}}
+            {{i | translate}}
           </li>
         </ul>
       </div>
      </div>
-     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">  <!-- DOWNLOAD -->
-      <div class="footer-content-column">
-        <h2>Antic's en Móvil</h2>
-        <p>Descarga la App</p>
+
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+      <div class="footer-content-column">  <!-- DOWNLOAD -->
+        <h2>{{'on.mobile' | translate}}</h2>
+        <p>{{'download.app' | translate}}</p>
         <button mat-button class="btn-pink">
           <mat-icon>phone_android</mat-icon>
           Google Play
