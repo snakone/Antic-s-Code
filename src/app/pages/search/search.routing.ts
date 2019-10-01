@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { SingleArticleComponent } from './single-article.component';
+import { SearchComponent } from './search.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: SingleArticleComponent
+    component: SearchComponent
   }
 ];
 
@@ -15,4 +15,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 
-export class SingleArticleRoutingModule { }
+export class SearchRouting { }

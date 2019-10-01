@@ -32,6 +32,7 @@ export class PageHeaderComponent implements OnInit {
       case 'Profile': return this.bgs.profile;
       case 'Admin': return this.bgs.admin;
       case 'Public Profile': return this.bgs.public;
+      case 'Search': return this.bgs.search;
       default: return '';
     }
   }

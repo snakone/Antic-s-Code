@@ -49,6 +49,11 @@ const routes: Routes = [
                         .then(mod => mod.PublicProfileModule), data: {name: 'Public Profile'}
   },
   {
+    path: 'search',
+    loadChildren: () => import('./pages/search/search.module')
+                        .then(mod => mod.SearchModule), data: {name: 'Search'}
+  },
+  {
     path: 'admin',
     canActivate: [AdminGuard],
     loadChildren: () => import('./pages/admin/admin.module')

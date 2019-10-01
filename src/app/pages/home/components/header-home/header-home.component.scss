@@ -49,10 +49,7 @@ p {
       margin-top: 20px;
   }
 
-  .header-container {
-    padding: 0 20px;
-    margin-top: var(--navbar-height-mobile);
-  }
+  .header-container { padding: 0 20px }
 }
 
 @media(max-width: 350px) {

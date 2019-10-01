@@ -10,6 +10,6 @@
  <app-article-publish-box [article]="article"></app-article-publish-box>
 
 </app-article-card>
-<div class="loader" *ngIf="!article">
-  <app-loading ></app-loading>
-</div>
+
+<app-loading *ngIf="!article"></app-loading>
+

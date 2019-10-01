@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { CodeComponent } from './code.component';
+import { SingleCategoryComponent } from './single-category.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: CodeComponent
+    component: SingleCategoryComponent
   }
 ];
 
@@ -15,4 +15,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 
-export class CodeRoutingModule { }
+export class SingleCategoryRouting { }

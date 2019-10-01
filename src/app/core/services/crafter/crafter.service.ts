@@ -4,6 +4,7 @@ import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
 import { ComponentType } from '@angular/cdk/overlay';
 import { TranslateService } from '@ngx-translate/core';
 import { MatDialog } from '@angular/material/dialog';
+import { environment } from '@env/environment';
 
 @Injectable()
 
@@ -12,7 +13,9 @@ export class CrafterService {
   constructor(private ts: TranslateService,
               private toastr: ToastrService,
               private snackBar: MatSnackBar,
-              private matDialog: MatDialog) { }
+              private matDialog: MatDialog) {
+      if (!environment.production) { console.log('CrafterService'); }
+  }
 
   toaster(title: string, message: string, action: string): ActiveToast<any> {
     title = this.translate(title);

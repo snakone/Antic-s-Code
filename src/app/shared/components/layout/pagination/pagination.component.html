@@ -1,4 +1,4 @@
-<div class="row-pagination">
+<div class="row-pagination" [ngClass]="{'margin' : margin === 0}">
   <pagination-controls (pageChange)="changeFrom(id, $event)"
                         class="pagination"
                         previousLabel=""

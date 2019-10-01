@@ -1,10 +1,10 @@
 <div class="search-header">
-  <form [formGroup]="searchForm" #f="ngForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
     <div class="row">
       <mat-form-field class="default" color="accent">  <!-- VALUE -->
         <input matInput
                [placeholder]="'search.for' | translate"
-               formControlName="title">
+               formControlName="value">
       </mat-form-field>
       <mat-form-field class="select" color="accent">  <!-- CATEGORY -->
         <mat-label>{{'choose.category' | translate}}</mat-label>
@@ -12,19 +12,20 @@
           <mat-option *ngFor="let cat of categories" [value]="cat">
             {{cat | translate}}
           </mat-option>
+          <mat-option value="">{{'all.a' | translate}}</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field class="select" color="accent">  <!-- SUB -->
+      <mat-form-field class="select" color="accent">  <!-- TAGS -->
         <mat-label>{{'pick.thread' | translate}}</mat-label>
         <mat-select formControlName="tag">
           <mat-option *ngFor="let tag of tags" [value]="tag">
             {{tag | translate}}
           </mat-option>
+          <mat-option value="">{{'all' | translate}}</mat-option>
         </mat-select>
       </mat-form-field>
       <button type="submit"
               class="btn-purple"
-              [disabled]="searchForm.invalid"
               mat-button>
         {{'search' | translate}}
       </button>

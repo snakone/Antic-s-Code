@@ -1,0 +1,37 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & .items {
+   & p {
+      color: black;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    & span { color: var(--p-color) }
+  }
+
+  & .sort {
+    & mat-icon {
+      border: 1px solid var(--section-border-color);
+      padding: 5px;
+      margin: 0 5px;
+      border-radius: 3px;
+      cursor: pointer;
+
+      &.active {
+        color: var(--bg-color);
+        background-color: var(--primary-color);
+      }
+    }
+  }
+}
+
+.reset { margin-left: 15px!important }
+
+
+
+

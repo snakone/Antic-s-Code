@@ -1,0 +1,22 @@
+<app-content-box>
+  <div class="wrapper">
+    <div class="items">
+      <p>{{'result' | translate}}</p>
+      <span>{{'content.found' | translate}}: {{count$ | async}}</span>
+    </div>
+    <div class="sort">
+      <mat-icon (click)="sort()"
+                [matTooltip]="'grid' | translate"
+                matTooltipPosition="above"
+                [ngClass]="{'active': active}">border_all</mat-icon>
+      <mat-icon (click)="sort()"
+                [matTooltip]="'list' | translate"
+                matTooltipPosition="above"
+                [ngClass]="{'active': !active}">list_alt</mat-icon>
+      <mat-icon (click)="reset()"
+                matTooltip="Reset"
+                matTooltipPosition="above"
+                class="reset">autorenew</mat-icon>
+    </div>
+  </div>
+</app-content-box>

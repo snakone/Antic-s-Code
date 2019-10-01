@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { CODE_TAGS } from '@app/shared/shared.data';
+import { TAGS_ICON } from '@app/shared/shared.data';
 
 @Component({
   selector: 'app-code-sidebar',
@@ -10,7 +10,7 @@ import { CODE_TAGS } from '@app/shared/shared.data';
 export class CodeSidebarComponent implements OnInit {
 
   @Output() tag: EventEmitter<string> = new EventEmitter<string>();
-  codeTags = CODE_TAGS;
+  tags = TAGS_ICON;
 
   constructor() { }
 

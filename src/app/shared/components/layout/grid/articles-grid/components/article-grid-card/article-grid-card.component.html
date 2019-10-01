@@ -1,17 +1,17 @@
 <div class="card">
-  <article class="card-content">
+  <article class="card-content" [ngClass]="{'search' : search}">
     <figure [routerLink]="'/article/' + article.slug">  <!-- CARD IMAGE -->
       <img [src]="article.cover"/>
       <app-article-card-badges [badges]="article.badges"></app-article-card-badges>
     </figure>
     <div class="card-info">  <!-- CARD TITLE -->
-      <div class="card-info-content">
+      <div class="card-info-content" [ngClass]="{'title' : title}">
         <h4 [routerLink]="'/article/' + article.slug">{{article.title}}</h4>
         <div class="card-info-meta">
-          <span class="meta-star-card meta-star-rating">
+          <span class="meta-star-card meta-star-icon">
             {{article.stars}} <mat-icon>star_rate</mat-icon>
           </span>
-          <span class="meta-like-card meta-like-favorite">
+          <span class="meta-like-card meta-like-icon">
             {{article.likes}} <mat-icon>favorite</mat-icon>
           </span>
         </div>
@@ -32,7 +32,7 @@
                 <span class="article-level"
                       [ngClass]="{'basic': article.level === 'Básico',
                                   'medium': article.level === 'Medio',
-                                  'hard': article.level === ' Avanzado'}">
+                                  'hard': article.level === 'Avanzado'}">
                       {{article.level | translate}}
                 </span>
               </p>

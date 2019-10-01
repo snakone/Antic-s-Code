@@ -1,7 +1,8 @@
 .card-badge-content {
   position: absolute;
   left: 1rem;
-  top: 1rem;
+  top: .9rem;
+  right: 1rem;
 }
 
-@media (max-width: 550px) { span { font-size: .65rem !important } }
+@media (max-width: 550px) { span { font-size: .7rem !important } }

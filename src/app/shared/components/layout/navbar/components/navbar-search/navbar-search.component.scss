@@ -69,6 +69,7 @@ ul {
   & li {
     padding: 5px 10px 5px var(--small-padding);
     text-align: center;
+    outline: none;
 
     & img {
       border-radius: 25%;
@@ -90,6 +91,7 @@ ul {
     position: relative;
     top: -10px;
     left: -5px;
+    outline: none;
   }
 }
 

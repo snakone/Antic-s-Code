@@ -7,6 +7,7 @@ import { StorageService } from '@app/core/storage/storage.service';
 import { Store } from '@ngrx/store';
 import * as UserActions from '@core/ngrx/actions/user.actions';
 import { map } from 'rxjs/operators';
+import { environment } from '@env/environment';
 
 @Injectable()
 
@@ -18,7 +19,7 @@ export class UserService {
   constructor(private http: HttpService,
               private ls: StorageService,
               private store: Store<AppState>) {
-      console.log('UserService');
+      if (!environment.production) { console.log('UserService'); }
   }
 
   public getUserById(id: string): Observable<UserResponse> {

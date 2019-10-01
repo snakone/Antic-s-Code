@@ -7,18 +7,20 @@ import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import * as fromArticles from '@core/ngrx/reducers/article.reducer';
 import * as fromCategories from '@core/ngrx/reducers/category.reducer';
 import * as fromCode from '@core/ngrx/reducers/code.reducer';
-import * as fromUser from '@core/ngrx/reducers/user.reducer';
+import * as fromUsers from '@core/ngrx/reducers/user.reducer';
+import * as fromSearch from '@core/ngrx/reducers/search.reducer';
 
 const DEV = 'http://localhost:3000/';
 const PRE = 'http://192.168.1.97:3000/';
 const PROD = 'https://antics-code.herokuapp.com/';
-const APP_VERSION = '0.3.0';
+const APP_VERSION = '0.4.0';
 
 export interface AppState {
   articles: fromArticles.ArticleState;
   categories: fromCategories.CategoryState;
   code: fromCode.CodeState;
-  user: fromUser.UserState;
+  user: fromUsers.UserState;
+  search: fromSearch.SearchState;
 }
 
 export interface AppConfig {

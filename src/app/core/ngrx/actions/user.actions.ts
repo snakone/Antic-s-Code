@@ -40,7 +40,7 @@ export const setUserFailure =
   createAction('[Users] Set User Failure',
   props<{ error: string }>());
 
-// SET USER EMAIL TOKEN
+// SET USER EMAIL
 export const setUserEmail =
   createAction('[Users] Set User Email',
   props<{ email: string }>());

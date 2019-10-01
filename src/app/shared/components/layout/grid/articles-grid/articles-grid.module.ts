@@ -21,7 +21,8 @@ import { ArticleLayoutModule } from '../../article-layout/article-layout.module'
     ArticleLayoutModule
   ],
   exports: [
-    ArticlesGridComponent
+    ArticlesGridComponent,
+    ArticleGridCardComponent
   ]
 })
 

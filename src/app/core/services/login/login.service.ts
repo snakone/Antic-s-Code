@@ -3,6 +3,7 @@ import { HttpService } from '../http/http.service';
 import { APP_CONSTANTS } from '@app/app.config';
 import { User, UserResponse } from '@app/shared/interfaces/interfaces';
 import { Observable } from 'rxjs';
+import { environment } from '@env/environment';
 
 @Injectable()
 
@@ -12,7 +13,7 @@ export class LoginService {
   readonly API_USER = APP_CONSTANTS.END_POINT + 'users';
 
   constructor(private http: HttpService) {
-    console.log('LoginService');
+    if (!environment.production) { console.log('LoginService'); }
   }
 
   public signIn(email: string, password: string): Observable<UserResponse> {

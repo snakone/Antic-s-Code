@@ -6,13 +6,15 @@
   color: var(--tag-color);
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  @media(max-width: 1072px) { font-size: .9rem }
-  @media(max-width: 993px) { font-size: 1rem }
+  font-size: .9rem;
   @media(max-width: 550px) {
-    font-size: .8rem;
-    margin-right: 5px;
-    margin-bottom: 5px;
+    font-size: .8rem !important;
    }
+
+  @media(max-width: 350px) {
+   font-size: .7rem !important;
+   padding: 0 .30667rem;
+  }
 
   &:hover {
     color: var(--light-color);
@@ -31,13 +33,15 @@
   -webkit-border-radius: 2px;
   border-radius: 2px;
   display: inline-block;
-  @media(max-width: 1072px) { font-size: .9rem }
-  @media(max-width: 993px) { font-size: 1rem }
+  font-size: .9rem;
   @media(max-width: 550px) {
     font-size: .8rem !important;
-    margin-right: 5px;
-    margin-bottom: 5px;
-   }
+  }
+
+  @media(max-width: 350px) {
+    font-size: .7rem !important;
+    padding: 0 .30667rem;
+  }
 
   &:hover {
     color: var(--light-color);

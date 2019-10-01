@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminComponent } from './admin.component';
-import { AdminRoutingModule } from './admin.routing';
+import { AdminRouting } from './admin.routing';
 import { ComponentsModule } from '@app/shared/components/components.module';
 import { SharedModule } from '@app/shared/shared.module';
 
@@ -25,7 +25,7 @@ import { ArticlePublishBoxComponent } from './components/article-publish-box/art
     CommonModule,
     ComponentsModule,
     SharedModule,
-    AdminRoutingModule,
+    AdminRouting,
     ArticlesSidebarModule
   ]
 })
