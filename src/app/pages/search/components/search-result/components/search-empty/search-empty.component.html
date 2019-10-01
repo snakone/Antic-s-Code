@@ -1,0 +1,68 @@
+<app-content-box>
+  <div *ngIf="request$ | async as req">
+      <h3>{{'no.results' | translate}}</h3>
+      <p>{{'sorry.results' | translate}}</p><br>
+
+      <ul>
+        <li><span class="bold black">{{'value' | translate}}: </span>
+          <span *ngIf="req.value">{{req.value | translate}}</span>
+          <span *ngIf="!req.value">"{{'not.defined' | translate}}"</span>
+        </li>
+        <li><span class="bold black">{{'category' | translate}}: </span>
+          <span *ngIf="req.category">{{req.category | translate}}</span>
+          <span *ngIf="!req.category">"{{'not.defined' | translate}}"</span>
+        </li>
+        <li><span class="bold black">{{'thread' | translate}}: </span>
+          <span *ngIf="req.tag">{{req.tag | translate}}</span>
+          <span *ngIf="!req.tag">"{{'not.defined' | translate}}"</span>
+        </li>
+        <li><span class="bold black">{{'level' | translate}}: </span>
+          <span *ngIf="req.level">
+            <span *ngFor="let l of req.level; let i = index">
+                <span class="slash" *ngIf="i >= 1"> - </span>
+                {{l + ' '}}
+            </span>
+          </span>
+          <span *ngIf="!req.level">"{{'not.defined' | translate}}"</span>
+        </li>
+        <li><span class="bold black">{{'stars' | translate}}: </span>
+          <span *ngIf="req.stars">
+              <span *ngFor="let s of req.stars; let i = index">
+                  <span class="slash" *ngIf="i >= 1"> - </span>
+                  {{s + ' '}}
+              </span>
+            </span>
+            <span *ngIf="!req.stars">"{{'not.defined' | translate}}"</span>
+        </li>
+        <li><span class="bold black">{{'tags' | translate}}: </span>
+          <span *ngIf="req.badges">
+              <span *ngFor="let b of req.badges; let i = index">
+                  <span class="slash" *ngIf="i >= 1"> - </span>
+                  {{b + ' '}}
+              </span>
+            </span>
+            <span *ngIf="!req.badges">"{{'not.defined' | translate}}"</span>
+        </li>
+        <li><span class="bold black">{{'order.by' | translate}}: </span>
+          <span *ngIf="req.type">
+              <span *ngFor="let t of req.type; let i = index">
+                  <span class="slash" *ngIf="i >= 1"> - </span>
+                  {{(t | translate) + ' '}}
+              </span>
+            </span>
+            <span *ngIf="!req.type">"{{'not.defined' | translate}}"</span>
+        </li>
+        <li><span class="bold black">{{'order.title' | translate}}: </span>
+          <span *ngIf="req.sort">
+            <span *ngIf="req.sort == '-1'">
+              {{'order.desc' | translate}}
+             </span>
+             <span *ngIf="req.sort == '1'">
+              {{'order.asc' | translate}}
+             </span>
+          </span>
+          <span *ngIf="!req.sort">"{{'not.defined' | translate}}"</span>
+        </li>
+      </ul>
+  </div>
+</app-content-box>

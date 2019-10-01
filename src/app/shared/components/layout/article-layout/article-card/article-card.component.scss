@@ -104,3 +104,10 @@
   &:hover { font-weight: bold !important }
 }
 
+.reaction-desktop {
+  @media(max-width: 700px) { display: none }
+}
+
+.reaction-mobile {
+  @media(min-width: 701px) { display: none }
+}

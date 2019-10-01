@@ -33,11 +33,12 @@ const featureReducer = createReducer(
   )),
   // RESET
   on(CategoryActions.resetCategory, (state) => (
-    { ...state, loaded: true, error: null, category: null }
+    { ...state, loaded: false, error: null, category: null }
   )),
 );
 
 export const getByName = (state: CategoryState) => state.category;
+export const getByNameLoaded = (state: CategoryState) => state.loaded;
 
 export function reducer(state: CategoryState | undefined, action: Action) {
   return featureReducer(state, action);

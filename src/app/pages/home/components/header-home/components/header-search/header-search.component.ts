@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { CATEGORIES, CODE_TAGS } from '@app/shared/shared.data';
+import { CATEGORIES, TAGS } from '@app/shared/shared.data';
+import { AppState } from '@app/app.config';
+import { Store } from '@ngrx/store';
+import * as SearchActions from '@core/ngrx/actions/search.actions';
+import { SearchRequest } from '@shared/interfaces/interfaces';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-search',
@@ -12,9 +17,10 @@ export class HeaderSearchComponent implements OnInit {
 
   searchForm: FormGroup;
   categories = CATEGORIES;
-  tags = CODE_TAGS;
+  tags = TAGS;
 
-  constructor() { }
+  constructor(private store: Store<AppState>,
+              private router: Router) { }
 
   ngOnInit() {
     this.createSearchForm();
@@ -22,15 +28,19 @@ export class HeaderSearchComponent implements OnInit {
 
   private createSearchForm(): void {
     this.searchForm = new FormGroup({
-       title: new FormControl(null, []),
+       value: new FormControl(null, []),
     category: new FormControl(null, []),
-    tag: new FormControl(null, [])
+         tag: new FormControl(null, [])
     });
   }
 
   onSubmit(): void {
-    if (this.searchForm.invalid) { return; }
-    console.log(this.searchForm.value);
+    if (this.searchForm.value.value == null &&
+        this.searchForm.value.category == null &&
+        this.searchForm.value.tag == null) { return; }
+    const request: SearchRequest = this.searchForm.value;
+    this.store.dispatch(SearchActions.searchContent({ request }));
+    this.router.navigateByUrl('/search');
   }
 
 }

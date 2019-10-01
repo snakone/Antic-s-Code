@@ -1,0 +1,90 @@
+.filter-box, form, mat-form-field {
+ width: 100%;
+}
+
+mat-form-field {
+  position: relative;
+  box-sizing: border-box;
+}
+
+button {
+  margin: 1.2rem auto;
+  margin-bottom: 8px;  // Match Search Result Bottom
+  width: 100%;
+}
+
+h3 {
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: .8rem;
+}
+
+.order { margin-bottom: 1.3rem }
+
+::ng-deep .mat-form-field-wrapper {
+  padding-bottom: .8rem;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+::ng-deep .mat-checkbox-label {
+  padding-left: .2rem !important;
+  color: var(--p-color);
+  margin: .1rem auto;
+  font-size: .9rem;
+}
+
+::ng-deep .mat-checkbox-frame {
+  border-width: 1px !important;
+  border-color: var(--p-color) !important;
+}
+
+.stars {
+  display: inline-block;
+  margin-left: 1.2rem;
+  position: relative;
+  top: 2px;
+
+  & span {
+    margin-left: .4rem;
+    width: 1.33333rem;
+    height: 1.33333rem;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-size: .66667rem;
+    color: var(--bg-color);
+    -webkit-border-radius: 20rem;
+    border-radius: 20rem;
+    opacity: .2;
+    margin-right: .3rem;
+    margin-left: .3rem;
+    background: var(--primary-color);
+    transition: all .5s ease-in;
+
+    &.active { opacity: 1}
+    &:hover { filter: brightness(1.5) }
+
+    & mat-icon {
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+
+
+

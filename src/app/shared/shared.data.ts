@@ -5,7 +5,9 @@ import {
   FAQ,
   ToC,
   Config,
-  Role
+  Role,
+  Tag,
+  StarList
 } from './interfaces/interfaces';
 
 export const MENU: List[] = [
@@ -19,7 +21,8 @@ export const HOME_MENU: List[] = [
   { name: 'advantages', link: '/home', icon: 'autorenew' },
   { name: 'collaborate', link: '/code', icon: 'present_to_all' },
   { name: 'support', link: '/categories', icon: 'help_outline' },
-  { name: 'about.me', link: '/articles', icon: 'directions_run' }
+  { name: 'about.me', link: '/articles', icon: 'directions_run' },
+  { name: 'searcher', link: '/search', icon: 'search' }
 ];
 
 export const CATEGORIES: string[] = [
@@ -32,31 +35,29 @@ export const CATEGORIES: string[] = [
 ];
 
 export const TAGS: string[] = [
+  'Consola',
   'Desarrollo',
-  'Typescript',
+  'Diseño',
+  'Material',
   'Frontend',
   'Backend',
-  'Diseño',
-  'SCSS',
+  'Typescript',
+  'Database',
   'Ionic',
-  'Database'
+  'Config'
 ];
 
-export const CODE_TAGS: string[] = [
-  'Consola',
-  'Javascript',
-  'HTML',
-  'Nodejs',
-  'Diseño',
-  'CSS',
-  'SCSS',
-  'Typescript',
-  'Angular',
-  'Material',
-  'Ionic',
-  'Database',
-  'Config',
-  'Todas'
+export const TAGS_ICON: Tag[] = [
+  { name: 'Consola', icon: 'computer' },
+  { name: 'Desarrollo', icon: 'build' },
+  { name: 'Diseño', icon: 'color_lens' },
+  { name: 'Material', icon: 'view_compact' },
+  { name: 'Frontend', icon: 'personal_video' },
+  { name: 'Backend', icon: 'cast_connected' },
+  { name: 'Typescript', icon: 'language' },
+  { name: 'Database', icon: 'cloud_queue' },
+  { name: 'Ionic', icon: 'phone_android' },
+  { name: 'Config', icon: 'toc' },
 ];
 
 export const POPULAR_CATEGORIES: List[] = [
@@ -126,6 +127,33 @@ export const LANGUAGES: Config[] = [
   { name: 'English', selector: 'en' }
 ];
 
+export const LEVELS: string[] = [
+  'Básico',
+  'Medio',
+  'Avanzado'
+];
+
+export const BADGES: string[] = [
+  'Nuevo',
+  'Destacado',
+  'Popular'
+];
+
+export const SEARCH_TYPES: string[] = [
+  'likes',
+  'stars',
+  'views'
+];
+
+export const STAR_LIST: StarList[] = [
+  { number: 5, active: false },
+  { number: 4, active: false },
+  { number: 3, active: false },
+  { number: 2, active: false },
+  { number: 1, active: false },
+  { number: 0, active: false },
+];
+
 export const THEMES: Config[] = [
   { name: 'Default', selector: 'default' },
   { name: 'Deep Blue', selector: 'deepblue' },
@@ -168,7 +196,8 @@ export const PAGE_BG = {
   article: 'https://media2.giphy.com/media/b93B4aJQQakRG/giphy.gif',
   profile: 'https://media3.giphy.com/media/h0Ti6XKcFKBby/giphy.gif',
   admin: 'https://media.giphy.com/media/BHNfhgU63qrks/giphy.gif',
-  public: 'https://media2.giphy.com/media/l4KihuqeuJEi9qLSM/giphy.gif'
+  public: 'https://media2.giphy.com/media/l4KihuqeuJEi9qLSM/giphy.gif',
+  search: 'https://media1.giphy.com/media/fD9ZWStNB5o1q/giphy.gif'
 };
 
 export const COUNTRIES: string[] = [
@@ -242,15 +271,6 @@ export const TESTIMONIALS: Testimonial[] = [
                   mollit anim laborum sint occaecat cupidatat non proident.
                   Occaecat cupidatat non proident culpa officia deserunt mollit.`
   }
-];
-
-export const LOGOS: List[] = [
-  { name: 'Markup HTML5', icon: 'html-logo.png', link: 'HTML' },
-  { name: 'Stylesheet CSS3', icon: 'css-logo.png', link: 'CSS' },
-  { name: 'Vanilla Javascript', icon: 'javascript-logo.png', link: 'Javascript' },
-  { name: 'Angular Framework', icon: 'angular-logo.png', link: 'Angular' },
-  { name: 'Server Javascript', icon: 'node-logo.png', link: 'Nodejs' },
-  { name: 'Mongo Database', icon: 'mongo-logo.png', link: 'MongoDB' }
 ];
 
 export const FOOTER_LIST: FooterList[] = [

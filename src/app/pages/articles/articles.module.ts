@@ -4,7 +4,7 @@ import { LayoutModule } from '@app/shared/components/layout/layout.module';
 import { SharedModule } from '@app/shared/shared.module';
 
 import { ArticlesComponent } from './articles.component';
-import { ArticlesRoutingModule } from './articles.routing';
+import { ArticlesRouting } from './articles.routing';
 import { ArticlesSidebarModule } from './components/articles-sidebar/articles-sidebar.module';
 import { ArticlesContentComponent } from './components/articles-content/articles-content.component';
 
@@ -17,7 +17,7 @@ import { ArticlesContentComponent } from './components/articles-content/articles
     CommonModule,
     LayoutModule,
     SharedModule,
-    ArticlesRoutingModule,
+    ArticlesRouting,
     ArticlesSidebarModule
   ]
 })

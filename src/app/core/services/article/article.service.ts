@@ -2,6 +2,7 @@ import { Injectable} from '@angular/core';
 import { APP_CONSTANTS } from '@app/app.config';
 import { HttpService } from '../http/http.service';
 import { Observable } from 'rxjs';
+import { environment } from '@env/environment';
 
 import {
   ArticleResponse,
@@ -18,7 +19,7 @@ export class ArticleService {
   public page = 0;
 
   constructor(private http: HttpService) {
-    console.log('ArticleService');
+    if (!environment.production) { console.log('ArticleService'); }
   }
 
   public getArticles(): Observable<ArticleResponse> {

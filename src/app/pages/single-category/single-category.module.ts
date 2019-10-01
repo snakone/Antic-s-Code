@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '@app/shared/shared.module';
 import { LayoutModule } from '@app/shared/components/layout/layout.module';
 
-import { SingleCategoryRoutingModule } from './single-category-routing.module';
+import { SingleCategoryRouting } from './single-category-routing';
 import { SingleCategoryComponent } from './single-category.component';
 
 import {
@@ -20,7 +20,7 @@ import {
     CommonModule,
     SharedModule,
     LayoutModule,
-    SingleCategoryRoutingModule,
+    SingleCategoryRouting,
     SingleCategoryHeaderModule,
     SingleCategoryContentModule,
     SingleCategorySidebarModule

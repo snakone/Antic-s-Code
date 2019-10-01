@@ -6,7 +6,6 @@
 
 button {
   width: 100%;
-  padding: 8px 0;
   margin-bottom: 2rem;
 }
 
@@ -19,11 +18,5 @@ button {
     max-width: 100%;
     width: 100%;
     display: block;
-  }
-}
-
-::ng-deep {
-  .font .mat-button-wrapper {
-    font-size: 1.2rem !important;
   }
 }

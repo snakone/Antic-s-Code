@@ -16,7 +16,7 @@ import { debounceTime, takeUntil } from 'rxjs/operators';
 export class StickyBoxDirective implements AfterViewInit, OnDestroy {
 
   @Input() selector: string;
-  @Input() code: boolean;  // Are We in Code Page?
+  @Input() empty: boolean;  // No Content Above the Box?
   private unsubscribe$ = new Subject<void>();
   height: number;
 
@@ -49,15 +49,15 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
 
     const width = window.document.body.clientWidth;
 
-    if (width < 985) {
+    if (width < 985) {  // 992px - Scrollbar 8px
       this.setAutoHeight(el);
       return;
     }
 
     let div: number;
-    let padding = 32; // 2rem
+    let padding = 213;  // If Content Above the Box
 
-    if (this.code) { height = 32; padding = 0; }
+    if (this.empty) { height = 32; padding = 0; }  // 32 = 2rem
     if (!this.height) { this.height = height; }
 
     const section = document.getElementById(this.selector);
@@ -68,7 +68,7 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
       window.dispatchEvent(new Event('resize'));
     }
 
-    if (div - this.height + padding <= 800) {  // Not enough Content
+    if (div - this.height + padding <= 799) {  // Not enough Content
       this.setAutoHeight(el);
       return;
      }
@@ -79,7 +79,7 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
   }
 
   private setElementHeight(d: number, h: number, p: number, el: any): void {
-    this.renderer.setStyle(el, 'height', `${d - h + p}px`);
+    this.renderer.setStyle(el, 'height', `${d - h - p}px`);
   }
 
   private setAutoHeight(el: any): void {

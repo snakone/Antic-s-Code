@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { LayoutModule } from '@app/shared/components/layout/layout.module';
 import { SharedModule } from '@app/shared/shared.module';
 
-import { CategoriesRoutingModule } from './categories-routing.module';
+import { CategoriesRouting } from './categories-routing';
 import { CategoriesComponent } from './categories.component';
 
 @NgModule({
@@ -10,7 +10,7 @@ import { CategoriesComponent } from './categories.component';
   imports: [
     LayoutModule,
     SharedModule,
-    CategoriesRoutingModule
+    CategoriesRouting
   ]
 })
 

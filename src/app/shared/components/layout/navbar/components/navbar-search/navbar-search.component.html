@@ -7,17 +7,18 @@
     </mat-icon>
   </span>
   <input (focus)="focused = true"
-         (focusout)="focused = false"
+         (focusout)="focusOut()"
          type="text"
-         [placeholder]="'nav.search' | translate">  <!-- INPUT -->
+         [placeholder]="'nav.search' | translate"
+         [(ngModel)]="value">  <!-- INPUT -->
 
   <div class="search-hint"
       [ngClass]="{'display': focused}">  <!-- POP UP SEARCH -->
     <ul>
-      <li *ngFor="let l of logos"
-          [routerLink]="'category/' + l.link">
-        <img [src]="l.icon | image:'logos'"/>  <!-- LOGO LIST -->
-        <span>{{l.name}}</span>
+      <li *ngFor="let c of categories"
+          [routerLink]="'category/' + c.category">
+        <img [src]="c.icon | image:'logos'"/>  <!-- LOGO LIST -->
+        <span>{{c.name}}</span>
       </li>
     </ul>
   </div>

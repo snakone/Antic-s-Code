@@ -12,15 +12,20 @@ export class StickyBoxComponent implements OnInit, OnDestroy {
 
   display = true;
   @Input() selector: string;
-  @Input() code: boolean;
+  @Input() empty: boolean;  //  No Content Above the Box
   private unsubscribe$ = new Subject<void>();
 
   constructor() { }
 
   ngOnInit() {
+    this.subscribeToScroll();
+  }
+
+  private subscribeToScroll(): void {
+    if (this.empty) { return; }
     fromEvent(window, 'scroll').pipe(debounceTime(100))
-     .pipe(takeUntil(this.unsubscribe$))
-     .subscribe(() => this.onScroll());
+    .pipe(takeUntil(this.unsubscribe$))
+    .subscribe(() => this.onScroll());
   }
 
   private onScroll(): void {

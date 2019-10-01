@@ -1,5 +1,6 @@
 import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
 import { StorageService } from '@app/core/storage/storage.service';
+import { environment } from '@env/environment';
 
 @Injectable()
 
@@ -10,7 +11,7 @@ export class ThemeService {
 
   constructor(rendererFactory: RendererFactory2,
               private ls: StorageService) {
-    console.log('ThemeService');
+    if (!environment.production) { console.log('ThemeService'); }
     this.renderer = rendererFactory.createRenderer(null, null);
   }
 

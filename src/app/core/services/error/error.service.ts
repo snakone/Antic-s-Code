@@ -4,7 +4,7 @@ import { HttpError } from '@app/shared/interfaces/interfaces';
 import { APP_CONSTANTS } from '@app/app.config';
 import { HttpErrorResponse } from '@angular/common/http';
 import { StorageService } from '@app/core/storage/storage.service';
-import { map } from 'rxjs/operators';
+import { environment } from '@env/environment';
 
 @Injectable()
 
@@ -13,7 +13,9 @@ export class ErrorService {
   readonly API_ERRORS = APP_CONSTANTS.END_POINT + 'errors/';
 
   constructor(private http: HttpService,
-              private ls: StorageService) { }
+              private ls: StorageService) {
+      if (!environment.production) { console.log('HttpErrorService'); }
+  }
 
   saveHttpError(err: HttpErrorResponse): void {
     const error = this.manageError(err);

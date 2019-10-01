@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutModule } from '@app/shared/components/layout/layout.module';
-import { ProfileRoutingModule } from './profile.routing';
+import { ProfileRouting } from './profile.routing';
 import { SharedModule } from '@app/shared/shared.module';
 
 import { ProfileComponent } from './profile.component';
@@ -18,7 +18,7 @@ import { ProfileActionsComponent } from './components/profile-actions/profile-ac
     CommonModule,
     LayoutModule,
     SharedModule,
-    ProfileRoutingModule,
+    ProfileRouting,
     ProfileContentModule,
     ArticlesSidebarModule
   ]

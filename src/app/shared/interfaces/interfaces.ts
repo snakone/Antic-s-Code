@@ -15,17 +15,12 @@ interface Content {
 
 interface ServerResponse {
   ok: boolean;
-  message: string;
+  message?: string;
   err?: any;
 }
 
 interface Translation {
   translate: string;
-}
-
-export interface Link {
-  name: string;
-  url: string;
 }
 
 export interface Article extends Content {
@@ -113,6 +108,22 @@ export interface Role extends Translation {
   name: string;
 }
 
+export interface SearchRequest {
+  value: string;
+  category?: string;
+  tag?: string;
+  year?: string;
+  level?: string[];
+  badges?: string[];
+  stars?: number[];
+  type?: string[];
+  sort?: number;
+}
+
+export interface SearchResponse extends ServerResponse {
+  articles?: Article[];
+}
+
 export interface List {
   name: string;
   icon?: string;
@@ -167,9 +178,29 @@ export interface ScrollSpy {
   id?: string;
 }
 
+export interface Tag {
+  name: string;
+  icon: string;
+}
+
 export interface Config {
   name: string;
   selector: string;
+}
+
+export interface Link {
+  name: string;
+  url: string;
+}
+
+export class StarList {
+  number: number;
+  active: boolean;
+
+  constructor(num: number, active: boolean) {
+    this.number = num;
+    this.active = active;
+  }
 }
 
 export class HttpError {
