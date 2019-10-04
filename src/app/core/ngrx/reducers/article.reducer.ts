@@ -149,12 +149,14 @@ export function reducer(state: ArticleState | undefined, action: Action) {
 }
 
 export const getArticles = (state: ArticleState) => state.articles;
+export const getArticlesLoaded = (state: ArticleState) => state.articlesLoaded;
 export const getFull = (state: ArticleState) => state.full;
 export const getSlug = (state: ArticleState) => state.slug;
 export const getLast = (state: ArticleState) => state.last;
 export const getMostLiked = (state: ArticleState) => state.liked;
 export const getMostLikedLoaded = (state: ArticleState) => state.likedLoaded;
 export const getCount = (state: ArticleState) => state.count;
+export const getCountLoaded = (state: ArticleState) => state.countLoaded;
 export const getCategoryCount = (state: ArticleState) => state.categoryCount;
 export const getCategoryCountLoaded = (state: ArticleState) => state.categoryCountLoaded;
 

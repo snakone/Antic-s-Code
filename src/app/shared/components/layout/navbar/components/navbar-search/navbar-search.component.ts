@@ -24,7 +24,7 @@ export class NavBarSearchComponent implements OnInit {
 
   focusOut(): void {
     this.focused = false;
-    if (!this.value) { this.value = ''; }
+    if (!this.value) { return; }
     this.store.dispatch(SearchActions
       .searchContent({ request: { value: this.value } }));
     this.router.navigateByUrl('/search');

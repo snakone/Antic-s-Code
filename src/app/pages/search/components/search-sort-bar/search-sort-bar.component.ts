@@ -26,7 +26,6 @@ export class SearchSortBarComponent implements OnInit {
   sort(): void {
     this.active = !this.active;
     this.grid.emit(this.active);
-    window.dispatchEvent(new Event('resize'));
   }
 
   reset(): void {

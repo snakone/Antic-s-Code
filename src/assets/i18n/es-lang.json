@@ -197,5 +197,7 @@
   "request.criteria": "Información proporcionada:",
   "value": "Valor",
   "tags": "Etiquetas",
-  "thread": "Tema"
+  "thread": "Tema",
+  "total.articles": "Total de Artículos",
+  "articles.found": "Artículos encontrados"
  }

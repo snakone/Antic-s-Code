@@ -19,6 +19,12 @@ export class CodeSidebarComponent implements OnInit {
   filter(tag: string): void {
     this.tag.emit(tag);
     window.dispatchEvent(new Event('resize'));
+    this.scroll('code-section');
+  }
+
+    scroll(box: string): void {
+    const el = document.getElementById(box);
+    if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   }
 
 }

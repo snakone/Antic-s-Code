@@ -33,12 +33,16 @@ import { reducers } from './ngrx/reducers/reducers.index';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { ToastrModule } from 'ngx-toastr';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 
 @NgModule({
   imports: [
     CommonModule,
     StorageModule,
     ServicesModule,
+    LoadingBarModule,
+    LoadingBarHttpClientModule,
     NgxWebstorageModule.forRoot(CORE_MODULE_CONSTANTS.WEBSTORAGE_CONFIG),
     StoreModule.forFeature('AppState', reducers),
     EffectsModule.forRoot([
@@ -69,7 +73,8 @@ import { ToastrModule } from 'ngx-toastr';
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: CORE_MODULE_CONFIG, useValue: CORE_MODULE_CONSTANTS },
     { provide: ErrorHandler, useClass: ErrorHandlerService }
-  ]
+  ],
+  exports: [LoadingBarModule]
 })
 
 export class CoreModule {

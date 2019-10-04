@@ -19,7 +19,6 @@
         <!-- <app-article-reaction-box></app-article-reaction-box> -->
       </app-article-card>
       <app-disqus *ngIf="article" [identifier]="article.slug"></app-disqus>
-      <app-loading *ngIf="!article"></app-loading>
     </div>
     <div class="col-lg-4 col-md-4">  <!-- SIDEBAR -->
       <app-articles-sidebar></app-articles-sidebar>

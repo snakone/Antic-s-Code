@@ -7,11 +7,13 @@ import { ArticlesComponent } from './articles.component';
 import { ArticlesRouting } from './articles.routing';
 import { ArticlesSidebarModule } from './components/articles-sidebar/articles-sidebar.module';
 import { ArticlesContentComponent } from './components/articles-content/articles-content.component';
+import { ArticlesSortBarComponent } from './components/articles-sort-bar/articles-sort-bar.component';
 
 @NgModule({
   declarations: [
     ArticlesComponent,
-    ArticlesContentComponent
+    ArticlesContentComponent,
+    ArticlesSortBarComponent
   ],
   imports: [
     CommonModule,

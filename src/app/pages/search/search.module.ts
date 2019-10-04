@@ -7,7 +7,7 @@ import { SharedModule } from '@app/shared/shared.module';
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { SearchFilterComponent } from './components/search-filter/search-filter.component';
 import { ArticlesGridModule } from '@app/shared/components/layout/grid/articles-grid/articles-grid.module';
-import { SearchSortBarComponent } from './components/search-result/components/search-sort-bar/search-sort-bar.component';
+import { SearchSortBarComponent } from './components/search-sort-bar/search-sort-bar.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchEmptyComponent } from './components/search-result/components/search-empty/search-empty.component';
 
