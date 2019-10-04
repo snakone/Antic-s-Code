@@ -10,8 +10,12 @@ ul {
 
   & li {
     color: var(--p-color);
-    & .black { margin-right: .3rem }
+    & .black { margin-right: .2rem }
   }
+}
+
+.defined {
+  color:var(--primary-color);
 }
 
 .slash { font-weight: normal !important }

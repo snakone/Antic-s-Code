@@ -198,5 +198,7 @@
   "request.criteria": "Request provided",
   "value": "Value",
   "tags": "Tags",
-  "thread": "Thread"
+  "thread": "Thread",
+  "total.articles": "Total Articles",
+  "articles.found": "Articles Found"
 }

@@ -12,6 +12,10 @@ export const getArticles = createSelector(
   getArticlesState, fromArticles.getArticles
 );
 
+export const getArticlesLoaded = createSelector(
+  getArticlesState, fromArticles.getArticlesLoaded
+);
+
 export const getArticleBySlug = createSelector(
   getArticlesState, fromArticles.getSlug
 );
@@ -38,6 +42,10 @@ export const getFullArticles = createSelector(
 
 export const getArticlesCount = createSelector(
   getArticlesState, fromArticles.getCount
+);
+
+export const getCountLoaded = createSelector(
+  getArticlesState, fromArticles.getCountLoaded
 );
 
 export const getArticlesByCategoryCount = createSelector(

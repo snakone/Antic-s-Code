@@ -2,12 +2,21 @@
                  [subTitle]="'articles' | translate">
 </app-page-header>
 <app-section input="#f5f7fc">
-  <div class="row">
-    <div class="col-lg-8 col-md-8" id="articles-section">
-      <app-articles-content></app-articles-content>
+  <div class="row" id="articles-section">
+    <div class="col-lg-12">  <!-- HEADER -->
+      <app-articles-sort-bar (grid)="grid = $event">
+      </app-articles-sort-bar>
     </div>
-    <div class="col-lg-4 col-md-4">
-      <app-articles-sidebar></app-articles-sidebar>
+    <div *ngIf="!grid">
+      <div class="col-lg-8 col-md-8" >
+        <app-articles-content></app-articles-content>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        <app-articles-sidebar></app-articles-sidebar>
+      </div>
+    </div>
+    <div *ngIf="grid" class="col-lg-12">
+      <app-articles-content [grid]="grid"></app-articles-content>
     </div>
   </div>
 </app-section>

@@ -1,12 +1,17 @@
-<app-article-card shadow="true"
-                  *ngFor="let a of articles$ | async"
-                  [article]="a"
-                  [single]="false">   <!-- ARTICLES GRID -->
-  <span class="summary" [innerHTML]="a.summary"></span>
-</app-article-card>
+<div *ngIf="!grid">  <!-- ARTICLES LIST -->
+  <app-article-card shadow="true"
+                    *ngFor="let a of articles$ | async"
+                    [article]="a"
+                    [single]="false">
+    <span class="summary" [innerHTML]="a.summary"></span>
+  </app-article-card>
+</div>
 
-<div class="loader" #loading>
-  <app-loading></app-loading>
+<div class="row flex" *ngIf="grid">
+  <div class="col-lg-4 col-sm-6"
+      *ngFor="let a of articles$ | async">
+      <app-article-grid-card [article]="a"></app-article-grid-card>
+  </div>
 </div>
 
 

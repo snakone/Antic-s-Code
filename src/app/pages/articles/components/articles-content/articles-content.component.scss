@@ -1,15 +1,16 @@
- .summary { margin-bottom: 5px }
+* { box-sizing: border-box }
 
-.loader {
-  opacity: 0;
-  visibility: 0;
+.summary { margin-bottom: 5px }
+
+.col-lg-4 {
+  max-width: 100%;
+  @media(max-width: 769px) { width: 100%; }
+  @media(max-width: 550px) {
+    padding-right: 15px;
+    padding-left: 15px;
+   }
 }
 
-.loading {
-  opacity: 1;
-  visibility: 1;
-}
-
-.completed {
-  display: none;
+.flex {
+  justify-content: start;
 }

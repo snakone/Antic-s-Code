@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { STORAGE_CONSTANTS, Storage } from './storage.config';
 import { LocalStorage } from 'ngx-webstorage';
+import { environment } from '@env/environment';
 
 @Injectable()
 
@@ -10,7 +11,7 @@ export class StorageService {
   public storage: Storage;
 
   constructor() {
-    console.log('StorageService');
+    if (!environment.production) { console.log('StorageService'); }
     this.loadStorage();
   }
 

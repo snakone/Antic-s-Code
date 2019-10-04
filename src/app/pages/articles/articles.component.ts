@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 
 export class ArticlesComponent implements OnInit {
 
+  grid: boolean;
+
   constructor() { }
 
   ngOnInit() { }

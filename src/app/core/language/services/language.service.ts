@@ -2,6 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { APP_CONFIG, AppConfig } from '@app/app.config';
 import { TranslateService } from '@ngx-translate/core';
 import { StorageService } from '@core/storage/storage.service';
+import { environment } from '@env/environment';
 
 @Injectable()
 
@@ -10,7 +11,7 @@ export class LanguageService {
   constructor(private translateService: TranslateService,
               private ls: StorageService,
               @Inject(APP_CONFIG) private appConfig: AppConfig) {
-    console.log('LanguageService');
+    if (!environment.production) { console.log('LanguageService'); }
     this.setDefault();
   }
 

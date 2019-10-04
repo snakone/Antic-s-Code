@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Renderer2, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Article } from '@app/shared/interfaces/interfaces';
 import { Subject, Observable, fromEvent, of } from 'rxjs';
 import { takeUntil, debounceTime, switchMap } from 'rxjs/operators';
@@ -16,13 +16,12 @@ import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 
 export class ArticlesContentComponent implements OnInit, OnDestroy {
 
-  @ViewChild('loading', { static: true }) loading: ElementRef;
+  @Input() grid: boolean;  // Display GRID
   articles$: Observable<Article[]>;
   private unsubscribe$ = new Subject<void>();
 
   constructor(private articleService: ArticleService,
-              private store: Store<AppState>,
-              private renderer: Renderer2) { }
+              private store: Store<AppState>) { }
 
   ngOnInit() {
     this.getArticles();
@@ -46,8 +45,6 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
               );
           } else {
             try {
-              const div = this.loading.nativeElement;
-              this.renderer.addClass(div, 'completed');
               return of(null);
             } catch (err) { console.log(err); }
           }
@@ -55,16 +52,16 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
   }
 
   private makeScroll(e: any): void {
+    let fromBottom = 350;
+    if (this.grid) { fromBottom = 600; }
+    if (window.document.body.clientWidth < 985) { fromBottom = 1400; }
     try {
       const top = e.target.scrollingElement.scrollTop;
-      const div = this.loading.nativeElement;
       const offset = document.getElementById('articles-section').offsetHeight;
-      if (offset - top <= 350) {
-        this.renderer.addClass(div, 'loading');
+      if (offset - top <= fromBottom) {
         setTimeout(() => {
-          this.renderer.removeClass(div, 'loading');
           this.store.dispatch(ArticleActions.getArticles());
-        }, 500);
+        }, 300);
      }
     } catch (err) { console.log(err); }
   }
