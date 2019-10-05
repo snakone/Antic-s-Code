@@ -9,8 +9,8 @@
                         [article]="article"
                         [single]="true">
         <app-article-scrollspy-box class="mobile"
-                               [index]="article.index"
-                               [mobile]="true">
+                                   [index]="article.index"
+                                   [mobile]="true">
         </app-article-scrollspy-box>
         <app-content-maker [template]="article"></app-content-maker>
         <app-links-box *ngIf="article.links.length > 0"
@@ -21,10 +21,9 @@
       <app-disqus *ngIf="article" [identifier]="article.slug"></app-disqus>
     </div>
     <div class="col-lg-4 col-md-4">  <!-- SIDEBAR -->
-      <app-articles-sidebar></app-articles-sidebar>
       <app-article-scrollspy-box *ngIf="article"
-                             class="desktop"
-                             [index]="article.index">
+                                  class="desktop"
+                                  [index]="article.index">
       </app-article-scrollspy-box>
     </div>
   </div>

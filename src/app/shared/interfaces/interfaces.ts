@@ -31,6 +31,7 @@ export interface Article extends Content {
   views?: number;
   summary?: string;
   draft?: boolean;
+  admin?: boolean;
 }
 
 export interface Category extends Content {

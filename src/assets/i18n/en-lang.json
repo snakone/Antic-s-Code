@@ -200,5 +200,6 @@
   "tags": "Tags",
   "thread": "Thread",
   "total.articles": "Total Articles",
-  "articles.found": "Articles Found"
+  "articles.found": "Articles Found",
+  "admin.articles": "Articles to Admins"
 }

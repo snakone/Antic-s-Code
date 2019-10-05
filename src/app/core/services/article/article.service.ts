@@ -8,8 +8,10 @@ import {
   ArticleResponse,
   CodeResponse,
   CountResponse,
-  CategoryCountResponse
+  CategoryCountResponse,
+  Article
 } from '@shared/interfaces/interfaces';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 
@@ -49,6 +51,13 @@ export class ArticleService {
 
   public getArticlesByUser(): Observable<ArticleResponse> {
     return this.http.get(this.API_ARTICLES + 'user');
+  }
+
+  public getArticlesToAdmin(): Observable<Article[]> {
+    return this.http.get(this.API_ARTICLES + 'all')
+      .pipe(map((res: ArticleResponse) => {
+        return res.ok ? res.articles.filter((a: Article) => a.admin === true) : [];
+      }));
   }
 
   public getArticleBySlug(slug: string): Observable<ArticleResponse> {

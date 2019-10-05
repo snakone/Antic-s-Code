@@ -2,7 +2,7 @@
                  icon="settings">
     <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
       <mat-form-field color="accent">
-        <mat-label>{{'language' | translate}}</mat-label>
+        <mat-label>{{'language' | translate}}</mat-label>  <!-- LANGUAGE -->
         <mat-select formControlName="language">
           <mat-option *ngFor="let l of languages" [value]="l.selector">
             {{l.selector | translate}}
@@ -10,7 +10,7 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field color="accent">
-        <mat-label>{{'theme' | translate}}</mat-label>
+        <mat-label>{{'theme' | translate}}</mat-label>   <!-- THEME -->
         <mat-select formControlName="theme">
           <mat-option *ngFor="let t of themes" [value]="t.selector">
             {{t.selector | translate}}

@@ -22,22 +22,22 @@
                 {{article.author}}
           </span>
         </li>
-        <app-article-reactions [article]="article"
+        <!-- <app-article-reactions [article]="article"
                                [single]="single"
                                [box]="false"
                                class="reaction-desktop">
-        </app-article-reactions>
+        </app-article-reactions> -->
       </ul>
       <div class="article-card-body-tags">  <!-- ARTICLE TAGS -->
         <span class="category-tag"
               *ngFor="let t of article.tags">{{t | translate}}
         </span>
       </div>
-      <app-article-reactions [article]="article"
+      <!-- <app-article-reactions [article]="article"
                              [single]="single"
                              [box]="false"
                              class="reaction-mobile">
-      </app-article-reactions>
+      </app-article-reactions> -->
       <ng-content></ng-content>
   </div>
  </div>

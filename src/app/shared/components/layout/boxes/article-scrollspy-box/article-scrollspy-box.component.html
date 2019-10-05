@@ -1,6 +1,5 @@
 <app-sticky-box selector="single-article-section">
-  <app-content-box [title]="'index' | translate"
-                   icon="list">
+  <app-content-box [border]="true">
       <ul *ngIf="index">
         <li *ngFor="let i of index"
             (click)="scroll(i.id)"

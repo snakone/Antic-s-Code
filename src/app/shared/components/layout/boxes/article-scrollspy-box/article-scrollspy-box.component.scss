@@ -1,19 +1,29 @@
 ul {
-  list-style-type: circle;
+  list-style-type: none;
   padding-left: var(--small-padding);
   margin: 0 auto;
+}
+
+li:before {
+  content: "\f101"; /* FontAwesome Unicode */
+  font-family: FontAwesome;
+  display: inline-block;
+  margin-left: -1.5em;
+  width: 1.5em;
 }
 
 li:not(p) {
   color: black;
   margin-top: .9rem;
   outline: none;
-  font-size: .9rem;
+  font-size: 1.1rem;
   &:first-child { margin-top: 0 }
   &:hover {
     color: var(--primary-color);
     cursor: pointer;
   }
+
+  @media(max-width: 550px) { font-size: 1rem }
 }
 
 p {
@@ -21,7 +31,7 @@ p {
   margin-bottom: 5px;
   margin-top: -3px;
   color: var(--p-color);
-  font-size: .85rem !important;
+  font-size: .9rem !important;
 }
 
 .active {

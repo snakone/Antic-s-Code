@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import * as fromUsers from '@core/ngrx/selectors/user.selectors';
 import { AppState } from '@app/app.config';
-import { of, Subject } from 'rxjs';
+import { of, Subject, Observable } from 'rxjs';
 import { User, ArticleResponse, Article } from '@app/shared/interfaces/interfaces';
 import { Store } from '@ngrx/store';
 import { switchMap, takeUntil } from 'rxjs/operators';
@@ -19,6 +19,7 @@ export class AdminContentComponent implements OnInit, OnDestroy {
 
   published: Article[];
   archived: Article[];
+  admin$: Observable<Article[]>;
   private unsubscribe$ = new Subject<void>();
 
   constructor(private store: Store<AppState>,
@@ -27,6 +28,7 @@ export class AdminContentComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getArticlesByUser();
+    this.admin$ = this.getArticlesToAdmin();
   }
 
   private getArticlesByUser() {
@@ -37,10 +39,14 @@ export class AdminContentComponent implements OnInit, OnDestroy {
       }), takeUntil(this.unsubscribe$))
       .subscribe((res: ArticleResponse) => {
         if (res.ok) {
-          this.published = res.articles.filter((a: Article) => a.draft === false);
+          this.published = res.articles.filter((a: Article) => a.draft === false && a.admin !== true);
           this.archived = res.articles.filter((a: Article) => a.draft === true);
         }
     });
+  }
+
+  private getArticlesToAdmin(): Observable<Article[]> {
+    return this.articleService.getArticlesToAdmin();
   }
 
   archive(id: string): void {

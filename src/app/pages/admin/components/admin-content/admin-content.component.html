@@ -1,6 +1,6 @@
 <app-content-box [title]="'published.articles' | translate"
                   icon="ballot"
-                  *ngIf="published">
+                  *ngIf="published">   <!-- PUSLIBHED -->
     <ul>
       <li *ngFor="let p of published">
         <span [routerLink]="'/article/' + p.slug">{{p.title}}</span>
@@ -17,7 +17,7 @@
 
 <app-content-box [title]="'draft.articles' | translate"
                   icon="ballot"
-                  *ngIf="archived">
+                  *ngIf="archived">   <!-- NOT PUSLIBHED -->
     <ul>
       <li *ngFor="let a of archived"
           [routerLink]="'preview/' + a.slug">
@@ -30,6 +30,17 @@
         {{'here' | translate}}
       </a>.
     </p>
+</app-content-box>
+
+<app-content-box [title]="'admin.articles' | translate"
+                  icon="security"
+                  *ngIf="admin$ | async as admin">   <!-- ADMIN -->
+    <ul>
+      <li *ngFor="let a of admin"
+          [routerLink]="'preview/' + a.slug">
+        {{a.title}}
+      </li>
+    </ul>
 </app-content-box>
 
 

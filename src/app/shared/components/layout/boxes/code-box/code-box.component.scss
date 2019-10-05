@@ -2,12 +2,11 @@
 
 code {
   font-size: 1em;
-  padding: .66667rem 1rem;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
+  padding: .86667rem 1rem;
+  border-radius: 5px;
   border-top: 0;
   box-sizing: border-box;
+  font-family: source-code-pro,Menlo,Monaco,Consolas,Courier New,monospace;
 }
 
 code::-webkit-scrollbar {
@@ -85,7 +84,7 @@ h4 {
 ul {
   padding-left: 20px;
   margin-top: .6rem;
-  list-style-type: circle;
+  list-style-type: disc;
 }
 
 @media(max-width: 550px) {

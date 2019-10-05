@@ -27,9 +27,6 @@
   </div>
   <div class='code-box'
        [ngClass]="{'list': list}">  <!-- CODE BOX -->
-    <div class='code-box-header'>
-      <span>{{code.lang}}</span>
-    </div>
     <pre><code [languages]="[code.lang.toLowerCase()]"
                [highlight]="code.code"></code></pre>
   </div>

@@ -31,20 +31,15 @@ a {
   text-decoration: none;
   color: var(--primary-color);
   outline: none;
-
-  &:hover {
-    cursor: pointer;
-    font-weight: bold;
-  }
 }
 
 p.first::first-letter {
   font-size: 1.8rem;
 }
 
-@media(max-width: 550px) {
-  p, a, span { font-size: .85rem !important }
-}
+// @media(max-width: 550px) {
+//   p, a, span { font-size: .85rem !important }
+// }
 
 br {
   display: block;

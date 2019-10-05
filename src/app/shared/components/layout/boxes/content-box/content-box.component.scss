@@ -3,6 +3,16 @@
     border: 1px solid var(--section-border-color);
     background: var(--light-color);
     margin-bottom: 2rem;
+    &-no-border {
+      border: none;
+      background: none;
+
+      & .content-box-body {
+        padding-top: 0 !important;
+        padding-right: 0 !important;
+        padding-bottom: 0 !important;
+      }
+    }
 
     &-header {
       padding: 1.1666rem 2rem;

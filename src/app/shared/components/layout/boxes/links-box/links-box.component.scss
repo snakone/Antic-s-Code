@@ -1,6 +1,29 @@
 ul {
   margin: 0;
+  list-style: none;
   padding-left: 20px;
 }
 
-li { margin: 5px auto }
+li { margin: 8px auto }
+
+li:before {
+  content: "\f0c1"; /* FontAwesome Unicode */
+  font-family: FontAwesome;
+  display: inline-block;
+  margin-left: -1.5em;
+  width: 1.5em;
+}
+
+a {
+  background-color: rgba(187,239,253,0.3);
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  color: #1a1a1a;
+  margin-left: 5px;
+}
+
+a:hover {
+  background-color: #bbeffd;
+  border-bottom-color: #1a1a1a;
+}
+
+.links { margin-top: 3rem }
