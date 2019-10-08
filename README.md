@@ -1,6 +1,6 @@
 # Antic's Code
 
-http://anticscode.epizy.com
+https://anticscode.netlify.com/
 
 # Angular
 
