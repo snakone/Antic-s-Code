@@ -7,7 +7,9 @@
                   [links]="article.links">
   </app-links-box>
 
- <app-article-publish-box *ngIf="!article.admin" [article]="article"></app-article-publish-box>
+ <app-article-publish-box *ngIf="!article.admin"
+                          [article]="article">
+</app-article-publish-box>
 
 </app-article-card>
 

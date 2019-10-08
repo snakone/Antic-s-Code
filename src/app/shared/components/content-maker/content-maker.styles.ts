@@ -5,12 +5,10 @@ p {
   margin-top: 30px;
   font-size: 17px;
   line-height: 1.7;
-  max-width: 42em;
   color: black;
 }
 
 p:first-child { margin-top: 20px }
-p.last { margin-bottom: 3rem }
 
 strong {
   font-size: 17px;
@@ -44,20 +42,13 @@ a {
   background-color: rgba(187,239,253,0.3);
   border-bottom: 1px solid rgba(0,0,0,0.2);
   color: #1a1a1a;
+  text-decoration: none;
+  outline: none;
 }
 
 a:hover {
   background-color: #bbeffd;
   border-bottom-color: #1a1a1a;
-}
-
-.code {
-  padding: 0 3px;
-  font-size: 0.94rem;
-  word-break: break-word;
-  background: rgba(255,229,100,0.2);
-  color: #1a1a1a;
-  font-family: source-code-pro,Menlo,Monaco,Consolas,Courier New,monospace;
 }
 
 h2 {
@@ -114,6 +105,8 @@ blockquote p, blockquote p:first-child { margin-top: 0 }
     font-size: 1rem;
     margin-top: 25px;
   }
+
+  strong { font-size: 1rem }
 }
 
 @media(min-width: 1280px) {

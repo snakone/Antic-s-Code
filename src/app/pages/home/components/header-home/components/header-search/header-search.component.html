@@ -2,8 +2,8 @@
   <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
     <div class="row">
       <mat-form-field class="default" color="accent">  <!-- VALUE -->
+        <mat-label>{{'search.for' | translate}}</mat-label>
         <input matInput
-               [placeholder]="'search.for' | translate"
                formControlName="value">
       </mat-form-field>
       <mat-form-field class="select" color="accent">  <!-- CATEGORY -->

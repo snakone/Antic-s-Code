@@ -8,6 +8,7 @@ import * as UserActions from '@core/ngrx/actions/user.actions';
 import { StorageService } from './core/storage/storage.service';
 import { LanguageSnackComponent } from '@layout/snackbars/language-snack/language-snack.component';
 import { ThemeService, CrafterService } from './core/services/services.index';
+import { SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'app-root',
@@ -22,11 +23,13 @@ export class AppComponent implements OnInit, AfterViewInit {
               private ls: StorageService,
               private crafter: CrafterService,
               private theme: ThemeService,
-              private store: Store<AppState>) { }
+              private store: Store<AppState>,
+              private sw: SwUpdate) { }
 
   ngOnInit() {
     this.checkUserToken();
     this.setTheme();
+    this.serviceWorker();
   }
 
   ngAfterViewInit() {
@@ -55,6 +58,15 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   private setTheme(): void {
     this.theme.set(this.ls.get('theme'));
+  }
+
+  private serviceWorker(): void {
+    this.sw.available
+      .subscribe(event => {
+        if (event) {
+          this.sw.activateUpdate().then(() => this.document.location.reload());
+        }
+    });
   }
 
 }

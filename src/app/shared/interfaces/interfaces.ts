@@ -204,21 +204,21 @@ export class StarList {
   }
 }
 
-export class HttpError {
+export class CustomError {
   name: string;
   message: string;
-  status: number;
+  status?: number;
   text: string;
-  url: string;
+  url?: string;
   author?: string;
   date?: string;
 
   constructor(name: string,
               message: string,
-              status: number,
               text: string,
-              url: string,
-              author: string) {
+              author: string,
+              status: number = null,
+              url: string = '') {
     this.name = name;
     this.message = message;
     this.status = status;

@@ -27,23 +27,40 @@ h1 {
 
 h4 { color: var(--tag-color) }
 
-a {
-  text-decoration: none;
-  color: var(--primary-color);
-  outline: none;
+.code {
+  padding: 0 3px;
+  font-size: 0.94rem;
+  word-break: break-word;
+  background: rgba(255,229,100,0.2);
+  color: #1a1a1a;
+  font-family: source-code-pro,Menlo,Monaco,Consolas,Courier New,monospace;
 }
 
-p.first::first-letter {
-  font-size: 1.8rem;
+.code strong {
+  font-size: 0.94rem;
 }
-
-// @media(max-width: 550px) {
-//   p, a, span { font-size: .85rem !important }
-// }
 
 br {
   display: block;
   content: "";
   margin-top: 12px;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+}
+
+.summary p a {
+  background-color: rgba(187,239,253,0.3);
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  color: #1a1a1a;
+  text-decoration: none;
+  outline: none;
+}
+
+.summary p a:hover {
+  background-color: #bbeffd;
+  border-bottom-color: #1a1a1a;
 }
 

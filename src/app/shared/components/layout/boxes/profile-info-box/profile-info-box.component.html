@@ -16,12 +16,12 @@
             [href]="user.profile[s.selector]"
             target="_NEW">
             <li [class]="s.selector">{{s.name}}
-              <img src="assets/icon/{{s.selector}}.svg"/>
+              <img src="assets/icons/{{s.selector}}.svg"/>
             </li>
           </a>
           <li [class]="s.selector + ' not'"
               *ngIf="!user.profile[s.selector]">
-              {{s.name}} <img src="assets/icon/{{s.selector}}.svg"/>
+              {{s.name}} <img src="assets/icons/{{s.selector}}.svg"/>
           </li>
         </div>
       </ul>

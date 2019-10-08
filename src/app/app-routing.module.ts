@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { Error404Component } from './shared/components/error404/error404.component';
 import { ProfileGuard } from './core/guards/profile.guard';
 import { AdminGuard } from './core/guards/admin.guard';
+import { ErrorGuard } from './core/guards/error.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -59,7 +60,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/admin/admin.module')
                         .then(mod => mod.AdminModule), data: {name: 'Admin'}
   },
-  { path: '**', component: Error404Component },
+  { path: '**', canActivate: [ErrorGuard], component: Error404Component },
 ];
 
 @NgModule({

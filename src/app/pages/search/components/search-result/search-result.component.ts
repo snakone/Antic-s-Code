@@ -29,7 +29,6 @@ export class SearchResultComponent implements OnInit, OnDestroy {
               private pagination: PaginationService) { }
 
   ngOnInit() {
-    this.articles = null;
     this.checkData();
     this.getResult();
     this.getCurrentPage();
@@ -56,7 +55,6 @@ export class SearchResultComponent implements OnInit, OnDestroy {
         takeUntil(this.unsubscribe$))
       .subscribe((res: SearchResponse) => {
         if (res.ok) {
-          this.articles = null;
           setTimeout(() => {
             this.articles = res.articles;
           }, 1000);

@@ -27,7 +27,7 @@ export class JwtInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(tap(((res: HttpResponse<any>) => {
     }), ((error: HttpErrorResponse) => {
         if (error.status === 0) { return; }
-        this.errorService.saveHttpError(error);
+        this.errorService.saveError(error);
         if (error.status === 401) {
           const id = this.ls.get('user');
           if (!id) { return throwError(error); }

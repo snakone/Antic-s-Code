@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '../http/http.service';
-import { HttpError } from '@app/shared/interfaces/interfaces';
+import { CustomError } from '@app/shared/interfaces/interfaces';
 import { APP_CONSTANTS } from '@app/app.config';
-import { HttpErrorResponse } from '@angular/common/http';
 import { StorageService } from '@app/core/storage/storage.service';
 import { environment } from '@env/environment';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()
 
@@ -17,20 +17,29 @@ export class ErrorService {
       if (!environment.production) { console.log('HttpErrorService'); }
   }
 
-  saveHttpError(err: HttpErrorResponse): void {
+  saveError(err: Error | HttpErrorResponse): void {
     const error = this.manageError(err);
-    this.http.post(this.API_ERRORS, error).subscribe();
+    this.http.post(this.API_ERRORS, error).toPromise().then();
   }
 
-  private manageError(err: HttpErrorResponse): HttpError {
-    return new HttpError(
-      err.name,
-      err.error.message,
-      err.status,
-      err.statusText,
-      err.url,
-      this.ls.get('user') || ''
-    );
+  private manageError(err: Error | HttpErrorResponse): CustomError {
+    if (err instanceof HttpErrorResponse) {
+      return new CustomError(
+        err.name,
+        err.error.message,
+        err.statusText,
+        this.ls.get('user') || null,
+        err.status,
+        err.url
+      );
+    } else {
+      return new CustomError(
+        err.name,
+        err.message,
+        err.stack,
+        this.ls.get('user') || null,
+      );
+    }
   }
 
 }
