@@ -17,7 +17,7 @@ import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 export class ArticlesContentComponent implements OnInit, OnDestroy {
 
   @Input() grid: boolean;  // Display GRID
-  articles$: Observable<Article[]>;
+  articles: Article[] = [];
   private unsubscribe$ = new Subject<void>();
 
   constructor(private articleService: ArticleService,
@@ -29,8 +29,15 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
   }
 
   private getArticles(): void {
-    this.store.dispatch(ArticleActions.getArticles());
-    this.articles$ = this.store.select(fromArticles.getArticles);
+    this.store.select(fromArticles.getArticles)
+     .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((res: Article[]) => {
+        if (res.length === 0) {
+          this.store.dispatch(ArticleActions.getArticles());
+        } else {
+          this.articles = res;
+        }
+    });
   }
 
   private hasEnded(): void {
@@ -52,8 +59,9 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
   }
 
   private makeScroll(e: any): void {
-    let fromBottom = 350;
-    if (this.grid) { fromBottom = 600; }
+    if (this.articles.length < 1) { return; }
+    let fromBottom = 450;
+    if (this.grid) { fromBottom = 650; }
     if (window.document.body.clientWidth < 985) { fromBottom = 1400; }
     try {
       const top = e.target.scrollingElement.scrollTop;

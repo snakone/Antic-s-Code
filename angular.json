@@ -24,14 +24,16 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/assets",
-              "src/manifest.webmanifest",
-              "src/manifest.webmanifest",
               "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              {
+                "input": "node_modules/document-register-element/build/document-register-element.js"
+              }
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {

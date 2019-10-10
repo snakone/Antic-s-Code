@@ -11,7 +11,7 @@ import {
   CategoryCountResponse,
   Article
 } from '@shared/interfaces/interfaces';
-import { map } from 'rxjs/operators';
+import { map, delay } from 'rxjs/operators';
 
 @Injectable()
 

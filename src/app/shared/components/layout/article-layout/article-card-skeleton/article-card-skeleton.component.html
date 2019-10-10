@@ -1,0 +1,18 @@
+<div class="skeleton" [ngClass]="{'single': single}">
+  <figure>
+    <img src="assets/img/skeleton.png"/>
+  </figure>
+  <div class="skeleton-body">
+    <h3 *ngIf="!single"></h3>
+    <ul class="basic-flex">
+      <li></li>
+      <li></li>
+    </ul>
+    <div class="skeleton-tags"></div>
+    <div class="skeleton-message">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</div>

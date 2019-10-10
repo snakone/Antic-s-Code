@@ -15,7 +15,7 @@ import * as fromUsers from '@core/ngrx/selectors/user.selectors';
 
 export class NavigationComponent implements OnInit {
 
-  @ViewChild('menu', { static: true }) menu: MatMenu;
+  @ViewChild('homeMenu', { static: true }) menu: MatMenu;
   user$: Observable<User>;
   collapse = false;
   items = MENU;

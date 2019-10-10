@@ -12,12 +12,13 @@ li:before {
   width: 1.5em;
 }
 
-li:not(p) {
+li:not(p), li:not(p) span {
   color: black;
   margin-top: .9rem;
   outline: none;
   font-size: 1.1rem;
-  &:first-child { margin-top: 0 }
+
+  &:first-child { margin-top: 0 };
   &:hover {
     color: var(--primary-color);
     cursor: pointer;
@@ -37,4 +38,24 @@ p {
 .active {
   color: var(--primary-color);
   font-weight: bold;
+}
+
+.skeleton {
+  & p {
+    background: var(--skeleton-color-tint);
+    height: 1.2rem;
+    width: 6rem;
+    margin-top: .5rem;
+    position: relative;
+    top: 2px;
+  }
+
+  & span {
+    background: var(--skeleton-color);
+    text-size-adjust: 0%;
+    padding: 0 6rem;
+    height: 1.2rem;
+    position: relative;
+    top: 2px;
+  }
 }

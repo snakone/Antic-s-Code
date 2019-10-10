@@ -16,6 +16,9 @@ body {
   text-align: left;
   background-color: var(--bg-color);
   overscroll-behavior-y: contain;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
 * {

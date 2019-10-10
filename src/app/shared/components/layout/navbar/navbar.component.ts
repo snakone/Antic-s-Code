@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
-import { SwipeMenuService } from './services/swipe-menu.service';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MENU, HOME_MENU } from '@app/shared/shared.data';
 import { LoginComponent } from '../../login/login.component';
 import { AppState } from '@app/app.config';
@@ -18,27 +16,32 @@ import { CrafterService } from '@core/services/services.index';
 
 export class NavBarComponent implements OnInit {
 
-  show = false;
+  @ViewChild('drawer', {static: false}) drawer: ElementRef;
   items = MENU;
   menu = HOME_MENU;
   user$: Observable<User>;
 
   constructor(private crafter: CrafterService,
-              private swipeMenu: SwipeMenuService,
               private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.listenMenu();
     this.user$ = this.store.select(fromUser.getUser);
-  }
-
-  private listenMenu(): void {
-    this.swipeMenu.show
-      .subscribe((res: boolean) => this.show = res);
   }
 
   openLogin(): void {
     this.crafter.dialog(LoginComponent);
+  }
+
+  openDrawer(): void {
+    try {
+      this.drawer.nativeElement.open();
+    } catch (err) { console.log(err); }
+  }
+
+  closeDrawer(): void {
+    try {
+      this.drawer.nativeElement.close();
+    } catch (err) { console.log(err); }
   }
 
 }

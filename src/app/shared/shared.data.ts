@@ -190,14 +190,14 @@ export const PRO_LANGS: string[] = [
 ];
 
 export const PAGE_BG = {
-  code: 'https://media0.giphy.com/media/l3q2XB76CaWPggiNW/giphy.gif',
-  categories: 'https://media2.giphy.com/media/hLzncGRSaC5Nu/giphy.gif',
-  articles: 'https://media0.giphy.com/media/xUA7bgk0V4eUyNVaAo/giphy.gif',
-  article: 'https://media2.giphy.com/media/b93B4aJQQakRG/giphy.gif',
-  profile: 'https://media3.giphy.com/media/h0Ti6XKcFKBby/giphy.gif',
-  admin: 'https://media.giphy.com/media/BHNfhgU63qrks/giphy.gif',
-  public: 'https://media2.giphy.com/media/l4KihuqeuJEi9qLSM/giphy.gif',
-  search: 'https://media1.giphy.com/media/fD9ZWStNB5o1q/giphy.gif'
+  code: 'assets/img/page_bg/code.mp4',
+  categories: 'assets/img/page_bg/categories.mp4',
+  articles: 'assets/img/page_bg/articles.mp4',
+  article: 'assets/img/page_bg/article.mp4',
+  profile: 'assets/img/page_bg/profile.mp4',
+  admin: 'assets/img/page_bg/admin.mp4',
+  public: 'assets/img/page_bg/public.mp4',
+  search: 'assets/img/page_bg/search.mp4'
 };
 
 export const COUNTRIES: string[] = [

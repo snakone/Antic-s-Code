@@ -1,11 +1,20 @@
 <app-sticky-box selector="single-article-section">
   <app-content-box [border]="true">
-      <ul *ngIf="index">
-        <li *ngFor="let i of index"
-            (click)="scroll(i.id)"
-            [ngClass]="{'active' : spySection.id === i.id}">{{i.title}}
+      <ul>
+        <div *ngIf="index">
+          <li *ngFor="let i of index"
+              (click)="scroll(i.id)"
+              [class.active]="spySection.id === i.id">{{i.title}}
             <p>{{i.subtitle}}</p>
-        </li>
+          </li>
+        </div>
+
+        <div *ngIf="!index">
+          <li *ngFor="let s of [1,2,3,4]" class="skeleton">
+            <span></span>
+            <p></p>
+          </li>
+        </div>
       </ul>
   </app-content-box>
 </app-sticky-box>

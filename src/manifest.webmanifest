@@ -2,7 +2,7 @@
   "name": "Antic's Code",
   "short_name": "Antic's",
   "theme_color": "#fafafa",
-  "background_color": "#f5548e",
+  "background_color": "#fafafa",
   "display": "standalone",
   "scope": "/",
   "start_url": "/index.html",

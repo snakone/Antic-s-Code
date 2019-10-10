@@ -9,9 +9,13 @@
       color: black;
       font-weight: bold;
       font-size: 1.1rem;
+      @media(max-width: 550px) { font-size: 1rem }
     }
 
-    & span { color: var(--p-color) }
+    & span {
+      color: var(--p-color);
+      @media(max-width: 550px) { font-size: .95rem }
+    }
   }
 
   & .sort {
