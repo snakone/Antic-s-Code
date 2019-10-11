@@ -27,6 +27,7 @@ export class ErrorHandlerService implements ErrorHandler {
         break;
       }
     }
+    if (error instanceof HttpErrorResponse) { return; }
     service.saveError(error);
     ngZone.run(() => router.navigate(['error'], { queryParams: { error } })
       .then(() => { }).catch((e) => { }));

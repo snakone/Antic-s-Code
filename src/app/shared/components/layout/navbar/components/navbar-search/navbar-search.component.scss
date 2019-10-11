@@ -5,6 +5,10 @@ input {
   left: 14px;
   top: -4px;
   width: 80%;
+  &::placeholder {
+    color: var(--bg-color);
+    opacity: .5;
+   }
 }
 
 .search-area {

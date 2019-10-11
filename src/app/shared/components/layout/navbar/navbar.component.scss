@@ -161,15 +161,15 @@
   }
 }
 
-@media(max-width: 615px) {
+@media(max-width: 750px), (max-height: 550px) {
   .btn { padding: 0 5px }
-  .btn-mobile { display: block; }
-  .btn-desktop { display: none; }
+  .btn-mobile { display: block }
+  .btn-desktop { display: none }
 }
 
-@media(min-width: 616px) {
-  .btn-mobile { display: none; }
-  .btn-desktop { display: block; }
+@media(min-width: 751px) and (min-height: 551px) {
+  .btn-mobile {display: none }
+  .btn-desktop {display: block }
 }
 
 .division {
