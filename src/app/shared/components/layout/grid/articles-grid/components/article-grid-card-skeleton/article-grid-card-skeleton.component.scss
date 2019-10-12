@@ -1,0 +1,139 @@
+.card {
+  &-content {
+    background: var(--light-color);
+    margin-bottom: 2rem;
+  }
+
+  & figure {
+    margin: 0;
+    position: relative;
+
+    & img {
+      width: 100%;
+      vertical-align: middle;
+      border-style: none;
+      outline: none;
+      -webkit-transition: all .3s ease-in-out;
+      transition: all .3s ease-in-out;
+    }
+  }
+
+  &-info {
+    border: 1px solid var(--section-border-color);
+    width: 100%;
+    position: relative;
+    left: -1px;
+
+    &-content {
+      padding: 1.6rem 1.33333rem 1.06667rem;
+
+      & h4 {
+        font-weight: 700;
+        line-height: 1.2;
+        outline: none;
+        width: 90%;
+        background: var(--skeleton-color);
+        margin: 0;
+        height: 1.8rem;
+        @media(max-width: 650px) and (min-width: 620px) { height: 1.5rem }
+        @media(max-width: 620px) { height: 1.2rem }
+        @media(max-width: 475px) { height: 1rem }
+      }
+    }
+
+    &-meta {
+      margin-top: 1.2rem;
+      width: 12rem;
+      display: flex;
+
+      & span {
+        background: var(--skeleton-color-tint);
+        padding: 0 1.5rem;
+        display: inline-block;
+        margin-right: .8rem;
+        height: 1.5rem;
+      }
+    }
+
+    &-data {
+      & span {
+        background: var(--skeleton-color-tint);
+        padding: 0 5rem;
+      }
+
+      & ul {
+        margin: 1rem 0 0 0;
+        padding-left: 0;
+       }
+
+      & li {
+        list-style: none;
+        margin-bottom: .33333rem;
+      }
+
+      & p {
+        margin: 0;
+        line-height: 1.8rem;
+        width: 100%;
+        @media(max-width: 550px) { line-height: 1rem }
+
+        & mat-icon {
+          font-size: 1.1rem;
+          position: relative;
+          top: 3px;
+          color: var(--p-color);
+          padding-right: 8px;
+        }
+      }
+    }
+  }
+
+  &-bottom {
+    border-top: 1px solid var(--section-border-color);
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 1rem 1.233rem;
+    @media(max-width: 550px) { padding: .8rem 1.233rem; }
+
+    &-left {
+      & span {
+        padding: 0 2rem;
+        background: var(--skeleton-color-tint);
+        height: 1.3rem;
+      }
+    }
+
+    &-right  {
+      & ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        list-style: none;
+        align-items: center;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+
+        & li {
+          background: var(--skeleton-color-tint);
+          width: 3rem;
+          height: 1.3rem;
+        }
+      }
+
+    }
+  }
+}
+
+.hover:hover {
+  font-weight: bold;
+  cursor: pointer;
+ }
+
+
+

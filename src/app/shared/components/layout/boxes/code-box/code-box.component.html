@@ -1,5 +1,5 @@
 <div class="code-description" *ngIf="code">
-  <div *ngIf="list">  <!-- CODE DESCRIPTION -->
+  <div>  <!-- CODE DESCRIPTION -->
     <p class="description"
        [innerHTML]="code.description | sanitizer:'html'">
     </p>
@@ -25,13 +25,8 @@
       </span>
     </div>
   </div>
-  <div class='code-box'
-       [ngClass]="{'list': list}">  <!-- CODE BOX -->
-    <div class='code-box-header'>
-      <span>{{code.lang}}</span>
-    </div>
-    <pre><code [languages]="[code.lang.toLowerCase()]"
-               [highlight]="code.code"></code></pre>
+  <div class='code-box list'>  <!-- CODE BOX -->
+    <pre><code #hl [class]="'hljs ' + code.lang | lowercase">{{code.code}}</code></pre>
   </div>
 </div>
 

@@ -15,11 +15,21 @@ body {
   line-height: 1.5;
   text-align: left;
   background-color: var(--bg-color);
+  overscroll-behavior-y: contain;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
 * {
   font-family: var(--primary-font);
   font-size: var(--primary-font-size);
+}
+
+@font-face {
+  font-family: "Segoe UI";
+  font-weight: 400;
+  src: local("Segoe UI");
 }
 
 

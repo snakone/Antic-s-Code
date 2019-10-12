@@ -35,8 +35,8 @@ span.icon {
 
 @media (max-width: 750px) {
   li {
-    min-width: 6.1rem;
-    min-height: 5.1rem;
+    min-width: 5.5rem;
+    min-height: 4.5rem;
     font-size: .9rem;
   }
 
@@ -47,7 +47,7 @@ span.icon {
 }
 
 @media (max-width: 489px) and (min-width: 360px) {
-  .category-list { padding: 0 50px }
+  .category-list { padding: 0 20px }
 }
 
 @media (max-height: 750px) { .category-list { display: none } }
@@ -58,8 +58,8 @@ span.icon {
   }
 
   li {
-    min-width: 5.5rem;
-    min-height: 4.5rem;
+    min-width: 5.1rem;
+    min-height: 4.1rem;
     font-size: .85rem;
   }
 }

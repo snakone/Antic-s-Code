@@ -23,7 +23,7 @@ import { Router } from '@angular/router';
 
 export class SignInComponent implements OnInit, OnDestroy {
 
-  @Output() changed = new EventEmitter<boolean>();
+  @Output() changed = new EventEmitter<boolean>();  // Swap Login/Register
   signInForm: FormGroup;
   userEmail$: Observable<string>;
   remember = false;

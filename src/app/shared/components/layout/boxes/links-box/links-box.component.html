@@ -1,7 +1,9 @@
-<app-content-box [title]="'related.links' | translate">
-  <ul>
-    <li *ngFor="let l of links">
-      <a [href]="l.url" target="NEW">{{l.name}}</a>
-    </li>
-  </ul>
-</app-content-box>
+<div class="links">
+  <app-content-box [title]="'related.links' | translate">
+    <ul>
+      <li *ngFor="let l of links">
+        <a [href]="l.url" target="NEW">{{l.name}}</a>
+      </li>
+    </ul>
+  </app-content-box>
+</div>

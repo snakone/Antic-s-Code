@@ -3,7 +3,6 @@ import { NgModule, Optional, SkipSelf, ErrorHandler } from '@angular/core';
 import {
   CORE_MODULE_CONSTANTS,
   CORE_MODULE_CONFIG,
-  hljsLanguages,
   createTranslateLoader
 } from './core.module.config';
 
@@ -19,7 +18,6 @@ import { JwtInterceptor } from './services/http/jwt.interceptor';
 import { StorageModule } from './storage/storage.module';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { ServicesModule } from './services/services.module';
-import { HighlightModule } from 'ngx-highlightjs';
 import { DisqusModule } from 'ngx-disqus';
 
 import { EffectsModule } from '@ngrx/effects';
@@ -56,9 +54,6 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
       maxAge: 25
     }),
     LanguageModule.forRoot(),
-    HighlightModule.forRoot({
-      languages: hljsLanguages
-    }),
     DisqusModule.forRoot(APP_CONSTANTS.DISQUS),
     TranslateModule.forRoot({
       loader: {

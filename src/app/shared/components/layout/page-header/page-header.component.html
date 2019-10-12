@@ -1,6 +1,13 @@
 <div class="page-header">
-  <div class="header-bg"
-       [style.backgroundImage]="'url('+ background +')' | sanitizer:'style'">
+  <div class="header-bg">
+    <video playsinline
+           webkit-playsinline
+           autoplay="autoplay"
+           loop="loop"
+           preload="auto"
+           muted>
+      <source [src]="background" type="video/mp4"/>
+    </video>
     <div class="breadcrumb">
       <div class="container">
         <div class="row">

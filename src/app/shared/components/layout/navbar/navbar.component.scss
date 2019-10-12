@@ -1,17 +1,50 @@
 .navbar {
-  position: absolute;
+  position: fixed;
   display: inline-flex;
   width: 100%;
   height: var(--navbar-height);
   top: 0;
   left: 0;
-  z-index: 3;
+  z-index: 5;
   border-bottom: 2px solid var(--border-color);
+  transition: all .5s ease-in;
+  // SMALL NAVBAR
+  @media(max-width: 750px), (max-height: 550px) {
+
+    height: var(--navbar-height-mobile);
+
+    &-logo img {
+      width: 45px !important;
+      height: 40px !important;
+    }
+
+    & .toogler {
+      width: 40px;
+      height: 31px;
+
+      & i {
+        margin-top: 3px;
+        font-size: 21px;
+      }
+    }
+
+    &-search button {
+      min-width: 40px !important;
+      &.mat-button {
+       line-height: 29px !important;
+       padding: 0;
+      }
+    }
+
+    &-search .profile mat-icon {
+      position: relative;
+      top: -1px;
+    }
+  }
 
   &-logo {
     width: var(--navbar-logo-width);
     height: 100%;
-    border-right: 1px solid var(--border-color);
     -webkit-box-ordinal-group: 1;
     display: flex;
     align-items: center;
@@ -43,7 +76,7 @@
     }
   }
 
-  &-mobile-menu {
+  &-mobile-toogler {
     display: none;
 
     @media (max-width: 789px) {
@@ -52,21 +85,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-left: var(--big-padding);
-      margin-right: 32px;
+      margin-left: 31px;
+      margin-right: 30px;
     }
 
-    @media(max-width: 550px) { margin-left: var(--small-padding) }
+    @media(max-width: 550px) { margin-left: 1.2rem }
   }
-}
-
-@media(max-width: 750px) {
-  .navbar { height: var(--navbar-height-mobile) }
 }
 
 .navbar-search {
   position: absolute;
-  right: 25px;
+  right: 31px;
   width: fit-content;
   display: flex;
   align-items: center;
@@ -76,23 +105,16 @@
   min-width: auto;
 
   & button {
-    margin-left: 35px;
+    margin-left: 30px;
     min-width: 46px;
   }
 
   & .btn mat-icon {
     position: relative;
     top: -1px;
-    color: var(--light-color);
   }
 
-  & .btn i {
-    position: relative;
-    font-size: 1.25rem;
-    top: 1px;
-  }
-
-  @media(max-width: 550px) { right: var(--small-padding) }
+  @media(max-width: 550px) { right: 1.2rem }
 }
 
 .toogler {
@@ -102,6 +124,19 @@
   border: 1px solid rgba(255, 255, 255, .7);
   width: 46px;
   height: 36px;
+  outline: none;
+
+  @media(max-width: 750px), (max-height: 550px) {
+    width: 40px;
+    height: 31px;
+  }
+
+  &:focus { outline: none }
+
+  &:focus:after {
+    border-color: transparent;
+    box-shadow: none;
+  }
 
   & i {
     outline: 0;
@@ -109,42 +144,32 @@
     margin-top: 4px;
   }
 
-  & span {
-    font-size: 1.33333rem;
-    display: inline-block;
-    line-height: normal;
-    margin-bottom: -3px;
-
-  }
-
-  &:focus { outline: none }
   &:hover { cursor: pointer }
 }
 
-ul {
+.menu ul {
   list-style-type: none;
-  margin-top: -10px;
   padding: 0;
   width: 100%;
 
   & li {
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     font-size: .9rem;
     outline: none;
     cursor: pointer;
   }
 }
 
-@media(max-width: 615px) {
+@media(max-width: 750px), (max-height: 550px) {
   .btn { padding: 0 5px }
-  .btn-mobile { display: block; }
-  .btn-desktop { display: none; }
+  .btn-mobile { display: block }
+  .btn-desktop { display: none }
 }
 
-@media(min-width: 616px) {
-  .btn-mobile { display: none; }
-  .btn-desktop { display: block; }
+@media(min-width: 751px) and (min-height: 551px) {
+  .btn-mobile {display: none }
+  .btn-desktop {display: block }
 }
 
 .division {
@@ -158,4 +183,30 @@ ul {
     height: 2px;
     border-radius: 50px;
   }
+}
+
+.letter { padding: 0 5px }
+
+// STICKY
+.sticky {
+  background: var(--title-color);
+  transition: all .3s ease-in-out;
+}
+
+// Mobile MENU
+.menu {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: var(--menu-width);
+  min-height: 100vh;
+  text-align: center;
+  z-index: 550;
+  border: 0;
+  top: 0;
+  left: 0;
+  background: var(--bg-color);
+  margin-left: 0;
+  border-radius: 0;
+  background-repeat: repeat;
 }

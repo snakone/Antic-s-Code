@@ -55,7 +55,7 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
     }
 
     let div: number;
-    let padding = 213;  // If Content Above the Box
+    let padding = 216;  // If Content Above the Box
 
     if (this.empty) { height = 32; padding = 0; }  // 32 = 2rem
     if (!this.height) { this.height = height; }

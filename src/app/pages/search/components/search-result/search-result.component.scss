@@ -1,5 +1,10 @@
 * { box-sizing: border-box }
 
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .col-sm-12, .col-lg-12, .col-sm-6 {
   @media(max-width: 550px) {
     padding-right: 0;

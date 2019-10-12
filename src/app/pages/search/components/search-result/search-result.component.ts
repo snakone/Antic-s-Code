@@ -5,7 +5,7 @@ import { Subject, of } from 'rxjs';
 import * as fromSearch from '@core/ngrx/selectors/search.selectors';
 import * as SearchActions from '@core/ngrx/actions/search.actions';
 import { takeUntil, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { SearchResponse, Article, Category } from '@app/shared/interfaces/interfaces';
+import { SearchResponse, Article } from '@app/shared/interfaces/interfaces';
 import { PaginationService } from 'ngx-pagination';
 
 @Component({
@@ -23,7 +23,6 @@ export class SearchResultComponent implements OnInit, OnDestroy {
 
   private unsubscribe$ = new Subject<void>();
   articles: Article[];
-  categories: Category[];
 
   constructor(private store: Store<AppState>,
               private pagination: PaginationService) { }

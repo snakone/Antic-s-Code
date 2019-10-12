@@ -30,10 +30,6 @@
     }
 
     &-body {
-      -webkit-box-flex: 1;
-      -webkit-flex: 1 1 auto;
-      -ms-flex: 1 1 auto;
-      flex: 1 1 auto;
       padding: 1.8rem 2rem;
       @media(max-width: 700px) { padding: 1.5rem 1rem; }
 
@@ -94,7 +90,6 @@
   margin-bottom: 0 !important;
   @media(max-width: 550px) { margin-bottom: 1rem !important }
   .article-card-body { padding: 1.8rem 0 !important }
-  .article-card-body-tags { margin-bottom: 1.7rem }
  }
 
 .link {

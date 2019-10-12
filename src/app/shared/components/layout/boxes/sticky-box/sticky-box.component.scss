@@ -1,11 +1,18 @@
 .sticky {
-  top: 30px;
+  top: calc(32px + var(--navbar-height));
   position: -webkit-sticky;
   position: sticky;
-  z-index: 50;
+  z-index: 2;
   width: 100%;
   opacity: 1;
   animation-name: fadeIn;
+  transition: top .5s ease-in;
+
+  @media(max-width: 750px), (max-height: 550px) {
+    top: calc((32px - 25px) + var(--navbar-height));
+  }
+
+  // 32 Box Padding - 25 Difference of Navbar Height
 }
 
 .display {

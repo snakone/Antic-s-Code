@@ -10,6 +10,7 @@ export class ContentBoxComponent implements OnInit {
 
   @Input() title: string;
   @Input() icon: string;
+  @Input() border: boolean;
 
   constructor() { }
 

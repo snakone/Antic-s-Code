@@ -4,7 +4,6 @@ import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
 import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 import * as ArticleActions from '@core/ngrx/actions/article.actions';
-import { ArticleService } from '@app/core/services/services.index';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
@@ -19,8 +18,7 @@ export class ArticlesSortBarComponent implements OnInit, OnDestroy {
   active = false;
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private store: Store<AppState>,
-              private articleService: ArticleService) { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
     this.checkData();

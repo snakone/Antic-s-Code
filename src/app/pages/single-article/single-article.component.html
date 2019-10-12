@@ -3,14 +3,13 @@
 </app-page-header>
 <app-section input="#f5f7fc">
   <div class="row">  <!-- ARTICLE CONTENT -->
-    <div class="col-lg-8 col-md-8">
-      <app-article-card *ngIf="article"
-                        id="single-article-section"
+    <div *ngIf="article" class="col-lg-8 col-md-8">
+      <app-article-card id="single-article-section"
                         [article]="article"
                         [single]="true">
         <app-article-scrollspy-box class="mobile"
-                               [index]="article.index"
-                               [mobile]="true">
+                                   [index]="article.index"
+                                   [mobile]="true">
         </app-article-scrollspy-box>
         <app-content-maker [template]="article"></app-content-maker>
         <app-links-box *ngIf="article.links.length > 0"
@@ -18,13 +17,14 @@
         </app-links-box>
         <!-- <app-article-reaction-box></app-article-reaction-box> -->
       </app-article-card>
-      <app-disqus *ngIf="article" [identifier]="article.slug"></app-disqus>
+      <app-disqus [identifier]="article.slug"></app-disqus>
+    </div>
+    <div *ngIf="!article" class="col-lg-8 col-md-8">
+      <app-article-card-skeleton [single]="true"></app-article-card-skeleton>
     </div>
     <div class="col-lg-4 col-md-4">  <!-- SIDEBAR -->
-      <app-articles-sidebar></app-articles-sidebar>
-      <app-article-scrollspy-box *ngIf="article"
-                             class="desktop"
-                             [index]="article.index">
+      <app-article-scrollspy-box class="desktop"
+                                 [index]="article?.index">
       </app-article-scrollspy-box>
     </div>
   </div>

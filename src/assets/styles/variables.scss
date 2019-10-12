@@ -22,10 +22,13 @@
   --ts-color: #000E5C;
   --node-color: #1CAC1C;
   --stars-color: #FD4;
+  --skeleton-color: #6b6b6b44;
+  --skeleton-color-tint: #6b6b6b1f;
+  --sticky-color: #070707;
 
   // CONTENT
   --navbar-height: 75px;
-  --navbar-height-mobile: 65px;
+  --navbar-height-mobile: 50px;
   --navbar-menu-dropdown: 22px;
   --navbar-logo-width: 120px;
   --small-padding: 16px;
@@ -39,7 +42,7 @@
   --category-header-height: 369px;
 
   // FONTS
-  --primary-font: Muli, sans-serif;
+  --primary-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --primary-font-size: 16px;
 
   // SCROLLBAR

@@ -7,11 +7,13 @@ import { SharedModule } from '@app/shared/shared.module';
 import { ArticlesGridComponent } from './articles-grid.component';
 import { ArticleGridCardComponent } from './components/article-grid-card/article-grid-card.component';
 import { ArticleLayoutModule } from '../../article-layout/article-layout.module';
+import { ArticleGridCardSkeletonComponent } from './components/article-grid-card-skeleton/article-grid-card-skeleton.component';
 
 @NgModule({
   declarations: [
     ArticlesGridComponent,
-    ArticleGridCardComponent
+    ArticleGridCardComponent,
+    ArticleGridCardSkeletonComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { ArticleLayoutModule } from '../../article-layout/article-layout.module'
   ],
   exports: [
     ArticlesGridComponent,
-    ArticleGridCardComponent
+    ArticleGridCardComponent,
+    ArticleGridCardSkeletonComponent
   ]
 })
 

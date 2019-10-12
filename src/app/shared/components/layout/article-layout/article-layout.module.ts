@@ -7,12 +7,14 @@ import { ArticleCardComponent } from './article-card/article-card.component';
 import { ArticleCardBadgesComponent } from './article-card-badges/article-card-badges.component';
 import { ScrollSpyService } from '@layout/article-layout/services/scrollspy.service';
 import { ArticleReactionsComponent } from './article-reactions/article-reactions.component';
+import { ArticleCardSkeletonComponent } from './article-card-skeleton/article-card-skeleton.component';
 
 @NgModule({
   declarations: [
     ArticleCardComponent,
     ArticleCardBadgesComponent,
-    ArticleReactionsComponent
+    ArticleReactionsComponent,
+    ArticleCardSkeletonComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { ArticleReactionsComponent } from './article-reactions/article-reactions
   exports: [
     ArticleCardComponent,
     ArticleReactionsComponent,
-    ArticleCardBadgesComponent
+    ArticleCardBadgesComponent,
+    ArticleCardSkeletonComponent
   ],
   providers: [ScrollSpyService]
 })

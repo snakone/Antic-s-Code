@@ -8,7 +8,7 @@ export interface ModuleConfig {
 export interface StorageConfig extends ModuleConfig {
   LANGUAGE: string;
   THEME: string;
-  REMEMBER: boolean;
+  REMEMBER: boolean;  // Remember Email on Login
 }
 
 export const STORAGE_CONSTANTS: StorageConfig = {
