@@ -1,5 +1,4 @@
 import { Component, Inject, OnInit, AfterViewInit } from '@angular/core';
-import { SwipeMenuService } from '@layout/navbar/services/swipe-menu.service';
 import { DOCUMENT } from '@angular/common';
 import { AppState } from './app.config';
 import { Store } from '@ngrx/store';

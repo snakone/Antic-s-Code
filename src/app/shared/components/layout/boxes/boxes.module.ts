@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '@app/shared/shared.module';
 import { RouterModule } from '@angular/router';
-import { HighlightModule } from 'ngx-highlightjs';
 import { ArticleLayoutModule } from '../article-layout/article-layout.module';
 
 import { CodeBoxComponent } from './code-box/code-box.component';
@@ -33,7 +32,6 @@ import { ProfileInfoBoxComponent } from './profile-info-box/profile-info-box.com
     CommonModule,
     SharedModule,
     RouterModule,
-    HighlightModule,
     ArticleLayoutModule
   ],
   exports: [

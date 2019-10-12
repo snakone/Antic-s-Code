@@ -1,62 +1,25 @@
-import { Component, OnDestroy, ViewChild, AfterViewInit, Injector, NgModuleRef,
-         ViewContainerRef, NgModule, Compiler, Input } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
-import { SharedModule } from '@app/shared/shared.module';
-import { Subscription } from 'rxjs';
-import { Article, Code, Category } from '@app/shared/interfaces/interfaces';
-import { CommonModule } from '@angular/common';
-import { BoxesModule } from '../layout/boxes/boxes.module';
-import { CONTENT_STYLES } from './content-maker.styles';
+import { Component, Input, AfterViewInit } from '@angular/core';
+import { Article, Category } from '@app/shared/interfaces/interfaces';
+import hljs from 'highlight.js';
 
 @Component({
   selector: 'app-content-maker',
-  template: `<div highlightChildren><ng-container #vc></ng-container></div>`
+  templateUrl: './content-maker.component.html'
 })
 
-export class ContentMakerComponent implements AfterViewInit, OnDestroy {
+export class ContentMakerComponent implements AfterViewInit {
 
   @Input() template?: Article | Category;
-  @ViewChild('vc', { read: ViewContainerRef, static: true }) vc: ViewContainerRef;
-  routerOb: Subscription = null;
 
-  constructor(private route: ActivatedRoute,
-              private compiler: Compiler,
-              private injector: Injector,
-              private module: NgModuleRef<any>) {}
+  constructor() { hljs.configure({ tabReplace: ' ' }); }
 
-  ngAfterViewInit() {
-    this.routerOb = this.route.params.subscribe(() => {
-      const tmpCmp = Component({
-        template: this.template.message,
-        styles: [CONTENT_STYLES]
-      })(class TempComponent {  // Custom Component
-        public code: Code[];
-      });
-      const tmpModule = NgModule({  // Custom Module
-        declarations: [tmpCmp],
-        imports: [
-          SharedModule,
-          RouterModule,
-          CommonModule,
-          BoxesModule
-        ],
-      })(class {});
-      this.compiler.compileModuleAndAllComponentsAsync(tmpModule)
-        .then((f) => {
-          this.vc.clear();
-          const factory = f.componentFactories[f.componentFactories.length - 1];
-          const cmpRef = factory.create(this.injector, [], null, this.module);
-          cmpRef.instance.name = 'dynamic';
-          cmpRef.instance.code = this.template.code;  // Code Assignement
-          this.vc.insert(cmpRef.hostView);
-        });
-      });
+  ngAfterViewInit(): void {
+    this.initHightlight();
   }
 
-  ngOnDestroy() {
-    if (this.routerOb) {
-      this.routerOb.unsubscribe();
-    }
+  private initHightlight(): void {
+    const template = document.querySelectorAll('code');
+    template.forEach(el => hljs.highlightBlock(el));
   }
 
 }
