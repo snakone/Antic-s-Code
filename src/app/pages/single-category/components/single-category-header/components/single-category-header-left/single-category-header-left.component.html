@@ -8,7 +8,8 @@
   </li>
   <li>
     <div class="badge-category hide-mobile">
-      <img [src]="category.icon | image: 'logos'"/>
+      <img [src]="category.icon | image: 'logos'"
+           [alt]="category.category" loading="lazy"/>
       <span>{{category.category}}</span>
     </div>
   </li>

@@ -10,7 +10,7 @@
     </div>
     <div class="col-lg-4 col-md-4">   <!-- SIDEBAR -->
       <app-content-box [title]="'loved.lang' | translate">
-        <button mat-button class="btn-orange">
+        <button mat-button class="btn-orange" aria-label="Favorite Language">
           {{user?.profile?.language || 'not.defined' | translate}}
         </button>
       </app-content-box>

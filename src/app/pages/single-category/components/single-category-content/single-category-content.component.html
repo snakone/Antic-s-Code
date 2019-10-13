@@ -6,7 +6,10 @@
       </app-single-category-info-box>
     </div>
   </div>
-  <button mat-button class="btn-pink">{{'favorite' | translate}}</button>
+  <button mat-button
+          class="btn-pink"
+          aria-label="Favorite">{{'favorite' | translate}}
+  </button>
 </div>
 <app-single-category-faq-box></app-single-category-faq-box>
 <app-links-box *ngIf="category?.links.length > 0"

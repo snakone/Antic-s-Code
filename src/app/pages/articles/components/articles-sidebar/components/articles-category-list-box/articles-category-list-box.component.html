@@ -2,7 +2,9 @@
   <ul>
     <li *ngFor="let c of categories"
         [routerLink]="'/category/' + c.category">
-        <img [src]="c.icon | image:'logos'"/>  <!-- LOGO LIST -->
+        <img [src]="c.icon | image:'logos'"
+             loading="lazy"
+             [alt]="c.category"/>  <!-- LOGO LIST -->
       <span>{{c.name}}</span>
     </li>
   </ul>

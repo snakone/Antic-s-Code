@@ -33,7 +33,7 @@ export class CarouselHomeComponent implements OnInit {
       return;
     }
 
-    this.index = this.index + value;
+    this.index = i;
   }
 
 }

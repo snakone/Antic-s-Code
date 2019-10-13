@@ -12,17 +12,17 @@
 }
 
 .badge-featured-article {
-  @include badge(#fa8b0c, 10px);
+  @include badge(#074901, 10px);
   border: 1px solid #ffffffa4;
 }
 
 .badge-popular-article {
-  @include badge(#fd4868, 10px);
+  @include badge(#ee0000, 10px);
   border: 1px solid #ffffffa4;
 }
 
 .badge-new-article {
-  @include badge(#4471ee, 10px);
+  @include badge(#214cc2, 10px);
   border: 1px solid #ffffffa4;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .meta-star-card {
-  @include meta-data(#28db70d5, 1.8rem);
+  @include meta-data(#03963eef, 1.8rem);
 }
 
 .meta-like {
@@ -47,7 +47,7 @@
 }
 
 .meta-like-card {
-  @include meta-data(#f5548fd5, 1.5rem);
+  @include meta-data(#d40350e8, 1.5rem);
 }
 
 .meta-view {

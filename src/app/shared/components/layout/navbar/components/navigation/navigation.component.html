@@ -12,6 +12,7 @@
         <button mat-button
                 class="navbar-menu-btn"
                 [matMenuTriggerFor]="menu"
+                aria-label="Menu"
                 (click)="collapse = !collapse">  <!-- MENU BUTTON -->
             {{'menu' | translate}}
           <span [ngClass]="{'collapsed' : collapse}"
@@ -23,6 +24,7 @@
                *ngFor="let m of dropdown">
             <button class="menu-dropdown"
                     mat-menu-item
+                    aria-label="Menu Item"
                     [routerLink]="m.link">
               <mat-icon>{{m.icon}}</mat-icon>
                   {{m.name | translate}}
@@ -33,6 +35,7 @@
                 *ngIf="user.account === 'Admin' || user.account === 'Super'">
               <button class="menu-dropdown"
                       mat-menu-item
+                      aria-label="Admin"
                       routerLink="/admin">
                 <mat-icon>security</mat-icon>
                     Admin

@@ -5,7 +5,7 @@
   <title>Antic's Code</title>
   <meta name="title" content="Antic's Code">
   <meta name="description" content="Aprende Programación con artículos, tutoriales...">
-  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0"/>
   <base href="/">
   <meta property="twitter:card" content="summary_large_image"/>
   <meta property="twitter:url" content="https://anticscode.netlify.com"/>
@@ -18,11 +18,12 @@
   <meta prefix="og:http://ogp.me/ns#" property="og:description" content="Aprende Programación con artículos, tutoriales...">
   <meta prefix="og:http://ogp.me/ns#" property="og:image" content="https://d31v04zdn5vmni.cloudfront.net/blog/wp-content/uploads/2012/02/best-way-to-code-background-colors-for-html-email-690x362.png"/>
   <meta prefix="og:http://ogp.me/ns#" property="og:image:alt" content="Antic's Code"/>
+  <meta name="theme-color" content="#fafafa"/>
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="/assets/styles/bootstrap-grid.min.css"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" type="text/css" defer href="/assets/styles/bootstrap-grid.min.css"/>
   <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.png">
   <link rel="manifest" crossorigin="use-credentials" href="manifest.webmanifest">
   <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/icon-72x72.png">
@@ -37,6 +38,6 @@
 <body>
   <app-root></app-root>
   <noscript>Please enable JavaScript to continue using this application.</noscript>
-  <script src="/assets/quantum.js"></script>
+  <script defer src="/assets/quantum.js"></script>
 </body>
 </html>

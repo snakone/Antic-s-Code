@@ -1,7 +1,7 @@
 <div class="last" *ngIf="articles$ | async as articles">
   <figure *ngFor="let a of articles"
           [routerLink]="'/article/' + a.slug">
-      <img [src]="a.cover"/>
+      <img [src]="a.cover" loading="lazy" [alt]="a.title"/>
       <figcaption class="overlay-bg">
         <div class="last-title">
           <h4>{{a.title}}</h4>

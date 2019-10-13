@@ -10,7 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "release": "ng build --prod --aot=true --buildOptimizer=true --progress=true"
+    "release": "ng build --prod --aot=true --buildOptimizer=true --progress=true  --output-hashing=all"
   },
   "private": true,
   "dependencies": {

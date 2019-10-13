@@ -12,7 +12,7 @@
   <mat-form-field color="accent" class="select">  <!-- ROL -->
     <mat-label>{{'select.rol' | translate}}</mat-label>
     <mat-select formControlName="rol">
-      <mat-option *ngFor="let r of roles" [value]="r.translate">
+      <mat-option *ngFor="let r of roles" [value]="r.translate" role="option">
         {{r.translate | translate}}
       </mat-option>
     </mat-select>
@@ -20,7 +20,7 @@
   <mat-form-field color="accent" class="select">  <!-- ROL -->
     <mat-label>{{'favorite.lang' | translate}}</mat-label>
     <mat-select formControlName="language">
-      <mat-option *ngFor="let l of languages" [value]="l">
+      <mat-option *ngFor="let l of languages" [value]="l" role="option">
         {{l}}
       </mat-option>
     </mat-select>
@@ -55,6 +55,7 @@
   <button type="submit"
           mat-button
           class="btn-pink"
+          aria-label="Edit"
           [disabled]="editProfileForm.invalid">
           {{'save' | translate}}
   </button>

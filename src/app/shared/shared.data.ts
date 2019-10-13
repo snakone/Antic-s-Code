@@ -88,37 +88,37 @@ export const MAIN_CATEGORIES: List[] = [
     name: 'Markup HTML5',
     icon: 'html-logo.png',
     category: 'HTML',
-    class: 'odd.png'
+    class: 'odd.jpg'
   },
   {
     name: 'Stylesheet CSS3',
     icon: 'css-logo.png',
     category: 'CSS',
-    class: 'even.png'
+    class: 'even.jpg'
   },
   {
     name: 'Vanilla Javascript',
     icon: 'javascript-logo.png',
     category: 'Javascript',
-    class: 'odd.png'
+    class: 'odd.jpg'
   },
   {
     name: 'Angular Framework',
     icon: 'angular-logo.png',
     category: 'Angular',
-    class: 'even.png'
+    class: 'even.jpg'
   },
   {
     name: 'Server Javascript',
     icon: 'node-logo.png',
     category: 'Nodejs',
-    class: 'odd.png'
+    class: 'odd.jpg'
   },
   {
     name: 'Mongo Database',
     icon: 'mongo-logo.png',
     category: 'MongoDB',
-    class: 'even.png'
+    class: 'even.jpg'
   }
 ];
 

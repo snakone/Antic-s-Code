@@ -5,12 +5,14 @@
     <div class="input-form-group">
       <mat-icon>mail_outline</mat-icon>
       <input type="text"
-          [(ngModel)]="email"
-          name="email"
-          [placeholder]="'enter.email' | translate"
-          required/>
+             [(ngModel)]="email"
+             name="email"
+             aria-label="Email"
+             [placeholder]="'enter.email' | translate"
+             required/>
     </div>
     <button class="btn-purple"
+            aria-label="Send"
             mat-button
             type="submit">
       <span>{{'send' | translate}}</span>

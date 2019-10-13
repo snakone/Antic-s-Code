@@ -14,10 +14,12 @@
 
     <mat-dialog-actions align="end">
       <button mat-button
+              aria-label="Cancel"
               mat-dialog-close>{{'cancel' | translate}}</button>
       <button mat-button
               type="submit"
               class="btn-danger"
+              aria-label="Accept"
               [disabled]="deleteAccountForm.invalid">
               {{'accept' | translate}}
       </button>

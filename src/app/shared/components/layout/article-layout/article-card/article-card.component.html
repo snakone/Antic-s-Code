@@ -1,7 +1,7 @@
 <div class="article-wrapper animated fadeIn" [ngClass]="{'single' : single}">
  <div class="article-card" [ngClass]="{'article-card-shadow' : shadow}">
    <figure [routerLink]="'/article/' + article.slug">  <!-- ARTICLE IMAGE -->
-     <img rel="preload" [src]="article.cover"/>
+     <img loading="lazy" [alt]="article.title" [src]="article.cover"/>
      <app-article-card-badges [badges]="article.badges"></app-article-card-badges>
    </figure>  <!-- ARTICLE CARD -->
    <div class="article-card-body">

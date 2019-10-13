@@ -2,10 +2,11 @@
                  icon="person">
   <div class="profile-info">
     <div class="profile-data">
-      <img [src]="user.profile.avatar || 'assets/img/profile/no-photo.jpg'"/>
+      <img [src]="user.profile.avatar || 'assets/img/profile/no-photo.jpg'"
+            alt="Avatar" loading="lazy"/>
       <h3>{{user.name}}</h3>
       <p *ngIf="user.email">{{user.email}}</p>
-      <button mat-button class="btn-purple">
+      <button mat-button class="btn-purple" aria-label="Rol">
         {{(user.profile.rol | translate) || ('not.defined' | translate)}}
       </button>
     </div>
@@ -16,12 +17,14 @@
             [href]="user.profile[s.selector]"
             target="_NEW">
             <li [class]="s.selector">{{s.name}}
-              <img src="assets/icons/{{s.selector}}.svg"/>
+              <img src="assets/icons/{{s.selector}}.svg"
+                   [alt]="s.selector" loading="lazy"/>
             </li>
           </a>
           <li [class]="s.selector + ' not'"
               *ngIf="!user.profile[s.selector]">
-              {{s.name}} <img src="assets/icons/{{s.selector}}.svg"/>
+              {{s.name}} <img src="assets/icons/{{s.selector}}.svg"
+                              [alt]="s.selector" loading="lazy"/>
           </li>
         </div>
       </ul>

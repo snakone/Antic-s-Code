@@ -1,7 +1,7 @@
 <div class="card animated fadeIn">
   <article class="card-content" [ngClass]="{'search' : search}">
     <figure [routerLink]="'/article/' + article.slug">  <!-- CARD IMAGE -->
-      <img rel="preload" [src]="article.cover"/>
+      <img [alt]="article.title" loading="lazy" [src]="article.cover"/>
       <app-article-card-badges [badges]="article.badges"></app-article-card-badges>
     </figure>
     <div class="card-info">  <!-- CARD TITLE -->
@@ -50,7 +50,8 @@
         <div class="card-bottom-left">
           <div class="badge-card-category"
                [routerLink]="'/category/' + article.category">
-            <img [src]="(article.category | logo) | image:'logos'">
+            <img [src]="(article.category | logo) | image:'logos'"
+                 [alt]="article.category" loading="lazy"/>
             <span>{{article.category}}</span>
           </div>
         </div>

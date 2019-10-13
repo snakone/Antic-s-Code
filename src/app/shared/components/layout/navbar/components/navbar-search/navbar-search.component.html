@@ -9,6 +9,7 @@
   <input (focus)="focused = true"
          (focusout)="focusOut()"
          type="text"
+         aria-label="Search"
          [placeholder]="'nav.search' | translate"
          [(ngModel)]="value">  <!-- INPUT -->
 
@@ -17,7 +18,8 @@
     <ul>
       <li *ngFor="let c of categories"
           [routerLink]="'category/' + c.category">
-        <img [src]="c.icon | image:'logos'"/>  <!-- LOGO LIST -->
+        <img [src]="c.icon | image:'logos'"
+             [alt]="c.category" loading="lazy"/>  <!-- LOGO LIST -->
         <span>{{c.name}}</span>
       </li>
     </ul>

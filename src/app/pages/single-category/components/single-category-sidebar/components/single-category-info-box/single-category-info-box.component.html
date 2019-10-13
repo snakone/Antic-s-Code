@@ -2,7 +2,8 @@
                  icon="event_note">
     <div class="info-box flex-box">
       <div class="info-box-avatar">
-        <img [src]="category.icon | image: 'logos'"/>
+        <img [src]="category.icon | image: 'logos'"
+             [alt]="category.name" loading="lazy"/>
       </div>
       <div class="info-box-data">
           <h4 class="flex-box">

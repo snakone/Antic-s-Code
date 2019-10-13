@@ -1,9 +1,10 @@
 <nav class="navbar" Navbar>
   <div class="navbar-logo">  <!-- LOGO -->
-    <img routerLink="/home" src="assets/img/logo.png"/>
+    <img routerLink="/home" src="assets/img/logo.png"
+         alt="Logo" loading="lazy"/>
   </div>
   <div class="navbar-mobile-toogler">  <!-- MOBILE TOOGLER -->
-    <button class="toogler" (click)="openDrawer()">
+    <button class="toogler" aria-label="Open Menu" (click)="openDrawer()">
       <i class="material-icons">reorder</i>
     </button>
   </div>
@@ -13,6 +14,7 @@
     <div *ngIf="(user$ | async) as user; else login">
       <button class="profile btn-pink"
               routerLink="/profile"
+              aria-label="Profile"
               mat-button>
         <mat-icon>person</mat-icon>
       </button>  <!-- PROFILE -->
@@ -20,6 +22,7 @@
     <ng-template #login>
       <button class="btn-pink"
               (click)="openLogin()"
+              aria-label="Login"
               mat-button>
           <span class="btn-mobile">
             <i class="fa fa-sign-in"></i>

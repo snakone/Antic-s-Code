@@ -1,6 +1,6 @@
 <div class="testimonial-card">
   <div class="testimonial-card-author">  <!-- AVATAR -->
-    <img [src]="t.avatar | image"/>
+    <img [src]="t.avatar | image" [alt]="t.name" loading="lazy"/>
   </div>
   <h4>{{t.name}}</h4>  <!-- INFO -->
   <span>{{t.location}}</span>
