@@ -8,6 +8,8 @@ import { takeUntil, distinctUntilChanged } from 'rxjs/operators';
 
 import * as ArticleActions from '@core/ngrx/actions/article.actions';
 import * as fromArticles from '@core/ngrx/selectors/article.selectors';
+import * as UserActions from '@core/ngrx/actions/user.actions';
+import { UserService } from '@app/core/services/services.index';
 
 @Component({
   selector: 'app-single-article',
@@ -21,11 +23,13 @@ export class SingleArticleComponent implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject<void>();
 
   constructor(private route: ActivatedRoute,
+              private userService: UserService,
               private store: Store<AppState>) { }
 
   ngOnInit() {
     this.article = null;
     this.getArticlyBySlug();
+    this.getInteraction();
   }
 
   private getArticlyBySlug(): void {
@@ -47,10 +51,17 @@ export class SingleArticleComponent implements OnInit, OnDestroy {
     });
   }
 
+  private getInteraction(): void {
+    if (this.userService.getUser()) {
+      this.store.dispatch(UserActions.getInteractionByUser());
+    }
+  }
+
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
     this.store.dispatch(ArticleActions.resetSlug());
+    this.store.dispatch(UserActions.resetInteraction());
   }
 
 }

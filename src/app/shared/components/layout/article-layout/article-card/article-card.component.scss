@@ -31,6 +31,7 @@
 
     &-body {
       padding: 1.8rem 2rem;
+      position: relative;
       @media(max-width: 700px) { padding: 1.5rem 1rem; }
 
       & ul {
@@ -70,7 +71,10 @@
       &-tags {
         margin-top: 1.3rem;
         margin-bottom: 1.2rem;
-        @media(max-width: 700px) { margin-top: .1rem; }
+        @media(max-width: 700px) {
+          margin-top: .1rem;
+          margin-bottom: 0;
+        }
        }
     }
   }
@@ -89,7 +93,10 @@
 .single {
   margin-bottom: 0 !important;
   @media(max-width: 550px) { margin-bottom: 1rem !important }
-  .article-card-body { padding: 1.8rem 0 !important }
+
+  .article-card-body {
+    padding: 1.8rem 0 !important;
+  }
  }
 
 .link {

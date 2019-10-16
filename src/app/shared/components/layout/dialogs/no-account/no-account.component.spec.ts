@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ArticleReactionBoxComponent } from './article-reaction-box.component';
+import { NoAccountComponent } from './no-account.component';
 
-describe('ArticleReactionBoxComponent', () => {
-  let component: ArticleReactionBoxComponent;
-  let fixture: ComponentFixture<ArticleReactionBoxComponent>;
+describe('NoAccountComponent', () => {
+  let component: NoAccountComponent;
+  let fixture: ComponentFixture<NoAccountComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArticleReactionBoxComponent ]
+      declarations: [ NoAccountComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ArticleReactionBoxComponent);
+    fixture = TestBed.createComponent(NoAccountComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

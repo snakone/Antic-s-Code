@@ -18,7 +18,7 @@ import { JwtInterceptor } from './services/http/jwt.interceptor';
 import { StorageModule } from './storage/storage.module';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { ServicesModule } from './services/services.module';
-import { DisqusModule } from 'ngx-disqus';
+import { DISQUS_SHORTNAME } from 'ngx-disqus';
 
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
@@ -54,7 +54,6 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
       maxAge: 25
     }),
     LanguageModule.forRoot(),
-    DisqusModule.forRoot(APP_CONSTANTS.DISQUS),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -67,7 +66,8 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: CORE_MODULE_CONFIG, useValue: CORE_MODULE_CONSTANTS },
-    { provide: ErrorHandler, useClass: ErrorHandlerService }
+    { provide: ErrorHandler, useClass: ErrorHandlerService },
+    { provide: DISQUS_SHORTNAME, useValue: APP_CONSTANTS.DISQUS }
   ],
   exports: [LoadingBarModule]
 })

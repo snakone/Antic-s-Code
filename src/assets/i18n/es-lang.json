@@ -76,6 +76,7 @@
   "chars": "Caracteres",
   "remember": "¿Recordar?",
   "sign.in": "Entrar",
+  "sign.in.error": "Error al Entrar",
   "no.account": "¿No tienes Cuenta?",
   "register.now": "¡Regístrate!",
   "term.one": "La utilización de este portal es totalmente gratuita. No necesitas una cuenta para poder ver el contenido del mismo.",
@@ -200,5 +201,7 @@
   "thread": "Tema",
   "total.articles": "Total de Artículos",
   "articles.found": "Artículos encontrados",
-  "admin.articles": "Artículos para Administradores"
+  "admin.articles": "Artículos para Administradores",
+  "with.account": "¿Ya tienes una cuenta?",
+  "thanks.much": "¡Muchas gracias!"
  }

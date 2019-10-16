@@ -1,5 +1,5 @@
 import { props, createAction } from '@ngrx/store';
-import { User } from '@app/shared/interfaces/interfaces';
+import { User, Interaction } from '@app/shared/interfaces/interfaces';
 
 // GET USER BY ID
 export const getUserById =
@@ -25,6 +25,18 @@ export const getUserByNameSuccess =
 
 export const getUserByNameFailure =
   createAction('[Users] Get User By Name Failure',
+  props<{ error: string }>());
+
+// GET INTERACTION BY USER
+export const getInteractionByUser =
+  createAction('[Users] Get Interaction By User');
+
+export const getInteractionByUserSuccess =
+  createAction('[Users] Get Interaction By User Success',
+  props<{ interaction: Interaction[] }>());
+
+export const getInteractionByUserFailure =
+  createAction('[Users] Get Interaction By User Failure',
   props<{ error: string }>());
 
 // SET USER
@@ -85,3 +97,7 @@ export const userLogOut =
 // RESET ARTICLES
 export const resetUserName =
   createAction('[Articles API] Reset User Name');
+
+  // RESET INTERACTION
+export const resetInteraction =
+  createAction('[Articles API] Reset Interaction');

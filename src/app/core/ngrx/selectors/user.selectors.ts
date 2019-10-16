@@ -24,4 +24,12 @@ export const getUserByNameLoaded = createSelector(
   getUserState, fromUsers.getUserByNameLoaded
 );
 
+export const getInteractionByUser = createSelector(
+  getUserState, fromUsers.getInteractionByUser
+);
+
+export const getInteractionByUserLoaded = createSelector(
+  getUserState, fromUsers.getInteractionByUserLoaded
+);
+
 

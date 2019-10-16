@@ -29,7 +29,7 @@ export class NavBarComponent implements OnInit {
   }
 
   openLogin(): void {
-    this.crafter.dialog(LoginComponent);
+    this.crafter.dialog(LoginComponent, {register: false});
   }
 
   openDrawer(): void {

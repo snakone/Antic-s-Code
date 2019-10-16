@@ -14,16 +14,19 @@
 .badge-featured-article {
   @include badge(#074901, 10px);
   border: 1px solid #ffffffa4;
+  padding: .36667rem .66667rem .52222rem;
 }
 
 .badge-popular-article {
   @include badge(#ee0000, 10px);
   border: 1px solid #ffffffa4;
+  padding: .36667rem .66667rem .52222rem;
 }
 
 .badge-new-article {
   @include badge(#214cc2, 10px);
   border: 1px solid #ffffffa4;
+  padding: .36667rem .66667rem .52222rem;
 }
 
 .badge-category {

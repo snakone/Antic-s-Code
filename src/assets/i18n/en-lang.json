@@ -77,6 +77,7 @@
   "chars": "Characters",
   "remember": "Remember Me?",
   "sign.in": "Log In",
+  "sign.in.error": "Error on Log In",
   "no.account": "No Account?",
   "register.now": "Register now!",
   "term.one": "The use of this portal is completely free. You do not need an account to be able to see it's content.",
@@ -201,5 +202,8 @@
   "thread": "Thread",
   "total.articles": "Total Articles",
   "articles.found": "Articles Found",
-  "admin.articles": "Articles to Admins"
+  "admin.articles": "Articles to Admins",
+  "with.account": "Already have an account?",
+  "log.now": "Sign in",
+  "thanks.much": "Thank You so much!"
 }

@@ -15,8 +15,8 @@
         <app-links-box *ngIf="article.links.length > 0"
                        [links]="article.links">
         </app-links-box>
-        <!-- <app-article-reaction-box></app-article-reaction-box> -->
       </app-article-card>
+      <app-star-rating [article]="article"></app-star-rating>
       <app-disqus [identifier]="article.slug"></app-disqus>
     </div>
     <div *ngIf="!article" class="col-lg-8 col-md-8">

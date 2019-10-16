@@ -89,7 +89,7 @@
     height: auto !important;
   }
 
-  blockquote p, blockquote p:first-child { margin-top: 0 }
+  blockquote p:first-child { margin-top: 0 }
 
   @media(max-width: 550px) {
     p:first-child { margin-top: 10px }
@@ -114,6 +114,8 @@
     display: block;
     margin: 30px auto;
     border-radius: 4px;
+
+    &.block { width: 100% }
   }
 
   img.inline {

@@ -15,6 +15,7 @@ export class UserService {
 
   readonly API_USERS = APP_CONSTANTS.END_POINT + 'users';
   readonly API_TOKEN = APP_CONSTANTS.END_POINT + 'token';
+  private user: User;
 
   constructor(private http: HttpService,
               private ls: StorageService,
@@ -51,10 +52,15 @@ export class UserService {
     return this.http.get(this.API_TOKEN)
       .pipe(map((res: UserResponse) => {
         if (res.ok) {
+          this.user = res.user;
           this.store.dispatch(UserActions.setUser({ user: res.user }));
           return res;
         }
     }));
+  }
+
+  public getUser(): User {
+    return this.user;
   }
 
   public logout(): void {
