@@ -59,7 +59,9 @@ export class UserService {
     }));
   }
 
-  public getUser(): User {
+  public async getUser(): Promise<User> {
+    if (this.user) { return this.user; }
+    await this.verifyToken().toPromise();
     return this.user;
   }
 
