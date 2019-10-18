@@ -87,10 +87,10 @@ export class SignInComponent implements OnInit, OnDestroy {
               this.signInForm.controls.email.setValue(email);
               this.remember = true;
             }
-            return email ? of({}) : this.userService.getUserById(id);
+            return email ? of({ok: false}) : this.userService.getUserById(id);
           })).subscribe((res: UserResponse) => {
-          if (res.ok) {
-            this.store.dispatch(UserActions.setUserEmail({ email: res.user.email }));
+            if (res.ok) {
+              this.store.dispatch(UserActions.setUserEmail({ email: res.user.email }));
           }
       });
     }
@@ -99,6 +99,7 @@ export class SignInComponent implements OnInit, OnDestroy {
   private handleSignIn(data: UserResponse): void {
     this.dialogRef.close();
     this.store.dispatch(UserActions.setUser({user: data.user}));
+    this.userService.setUser(data.user);
     this.ls.setKey('token', data.token);
     this.ls.setKey('user', data.user._id);
     this.ls.setKey('remember', this.remember);

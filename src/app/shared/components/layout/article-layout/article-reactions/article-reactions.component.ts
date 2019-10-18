@@ -32,7 +32,7 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
     this.getArticleLiked();
   }
 
-  getArticleLiked(): void {
+  private getArticleLiked(): void {
     this.store.select(fromUser.getInteractionByUser)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((res: Interaction[]) => {

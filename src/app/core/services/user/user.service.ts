@@ -59,15 +59,18 @@ export class UserService {
     }));
   }
 
-  public async getUser(): Promise<User> {
-    if (this.user) { return this.user; }
-    await this.verifyToken().toPromise();
-    return this.user;
+  public getUser(): User {
+    return this.user || null;
+  }
+
+  public setUser(user: User): void {
+    this.user = user;
   }
 
   public logout(): void {
     this.ls.setKey('token', null);
     this.store.dispatch(UserActions.userLogOut());
+    this.user = null;
   }
 
 }
