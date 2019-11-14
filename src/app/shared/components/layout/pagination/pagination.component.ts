@@ -25,7 +25,7 @@ export class PaginationComponent implements OnInit {
 
   private scroll(id: string): void {
     const el = document.getElementById(id);
-    if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    if (el) { el.scrollIntoView({ behavior: 'auto', block: 'start' }); }
   }
 
 }

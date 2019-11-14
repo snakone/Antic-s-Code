@@ -25,7 +25,7 @@ export class ArticleScrollspyBoxComponent implements OnInit, OnDestroy {
 
   scroll(box: string): void {
     const el = document.getElementById(box);
-    if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    if (el) { el.scrollIntoView({ behavior: 'auto', block: 'start' }); }
   }
 
   private spyScroll(): void {

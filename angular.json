@@ -27,7 +27,8 @@
               "src/assets",
               "src/manifest.webmanifest",
               "src/robots.txt",
-              "src/sitemap.xml"
+              "src/sitemap.xml",
+              "src/_redirects"
             ],
             "styles": [
               "src/styles.scss"
