@@ -6,6 +6,7 @@ import { SearchRequest, StarList } from '@app/shared/interfaces/interfaces';
 import * as SearchActions from '@core/ngrx/actions/search.actions';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
+import { PaginationService } from 'ngx-pagination';
 
 @Component({
   selector: 'app-search-filter',
@@ -27,7 +28,8 @@ export class SearchFilterComponent implements OnInit {
   starsArray = [] as number[];
   active = false;
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>,
+              private pagination: PaginationService) { }
 
   ngOnInit() {
     this.createSearchForm();
@@ -46,6 +48,10 @@ export class SearchFilterComponent implements OnInit {
 
     this.store.dispatch(SearchActions.searchContent({ request }));
     this.scroll('search-section');
+
+    setTimeout(() => {
+      this.pagination.setCurrentPage('result-pagination', 1);
+    }, 1000);
   }
 
   levelChanged(e: MatCheckboxChange): void {
@@ -79,7 +85,7 @@ export class SearchFilterComponent implements OnInit {
 
   private scroll(id: string): void {
     const el = document.getElementById(id);
-    if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    if (el) { el.scrollIntoView({ behavior: 'auto', block: 'start' }); }
   }
 
   private resetList(list: StarList[]): StarList[] {

@@ -1,10 +1,9 @@
 .wrapper {
   box-sizing: border-box;
-  margin-top: 0;
+  margin-top: 1rem;
   margin-bottom: 1rem;
   @media(max-width: 992px) {
-    margin-top: -1.2rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
    }
 }
 

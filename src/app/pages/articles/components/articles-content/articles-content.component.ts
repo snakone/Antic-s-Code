@@ -7,6 +7,8 @@ import { AppState } from '@app/app.config';
 import { Store } from '@ngrx/store';
 import * as ArticleActions from '@core/ngrx/actions/article.actions';
 import * as fromArticles from '@core/ngrx/selectors/article.selectors';
+import * as UserActions from '@core/ngrx/actions/user.actions';
+import { UserService } from '@app/core/services/services.index';
 
 @Component({
   selector: 'app-articles-content',
@@ -21,11 +23,13 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject<void>();
 
   constructor(private articleService: ArticleService,
+              private userService: UserService,
               private store: Store<AppState>) { }
 
   ngOnInit() {
     this.getArticles();
     this.hasEnded();
+    this.getInteraction();
   }
 
   private getArticles(): void {
@@ -38,6 +42,12 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
           this.articles = res;
         }
     });
+  }
+
+  private getInteraction(): void {
+    if (this.userService.getUser()) {
+      this.store.dispatch(UserActions.getInteractionByUser());
+    }
   }
 
   private hasEnded(): void {
@@ -79,6 +89,7 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
     this.articleService.resetPage();
     this.store.dispatch(ArticleActions.resetArticles());
+    this.store.dispatch(UserActions.resetInteraction());
   }
 
 }

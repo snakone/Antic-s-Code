@@ -8,6 +8,8 @@ import { ArticleCardBadgesComponent } from './article-card-badges/article-card-b
 import { ScrollSpyService } from '@layout/article-layout/services/scrollspy.service';
 import { ArticleReactionsComponent } from './article-reactions/article-reactions.component';
 import { ArticleCardSkeletonComponent } from './article-card-skeleton/article-card-skeleton.component';
+import { SnippetsModule } from '../../snippets/snippets.module';
+import { LoginModule } from '../../login/login.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ArticleCardSkeletonComponent } from './article-card-skeleton/article-ca
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    SnippetsModule,
+    LoginModule
   ],
   exports: [
     ArticleCardComponent,

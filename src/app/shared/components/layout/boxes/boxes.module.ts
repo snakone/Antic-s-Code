@@ -10,7 +10,6 @@ import { LastArticlesBoxComponent } from './last-articles-box/last-articles-box.
 import { LinksBoxComponent } from './links-box/links-box.component';
 import { StickyBoxComponent } from './sticky-box/sticky-box.component';
 import { TagBoxComponent } from './tag-box/tag-box.component';
-import { ArticleReactionBoxComponent } from './article-reaction-box/article-reaction-box.component';
 import { ArticleScrollspyBoxComponent } from './article-scrollspy-box/article-scrollspy-box.component';
 import { SettingsBoxComponent } from './settings-box/settings-box.component';
 import { ProfileInfoBoxComponent } from './profile-info-box/profile-info-box.component';
@@ -23,7 +22,6 @@ import { ProfileInfoBoxComponent } from './profile-info-box/profile-info-box.com
     LinksBoxComponent,
     StickyBoxComponent,
     TagBoxComponent,
-    ArticleReactionBoxComponent,
     ArticleScrollspyBoxComponent,
     SettingsBoxComponent,
     ProfileInfoBoxComponent
@@ -41,7 +39,6 @@ import { ProfileInfoBoxComponent } from './profile-info-box/profile-info-box.com
     LinksBoxComponent,
     StickyBoxComponent,
     TagBoxComponent,
-    ArticleReactionBoxComponent,
     ArticleScrollspyBoxComponent,
     SettingsBoxComponent,
     ProfileInfoBoxComponent

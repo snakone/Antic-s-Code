@@ -105,8 +105,25 @@ interface UserProfile {
   language?: string;
 }
 
+export interface Interaction {
+  article: string;
+  user: string;
+  type: string;
+  value: number;
+}
+
+export interface InteractionResponse extends ServerResponse {
+  interaction: Interaction[];
+}
+
 export interface Role extends Translation {
   name: string;
+}
+
+export interface DialogData {
+  register?: boolean;
+  author?: string;
+  type?: string;
 }
 
 export interface SearchRequest {

@@ -4,11 +4,13 @@ import { SharedModule } from '@app/shared/shared.module';
 
 import { ConfirmComponent } from './confirm/confirm.component';
 import { DeleteAccountComponent } from './delete-account/delete-account.component';
+import { NoAccountComponent } from './no-account/no-account.component';
 
 @NgModule({
   declarations: [
     ConfirmComponent,
-    DeleteAccountComponent
+    DeleteAccountComponent,
+    NoAccountComponent
   ],
   imports: [
     SharedModule,
@@ -16,7 +18,8 @@ import { DeleteAccountComponent } from './delete-account/delete-account.componen
   ],
   entryComponents: [
     ConfirmComponent,
-    DeleteAccountComponent
+    DeleteAccountComponent,
+    NoAccountComponent
   ]
 })
 

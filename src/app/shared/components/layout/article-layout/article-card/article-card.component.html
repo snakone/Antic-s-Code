@@ -27,10 +27,13 @@
         </span>
       </div>
       <!-- <app-article-reactions [article]="article"
+                             class="reaction-mobile"
                              [single]="single"
-                             [box]="false"
-                             class="reaction-mobile">
+                             [liked]="liked">
       </app-article-reactions> -->
+      <app-article-reactions [article]="article"
+                             [single]="single">
+        </app-article-reactions>
       <ng-content></ng-content>
   </div>
  </div>

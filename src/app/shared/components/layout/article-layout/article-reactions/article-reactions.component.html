@@ -1,12 +1,9 @@
-<div class="reaction"
-     [ngClass]="{'box' : box, 'single': single}">
-   <span class="meta-star-card meta-star-icon">
-      {{article.stars}} <mat-icon>star_rate</mat-icon>
-    </span>
-    <span class="meta-like-card meta-like-icon">
-      {{article.likes}} <mat-icon>favorite</mat-icon>
-    </span>
-    <span class="meta-view-card meta-view-icon">
-      {{article.views}} <mat-icon>visibility</mat-icon>
-    </span>
+<div class="reaction" [ngClass]="{'single': single}">
+ <div class="reaction-container">
+    <mat-icon *ngIf="!liked" (click)="doLike(1)">favorite_outline</mat-icon>
+    <mat-icon *ngIf="liked" (click)="doLike(-1)">favorite</mat-icon>
+    <img src="assets/icons/facebook.svg"/>
+    <img src="assets/icons/twitter.svg"/>
+    <img src="assets/icons/share.svg"/>
+ </div>
 </div>

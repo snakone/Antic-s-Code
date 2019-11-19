@@ -10,7 +10,8 @@ import {
   CrafterService,
   ErrorService,
   ThemeService,
-  SearchService
+  SearchService,
+  InteractionService
   } from './services.index';
 
 @NgModule({
@@ -26,7 +27,8 @@ import {
     CrafterService,
     ErrorService,
     ThemeService,
-    SearchService
+    SearchService,
+    InteractionService
   ]
 })
 
