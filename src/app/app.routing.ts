@@ -55,6 +55,11 @@ const routes: Routes = [
                         .then(mod => mod.SearchModule), data: {name: 'Search'}
   },
   {
+    path: 'about-me',
+    loadChildren: () => import('./pages/about-me/about-me.module')
+                        .then(mod => mod.AboutMeModule), data: {name: 'About Me'}
+  },
+  {
     path: 'admin',
     canActivate: [AdminGuard],
     loadChildren: () => import('./pages/admin/admin.module')

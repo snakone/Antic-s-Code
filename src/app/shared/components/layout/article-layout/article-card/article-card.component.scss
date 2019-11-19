@@ -39,6 +39,8 @@
         list-style: none;
         margin-bottom: .7rem;
         margin-top: 0;
+
+        @media(min-width: 701px) { margin-top: 1.6666rem }
       }
 
       & li {

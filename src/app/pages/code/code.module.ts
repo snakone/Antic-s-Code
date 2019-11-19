@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SharedModule } from '@app/shared/shared.module';
-import { CodeRouting } from './code-routing';
+import { CodeRouting } from './code.routing';
 import { LayoutModule } from '@app/shared/components/layout/layout.module';
 
 import { CodeComponent } from './code.component';

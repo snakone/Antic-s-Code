@@ -56,7 +56,7 @@
   @media(min-width: 701px) {
     position: absolute;
     right: 1.8rem;
-    top: 80px;
+    top: calc(80px + 1rem);
   }
 }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-articles-sidebar',
@@ -6,10 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./articles-sidebar.component.scss']
 })
 
-export class ArticlesSidebarComponent implements OnInit {
-
+export class ArticlesSidebarComponent {
   constructor() { }
-
-  ngOnInit() { }
-
 }
