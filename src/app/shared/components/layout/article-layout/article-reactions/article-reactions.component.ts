@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { Article, User, Interaction, InteractionResponse } from '@app/shared/interfaces/interfaces';
+import { Article, Interaction, InteractionResponse } from '@app/shared/interfaces/interfaces';
 import { CrafterService, InteractionService, UserService } from '@app/core/services/services.index';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
@@ -8,7 +8,6 @@ import { NoAccountComponent } from '../../dialogs/no-account/no-account.componen
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
-import * as UserActions from '@core/ngrx/actions/user.actions';
 
 @Component({
   selector: 'app-article-reactions',
