@@ -1,0 +1,28 @@
+* { box-sizing: border-box }
+
+.row { margin-top: 1rem }
+img {
+  max-width: 100%;
+  margin-left: 3rem;
+ }
+
+.col-lg-6 {
+  @media(max-width: 550px) {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  @media(max-width: 1200px) {
+    max-width: 100% !important;
+
+    & img {
+      margin: 2rem auto 0;
+      display: block;
+    }
+  }
+}
+
+.intro {
+  padding-top: 2rem;
+  padding-right: 1.7rem;
+}

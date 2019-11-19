@@ -1,0 +1,24 @@
+* { box-sizing: border-box }
+
+.about-intro {
+  width: 100%;
+  & h3 {
+    font-size: 2rem;
+    margin-top: 4rem;
+    &:first-child {margin-top: 0 !important }
+    margin-bottom: .2333rem;
+    & span {
+      color: var(--primary-color);
+      font-size: 2.2rem;
+    }
+  }
+
+  & p { font-size: 1.2rem }
+}
+
+.col-lg-12 {
+  @media(max-width: 550px) {
+    padding-right: 0;
+    padding-left: 0;
+   }
+}

@@ -9,6 +9,7 @@ import {
   Tag,
   StarList
 } from './interfaces/interfaces';
+import { AosOptions } from 'aos';
 
 export const MENU: List[] = [
   { name: 'home', link: '/home' },
@@ -21,7 +22,7 @@ export const HOME_MENU: List[] = [
   { name: 'advantages', link: '/home', icon: 'autorenew' },
   { name: 'collaborate', link: '/code', icon: 'present_to_all' },
   { name: 'support', link: '/categories', icon: 'help_outline' },
-  { name: 'about.me', link: '/articles', icon: 'directions_run' },
+  { name: 'about.me', link: '/about-me', icon: 'directions_run' },
   { name: 'searcher', link: '/search', icon: 'search' }
 ];
 
@@ -197,7 +198,8 @@ export const PAGE_BG = {
   profile: 'assets/img/page_bg/profile.mp4',
   admin: 'assets/img/page_bg/admin.mp4',
   public: 'assets/img/page_bg/public.mp4',
-  search: 'assets/img/page_bg/search.mp4'
+  search: 'assets/img/page_bg/search.mp4',
+  about: 'assets/img/page_bg/about.mp4'
 };
 
 export const COUNTRIES: string[] = [
@@ -331,6 +333,26 @@ export const CATEGORY_TOC: ToC[] = [
     anchor: 'cat-faq'
   },
 ];
+
+// AOS Settings
+export const AOS_SETTINGS: AosOptions = {
+  disable: 'mobile',
+  startEvent: 'DOMContentLoaded',
+  initClassName: 'aos-init',
+  animatedClassName: 'aos-animate',
+  useClassNames: false,
+  disableMutationObserver: false,
+  debounceDelay: 50,
+  throttleDelay: 99,
+  offset: 175,
+  delay: 200,
+  duration: 700,
+  easing: 'ease-in-out',
+  once: false,
+  mirror: false,
+  anchorPlacement: 'top-bottom',
+};
+
 
 
 

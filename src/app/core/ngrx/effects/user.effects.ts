@@ -79,6 +79,7 @@ export class UserEffects {
           map(res => {
             if (res.ok) {
               this.ls.setKey('token', res.token);
+              this.user.setUser(res.user);
               return UserActions.refreshTokenSuccess({ user: res.user });
             }
           }),
