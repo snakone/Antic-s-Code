@@ -22,3 +22,15 @@
     padding-left: 0;
    }
 }
+
+.skip {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  &-text {
+    font-size: .9rem !important;
+    color: var(--tag-color);
+    cursor: pointer;
+  }
+}

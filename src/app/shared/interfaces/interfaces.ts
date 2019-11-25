@@ -2,7 +2,6 @@ interface Content {
   _id?: string;
   title?: string;
   category?: string;
-  message?: string;
   cover?: string;
   code?: Code[];
   tags?: string[];
@@ -10,7 +9,7 @@ interface Content {
   likes?: number;
   stars?: number;
   links?: Link[];
-  index?: ArticleIndex[];
+  index?: Index[];
 }
 
 interface ServerResponse {
@@ -24,6 +23,7 @@ interface Translation {
 }
 
 export interface Article extends Content {
+  message?: string;
   author?: string;
   created?: string;
   slug?: string;
@@ -35,9 +35,13 @@ export interface Article extends Content {
 }
 
 export interface Category extends Content {
+  intro?: string;
+  concepts?: string;
+  examples?: string;
   name?: string;
   info?: CategoryInfo;
   icon?: string;
+  faq?: FAQ[];
 }
 
 export interface ArticleResponse extends ServerResponse {
@@ -106,7 +110,7 @@ interface UserProfile {
 }
 
 export interface Interaction {
-  article: string;
+  content: string;
   user: string;
   type: string;
   value: number;
@@ -167,12 +171,6 @@ export interface FAQ {
   answer: string;
 }
 
-export interface ToC {
-  index: string;
-  description: string;
-  anchor: string;
-}
-
 export interface CategoryInfo {
   creator?: string;
   where?: string;
@@ -185,7 +183,7 @@ export interface From {
   slug: string;
 }
 
-export interface ArticleIndex {
+export interface Index {
   title: string;
   subtitle: string;
   id: string;
@@ -219,6 +217,13 @@ export class StarList {
     this.number = num;
     this.active = active;
   }
+}
+
+export interface TimeLine {
+  year: number;
+  message: string;
+  side: string;
+  fade: string;
 }
 
 export class CustomError {

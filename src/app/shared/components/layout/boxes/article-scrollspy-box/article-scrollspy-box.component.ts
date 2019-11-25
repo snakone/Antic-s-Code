@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { ArticleIndex, ScrollSpy } from '@app/shared/interfaces/interfaces';
+import { Index, ScrollSpy } from '@app/shared/interfaces/interfaces';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ScrollSpyService } from '../../article-layout/services/scrollspy.service';
@@ -12,7 +12,7 @@ import { ScrollSpyService } from '../../article-layout/services/scrollspy.servic
 
 export class ArticleScrollspyBoxComponent implements OnInit, OnDestroy {
 
-  @Input() index: ArticleIndex;
+  @Input() index: Index;
   @Input() mobile: boolean;
   private unsubscribe$ = new Subject<void>();
   spySection: ScrollSpy = {};
@@ -20,7 +20,7 @@ export class ArticleScrollspyBoxComponent implements OnInit, OnDestroy {
   constructor(private scrollSpy: ScrollSpyService) { }
 
   ngOnInit() {
-    this.spyScroll();
+    // this.spyScroll();
   }
 
   scroll(box: string): void {

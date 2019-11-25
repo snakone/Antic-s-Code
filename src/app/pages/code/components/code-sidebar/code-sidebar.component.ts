@@ -22,7 +22,7 @@ export class CodeSidebarComponent implements OnInit {
     this.scroll('code-section');
   }
 
-    scroll(box: string): void {
+  scroll(box: string): void {
     const el = document.getElementById(box);
     if (el) { el.scrollIntoView({ behavior: 'auto', block: 'start' }); }
   }

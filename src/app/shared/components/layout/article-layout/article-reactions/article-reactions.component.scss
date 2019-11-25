@@ -55,20 +55,15 @@
 
   @media(min-width: 701px) {
     position: absolute;
-    margin-top: -2px;
-    right: 2rem;
-    right: 1.8rem;
-    top: calc(80px + 1rem);
-    right: 1.8rem;
-    top: calc(80px + 1rem);
-
+    right: 1.5rem;
+    top: 82px;
   }
 }
 
 .reaction.single {
   @media(min-width: 701px) {
-    right: .7rem !important;
-    top: 30px;
+    right: 0 !important;
+    top: 40px;
   }
 
   @media(max-width: 700px) {

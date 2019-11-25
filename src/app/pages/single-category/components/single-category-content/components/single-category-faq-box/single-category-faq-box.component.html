@@ -1,9 +1,9 @@
 <div id="cat-faq">
-  <app-content-box title="Listing FAQ's"
+  <app-content-box title="Preguntas y Respuestas"
                   icon="help_outline">
     <mat-accordion class="m-top">
         <mat-expansion-panel class="mat-elevation-z0"
-                              *ngFor="let f of faqs; let i = index"
+                              *ngFor="let f of category.faq; let i = index"
                               [expanded]="i === 0">
           <mat-expansion-panel-header>
             <mat-panel-description>

@@ -39,8 +39,6 @@
         list-style: none;
         margin-bottom: .7rem;
         margin-top: 0;
-
-        @media(min-width: 701px) { margin-top: 1.6666rem }
       }
 
       & li {
@@ -70,6 +68,7 @@
           cursor: pointer;
         }
       }
+
       &-tags {
         margin-top: 1.3rem;
         margin-bottom: 1.2rem;
@@ -98,6 +97,7 @@
 
   .article-card-body {
     padding: 1.8rem 0 !important;
+    & ul { margin-top: .7rem !important }
   }
  }
 

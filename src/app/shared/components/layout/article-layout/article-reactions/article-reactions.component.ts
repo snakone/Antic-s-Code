@@ -37,7 +37,7 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
       .subscribe((res: Interaction[]) => {
         if (res) {
          const int = res.filter((i: Interaction) => {
-           return i.article === this.article._id &&
+           return i.content === this.article._id &&
                   i.user === this.userService.getUser()._id &&
                   i.type === 'like';
          });
@@ -57,7 +57,7 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
     }
 
     const int: Interaction = {
-      article: this.article._id,
+      content: this.article._id,
       user: this.userService.getUser()._id,
       type: 'like',
       value

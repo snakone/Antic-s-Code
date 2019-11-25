@@ -32,7 +32,10 @@
       color: var(--title-color);
 
       & mat-icon {
-        margin-right: var(--small-padding) }
+        margin-right: var(--small-padding);
+        position: relative;
+        top: 2px;
+      }
      }
     }
 

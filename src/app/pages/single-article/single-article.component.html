@@ -11,7 +11,7 @@
                                    [index]="article.index"
                                    [mobile]="true">
         </app-article-scrollspy-box>
-        <app-content-maker [template]="article"></app-content-maker>
+        <app-content-maker [template]="article.message"></app-content-maker>
         <app-links-box *ngIf="article.links.length > 0"
                        [links]="article.links">
         </app-links-box>

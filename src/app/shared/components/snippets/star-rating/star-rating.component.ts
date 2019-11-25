@@ -40,7 +40,7 @@ export class StarRatingComponent implements OnInit, OnDestroy {
     }
     if (s) {
       const int: Interaction = {
-        article: this.article._id,
+        content: this.article._id,
         user: this.userService.getUser()._id,
         type: 'star',
         value: s

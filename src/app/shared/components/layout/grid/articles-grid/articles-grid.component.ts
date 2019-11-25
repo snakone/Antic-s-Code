@@ -6,7 +6,7 @@ import { AppState } from '@app/app.config';
 import { Article } from '@app/shared/interfaces/interfaces';
 import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 import * as ArticleActions from '@core/ngrx/actions/article.actions';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-articles-grid',
@@ -29,7 +29,7 @@ export class ArticlesGridComponent implements OnInit, OnDestroy {
 
   private checkData(): void {
     this.store.select(fromArticles.getLastArticlesAndCountLoaded)
-     .pipe(takeUntil(this.unsubscribe$))
+     .pipe(takeUntil(this.unsubscribe$), debounceTime(2000))
       .subscribe((res: boolean) => {
        if (!res) {
          this.store.dispatch(ArticleActions.getLastArticles());
@@ -39,7 +39,7 @@ export class ArticlesGridComponent implements OnInit, OnDestroy {
   }
 
   private getArticles(): void {
-    this.articles$ = this.store.select(fromArticles.getLastArticles);
+    this.articles$ = this.store.select(fromArticles.getLastArticles).pipe(debounceTime(2000));
     this.count$ = this.store.select(fromArticles.getArticlesCount);
   }
 

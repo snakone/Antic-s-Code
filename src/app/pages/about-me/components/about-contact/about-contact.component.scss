@@ -4,12 +4,13 @@
   margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
  }
 
-img {
+ img {
   max-width: 100%;
   margin-left: 1rem;
-  margin-top: -.3rem;
+  margin-top: -1rem;
 }
 
 .col-lg-6 {
@@ -23,11 +24,6 @@ img {
   @media(max-width: 992px) {
     max-width: 100% !important;
     width: 100%;
-
-    & img {
-      margin: 2rem auto 0;
-      display: block;
-    }
   }
 }
 
@@ -43,4 +39,30 @@ img {
 .intro {
   padding-top: 2rem;
   padding-right: 2rem;
+}
+
+.input {
+  margin: 2.5rem auto 0;
+  & button { width: 100% }
+  & a {
+    width: 100%;
+    text-decoration: none;
+   }
+}
+
+.signature {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 1.333rem;
+
+  & p { margin-top: 1rem }
+
+  & i {
+    font-size: 2rem;
+    padding-left: 1rem;
+    color: var(--react-color);
+  }
+
+  & .fa-github-square { color: black }
 }

@@ -9,7 +9,7 @@ import hljs from 'highlight.js';
 
 export class ContentMakerComponent implements AfterViewInit {
 
-  @Input() template?: Article | Category;
+  @Input() template?: string;
 
   constructor() { hljs.configure({ tabReplace: ' ' }); }
 

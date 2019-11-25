@@ -40,3 +40,9 @@
 .desktop {
   @media(max-width: 992px) { display: none }
 }
+
+.time-img {
+  max-width: 100%;
+  margin: 1.5rem auto .5rem;
+  border-radius: 3px;
+}
