@@ -12,10 +12,24 @@
     {{'code.final' | translate}}
     <span class="bold">{{'order' | translate}}</span>
     {{'the.code' | translate}}
-  </p><br>
-  <p>
-    {{'code.now' | translate}}
-    <span class="bold">{{total}}</span>
-    {{'code.pieces' | translate}}
   </p>
+
+<mat-form-field color="accent">
+  <mat-label>Categoría</mat-label>
+  <mat-select (selectionChange)="filter($event)" #select>
+    <mat-option *ngFor="let t of tags" [value]="t.name">
+      <div *ngIf="select.panelOpen" class="mat-option">
+        <div>
+          <mat-icon class="icon">{{t.icon}}</mat-icon>
+          <span>{{t.name | translate}}</span>
+        </div>
+        <span class="sum-square">{{getSum(t.name)}}</span>
+      </div>
+      <div *ngIf="!select.panelOpen">
+        <span>{{t.name | translate}}</span>
+      </div>
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
 </app-content-box>

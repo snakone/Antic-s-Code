@@ -4,6 +4,11 @@ ul {
   padding-left: 0;
   list-style: none;
   margin: 0 auto;
+  display: grid;
+  row-gap: .5rem;
+  grid-template-columns: repeat(3, 1fr);
+  @media(min-width: 992px) { grid-template-columns: repeat(4, 1fr) }
+  @media(max-width: 550px) { grid-template-columns: repeat(2, 1fr) }
 }
 
 li {
@@ -13,8 +18,12 @@ li {
   align-items: center;
   cursor: pointer;
 
+  & span {
+    @media(max-width: 550px) { font-size: .9rem }
+  }
+
   & .icon {
-    margin-right: 1.666rem;
+    margin-right: 1rem;
     position: relative;
     top: 1px;
     padding: 0 4px;
@@ -22,12 +31,6 @@ li {
     color: var(--p-color);
   }
 
-  & .select {
-    position: absolute;
-    right: 0;
-  }
-
   &:hover .icon { filter:brightness(1.3) }
-  &:hover .select { color: var(--tertiary-color) }
   &:last-child { margin-bottom: .2rem }
 }

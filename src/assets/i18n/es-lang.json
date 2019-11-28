@@ -104,7 +104,7 @@
   "favorite": "Favorito",
   "all.code": "Todo el Código",
   "code.list": "Lista de Código",
-  "welcome.code": "Bienvenido/a a la lista de código. Aquí encontrarás todo el código usado en este portal. Es una",
+  "welcome.code": "Bienvenido/a a la lista de código. Aquí encontrarás todo el código usado en los artículos de este portal. Es una",
   "library": "biblioteca",
   "of.code": "de código donde puedes encontrar cosas interesantes y aprender algo nuevo.",
   "code.intro": "El código está ordenado de forma aleatoria para dar la sensación de que ves nuevo código cada vez. Lee la descripción para enterarte de que va el código, infórmate del nivel necesario para llevarlo a cabo, eso incluye complejidad, conocimiento del usuario y tiempo de realización.",
@@ -203,5 +203,8 @@
   "articles.found": "Artículos encontrados",
   "admin.articles": "Artículos para Administradores",
   "with.account": "¿Ya tienes una cuenta?",
-  "thanks.much": "¡Muchas gracias!"
+  "thanks.much": "¡Muchas gracias!",
+  "create": "Crear",
+  "create.article": "Crear un Artículo",
+  "start.here": "Todo empieza aquí"
  }

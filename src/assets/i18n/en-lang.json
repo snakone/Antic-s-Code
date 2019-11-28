@@ -105,7 +105,7 @@
   "favorite": "Favorite",
   "all.code": "All the Code",
   "code.list": "Code List",
-  "welcome.code": "Welcome to the code list. Here you will find all the code used in this portal. It's a",
+  "welcome.code": "Welcome to the code list. Here you will find all the code used on the articles of this portal. It's a",
   "library": "library",
   "of.code": "where you can find interesting things and learn something new.",
   "code.intro": "The code is randomly sorted to give the feeling that You see new code every time. Read the description to find out what the code is, find out about the level necessary to carry it out, that includes complexity, knowledge of the user and time of accomplishment.",
@@ -205,5 +205,8 @@
   "admin.articles": "Articles to Admins",
   "with.account": "Already have an account?",
   "log.now": "Sign in",
-  "thanks.much": "Thank You so much!"
+  "thanks.much": "Thank You so much!",
+  "create": "Create",
+  "create.article": "Create an Article",
+  "start.here": "Start right here"
 }

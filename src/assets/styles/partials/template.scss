@@ -6,6 +6,7 @@
     color: black;
 
     &:first-child { margin-top: 20px }
+    &.first { margin-top: 10px }
   }
 
   a {
@@ -71,6 +72,13 @@
     padding-top: 90px;
     margin-top: -45px;
     box-sizing: inherit;
+  }
+
+  h4 {
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    margin-bottom: -.2rem;
+    &:first-child { margin-top: 0 }
   }
 
   blockquote {

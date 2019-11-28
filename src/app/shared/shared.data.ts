@@ -199,7 +199,8 @@ export const PAGE_BG = {
   admin: 'assets/img/page_bg/admin.mp4',
   public: 'assets/img/page_bg/public.mp4',
   search: 'assets/img/page_bg/search.mp4',
-  about: 'assets/img/page_bg/about.mp4'
+  about: 'assets/img/page_bg/about.mp4',
+  create: 'assets/img/page_bg/create.mp4'
 };
 
 export const COUNTRIES: string[] = [
@@ -293,17 +294,17 @@ export const FOOTER_LIST: FooterList[] = [
 export const CATEGORY_INDEX: Index[] = [
   {
     title: 'Introducción',
-    subtitle: 'A brief introduction',
+    subtitle: 'Una breve introducción',
     id: 'cat-intro'
   },
   {
     title: 'Conceptos',
-    subtitle: 'Technology concepts',
-    id: 'cat-concept'
+    subtitle: 'Conceptos básicos',
+    id: 'cat-concepts'
   },
   {
     title: 'Ejemplos',
-    subtitle: 'Learning bit a bit',
+    subtitle: 'Aprende con ejemplos',
     id: 'cat-examples'
   },
   {
@@ -338,8 +339,7 @@ export const TIME_LINE: TimeLine[] = [
     year: 1987,
     message: `Nací en un lugar privilegiado, <strong>Barcelona</strong>. En el último siglo,
               esta ciudad ha sido una de las grandes referencias tecnológicas a nivel mundial
-              sobretodo gracias al conocido 'Mobile World Congress'
-              <img class="time-img" src="https://www.premiumsuitehotels.com/wp-content/uploads/2017/12/Par-Guell-1.jpg"/>`,
+              sobretodo gracias al conocido 'Mobile World Congress'`,
     side: 'left',
     fade: 'fade-right'
   },
@@ -347,8 +347,7 @@ export const TIME_LINE: TimeLine[] = [
     year: 1992,
     message: `En el colegio fuí de los primeros en aprender de memoría las tablas de multiplicar,
               además el claustro de profesores pensó en adelantarme un curso entero por los resultados
-              que daba. Cosa que al final no pasó.
-              <img class="time-img" src="https://www.infoturia.com/wp-content/uploads/colegiosanvicente-700x350.jpg"/>`,
+              que daba. Cosa que al final no pasó.`,
     side: 'right',
     fade: 'fade-left'
   },
@@ -356,49 +355,36 @@ export const TIME_LINE: TimeLine[] = [
     year: 2000,
     message: `Mi andada por el <strong>instituto</strong> fué bastante normal. Cabe destacar
               que en uno de esos años, gané un concurso al mejor relato en el día de Sant Jordi.<br>
-              Hablaba sobre el ser humano y el pensamiento abstracto. Fué el voto del profesor
-              de <strong>filosofía</strong> el que me hizó ganar. Después leí
-              el relato a todo el instituto.
-              <img class="time-img" src="http://pauinteriorismo.es/img/proyectos/foto20_159.jpg"/>`,
+              Hablaba sobre el ser humano y el pensamiento abstracto.`,
     side: 'left',
     fade: 'fade-right'
   },
   {
     year: 2003,
     message: `Creé mi primera página web en las clases de <strong>informática</strong> del instituto y
-              hasta día de hoy no he dejado de aprender y crear cosas nuevas.
-              <img class="time-img" src="http://portalfinanciero.com/wp-content/uploads/2013/01/ordenadores-empresa.jpg"/>`,
+              hasta día de hoy no he dejado de aprender y crear cosas nuevas.`,
     side: 'right',
     fade: 'fade-left'
   },
   {
     year: 2005,
     message: `Dejé de lado el camino para aventurarme en la <strong>Formación Profesional</strong>. Me decidí
-              por la rama tecnologíca empezando por lo más básico, la electricidad y la electrónica.<br>
-              Este fué, por decirlo de alguna manera, el curso de iniciación hacía el mundo electrónico y digital.
-              <img class="time-img" src="http://portalsena.info/wp-content/uploads/2018/01/Electr%C3%B3nica-electrotecnia-y-medidas.jpg"/>`,
+              por la rama tecnologíca empezando por lo más básico, la electricidad y la electrónica.`,
     side: 'left',
     fade: 'fade-right'
   },
   {
     year: 2007,
     message: `Seguí el rumbo que había tomado y continué con mis estudios en tecnología pero
-              esta vez con estudios superiores en <strong>informática y telecomunicaciones</strong>.
-              Gracias a mis cualificaciones tuvé la oportunidad de optar a un <strong>beca</strong> en
-              el extranjero. <br>Desgraciadamente se canceló por falta de presupuesto.
-              (Crisis mundial y recortes en educación)
-              <img class="time-img" src="https://static.iris.net.co/dinero/upload/images/2019/7/23/274687_1.jpg"/>`,
+              esta vez con estudios superiores en <strong>informática y telecomunicaciones</strong>.`,
     side: 'right',
     fade: 'fade-left'
   },
   {
     year: 2014,
-    message: `Después de unos años intentando encontrar un trabajo tecnológico sin éxito (trabajé en otras áreas),
-              volví a las riendas del estudio, pensaba que aún no estaba preparado. <br>En la fundación <strong>CIM</strong>
+    message: `En la fundación <strong>CIM</strong>
               parte de la Universidad Politécnica de Cataluña aprendí a conectar las páginas web que tanto me gustaban
-              a <strong>bases de datos</strong>, aumentando el grado de complejidad de éstas. Desde ese momento ya no veía
-              a una página web como una simple página sino como una aplicación.
-              <img class="time-img" src="https://i.ibb.co/wJHB580/cim.png"/>`,
+              a <strong>bases de datos</strong>, aumentando el grado de complejidad de éstas.`,
     side: 'left',
     fade: 'fade-right'
   },
@@ -407,22 +393,16 @@ export const TIME_LINE: TimeLine[] = [
     message: `La historia se repite, parece que la tecnología es más rápida que yo. Dejé mi trabajo el cual
               no tenía nada que ver con este asunto para volver a intentar estudiar programación web,
               mi verdadera <strong>pasión</strong>, esta vez en una
-              academia llamada <strong>IT Academy Barcelona</strong>.<br>
-              Siempre estaré agradecido a esta organización por lo mucho que me ayudaron a prepararme
-              para el mundo laboral tecnológico, ya que su itinerario siempre está a la última de las
-              tecnologías y tendencias que hay en el mercado.
-              <img class="time-img" src="https://i.vimeocdn.com/video/754114755_820.jpg"/>`,
+              academia llamada <strong>IT Academy Barcelona</strong>.`,
     side: 'right',
     fade: 'fade-left'
   },
   {
     year: 2019,
     message: `Lo último que puedo decir es que gracias a <strong>IT Academy Barcelona</strong> por fín
-              encontré un trabajo en una empresa desarrolladora de software. Utilizando varias herramientas
-              creamos aplicaciones híbridas, tanto para navegador, como para dispositivos Android/IOS.<br>
+              encontré un trabajo en una empresa desarrolladora de software.<br>
               Desde aquí dar las <strong>gracias</strong> a todas las personas que me ayudaron a
-              llegar hasta este momento. Un saludo a todos ellos.
-              <img class="time-img" src="https://www.nycastings.com/wp-content/uploads/2010/03/Success.jpg"/>`,
+              llegar hasta este momento. Un saludo a todos ellos.`,
     side: 'left',
     fade: 'fade-right'
   }

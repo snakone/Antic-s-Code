@@ -37,8 +37,7 @@
 }
 
 .intro {
-  padding-top: 2rem;
-  padding-right: 2rem;
+  padding-top: 1.5rem;
 }
 
 .input {
@@ -53,7 +52,7 @@
 .signature {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: baseline;
   margin-top: 1.333rem;
 
   & p { margin-top: 1rem }

@@ -1,17 +1,10 @@
-<app-sticky-box selector="code-section" [empty]="true">
-  <app-content-box [title]="'category.list' | translate"
-                   icon="search">
-        <ul>
-          <li *ngFor="let t of tags" (click)="filter(t.name)">
-            <mat-icon class="icon">{{t.icon}}</mat-icon>
-            <span>{{t.name | translate}}</span>
-            <mat-icon class="select">keyboard_arrow_right</mat-icon>
-          </li>
-        </ul>
-  </app-content-box>
-  <app-pagination class="desktop"
-                  selector="code-section"
-                  id="code-pagination">
-  </app-pagination>
-</app-sticky-box>
+<ul>
+  <li *ngFor="let t of tags" (click)="filter(t.name)">
+    <mat-icon class="icon">{{t.icon}}</mat-icon>
+    <span>{{t.name | translate}}</span>
+    <!-- <mat-icon class="select">keyboard_arrow_right</mat-icon> -->
+  </li>
+</ul>
+
+
 

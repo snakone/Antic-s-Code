@@ -46,10 +46,6 @@ export class CodeComponent implements OnInit, OnDestroy {
   }
 
   filter(tag: string): void {
-    if (tag === 'Todas') {
-      this.filtered = this.code;
-      return;
-    }
     this.filtered = this.code.filter((x: Code) => {
       if (x.tags.includes(tag)) { return x; }
     });

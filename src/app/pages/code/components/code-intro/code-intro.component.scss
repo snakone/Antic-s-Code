@@ -1,0 +1,36 @@
+* { box-sizing: border-box }
+
+mat-form-field {
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+mat-icon {
+  position: relative;
+  top: -1px;
+  margin-right: 1.333rem !important;
+  margin-left: 1rem;
+  pointer-events: none;
+  color: var(--p-color);
+}
+
+.sum-square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: .8;
+  background: var(--primary-color);
+  border-radius: 4px;
+  margin-right: 1.5rem;
+  color: white;
+  width: 25px;
+  height: 25px;
+  font-size: .9rem;
+}
+
+.mat-option {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+}

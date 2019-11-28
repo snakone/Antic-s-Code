@@ -11,10 +11,15 @@
           aria-label="Favorite">{{'favorite' | translate}}
   </button>
 </div>
-<app-single-category-intro-box [category]="category"></app-single-category-intro-box>
-<app-single-category-concepts-box [category]="category"></app-single-category-concepts-box>
-<app-single-category-examples-box [category]="category"></app-single-category-examples-box>
+
+<app-content-box>
+  <app-single-category-intro [category]="category"></app-single-category-intro>
+  <app-single-category-concepts [category]="category"></app-single-category-concepts>
+  <app-single-category-examples [category]="category"></app-single-category-examples>
+</app-content-box>
+
 <app-single-category-faq-box [category]="category"></app-single-category-faq-box>
 <app-links-box *ngIf="category?.links.length > 0"
                [links]="category?.links">
 </app-links-box>
+

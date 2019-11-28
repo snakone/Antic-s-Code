@@ -1,5 +1,4 @@
 import { Component, Input, AfterViewInit } from '@angular/core';
-import { Article, Category } from '@app/shared/interfaces/interfaces';
 import hljs from 'highlight.js';
 
 @Component({

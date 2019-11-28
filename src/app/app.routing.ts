@@ -60,6 +60,11 @@ const routes: Routes = [
                         .then(mod => mod.AboutMeModule), data: {name: 'About Me'}
   },
   {
+    path: 'create',
+    loadChildren: () => import('./pages/create-article/create-article.module')
+                        .then(mod => mod.CreateArticleModule), data: {name: 'Create'}
+  },
+  {
     path: 'admin',
     canActivate: [AdminGuard],
     loadChildren: () => import('./pages/admin/admin.module')

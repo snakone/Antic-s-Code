@@ -12,6 +12,8 @@ p {
   color: var(--p-color);
   line-height: 1.5rem;
   margin: 0;
+
+  @media(max-width: 550px) { font-size: .9rem !important }
 }
 
 h1 {
