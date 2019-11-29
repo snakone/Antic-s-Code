@@ -5,6 +5,7 @@ input {
   left: 14px;
   top: -4px;
   width: 80%;
+  outline: none;
   &::placeholder {
     color: var(--bg-color);
     opacity: .5;

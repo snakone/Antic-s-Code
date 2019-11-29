@@ -26,14 +26,9 @@
               *ngFor="let t of article.tags">{{t | translate}}
         </span>
       </div>
-      <!-- <app-article-reactions [article]="article"
-                             class="reaction-mobile"
-                             [single]="single"
-                             [liked]="liked">
-      </app-article-reactions> -->
       <app-article-reactions [article]="article"
                              [single]="single">
-        </app-article-reactions>
+      </app-article-reactions>
       <ng-content></ng-content>
   </div>
  </div>

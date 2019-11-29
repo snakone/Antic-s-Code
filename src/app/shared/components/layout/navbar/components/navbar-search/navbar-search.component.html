@@ -8,6 +8,7 @@
   </span>
   <input (focus)="focused = true"
          (focusout)="focusOut()"
+         (keyup.enter)="focusOut()"
          type="text"
          aria-label="Search"
          [placeholder]="'nav.search' | translate"
