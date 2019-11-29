@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { Article } from '@app/shared/interfaces/interfaces';
+import { Article, User } from '@app/shared/interfaces/interfaces';
 import { Subject, Observable, fromEvent, of } from 'rxjs';
 import { takeUntil, debounceTime, switchMap } from 'rxjs/operators';
 import { ArticleService } from '@core/services/article/article.service';
@@ -9,6 +9,7 @@ import * as ArticleActions from '@core/ngrx/actions/article.actions';
 import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 import * as UserActions from '@core/ngrx/actions/user.actions';
 import { UserService } from '@app/core/services/services.index';
+import * as fromUsers from '@core/ngrx/selectors/user.selectors';
 
 @Component({
   selector: 'app-articles-content',
@@ -45,9 +46,11 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
   }
 
   private getInteraction(): void {
-    if (this.userService.getUser()) {
-      this.store.dispatch(UserActions.getInteractionByUser());
-    }
+    this.store.select(fromUsers.getUser)
+     .pipe(takeUntil(this.unsubscribe$))
+     .subscribe((res: User) => {
+      if (res) { this.store.dispatch(UserActions.getInteractionByUser()); }
+    });
   }
 
   private hasEnded(): void {
