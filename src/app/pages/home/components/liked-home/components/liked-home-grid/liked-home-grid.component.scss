@@ -84,5 +84,35 @@ img {
 figure { margin: 0 0 1rem }
 .overlay-bg:hover mat-icon { color: var(--angular-color) }
 
+.skeleton-card {
+  position: relative;
+  margin: 0;
+  outline: none;
+  margin-bottom: 2rem;
+
+  & img {
+    width: 100%;
+    vertical-align: middle;
+    border-style: none;
+    margin-top: 1px;  // Border of SideBar
+  }
+
+  & p {
+    background: var(--skeleton-color-tint);
+    height: 4.3rem;
+  }
+
+  & span {
+    position: absolute;
+    top: 1.6rem;
+    left: 1.6rem;
+    width: 45%;
+    background: var(--light-color);
+    height: 1.8rem;
+    line-height: 1.8rem;
+    border-radius: 2px;
+  }
+}
+
 
 

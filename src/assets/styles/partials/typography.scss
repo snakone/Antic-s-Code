@@ -16,6 +16,10 @@ p {
   @media(max-width: 550px) { font-size: .9rem !important }
 }
 
+span {
+  @media(max-width: 550px) { font-size: .9rem !important }
+}
+
 h1 {
   color: var(--light-color);
   font-size: 2rem;

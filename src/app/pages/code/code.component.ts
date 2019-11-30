@@ -16,7 +16,7 @@ import * as CodeActions from '@core/ngrx/actions/code.actions';
 export class CodeComponent implements OnInit, OnDestroy {
 
   code: Code[];
-  filtered: Code[];
+  filtered: Code[] = [];
   private unsubscribe$ = new Subject<void>();
 
   constructor(private store: Store<AppState>) { }
