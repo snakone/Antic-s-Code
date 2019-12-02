@@ -5,11 +5,11 @@
   & h3 {
     font-size: 2rem;
     margin-top: 4rem;
-    &:first-child {margin-top: 0 !important }
     margin-bottom: .2333rem;
+    &:first-child {margin-top: 0 !important }
     & span {
       color: var(--primary-color);
-      font-size: 2.2rem;
+      font-size: 2.2rem !important;
     }
   }
 

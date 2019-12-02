@@ -115,3 +115,7 @@
 .reaction-mobile {
   @media(min-width: 701px) { display: none }
 }
+
+.split {
+  @media(max-width: 700px) { margin-bottom: 2rem }
+}
