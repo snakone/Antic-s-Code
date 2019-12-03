@@ -8,20 +8,6 @@
     &.first { margin-top: 10px }
   }
 
-  a {
-    background-color: rgba(187,239,253,0.3);
-    border-bottom: 1px solid rgba(0,0,0,0.2);
-    color: #1a1a1a;
-    text-decoration: none;
-    outline: none;
-    @media(max-width: 550px) { font-size: .9rem !important }
-
-    &:hover {
-      background-color: #bbeffd;
-      border-bottom-color: #1a1a1a;
-    }
-  }
-
   strong {
     font-size: 17px;
     @media(max-width: 550px) { font-size: .9rem !important }
@@ -71,6 +57,7 @@
     font-size: 1.4rem;
     margin-top: 2rem;
     margin-bottom: -.2rem;
+    font-size: 1rem;
     &:first-child { margin-top: 0 }
   }
 
@@ -132,4 +119,16 @@ hr {
   border-bottom: 1px solid #ececec;
   margin-top: 30px;
   box-sizing: content-box;
+}
+
+.category {
+  & .template {
+
+    & p, h2:before {
+      margin-right: 1.5rem;
+      @media(max-width: 992px) { margin-right: 0 }
+    }
+
+    & h3:before { margin-top: -80px }
+  }
 }

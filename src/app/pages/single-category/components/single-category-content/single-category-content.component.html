@@ -12,11 +12,11 @@
   </button>
 </div>
 
-<app-content-box>
-  <app-single-category-intro [category]="category"></app-single-category-intro>
-  <app-single-category-concepts [category]="category"></app-single-category-concepts>
-  <app-single-category-examples [category]="category"></app-single-category-examples>
-</app-content-box>
+ <!-- CATEGORY CONTENT -->
+<app-single-category-intro [category]="category"></app-single-category-intro>
+<app-single-category-concepts [category]="category"></app-single-category-concepts>
+<app-single-category-examples [category]="category"></app-single-category-examples>
+
 
 <app-single-category-faq-box [category]="category"></app-single-category-faq-box>
 <app-links-box *ngIf="category?.links.length > 0"

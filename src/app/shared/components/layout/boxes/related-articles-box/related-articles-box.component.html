@@ -1,0 +1,15 @@
+<div class="related" *ngFor="let a of articles">
+  <figure [routerLink]="'/article/' + a.slug">
+    <img [src]="a.cover"/>
+  </figure>
+  <div class="related-content">
+    <span>{{a.title}}</span>
+  </div>
+  <hr>
+</div>
+<div class="see-more">
+  <mat-icon>forward</mat-icon>
+  <a (click)="seeMore()">Ver más Artículos relacionados</a>
+</div>
+
+

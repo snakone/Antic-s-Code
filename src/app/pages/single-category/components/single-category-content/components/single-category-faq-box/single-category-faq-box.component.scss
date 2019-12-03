@@ -1,32 +1,61 @@
-.m-top {
-  position: relative;
-  top: -5px;
-}
+.faq { margin-bottom: 4rem }
 
 .mat-expansion-panel-header-description {
   color: #000;
   @media(max-width: 350px) { font-size: .9rem }
 }
 
+::ng-deep .mat-expansion-panel {
+  padding: 1rem;
+  background: transparent;
+  padding-left: 0;
+}
+
+::ng-deep .mat-expansion-panel-header-description {
+  @media(max-width: 450px) { font-size: .9rem }
+}
+
+::ng-deep .mat-expansion-panel-spacing {
+  padding: 0;
+  @media(max-width: 450px) { padding: .5rem 0; }
+}
+
 ::ng-deep .mat-expansion-panel-body {
-  padding: 0 16px 0px!important;
   & p {
     color: var(--p-color)!important;
     margin: 5px auto;
     line-height: 1.5rem;
     @media(max-width: 350px) { font-size: .9rem }
-    }
+  }
 }
 
 ::ng-deep .mat-expansion-panel-header {
-  padding: 10px 5px!important;
-  @media(min-width: 450px) { padding: 1px 5px!important; }
+  padding: 0 1rem !important;
 }
-
 
 .mat-accordion .mat-expansion-panel:not(.mat-expanded),
 .mat-accordion .mat-expansion-panel:not(.mat-expansion-panel-spacing) {
   margin-top: 1px;
+  padding: 0;
+  @media(max-width: 450px) { padding: .5rem 0; }
+}
+
+h2 {
+  line-height: 1.2;
+  font-size: 24px;
+}
+
+h2:before {
+  content: " ";
+  display: block;
+  border-bottom: 1px solid #ececec;
+  padding-top: 44px;
+  margin-bottom: 40px;
+  box-sizing: inherit;
+}
+
+@media(min-width: 1280px) {
+  h2 { font-size: 35px }
 }
 
 

@@ -34,7 +34,7 @@
 
 <app-content-box [title]="'admin.articles' | translate"
                   icon="security"
-                  *ngIf="admin$ | async as admin">   <!-- ADMIN -->
+                  *ngIf="admin$ | async as admin">   <!-- ADMIN ARTICLES -->
     <ul>
       <li *ngFor="let a of admin"
           [routerLink]="'preview/' + a.slug">

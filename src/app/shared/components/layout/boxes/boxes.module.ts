@@ -13,6 +13,7 @@ import { TagBoxComponent } from './tag-box/tag-box.component';
 import { ArticleIndexBoxComponent } from './article-index-box/article-index-box.component';
 import { SettingsBoxComponent } from './settings-box/settings-box.component';
 import { ProfileInfoBoxComponent } from './profile-info-box/profile-info-box.component';
+import { RelatedArticlesBoxComponent } from './related-articles-box/related-articles-box.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ProfileInfoBoxComponent } from './profile-info-box/profile-info-box.com
     TagBoxComponent,
     ArticleIndexBoxComponent,
     SettingsBoxComponent,
-    ProfileInfoBoxComponent
+    ProfileInfoBoxComponent,
+    RelatedArticlesBoxComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +43,8 @@ import { ProfileInfoBoxComponent } from './profile-info-box/profile-info-box.com
     TagBoxComponent,
     ArticleIndexBoxComponent,
     SettingsBoxComponent,
-    ProfileInfoBoxComponent
+    ProfileInfoBoxComponent,
+    RelatedArticlesBoxComponent
   ]
 })
 

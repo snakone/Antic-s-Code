@@ -1,8 +1,7 @@
 <app-article-card *ngIf="article"
-                  id="article-preview-section"
                   [article]="article"
                   [single]="true">
-  <app-content-maker [template]="article"></app-content-maker>  <!-- PREVIEW -->
+  <app-content-maker [template]="article.message"></app-content-maker>  <!-- PREVIEW -->
   <app-links-box *ngIf="article.links.length > 0"
                   [links]="article.links">
   </app-links-box>

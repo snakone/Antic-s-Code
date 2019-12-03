@@ -64,6 +64,10 @@ export class ArticleService {
     return this.http.get(APP_CONSTANTS.END_POINT + 'article/' + slug);
   }
 
+  public getArticlesByCategory(category: string): Observable<ArticleResponse> {
+    return this.http.get(this.API_ARTICLES + 'category/' + category);
+  }
+
   public getArticlesByCategoryCount(): Observable<CategoryCountResponse> {
     return this.http.get(this.API_ARTICLES + 'categories/count');
   }

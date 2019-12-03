@@ -40,7 +40,7 @@ export class AdminContentComponent implements OnInit, OnDestroy {
       .subscribe((res: ArticleResponse) => {
         if (res.ok) {
           this.published = res.articles.filter((a: Article) => a.draft === false && a.admin !== true);
-          this.archived = res.articles.filter((a: Article) => a.draft === true);
+          this.archived = res.articles.filter((a: Article) => a.draft === true && a.admin !== true);
         }
     });
   }
