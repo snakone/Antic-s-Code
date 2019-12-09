@@ -1,5 +1,5 @@
 <div id="cat-intro">
-  <div class="category">
+  <div class="category" *ngIf="category.intro">
     <app-content-maker [template]="category.intro">
     </app-content-maker>
   </div>

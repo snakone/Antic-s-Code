@@ -53,6 +53,13 @@
     box-sizing: inherit;
   }
 
+  h3.stretch:before {
+    display: block;
+    padding-top: 25px;
+    margin-top: -15px;
+    box-sizing: inherit;
+  }
+
   h4 {
     font-size: 1.4rem;
     margin-top: 2rem;
@@ -73,7 +80,6 @@
   }
 
   pre {
-    font-size: 14px;
     line-height: 20px;
     word-break: break-word;
     height: auto !important;
@@ -109,6 +115,12 @@
   img.inline {
     width: 49%;
     display: inline-block;
+  }
+
+  .emoji {
+    position: relative;
+    margin-right: .5rem;
+    font-size: 1.5rem;
   }
 }
 

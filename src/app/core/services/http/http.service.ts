@@ -50,6 +50,7 @@ export class HttpService {
     const contentType = _headers ? (_headers.get(this.type) || this.default) : this.default;
     const accept = _headers ? (_headers.get(this.accept) || this.default) : this.default;
     const headers = _headers || new HttpHeaders();
+
     return headers
       .set(this.auth, this.storage.get('token') || '')
       .set(this.content, contentType)

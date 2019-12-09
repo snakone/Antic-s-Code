@@ -6,6 +6,7 @@ import * as UserActions from '../actions/user.actions';
 import { map, concatMap, catchError } from 'rxjs/operators';
 import { UserService, InteractionService } from '../../services/services.index';
 import { StorageService } from '@app/core/storage/storage.service';
+import { CryptoConverter } from '@app/core/services/crypto/crypto.converter';
 
 @Injectable()
 

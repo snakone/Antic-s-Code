@@ -30,6 +30,7 @@ export class CodeIntroComponent {
   }
 
   getSum(tag: string): number {
+    if (tag === 'Todas') { return; }
     let total = 0;
     this.code.forEach((x: Code) => {
       if (x.tags.includes(tag)) { total++; }
