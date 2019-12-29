@@ -1,12 +1,12 @@
-<div class="row flex" *ngIf="articles">
+<div class="row flex" *ngIf="articles.length > 0">
   <div class="col-lg-6"
       *ngFor="let a of articles">
     <div class="card-image">
       <figure [routerLink]="'/article/' + a.slug">
-        <img [src]="a.cover" [alt]="a.title" loading="lazy"/>  <!-- IMAGE -->
+        <img [src]="a.cover" [alt]="a.title" loading="lazy"/>
         <figcaption class="overlay-bg flex-box">
             <div class="card-title">
-              <h3>{{a.title}}</h3>  <!-- INFO -->
+              <h3>{{a.title}}</h3>
               <p>{{a.likes}}
                 <mat-icon>favorite</mat-icon>
               </p>
@@ -14,5 +14,16 @@
           </figcaption>
         </figure>
       </div>
+  </div>
+</div>
+<div class="row flex" *ngIf="articles.length === 0">
+  <div class="col-lg-6"
+       *ngFor="let i of [1,2,3,4]">
+       <div class="card-image">
+        <figure class="skeleton-card">
+          <img src="assets/img/skeleton.png" alt="Skeleton" loading="lazy"/>
+          <span></span>
+         </figure>
+       </div>
   </div>
 </div>

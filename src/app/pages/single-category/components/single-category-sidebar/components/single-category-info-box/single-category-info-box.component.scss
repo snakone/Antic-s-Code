@@ -1,7 +1,6 @@
 .info {
   &-box {
-    margin-bottom: 1.53333rem;
-    margin-left: .3rem;
+    margin: 0 .3rem 1.5333rem auto;
 
     &-avatar {
       margin-right: 1rem;
@@ -46,15 +45,15 @@
         display: flex;
         align-items: center;
         margin-bottom: .66667rem;
+        &:last-child { margin-bottom: 0 }
 
         & span {
           @media(max-width: 1160px) { font-size: .9rem }
           @media(max-width: 1091px) { font-size: .8rem }
           @media(max-width: 1030px) { font-size: .73337rem }
           @media(max-width: 992px) { font-size: 1rem }
-          @media(max-width: 802px) and (min-width: 751px) { font-size: .9rem }
-          @media(max-width: 380px) { font-size: .8rem !important }
-          @media(max-width: 350px) { font-size: .7rem !important }
+          @media(max-width: 802px) and (min-width: 380px) { font-size: .9rem }
+          @media(max-width: 350px) { font-size: .8rem !important }
         }
 
         & mat-icon {

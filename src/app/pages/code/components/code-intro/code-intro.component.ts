@@ -1,8 +1,8 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { TAGS_ICON } from '@app/shared/shared.data';
+import { Component, Output, Input, EventEmitter } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
-import { Code } from '@app/shared/interfaces/interfaces';
 import { PaginationService } from 'ngx-pagination';
+import { TAGS_ICON } from '@app/shared/shared.data';
+import { Code } from '@app/shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-code-intro',
@@ -10,15 +10,13 @@ import { PaginationService } from 'ngx-pagination';
   styleUrls: ['./code-intro.component.scss']
 })
 
-export class CodeIntroComponent implements OnInit {
+export class CodeIntroComponent {
 
   @Input() code: Code[];
   @Output() tag: EventEmitter<string> = new EventEmitter<string>();
   tags = TAGS_ICON;
 
   constructor(private pagination: PaginationService) { }
-
-  ngOnInit() { }
 
   filter(tag: MatSelectChange): void {
     this.tag.emit(tag.value);
@@ -32,6 +30,7 @@ export class CodeIntroComponent implements OnInit {
   }
 
   getSum(tag: string): number {
+    if (tag === 'Todas') { return; }
     let total = 0;
     this.code.forEach((x: Code) => {
       if (x.tags.includes(tag)) { total++; }

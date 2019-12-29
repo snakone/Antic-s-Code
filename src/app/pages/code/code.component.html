@@ -4,41 +4,22 @@
 <app-section input="#f5f7fc">
   <div class="row">
     <div class="col-lg-12">  <!-- HEADER -->
-      <app-code-intro [code]="code"
-                      (tag)="filter($event)">
+      <app-code-intro (tag)="filter($event)" [code]="code">
       </app-code-intro>
+
       <div id="code-section">
         <app-pagination id="code-pagination"
                         selector="code-section"
                         *ngIf="code?.length > 0">
         </app-pagination>
       </div>
-      <app-code-content [code]="filtered"
-                        *ngIf="code">
+      <app-code-content [code]="filtered">
       </app-code-content>
       <app-pagination id="code-pagination"
                       selector="code-section"
                       *ngIf="code?.length > 0">
       </app-pagination>
     </div>
-    <!-- <div class="col-lg-8 col-md-8" id="code-section">
-      <app-code-intro class="desktop"
-                      [total]="code?.length">
-      </app-code-intro>
-      <app-code-content [code]="filtered"
-                        *ngIf="code">
-      </app-code-content>
-    </div>
-    <div class="col-lg-4 col-md-4">
-      <app-pagination class="mobile"
-                      *ngIf="code?.length > 0"
-                      id="code-pagination"
-                      selector="code-section">
-      </app-pagination>
-      <app-code-sidebar *ngIf="code?.length > 0"
-                        (tag)="filter($event)">
-      </app-code-sidebar>
-    </div> -->
   </div>
 </app-section>
 <app-footer></app-footer>

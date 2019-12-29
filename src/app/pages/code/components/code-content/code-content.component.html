@@ -1,6 +1,6 @@
 <div class="code-wrapper">
   <div *ngIf="code">  <!-- CODE GRID -->
-    <div *ngIf="code.length > 0" highlightChildren>
+    <div *ngIf="code.length > 0">
        <app-content-box [title]="('code' | translate) + ' #' + (absoluteIndex(i + 1) | digits)"
                         *ngFor="let c of code | randomizer |
                                 paginate: { itemsPerPage: itemsPerPage,
@@ -10,6 +10,10 @@
                       *ngIf="c">
         </app-code-box>
       </app-content-box>
+    </div>
+    <div *ngIf="code.length === 0">
+      <app-code-box-skeleton *ngFor="let c of [1,2,3,4]">
+      </app-code-box-skeleton>
     </div>
   </div>
 </div>

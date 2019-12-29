@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
 import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 import * as ArticleActions from '@core/ngrx/actions/article.actions';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Article } from '@app/shared/interfaces/interfaces';
 import { takeUntil } from 'rxjs/operators';
 
@@ -15,7 +15,7 @@ import { takeUntil } from 'rxjs/operators';
 
 export class LikedHomeComponent implements OnInit, OnDestroy {
 
-  articles$: Observable<Article[]>;
+  articles: Article[] = [];
   private unsubscribe$ = new Subject<void>();
 
   constructor(private store: Store<AppState>) { }
@@ -36,7 +36,11 @@ export class LikedHomeComponent implements OnInit, OnDestroy {
   }
 
   private getLikedArticles(): void {
-    this.articles$ = this.store.select(fromArticles.getMostLiked);
+    this.store.select(fromArticles.getMostLiked)
+    .pipe(takeUntil(this.unsubscribe$))
+    .subscribe((res: Article[]) => {
+      if (res.length > 0) { this.articles = res; }
+    });
   }
 
   ngOnDestroy(): void {

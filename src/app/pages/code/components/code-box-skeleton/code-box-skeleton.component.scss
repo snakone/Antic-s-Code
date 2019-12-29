@@ -1,0 +1,23 @@
+.skeleton-description {
+  width: 16rem;
+  background: var(--skeleton-color);
+  line-height: 1.6rem;
+  height: 1.4rem;
+  display: inline-block;
+}
+
+ul {
+  padding-left: 0;
+  margin-bottom: .7rem;
+  margin-top: 1rem;
+}
+
+li {
+  margin-right: 1.2rem;
+  line-height: 1.4rem;
+  background: var(--skeleton-color-tint);
+  width: 6rem;
+  height: 1.4rem;
+  margin: .3rem 1.2rem .3rem 0;
+}
+

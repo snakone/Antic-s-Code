@@ -36,7 +36,7 @@ export interface AppConfig {
 export const APP_CONSTANTS: AppConfig = {
   TITLE: 'Antic\'s Code',
   DEFAULT_LANGUAGE: 'es',
-  END_POINT: DEV,
+  END_POINT: PROD,
   APP_VERSION,
   DISQUS: 'antics-code',
   THEME: 'default'

@@ -16,7 +16,7 @@ import { takeUntil } from 'rxjs/operators';
 
 export class ArticlesGridComponent implements OnInit, OnDestroy {
 
-  articles$: Observable<Article[]>;
+  articles: Article[] = [];
   count$: Observable<number>;
   private unsubscribe$ = new Subject<void>();
 
@@ -39,8 +39,12 @@ export class ArticlesGridComponent implements OnInit, OnDestroy {
   }
 
   private getArticles(): void {
-    this.articles$ = this.store.select(fromArticles.getLastArticles);
     this.count$ = this.store.select(fromArticles.getArticlesCount);
+    this.store.select(fromArticles.getLastArticles)
+    .pipe(takeUntil(this.unsubscribe$))
+    .subscribe((res: Article[]) => {
+      if (res.length > 0) { this.articles = res; }
+    });
   }
 
   ngOnDestroy(): void {

@@ -32,7 +32,8 @@ export const CATEGORIES: string[] = [
   'Javascript',
   'Angular',
   'Nodejs',
-  'MongoDB'
+  'MongoDB',
+  'Android'
 ];
 
 export const TAGS: string[] = [
@@ -43,6 +44,7 @@ export const TAGS: string[] = [
   'Frontend',
   'Backend',
   'Typescript',
+  'Mobile',
   'Database',
   'Ionic',
   'Config'
@@ -55,10 +57,12 @@ export const TAGS_ICON: Tag[] = [
   { name: 'Material', icon: 'view_compact' },
   { name: 'Frontend', icon: 'personal_video' },
   { name: 'Backend', icon: 'cast_connected' },
+  { name: 'Mobile', icon: 'phone_android' },
   { name: 'Typescript', icon: 'language' },
   { name: 'Database', icon: 'cloud_queue' },
   { name: 'Ionic', icon: 'phone_android' },
   { name: 'Config', icon: 'toc' },
+  { name: 'Todas', icon: 'reorder' }
 ];
 
 export const POPULAR_CATEGORIES: List[] = [
@@ -120,6 +124,12 @@ export const MAIN_CATEGORIES: List[] = [
     icon: 'mongo-logo.png',
     category: 'MongoDB',
     class: 'even.jpg'
+  },
+  {
+    name: 'Native Android',
+    icon: 'android-logo.png',
+    category: 'Android',
+    class: 'odd.jpg'
   }
 ];
 
@@ -176,7 +186,9 @@ export const ROLES: Role[] = [
   { name: 'Backend Developer', translate: 'back.dev' },
   { name: 'Full-Stack Developer', translate: 'full.dev' },
   { name: 'Designer', translate: 'design.dev' },
-  { name: 'Web Designer', translate: 'design.web' }
+  { name: 'Web Designer', translate: 'design.web' },
+  { name: 'Mobile Developer', translate: 'mobile.dev' },
+
 ];
 
 export const PROFILE_LANGS: string[] = [

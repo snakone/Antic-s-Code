@@ -1,19 +1,6 @@
 import { props, createAction } from '@ngrx/store';
 import { User, Interaction } from '@app/shared/interfaces/interfaces';
 
-// GET USER BY ID
-export const getUserById =
-  createAction('[Users] Get User By ID',
-  props<{ id: string }>());
-
-export const getUserByIdSuccess =
-  createAction('[Users] Get User By ID Success',
-  props<{ user: User }>());
-
-export const getUserByIdFailure =
-  createAction('[Users] Get User By ID Failure',
-  props<{ error: string }>());
-
 // GET USER BY NAME
 export const getUserByName =
   createAction('[Users] Get User By Name',

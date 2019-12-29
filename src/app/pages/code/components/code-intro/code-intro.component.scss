@@ -1,9 +1,26 @@
 * { box-sizing: border-box }
 
-mat-form-field {
-  margin-top: 1.5rem;
+.wrapper {
   width: 100%;
+  margin-top: 1.5rem;
+
+  & .items {
+   & p {
+      color: black;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    & span { color: var(--p-color) }
+  }
+
+  & .sort {
+    width: 100%;
+    margin-top: .7rem;
+   }
 }
+
+mat-form-field { width: 100% }
 
 mat-icon {
   position: relative;
@@ -14,23 +31,16 @@ mat-icon {
   color: var(--p-color);
 }
 
-.sum-square {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: .8;
-  background: var(--primary-color);
-  border-radius: 4px;
-  margin-right: 1.5rem;
-  color: white;
-  width: 25px;
-  height: 25px;
-  font-size: .9rem;
-}
-
 .mat-option {
   display: flex !important;
   justify-content: space-between;
   align-items: center;
   padding: 0;
 }
+
+.sum {
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-right: 1rem;
+}
+

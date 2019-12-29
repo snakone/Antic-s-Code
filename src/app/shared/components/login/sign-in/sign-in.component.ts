@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { LoginService, UserService } from '@app/core/services/services.index';
+import { LoginService, UserService, CrafterService } from '@app/core/services/services.index';
 import { UserResponse } from '@app/shared/interfaces/interfaces';
 import { HttpErrorResponse } from '@angular/common/http';
 import { StorageService } from '@app/core/storage/storage.service';
@@ -12,7 +12,6 @@ import * as fromUsers from '@core/ngrx/selectors/user.selectors';
 import { Subject, Observable, of } from 'rxjs';
 import { takeUntil, switchMap } from 'rxjs/operators';
 import { LoginComponent } from '../login.component';
-import { CrafterService } from '@core/services/crafter/crafter.service';
 
 @Component({
   selector: 'app-sign-in',

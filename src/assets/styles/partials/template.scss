@@ -4,35 +4,13 @@
     font-size: 17px;
     line-height: 1.7;
     color: black;
-
     &:first-child { margin-top: 20px }
     &.first { margin-top: 10px }
   }
 
-  a {
-    background-color: rgba(187,239,253,0.3);
-    border-bottom: 1px solid rgba(0,0,0,0.2);
-    color: #1a1a1a;
-    text-decoration: none;
-    outline: none;
-
-    &:hover {
-      background-color: #bbeffd;
-      border-bottom-color: #1a1a1a;
-    }
-  }
-
   strong {
     font-size: 17px;
-  }
-
-  hr {
-    height: 1px;
-    margin-bottom: -1px;
-    border: none;
-    border-bottom: 1px solid #ececec;
-    margin-top: 30px;
-    box-sizing: content-box;
+    @media(max-width: 550px) { font-size: .9rem !important }
   }
 
   ul {
@@ -48,6 +26,7 @@
   ul li {
     margin-top: 10px;
     margin-bottom: 0;
+    @media(max-width: 550px) { font-size: .9rem !important }
   }
 
   h2 {
@@ -74,10 +53,18 @@
     box-sizing: inherit;
   }
 
+  h3.stretch:before {
+    display: block;
+    padding-top: 25px;
+    margin-top: -15px;
+    box-sizing: inherit;
+  }
+
   h4 {
     font-size: 1.4rem;
     margin-top: 2rem;
     margin-bottom: -.2rem;
+    font-size: 1rem;
     &:first-child { margin-top: 0 }
   }
 
@@ -93,7 +80,6 @@
   }
 
   pre {
-    font-size: 14px;
     line-height: 20px;
     word-break: break-word;
     height: auto !important;
@@ -129,5 +115,32 @@
   img.inline {
     width: 49%;
     display: inline-block;
+  }
+
+  .emoji {
+    position: relative;
+    margin-right: .5rem;
+    font-size: 1.5rem;
+  }
+}
+
+hr {
+  height: 1px;
+  margin-bottom: -1px;
+  border: none;
+  border-bottom: 1px solid #ececec;
+  margin-top: 30px;
+  box-sizing: content-box;
+}
+
+.category {
+  & .template {
+
+    & p, h2:before {
+      margin-right: 1.5rem;
+      @media(max-width: 992px) { margin-right: 0 }
+    }
+
+    & h3:before { margin-top: -80px }
   }
 }

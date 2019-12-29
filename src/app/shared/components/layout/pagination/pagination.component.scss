@@ -11,6 +11,8 @@
 
 ::ng-deep .pagination .ngx-pagination a {
   color: var(--primary-color);
+  background: none;
+  border-bottom: none;
 
   &:hover {
     background: none;

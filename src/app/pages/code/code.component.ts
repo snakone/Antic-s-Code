@@ -16,7 +16,7 @@ import * as CodeActions from '@core/ngrx/actions/code.actions';
 export class CodeComponent implements OnInit, OnDestroy {
 
   code: Code[];
-  filtered: Code[];
+  filtered: Code[] = [];
   private unsubscribe$ = new Subject<void>();
 
   constructor(private store: Store<AppState>) { }
@@ -46,6 +46,11 @@ export class CodeComponent implements OnInit, OnDestroy {
   }
 
   filter(tag: string): void {
+    if (tag === 'Todas') {
+      this.filtered = this.code;
+      return;
+    }
+
     this.filtered = this.code.filter((x: Code) => {
       if (x.tags.includes(tag)) { return x; }
     });
