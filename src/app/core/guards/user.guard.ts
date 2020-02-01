@@ -9,7 +9,7 @@ import { User } from '@app/shared/interfaces/interfaces';
 
 @Injectable({providedIn: 'root'})
 
-export class ProfileGuard implements CanActivate {
+export class UserGuard implements CanActivate {
 
   constructor(private store: Store<AppState>,
               private router: Router) { }

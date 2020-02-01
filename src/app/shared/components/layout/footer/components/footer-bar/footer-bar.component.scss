@@ -18,6 +18,8 @@
       @media(max-width: 325px) { font-size: .9rem }
     }
 
+    & a { text-decoration: none }
+
     & mat-icon {
       position: relative;
       font-size: 1rem;

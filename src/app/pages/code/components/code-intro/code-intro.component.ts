@@ -18,8 +18,8 @@ export class CodeIntroComponent {
 
   constructor(private pagination: PaginationService) { }
 
-  filter(tag: MatSelectChange): void {
-    this.tag.emit(tag.value);
+  filter(category: string): void {
+    this.tag.emit(category);
     this.pagination.setCurrentPage('code-pagination', 1);
     this.scroll('code-section');
   }
@@ -27,6 +27,10 @@ export class CodeIntroComponent {
   scroll(box: string): void {
     const el = document.getElementById(box);
     if (el) { el.scrollIntoView({ behavior: 'auto', block: 'start' }); }
+  }
+
+  reset(): void {
+    this.filter('Todas');
   }
 
   getSum(tag: string): number {

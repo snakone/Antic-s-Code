@@ -37,8 +37,8 @@ input {
     }
  }
   @media(max-width: 475px) { display: none }
-  @media(min-width: 476) and (max-width: 788px) { display: block }
-  @media(min-width: 789px) and (max-width: 1060px) { display: none }
+  @media(min-width: 476) and (max-width: 850px) { display: block }
+  @media(min-width: 851px) and (max-width: 1160px) { display: none }
 }
 
 .search-hint {

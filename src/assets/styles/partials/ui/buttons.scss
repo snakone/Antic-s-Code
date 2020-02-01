@@ -18,8 +18,16 @@
 .btn-orange {
   @include button-animated(
     var(--tertiary-color),
-    var(--primary-color),
-    var(--secondary-color)
+    var(--secondary-color),
+    var(--primary-color)
+  );
+}
+
+.btn-blue {
+  @include button-animated(
+    var(--title-color),
+    #2a2f50,
+    #585b6b
   );
 }
 

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { Error404Component } from './shared/components/error404/error404.component';
-import { ProfileGuard } from './core/guards/profile.guard';
+import { UserGuard } from './core/guards/user.guard';
 import { AdminGuard } from './core/guards/admin.guard';
 import { ErrorGuard } from './core/guards/error.guard';
 
@@ -40,7 +40,7 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    canActivate: [ProfileGuard],
+    canActivate: [UserGuard],
     loadChildren: () => import('./pages/profile/profile.module')
                         .then(mod => mod.ProfileModule), data: {name: 'Profile'}
   },
@@ -61,8 +61,9 @@ const routes: Routes = [
   },
   {
     path: 'create',
-    loadChildren: () => import('./pages/create-article/create-article.module')
-                        .then(mod => mod.CreateArticleModule), data: {name: 'Create'}
+    canActivate: [UserGuard],
+    loadChildren: () => import('./pages/create/create.module')
+                        .then(mod => mod.CreateModule), data: {name: 'Create'}
   },
   {
     path: 'admin',

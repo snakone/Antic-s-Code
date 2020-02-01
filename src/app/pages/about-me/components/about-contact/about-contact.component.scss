@@ -7,12 +7,6 @@
   margin-bottom: 2rem;
  }
 
- img {
-  max-width: 100%;
-  margin-left: 1rem;
-  margin-top: -1rem;
-}
-
 .col-lg-6 {
   max-width: 576px;
 
@@ -27,12 +21,14 @@
   }
 }
 
-.image {
-  display: flex;
-  align-items: center;
+ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
 
-  @media(max-width: 992px) {
-    display: none;
+  & li {
+    display: inline;
+    padding-right: 2rem;
   }
 }
 
@@ -41,27 +37,26 @@
 }
 
 .input {
-  margin: 2.5rem auto 0;
+  margin: 2rem auto 0 auto;
+
   & button { width: 100% }
-  & a {
-    width: 100%;
-    text-decoration: none;
-   }
 }
 
-.signature {
-  display: flex;
-  justify-content: flex-end;
-  align-items: baseline;
-  margin-top: 1.333rem;
+h4 {
+  font-size: 1.2rem;
+  margin-top: 1.2rem;
+ }
 
-  & p { margin-top: 1rem }
+.social {
+  @media(min-width: 992px) {
+    margin-left: 12%;
+  }
 
   & i {
     font-size: 2rem;
-    padding-left: 1rem;
-    color: var(--react-color);
+    margin-left: .83332rem;
   }
-
-  & .fa-github-square { color: black }
 }
+
+.fa-github-square { color: black }
+.fa-linkedin { color: var(--react-color) }

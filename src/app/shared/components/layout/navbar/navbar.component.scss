@@ -50,7 +50,7 @@
     align-items: center;
     justify-content: center;
 
-    @media (max-width: 789px) {
+    @media (max-width: 850px) {
       display: none;
       border-right: 0;
     }
@@ -79,7 +79,7 @@
   &-mobile-toogler {
     display: none;
 
-    @media (max-width: 789px) {
+    @media (max-width: 850px) {
       height: 100%;
       -webkit-box-ordinal-group: 1;
       display: flex;

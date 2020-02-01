@@ -22,7 +22,8 @@ export class StorageService {
   }
 
   setKey(key: string, value: any) {
-    if (value === undefined || !this.storage) { return; }
+    this.loadStorage();
+    if (value === undefined) { return; }
     this.storage[key] = value;
     this.storage = this.storage;
   }

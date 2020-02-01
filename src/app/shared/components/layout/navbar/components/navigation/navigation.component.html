@@ -31,15 +31,6 @@
             </button>
           </div>
           <div *ngIf="(user$ | async) as user">
-            <div class="flex-box">
-              <button class="menu-dropdown"
-                      mat-menu-item
-                      aria-label="Create"
-                      routerLink="/create">
-                <mat-icon>edit</mat-icon>
-                    {{'create' | translate}}
-              </button>
-            </div>
             <div *ngIf="user.account === 'Admin' || user.account === 'Super'"
                   class="flex-box">
               <button class="menu-dropdown"
@@ -52,6 +43,13 @@
             </div>
           </div>
         </mat-menu>
+      </li>
+      <li *ngIf="(user$ | async) as user" class="animated fadeIn create">
+        <button class="btn-orange"
+                mat-button
+                aria-label="Crear Artículo"
+                routerLink="/create">Crear
+        </button>
       </li>
     </ul>
   </div>

@@ -14,18 +14,26 @@
     {{'the.code' | translate}}
   </p>
   <div class="wrapper">
-    <div class="items">
-      <p>{{'result' | translate}}</p>
-      <span>{{'content.found' | translate}}: {{code.length}}</span>
+    <div class="result">
+      <div>
+        <p>{{'result' | translate}}</p>
+        <span>{{'content.found' | translate}}: {{code.length}}</span>
+      </div>
+      <mat-icon matTooltip="Reset"
+                class="reset"
+                matTooltipPosition="above"
+                (click)="reset()">
+                autorenew
+      </mat-icon>
     </div>
-    <div class="sort">
+    <div class="list">
       <mat-form-field color="accent">
         <mat-label>Categoría</mat-label>
         <mat-select (selectionChange)="filter($event)" #select>
           <mat-option *ngFor="let t of tags" [value]="t.name">
             <div *ngIf="select.panelOpen" class="mat-option">
               <div>
-                <mat-icon class="icon">{{t.icon}}</mat-icon>
+                <mat-icon class="sort-tag">{{t.icon}}</mat-icon>
                 <span>{{t.name | translate}}</span>
               </div>
               <span class="sum">{{getSum(t.name)}}</span>
@@ -36,6 +44,13 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+      <div class="sort">
+        <div *ngFor="let t of tags"
+             (click)="filter(t.name)">
+          <mat-icon class="icon">{{t.icon}}</mat-icon>
+          <span>{{t.name | translate}}</span>
+        </div>
+      </div>
     </div>
   </div>
 </app-content-box>

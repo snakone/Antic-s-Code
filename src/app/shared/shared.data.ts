@@ -58,11 +58,11 @@ export const TAGS_ICON: Tag[] = [
   { name: 'Frontend', icon: 'personal_video' },
   { name: 'Backend', icon: 'cast_connected' },
   { name: 'Mobile', icon: 'phone_android' },
+  { name: 'Javascript', icon: 'code' },
   { name: 'Typescript', icon: 'language' },
   { name: 'Database', icon: 'cloud_queue' },
   { name: 'Ionic', icon: 'phone_android' },
-  { name: 'Config', icon: 'toc' },
-  { name: 'Todas', icon: 'reorder' }
+  { name: 'Config', icon: 'toc' }
 ];
 
 export const POPULAR_CATEGORIES: List[] = [

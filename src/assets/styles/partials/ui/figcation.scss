@@ -24,11 +24,9 @@ figcaption {
     visibility: hidden;
   }
 
-  &:hover { cursor: pointer }
-
   &:hover::before {
     cursor: pointer;
-    opacity: 1;
+    opacity: .666;
     visibility: visible;
   }
 

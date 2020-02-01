@@ -24,7 +24,7 @@
     @include rotation(0deg);
   }
 
-  @media (max-width: 789px) {
+  @media (max-width: 850px) {
     display: none;
   }
 }
@@ -43,6 +43,8 @@ li {
   padding: 10px 5px;
   text-decoration: none;
   outline: none;
+
+  &.create { margin-left: .9rem }
 }
 
 .collapsed {
@@ -62,3 +64,5 @@ mat-icon {
   margin-top: -3px;
   color: black !important;
 }
+
+

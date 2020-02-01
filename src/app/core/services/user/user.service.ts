@@ -55,7 +55,7 @@ export class UserService {
           this.user = res.user;
           this.store.dispatch(UserActions.setUser({ user: res.user }));
           return res;
-        }
+        } else { this.logout(); }
     }));
   }
 

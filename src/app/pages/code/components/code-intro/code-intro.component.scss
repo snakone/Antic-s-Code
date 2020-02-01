@@ -2,9 +2,13 @@
 
 .wrapper {
   width: 100%;
-  margin-top: 1.5rem;
+  margin-top: 2.5rem;
 
-  & .items {
+  & .result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
    & p {
       color: black;
       font-weight: bold;
@@ -16,19 +20,60 @@
 
   & .sort {
     width: 100%;
-    margin-top: .7rem;
-   }
+    margin: 3rem auto 1rem;
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    grid-gap: 1rem;
+
+    @media(max-width: 1015px) and (min-width: 777px) {
+      grid-template-columns: repeat(4, auto);
+    }
+
+    @media(max-width: 776px) {  display: none }
+
+    & > div {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+
+      &:hover span {
+        color: var(--primary-color);
+      }
+    }
+  }
 }
 
-mat-form-field { width: 100% }
+.sort-tag, .reset, .icon {
+  color: var(--p-color);
+}
 
-mat-icon {
+.sort-tag {
   position: relative;
   top: -1px;
   margin-right: 1.333rem !important;
   margin-left: 1rem;
   pointer-events: none;
-  color: var(--p-color);
+}
+
+.reset {
+  font-size: 2rem;
+  position: relative;
+  left: -1rem;
+  cursor: pointer;
+}
+
+.icon {
+  margin-right: 1.333rem !important;
+}
+
+mat-form-field {
+  width: 100%;
+  display: none;
+  margin: 1rem auto .5rem;
+
+  @media(max-width: 777px) {
+    display: block;
+  }
 }
 
 .mat-option {
