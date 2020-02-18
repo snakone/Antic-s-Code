@@ -14,6 +14,7 @@ import { ArticleIndexBoxComponent } from './article-index-box/article-index-box.
 import { SettingsBoxComponent } from './settings-box/settings-box.component';
 import { ProfileInfoBoxComponent } from './profile-info-box/profile-info-box.component';
 import { RelatedArticlesBoxComponent } from './related-articles-box/related-articles-box.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { RelatedArticlesBoxComponent } from './related-articles-box/related-arti
     CommonModule,
     SharedModule,
     RouterModule,
-    ArticleLayoutModule
+    ArticleLayoutModule,
+    MarkdownModule.forChild()
   ],
   exports: [
     CodeBoxComponent,

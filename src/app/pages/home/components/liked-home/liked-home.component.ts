@@ -48,5 +48,4 @@ export class LikedHomeComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
-
 }

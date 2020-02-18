@@ -42,8 +42,7 @@ export class SignInComponent implements OnInit, OnDestroy {
 
   onSubmit(): void {
     if (this.signInForm.invalid) { return; }
-    const email = this.signInForm.value.email;
-    const password = this.signInForm.value.password;
+    const { email, password } = this.signInForm.value;
     this.signIn(email, password);
   }
 

@@ -9,6 +9,7 @@ import { ContentMakerComponent } from './content-maker/content-maker.component';
 import { LayoutModule } from './layout/layout.module';
 import { LoginModule } from './login/login.module';
 import { SnippetsModule } from './snippets/snippets.module';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SnippetsModule } from './snippets/snippets.module';
     DisqusModule,
     LayoutModule,
     LoginModule,
-    SnippetsModule
+    SnippetsModule,
+    MarkdownModule.forChild()
   ],
   exports: [
     ContentMakerComponent,

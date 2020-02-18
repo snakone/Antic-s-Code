@@ -9,7 +9,6 @@ import { ScrollSpyService } from '@layout/article-layout/services/scrollspy.serv
 import { ArticleReactionsComponent } from './article-reactions/article-reactions.component';
 import { ArticleCardSkeletonComponent } from './article-card-skeleton/article-card-skeleton.component';
 import { SnippetsModule } from '../../snippets/snippets.module';
-import { LoginModule } from '../../login/login.module';
 
 @NgModule({
   declarations: [
@@ -22,8 +21,7 @@ import { LoginModule } from '../../login/login.module';
     CommonModule,
     SharedModule,
     RouterModule,
-    SnippetsModule,
-    LoginModule
+    SnippetsModule
   ],
   exports: [
     ArticleCardComponent,

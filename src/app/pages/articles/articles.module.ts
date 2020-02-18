@@ -8,6 +8,7 @@ import { ArticlesRouting } from './articles.routing';
 import { ArticlesSidebarModule } from './components/articles-sidebar/articles-sidebar.module';
 import { ArticlesContentComponent } from './components/articles-content/articles-content.component';
 import { ArticlesSortBarComponent } from './components/articles-sort-bar/articles-sort-bar.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ArticlesSortBarComponent } from './components/articles-sort-bar/article
     LayoutModule,
     SharedModule,
     ArticlesRouting,
-    ArticlesSidebarModule
+    ArticlesSidebarModule,
+    MarkdownModule.forChild()
   ]
 })
 

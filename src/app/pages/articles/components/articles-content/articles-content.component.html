@@ -3,7 +3,7 @@
                     *ngFor="let a of articles"
                     [article]="a"
                     [single]="false">
-    <span class="summary" [innerHTML]="a.summary"></span>
+    <markdown class="summary" [data]="a.summary"></markdown>
   </app-article-card>
   <div *ngIf="articles.length === 0">  <!-- SKELETON -->
     <app-article-card-skeleton *ngFor="let s of [1,2,3,4]">

@@ -19,14 +19,14 @@
       </li>
     </ul>
     <div class="m-t-2">
-      <span class="tag"
+      <span class="tag-text"
             *ngFor="let t of code.tags">
           {{t | translate}}
       </span>
     </div>
   </div>
   <div class='code-box'>  <!-- CODE BOX -->
-    <pre><code #hl [class]="'hljs ' + code.lang | lowercase">{{code.code}}</code></pre>
+    <markdown [data]="code.code"></markdown>
   </div>
 </div>
 

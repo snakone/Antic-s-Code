@@ -33,6 +33,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ToastrModule } from 'ngx-toastr';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { NgMarkdownModule } from './markdown/markdown.module';
 
 @NgModule({
   imports: [
@@ -40,6 +41,7 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
     StorageModule,
     ServicesModule,
     LoadingBarModule,
+    NgMarkdownModule,
     LoadingBarHttpClientModule,
     NgxWebstorageModule.forRoot(CORE_MODULE_CONSTANTS.WEBSTORAGE_CONFIG),
     StoreModule.forFeature('AppState', reducers),

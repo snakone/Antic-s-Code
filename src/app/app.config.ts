@@ -31,6 +31,8 @@ export interface AppConfig {
   APP_VERSION: string;
   DISQUS: string;
   THEME: string;
+  PLATFORM: string;
+  MAINTENANCE: boolean;
 }
 
 export const APP_CONSTANTS: AppConfig = {
@@ -39,7 +41,9 @@ export const APP_CONSTANTS: AppConfig = {
   END_POINT: PROD,
   APP_VERSION,
   DISQUS: 'antics-code',
-  THEME: 'default'
+  THEME: 'default',
+  PLATFORM: 'Angular',
+  MAINTENANCE: false
 };
 
 export const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {

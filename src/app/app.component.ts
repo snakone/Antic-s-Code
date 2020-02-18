@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit, AfterViewInit } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { AppState } from './app.config';
+import { AppState, APP_CONSTANTS } from './app.config';
 import { Store } from '@ngrx/store';
 
 import * as UserActions from '@core/ngrx/actions/user.actions';
@@ -8,6 +8,7 @@ import { StorageService } from './core/storage/storage.service';
 import { LanguageSnackComponent } from '@layout/snackbars/language-snack/language-snack.component';
 import { ThemeService, CrafterService } from './core/services/services.index';
 import { SwUpdate } from '@angular/service-worker';
+import { MaintenanceComponent } from './shared/components/layout/dialogs/maintenance/maintenance.component';
 
 @Component({
   selector: 'app-root',
@@ -32,6 +33,10 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.openLanguageSnack();
+
+    if (APP_CONSTANTS.MAINTENANCE) {
+      this.sorryMaintenance();
+    }
   }
 
   private checkUserToken(): void {
@@ -58,6 +63,12 @@ export class AppComponent implements OnInit, AfterViewInit {
           this.sw.activateUpdate().then(() => this.document.location.reload());
         }
     });
+  }
+
+  private sorryMaintenance(): void {
+    setTimeout(() => {
+      this.crafter.dialog(MaintenanceComponent);
+    }, 4000);
   }
 
 }

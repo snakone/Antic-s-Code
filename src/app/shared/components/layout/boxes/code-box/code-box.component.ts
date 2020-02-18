@@ -1,6 +1,5 @@
-import { Component, Input, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Code } from '@app/shared/interfaces/interfaces';
-import hljs from 'highlight.js';
 
 @Component({
   selector: 'app-code-box',
@@ -8,15 +7,11 @@ import hljs from 'highlight.js';
   styleUrls: ['./code-box.component.scss']
 })
 
-export class CodeBoxComponent implements AfterViewInit {
+export class CodeBoxComponent {
 
   @Input() code: Code;
-  @ViewChild('hl', {static: false}) hl: ElementRef;
 
-  constructor() { hljs.configure({ tabReplace: ' ' }); }
+  constructor() { }
 
-  ngAfterViewInit(): void {
-    hljs.highlightBlock(this.hl.nativeElement);
-  }
 
 }

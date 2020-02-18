@@ -12,7 +12,9 @@ export class TopButtonDirective {
       const button = this.el.nativeElement.style;
       const scroll = document.documentElement.scrollTop;
       scroll > 550 ? button.display = 'block' : button.display = 'none';
-    } catch (err) { }
+    } catch (err) {
+      console.log(err);
+     }
   }
 
 }

@@ -2,9 +2,6 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Article, User, Interaction, InteractionResponse } from '@app/shared/interfaces/interfaces';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import * as fromUser from '@core/ngrx/selectors/user.selectors';
-import { Store } from '@ngrx/store';
-import { AppState } from '@app/app.config';
 import { NoAccountComponent } from '@layout/dialogs/no-account/no-account.component';
 import { CrafterService, InteractionService, UserService } from '@app/core/services/services.index';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -31,7 +28,7 @@ export class StarRatingComponent implements OnInit, OnDestroy {
    }
 
   doStar(s: number): void {
-    if (!this.userService.getUser()) {
+    if (!this.user) {
       this.crafter.dialog(NoAccountComponent, {
         type: 'star',
         author: this.article.author
