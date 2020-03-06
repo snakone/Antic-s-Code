@@ -2,8 +2,7 @@
   <app-content-box [border]="true">
       <ul>
         <div *ngIf="index">
-          <li *ngFor="let i of index"
-              (click)="scroll(i.id)">{{i.title}}
+          <li *ngFor="let i of index">{{i.title}}
             <p>{{i.subtitle}}</p>
           </li>
         </div>

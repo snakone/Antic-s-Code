@@ -13,7 +13,6 @@ import { AosOptions } from 'aos';
 
 export const MENU: List[] = [
   { name: 'home', link: '/home' },
-  // { name: 'code', link: '/code' },
   { name: 'categories', link: '/categories' },
   { name: 'articles', link: '/articles' }
 ];

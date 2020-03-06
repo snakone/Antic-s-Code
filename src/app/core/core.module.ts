@@ -24,7 +24,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { ArticleEffects } from './ngrx/effects/article.effects';
 import { CategoryEffects } from './ngrx/effects/category.effects';
-import { CodeEffects } from './ngrx/effects/code.effects';
 import { UserEffects } from './ngrx/effects/user.effects';
 import { SearchEffects } from './ngrx/effects/search.effects';
 import { reducers } from './ngrx/reducers/reducers.index';
@@ -48,7 +47,6 @@ import { NgMarkdownModule } from './markdown/markdown.module';
     EffectsModule.forRoot([
       ArticleEffects,
       CategoryEffects,
-      CodeEffects,
       UserEffects,
       SearchEffects
     ]),

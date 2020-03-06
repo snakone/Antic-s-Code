@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { Error404Component } from './shared/components/error404/error404.component';
 import { UserGuard } from './core/guards/user.guard';
-import { AdminGuard } from './core/guards/admin.guard';
 import { ErrorGuard } from './core/guards/error.guard';
 
 const routes: Routes = [
@@ -22,11 +21,6 @@ const routes: Routes = [
     path: 'articles',
     loadChildren: () => import('./pages/articles/articles.module')
                         .then(mod => mod.ArticlesModule), data: {name: 'Articles'}
-  },
-  {
-    path: 'code',
-    loadChildren: () => import('./pages/code/code.module')
-                        .then(mod => mod.CodeModule), data: {name: 'Code'}
   },
   {
     path: 'category/:name',
@@ -64,12 +58,6 @@ const routes: Routes = [
     canActivate: [UserGuard],
     loadChildren: () => import('./pages/create/create.module')
                         .then(mod => mod.CreateModule), data: {name: 'Create'}
-  },
-  {
-    path: 'admin',
-    canActivate: [AdminGuard],
-    loadChildren: () => import('./pages/admin/admin.module')
-                        .then(mod => mod.AdminModule), data: {name: 'Admin'}
   },
   { path: '**', canActivate: [ErrorGuard], component: Error404Component },
 ];

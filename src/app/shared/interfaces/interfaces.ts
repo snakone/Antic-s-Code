@@ -3,7 +3,6 @@ interface Content {
   title?: string;
   category?: string;
   cover?: string;
-  code?: Code[];
   tags?: string[];
   badges?: string[];
   likes?: number;
@@ -30,8 +29,6 @@ export interface Article extends Content {
   level?: string;
   views?: number;
   summary?: string;
-  draft?: boolean;
-  admin?: boolean;
 }
 
 export interface Category extends Content {
@@ -51,10 +48,6 @@ export interface ArticleResponse extends ServerResponse {
 
 export interface CategoryResponse extends ServerResponse {
   category?: Category;
-}
-
-export interface CodeResponse extends ServerResponse {
-  code?: Code[];
 }
 
 export interface UserResponse extends ServerResponse {
@@ -78,15 +71,6 @@ export interface CategoryCount {
   Angular?: number;
   Nodejs?: number;
   MongoDB?: number;
-}
-
-export interface Code {
-  code: string;
-  lang: string;
-  description: string;
-  level: string;
-  tags: string[];
-  from: From;
 }
 
 export interface User {
@@ -178,20 +162,10 @@ export interface CategoryInfo {
   age?: string;
 }
 
-export interface From {
-  article: string;
-  slug: string;
-}
-
 export interface Index {
   title: string;
   subtitle: string;
   id: string;
-}
-
-export interface ScrollSpy {
-  onViewport?: boolean;
-  id?: string;
 }
 
 export interface Tag {
@@ -237,8 +211,8 @@ export class CustomError {
   platform?: string;
 
   constructor(name: string,
-              message: string,
-              text: string,
+              message: string = 'Error',
+              text: string = 'Error',
               author: string,
               status: number = null,
               url: string = '',

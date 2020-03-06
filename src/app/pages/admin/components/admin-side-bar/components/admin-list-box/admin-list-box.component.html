@@ -1,9 +1,0 @@
-<app-content-box [title]="'admin.list' | translate"
-                  icon="security">
-    <ul>
-      <li *ngFor="let a of admins$ | async">
-        <mat-icon>keyboard_arrow_right</mat-icon>
-        <span [routerLink]="'/profile/' + a.name">{{a.name}}</span>
-      </li>
-    </ul>
-</app-content-box>

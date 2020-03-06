@@ -30,18 +30,6 @@
                   {{m.name | translate}}
             </button>
           </div>
-          <div *ngIf="(user$ | async) as user">
-            <div *ngIf="user.account === 'Admin' || user.account === 'Super'"
-                  class="flex-box">
-              <button class="menu-dropdown"
-                      mat-menu-item
-                      aria-label="Admin"
-                      routerLink="/admin">
-                <mat-icon>security</mat-icon>
-                    Admin
-              </button>
-            </div>
-          </div>
         </mat-menu>
       </li>
       <li *ngIf="(user$ | async) as user" class="animated fadeIn create">

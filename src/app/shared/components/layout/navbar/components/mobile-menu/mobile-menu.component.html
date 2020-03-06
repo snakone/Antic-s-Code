@@ -16,13 +16,6 @@
           routerLinkActive="active"
           (click)="closeDrawer()">{{'create' | translate}}
       </li>
-      <div class="division"><hr></div>
-      <li *ngIf="user.account === 'Admin' || user.account === 'Super'"
-          routerLink="/admin"
-          routerLinkActive="active"
-          (click)="closeDrawer()">
-          Admin
-      </li>
     </div>
   </ul>
 </div>
