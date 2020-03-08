@@ -207,7 +207,6 @@ export const PAGE_BG = {
   articles: 'assets/img/page_bg/articles.mp4',
   article: 'assets/img/page_bg/article.mp4',
   profile: 'assets/img/page_bg/profile.mp4',
-  admin: 'assets/img/page_bg/admin.mp4',
   public: 'assets/img/page_bg/public.mp4',
   search: 'assets/img/page_bg/search.mp4',
   about: 'assets/img/page_bg/about.mp4',

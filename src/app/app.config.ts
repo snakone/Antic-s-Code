@@ -13,7 +13,7 @@ const DEV = 'http://localhost:3000/';
 const PRE = 'http://192.168.1.97:3000/';
 const PROD = 'https://antics-code.herokuapp.com/';
 export const URI = 'https://anticscode.netlify.com';
-const APP_VERSION = '0.6.0';
+const APP_VERSION = '0.6.1';
 
 export interface AppState {
   articles: fromArticles.ArticleState;

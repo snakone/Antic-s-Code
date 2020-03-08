@@ -29,6 +29,7 @@ export interface Article extends Content {
   level?: string;
   views?: number;
   summary?: string;
+  status?: string;
 }
 
 export interface Category extends Content {
