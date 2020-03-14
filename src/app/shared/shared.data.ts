@@ -1,13 +1,14 @@
 import {
   List,
-  Testimonial,
   FooterList,
   Config,
   Role,
   Tag,
   StarList,
   TimeLine,
-  Index
+  Index,
+  CarouselSlide,
+  DownloadButton
 } from './interfaces/interfaces';
 import { AosOptions } from 'aos';
 
@@ -256,33 +257,79 @@ export const COUNTRIES: string[] = [
   'Glasgow (52)'
 ];
 
-export const TESTIMONIALS: Testimonial[] = [
+export const TESTIMONIALS: CarouselSlide[] = [
   {
-    avatar: 'a1.jpg',
-    name: 'Francis Burton',
-    location: 'Toronto, Canada',
-    testimonial: `Excepteur sint occaecat cupidatat non
+    image: 'a1.jpg',
+    title: 'Francis Burton',
+    subtitle: 'Toronto, Canada',
+    message: `Excepteur sint occaecat cupidatat non
                   proident sunt in culpa officia deserunt
                   mollit anim laborum sint occaecat cupidatat non proident.
                   Occaecat cupidatat non proident culpa officia deserunt mollit.`
   },
   {
-    avatar: 'a1.jpg',
-    name: 'Ulises Prieto',
-    location: 'Barcelona, Spain',
-    testimonial: `Excepteur sint occaecat cupidatat non
+    image: 'a1.jpg',
+    title: 'Ulises Prieto',
+    subtitle: 'Barcelona, Spain',
+    message: `Excepteur sint occaecat cupidatat non
                   proident sunt in culpa officia deserunt
                   mollit anim laborum sint occaecat cupidatat non proident.
                   Occaecat cupidatat non proident culpa officia deserunt mollit.`
   },
   {
-    avatar: 'a1.jpg',
-    name: 'Alex Arriaga',
-    location: 'México DC',
-    testimonial: `Excepteur sint occaecat cupidatat non
+    image: 'a1.jpg',
+    title: 'Alex Arriaga',
+    subtitle: 'México DC',
+    message: `Excepteur sint occaecat cupidatat non
                   proident sunt in culpa officia deserunt
                   mollit anim laborum sint occaecat cupidatat non proident.
                   Occaecat cupidatat non proident culpa officia deserunt mollit.`
+  }
+];
+
+export const CREATE_SLIDES: CarouselSlide[] = [
+  {
+    image: 'start.jpg',
+    title: 'Escribir un Artículo',
+    subtitle: 'Conceptos básicos para una buena escritura.',
+    message: `Uno de los pocos requisitos para escribir en Antic\'s Code es
+              saber Markdown, todo lo demás solo depende de ti. Los Artículos serán
+              visibles tanto aquí como en Antic's Code.`
+  },
+  {
+    image: 'form.jpg',
+    title: 'Creación del Artículo',
+    subtitle: 'Un buen Artículo contiene gran variedad de información.',
+    message: `Tómate tu tiempo para rellenar los datos del Artículo. El título servirá para crear
+              un enlace único con el que podrás compartir tu contenido.`
+  },
+  {
+    image: 'form-valid.jpg',
+    title: 'Rellena los datos',
+    subtitle: 'Nos tomamos en enserio mantener un mismo formato para los Artículos.',
+    message: `Rellena todos los datos, contra más información proporciones, más rico en contenido será.
+              Escribir una buena introducción es esencial para atraer a los lectores.`
+  },
+  {
+    image: 'markdown.jpg',
+    title: 'Manos a la obra',
+    subtitle: 'Utiliza Markdown para escribir un Artículo de calidad.',
+    message: `Dispondrás de un panel donde escribir Makrdown y una previsualización del Artículo. No te preocupes
+              si necesitas una pausa. Si sales de la aplicación, podrás cargar el Artículo por donde lo dejaste.`
+  },
+  {
+    image: 'info.jpg',
+    title: 'Información adicional',
+    subtitle: 'Puedes añadir enlaces referentes al Artículo.',
+    message: `Añade enlaces externos para incrementar el valor del Artículo. Dejar al lector en un punto
+              muerto es algo importante a evitar ya que induce al abandono de la aplicación.`
+  },
+    {
+    image: 'article.jpg',
+    title: 'Tu contenido',
+    subtitle: 'Crea y comparte contenido con otras personas interesadas en programación.',
+    message: `Cuando el equipo de moderación apruebe tu Artículo, aparecerá listado con todos los demás. Desde ese momento
+              cualquier usuario podrá leer y aprender de tu contenido.`
   }
 ];
 
@@ -417,6 +464,72 @@ export const TIME_LINE: TimeLine[] = [
     fade: 'fade-right'
   }
 ];
+
+export const MY_SKILLS_LOGO: string[] = [
+  'devicon-html5-plain-wordmark',
+  'devicon-css3-plain-wordmark',
+  'devicon-javascript-plain',
+  'devicon-php-plain',
+  'devicon-mysql-plain-wordmark',
+  'devicon-wordpress-plain-wordmark',
+  'devicon-nodejs-plain-wordmark',
+  'devicon-angularjs-plain',
+  'devicon-mongodb-plain-wordmark',
+  'devicon-express-original',
+  'devicon-typescript-plain',
+  'devicon-atom-original',
+  'devicon-bootstrap-plain-wordmark',
+  'devicon-heroku-original-wordmark',
+  'devicon-jquery-plain-wordmark'
+];
+
+export const MY_SKILLS: string[] = [
+  'Cooperació',
+  'Orientación al client',
+  'Networkin',
+  'Comunicació',
+  'Empatí',
+  'Planificació',
+  'Fácil aprendizaj',
+  'Conocimiento',
+  'Flexibilida',
+  'Creativida',
+  'Entusiasm',
+  'Pensamiento conceptua',
+  'Orden y Calida',
+  'Buena presenci',
+  'Espíritu superació',
+  'Compromis',
+];
+
+const DOWNLOAD_URI: any = {
+  windows: '',
+  mac: '',
+  linux: ''
+};
+
+export const DOWNLOAD_BUTTONS: DownloadButton[] = [
+  {
+    platform: 'Windows',
+    class: 'windows',
+    icon: 'windows.png',
+    link: DOWNLOAD_URI.windows
+   },
+  {
+    platform: 'Mac OS',
+    class: 'mac',
+    icon: 'mac.png',
+    link: DOWNLOAD_URI.mac
+  },
+  {
+    platform: 'Linux',
+    class: 'linux',
+    icon: 'linux.png',
+    link: DOWNLOAD_URI.linux
+  }
+];
+
+
 
 
 

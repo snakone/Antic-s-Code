@@ -10,10 +10,18 @@
     & span {
       color: var(--primary-color);
       font-size: 2.2rem !important;
+      @media(max-width: 550px) {
+        font-size: 1.7rem !important;
+      }
     }
   }
 
-  & p { font-size: 1.2rem }
+  & p {
+    font-size: 1.2rem;
+    @media(max-width: 550px) {
+      font-size: 1rem !important;
+    }
+  }
 }
 
 .col-lg-12 {

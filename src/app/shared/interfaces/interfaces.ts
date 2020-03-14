@@ -139,11 +139,18 @@ export interface List {
   class?: string;
 }
 
-export interface Testimonial {
-  avatar: string;
-  name: string;
-  location: string;
-  testimonial: string;
+export interface CarouselSlide {
+  image: string;
+  title: string;
+  subtitle: string;
+  message: string;
+}
+
+export interface DownloadButton {
+  platform: string;
+  class: string;
+  icon: string;
+  link: string;
 }
 
 export interface FooterList {

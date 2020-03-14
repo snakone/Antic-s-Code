@@ -45,6 +45,8 @@
         display: flex;
         align-items: center;
         margin-bottom: .66667rem;
+        position: relative;
+        left: -5px;
         &:last-child { margin-bottom: 0 }
 
         & span {

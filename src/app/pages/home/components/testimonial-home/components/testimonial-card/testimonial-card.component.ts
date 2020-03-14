@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Testimonial } from '@app/shared/interfaces/interfaces';
+import { CarouselSlide } from '@app/shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-testimonial-card',
@@ -9,7 +9,7 @@ import { Testimonial } from '@app/shared/interfaces/interfaces';
 
 export class TestimonialCardComponent implements OnInit {
 
-  @Input() t: Testimonial;
+  @Input() t: CarouselSlide;
 
   constructor() { }
 

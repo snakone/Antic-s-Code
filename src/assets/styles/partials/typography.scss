@@ -30,6 +30,10 @@ h1 {
   @media (max-width: 320px) { font-size: 1.2rem }
 }
 
+h3 {
+  @media(max-width: 550px) { font-size: 1.7rem !important }
+}
+
 h4 { color: var(--tag-color) }
 
 .code-box {
@@ -71,6 +75,18 @@ a:not(.default) {
   &:hover {
     background-color: #bbeffd;
     border-bottom-color: #1a1a1a;
+  }
+}
+
+ul.none {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: disc;
+
+  & li {
+    color: var(--p-color);
+    padding-left: .5rem;
+    @media(max-width: 550px) { font-size: .9rem !important }
   }
 }
 

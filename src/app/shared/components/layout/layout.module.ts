@@ -18,6 +18,8 @@ import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { GoTopComponent } from './go-top/go-top.component';
 import { DialogsModule } from './dialogs/dialogs.module';
+import { CarouselComponent } from './carousel/carousel.component';
+import { SwiperModule } from 'ngx-swiper-wrapper';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { DialogsModule } from './dialogs/dialogs.module';
     SectionComponent,
     PageHeaderComponent,
     PaginationComponent,
-    GoTopComponent
+    GoTopComponent,
+    CarouselComponent
   ],
   imports: [
     ArticleLayoutModule,
@@ -39,7 +42,8 @@ import { DialogsModule } from './dialogs/dialogs.module';
     SharedModule,
     RouterModule,
     SnackbarsModule,
-    DialogsModule
+    DialogsModule,
+    SwiperModule
   ],
   exports: [
     ArticleLayoutModule,
@@ -55,7 +59,8 @@ import { DialogsModule } from './dialogs/dialogs.module';
     NgxPaginationModule,
     SnackbarsModule,
     GoTopComponent,
-    DialogsModule
+    DialogsModule,
+    CarouselComponent
   ]
 })
 

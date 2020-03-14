@@ -1,10 +1,10 @@
 .header-bg {
-  position: absolute;
-  height: 100%;
+  position: relative;
+  height: 100vh;
   width: 100%;
   min-width: var(--app-min-width);
   min-height: var(--app-min-height);
-  top: 0;
+  top: calc(var(--navbar-height) * -1);
   left: 0;
   background-image: url('../../../assets/img/bg.jpeg');
   -webkit-background-size: cover !important;

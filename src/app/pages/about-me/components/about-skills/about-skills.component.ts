@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MY_SKILLS_LOGO, MY_SKILLS } from '@app/shared/shared.data';
 
 @Component({
   selector: 'app-about-skills',
@@ -8,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 
 export class AboutSkillsComponent implements OnInit {
 
+  skillsIcon = MY_SKILLS_LOGO;
+  skills = MY_SKILLS;
+
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

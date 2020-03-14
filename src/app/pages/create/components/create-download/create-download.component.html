@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-lg-6 col-md-6">
+    <p>
+      ¿Te resulta interesante? ¿Quieres unirte a una comunidad de programadores?
+      ¡Descarga Antic's Code ya! Es totalmente gratuito.
+      Necesitarás una cuenta de Antic's Code para poder entrar.
+    </p>
+    <p>Versión actual: <strong>{{version}}</strong></p>
+  </div>
+  <div class="col-lg-6 col-md-6 download">
+    <button *ngFor="let b of buttons"
+             [class]="b.class + ' mat-button'"
+             mat-button>
+            <img [src]="b.icon | image:'buttons'" [alt]="b.platform"/>
+          {{b.platform}}
+    </button>
+  </div>
+</div>

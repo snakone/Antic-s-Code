@@ -5,10 +5,17 @@ import { CreateRouting } from './create.routing';
 import { CreateComponent } from './create.component';
 import { SharedModule } from '@app/shared/shared.module';
 import { LayoutModule } from '@layout/layout.module';
-import { CreateSidebarComponent } from './components/create-sidebar/create-sidebar.component';
+import { CreateIntroComponent } from './components/create-intro/create-intro.component';
+import { CreateCarouselComponent } from './components/create-carousel/create-carousel.component';
+import { CreateDownloadComponent } from './components/create-download/create-download.component';
 
 @NgModule({
-  declarations: [CreateComponent, CreateSidebarComponent],
+  declarations: [
+    CreateComponent,
+    CreateIntroComponent,
+    CreateCarouselComponent,
+    CreateDownloadComponent
+  ],
   imports: [
     CommonModule,
     LayoutModule,

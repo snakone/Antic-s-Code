@@ -10,7 +10,6 @@ export class AboutIntroComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

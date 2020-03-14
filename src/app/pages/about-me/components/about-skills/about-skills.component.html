@@ -1,37 +1,10 @@
 <div class="wrapper">
   <div class="grid-logo">
-    <i class="devicon-html5-plain-wordmark colored"></i>
-    <i class="devicon-css3-plain-wordmark colored"></i>
-    <i class="devicon-javascript-plain colored"></i>
-    <i class="devicon-php-plain colored"></i>
-    <i class="devicon-mysql-plain-wordmark colored"></i>
-    <i class="devicon-wordpress-plain-wordmark colored"></i>
-    <i class="devicon-nodejs-plain-wordmark colored"></i>
-    <i class="devicon-angularjs-plain colored"></i>
-    <i class="devicon-mongodb-plain-wordmark colored"></i>
-    <i class="devicon-express-original colored"></i>
-    <i class="devicon-typescript-plain colored"></i>
-    <i class="devicon-atom-original colored"></i>
-    <i class="devicon-bootstrap-plain-wordmark colored"></i>
-    <i class="devicon-heroku-original-wordmark colored"></i>
-    <i class="devicon-jquery-plain-wordmark colored"></i>
+    <i *ngFor="let i of skillsIcon"
+       [class]="i + ' colored'">
+    </i>
   </div>
   <div class="grid-skills">
-    <span>Cooperación</span>
-    <span>Orientación al cliente</span>
-    <span>Networking</span>
-    <span>Comunicación</span>
-    <span>Empatía</span>
-    <span>Planificación</span>
-    <span>Fácil aprendizaje</span>
-    <span>Conocimientos</span>
-    <span>Flexibilidad</span>
-    <span>Creatividad</span>
-    <span>Entusiasmo</span>
-    <span>Pensamiento conceptual</span>
-    <span>Orden y Calidad</span>
-    <span>Buena presencia</span>
-    <span>Espíritu superación</span>
-    <span>Compromiso</span>
+    <span *ngFor="let s of skills">{{s}}</span>
   </div>
 </div>
