@@ -11,8 +11,10 @@
     <button *ngFor="let b of buttons"
              [class]="b.class + ' mat-button'"
              mat-button>
+          <a [href]="b.link" class="default">
             <img [src]="b.icon | image:'buttons'" [alt]="b.platform"/>
-          {{b.platform}}
+            {{b.platform}}
+          </a>
     </button>
   </div>
 </div>

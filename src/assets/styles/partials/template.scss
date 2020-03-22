@@ -71,10 +71,13 @@
   }
 
   code {
-    font-size: 1em;
     border-top: 0;
     box-sizing: border-box;
     font-family: source-code-pro,Menlo,Monaco,Consolas,Courier New,monospace;
+  }
+
+  code[class*=language-], pre[class*=language-]  {
+    font-size: 14.4px !important;
   }
 
   code::-webkit-scrollbar {

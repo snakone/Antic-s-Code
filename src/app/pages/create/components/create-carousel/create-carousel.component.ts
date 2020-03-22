@@ -6,13 +6,13 @@ import { CREATE_SLIDES } from '@shared/shared.data';
   templateUrl: './create-carousel.component.html',
   styleUrls: ['./create-carousel.component.scss']
 })
+
 export class CreateCarouselComponent implements OnInit {
 
   slides = CREATE_SLIDES;
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

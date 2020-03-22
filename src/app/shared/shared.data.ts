@@ -293,21 +293,21 @@ export const CREATE_SLIDES: CarouselSlide[] = [
     title: 'Escribir un Artículo',
     subtitle: 'Conceptos básicos para una buena escritura.',
     message: `Uno de los pocos requisitos para escribir en Antic\'s Code es
-              saber Markdown, todo lo demás solo depende de ti. Los Artículos serán
-              visibles tanto aquí como en Antic's Code.`
+              saber Markdown, todo lo demás depende de ti. Los Artículos serán
+              visibles tanto aquí como en Antic's Code Desktop.`
   },
   {
     image: 'form.jpg',
     title: 'Creación del Artículo',
     subtitle: 'Un buen Artículo contiene gran variedad de información.',
     message: `Tómate tu tiempo para rellenar los datos del Artículo. El título servirá para crear
-              un enlace único con el que podrás compartir tu contenido.`
+              un enlace único con el que podrás compartir el contenido.`
   },
   {
     image: 'form-valid.jpg',
     title: 'Rellena los datos',
-    subtitle: 'Nos tomamos en enserio mantener un mismo formato para los Artículos.',
-    message: `Rellena todos los datos, contra más información proporciones, más rico en contenido será.
+    subtitle: 'Nos tomamos en enserio mantener un mismo formato para todos los Artículos.',
+    message: `Rellena los datos, contra más información proporciones, más rico en contenido será.
               Escribir una buena introducción es esencial para atraer a los lectores.`
   },
   {
@@ -328,7 +328,7 @@ export const CREATE_SLIDES: CarouselSlide[] = [
     image: 'article.jpg',
     title: 'Tu contenido',
     subtitle: 'Crea y comparte contenido con otras personas interesadas en programación.',
-    message: `Cuando el equipo de moderación apruebe tu Artículo, aparecerá listado con todos los demás. Desde ese momento
+    message: `Cuando el equipo de moderación apruebe tu Artículo, aparecerá listado junto con los demás. Desde ese momento
               cualquier usuario podrá leer y aprender de tu contenido.`
   }
 ];
@@ -484,28 +484,28 @@ export const MY_SKILLS_LOGO: string[] = [
 ];
 
 export const MY_SKILLS: string[] = [
-  'Cooperació',
-  'Orientación al client',
-  'Networkin',
-  'Comunicació',
-  'Empatí',
-  'Planificació',
-  'Fácil aprendizaj',
+  'Cooperación',
+  'Orientación al cliente',
+  'Networking',
+  'Comunicación',
+  'Empatía',
+  'Planificación',
+  'Fácil aprendizaje',
   'Conocimiento',
-  'Flexibilida',
-  'Creativida',
-  'Entusiasm',
-  'Pensamiento conceptua',
-  'Orden y Calida',
-  'Buena presenci',
-  'Espíritu superació',
-  'Compromis',
+  'Flexibilidad',
+  'Creatividad',
+  'Entusiasmo',
+  'Pensamiento conceptual',
+  'Orden y Calidad',
+  'Buena presencia',
+  'Espíritu superación',
+  'Compromiso',
 ];
 
 const DOWNLOAD_URI: any = {
-  windows: '',
-  mac: '',
-  linux: ''
+  windows: 'https://mega.nz/#!ctQnHCpL!vgltDHNL5yptNnjaBYD5tyB8fXtLfyi9lijFK9gSTRo',
+  mac: 'https://mega.nz/#!dgYBwKQB!DGNR54qeSG74kjGASULuBsOsr1RytL1pD64AWYKSkBI',
+  linux: 'https://mega.nz/#!1hRRGCSK!kdGaKc6b4Xe36g6YcagJPEtA_rXcmmTN4TmbBonDSjk'
 };
 
 export const DOWNLOAD_BUTTONS: DownloadButton[] = [

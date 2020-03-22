@@ -25,6 +25,7 @@ export interface Article extends Content {
   message?: string;
   author?: string;
   created?: string;
+  published?: string;
   slug?: string;
   level?: string;
   views?: number;

@@ -51,6 +51,11 @@
       width: 25px;
     }
 
+    & .default {
+      text-decoration: none !important;
+      color: initial !important;
+    }
+
     &.windows {
       background: #085bb9;
       color: white;
