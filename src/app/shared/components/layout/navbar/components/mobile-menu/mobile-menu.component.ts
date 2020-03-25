@@ -1,10 +1,5 @@
-import { Component, OnInit, ElementRef, ViewChild, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { MENU, HOME_MENU } from '@app/shared/shared.data';
-import { User } from '@app/shared/interfaces/interfaces';
-import { Observable } from 'rxjs';
-import * as fromUser from '@core/ngrx/selectors/user.selectors';
-import { Store } from '@ngrx/store';
-import { AppState } from '@app/app.config';
 
 @Component({
   selector: 'app-mobile-menu',
@@ -17,13 +12,10 @@ export class MobileMenuComponent implements OnInit {
   @Output() close: EventEmitter<void> = new EventEmitter<void>();
   items = MENU;
   menu = HOME_MENU;
-  user$: Observable<User>;
 
-  constructor(private store: Store<AppState>) { }
+  constructor() { }
 
-  ngOnInit() {
-    this.user$ = this.store.select(fromUser.getUser);
-  }
+  ngOnInit() { }
 
   closeDrawer(): void {
     this.close.emit();

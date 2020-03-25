@@ -23,20 +23,25 @@
 
 .download {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-start;
+  padding-right: 0 !important;
 
   @media(max-width: 550px) {
     flex-direction: column;
     align-items: center;
     margin-top: 1.666rem;
+    padding-right: 15px !important;
+
 
     & button {
       margin: .3rem auto !important;
+
     }
   }
 
   & button {
+    width: 9rem;
     position: relative;
     padding: 0 1.5rem 0 3rem;
     margin: 1.4rem .666rem;

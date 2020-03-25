@@ -38,6 +38,8 @@ img {
 }
 
 .intro {
-  padding-top: 1.5rem;
-  padding-right: 2rem;
+  margin-top: .5rem;
+    @media(max-width: 550px) {
+      margin-top: 0;
+    }
 }

@@ -1,5 +1,6 @@
 .swiper-slide {
-  margin-top: 3rem;
+  margin-top: 1.5rem;
+  @media(max-width: 550px) { margin-top: 0 }
 }
 
 .slide {

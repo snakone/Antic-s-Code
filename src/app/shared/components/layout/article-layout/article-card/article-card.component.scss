@@ -60,6 +60,7 @@
         margin-top: 0;
         outline: none;
         font-size: 1.66rem;
+        line-height: 2rem;
         color: var(--primary-color);
         @media(max-width: 650px) { font-size: 1.33rem }
 
@@ -97,7 +98,7 @@
 
   .article-card-body {
     padding: 1.8rem 0 !important;
-    padding-bottom: 3rem !important;
+    padding-bottom: 2rem !important;
     & ul { margin-top: .7rem !important }
   }
  }

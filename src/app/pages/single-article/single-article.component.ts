@@ -61,7 +61,7 @@ export class SingleArticleComponent implements OnInit, OnDestroy {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
     this.store.dispatch(ArticleActions.resetSlug());
-    this.store.dispatch(UserActions.resetInteraction());
+    // this.store.dispatch(UserActions.resetInteraction());
   }
 
 }

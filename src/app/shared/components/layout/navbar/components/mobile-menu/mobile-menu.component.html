@@ -11,12 +11,11 @@
         routerLinkActive="active"
         (click)="closeDrawer()">{{m.name | translate}}
     </li>
-    <div *ngIf="user$ | async as user">
-      <li routerLink="create"
-          routerLinkActive="active"
-          (click)="closeDrawer()">{{'create' | translate}}
-      </li>
-    </div>
+    <li routerLink="create"
+        class="create"
+        routerLinkActive="active"
+        (click)="closeDrawer()">{{'create' | translate}}
+    </li>
   </ul>
 </div>
 

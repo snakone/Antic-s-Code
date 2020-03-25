@@ -55,7 +55,7 @@ const routes: Routes = [
   },
   {
     path: 'create',
-    canActivate: [UserGuard],
+    canActivate: [],
     loadChildren: () => import('./pages/create/create.module')
                         .then(mod => mod.CreateModule), data: {name: 'Create'}
   },

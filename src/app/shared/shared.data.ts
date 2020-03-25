@@ -294,28 +294,30 @@ export const CREATE_SLIDES: CarouselSlide[] = [
     subtitle: 'Conceptos básicos para una buena escritura.',
     message: `Uno de los pocos requisitos para escribir en Antic\'s Code es
               saber Markdown, todo lo demás depende de ti. Los Artículos serán
-              visibles tanto aquí como en Antic's Code Desktop.`
+              visibles tanto aquí como en Antic's Code Desktop. ¿A qué esperas
+              para plasmar tu conocimiento?`
   },
   {
     image: 'form.jpg',
     title: 'Creación del Artículo',
     subtitle: 'Un buen Artículo contiene gran variedad de información.',
-    message: `Tómate tu tiempo para rellenar los datos del Artículo. El título servirá para crear
-              un enlace único con el que podrás compartir el contenido.`
+    message: `Tómate tu tiempo para rellenar los datos del Artículo. Es importante saber elegir bien.
+              El título servirá para crear un enlace único con el que podrás compartir el contenido.`
   },
   {
     image: 'form-valid.jpg',
     title: 'Rellena los datos',
     subtitle: 'Nos tomamos en enserio mantener un mismo formato para todos los Artículos.',
     message: `Rellena los datos, contra más información proporciones, más rico en contenido será.
-              Escribir una buena introducción es esencial para atraer a los lectores.`
+              Escribir una buena introducción es esencial para atraer a los lectores, ten lo en cuenta.`
   },
   {
     image: 'markdown.jpg',
     title: 'Manos a la obra',
     subtitle: 'Utiliza Markdown para escribir un Artículo de calidad.',
-    message: `Dispondrás de un panel donde escribir Makrdown y una previsualización del Artículo. No te preocupes
-              si necesitas una pausa. Si sales de la aplicación, podrás cargar el Artículo por donde lo dejaste.`
+    message: `Dispondrás de un panel donde escribir Makrdown y una previsualización del Artículo.
+              No te preocupes si necesitas una pausa. Si sales de la aplicación, podrás
+              cargar el Artículo por donde lo dejaste.`
   },
   {
     image: 'info.jpg',
@@ -328,8 +330,8 @@ export const CREATE_SLIDES: CarouselSlide[] = [
     image: 'article.jpg',
     title: 'Tu contenido',
     subtitle: 'Crea y comparte contenido con otras personas interesadas en programación.',
-    message: `Cuando el equipo de moderación apruebe tu Artículo, aparecerá listado junto con los demás. Desde ese momento
-              cualquier usuario podrá leer y aprender de tu contenido.`
+    message: `Cuando el equipo de moderación apruebe tu Artículo, aparecerá listado junto
+              con los demás. Desde ese momento cualquier usuario podrá leer y aprender de tu contenido.`
   }
 ];
 

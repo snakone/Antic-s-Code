@@ -7,14 +7,15 @@
       <app-article-card id="single-article-section"
                         [article]="article"
                         [single]="true">
-        <hr class="mobile">
+        <hr class="mobile" *ngIf="article.index.length">
         <app-article-index-box class="mobile"
                                [index]="article.index"
-                               [mobile]="true">
+                               [mobile]="true"
+                               *ngIf="article.index.length">
         </app-article-index-box>
-        <hr class="mobile">
+        <hr class="mobile" *ngIf="article.index.length">
         <app-content-maker [template]="article.message"></app-content-maker>
-        <app-links-box *ngIf="article.links.length > 0"
+        <app-links-box *ngIf="article.links.length"
                        [links]="article.links">
         </app-links-box>
       </app-article-card>
@@ -26,7 +27,8 @@
     </div>
     <div class="col-lg-4 col-md-4">  <!-- SIDEBAR -->
       <app-article-index-box class="desktop"
-                             [index]="article?.index">
+                             [index]="article?.index"
+                             *ngIf="article?.index.length">
       </app-article-index-box>
     </div>
   </div>
