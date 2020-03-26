@@ -24,10 +24,10 @@ export class SingleCategoryComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.category = null;
-    this.getCategoryById();
+    this.getCategoryByName();
   }
 
-  private getCategoryById(): void {
+  private getCategoryByName(): void {
     this.route.params
      .pipe(takeUntil(this.unsubscribe$))
       .subscribe(params => {

@@ -10,6 +10,7 @@ import {
   CarouselSlide,
   DownloadButton
 } from './interfaces/interfaces';
+
 import { AosOptions } from 'aos';
 
 export const MENU: List[] = [
@@ -33,7 +34,8 @@ export const CATEGORIES: string[] = [
   'Angular',
   'Nodejs',
   'MongoDB',
-  'Android'
+  'Android',
+  'Antic\'s'
 ];
 
 export const TAGS: string[] = [
@@ -47,7 +49,8 @@ export const TAGS: string[] = [
   'Mobile',
   'Database',
   'Ionic',
-  'Config'
+  'Config',
+  'Antic\'s Code'
 ];
 
 export const TAGS_ICON: Tag[] = [
@@ -130,6 +133,12 @@ export const MAIN_CATEGORIES: List[] = [
     icon: 'android-logo.png',
     category: 'Android',
     class: 'odd.jpg'
+  },
+  {
+    name: 'Antic\'s Code',
+    icon: 'antics-logo.png',
+    category: 'Antic\'s',
+    class: 'even.jpg'
   }
 ];
 
