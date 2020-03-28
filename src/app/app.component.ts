@@ -60,7 +60,8 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.sw.available
       .subscribe(event => {
         if (event) {
-          this.sw.activateUpdate().then(() => this.document.location.reload());
+          this.sw.activateUpdate()
+          .then(() => this.document.location.reload());
         }
     });
   }

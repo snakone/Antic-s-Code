@@ -2,11 +2,11 @@
   "index": "/index.html",
   "assetGroups": [
     {
-      "name": "app",
+      "name": "Antic's Code",
       "installMode": "prefetch",
       "resources": {
         "files": [
-          "/favicon.ico",
+          "/assets/icons/favicon.png",
           "/index.html",
           "/*.css",
           "/*.js"

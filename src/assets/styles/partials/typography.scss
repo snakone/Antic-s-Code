@@ -30,29 +30,6 @@ h1 {
   @media (max-width: 320px) { font-size: 1.2rem }
 }
 
-h4 { color: var(--tag-color) }
-
-.code-box {
-  margin: 30px auto !important;
-
-  &-header {
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-
-    & span {
-      padding: .2rem .66667rem;
-      background: rgba(165, 165, 165, 0.384);
-      border-top-right-radius: 5px;
-      border-top-left-radius: 5px;
-      font-size: .9rem;
-      color: #1C1D21;
-     }
-  }
-
-  &.list { margin-bottom: 20px !important }
-}
-
 br {
   display: block;
   content: "";

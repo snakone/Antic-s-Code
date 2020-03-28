@@ -17,7 +17,7 @@ export class FooterComponent implements AfterContentInit {
   ngAfterContentInit() {
     setTimeout(() => {
       this.show = true;
-    }, 1000);
+    }, 2500);
    }
 
 }

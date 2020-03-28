@@ -35,6 +35,7 @@ export const CATEGORIES: string[] = [
   'Nodejs',
   'MongoDB',
   'Android',
+  'Design',
   'Antic\'s'
 ];
 
@@ -135,10 +136,16 @@ export const MAIN_CATEGORIES: List[] = [
     class: 'odd.jpg'
   },
   {
+    name: 'Web Design',
+    icon: 'design-logo.png',
+    category: 'Design',
+    class: 'even.jpg'
+  },
+  {
     name: 'Antic\'s Code',
     icon: 'antics-logo.png',
     category: 'Antic\'s',
-    class: 'even.jpg'
+    class: 'odd.jpg'
   }
 ];
 

@@ -12,9 +12,12 @@
     font-size: 16px;
     color: #1a1a1a;
     padding-left: 20px;
-    list-style: disc;
     margin-left: 0;
     margin-bottom: 10px;
+  }
+
+  ul {
+    list-style: disc;
   }
 
   ul li, ol li {
@@ -71,7 +74,6 @@
     font-size: 1.4rem;
     margin-top: 2rem;
     margin-bottom: -.2rem;
-    font-size: 1rem;
     &:first-child { margin-top: 0 }
   }
 
@@ -97,6 +99,10 @@
       margin: 0 !important;
       color: white !important;
     }
+  }
+
+  strong {
+    font-size: inherit;
   }
 
   code {
@@ -160,8 +166,6 @@
       font-size: 1rem;
       margin-top: 25px;
     }
-
-    strong { font-size: .9rem }
   }
 
   @media(min-width: 1280px) {
