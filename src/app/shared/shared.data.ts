@@ -36,6 +36,8 @@ export const CATEGORIES: string[] = [
   'MongoDB',
   'Android',
   'Design',
+  'GO',
+  'Python',
   'Antic\'s'
 ];
 
@@ -112,6 +114,12 @@ export const MAIN_CATEGORIES: List[] = [
     class: 'odd.jpg'
   },
   {
+    name: 'Web Design',
+    icon: 'design-logo.png',
+    category: 'Design',
+    class: 'even.jpg'
+  },
+  {
     name: 'Angular Framework',
     icon: 'angular-logo.png',
     category: 'Angular',
@@ -136,16 +144,22 @@ export const MAIN_CATEGORIES: List[] = [
     class: 'odd.jpg'
   },
   {
-    name: 'Web Design',
-    icon: 'design-logo.png',
-    category: 'Design',
+    name: 'GO Lang',
+    icon: 'go-logo.png',
+    category: 'GO',
     class: 'even.jpg'
+  },
+  {
+    name: 'Python',
+    icon: 'python-logo.png',
+    category: 'Python',
+    class: 'odd.jpg'
   },
   {
     name: 'Antic\'s Code',
     icon: 'antics-logo.png',
     category: 'Antic\'s',
-    class: 'odd.jpg'
+    class: 'even.jpg'
   }
 ];
 
@@ -215,7 +229,8 @@ export const PROFILE_LANGS: string[] = [
   'Typescript',
   'Swift',
   'PHP',
-  'Dart'
+  'Dart',
+  'GO'
 ];
 
 export const PAGE_BG = {
@@ -275,31 +290,18 @@ export const COUNTRIES: string[] = [
 
 export const TESTIMONIALS: CarouselSlide[] = [
   {
-    image: 'a1.jpg',
-    title: 'Francis Burton',
-    subtitle: 'Toronto, Canada',
-    message: `Excepteur sint occaecat cupidatat non
-                  proident sunt in culpa officia deserunt
-                  mollit anim laborum sint occaecat cupidatat non proident.
-                  Occaecat cupidatat non proident culpa officia deserunt mollit.`
+    image: 'testimonial1.jpg',
+    title: 'Eleazar Carreón',
+    subtitle: 'Tamaulipas, México',
+    message: `Un lugar fantástico, para llevar las buenas prácticas.
+              Antic's Code me ayuda a estar actualizado en la industria de la tecnología.`
   },
   {
-    image: 'a1.jpg',
-    title: 'Ulises Prieto',
-    subtitle: 'Barcelona, Spain',
-    message: `Excepteur sint occaecat cupidatat non
-                  proident sunt in culpa officia deserunt
-                  mollit anim laborum sint occaecat cupidatat non proident.
-                  Occaecat cupidatat non proident culpa officia deserunt mollit.`
-  },
-  {
-    image: 'a1.jpg',
-    title: 'Alex Arriaga',
-    subtitle: 'México DC',
-    message: `Excepteur sint occaecat cupidatat non
-                  proident sunt in culpa officia deserunt
-                  mollit anim laborum sint occaecat cupidatat non proident.
-                  Occaecat cupidatat non proident culpa officia deserunt mollit.`
+    image: 'testimonial2.jpg',
+    title: 'Daniel Solarte',
+    subtitle: 'Medellín, Colombia',
+    message: `Usar Antic's Code es realmente fácil, he encontrado todos los artículos
+              necesarios sin perderme. Es el mejor lugar para escribir tu Artículo.`
   }
 ];
 
@@ -521,9 +523,9 @@ export const MY_SKILLS: string[] = [
 ];
 
 const DOWNLOAD_URI: any = {
-  windows: 'https://mega.nz/#!ctQnHCpL!vgltDHNL5yptNnjaBYD5tyB8fXtLfyi9lijFK9gSTRo',
-  mac: 'https://mega.nz/#!dgYBwKQB!DGNR54qeSG74kjGASULuBsOsr1RytL1pD64AWYKSkBI',
-  linux: 'https://mega.nz/#!1hRRGCSK!kdGaKc6b4Xe36g6YcagJPEtA_rXcmmTN4TmbBonDSjk'
+  windows: 'https://mega.nz/#!4tBmVA5Q!-rZTJGOXOPoK2VogbJoVJPhTd6aST7LVFkDd6JNypTg',
+  mac: 'https://mega.nz/#!MkpFWADZ!x0nQUbokbh4SE5NnvfQiWU2Ka8AoS1krduiFQVDUZ1s',
+  linux: 'https://mega.nz/#!BtxFgASR!yY-UKa29azKxHxbPo65dvOVVbwGggopVj_RlEA5E__Y'
 };
 
 export const DOWNLOAD_BUTTONS: DownloadButton[] = [
