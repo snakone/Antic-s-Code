@@ -19,6 +19,14 @@ span {
   @media(max-width: 550px) { font-size: .9rem !important }
 }
 
+strong {
+  font-size: inherit;
+}
+
+span strong {
+  font-size: inherit;
+}
+
 h1 {
   color: var(--light-color);
   font-size: 2rem;

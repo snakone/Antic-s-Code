@@ -106,7 +106,7 @@
       width: 100%;
 
       & span {
-        font-size: 1.1rem !important;
+        font-size: 1.3rem !important;
       }
     }
   }
@@ -127,7 +127,6 @@
 
 @media(max-width: 475px) {
   .user-card {
-
     & .profile-social {
       position: relative !important;
 
@@ -152,6 +151,24 @@
 
     &-rol {
       width: 100%;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      width: 100%;
+      border-bottom: 1px solid var(--p-color);
+      opacity: .3;
+    }
+
+    &.last {
+      margin-bottom: 0;
+      padding-bottom: 0;
+
+      &:after {
+        border-bottom: none;
+      }
     }
   }
 }

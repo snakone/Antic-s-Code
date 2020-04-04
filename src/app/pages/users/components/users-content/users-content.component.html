@@ -4,7 +4,7 @@
   <span>Puedes encontrar desarrolladores y
   diseñadores de todo tipo. Quizá alguno de ellos pueda ser la persona
   que necesitas para llevar tus ideas a la realidad.</span><br>
-  ¡Actualmente somos <strong>{{count}}</strong> programadores!
+  <span>¡Actualmente somos <strong>{{count}}</strong> programadores!</span>
 
   <div class="search-user">
     <mat-form-field appearance="outline"
@@ -29,8 +29,9 @@
                                                 paginate: {
                                                   itemsPerPage: itemsPerPage,
                                                   currentPage: page,
-                                                  id: 'users-pagination' }"
-                     [user]="user">
+                                                  id: 'users-pagination' }; let last = last"
+                     [user]="user"
+                     [last]="last">
       </app-user-card>
     </div>
   </div>

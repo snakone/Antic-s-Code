@@ -536,9 +536,9 @@ export const MY_SKILLS: string[] = [
 ];
 
 const DOWNLOAD_URI: any = {
-  windows: 'https://mega.nz/#!JlwBgBiJ!XuEUYJr0EcBM89CG4TN2EjXKwMjRs5_L4FyxhXgUdY4',
-  mac: 'https://mega.nz/#!JwxHnZSa!nMnwu1t7k3J0Ti9UDed-yg1yUM6reIZ9NKvKYqUnOG8',
-  linux: 'https://mega.nz/#!pppllLpS!QoBJl8vj8H4evthLblXAeQkwBpklI7yw4TatEANAsZI'
+  windows: 'https://mega.nz/file/l8oSSYbQ#Uly8bRPQCJy66Mr-cHqrmUw8X89n1pfW2n1_wanPqxo',
+  mac: 'https://mega.nz/file/gtwkQKYa#QxjgT902_XbGm6dKisEhmI_RGdI86gD3U5cl3x0ikl4',
+  linux: 'https://mega.nz/file/p8pSSIhR#oQxMPBPCRJNYrACIfIniFnG0Kx7e_EMoRrSU56-D180'
 };
 
 export const DOWNLOAD_BUTTONS: DownloadButton[] = [

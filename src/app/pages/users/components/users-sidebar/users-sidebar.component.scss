@@ -11,7 +11,7 @@ ul {
     }
 
     & .medal {
-      font-size: 1.5rem;
+      font-size: 1.5rem !important;
       margin-right: .4rem;
       position: relative;
       top: 1px;
@@ -19,10 +19,14 @@ ul {
     }
 
     & .name {
-      font-size: 1.4rem;
+      font-size: 1.4rem !important;
       font-weight: bold;
       position: relative;
       top: -8px;
+
+      @media(max-width: 550px) {
+        font-size: 1.2rem !important;
+      }
     }
 
     & .count {

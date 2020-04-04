@@ -12,10 +12,13 @@ export class UserCardComponent implements OnInit {
 
   @Input() user: User;
   @Input() skeleton: boolean;
+  @Input() last: boolean;
   social = SOCIAL_PROFILE;
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    console.log(this.last);
+   }
 
 }

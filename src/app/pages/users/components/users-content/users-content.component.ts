@@ -81,6 +81,7 @@ export class UsersContentComponent implements OnInit, OnDestroy {
   }
 
   private doResize(): void { // Sticky
+    this.page = 1;
     setTimeout(() => {
       window.dispatchEvent(new Event('resize'));
     }, 300);
