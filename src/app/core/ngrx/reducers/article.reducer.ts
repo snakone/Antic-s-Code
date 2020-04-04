@@ -1,11 +1,13 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import * as ArticleActions from '../actions/article.actions';
-import { Article, CategoryCount } from '@app/shared/interfaces/interfaces';
+import { Article } from '@app/shared/interfaces/interfaces';
 
 export interface ArticleState {
   articles: Article[];
   articlesLoaded: boolean;
-  categoryCount: CategoryCount;
+  articlesByUser: Article[];
+  articlesByUserLoaded: boolean;
+  categoryCount: object;
   categoryCountLoaded: boolean;
   last: Article[];
   lastLoaded: boolean;
@@ -22,6 +24,8 @@ export interface ArticleState {
 export const inititalState: ArticleState = {
   articles: [],
   articlesLoaded: false,
+  articlesByUser: null,
+  articlesByUserLoaded: false,
   categoryCount: {},
   categoryCountLoaded: false,
   last: [],
@@ -114,6 +118,21 @@ const featureReducer = createReducer(
   on(ArticleActions.getArticleBySlugFailure, (state, { error }) => (
     { ...state, slugLoaded: false, error }
   )),
+  // ARTICLE BY USER
+  on(ArticleActions.getArticlesByUser, (state, { id }) => (
+    { ...state, articlesByUserLoaded: false, error: null }
+  )),
+  on(ArticleActions.getArticlesByUserSuccess, (state, { articles }) => (
+    {
+      ...state,
+      articlesByUserLoaded: true,
+      error: null,
+      articlesByUser: articles
+    }
+  )),
+  on(ArticleActions.getArticlesByUserFailure, (state, { error }) => (
+    { ...state, articlesByUserLoaded: false, error }
+  )),
   // ARTICLES BY CATEGORY COUNT
   on(ArticleActions.getArticlesByCategoryCount, state => (
     { ...state, categoryCountLoaded: false, error: null }
@@ -141,6 +160,9 @@ const featureReducer = createReducer(
   )),
   on(ArticleActions.resetSlug, (state) => (
     { ...state, slugLoaded: false, error: null, slug: null }
+  )),
+  on(ArticleActions.resetArticlesByUser, (state) => (
+    { ...state, articlesByUserLoaded: false, error: null, articlesByUser: null }
   ))
 );
 
@@ -150,6 +172,8 @@ export function reducer(state: ArticleState | undefined, action: Action) {
 
 export const getArticles = (state: ArticleState) => state.articles;
 export const getArticlesLoaded = (state: ArticleState) => state.articlesLoaded;
+export const getArticlesByUser = (state: ArticleState) => state.articlesByUser;
+export const getArticlesByUserLoaded = (state: ArticleState) => state.articlesByUserLoaded;
 export const getFull = (state: ArticleState) => state.full;
 export const getSlug = (state: ArticleState) => state.slug;
 export const getLast = (state: ArticleState) => state.last;

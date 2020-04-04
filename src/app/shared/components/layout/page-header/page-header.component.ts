@@ -29,6 +29,7 @@ export class PageHeaderComponent implements OnInit {
       case 'Categories': return this.bgs.categories;
       case 'Articles': return this.bgs.articles;
       case 'Article': return this.bgs.article;
+      case 'Users': return this.bgs.users;
       case 'Profile': return this.bgs.profile;
       case 'Public Profile': return this.bgs.public;
       case 'Search': return this.bgs.search;

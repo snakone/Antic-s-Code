@@ -20,6 +20,14 @@ export const getArticleBySlug = createSelector(
   getArticlesState, fromArticles.getSlug
 );
 
+export const getArticlesByUser = createSelector(
+  getArticlesState, fromArticles.getArticlesByUser
+);
+
+export const getArticlesByUserLoaded = createSelector(
+  getArticlesState, fromArticles.getArticlesByUserLoaded
+);
+
 export const getLastArticles = createSelector(
   getArticlesState, fromArticles.getLast
 );

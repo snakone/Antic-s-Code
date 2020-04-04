@@ -1,0 +1,46 @@
+<div class="user-card"
+     [routerLink]="'/profile/' + user.name"
+     *ngIf="!skeleton">
+ <h4>
+   <span>{{user.account | rol}}</span>
+   {{user.name}}
+ </h4>
+
+ <div class="user-card-info">
+  <div class="user-card-rol">
+    {{(user.profile?.rol | translate) || 'not.defined' | translate}} |
+    <span>{{user.profile?.language || 'not.defined' | translate}}</span>
+  </div>
+
+  <div class="profile-social">
+    <ul>
+      <div *ngFor="let s of social">
+        <a *ngIf="user.profile[s.selector]"
+           [href]="user.profile[s.selector]"
+           target="_NEW">
+          <li>
+            <img src="assets/icons/{{s.selector}}.svg"
+                 [alt]="s.selector"
+                 loading="lazy"/>
+          </li>
+        </a>
+        <li class="not"
+            *ngIf="!user.profile[s.selector]">
+            <img src="assets/icons/{{s.selector}}.svg"
+                 [alt]="s.selector"
+                 loading="lazy"/>
+        </li>
+      </div>
+    </ul>
+  </div>
+ </div>
+</div>
+
+<div *ngIf="skeleton" class="skeleton">
+  <h4></h4>
+  <div class="info">
+    <h3></h3>
+    <h3></h3>
+    <h3></h3>
+  </div>
+</div>

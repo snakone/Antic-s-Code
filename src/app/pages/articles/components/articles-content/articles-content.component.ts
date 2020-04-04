@@ -8,7 +8,6 @@ import { Store } from '@ngrx/store';
 import * as ArticleActions from '@core/ngrx/actions/article.actions';
 import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 import * as UserActions from '@core/ngrx/actions/user.actions';
-import { UserService } from '@app/core/services/services.index';
 import * as fromUsers from '@core/ngrx/selectors/user.selectors';
 
 @Component({
@@ -24,7 +23,6 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject<void>();
 
   constructor(private articleService: ArticleService,
-              private userService: UserService,
               private store: Store<AppState>) { }
 
   ngOnInit() {

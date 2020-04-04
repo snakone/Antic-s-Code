@@ -1,0 +1,120 @@
+.article {
+  &-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+      &:hover {
+      cursor: pointer;
+
+      & h5::after {
+        width: 2rem;
+      }
+    }
+
+    & h5 {
+      position: relative;
+      margin: 0 auto 1.5rem 0;
+      font-weight: normal;
+      font-size: 1rem;
+      outline: none;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        background: var(--primary-color);
+        height: .2rem;
+        left: 0;
+        bottom: 0;
+        border-radius: 4px;
+        transition: all .3s ease;
+      }
+
+      @media(max-width: 550px) {
+        font-size: .9rem;
+      }
+    }
+
+    & img {
+      border-radius: 25%;
+      display: inline-block;
+      padding: 4px;
+      margin-right: 1rem;
+      margin-bottom: 1.5rem;
+      width: 24px;
+      &:hover { filter: brightness(1.1) }
+    }
+
+    &:last-of-type {
+      margin-bottom: -1.5rem;
+    }
+  }
+
+  &-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0 0 1.5rem 0;
+
+    & .views {
+      font-size: 1.3rem;
+      color: #5c5f72;
+      display: inline-block;
+      margin-right: 3px;
+      margin-top: 6px;
+      &:hover { color: #3957ff }
+    }
+
+    & .bold {
+      font-size: 1.2rem;
+      position: relative;
+      top: 3px;
+    }
+
+    & span {
+      margin-right: 1.866rem;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+     }
+  }
+}
+
+@media(max-width: 675px) {
+  .article-item {
+    flex-wrap: wrap;
+
+    & h5 {
+      width: 80%;
+      margin-bottom: .3rem;
+    }
+
+    & img {
+      margin-bottom: .3rem;
+      margin-right: .8rem;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      border-bottom: 1px solid var(--p-color);
+      opacity: .3;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  .article-info {
+    margin-left: .3rem;
+
+    & span {
+      margin-right: 1.5rem;
+    }
+  }
+}

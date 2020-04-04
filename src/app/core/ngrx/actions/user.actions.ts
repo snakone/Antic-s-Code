@@ -1,5 +1,17 @@
 import { props, createAction } from '@ngrx/store';
-import { User, Interaction } from '@app/shared/interfaces/interfaces';
+import { User, Interaction, MostActive } from '@app/shared/interfaces/interfaces';
+
+// GET ALL USERS
+export const getAllUsers =
+  createAction('[Users] Get All Users');
+
+export const getAllUsersSuccess =
+  createAction('[Users] Get All Users Success',
+  props<{ users: User[] }>());
+
+export const getAllUsersFailure =
+  createAction('[Users] Get All Users Failure',
+  props<{ error: string }>());
 
 // GET USER BY NAME
 export const getUserByName =
@@ -24,6 +36,18 @@ export const getInteractionByUserSuccess =
 
 export const getInteractionByUserFailure =
   createAction('[Users] Get Interaction By User Failure',
+  props<{ error: string }>());
+
+// GET MOST ACTIVE USERS
+export const getMostActiveUsers =
+  createAction('[Users] Get Most Active Users');
+
+export const getMostActiveUsersSuccess =
+  createAction('[Users] Get Most Active Users Success',
+  props<{ active: MostActive[] }>());
+
+export const getMostActiveUsersFailure =
+  createAction('[Users] Get Most Active Users Failure',
   props<{ error: string }>());
 
 // SET USER
@@ -85,6 +109,6 @@ export const userLogOut =
 export const resetUserName =
   createAction('[Articles API] Reset User Name');
 
-  // RESET INTERACTION
+// RESET INTERACTION
 export const resetInteraction =
   createAction('[Articles API] Reset Interaction');

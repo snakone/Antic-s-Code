@@ -8,6 +8,7 @@
 }
 
 .margin { margin-top: 0 !important }
+.no-border { border: none !important }
 
 ::ng-deep .pagination .ngx-pagination a {
   color: var(--primary-color);

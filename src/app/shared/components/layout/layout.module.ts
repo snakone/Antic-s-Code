@@ -20,6 +20,7 @@ import { GoTopComponent } from './go-top/go-top.component';
 import { DialogsModule } from './dialogs/dialogs.module';
 import { CarouselComponent } from './carousel/carousel.component';
 import { SwiperModule } from 'ngx-swiper-wrapper';
+import { CardsModule } from './cards/cards.module';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { SwiperModule } from 'ngx-swiper-wrapper';
     RouterModule,
     SnackbarsModule,
     DialogsModule,
-    SwiperModule
+    SwiperModule,
+    CardsModule
   ],
   exports: [
     ArticleLayoutModule,
@@ -60,7 +62,8 @@ import { SwiperModule } from 'ngx-swiper-wrapper';
     SnackbarsModule,
     GoTopComponent,
     DialogsModule,
-    CarouselComponent
+    CarouselComponent,
+    CardsModule
   ]
 })
 

@@ -16,7 +16,8 @@ import { AosOptions } from 'aos';
 export const MENU: List[] = [
   { name: 'home', link: '/home' },
   { name: 'categories', link: '/categories' },
-  { name: 'articles', link: '/articles' }
+  { name: 'articles', link: '/articles' },
+  { name: 'users', link: '/users' }
 ];
 
 export const HOME_MENU: List[] = [
@@ -238,6 +239,7 @@ export const PAGE_BG = {
   categories: 'assets/img/page_bg/categories.mp4',
   articles: 'assets/img/page_bg/articles.mp4',
   article: 'assets/img/page_bg/article.mp4',
+  users: 'assets/img/page_bg/users.mp4',
   profile: 'assets/img/page_bg/profile.mp4',
   public: 'assets/img/page_bg/public.mp4',
   search: 'assets/img/page_bg/search.mp4',
@@ -302,6 +304,13 @@ export const TESTIMONIALS: CarouselSlide[] = [
     subtitle: 'Medellín, Colombia',
     message: `Usar Antic's Code es realmente fácil, he encontrado todos los artículos
               necesarios sin perderme. Es el mejor lugar para escribir tu Artículo.`
+  },
+  {
+    image: 'testimonial3.jpg',
+    title: 'Paolo Torregroza',
+    subtitle: 'Guatavita, Colombia',
+    message: `Conozco pocos lugares en donde pueda compartir información con facilidad,
+              y Antic's Code es uno de los mejores.`
   }
 ];
 
@@ -319,15 +328,17 @@ export const CREATE_SLIDES: CarouselSlide[] = [
     image: 'form.jpg',
     title: 'Creación del Artículo',
     subtitle: 'Un buen Artículo contiene gran variedad de información.',
-    message: `Tómate tu tiempo para rellenar los datos del Artículo. Es importante saber elegir bien.
-              El título servirá para crear un enlace único con el que podrás compartir el contenido.`
+    message: `Tómate tu tiempo para rellenar los datos del Artículo.
+              Es importante saber elegir bien. El título servirá para crear
+              un enlace único con el que podrás compartir el contenido.`
   },
   {
     image: 'form-valid.jpg',
     title: 'Rellena los datos',
     subtitle: 'Nos tomamos en enserio mantener un mismo formato para todos los Artículos.',
     message: `Rellena los datos, contra más información proporciones, más rico en contenido será.
-              Escribir una buena introducción es esencial para atraer a los lectores, ten lo en cuenta.`
+              Escribir una buena introducción es esencial para atraer a los lectores,
+              ten lo en cuenta.`
   },
   {
     image: 'markdown.jpg',
@@ -341,15 +352,17 @@ export const CREATE_SLIDES: CarouselSlide[] = [
     image: 'info.jpg',
     title: 'Información adicional',
     subtitle: 'Puedes añadir enlaces referentes al Artículo.',
-    message: `Añade enlaces externos para incrementar el valor del Artículo. Dejar al lector en un punto
-              muerto es algo importante a evitar ya que induce al abandono de la aplicación.`
+    message: `Añade enlaces externos para incrementar el valor del Artículo.
+              Dejar al lector en un punto muerto es algo importante a
+              evitar ya que induce al abandono de la aplicación.`
   },
     {
     image: 'article.jpg',
     title: 'Tu contenido',
     subtitle: 'Crea y comparte contenido con otras personas interesadas en programación.',
     message: `Cuando el equipo de moderación apruebe tu Artículo, aparecerá listado junto
-              con los demás. Desde ese momento cualquier usuario podrá leer y aprender de tu contenido.`
+              con los demás. Desde ese momento cualquier usuario podrá leer y
+              aprender de tu contenido.`
   }
 ];
 
@@ -523,9 +536,9 @@ export const MY_SKILLS: string[] = [
 ];
 
 const DOWNLOAD_URI: any = {
-  windows: 'https://mega.nz/#!4tBmVA5Q!-rZTJGOXOPoK2VogbJoVJPhTd6aST7LVFkDd6JNypTg',
-  mac: 'https://mega.nz/#!MkpFWADZ!x0nQUbokbh4SE5NnvfQiWU2Ka8AoS1krduiFQVDUZ1s',
-  linux: 'https://mega.nz/#!BtxFgASR!yY-UKa29azKxHxbPo65dvOVVbwGggopVj_RlEA5E__Y'
+  windows: 'https://mega.nz/#!JlwBgBiJ!XuEUYJr0EcBM89CG4TN2EjXKwMjRs5_L4FyxhXgUdY4',
+  mac: 'https://mega.nz/#!JwxHnZSa!nMnwu1t7k3J0Ti9UDed-yg1yUM6reIZ9NKvKYqUnOG8',
+  linux: 'https://mega.nz/#!pppllLpS!QoBJl8vj8H4evthLblXAeQkwBpklI7yw4TatEANAsZI'
 };
 
 export const DOWNLOAD_BUTTONS: DownloadButton[] = [
@@ -536,7 +549,7 @@ export const DOWNLOAD_BUTTONS: DownloadButton[] = [
     link: DOWNLOAD_URI.windows
    },
   {
-    platform: 'Mac OS',
+    platform: 'Mac OX',
     class: 'mac',
     icon: 'mac.png',
     link: DOWNLOAD_URI.mac

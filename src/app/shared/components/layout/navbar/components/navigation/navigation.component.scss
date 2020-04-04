@@ -40,11 +40,14 @@ li {
   float: left;
   color: var(--light-color);
   text-align: center;
-  padding: 10px 5px;
+  padding: 0 5px;
   text-decoration: none;
   outline: none;
 
-  &.create { margin-left: .9rem }
+  &.create {
+    color: var(--primary-color);
+    & button span { font-weight: bold }
+  }
 }
 
 .collapsed {

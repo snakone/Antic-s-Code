@@ -1,0 +1,52 @@
+<app-content-box [title]="'users.list' | translate">
+  <span>A continuación se lista todos los usuarios registrados en
+  <strong>Antic's Code</strong>.</span> <br>
+  <span>Puedes encontrar desarrolladores y
+  diseñadores de todo tipo. Quizá alguno de ellos pueda ser la persona
+  que necesitas para llevar tus ideas a la realidad.</span><br>
+  ¡Actualmente somos <strong>{{count}}</strong> programadores!
+
+  <div class="search-user">
+    <mat-form-field appearance="outline"
+                    color="accent">
+      <mat-label>Buscar</mat-label>
+      <mat-icon matPrefix>search</mat-icon>
+      <input type="text" matInput [(ngModel)]="value" (keyup)="search()">
+    </mat-form-field>
+
+    <div class="search-user-sort">
+      <span (click)="sort('Admin')">🧙</span>
+      <span (click)="sort('User')">🤵</span>
+      <span (click)="sort('All')">👨‍👨‍👦‍👦</span>
+    </div>
+  </div>
+
+  <hr class="hr">
+
+  <div class="row">
+    <div class="col-lg-12" *ngIf="filteredUsers.length > 0; else skeleton">
+      <app-user-card *ngFor="let user of filteredUsers |
+                                                paginate: {
+                                                  itemsPerPage: itemsPerPage,
+                                                  currentPage: page,
+                                                  id: 'users-pagination' }"
+                     [user]="user">
+      </app-user-card>
+    </div>
+  </div>
+
+  <ng-template #skeleton>
+    <app-user-card [skeleton]="true" *ngFor="let c of [1,2,3]">
+    </app-user-card>
+  </ng-template>
+</app-content-box>
+
+<div class="row">
+  <div class="col-lg-12">
+    <app-pagination [margin]="0"
+                    *ngIf="filteredUsers?.length > itemsPerPage"
+                    id="users-pagination"
+                    selector="users-list">
+    </app-pagination>
+  </div>
+</div>

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '@app/shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { ArticleLayoutModule } from '../article-layout/article-layout.module';
+import { MarkdownModule } from 'ngx-markdown';
 
 import { ContentBoxComponent } from './content-box/content-box.component';
 import { LastArticlesBoxComponent } from './last-articles-box/last-articles-box.component';
@@ -13,7 +14,7 @@ import { ArticleIndexBoxComponent } from './article-index-box/article-index-box.
 import { SettingsBoxComponent } from './settings-box/settings-box.component';
 import { ProfileInfoBoxComponent } from './profile-info-box/profile-info-box.component';
 import { RelatedArticlesBoxComponent } from './related-articles-box/related-articles-box.component';
-import { MarkdownModule } from 'ngx-markdown';
+import { UserArticlesBoxComponent } from './user-articles-box/user-articles-box.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MarkdownModule } from 'ngx-markdown';
     ArticleIndexBoxComponent,
     SettingsBoxComponent,
     ProfileInfoBoxComponent,
-    RelatedArticlesBoxComponent
+    RelatedArticlesBoxComponent,
+    UserArticlesBoxComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +45,8 @@ import { MarkdownModule } from 'ngx-markdown';
     ArticleIndexBoxComponent,
     SettingsBoxComponent,
     ProfileInfoBoxComponent,
-    RelatedArticlesBoxComponent
+    RelatedArticlesBoxComponent,
+    UserArticlesBoxComponent
   ]
 })
 

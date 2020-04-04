@@ -2,8 +2,7 @@
   <div class="navbar-menu">
     <ul>
       <li *ngFor="let i of items"
-          [routerLink]="i.link"
-          routerLinkActive="active">  <!-- MENU LIST -->
+          [routerLink]="i.link">  <!-- MENU LIST -->
         <button class="hvr-underline-from-left"
                 mat-button>{{i.name | translate}}
         </button>
@@ -32,11 +31,10 @@
           </div>
         </mat-menu>
       </li>
-      <li class="animated fadeIn create">
-        <button class="btn-orange"
-                mat-button
-                aria-label="Crear Artículo"
-                routerLink="/create">Crear
+      <li routerLink="/create" class="create">  <!-- MENU LIST -->
+        <button class="hvr-underline-from-left"
+                mat-button>
+                <span>{{'create' | translate}}</span>
         </button>
       </li>
     </ul>
