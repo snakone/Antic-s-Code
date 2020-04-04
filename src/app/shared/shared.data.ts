@@ -39,6 +39,7 @@ export const CATEGORIES: string[] = [
   'Design',
   'GO',
   'Python',
+  'Git',
   'Antic\'s'
 ];
 
@@ -54,6 +55,7 @@ export const TAGS: string[] = [
   'Database',
   'Ionic',
   'Config',
+  'Git',
   'Antic\'s Code'
 ];
 
@@ -157,10 +159,16 @@ export const MAIN_CATEGORIES: List[] = [
     class: 'odd.jpg'
   },
   {
+    name: 'Git System',
+    icon: 'git-logo.png',
+    category: 'Git',
+    class: 'even.jpg'
+  },
+  {
     name: 'Antic\'s Code',
     icon: 'antics-logo.png',
     category: 'Antic\'s',
-    class: 'even.jpg'
+    class: 'odd.jpg'
   }
 ];
 
