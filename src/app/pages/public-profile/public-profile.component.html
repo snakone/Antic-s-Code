@@ -7,6 +7,7 @@
       <app-profile-info-box *ngIf="user"
                             [user]="user">
       </app-profile-info-box>
+      <app-user-articles-box *ngIf="user" [user]="user"></app-user-articles-box>
     </div>
     <div class="col-lg-4 col-md-4">   <!-- SIDEBAR -->
       <app-content-box [title]="'loved.lang' | translate">

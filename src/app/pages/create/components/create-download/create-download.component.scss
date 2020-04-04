@@ -27,6 +27,10 @@
   align-items: flex-start;
   padding-right: 0 !important;
 
+  @media(max-width: 991px) {
+    justify-content: center;
+  }
+
   @media(max-width: 550px) {
     flex-direction: column;
     align-items: center;

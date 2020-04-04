@@ -12,6 +12,22 @@ export const getUser = createSelector(
   getUserState, fromUsers.getUser
 );
 
+export const getAllUsers = createSelector(
+  getUserState, fromUsers.getAllUsers
+);
+
+export const getAllUsersLoaded = createSelector(
+  getUserState, fromUsers.getAllUsersLoaded
+);
+
+export const getMostActive = createSelector(
+  getUserState, fromUsers.getMostActive
+);
+
+export const getMostActiveLoaded = createSelector(
+  getUserState, fromUsers.getMostActiveLoaded
+);
+
 export const getUserEmail = createSelector(
   getUserState, fromUsers.getEmail
 );

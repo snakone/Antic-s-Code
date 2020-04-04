@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { APP_CONSTANTS, AppState } from '@app/app.config';
 import { HttpService } from '../http/http.service';
-import { User, UserResponse } from '@app/shared/interfaces/interfaces';
+import { User, UserResponse, MostActiveResponse } from '@app/shared/interfaces/interfaces';
 import { Observable, of } from 'rxjs';
 import { StorageService } from '@app/core/storage/storage.service';
 import { Store } from '@ngrx/store';
@@ -24,7 +24,7 @@ export class UserService {
   }
 
   public getUserById(id: string): Observable<UserResponse> {
-    return this.http.get(this.API_USERS + `/${id}`);
+    return this.http.get(APP_CONSTANTS.END_POINT + `user/${id}`);
   }
 
   public getUserByName(name: string): Observable<UserResponse> {
@@ -41,6 +41,10 @@ export class UserService {
 
   public deleteUser(): Observable<UserResponse> {
     return this.http.delete(this.API_USERS);
+  }
+
+  public getMostActiveUsers(): Observable<MostActiveResponse> {
+    return this.http.get(this.API_USERS + '/active');
   }
 
   public refreshToken(id: string): Observable<UserResponse> {

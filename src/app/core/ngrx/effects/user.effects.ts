@@ -6,7 +6,6 @@ import * as UserActions from '../actions/user.actions';
 import { map, concatMap, catchError } from 'rxjs/operators';
 import { UserService, InteractionService } from '../../services/services.index';
 import { StorageService } from '@app/core/storage/storage.service';
-import { CryptoConverter } from '@app/core/services/crypto/crypto.converter';
 
 @Injectable()
 
@@ -25,6 +24,22 @@ export class UserEffects {
               of(UserActions.setUserFailure({ error: error.message }))
         )
       )
+  );
+
+  // GET ALL USER
+  getUsersEffect$ = createEffect(() => this.actions
+  .pipe(
+    ofType(UserActions.getAllUsers),
+    concatMap((action) =>
+    this.user.getUsers()
+    .pipe(
+      map(res => UserActions.getAllUsersSuccess({users: res.users})),
+        catchError(error =>
+            of(UserActions.setUserFailure({ error: error.message }))
+      )
+     )
+    )
+   )
   );
 
   // GET USER BY NAME
@@ -53,6 +68,22 @@ export class UserEffects {
         map(res => UserActions.getInteractionByUserSuccess({interaction: res.interaction})),
         catchError(error =>
             of(UserActions.getInteractionByUserFailure({ error: error.message }))
+          )
+        )
+      )
+    )
+  );
+
+  // GET MOST ACTIVE USERS
+  getMostActiveUsersEffect$ = createEffect(() => this.actions
+  .pipe(
+    ofType(UserActions.getMostActiveUsers),
+    concatMap(() =>
+    this.user.getMostActiveUsers()
+      .pipe(
+        map(res => UserActions.getMostActiveUsersSuccess({active: res.users})),
+        catchError(error =>
+            of(UserActions.getMostActiveUsersFailure({ error: error.message }))
           )
         )
       )

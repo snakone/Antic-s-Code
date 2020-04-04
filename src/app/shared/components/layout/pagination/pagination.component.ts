@@ -12,6 +12,7 @@ export class PaginationComponent implements OnInit {
   @Input() id: string;
   @Input() margin: number;
   @Input() selector: string;
+  @Input() border = true;
 
   constructor(private pagination: PaginationService) { }
 

@@ -63,16 +63,7 @@ export interface CountResponse extends ServerResponse {
 }
 
 export interface CategoryCountResponse extends ServerResponse {
-  count?: CategoryCount;
-}
-
-export interface CategoryCount {
-  HTML?: number;
-  CSS?: number;
-  Javascript?: number;
-  Angular?: number;
-  Nodejs?: number;
-  MongoDB?: number;
+  count?: object;
 }
 
 export interface User {
@@ -207,6 +198,15 @@ export interface TimeLine {
   message: string;
   side: string;
   fade: string;
+}
+
+export interface MostActive {
+  name: string;
+  count: number;
+}
+
+export interface MostActiveResponse extends ServerResponse {
+  users: MostActive[];
 }
 
 export class CustomError {

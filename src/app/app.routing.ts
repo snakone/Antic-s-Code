@@ -23,6 +23,11 @@ const routes: Routes = [
                         .then(mod => mod.ArticlesModule), data: {name: 'Articles'}
   },
   {
+    path: 'users',
+    loadChildren: () => import('./pages/users/users.module')
+                        .then(mod => mod.UsersModule), data: {name: 'Users'}
+  },
+  {
     path: 'category/:name',
     loadChildren: () => import('./pages/single-category/single-category.module')
                         .then(mod => mod.SingleCategoryModule), data: {name: 'Category'}

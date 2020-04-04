@@ -60,6 +60,22 @@ export class ArticleEffects {
     )
   );
 
+  // GET ARTICLES BY USER
+  getArticlesByUserEffect$ = createEffect(() => this.actions
+  .pipe(
+    ofType(ArticleActions.getArticlesByUser),
+    concatMap((action) =>
+    this.articleService.getArticlesByUser(action.id)
+      .pipe(
+        map(res => ArticleActions.getArticlesByUserSuccess({articles: res.articles})),
+        catchError(error =>
+            of(ArticleActions.getArticlesByUserFailure({ error: error.message }))
+          )
+        )
+      )
+    )
+  );
+
   // GET LAST ARTICLES
   loadLastArticlesEffect$ = createEffect(() => this.actions
     .pipe(

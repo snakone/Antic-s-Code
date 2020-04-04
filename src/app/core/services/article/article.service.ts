@@ -8,9 +8,7 @@ import {
   ArticleResponse,
   CountResponse,
   CategoryCountResponse,
-  Article
 } from '@shared/interfaces/interfaces';
-import { map, delay } from 'rxjs/operators';
 
 @Injectable()
 
@@ -44,8 +42,8 @@ export class ArticleService {
     return this.http.get(this.API_ARTICLES + 'liked');
   }
 
-  public getArticlesByUser(): Observable<ArticleResponse> {
-    return this.http.get(this.API_ARTICLES + 'user');
+  public getArticlesByUser(id: string): Observable<ArticleResponse> {
+    return this.http.get(this.API_ARTICLES + 'user/' + id);
   }
 
   public getArticleBySlug(slug: string): Observable<ArticleResponse> {
