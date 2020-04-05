@@ -17,12 +17,6 @@ import { MaintenanceComponent } from './maintenance/maintenance.component';
   imports: [
     SharedModule,
     CommonModule
-  ],
-  entryComponents: [
-    ConfirmComponent,
-    DeleteAccountComponent,
-    NoAccountComponent,
-    MaintenanceComponent
   ]
 })
 

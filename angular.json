@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Angular": {
+    "antics-code": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -72,6 +72,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ],
               "serviceWorker": true,
@@ -82,18 +86,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Angular:build"
+            "browserTarget": "antics-code:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Angular:build:production"
+              "browserTarget": "antics-code:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Angular:build"
+            "browserTarget": "antics-code:build"
           }
         },
         "test": {
@@ -130,7 +134,7 @@
         }
       }
     },
-    "Angular-e2e": {
+    "antics-code-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -139,11 +143,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Angular:serve"
+            "devServerTarget": "antics-code:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Angular:serve:production"
+              "devServerTarget": "antics-code:serve:production"
             }
           }
         },
@@ -159,5 +163,5 @@
       }
     }
   },
-  "defaultProject": "Angular"
+  "defaultProject": "antics-code"
 }
