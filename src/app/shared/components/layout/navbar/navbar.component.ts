@@ -16,7 +16,7 @@ import { CrafterService } from '@core/services/services.index';
 
 export class NavBarComponent implements OnInit {
 
-  @ViewChild('drawer', {static: false}) drawer: ElementRef;
+  @ViewChild('drawer') drawer: ElementRef;
   user$: Observable<User>;
 
   constructor(private crafter: CrafterService,
