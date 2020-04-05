@@ -17,8 +17,7 @@ import { ConditionsComponent } from './conditions/conditions.component';
   imports: [
     CommonModule,
     SharedModule
-  ],
-  entryComponents: [LoginComponent]
+  ]
 })
 
 export class LoginModule { }

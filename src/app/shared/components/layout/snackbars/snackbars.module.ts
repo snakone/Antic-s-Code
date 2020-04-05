@@ -8,9 +8,6 @@ import { SharedModule } from '@app/shared/shared.module';
   ],
   imports: [
     SharedModule
-  ],
-  entryComponents: [
-    LanguageSnackComponent
   ]
 })
 
