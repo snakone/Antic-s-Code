@@ -1,5 +1,9 @@
 * { box-sizing: border-box }
 
+p:first-child {
+  margin-top: 0;
+}
+
 .row {
   margin-left: 0;
   margin-right: 0;

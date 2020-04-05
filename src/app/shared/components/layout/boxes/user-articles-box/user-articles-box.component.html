@@ -1,5 +1,5 @@
 <app-content-box [title]="'Artículos de ' + user?.name">
-  <div *ngIf="(articles$ | async) as articles; else noArticles">
+  <div *ngIf="(articles$ | async) as articles">
     <div class="article-item" *ngFor="let a of articles">
       <img [src]="(a.category | logo) | image:'logos'"
              [alt]="a.category" loading="lazy"
@@ -23,7 +23,7 @@
       </div>
     </div>
   </div>
-  <ng-template #noArticles>
-    <strong>{{user?.name}}</strong> aún no ha escrito ningún artículo.
-  </ng-template>
+  <div *ngIf="(articles$ | async)?.length === 0">
+    <span><strong>{{user?.name}}</strong> aún no ha escrito ningún artículo.</span>
+  </div>
 </app-content-box>

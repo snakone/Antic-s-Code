@@ -6,7 +6,6 @@
       "installMode": "prefetch",
       "resources": {
         "files": [
-          "/assets/icons/favicon.png",
           "/index.html",
           "/*.css",
           "/*.js"
@@ -15,7 +14,15 @@
           "https://stackpath.bootstrapcdn.com/font-awesome/**",
           "https://fonts.googleapis.com/**"
         ]
-      }
+      },
+      "icons": [
+        {
+          "src": "assets/img/logo.png",
+          "sized": "196x196",
+          "type": "image/png",
+          "purpose": "maskable"
+        }
+      ]
     }, {
       "name": "assets",
       "installMode": "lazy",

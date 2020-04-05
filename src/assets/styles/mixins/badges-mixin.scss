@@ -31,7 +31,6 @@
   display: flex;
   -ms-flex-align: center;
   align-items: center;
-  line-height: 2rem;
   padding: 0 .35rem;
   font-weight: 700;
   border-radius: 2px;
@@ -44,7 +43,7 @@
 
   &-icon { border: 1px solid #595a613d }
 
-  &-icon mat-icon {
+  & mat-icon {
     font-size: 1rem;
     position: relative;
     left: 7px;
@@ -52,23 +51,23 @@
     padding-right: 2px;
   }
 
-  &-heart mat-icon {
-    position: relative;
-    left: 8px;
-    top: 4px;
-    font-size: 1rem;
-    margin-right: 5px;
-  }
+  // &-heart mat-icon {
+  //   position: relative;
+  //   left: 8px;
+  //   top: 4px;
+  //   font-size: 1rem;
+  //   margin-right: 5px;
+  // }
 
-  &-like {
-    margin: 0 0 .46667rem .46667rem;
-    @media(max-width: 992px) { margin: 0 .46667rem .46667rem 0 }
+  // &-like {
+  //   margin: 0 0 .46667rem .46667rem;
+  //   @media(max-width: 992px) { margin: 0 .46667rem .46667rem 0 }
 
-    & mat-icon {
-      font-size: 1.05rem;
-      position: relative;
-      top: 5px;
-    }
-  }
+  //   & mat-icon {
+  //     font-size: 1.05rem;
+  //     position: relative;
+  //     top: 5px;
+  //   }
+  // }
 
 }
