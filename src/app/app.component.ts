@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, AfterViewInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { AppState, APP_CONSTANTS } from './app.config';
 import { Store } from '@ngrx/store';
@@ -16,7 +16,9 @@ import { MaintenanceComponent } from './shared/components/layout/dialogs/mainten
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements OnInit {
+
+  loaded = false;
 
   constructor(@Inject(DOCUMENT) private document: Document,
               private ls: StorageService,
@@ -29,13 +31,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.checkUserToken();
     this.setTheme();
     this.serviceWorker();
-  }
 
-  ngAfterViewInit() {
-    this.openLanguageSnack();
-
-    if (APP_CONSTANTS.MAINTENANCE) {
-      this.sorryMaintenance();
+    window.onload = () => {
+      this.onLoad();
     }
   }
 
@@ -46,7 +44,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   private openLanguageSnack(): void {
-    if (!(this.ls.get('lang') === 'es') || this.ls.get('user_lang')) { return; }
+    if (!(this.ls.get('lang') === 'es') ||
+          this.ls.get('user_lang')) { return; }
     setTimeout(() => {
       this.crafter.snack(LanguageSnackComponent, -1);  // Infinite
     }, 8000);
@@ -64,6 +63,16 @@ export class AppComponent implements OnInit, AfterViewInit {
           .then(() => this.document.location.reload());
         }
     });
+  }
+
+  private onLoad(): void {
+    this.loaded = true;
+    document.getElementById('app').classList.remove('hide');
+    this.openLanguageSnack();
+
+    if (APP_CONSTANTS.MAINTENANCE) {
+      this.sorryMaintenance();
+    }
   }
 
   private sorryMaintenance(): void {
