@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterContentInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FOOTER_LIST } from '@app/shared/shared.data';
 
 @Component({
@@ -7,17 +7,10 @@ import { FOOTER_LIST } from '@app/shared/shared.data';
   styleUrls: ['./footer.component.scss']
 })
 
-export class FooterComponent implements AfterContentInit {
+export class FooterComponent {
 
   list = FOOTER_LIST;
-  show = false;
 
   constructor() { }
-
-  ngAfterContentInit() {
-    setTimeout(() => {
-      this.show = true;
-    }, 2500);
-   }
 
 }

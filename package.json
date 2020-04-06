@@ -1,10 +1,11 @@
 {
   "name": "antics-code",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": "Antic's Code Web Application",
   "author": "Sergi Martínez",
   "scripts": {
     "ng": "ng",
+    "ngc": "ngc -p src/tsconfig.app.json",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
