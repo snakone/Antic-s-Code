@@ -5,6 +5,7 @@ input {
   left: 14px;
   top: -4px;
   width: 80%;
+  outline: none;
   &::placeholder {
     color: var(--bg-color);
     opacity: .5;
@@ -27,14 +28,17 @@ input {
 
     & input {
       border-color: rgba(39, 43, 65, .1);
-      color: var(--title-color);
+      &::placeholder {
+        color: var(--title-color);
+        opacity: .5;
+       }
 
       &:focus { outline: none }
     }
  }
   @media(max-width: 475px) { display: none }
-  @media(min-width: 476) and (max-width: 788px) { display: block }
-  @media(min-width: 789px) and (max-width: 1060px) { display: none }
+  @media(min-width: 476) and (max-width: 850px) { display: block }
+  @media(min-width: 851px) and (max-width: 1160px) { display: none }
 }
 
 .search-hint {

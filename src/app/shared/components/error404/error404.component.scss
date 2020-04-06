@@ -1,12 +1,8 @@
 .error-bg {
-  position: absolute;
-  top: 0;
+  position: relative;
   left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
   height: 100vh;
+  line-height: 100vh;
   width: 100%;
   background-image: url('../../../../assets/img/bg.jpeg');
   -webkit-background-size: cover !important;

@@ -1,0 +1,102 @@
+@import "../../../../../assets/styles/mixins/flex.scss";
+
+.button-prev, .button-next {
+  position: absolute;
+  top: 50%;
+  margin-top: -22px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.button-prev,
+.button-next,
+.button-next-mobile,
+.button-prev-mobile {
+  width: 2.8666rem;
+  height: 2.8666rem;
+  background: rgba(190, 197, 228, 0.55);
+  -webkit-box-shadow: 0 5px 1rem rgba(146,153,184,.15);
+  box-shadow: 0 5px 1rem rgba(146,153,184,.15);
+  -webkit-border-radius: 20rem;
+  border-radius: 20rem;
+  -webkit-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease;
+  outline: 0;
+  border: none;
+  @include flex-box();
+
+  &.disabled {
+    background: rgba(190, 197, 228, 0.25);
+    pointer-events: none;
+
+    & mat-icon { color: grey }
+  }
+}
+
+.button-next-mobile, .button-prev-mobile {
+  display: inline-block;
+  margin: 30px 20px;
+}
+
+.button-prev {
+  left: 40px;
+  right: auto;
+}
+
+.button-next {
+  right: 40px;
+  left: auto;
+}
+
+.swiper-navigation-mobile {
+  text-align: center;
+}
+
+// HOVER STATE
+.button-prev:hover,
+.button-next:hover,
+.button-next-mobile:hover,
+.button-prev-mobile:hover {
+  cursor: pointer;
+  background: rgba(190, 197, 228, 0.65);
+  -webkit-box-shadow: 2px 5px 1.6666rem rgba(146,153,184,.15);
+  box-shadow: 2px 5px 1.6666rem rgba(146,153,184,.15);
+
+  & mat-icon { color: var(--primary-color) }
+}
+
+// MEDIA QUERIES
+@media(max-width: 850px) {
+  .button-next { right: 20px }
+  .button-prev { left: 20px }
+}
+
+@media(max-width: 700px) {
+  .button-next { right: 50px }
+  .button-prev { left: 50px }
+}
+
+@media(max-width: 650px) {
+  .button-next { right: 30px }
+  .button-prev { left: 30px }
+}
+
+@media(min-width: 768px) {
+  .swiper-navigation { display: block }
+  .swiper-navigation-mobile { display: none }
+}
+
+@media(max-width: 768px) {
+  .swiper-navigation { display: none }
+
+  .swiper-navigation-mobile {
+    display: flex;
+    justify-content: center;
+
+    & mat-icon {
+      position: relative;
+      top: 10px;
+    }
+  }
+}

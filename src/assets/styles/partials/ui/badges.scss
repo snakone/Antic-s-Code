@@ -12,18 +12,21 @@
 }
 
 .badge-featured-article {
-  @include badge(#fa8b0c, 10px);
+  @include badge(#074901, 10px);
   border: 1px solid #ffffffa4;
+  padding: .36667rem .66667rem .52222rem;
 }
 
 .badge-popular-article {
-  @include badge(#fd4868, 10px);
+  @include badge(#ee0000, 10px);
   border: 1px solid #ffffffa4;
+  padding: .36667rem .66667rem .52222rem;
 }
 
 .badge-new-article {
-  @include badge(#4471ee, 10px);
+  @include badge(#214cc2, 10px);
   border: 1px solid #ffffffa4;
+  padding: .36667rem .66667rem .52222rem;
 }
 
 .badge-category {
@@ -35,23 +38,23 @@
 }
 
 .meta-star {
-  @include meta-data(var(--success-color), 2.3rem);
+  @include meta-data(var(--success-color), 2.2rem);
 }
 
 .meta-star-card {
-  @include meta-data(#28db70d5, 1.8rem);
+  @include meta-data(#03963eef, 1.8rem);
 }
 
 .meta-like {
-  @include meta-data(var(--primary-color), 2.3rem);
+  @include meta-data(var(--primary-color), 2.2rem);
 }
 
 .meta-like-card {
-  @include meta-data(#f5548fd5, 1.5rem);
+  @include meta-data(#d40350e8, 1.5rem);
 }
 
 .meta-view {
-  @include meta-data(var(--react-color), 2.3rem);
+  @include meta-data(var(--react-color), 2.2rem);
 }
 
 .meta-view-card {
@@ -59,11 +62,11 @@
 }
 
 .meta-review {
-  @include meta-data(#6f32cc, 2.3rem)
+  @include meta-data(#6f32cc, 2.2rem)
 }
 
 .meta-type {
-  @include meta-data(transparent, 2.13rem);
+  @include meta-data(transparent, 2.2rem);
   border: 1px solid rgba(255,255,255,.5);
   padding-left: 0;
   padding: 0 1rem;
@@ -72,24 +75,18 @@
     color: var(--primary-color) !important;
     border: 1px solid var(--primary-color) !important;
    }
+
+   & mat-icon {
+    left: 0;
+  }
 }
 
 .verified {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
   width: 1.06667rem;
   height: 1.06667rem;
-  -webkit-border-radius: 20rem;
   border-radius: 20rem;
   margin-left: .96667rem;
   position: relative;

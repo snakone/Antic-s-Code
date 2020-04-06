@@ -1,0 +1,21 @@
+<div class="menu">
+  <ul>
+    <li *ngFor="let i of items"
+        [routerLink]="i.link"
+        routerLinkActive="active"
+        (click)="closeDrawer()">{{i.name | translate}}
+    </li>
+    <div class="division"><hr></div>
+    <li *ngFor="let m of menu"
+        [routerLink]="m.link"
+        routerLinkActive="active"
+        (click)="closeDrawer()">{{m.name | translate}}
+    </li>
+    <li routerLink="create"
+        class="create"
+        routerLinkActive="active"
+        (click)="closeDrawer()">{{'create' | translate}}
+    </li>
+  </ul>
+</div>
+

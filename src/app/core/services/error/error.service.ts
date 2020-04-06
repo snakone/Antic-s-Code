@@ -30,7 +30,8 @@ export class ErrorService {
         err.statusText,
         this.ls.get('user') || null,
         err.status,
-        err.url
+        err.url,
+        APP_CONSTANTS.PLATFORM
       );
     } else {
       return new CustomError(
@@ -38,6 +39,9 @@ export class ErrorService {
         err.message,
         err.stack,
         this.ls.get('user') || null,
+        null,
+        null,
+        APP_CONSTANTS.PLATFORM
       );
     }
   }

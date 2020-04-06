@@ -4,7 +4,7 @@
       <mat-form-field color="accent">
         <mat-label>{{'language' | translate}}</mat-label>  <!-- LANGUAGE -->
         <mat-select formControlName="language">
-          <mat-option *ngFor="let l of languages" [value]="l.selector">
+          <mat-option *ngFor="let l of languages" [value]="l.selector" role="option">
             {{l.selector | translate}}
           </mat-option>
         </mat-select>
@@ -12,7 +12,7 @@
       <mat-form-field color="accent">
         <mat-label>{{'theme' | translate}}</mat-label>   <!-- THEME -->
         <mat-select formControlName="theme">
-          <mat-option *ngFor="let t of themes" [value]="t.selector">
+          <mat-option *ngFor="let t of themes" [value]="t.selector" role="option">
             {{t.selector | translate}}
             <span [class]="'theme-sample ' + t.selector"></span>
           </mat-option>
@@ -21,6 +21,7 @@
 
       <button type="submit"
               mat-button
+              aria-label="Save"
               class="btn-pink">{{'save' | translate}}
       </button>
     </form>

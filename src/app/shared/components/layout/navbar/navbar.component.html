@@ -1,9 +1,10 @@
 <nav class="navbar" Navbar>
   <div class="navbar-logo">  <!-- LOGO -->
-    <img routerLink="/home" src="assets/img/logo.png"/>
+    <img routerLink="/home" src="assets/img/logo.png"
+         alt="Logo" loading="lazy"/>
   </div>
   <div class="navbar-mobile-toogler">  <!-- MOBILE TOOGLER -->
-    <button class="toogler" (click)="openDrawer()">
+    <button class="toogler" aria-label="Open Menu" (click)="openDrawer()">
       <i class="material-icons">reorder</i>
     </button>
   </div>
@@ -13,6 +14,7 @@
     <div *ngIf="(user$ | async) as user; else login">
       <button class="profile btn-pink"
               routerLink="/profile"
+              aria-label="Profile"
               mat-button>
         <mat-icon>person</mat-icon>
       </button>  <!-- PROFILE -->
@@ -20,6 +22,7 @@
     <ng-template #login>
       <button class="btn-pink"
               (click)="openLogin()"
+              aria-label="Login"
               mat-button>
           <span class="btn-mobile">
             <i class="fa fa-sign-in"></i>
@@ -32,29 +35,5 @@
 
  <!-- MOBILE MENU -->
 <q-drawer menuid="main" #drawer>
-   <div class="menu">
-    <ul>
-      <li *ngFor="let i of items"
-          [routerLink]="i.link"
-          routerLinkActive="active"
-          (click)="closeDrawer()">{{i.name | translate}}
-      </li>
-      <div class="division"><hr></div>
-      <li *ngFor="let m of menu"
-          [routerLink]="m.link"
-          routerLinkActive="active"
-          (click)="closeDrawer()">{{m.name | translate}}
-      </li>
-      <div class="division"><hr></div>
-      <div *ngIf="user$ | async as user">
-        <li *ngIf="user.account === 'Admin' || user.account === 'Super'"
-            routerLink="/admin"
-            routerLinkActive="active"
-            (click)="closeDrawer()">
-            Admin
-        </li>
-      </div>
-    </ul>
-   </div>
+  <app-mobile-menu (close)="closeDrawer()"></app-mobile-menu>
 </q-drawer>
-

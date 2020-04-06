@@ -13,7 +13,7 @@ export class GoTopComponent implements OnInit {
   ngOnInit() { }
 
   goTop(): void {
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    window.scrollTo({top: 0, behavior: 'auto'});
   }
 
 }

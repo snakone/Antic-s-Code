@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MAIN_CATEGORIES } from '@app/shared/shared.data';
 
 @Component({
@@ -7,12 +7,9 @@ import { MAIN_CATEGORIES } from '@app/shared/shared.data';
   styleUrls: ['./articles-category-list-box.component.scss']
 })
 
-export class ArticlesCategoryListBoxComponent implements OnInit {
+export class ArticlesCategoryListBoxComponent {
 
   categories = MAIN_CATEGORIES;
 
   constructor() { }
-
-  ngOnInit() { }
-
 }

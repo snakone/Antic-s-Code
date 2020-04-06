@@ -5,6 +5,10 @@
     overflow: hidden;
     margin-bottom: 2rem;
 
+    @media(max-width: 550px) {
+      margin-bottom: 1rem;
+    }
+
   & figure {
       position: relative;
       -webkit-border-radius: 3px;
@@ -18,6 +22,7 @@
       background: initial;
       display: block;
       text-align: center;
+      cursor: pointer;
 
       & h4 {
         color: var(--light-color);
@@ -49,7 +54,7 @@
 
   &-badge {
     transition: all .3s ease;
-    color: var(--light-color);
+    color: var(--dark-color-tint);
     background-color: var(--success-color);
     padding: .5rem 1rem;
     -webkit-border-radius: 10rem;

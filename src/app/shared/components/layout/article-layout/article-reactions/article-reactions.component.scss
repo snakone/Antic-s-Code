@@ -1,42 +1,76 @@
 .reaction {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 1.5rem;
+ position: absolute;
+ margin-top: -12px;
 
-  & span {
-    margin-right: 12px;
-    font-size: .9rem;
-  }
+ &-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+   @media(max-width: 700px) { justify-content: flex-start }
+
+   & mat-icon {
+     font-size: 1.5rem;
+     width: 2.1333rem;
+     height: 2.1333rem;
+     box-sizing: border-box;
+     border-radius: 20rem;
+     background: var(--section-border-color);
+     display: inline-flex;
+     justify-content: center;
+     align-items: center;
+     margin-right: .8rem;
+     position: relative;
+     top: -1px;
+     padding-top: 3px;
+     user-select: none;
+     color: var(--primary-color);
+
+     &:hover {
+       cursor: pointer;
+       transition: all .3s ease;
+       box-shadow: 0 0 6px rgba(0, 0, 0, .8);
+     }
+   }
+
+   & img {
+    width: 40px;
+    padding: 5px;
+    border-radius: 20rem;
+
+    &:hover {
+      cursor: pointer;
+      background: var(--section-border-color);
+      transition: all .3s ease;
+    }
+   }
+ }
 
   @media(max-width: 700px) {
+    margin-top: 0;
     position: relative;
     margin-left: 0;
     margin-bottom: 1rem;
-    margin-top: -.9rem;
   }
 
   @media(min-width: 701px) {
     position: absolute;
-    margin-top: -2px;
-    right: 2rem;
+    right: 1.5rem;
+    top: 82px;
   }
 }
 
 .reaction.single {
   @media(min-width: 701px) {
-    right: .2rem !important;
+    right: 0 !important;
+    top: 40px;
   }
 
   @media(max-width: 700px) {
-    margin-bottom: 1.8rem;
-    margin-top: -1.4rem;
+    margin-bottom: 1.5rem;
   }
 }
 
-.reaction.box {
-  position: absolute;
-  margin-top: .8rem;
-  right: 0 !important;
-}
+.flex-box { margin-right: 1.5rem }
+
 

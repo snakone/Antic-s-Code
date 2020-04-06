@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { LoginService, UserService } from '@app/core/services/services.index';
+import { LoginService, UserService, CrafterService } from '@app/core/services/services.index';
 import { UserResponse } from '@app/shared/interfaces/interfaces';
 import { HttpErrorResponse } from '@angular/common/http';
 import { StorageService } from '@app/core/storage/storage.service';
@@ -12,8 +12,6 @@ import * as fromUsers from '@core/ngrx/selectors/user.selectors';
 import { Subject, Observable, of } from 'rxjs';
 import { takeUntil, switchMap } from 'rxjs/operators';
 import { LoginComponent } from '../login.component';
-import { CrafterService } from '@core/services/crafter/crafter.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -34,7 +32,6 @@ export class SignInComponent implements OnInit, OnDestroy {
               private store: Store<AppState>,
               private userService: UserService,
               private crafter: CrafterService,
-              private router: Router,
               public dialogRef: MatDialogRef<LoginComponent>) { }
 
   ngOnInit() {
@@ -45,8 +42,7 @@ export class SignInComponent implements OnInit, OnDestroy {
 
   onSubmit(): void {
     if (this.signInForm.invalid) { return; }
-    const email = this.signInForm.value.email;
-    const password = this.signInForm.value.password;
+    const { email, password } = this.signInForm.value;
     this.signIn(email, password);
   }
 
@@ -89,10 +85,10 @@ export class SignInComponent implements OnInit, OnDestroy {
               this.signInForm.controls.email.setValue(email);
               this.remember = true;
             }
-            return email ? of({}) : this.userService.getUserById(id);
+            return email ? of({ok: false}) : this.userService.getUserById(id);
           })).subscribe((res: UserResponse) => {
-          if (res.ok) {
-            this.store.dispatch(UserActions.setUserEmail({ email: res.user.email }));
+            if (res.ok) {
+              this.store.dispatch(UserActions.setUserEmail({ email: res.user.email }));
           }
       });
     }
@@ -101,11 +97,11 @@ export class SignInComponent implements OnInit, OnDestroy {
   private handleSignIn(data: UserResponse): void {
     this.dialogRef.close();
     this.store.dispatch(UserActions.setUser({user: data.user}));
+    this.userService.setUser(data.user);
     this.ls.setKey('token', data.token);
     this.ls.setKey('user', data.user._id);
     this.ls.setKey('remember', this.remember);
     this.crafter.toaster(data.user.name, 'welcome', 'info');
-    this.router.navigateByUrl('/profile');
   }
 
   private handleError(type?: string): void {

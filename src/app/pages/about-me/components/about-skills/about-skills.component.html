@@ -1,0 +1,10 @@
+<div class="wrapper">
+  <div class="grid-logo">
+    <i *ngFor="let i of skillsIcon"
+       [class]="i + ' colored'">
+    </i>
+  </div>
+  <div class="grid-skills">
+    <span *ngFor="let s of skills">{{s}}</span>
+  </div>
+</div>

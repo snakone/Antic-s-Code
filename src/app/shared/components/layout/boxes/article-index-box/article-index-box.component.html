@@ -1,0 +1,18 @@
+<app-sticky-box selector="single-article-section">
+  <app-content-box [border]="true">
+      <ul>
+        <div *ngIf="index">
+          <li *ngFor="let i of index">{{i.title}}
+            <p>{{i.subtitle}}</p>
+          </li>
+        </div>
+
+        <div *ngIf="!index">
+          <li *ngFor="let s of [1,2,3,4,5]" class="skeleton">
+            <span></span>
+            <p></p>
+          </li>
+        </div>
+      </ul>
+  </app-content-box>
+</app-sticky-box>

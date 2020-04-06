@@ -7,4 +7,4 @@ export { CrafterService } from './crafter/crafter.service';
 export { ErrorService } from './error/error.service';
 export { ThemeService } from './theme/theme.service';
 export { SearchService } from './search/search.service';
-
+export { InteractionService } from './interaction/interaction.service';

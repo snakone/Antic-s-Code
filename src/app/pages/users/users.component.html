@@ -1,0 +1,13 @@
+<app-page-header [title]="'users' | translate"
+                 [subTitle]="'our.users' | translate">
+</app-page-header>
+<app-section input="#f5f7fc">
+  <div class="row">
+    <div class="col-lg-8 col-md-8" id="users-list">  <!-- CONTENT -->
+      <app-users-content></app-users-content>
+    </div>
+    <div class="col-lg-4 col-md-4">   <!-- SIDEBAR -->
+     <app-users-sidebar></app-users-sidebar>
+    </div>
+  </div>
+</app-section>

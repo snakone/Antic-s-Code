@@ -1,10 +1,12 @@
 <div class="testimonial-card">
   <div class="testimonial-card-author">  <!-- AVATAR -->
-    <img [src]="t.avatar | image"/>
+    <img [src]="t.image | image:'testimonial'"
+         [alt]="t.title"
+         loading="lazy"/>
   </div>
-  <h4>{{t.name}}</h4>  <!-- INFO -->
-  <span>{{t.location}}</span>
-  <p>{{t.testimonial}}</p>
+  <h4>{{t.title}}</h4>  <!-- INFO -->
+  <span>{{t.subtitle}}</span>
+  <p>{{t.message}}</p>
 </div>
 
 

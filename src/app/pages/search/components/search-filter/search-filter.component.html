@@ -1,4 +1,3 @@
-<!-- <app-sticky-box selector="search-section" [empty]="true"> -->
 <app-content-box>
   <div class="filter-box">
     <form [formGroup]="searchForm" (ngSubmit)="submit()">
@@ -11,19 +10,19 @@
       <mat-form-field appearance="outline" color="accent">  <!-- CATEGORY -->
         <mat-label>{{'choose.category' | translate}}</mat-label>
         <mat-select formControlName="category">
-          <mat-option *ngFor="let cat of categories" [value]="cat">
+          <mat-option *ngFor="let cat of categories" [value]="cat" role="option">
             {{cat | translate}}
           </mat-option>
-          <mat-option value="">{{'all.a' | translate}}</mat-option>
+          <mat-option value="" role="option">{{'all.a' | translate}}</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="outline" color="accent">  <!-- TAG -->
         <mat-label>{{'pick.thread' | translate}}</mat-label>
         <mat-select formControlName="tag">
-          <mat-option *ngFor="let t of tags" [value]="t">
+          <mat-option *ngFor="let t of tags" [value]="t" role="option">
             {{t | translate}}
           </mat-option>
-          <mat-option value="">{{'all.a' | translate}}</mat-option>
+          <mat-option value="" role="option">{{'all.a' | translate}}</mat-option>
         </mat-select>
       </mat-form-field>
       <h3>{{'level' | translate}}</h3>   <!-- LEVEL -->
@@ -53,6 +52,7 @@
           <mat-option *ngFor="let t of types"
                       #option
                       [value]="t"
+                      role="option"
                       [disabled]="max?.selected.length >= 2 && !option.selected">
                       {{t | translate}}
           </mat-option>
@@ -61,8 +61,8 @@
       <mat-form-field appearance="outline" color="accent">
         <mat-label>{{'type' | translate}}</mat-label>
         <mat-select formControlName="sort">
-          <mat-option value="1">{{'order.asc' | translate}}</mat-option>
-          <mat-option value="-1">{{'order.desc' | translate}}</mat-option>
+          <mat-option value="1" role="option">{{'order.asc' | translate}}</mat-option>
+          <mat-option value="-1" role="option">{{'order.desc' | translate}}</mat-option>
         </mat-select>
       </mat-form-field>
       <h3 class="order">{{'score' | translate}}</h3>   <!-- STARS -->
@@ -82,6 +82,7 @@
       </div>
       <button mat-button
               class="btn-pink"
+              aria-label="Search"
               type="submit">{{'search' | translate}}
       </button>
     </form>

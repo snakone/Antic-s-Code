@@ -1,0 +1,47 @@
+// Mobile MENU
+.menu {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: var(--menu-width);
+  min-height: 100vh;
+  text-align: center;
+  z-index: 550;
+  border: 0;
+  top: 0;
+  left: 0;
+  margin-left: 0;
+  border-radius: 0;
+
+  & ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+
+    & li {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: .9rem;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+
+  .create {
+    color: var(--primary-color);
+    font-weight: bold;
+  }
+}
+
+.division {
+  max-width: 33%;
+  margin: 0 auto;
+  margin-bottom: 26px;
+
+  & hr {
+    background-color: var(--primary-color);
+    border: none;
+    height: 2px;
+    border-radius: 50px;
+  }
+}

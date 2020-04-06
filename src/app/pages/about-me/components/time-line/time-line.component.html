@@ -1,0 +1,10 @@
+<div class="timeline">
+  <div *ngFor="let t of TL"
+        [class]="'container ' + t.side">
+    <div class="content" [attr.data-aos]="t.fade">
+      <h2>{{t.year}}</h2>
+      <p [innerHTML]="t.message"></p>
+    </div>
+  </div>
+  <div id="skip-timeline"></div>
+</div>

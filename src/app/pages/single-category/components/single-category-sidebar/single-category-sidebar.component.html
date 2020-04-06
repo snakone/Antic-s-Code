@@ -1,9 +1,12 @@
 <div class="desktop">
   <app-single-category-info-box [category]="category">
   </app-single-category-info-box>
-  <button mat-button class="btn-pink">{{'favorite' | translate}}</button>
+  <button mat-button
+          class="btn-pink"
+          aria-label="Name">{{'favorite' | translate}}
+  </button>
 </div>
 <app-articles-sidebar></app-articles-sidebar>
-<app-last-articles-box></app-last-articles-box>
+<app-related-articles-box [category]="category"></app-related-articles-box>
 
 

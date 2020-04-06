@@ -1,10 +1,11 @@
-import { Injectable, Component } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ToastrService, ActiveToast } from 'ngx-toastr';
 import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
 import { ComponentType } from '@angular/cdk/overlay';
 import { TranslateService } from '@ngx-translate/core';
 import { MatDialog } from '@angular/material/dialog';
 import { environment } from '@env/environment';
+import { DialogData } from '@app/shared/interfaces/interfaces';
 
 @Injectable()
 
@@ -33,8 +34,8 @@ export class CrafterService {
     });
   }
 
-  dialog<T>(component: ComponentType<T>) {
-    return this.matDialog.open(component);
+  dialog<T>(component: ComponentType<T>, data?: DialogData) {
+    return this.matDialog.open(component, {data});
   }
 
   private translate(text: string): string {

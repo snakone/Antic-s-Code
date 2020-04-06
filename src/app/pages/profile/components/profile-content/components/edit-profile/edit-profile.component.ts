@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { User } from '@app/shared/interfaces/interfaces';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ROLES, PRO_LANGS } from '@app/shared/shared.data';
+import { ROLES, PROFILE_LANGS } from '@app/shared/shared.data';
 import { UserService, CrafterService } from '@app/core/services/services.index';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -23,7 +23,7 @@ export class EditProfileComponent implements OnInit, OnDestroy {
   @Input() user: User;
   editProfileForm: FormGroup;
   roles = ROLES;
-  languages = PRO_LANGS;
+  languages = PROFILE_LANGS;
   urlPattern = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
   private unsubscribe$ = new Subject<void>();
 

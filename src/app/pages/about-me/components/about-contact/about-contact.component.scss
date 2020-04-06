@@ -1,0 +1,62 @@
+* { box-sizing: border-box }
+
+.row {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+ }
+
+.col-lg-6 {
+  max-width: 576px;
+
+  @media(max-width: 550px) {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  @media(max-width: 992px) {
+    max-width: 100% !important;
+    width: 100%;
+  }
+}
+
+ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+
+  & li {
+    display: inline;
+    padding-right: 2rem;
+  }
+}
+
+.intro {
+  padding-top: .5rem;
+}
+
+.input {
+  margin: 2rem auto 0 auto;
+
+  & button { width: 100% }
+}
+
+h4 {
+  font-size: 1.2rem;
+  margin-top: 1.2rem;
+ }
+
+.social {
+  @media(min-width: 992px) {
+    margin-left: 12%;
+  }
+
+  & i {
+    font-size: 2rem;
+    margin-left: .83332rem;
+  }
+}
+
+.fa-github-square { color: black }
+.fa-linkedin { color: var(--react-color) }

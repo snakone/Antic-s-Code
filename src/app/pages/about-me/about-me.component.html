@@ -1,0 +1,24 @@
+<app-page-header title="Conóceme"
+                 [subTitle]="'about.me' | translate">
+</app-page-header>
+<app-section input="#f5f7fc">
+  <div class="row">
+    <div class="col-lg-12 about-intro">
+      <h3>Sergio <span>Martínez</span></h3> <!-- INTRO -->
+      <p>Front End Developer</p>
+      <app-about-intro></app-about-intro>
+      <h3>Mi <span>Historia</span></h3> <!-- TIME LINE -->
+      <div class="skip">
+        <p>Cronología</p>
+        <p class="skip-text" (click)="scroll('skip-timeline')">¿Saltar?</p>
+      </div>
+      <app-time-line></app-time-line>
+      <h3>Mis <span>Cualidades</span></h3> <!-- SKILLS -->
+      <p>Habilidades</p>
+      <app-about-skills></app-about-skills>
+      <h3>Estamos en <span>Contacto</span></h3> <!-- CONTACT -->
+      <p>¿Hablamos?</p>
+      <app-about-contact></app-about-contact>
+    </div>
+  </div>
+</app-section>

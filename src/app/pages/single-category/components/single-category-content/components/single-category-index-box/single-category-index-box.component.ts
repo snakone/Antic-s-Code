@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CATEGORY_TOC } from '@app/shared/shared.data';
+import { CATEGORY_INDEX } from '@app/shared/shared.data';
 
 @Component({
   selector: 'app-single-category-index-box',
@@ -9,7 +9,7 @@ import { CATEGORY_TOC } from '@app/shared/shared.data';
 
 export class SingleCategoryIndexBoxComponent implements OnInit {
 
-  toc = CATEGORY_TOC;
+  index = CATEGORY_INDEX;
 
   constructor() { }
 
@@ -17,7 +17,7 @@ export class SingleCategoryIndexBoxComponent implements OnInit {
 
   scroll(box: string): void {
     const el = document.getElementById(box);
-    if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    if (el) { el.scrollIntoView({ behavior: 'auto', block: 'start' }); }
   }
 
 }

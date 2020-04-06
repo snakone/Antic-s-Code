@@ -24,9 +24,9 @@ export class Storage {
   lang: string = APP_CONSTANTS.DEFAULT_LANGUAGE;
   token: string = null;
   user: string = null;
-  remember: boolean = false;
+  remember: boolean = STORAGE_CONSTANTS.REMEMBER;
   user_lang: boolean = false;
-  theme: string = 'default';
+  theme: string = STORAGE_CONSTANTS.THEME;
 }
 
 export let STORAGE_CONFIG = new InjectionToken<StorageConfig>('storage.config');

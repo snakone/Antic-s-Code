@@ -1,3 +1,4 @@
-<div class="template"
-     [innerHTML]="template.message | sanitizer:'html'">
-</div>
+<markdown class="template"
+          ngPreserveWhitespaces
+          [data]="template">
+</markdown>

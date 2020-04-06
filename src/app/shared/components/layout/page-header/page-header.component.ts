@@ -29,10 +29,12 @@ export class PageHeaderComponent implements OnInit {
       case 'Categories': return this.bgs.categories;
       case 'Articles': return this.bgs.articles;
       case 'Article': return this.bgs.article;
+      case 'Users': return this.bgs.users;
       case 'Profile': return this.bgs.profile;
-      case 'Admin': return this.bgs.admin;
       case 'Public Profile': return this.bgs.public;
       case 'Search': return this.bgs.search;
+      case 'About Me' : return this.bgs.about;
+      case 'Create': return this.bgs.create;
       default: return '';
     }
   }

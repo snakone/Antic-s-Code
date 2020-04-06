@@ -47,10 +47,10 @@
         </li>
         <li><span class="bold black">{{'order.title' | translate}}: </span>
           <span *ngIf="req.sort; else notDefined">
-            <span class="defined" *ngIf="req.sort == '-1'">
+            <span class="defined" *ngIf="req.sort === -1">
               {{'order.desc' | translate}}
              </span>
-             <span class="defined" *ngIf="req.sort == '1'">
+             <span class="defined" *ngIf="req.sort === 1">
               {{'order.asc' | translate}}
              </span>
           </span>

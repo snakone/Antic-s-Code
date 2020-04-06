@@ -50,14 +50,14 @@
     align-items: center;
     justify-content: center;
 
-    @media (max-width: 789px) {
+    @media (max-width: 850px) {
       display: none;
       border-right: 0;
     }
 
     & img {
       width: 62px;
-      height: 55px;
+      height: 60px;
       padding: 0 10px;
       margin-left: 1px;
       -webkit-animation: SpinBack .5s;
@@ -79,7 +79,7 @@
   &-mobile-toogler {
     display: none;
 
-    @media (max-width: 789px) {
+    @media (max-width: 850px) {
       height: 100%;
       -webkit-box-ordinal-group: 1;
       display: flex;
@@ -109,7 +109,7 @@
     min-width: 46px;
   }
 
-  & .btn mat-icon {
+  & .profile mat-icon {
     position: relative;
     top: -1px;
   }
@@ -147,20 +147,6 @@
   &:hover { cursor: pointer }
 }
 
-.menu ul {
-  list-style-type: none;
-  padding: 0;
-  width: 100%;
-
-  & li {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: .9rem;
-    outline: none;
-    cursor: pointer;
-  }
-}
-
 @media(max-width: 750px), (max-height: 550px) {
   .btn { padding: 0 5px }
   .btn-mobile { display: block }
@@ -172,41 +158,10 @@
   .btn-desktop {display: block }
 }
 
-.division {
-  max-width: 33%;
-  margin: 0 auto;
-  margin-bottom: -5px;
-
-  & hr {
-    background-color: var(--primary-color);
-    border: none;
-    height: 2px;
-    border-radius: 50px;
-  }
-}
-
 .letter { padding: 0 5px }
 
 // STICKY
 .sticky {
   background: var(--title-color);
   transition: all .3s ease-in-out;
-}
-
-// Mobile MENU
-.menu {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: var(--menu-width);
-  min-height: 100vh;
-  text-align: center;
-  z-index: 550;
-  border: 0;
-  top: 0;
-  left: 0;
-  background: var(--bg-color);
-  margin-left: 0;
-  border-radius: 0;
-  background-repeat: repeat;
 }

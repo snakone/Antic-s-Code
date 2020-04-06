@@ -16,7 +16,6 @@ export class ContactHomeInputComponent implements OnInit {
 
   onSubmit(): void {
     if (this.email === '') { return; }
-    console.log(this.email);
   }
 
 }

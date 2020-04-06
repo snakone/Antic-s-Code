@@ -7,6 +7,8 @@ import { ErrorService } from '../services/error/error.service';
 
 export class ErrorHandlerService implements ErrorHandler {
 
+  chunkFailedMessage = /Loading chunk [\d]+ failed/;
+
   constructor(private injector: Injector) { }
 
   handleError(error: Error | HttpErrorResponse): void {
@@ -22,15 +24,18 @@ export class ErrorHandlerService implements ErrorHandler {
         console.error('General Error!. ', error);
         break;
       }
-      default: {
-        console.error('Something went Wrong! ', error);
-        break;
-      }
     }
+
     if (error instanceof HttpErrorResponse) { return; }
     service.saveError(error);
+
+    if (this.chunkFailedMessage.test(error.message)) {
+      window.location.reload();
+      return;
+    }
+
     ngZone.run(() => router.navigate(['error'], { queryParams: { error } })
-      .then(() => { }).catch((e) => { }));
+      .then().catch((e) => { console.log(e); }));
   }
 
 }

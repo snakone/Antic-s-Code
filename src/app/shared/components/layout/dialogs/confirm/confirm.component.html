@@ -3,11 +3,13 @@
   <div class="row">
     <div class="col s6 m6">
       <button mat-button
+              aria-label="Cancel"
               (click)="noClick()">{{'cancel' | translate}}</button>
     </div>
     <div class="col s6 m6">
       <button mat-button
               [mat-dialog-close]="true"
+              aria-label="Yes"
               cdkFocusInitial>{{'yes' | translate}}</button>
     </div>
   </div>

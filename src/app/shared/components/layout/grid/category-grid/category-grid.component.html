@@ -3,12 +3,14 @@
       *ngFor="let c of categories">
     <div class="category-image">
       <figure [routerLink]="'/category/' + c.category">
-        <img [src]="c.class | image:'categories'"/>
+        <img [src]="c.class | image:'categories'"
+             [alt]="c.category"/>
         <figcaption class="overlay-bg flex-box">
           <div class="category-image-content">
               <div class="category-icon">
                 <span>
-                  <img [src]="c.icon | image:'logos'"/>
+                  <img [src]="c.icon | image:'logos'"
+                       alt="Category Logo" loading="lazy"/>
                 </span>
               </div>
               <h4>{{c.name}}</h4>

@@ -36,7 +36,7 @@ span {
 app-sign-up { display: none }
 
 .overflow {
-  overflow: hidden !important;
+  overflow-x: hidden !important;
   @media(max-height: 600px) { overflow: auto !important }
 }
 

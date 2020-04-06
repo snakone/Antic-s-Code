@@ -24,7 +24,7 @@
     @include rotation(0deg);
   }
 
-  @media (max-width: 789px) {
+  @media (max-width: 850px) {
     display: none;
   }
 }
@@ -40,9 +40,14 @@ li {
   float: left;
   color: var(--light-color);
   text-align: center;
-  padding: 10px 5px;
+  padding: 0 5px;
   text-decoration: none;
   outline: none;
+
+  &.create {
+    color: var(--primary-color);
+    & button span { font-weight: bold }
+  }
 }
 
 .collapsed {
@@ -62,3 +67,5 @@ mat-icon {
   margin-top: -3px;
   color: black !important;
 }
+
+

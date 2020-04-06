@@ -6,12 +6,14 @@ import { SharedModule } from '@shared/shared.module';
 import { NavBarComponent } from './navbar.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { NavBarSearchComponent } from './components/navbar-search/navbar-search.component';
+import { MobileMenuComponent } from './components/mobile-menu/mobile-menu.component';
 
 @NgModule({
   declarations: [
     NavBarComponent,
     NavigationComponent,
-    NavBarSearchComponent
+    NavBarSearchComponent,
+    MobileMenuComponent
   ],
   imports: [
     CommonModule,

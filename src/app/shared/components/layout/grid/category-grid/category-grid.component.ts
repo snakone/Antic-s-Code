@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
 import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 import * as ArticleActions from '@core/ngrx/actions/article.actions';
-import { CategoryCount } from '@app/shared/interfaces/interfaces';
+
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -17,7 +17,7 @@ import { takeUntil } from 'rxjs/operators';
 export class CategoryGridComponent implements OnInit, OnDestroy {
 
   categories = MAIN_CATEGORIES;
-  count: CategoryCount;
+  count: object = {};
   private unsubscribe$ = new Subject<void>();
 
   constructor(private store: Store<AppState>) { }
@@ -40,7 +40,7 @@ export class CategoryGridComponent implements OnInit, OnDestroy {
   private getCount(): void {
     this.store.select(fromArticles.getArticlesByCategoryCount)
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((res: CategoryCount) => {
+      .subscribe((res: object) => {
         if (res) { this.count = res; }
     });
   }

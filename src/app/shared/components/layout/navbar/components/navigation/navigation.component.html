@@ -2,8 +2,7 @@
   <div class="navbar-menu">
     <ul>
       <li *ngFor="let i of items"
-          [routerLink]="i.link"
-          routerLinkActive="active">  <!-- MENU LIST -->
+          [routerLink]="i.link">  <!-- MENU LIST -->
         <button class="hvr-underline-from-left"
                 mat-button>{{i.name | translate}}
         </button>
@@ -12,6 +11,7 @@
         <button mat-button
                 class="navbar-menu-btn"
                 [matMenuTriggerFor]="menu"
+                aria-label="Menu"
                 (click)="collapse = !collapse">  <!-- MENU BUTTON -->
             {{'menu' | translate}}
           <span [ngClass]="{'collapsed' : collapse}"
@@ -23,23 +23,19 @@
                *ngFor="let m of dropdown">
             <button class="menu-dropdown"
                     mat-menu-item
+                    aria-label="Menu Item"
                     [routerLink]="m.link">
               <mat-icon>{{m.icon}}</mat-icon>
                   {{m.name | translate}}
             </button>
           </div>
-          <div *ngIf="(user$ | async) as user">
-            <div class="flex-box"
-                *ngIf="user.account === 'Admin' || user.account === 'Super'">
-              <button class="menu-dropdown"
-                      mat-menu-item
-                      routerLink="/admin">
-                <mat-icon>security</mat-icon>
-                    Admin
-              </button>
-            </div>
-          </div>
         </mat-menu>
+      </li>
+      <li routerLink="/create" class="create">  <!-- MENU LIST -->
+        <button class="hvr-underline-from-left"
+                mat-button>
+                <span>{{'create' | translate}}</span>
+        </button>
       </li>
     </ul>
   </div>
