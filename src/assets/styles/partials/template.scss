@@ -111,10 +111,11 @@
     font-family: source-code-pro,Menlo,Monaco,Consolas,Courier New,monospace;
     background: rgba(255, 229, 100, 0.2);
     border-radius: 2px;
+    font-size: inherit;
   }
 
   blockquote code {
-    background: rgba(193, 143, 9, 0.4);
+    background: rgba(123, 103, 50, 0.4);
   }
 
   code[class*=language-], pre[class*=language-]  {

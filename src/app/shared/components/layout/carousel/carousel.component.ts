@@ -14,7 +14,11 @@ export class CarouselComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    setTimeout(() => {
+      window.dispatchEvent(new Event('resize'));  // Temporally fix
+    }, 1000);
+  }
 
   navigate(value: number): void {
     const i = this.index + value;

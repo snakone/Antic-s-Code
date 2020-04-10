@@ -59,21 +59,6 @@ export const TAGS: string[] = [
   'Antic\'s Code'
 ];
 
-export const TAGS_ICON: Tag[] = [
-  { name: 'Consola', icon: 'computer' },
-  { name: 'Desarrollo', icon: 'build' },
-  { name: 'Diseño', icon: 'color_lens' },
-  { name: 'Material', icon: 'view_compact' },
-  { name: 'Frontend', icon: 'personal_video' },
-  { name: 'Backend', icon: 'cast_connected' },
-  { name: 'Mobile', icon: 'phone_android' },
-  { name: 'Javascript', icon: 'code' },
-  { name: 'Typescript', icon: 'language' },
-  { name: 'Database', icon: 'cloud_queue' },
-  { name: 'Ionic', icon: 'phone_android' },
-  { name: 'Config', icon: 'toc' }
-];
-
 export const POPULAR_CATEGORIES: List[] = [
   {
     name: 'code',

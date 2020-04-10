@@ -12,6 +12,11 @@ button {
   margin: 1rem auto;
   margin-bottom: 6px;  // Match Search Result Bottom
   width: 100%;
+
+  @media(max-width: 993px) {
+    margin-top: 2rem;
+    margin-bottom: 1.2rem;
+  }
 }
 
 h3 {
