@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { HOME_MENU } from '@app/shared/shared.data';
 import { LoginComponent } from '../../login/login.component';
 import { AppState } from '@app/app.config';
 import { Store } from '@ngrx/store';

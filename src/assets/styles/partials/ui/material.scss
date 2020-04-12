@@ -17,6 +17,15 @@
   margin-left: 5px !important;
 }
 
+mat-option.category .mat-option-text {
+  display: flex !important;
+  align-items: center;
+}
+
+mat-option.all {
+  padding-left: 58px !important;
+}
+
 .mat-snack-bar-container {
   min-width: 280px !important;
   max-width: 30vw !important;

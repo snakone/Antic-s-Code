@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FOOTER_LIST } from '@app/shared/shared.data';
+import { LoginComponent } from '../../login/login.component';
+import { CrafterService } from '@app/core/services/services.index';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -11,6 +14,16 @@ export class FooterComponent {
 
   list = FOOTER_LIST;
 
-  constructor() { }
+  constructor(private crafter: CrafterService,
+              private router: Router) { }
+
+  manage(value: string): void {
+    if (value === 'register') {
+      this.crafter.dialog(LoginComponent, {register: true});
+      return;
+    }
+
+    this.router.navigateByUrl(`/${value}`);
+  }
 
 }

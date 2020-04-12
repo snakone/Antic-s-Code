@@ -147,7 +147,11 @@ export interface DownloadButton {
 
 export interface FooterList {
   title: string;
-  list: string[];
+  list: FooterLink[];
+}
+
+interface FooterLink extends Translation {
+  name: string;
 }
 
 export interface FAQ {
@@ -166,11 +170,6 @@ export interface Index {
   title: string;
   subtitle: string;
   id: string;
-}
-
-export interface Tag {
-  name: string;
-  icon: string;
 }
 
 export interface Config {

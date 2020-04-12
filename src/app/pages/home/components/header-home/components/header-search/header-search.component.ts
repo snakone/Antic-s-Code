@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { CATEGORIES, TAGS } from '@app/shared/shared.data';
+import { MAIN_CATEGORIES, TAGS } from '@app/shared/shared.data';
 import { AppState } from '@app/app.config';
 import { Store } from '@ngrx/store';
 import * as SearchActions from '@core/ngrx/actions/search.actions';
@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 export class HeaderSearchComponent implements OnInit {
 
   searchForm: FormGroup;
-  categories = CATEGORIES;
+  categories = MAIN_CATEGORIES;
   tags = TAGS;
 
   constructor(private store: Store<AppState>,

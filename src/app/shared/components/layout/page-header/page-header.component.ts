@@ -25,7 +25,6 @@ export class PageHeaderComponent implements OnInit {
     const route: string = this.route.snapshot.data.name;
 
     switch (route) {
-      case 'Code': return this.bgs.code;
       case 'Categories': return this.bgs.categories;
       case 'Articles': return this.bgs.articles;
       case 'Article': return this.bgs.article;
@@ -34,7 +33,13 @@ export class PageHeaderComponent implements OnInit {
       case 'Public Profile': return this.bgs.public;
       case 'Search': return this.bgs.search;
       case 'About Me' : return this.bgs.about;
-      case 'Create': return this.bgs.create;
+      case 'Advantages': return this.bgs.advantages;
+      case 'Collaborate': return this.bgs.collaborate;
+      case 'Contact': return this.bgs.contact;
+      case 'Help': return this.bgs.help;
+      case 'How it Works': return this.bgs.works;
+      case 'Politics': return this.bgs.politics;
+      case 'Support': return this.bgs.support;
       default: return '';
     }
   }

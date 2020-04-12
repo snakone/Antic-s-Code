@@ -1,15 +1,17 @@
 <div class="footer">
   <div class="footer-content">
       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6"
-            *ngFor="let l of list">  <!-- FOOTER LIST -->
+           *ngFor="let l of list">  <!-- FOOTER LIST -->
         <div class="footer-content-column">
           <h2>{{l.title | translate}}</h2>
           <ul>
             <li *ngFor="let i of l.list"
-                [ngClass]="{'twitter': i === 'Twitter',
-                            'facebook': i === 'Facebook',
-                            'youtube': i === 'Youtube'}">  <!-- SOCIAL -->
-              {{i | translate}}
+                [ngClass]="{'twitter': i.name === 'Twitter',
+                            'facebook': i.name === 'Facebook',
+                            'youtube': i.name === 'Youtube'}">  <!-- SOCIAL -->
+              <span (click)="manage(i.name)">
+                {{i.translate | translate}}
+              </span>
             </li>
           </ul>
         </div>

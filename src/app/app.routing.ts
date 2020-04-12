@@ -60,9 +60,43 @@ const routes: Routes = [
   },
   {
     path: 'create',
-    canActivate: [],
     loadChildren: () => import('./pages/create/create.module')
                         .then(mod => mod.CreateModule), data: {name: 'Create'}
+  },
+  {
+    path: 'advantages',
+    loadChildren: () => import('./pages/advantages/advantages.module')
+                        .then(mod => mod.AdvantagesModule), data: {name: 'Advantages'}
+  },
+  {
+    path: 'collaborate',
+    loadChildren: () => import('./pages/collaborate/collaborate.module')
+                        .then(mod => mod.CollaborateModule), data: {name: 'Collaborate'}
+  },
+  {
+    path: 'contact',
+    loadChildren: () => import('./pages/contact/contact.module')
+                        .then(mod => mod.ContactModule), data: {name: 'Contact'}
+  },
+  {
+    path: 'help',
+    loadChildren: () => import('./pages/help/help.module')
+                        .then(mod => mod.HelpModule), data: {name: 'Help'}
+  },
+  {
+    path: 'how-works',
+    loadChildren: () => import('./pages/how-works/how-works.module')
+                        .then(mod => mod.HowWorksModule), data: {name: 'How it Works'}
+  },
+  {
+    path: 'politics',
+    loadChildren: () => import('./pages/politics/politics.module')
+                        .then(mod => mod.PoliticsModule), data: {name: 'Politics'}
+  },
+  {
+    path: 'support',
+    loadChildren: () => import('./pages/support/support.module')
+                        .then(mod => mod.SupportModule), data: {name: 'Support'}
   },
   { path: '**', canActivate: [ErrorGuard], component: Error404Component },
 ];

@@ -29,6 +29,17 @@ form {
   }
 }
 
+.category {
+  & .logo {
+    border-radius: 25%;
+    display: inline-block;
+    padding: 4px;
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+  }
+}
+
 mat-form-field {
   padding-right: 30px;
   transition: all .5s;
@@ -38,6 +49,10 @@ mat-form-field {
   @media (max-width: 750px) {
     display: block;
     padding-right: 0;
+  }
+
+  & .mat-option-text {
+    display: flex !important;
   }
 }
 
