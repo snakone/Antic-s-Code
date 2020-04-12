@@ -15,4 +15,8 @@ export class SingleCategoryFaqBoxComponent implements OnInit {
 
   ngOnInit() { }
 
+  resize(): void {
+    window.dispatchEvent(new Event('resize'));
+  }
+
 }

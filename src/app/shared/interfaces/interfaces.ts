@@ -41,6 +41,7 @@ export interface Category extends Content {
   info?: CategoryInfo;
   icon?: string;
   faq?: FAQ[];
+  updated?: string;
 }
 
 export interface ArticleResponse extends ServerResponse {

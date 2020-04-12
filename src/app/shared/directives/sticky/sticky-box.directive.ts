@@ -61,7 +61,7 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
     if (!this.height) { this.height = height; }
 
     const section = document.getElementById(this.selector);
-    section ? div = section.getBoundingClientRect().height : div = 1;
+    section ? div = section.getBoundingClientRect().height - el.offsetTop : div = 1;
 
     if (div === 1) { // No Selector or NOT loaded yet
       this.setAutoHeight(el);

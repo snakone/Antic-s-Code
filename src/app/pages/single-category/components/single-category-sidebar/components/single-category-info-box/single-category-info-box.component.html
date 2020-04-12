@@ -10,8 +10,11 @@
           {{category.name}}
           <span class="verified"></span>
         </h4>
-        <span class="info-box-time">
-          Posted 6 days ago
+        <span class="info-box-time" *ngIf="updated">
+          Actualizado {{updated}}
+        </span>
+        <span class="info-box-time" *ngIf="!updated">
+          Sin actualizar
         </span>
       </div>
     </div>

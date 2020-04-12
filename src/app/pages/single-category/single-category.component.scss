@@ -15,6 +15,10 @@
     max-width: 100%;
   }
 
+  @media(min-width: 993px) {
+    padding-right: 25px;
+  }
+
   @media(max-width: 550px) {
    padding-right: 0;
    padding-left: 0;

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Article, User } from '@app/shared/interfaces/interfaces';
-import { Subject, Observable, fromEvent, of } from 'rxjs';
+import { Subject, fromEvent, of } from 'rxjs';
 import { takeUntil, debounceTime, switchMap } from 'rxjs/operators';
 import { ArticleService } from '@core/services/article/article.service';
 import { AppState } from '@app/app.config';
@@ -62,9 +62,7 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
                 takeUntil(this.unsubscribe$)
               );
           } else {
-            try {
               return of(null);
-            } catch (err) { console.log(err); }
           }
         })).subscribe(e => { if (e) { this.makeScroll(e); }});
   }

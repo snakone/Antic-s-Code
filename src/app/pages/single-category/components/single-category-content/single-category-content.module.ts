@@ -12,6 +12,7 @@ import { SingleCategoryFaqBoxComponent } from './components/single-category-faq-
 import { SingleCategoryIntroComponent } from './components/single-category-intro/single-category-intro.component';
 import { SingleCategoryExamplesComponent } from './components/single-category-examples/single-category-examples.component';
 import { SingleCategoryConceptsComponent } from './components/single-category-concepts/single-category-concepts.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { SingleCategoryConceptsComponent } from './components/single-category-co
     ComponentsModule,
     SharedModule,
     RouterModule,
+    MarkdownModule.forChild(),
     SingleCategorySidebarModule
   ],
   exports: [

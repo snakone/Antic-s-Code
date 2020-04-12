@@ -29,15 +29,17 @@ export class StickyBoxComponent implements OnInit, OnDestroy {
   }
 
   private onScroll(): void {
-    const w = window.document.body.clientWidth;
-    if (w < 985) {
+    const width = window.document.body.clientWidth;
+    const div = document.getElementById(this.selector)
+                        .getBoundingClientRect().height;
+    if (width < 985 || div < 799) {
       this.display = true;
       return;
     }
 
-    const h = window.document.body.clientHeight;
-    const s = window.scrollY;
-    this.display = !((s / h) * 100 > 82);  // 82% SCROLL
+    const height = window.document.body.clientHeight;
+    const scroll = window.scrollY;
+    this.display = !((scroll / height) * 100 > 82);  // 82% SCROLL
   }
 
   ngOnDestroy(): void {
