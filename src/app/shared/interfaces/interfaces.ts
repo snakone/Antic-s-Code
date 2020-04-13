@@ -235,3 +235,25 @@ export class CustomError {
     this.platform = platform;
   }
 }
+
+export interface NotificationPayload {
+  title?: string;
+  body: string;
+  icon?: string;
+  vibrate?: number[];
+  requireInteraction?: boolean;
+  data?: NotificationData;
+  actions: NotificationAction[];
+  user?: string;
+  broadcast?: boolean;
+}
+
+interface NotificationData {
+  url: string;
+  data?: any;
+}
+
+interface NotificationAction {
+  action: string;
+  title: string;
+}

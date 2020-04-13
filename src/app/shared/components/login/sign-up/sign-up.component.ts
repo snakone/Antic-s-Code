@@ -2,7 +2,7 @@ import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/cor
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User, UserResponse } from '@app/shared/interfaces/interfaces';
 import { HttpErrorResponse } from '@angular/common/http';
-import { LoginService, CrafterService } from '@app/core/services/services.index';
+import { LoginService, CrafterService, PushService } from '@app/core/services/services.index';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -33,7 +33,8 @@ export class SignUpComponent implements OnInit, OnDestroy {
               private store: Store<AppState>,
               private crafter: CrafterService,
               private router: Router,
-              public dialogRef: MatDialogRef<LoginComponent>) { }
+              public dialogRef: MatDialogRef<LoginComponent>,
+              private sw: PushService) { }
 
   ngOnInit() {
     this.createSignUpForm();
@@ -98,6 +99,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
     this.ls.setKey('token', data.token);
     this.ls.setKey('user', data.user._id);
     this.crafter.toaster(data.user.name, 'welcome', 'info');
+    this.sw.showPrompt();
     this.router.navigateByUrl('/profile');
   }
 

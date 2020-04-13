@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { LoginService, UserService, CrafterService } from '@app/core/services/services.index';
+import { LoginService, UserService, CrafterService, PushService } from '@app/core/services/services.index';
 import { UserResponse } from '@app/shared/interfaces/interfaces';
 import { HttpErrorResponse } from '@angular/common/http';
 import { StorageService } from '@app/core/storage/storage.service';
@@ -32,7 +32,8 @@ export class SignInComponent implements OnInit, OnDestroy {
               private store: Store<AppState>,
               private userService: UserService,
               private crafter: CrafterService,
-              public dialogRef: MatDialogRef<LoginComponent>) { }
+              public dialogRef: MatDialogRef<LoginComponent>,
+              private sw: PushService) { }
 
   ngOnInit() {
     this.createSignInForm();
@@ -101,6 +102,7 @@ export class SignInComponent implements OnInit, OnDestroy {
     this.ls.setKey('token', data.token);
     this.ls.setKey('user', data.user._id);
     this.ls.setKey('remember', this.remember);
+    this.sw.showPrompt();
     this.crafter.toaster(data.user.name, 'welcome', 'info');
   }
 

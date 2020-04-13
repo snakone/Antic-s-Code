@@ -11,7 +11,8 @@ import {
   ErrorService,
   ThemeService,
   SearchService,
-  InteractionService
+  InteractionService,
+  PushService
   } from './services.index';
 
 @NgModule({
@@ -28,7 +29,8 @@ import {
     ErrorService,
     ThemeService,
     SearchService,
-    InteractionService
+    InteractionService,
+    PushService
   ]
 })
 
