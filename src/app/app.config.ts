@@ -13,7 +13,7 @@ const DEV = 'http://localhost:3000/';
 const PRE = 'http://192.168.1.97:3000/';
 const PROD = 'https://antics-code.herokuapp.com/';
 export const URI = 'https://anticscode.netlify.com';
-const APP_VERSION = '0.8.0';
+const APP_VERSION = '0.8.1';
 export const DESKTOP_VERSION = '0.4.5';
 
 export interface AppState {
@@ -32,22 +32,24 @@ export interface AppConfig {
   THEME: string;
   PLATFORM: string;
   MAINTENANCE: boolean;
+  PUSH_KEY: string
 }
 
 export const APP_CONSTANTS: AppConfig = {
   TITLE: 'Antic\'s Code',
   DEFAULT_LANGUAGE: 'es',
-  END_POINT: PROD,
+  END_POINT: DEV,
   APP_VERSION,
   DISQUS: 'antics-code',
   THEME: 'default',
   PLATFORM: 'Angular',
-  MAINTENANCE: false
+  MAINTENANCE: true,
+  PUSH_KEY: 'BBLiOnKY2ZADekUk2DjlEUXM42nFWIMzJIQ98js1iMnvj8H4qcGIxKKVaKmR0GKAHYyRUMobzkXnVK-w1qhvmFc'
 };
 
 export const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
-  slidesPerView: 1,
+  slidesPerView: 1
 };
 
 export let APP_CONFIG = new InjectionToken<AppConfig>('app.config');

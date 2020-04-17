@@ -9,7 +9,7 @@ import { takeUntil, distinctUntilChanged } from 'rxjs/operators';
 import * as ArticleActions from '@core/ngrx/actions/article.actions';
 import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 import * as UserActions from '@core/ngrx/actions/user.actions';
-import { UserService } from '@app/core/services/services.index';
+import { UserService } from '@app/core/services/user/user.service';
 
 @Component({
   selector: 'app-single-article',

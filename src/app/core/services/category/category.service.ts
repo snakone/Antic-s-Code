@@ -5,7 +5,9 @@ import { Observable } from 'rxjs';
 import { CategoryResponse } from '@app/shared/interfaces/interfaces';
 import { environment } from '@env/environment';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 
 export class CategoryService {
 

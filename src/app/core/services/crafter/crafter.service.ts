@@ -7,7 +7,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { environment } from '@env/environment';
 import { DialogData } from '@app/shared/interfaces/interfaces';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 
 export class CrafterService {
 

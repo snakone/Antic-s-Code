@@ -8,6 +8,7 @@ import { TIME_LINE } from '@shared/shared.data';
   templateUrl: './time-line.component.html',
   styleUrls: ['./time-line.component.scss']
 })
+
 export class TimeLineComponent implements OnInit {
 
   constructor() { }

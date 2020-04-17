@@ -1,6 +1,5 @@
 import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { LoginService, UserService, CrafterService } from '@app/core/services/services.index';
 import { UserResponse } from '@app/shared/interfaces/interfaces';
 import { HttpErrorResponse } from '@angular/common/http';
 import { StorageService } from '@app/core/storage/storage.service';
@@ -12,6 +11,10 @@ import * as fromUsers from '@core/ngrx/selectors/user.selectors';
 import { Subject, Observable, of } from 'rxjs';
 import { takeUntil, switchMap } from 'rxjs/operators';
 import { LoginComponent } from '../login.component';
+import { LoginService } from '@app/core/services/login/login.service';
+import { UserService } from '@app/core/services/user/user.service';
+import { CrafterService } from '@app/core/services/crafter/crafter.service';
+import { PushService } from '@app/core/services/push/push.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -32,7 +35,8 @@ export class SignInComponent implements OnInit, OnDestroy {
               private store: Store<AppState>,
               private userService: UserService,
               private crafter: CrafterService,
-              public dialogRef: MatDialogRef<LoginComponent>) { }
+              public dialogRef: MatDialogRef<LoginComponent>,
+              private sw: PushService) { }
 
   ngOnInit() {
     this.createSignInForm();
@@ -101,6 +105,7 @@ export class SignInComponent implements OnInit, OnDestroy {
     this.ls.setKey('token', data.token);
     this.ls.setKey('user', data.user._id);
     this.ls.setKey('remember', this.remember);
+    this.sw.showPrompt();
     this.crafter.toaster(data.user.name, 'welcome', 'info');
   }
 

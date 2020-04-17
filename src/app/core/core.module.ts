@@ -17,7 +17,6 @@ import { JwtInterceptor } from './services/http/jwt.interceptor';
 
 import { StorageModule } from './storage/storage.module';
 import { NgxWebstorageModule } from 'ngx-webstorage';
-import { ServicesModule } from './services/services.module';
 import { DISQUS_SHORTNAME } from 'ngx-disqus';
 
 import { EffectsModule } from '@ngrx/effects';
@@ -33,15 +32,16 @@ import { ToastrModule } from 'ngx-toastr';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { NgMarkdownModule } from './markdown/markdown.module';
+import { DeviceDetectorModule } from 'ngx-device-detector';
 
 @NgModule({
   imports: [
     CommonModule,
     StorageModule,
-    ServicesModule,
     LoadingBarModule,
     NgMarkdownModule,
     LoadingBarHttpClientModule,
+    DeviceDetectorModule.forRoot(),
     NgxWebstorageModule.forRoot(CORE_MODULE_CONSTANTS.WEBSTORAGE_CONFIG),
     StoreModule.forFeature('AppState', reducers),
     EffectsModule.forRoot([

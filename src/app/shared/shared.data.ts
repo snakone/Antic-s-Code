@@ -7,7 +7,8 @@ import {
   TimeLine,
   Index,
   CarouselSlide,
-  DownloadButton
+  DownloadButton,
+  NotificationPayload
 } from './interfaces/interfaces';
 
 import { AosOptions } from 'aos';
@@ -611,6 +612,15 @@ export const DOWNLOAD_BUTTONS: DownloadButton[] = [
     link: DOWNLOAD_URI.linux
   }
 ];
+
+export const WELCOME_PUSH: NotificationPayload = {
+  body: 'Bienvenido/a',
+  requireInteraction: false,
+  actions: [
+    { action: 'explore', title: 'Gracias por visitarnos' }
+  ],
+  broadcast: false
+};
 
 
 

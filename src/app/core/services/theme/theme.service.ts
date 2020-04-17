@@ -2,7 +2,9 @@ import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
 import { StorageService } from '@app/core/storage/storage.service';
 import { environment } from '@env/environment';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 
 export class ThemeService {
 

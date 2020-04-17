@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LANGUAGES, THEMES } from '@shared/shared.data';
 import { StorageService } from '@app/core/storage/storage.service';
-import { CrafterService, ThemeService } from '@app/core/services/services.index';
 import { LanguageService } from '@core/language/services/language.service';
+import { ThemeService } from '@app/core/services/theme/theme.service';
+import { CrafterService } from '@app/core/services/crafter/crafter.service';
 
 @Component({
   selector: 'app-settings-box',

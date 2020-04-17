@@ -67,6 +67,9 @@ export interface CategoryCountResponse extends ServerResponse {
   count?: object;
 }
 
+// tslint:disable-next-line:no-empty-interface
+export interface SWResponse extends ServerResponse {}
+
 export interface User {
   _id?: string;
   name: string;
@@ -106,6 +109,7 @@ export interface DialogData {
   register?: boolean;
   author?: string;
   type?: string;
+  cause?: string;
 }
 
 export interface SearchRequest {
@@ -234,4 +238,26 @@ export class CustomError {
     this.author = author;
     this.platform = platform;
   }
+}
+
+export interface NotificationPayload {
+  title?: string;
+  body: string;
+  icon?: string;
+  vibrate?: number[];
+  requireInteraction?: boolean;
+  data?: NotificationData;
+  actions: NotificationAction[];
+  user?: string;
+  broadcast?: boolean;
+}
+
+interface NotificationData {
+  url: string;
+  data?: any;
+}
+
+interface NotificationAction {
+  action: string;
+  title: string;
 }

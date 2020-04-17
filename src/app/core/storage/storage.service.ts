@@ -3,7 +3,9 @@ import { STORAGE_CONSTANTS, Storage } from './storage.config';
 import { LocalStorage } from 'ngx-webstorage';
 import { environment } from '@env/environment';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 
 export class StorageService {
 

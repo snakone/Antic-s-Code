@@ -6,7 +6,9 @@ import { StorageService } from '@app/core/storage/storage.service';
 import { environment } from '@env/environment';
 import { HttpErrorResponse } from '@angular/common/http';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 
 export class ErrorService {
 

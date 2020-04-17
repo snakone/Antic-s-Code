@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { CrafterService } from '@app/core/services/services.index';
 import { LoginComponent } from '@app/shared/components/login/login.component';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogData } from '@app/shared/interfaces/interfaces';
+import { CrafterService } from '@app/core/services/crafter/crafter.service';
 
 @Component({
   selector: 'app-no-account',

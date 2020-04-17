@@ -1,14 +1,14 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { AppState, APP_CONSTANTS } from './app.config';
 import { Store } from '@ngrx/store';
 
 import * as UserActions from '@core/ngrx/actions/user.actions';
-import { StorageService } from './core/storage/storage.service';
+import { StorageService } from '@core/storage/storage.service';
 import { LanguageSnackComponent } from '@layout/snackbars/language-snack/language-snack.component';
-import { ThemeService, CrafterService } from './core/services/services.index';
-import { SwUpdate } from '@angular/service-worker';
-import { MaintenanceComponent } from './shared/components/layout/dialogs/maintenance/maintenance.component';
+import { MaintenanceComponent } from '@layout/dialogs/maintenance/maintenance.component';
+import { CrafterService } from '@core/services/crafter/crafter.service';
+import { ThemeService } from '@core/services/theme/theme.service';
+import { PushService } from '@core/services/push/push.service';
 
 @Component({
   selector: 'app-root',
@@ -20,12 +20,11 @@ export class AppComponent implements OnInit {
 
   loaded = false;
 
-  constructor(@Inject(DOCUMENT) private document: Document,
-              private ls: StorageService,
+  constructor(private ls: StorageService,
               private crafter: CrafterService,
               private theme: ThemeService,
               private store: Store<AppState>,
-              private sw: SwUpdate) { }
+              private sw: PushService) { }
 
   ngOnInit() {
     this.checkUserToken();
@@ -56,13 +55,8 @@ export class AppComponent implements OnInit {
   }
 
   private serviceWorker(): void {
-    this.sw.available
-      .subscribe(event => {
-        if (event) {
-          this.sw.activateUpdate()
-          .then(() => this.document.location.reload());
-        }
-    });
+    this.sw.updateSW();
+    this.sw.showPrompt();
   }
 
   private onLoad(): void {
@@ -77,7 +71,7 @@ export class AppComponent implements OnInit {
 
   private sorryMaintenance(): void {
     setTimeout(() => {
-      this.crafter.dialog(MaintenanceComponent);
+      this.crafter.dialog(MaintenanceComponent, { cause: 'Push Notifications'});
     }, 4000);
   }
 

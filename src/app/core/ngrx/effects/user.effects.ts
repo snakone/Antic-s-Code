@@ -4,8 +4,9 @@ import { Actions, ofType, createEffect } from '@ngrx/effects';
 
 import * as UserActions from '../actions/user.actions';
 import { map, concatMap, catchError } from 'rxjs/operators';
-import { UserService, InteractionService } from '../../services/services.index';
 import { StorageService } from '@app/core/storage/storage.service';
+import { UserService } from '@app/core/services/user/user.service';
+import { InteractionService } from '@app/core/services/interaction/interaction.service';
 
 @Injectable()
 

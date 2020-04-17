@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { User } from '@app/shared/interfaces/interfaces';
 import * as fromUser from '@core/ngrx/selectors/user.selectors';
-import { CrafterService } from '@core/services/services.index';
+import { CrafterService } from '@app/core/services/crafter/crafter.service';
 
 @Component({
   selector: 'app-navbar',

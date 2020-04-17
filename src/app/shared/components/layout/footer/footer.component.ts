@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FOOTER_LIST } from '@app/shared/shared.data';
 import { LoginComponent } from '../../login/login.component';
-import { CrafterService } from '@app/core/services/services.index';
 import { Router } from '@angular/router';
+import { CrafterService } from '@app/core/services/crafter/crafter.service';
 
 @Component({
   selector: 'app-footer',

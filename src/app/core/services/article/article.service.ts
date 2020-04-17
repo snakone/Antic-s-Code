@@ -10,7 +10,9 @@ import {
   CategoryCountResponse,
 } from '@shared/interfaces/interfaces';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 
 export class ArticleService {
 
