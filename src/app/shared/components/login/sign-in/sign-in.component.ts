@@ -90,9 +90,12 @@ export class SignInComponent implements OnInit, OnDestroy {
               this.remember = true;
             }
             return email ? of({ok: false}) : this.userService.getUserById(id);
-          })).subscribe((res: UserResponse) => {
+          })
+          ).subscribe((res: UserResponse) => {
             if (res.ok) {
-              this.store.dispatch(UserActions.setUserEmail({ email: res.user.email }));
+              this.store.dispatch(
+                UserActions.setUserEmail({ email: res.user.email })
+              );
           }
       });
     }

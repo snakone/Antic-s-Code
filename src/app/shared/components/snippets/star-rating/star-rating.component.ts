@@ -27,7 +27,7 @@ export class StarRatingComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.user = this.userService.getUser();
-   }
+  }
 
   doStar(s: number): void {
     if (!this.user) {

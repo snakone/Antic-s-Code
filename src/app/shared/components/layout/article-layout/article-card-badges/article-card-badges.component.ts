@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-article-card-badges',
@@ -6,12 +6,10 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./article-card-badges.component.scss']
 })
 
-export class ArticleCardBadgesComponent implements OnInit {
+export class ArticleCardBadgesComponent {
 
   @Input() badges: string[];
 
   constructor() { }
-
-  ngOnInit() { }
 
 }

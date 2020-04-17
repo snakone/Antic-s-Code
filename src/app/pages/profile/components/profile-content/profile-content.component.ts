@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { User } from '@app/shared/interfaces/interfaces';
 
 @Component({
@@ -7,12 +7,10 @@ import { User } from '@app/shared/interfaces/interfaces';
   styleUrls: ['./profile-content.component.scss']
 })
 
-export class ProfileContentComponent implements OnInit {
+export class ProfileContentComponent {
 
   @Input() user: User;
 
   constructor() { }
-
-  ngOnInit() { }
 
 }

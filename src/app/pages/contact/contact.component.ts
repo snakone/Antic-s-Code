@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-contact',
@@ -6,10 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact.component.scss']
 })
 
-export class ContactComponent implements OnInit {
+export class ContactComponent {
 
   constructor() { }
-
-  ngOnInit(): void { }
 
 }

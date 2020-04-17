@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-collaborate',
@@ -6,10 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./collaborate.component.scss']
 })
 
-export class CollaborateComponent implements OnInit {
+export class CollaborateComponent {
 
   constructor() { }
-
-  ngOnInit(): void { }
 
 }

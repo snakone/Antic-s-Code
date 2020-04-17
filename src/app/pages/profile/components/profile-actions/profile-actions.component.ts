@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { User, UserResponse } from '@app/shared/interfaces/interfaces';
 import { CrafterService } from '@core/services/crafter/crafter.service';
@@ -15,7 +15,7 @@ import { UserService } from '@app/core/services/user/user.service';
   styleUrls: ['./profile-actions.component.scss']
 })
 
-export class ProfileActionsComponent implements OnInit, OnDestroy {
+export class ProfileActionsComponent implements OnDestroy {
 
   @Input() user: User;
   private unsubscribe$ = new Subject<void>();
@@ -24,8 +24,6 @@ export class ProfileActionsComponent implements OnInit, OnDestroy {
               private router: Router,
               private crafter: CrafterService,
               private ls: StorageService) { }
-
-  ngOnInit() { }
 
   delete(): void {
     this.crafter.dialog(DeleteAccountComponent).afterClosed()

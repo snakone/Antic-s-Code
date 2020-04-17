@@ -29,17 +29,18 @@ export class SettingsBoxComponent implements OnInit {
   }
 
   private createSettingsForm(): void {
-    this.settingsForm = new FormGroup({
-              language: new FormControl(this.ls.get('lang'), [Validators.required]),
-                 theme: new FormControl(this.ls.get('theme'), [Validators.required]),
-    });
+    this.settingsForm = new FormGroup(
+      {
+        language: new FormControl(this.ls.get('lang'), [Validators.required]),
+        theme: new FormControl(this.ls.get('theme'), [Validators.required])
+      }
+    );
   }
 
   onSubmit(): void {
     if (this.settingsForm.invalid) { return; }
 
-    const lang = this.settingsForm.value.language;
-    const theme = this.settingsForm.value.theme;
+    const {lang, theme} = this.settingsForm.value;
 
     this.theme.remove(this.ls.get('theme'));
     this.theme.set(theme);

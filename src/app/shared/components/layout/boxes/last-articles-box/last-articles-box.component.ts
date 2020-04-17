@@ -12,6 +12,7 @@ import * as ArticleActions from '@core/ngrx/actions/article.actions';
   templateUrl: './last-articles-box.component.html',
   styleUrls: ['./last-articles-box.component.scss']
 })
+
 export class LastArticlesBoxComponent implements OnInit {
 
   articles$: Observable<Article[]>;

@@ -1,5 +1,5 @@
 import { Directive, ElementRef, OnDestroy, Renderer2, AfterViewInit } from '@angular/core';
-import { takeUntil, distinctUntilChanged } from 'rxjs/operators';
+import { takeUntil, distinctUntilChanged, debounceTime } from 'rxjs/operators';
 import { fromEvent, Subject } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -23,6 +23,7 @@ export class NavbarDirective implements AfterViewInit, OnDestroy {
     fromEvent(window, 'scroll')
       .pipe(
         takeUntil(this.unsubscribe$),
+        debounceTime(100),
         distinctUntilChanged()
       )
       .subscribe(() => this.onScroll());

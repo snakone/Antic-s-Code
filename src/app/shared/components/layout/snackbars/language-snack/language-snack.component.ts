@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatSnackBarRef } from '@angular/material/snack-bar';
 import { LanguageService } from '@app/core/language/services/language.service';
 import { StorageService } from '@app/core/storage/storage.service';
@@ -8,13 +8,12 @@ import { StorageService } from '@app/core/storage/storage.service';
   templateUrl: './language-snack.component.html',
   styleUrls: ['./language-snack.component.scss']
 })
-export class LanguageSnackComponent implements OnInit {
+
+export class LanguageSnackComponent {
 
   constructor(private lang: LanguageService,
               private ls: StorageService,
               public snackbar: MatSnackBarRef<LanguageSnackComponent>) { }
-
-  ngOnInit() { }
 
   closeSnackBar(): void {
     this.snackbar.dismiss();
@@ -23,7 +22,7 @@ export class LanguageSnackComponent implements OnInit {
   setLanguage(value?: string): void {
     this.ls.setKey('user_lang', true);
     if (value) {
-      this.lang.change('en');
+      this.lang.change(value);
       this.ls.setKey('lang', value);
     }
     this.closeSnackBar();

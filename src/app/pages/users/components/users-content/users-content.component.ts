@@ -13,6 +13,7 @@ import { PaginationService } from 'ngx-pagination';
   templateUrl: './users-content.component.html',
   styleUrls: ['./users-content.component.scss']
 })
+
 export class UsersContentComponent implements OnInit, OnDestroy {
 
   private unsubscribe$ = new Subject<void>();

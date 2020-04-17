@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-conditions',
@@ -6,13 +6,11 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./conditions.component.scss']
 })
 
-export class ConditionsComponent implements OnInit {
+export class ConditionsComponent {
 
   @Output() close = new EventEmitter<boolean>();
 
   constructor() { }
-
-  ngOnInit() { }
 
   closeConditions(): void {
     this.close.emit(true);

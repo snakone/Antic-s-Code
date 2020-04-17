@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-disqus',
@@ -6,12 +6,10 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./disqus.component.scss']
 })
 
-export class DisqusComponent implements OnInit {
+export class DisqusComponent {
 
   @Input() identifier: string;
 
   constructor() { }
-
-  ngOnInit() { }
 
 }

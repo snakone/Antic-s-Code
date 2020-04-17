@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Category } from '@app/shared/interfaces/interfaces';
 
 @Component({
@@ -7,12 +7,10 @@ import { Category } from '@app/shared/interfaces/interfaces';
   styleUrls: ['./single-category-header-left.component.scss']
 })
 
-export class SingleCategoryHeaderLeftComponent implements OnInit {
+export class SingleCategoryHeaderLeftComponent {
 
   @Input() category: Category;
 
   constructor() { }
-
-  ngOnInit() { }
 
 }

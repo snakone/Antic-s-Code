@@ -21,7 +21,7 @@ export class SearchSortBarComponent implements OnInit {
 
   ngOnInit() {
     this.count$ = this.store.select(fromSearch.getResultCount);
-   }
+  }
 
   sort(): void {
     this.active = !this.active;
@@ -29,7 +29,9 @@ export class SearchSortBarComponent implements OnInit {
   }
 
   reset(): void {
-    this.store.dispatch(SearchActions.searchContent({request: {value: ''} }));
+    this.store.dispatch(
+      SearchActions.searchContent({request: {value: ''} })
+    );
   }
 
 }

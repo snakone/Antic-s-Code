@@ -32,7 +32,9 @@ export class CategoryGridComponent implements OnInit, OnDestroy {
      .pipe(takeUntil(this.unsubscribe$))
      .subscribe((res: boolean) => {
        if (!res) {
-         this.store.dispatch(ArticleActions.getArticlesByCategoryCount());
+         this.store.dispatch(
+           ArticleActions.getArticlesByCategoryCount()
+        );
        }
     });
   }

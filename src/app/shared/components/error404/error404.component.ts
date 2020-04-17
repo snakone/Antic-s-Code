@@ -22,7 +22,7 @@ export class Error404Component implements OnInit, OnDestroy {
      .subscribe(params => {
         if (!params.error) { this.goHome(); }
       });
-   }
+  }
 
   goHome(): void {
     this.router.navigateByUrl('/home');

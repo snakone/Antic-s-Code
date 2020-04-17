@@ -13,8 +13,8 @@ const DEV = 'http://localhost:3000/';
 const PRE = 'http://192.168.1.97:3000/';
 const PROD = 'https://antics-code.herokuapp.com/';
 export const URI = 'https://anticscode.netlify.com';
-const APP_VERSION = '0.8.1';
-export const DESKTOP_VERSION = '0.4.5';
+const APP_VERSION = '0.8.2';
+export const DESKTOP_VERSION = '0.5.0';
 
 export interface AppState {
   articles: fromArticles.ArticleState;
@@ -38,12 +38,12 @@ export interface AppConfig {
 export const APP_CONSTANTS: AppConfig = {
   TITLE: 'Antic\'s Code',
   DEFAULT_LANGUAGE: 'es',
-  END_POINT: DEV,
+  END_POINT: PROD,
   APP_VERSION,
   DISQUS: 'antics-code',
   THEME: 'default',
   PLATFORM: 'Angular',
-  MAINTENANCE: true,
+  MAINTENANCE: false,
   PUSH_KEY: 'BBLiOnKY2ZADekUk2DjlEUXM42nFWIMzJIQ98js1iMnvj8H4qcGIxKKVaKmR0GKAHYyRUMobzkXnVK-w1qhvmFc'
 };
 

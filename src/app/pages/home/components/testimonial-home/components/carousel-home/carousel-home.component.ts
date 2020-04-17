@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TESTIMONIALS } from '@shared/shared.data';
 
 @Component({
@@ -7,12 +7,10 @@ import { TESTIMONIALS } from '@shared/shared.data';
   styleUrls: ['./carousel-home.component.scss']
 })
 
-export class CarouselHomeComponent implements OnInit {
+export class CarouselHomeComponent {
 
   testimonials = TESTIMONIALS;
 
   constructor() { }
-
-  ngOnInit() { }
 
 }

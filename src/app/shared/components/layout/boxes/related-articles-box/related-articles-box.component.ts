@@ -8,7 +8,6 @@ import { AppState } from '@app/app.config';
 import { Router } from '@angular/router';
 import * as SearchActions from '@core/ngrx/actions/search.actions';
 
-
 @Component({
   selector: 'app-related-articles-box',
   templateUrl: './related-articles-box.component.html',
@@ -41,7 +40,11 @@ export class RelatedArticlesBoxComponent implements OnInit, OnDestroy {
 
   seeMore(): void {
     this.store.dispatch(SearchActions
-      .searchContent({ request: { value: this.category.category.toLowerCase() } }));
+      .searchContent({
+        request: {
+          value: this.category.category.toLowerCase()
+        }
+      }));
     this.router.navigateByUrl('/search');
   }
 

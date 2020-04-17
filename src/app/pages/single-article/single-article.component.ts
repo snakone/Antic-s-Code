@@ -5,11 +5,11 @@ import { AppState } from '@app/app.config';
 import { Article } from '@app/shared/interfaces/interfaces';
 import { Subject } from 'rxjs';
 import { takeUntil, distinctUntilChanged } from 'rxjs/operators';
+import { UserService } from '@app/core/services/user/user.service';
 
 import * as ArticleActions from '@core/ngrx/actions/article.actions';
 import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 import * as UserActions from '@core/ngrx/actions/user.actions';
-import { UserService } from '@app/core/services/user/user.service';
 
 @Component({
   selector: 'app-single-article',
@@ -36,7 +36,9 @@ export class SingleArticleComponent implements OnInit, OnDestroy {
     this.route.params
      .pipe(takeUntil(this.unsubscribe$))
       .subscribe(params => {
-        this.store.dispatch(ArticleActions.getArticleBySlug({ slug: params.slug }));
+        this.store.dispatch(
+          ArticleActions.getArticleBySlug({ slug: params.slug })
+        );
     });
 
     this.store.select(fromArticles.getArticleBySlug)
@@ -61,7 +63,7 @@ export class SingleArticleComponent implements OnInit, OnDestroy {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
     this.store.dispatch(ArticleActions.resetSlug());
-    // this.store.dispatch(UserActions.resetInteraction());
+    this.store.dispatch(UserActions.resetInteraction());
   }
 
 }

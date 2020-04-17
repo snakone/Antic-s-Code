@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Index } from '@app/shared/interfaces/interfaces';
 
 @Component({
@@ -7,13 +7,11 @@ import { Index } from '@app/shared/interfaces/interfaces';
   styleUrls: ['./article-index-box.component.scss']
 })
 
-export class ArticleIndexBoxComponent implements OnInit {
+export class ArticleIndexBoxComponent {
 
   @Input() index: Index;
   @Input() mobile: boolean;
 
   constructor() { }
-
-  ngOnInit() { }
 
 }

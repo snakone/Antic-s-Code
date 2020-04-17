@@ -39,7 +39,9 @@ export class SearchResultComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((res: boolean) => {
         if (!res) {
-          this.store.dispatch(SearchActions.searchContent({request: {value: ''} }));
+          this.store.dispatch(
+            SearchActions.searchContent({request: {value: ''} })
+          );
         }
     });
   }

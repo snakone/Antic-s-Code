@@ -35,7 +35,7 @@ export class EditProfileComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.createArticleForm();
-   }
+  }
 
   private createArticleForm(): void {
     this.editProfileForm = new FormGroup({
@@ -60,14 +60,7 @@ export class EditProfileComponent implements OnInit, OnDestroy {
     if (this.editProfileForm.invalid) { return; }
     this.user.name = this.editProfileForm.value.name;
     this.user.email = this.editProfileForm.value.email;
-    this.user.profile.rol = this.editProfileForm.value.rol;
-    this.user.profile.bio = this.editProfileForm.value.bio;
-    this.user.profile.avatar = this.editProfileForm.value.avatar;
-    this.user.profile.facebook = this.editProfileForm.value.facebook;
-    this.user.profile.twitter = this.editProfileForm.value.twitter;
-    this.user.profile.github = this.editProfileForm.value.github;
-    this.user.profile.portfolio = this.editProfileForm.value.portfolio;
-    this.user.profile.language = this.editProfileForm.value.language;
+    this.user.profile = this.editProfileForm.value;
     this.editUser(this.user);
   }
 
