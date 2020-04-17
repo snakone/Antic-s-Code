@@ -9,7 +9,9 @@ import * as UserActions from '@core/ngrx/actions/user.actions';
 import { map } from 'rxjs/operators';
 import { environment } from '@env/environment';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 
 export class UserService {
 

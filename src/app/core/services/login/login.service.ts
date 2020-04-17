@@ -5,7 +5,9 @@ import { User, UserResponse } from '@app/shared/interfaces/interfaces';
 import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 
 export class LoginService {
 

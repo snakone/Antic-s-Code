@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { UserService } from '@app/core/services/services.index';
 import { Router } from '@angular/router';
 import { User, UserResponse } from '@app/shared/interfaces/interfaces';
 import { CrafterService } from '@core/services/crafter/crafter.service';
@@ -8,6 +7,7 @@ import { DeleteAccountComponent } from '@layout/dialogs/delete-account/delete-ac
 import { takeUntil, switchMap } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
 import { StorageService } from '@core/storage/storage.service';
+import { UserService } from '@app/core/services/user/user.service';
 
 @Component({
   selector: 'app-profile-actions',

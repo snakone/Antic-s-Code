@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
+import { DEFAULT_SWIPER_CONFIG } from '@app/app.config';
 
 @Component({
   selector: 'app-carousel',
@@ -10,7 +10,7 @@ export class CarouselComponent implements OnInit {
 
   @Input() array: any[];
   index = 0;
-  config = SWIPER_CONFIG;
+  config = DEFAULT_SWIPER_CONFIG;
 
   constructor() { }
 

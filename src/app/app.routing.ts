@@ -4,13 +4,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { Error404Component } from './shared/components/error404/error404.component';
 import { UserGuard } from './core/guards/user.guard';
 import { ErrorGuard } from './core/guards/error.guard';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.module')
-                        .then(mod => mod.HomeModule), data: {name: 'Home'}
+    component: HomeComponent,
+    data: { name: 'Home' }
   },
   {
     path: 'categories',

@@ -4,7 +4,9 @@ import { Observable } from 'rxjs';
 import { StorageService } from '@app/core/storage/storage.service';
 import { environment } from '@env/environment';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 
 export class HttpService {
 

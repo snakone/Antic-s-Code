@@ -2,14 +2,18 @@ import { Injectable, Inject } from '@angular/core';
 import { APP_CONSTANTS } from '@app/app.config';
 import { HttpService } from '../http/http.service';
 import { environment } from '@env/environment';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { StorageService } from '@core/storage/storage.service';
 import { SwUpdate, SwPush } from '@angular/service-worker';
 import { DOCUMENT } from '@angular/common';
-import { NotificationPayload } from '@app/shared/interfaces/interfaces';
-import { WELCOME } from '@app/shared/shared.data';
+import { NotificationPayload, SWResponse } from '@app/shared/interfaces/interfaces';
+import { WELCOME_PUSH } from '@app/shared/shared.data';
+import { switchMap } from 'rxjs/operators';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 
 export class PushService {
 
@@ -21,7 +25,8 @@ export class PushService {
               private http: HttpService,
               private ls: StorageService,
               private swUpdate: SwUpdate,
-              private swPush: SwPush) {
+              private swPush: SwPush,
+              private deviceDetector: DeviceDetectorService) {
     if (!environment.production) { console.log('NotificationService'); }
   }
 
@@ -36,15 +41,23 @@ export class PushService {
   }
 
   public showPrompt(): void {
-    if (this.ls.get('user') && !this.ls.get('welcome')) {
+    if (this.ls.get('user')) {
       setTimeout(() => {
         this.swPush.requestSubscription({
           serverPublicKey: this.pushKey
         }).then((sub: PushSubscription) => {
           if (sub) {
-            this.saveSubscription(sub).subscribe();
-            this.sendUserNotification(WELCOME).subscribe();
-            this.ls.setKey('welcome', true);
+            this.saveSubscription(sub)
+             .pipe(switchMap((res: SWResponse) =>
+               res.ok && !this.ls.get('welcome') ?
+               this.sendNotification(WELCOME_PUSH) :
+               of({ok: false})
+             ))
+             .subscribe((res: SWResponse) => {
+               if (res.ok) {
+                this.ls.setKey('welcome', true);
+               }
+             });
           }
         })
         .catch(err => console.error(err));
@@ -52,46 +65,16 @@ export class PushService {
     }
   }
 
-  public saveSubscription(
-    sub: PushSubscription
-    ): Observable<any> {
-    return this.http.post(
-      this.API_SUBSCRIPTION,
-      { sub, user: this.ls.get('user')}
-    );
+  public saveSubscription(sub: PushSubscription): Observable<SWResponse> {
+    return this.http.post(this.API_SUBSCRIPTION, { sub, device: this.setDevice() });
   }
 
-  public sendUserNotification(
-    payload: NotificationPayload
-    ): Observable<any> {
-    return this.http.post(
-      this.API_NOTIFICATION,
-      this.setUserNotification(payload)
-    );
+  public sendNotification(payload: NotificationPayload): Observable<SWResponse> {
+    return this.http.post(this.API_NOTIFICATION, { payload, device: this.setDevice() });
   }
 
-  public sendBroadCastNotification(
-    payload: NotificationPayload
-    ): Observable<any> {
-    return this.http.post(
-      this.API_NOTIFICATION,
-      this.setBroadCastNotification(payload)
-    );
-  }
-
-  private setUserNotification(
-    notification: NotificationPayload
-    ): NotificationPayload {
-    notification.broadcast = false;
-    notification.user = this.ls.get('user');
-    return notification;
-  }
-
-  private setBroadCastNotification(
-    notification: NotificationPayload
-    ): NotificationPayload {
-    notification.broadcast = true;
-    return notification;
+  private setDevice(): string {
+    return this.deviceDetector.isDesktop() ? 'Desktop' : 'Mobile';
   }
 
 }

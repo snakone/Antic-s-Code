@@ -5,8 +5,10 @@ import { Store } from '@ngrx/store';
 import * as UserActions from '@core/ngrx/actions/user.actions';
 import { StorageService } from '@core/storage/storage.service';
 import { LanguageSnackComponent } from '@layout/snackbars/language-snack/language-snack.component';
-import { ThemeService, CrafterService, PushService } from '@core/services/services.index';
 import { MaintenanceComponent } from '@layout/dialogs/maintenance/maintenance.component';
+import { CrafterService } from '@core/services/crafter/crafter.service';
+import { ThemeService } from '@core/services/theme/theme.service';
+import { PushService } from '@core/services/push/push.service';
 
 @Component({
   selector: 'app-root',
@@ -69,7 +71,7 @@ export class AppComponent implements OnInit {
 
   private sorryMaintenance(): void {
     setTimeout(() => {
-      this.crafter.dialog(MaintenanceComponent);
+      this.crafter.dialog(MaintenanceComponent, { cause: 'Push Notifications'});
     }, 4000);
   }
 

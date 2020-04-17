@@ -2,7 +2,6 @@ import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/cor
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User, UserResponse } from '@app/shared/interfaces/interfaces';
 import { HttpErrorResponse } from '@angular/common/http';
-import { LoginService, CrafterService, PushService } from '@app/core/services/services.index';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -12,6 +11,9 @@ import { AppState } from '@app/app.config';
 import * as UserActions from '@core/ngrx/actions/user.actions';
 import { StorageService } from '@app/core/storage/storage.service';
 import { Router } from '@angular/router';
+import { LoginService } from '@app/core/services/login/login.service';
+import { CrafterService } from '@app/core/services/crafter/crafter.service';
+import { PushService } from '@app/core/services/push/push.service';
 
 @Component({
   selector: 'app-sign-up',

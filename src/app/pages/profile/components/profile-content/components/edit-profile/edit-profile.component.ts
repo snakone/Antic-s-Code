@@ -2,7 +2,6 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { User } from '@app/shared/interfaces/interfaces';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ROLES, PROFILE_LANGS } from '@app/shared/shared.data';
-import { UserService, CrafterService } from '@app/core/services/services.index';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { UserResponse } from '@shared/interfaces/interfaces';
@@ -11,6 +10,8 @@ import * as UserActions from '@core/ngrx/actions/user.actions';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
 import { HttpErrorResponse } from '@angular/common/http';
+import { UserService } from '@app/core/services/user/user.service';
+import { CrafterService } from '@app/core/services/crafter/crafter.service';
 
 @Component({
   selector: 'app-edit-profile',

@@ -5,7 +5,9 @@ import { Observable } from 'rxjs';
 import { SearchResponse, SearchRequest } from '@app/shared/interfaces/interfaces';
 import { environment } from '@env/environment';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 
 export class SearchService {
 

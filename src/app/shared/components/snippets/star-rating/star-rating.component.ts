@@ -3,8 +3,10 @@ import { Article, User, Interaction, InteractionResponse } from '@app/shared/int
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { NoAccountComponent } from '@layout/dialogs/no-account/no-account.component';
-import { CrafterService, InteractionService, UserService } from '@app/core/services/services.index';
 import { HttpErrorResponse } from '@angular/common/http';
+import { UserService } from '@app/core/services/user/user.service';
+import { CrafterService } from '@app/core/services/crafter/crafter.service';
+import { InteractionService } from '@app/core/services/interaction/interaction.service';
 
 @Component({
   selector: 'app-star-rating',

@@ -67,6 +67,9 @@ export interface CategoryCountResponse extends ServerResponse {
   count?: object;
 }
 
+// tslint:disable-next-line:no-empty-interface
+export interface SWResponse extends ServerResponse {}
+
 export interface User {
   _id?: string;
   name: string;
@@ -106,6 +109,7 @@ export interface DialogData {
   register?: boolean;
   author?: string;
   type?: string;
+  cause?: string;
 }
 
 export interface SearchRequest {

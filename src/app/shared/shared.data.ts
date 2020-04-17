@@ -613,12 +613,13 @@ export const DOWNLOAD_BUTTONS: DownloadButton[] = [
   }
 ];
 
-export const WELCOME: NotificationPayload = {
+export const WELCOME_PUSH: NotificationPayload = {
   body: 'Bienvenido/a',
   requireInteraction: false,
   actions: [
     { action: 'explore', title: 'Gracias por visitarnos' }
-  ]
+  ],
+  broadcast: false
 };
 
 

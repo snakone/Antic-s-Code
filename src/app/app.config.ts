@@ -49,7 +49,7 @@ export const APP_CONSTANTS: AppConfig = {
 
 export const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
-  slidesPerView: 1,
+  slidesPerView: 1
 };
 
 export let APP_CONFIG = new InjectionToken<AppConfig>('app.config');

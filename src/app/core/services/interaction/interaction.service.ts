@@ -5,7 +5,9 @@ import { Interaction, InteractionResponse } from '@app/shared/interfaces/interfa
 import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 
 export class InteractionService {
 
