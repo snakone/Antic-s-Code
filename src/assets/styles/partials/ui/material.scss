@@ -48,5 +48,8 @@ mat-option.all {
   transform: translateY(15%) !important;
 }
 
-.mat-snack-bar-handset { width: auto !important }
+.mat-snack-bar-handset {
+  width: auto !important;
+  max-width: 93vw !important;
+}
 

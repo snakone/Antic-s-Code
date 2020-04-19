@@ -27,19 +27,19 @@ export class ErrorService {
   private manageError(err: Error | HttpErrorResponse): CustomError {
     if (err instanceof HttpErrorResponse) {
       return new CustomError(
-        err.name,
-        err.error.message,
-        err.statusText,
+        err?.name || 'Error',
+        err?.error?.message || 'Unkwon Error',
+        err?.statusText,
         this.ls.get('user') || null,
-        err.status,
-        err.url,
+        err?.status,
+        err?.url,
         APP_CONSTANTS.PLATFORM
       );
     } else {
       return new CustomError(
-        err.name,
-        err.message,
-        err.stack,
+        err?.name || 'Error',
+        err?.message || 'Unknown Error',
+        err?.stack,
         this.ls.get('user') || null,
         null,
         null,

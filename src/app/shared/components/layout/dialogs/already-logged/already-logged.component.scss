@@ -1,0 +1,16 @@
+mat-dialog-content {
+  position: relative;
+  text-align: center;
+
+  & p {
+    display: flex;
+    align-items: center;
+    line-height: .5rem;
+    margin: 0;
+
+    & mat-icon {
+      font-size: 1.5rem;
+      margin-right: 1rem;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { User, UserResponse } from '@app/shared/interfaces/interfaces';
+import { User, UserResponse, NotificationPayload } from '@app/shared/interfaces/interfaces';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 import { LoginService } from '@app/core/services/login/login.service';
 import { CrafterService } from '@app/core/services/crafter/crafter.service';
 import { PushService } from '@app/core/services/push/push.service';
+import { NEW_USER_PUSH } from '@app/shared/shared.data';
 
 @Component({
   selector: 'app-sign-up',
@@ -102,6 +103,9 @@ export class SignUpComponent implements OnInit, OnDestroy {
     this.ls.setKey('user', data.user._id);
     this.crafter.toaster(data.user.name, 'welcome', 'info');
     this.sw.showPrompt();
+    this.sw.sendNotification(
+      this.setNotification(NEW_USER_PUSH, data.user)
+      ).subscribe();
     this.router.navigateByUrl('/profile');
   }
 
@@ -116,6 +120,13 @@ export class SignUpComponent implements OnInit, OnDestroy {
                            'error');
     }
   }
+
+  private setNotification(payload: NotificationPayload,
+                          user: User): NotificationPayload {
+    payload.body = payload.body
+    .concat(`.\nBienvenido/a ${user.name}!!`);
+    return payload;
+}
 
   ngOnDestroy(): void {
     this.unsubscribe$.next();

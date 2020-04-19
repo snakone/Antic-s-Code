@@ -41,7 +41,7 @@ export class PushService {
   }
 
   public showPrompt(): void {
-    if (this.ls.get('user')) {
+    if (this.ls.get('token')) {
       setTimeout(() => {
         this.swPush.requestSubscription({
           serverPublicKey: this.pushKey

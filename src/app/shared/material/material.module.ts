@@ -13,6 +13,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { MatRadioModule } from '@angular/material/radio';
     MatDialogModule,
     MatCheckboxModule,
     MatSnackBarModule,
-    MatRadioModule
+    MatRadioModule,
+    MatBottomSheetModule
   ],
   exports: [
     MatMenuModule,
@@ -43,7 +45,8 @@ import { MatRadioModule } from '@angular/material/radio';
     MatDialogModule,
     MatCheckboxModule,
     MatSnackBarModule,
-    MatRadioModule
+    MatRadioModule,
+    MatBottomSheetModule
   ]
 })
 

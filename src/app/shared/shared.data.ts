@@ -216,7 +216,7 @@ export const ROLES: Role[] = [
 ];
 
 export const PROFILE_LANGS: string[] = [
-  'JavaScript',
+  'Javascript',
   'Python',
   'Java',
   'C++',
@@ -621,6 +621,15 @@ export const WELCOME_PUSH: NotificationPayload = {
   ],
   broadcast: false
 };
+
+export const NEW_USER_PUSH: NotificationPayload = {
+  body: 'Nuevo Usuario Registrado',
+  requireInteraction: false,
+  actions: [
+    { action: 'explore', title: 'Aceptar' }
+  ],
+  broadcast: true
+}
 
 
 

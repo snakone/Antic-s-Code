@@ -12,20 +12,19 @@
     height: var(--footer-bar-height);
     max-height: var(--footer-bar-height);
 
-    & p {
-      color: var(--p-color);
-      text-align: center;
-      @media(max-width: 325px) { font-size: .9rem }
+    & a {
+      text-decoration: none;
+      & span { font-weight: bold }
     }
-
-    & a { text-decoration: none }
 
     & mat-icon {
       position: relative;
       font-size: 1rem;
       width: auto;
       height: auto;
-      top: 2px;
+      top: 3px;
+      color: #ab0a0a;
+      font-weight: bold;
     }
 
     & img {

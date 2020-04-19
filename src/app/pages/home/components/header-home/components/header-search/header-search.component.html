@@ -27,7 +27,9 @@
       <mat-form-field class="select" color="accent">  <!-- TAGS -->
         <mat-label>{{'pick.thread' | translate}}</mat-label>
         <mat-select formControlName="tag" aria-label="Select a Tag">
-          <mat-option *ngFor="let tag of tags" [value]="tag" role="option">
+<          <mat-option *ngFor="let tag of tags"
+                       [value]="tag"
+                       role="option">
             {{tag | translate}}
           </mat-option>
           <mat-option value="" role="option">{{'all' | translate}}</mat-option>

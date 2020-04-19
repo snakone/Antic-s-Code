@@ -60,8 +60,8 @@ export class AppComponent implements OnInit {
   }
 
   private onLoad(): void {
-    this.loaded = true;
     document.getElementById('app').classList.remove('hide');
+    this.loaded = true;
     this.openLanguageSnack();
 
     if (APP_CONSTANTS.MAINTENANCE) {
@@ -71,7 +71,9 @@ export class AppComponent implements OnInit {
 
   private sorryMaintenance(): void {
     setTimeout(() => {
-      this.crafter.dialog(MaintenanceComponent, { cause: 'Push Notifications'});
+      this.crafter.dialog(
+        MaintenanceComponent, { cause: 'Push Notifications'}
+      );
     }, 4000);
   }
 

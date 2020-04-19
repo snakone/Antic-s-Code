@@ -112,6 +112,10 @@ export interface DialogData {
   cause?: string;
 }
 
+export interface SheetData {
+  message?: string;
+}
+
 export interface SearchRequest {
   value: string;
   category?: string;
