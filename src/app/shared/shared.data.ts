@@ -629,6 +629,26 @@ export const NEW_USER_PUSH: NotificationPayload = {
     { action: 'explore', title: 'Aceptar' }
   ],
   broadcast: true
+};
+
+export const LIKE_PUSH: NotificationPayload = {
+  body: 'Nuevo Like en tu Artículo',
+  requireInteraction: false,
+  actions: [
+    { action: 'explore', title: '¡Genial!' }
+  ],
+  data: {},
+  broadcast: false
+}
+
+export const STAR_PUSH: NotificationPayload = {
+  body: 'Nueva Puntuación en tu Artículo',
+  requireInteraction: false,
+  actions: [
+    { action: 'explore', title: '¡Genial!' }
+  ],
+  data: {},
+  broadcast: false
 }
 
 

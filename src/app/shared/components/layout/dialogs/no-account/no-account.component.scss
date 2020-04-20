@@ -6,26 +6,25 @@ mat-dialog-content {
   justify-content: center;
   flex-direction: column;
   position: relative;
-  padding-top: 1rem;
-  padding-bottom: 1.1rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
 
   & button {
     width: 80%;
-    margin: 2rem auto;
+    margin: 1.5rem auto;
   }
 }
 
 p {
   text-align: center;
-  padding: 0 20px;
+  margin-bottom: 0;
 }
 
 .already, .already span { font-size: .9rem }
 .bold { cursor: pointer }
 
 h3 {
-  font-size: 2rem;
-  padding: 0 10px;
+  font-size: 1.8rem;
   margin: 0;
   text-align: center;;
 

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { Article, Interaction, InteractionResponse } from '@app/shared/interfaces/interfaces';
+import { Article, Interaction, InteractionResponse, NotificationPayload } from '@app/shared/interfaces/interfaces';
 import { Store } from '@ngrx/store';
-import { AppState } from '@app/app.config';
+import { AppState, URI } from '@app/app.config';
 import * as fromUser from '@core/ngrx/selectors/user.selectors';
 import { NoAccountComponent } from '../../dialogs/no-account/no-account.component';
 import { Subject } from 'rxjs';
@@ -10,6 +10,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { CrafterService } from '@app/core/services/crafter/crafter.service';
 import { UserService } from '@app/core/services/user/user.service';
 import { InteractionService } from '@app/core/services/interaction/interaction.service';
+import { PushService } from '@app/core/services/push/push.service';
+import { LIKE_PUSH } from '@app/shared/shared.data';
 
 @Component({
   selector: 'app-article-reactions',
@@ -27,7 +29,8 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
   constructor(private crafter: CrafterService,
               private userService: UserService,
               private store: Store<AppState>,
-              private interaction: InteractionService) { }
+              private interaction: InteractionService,
+              private sw: PushService) { }
 
   ngOnInit() {
     this.getArticleLiked();
@@ -71,6 +74,12 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
         if (res.ok) {
           this.crafter.toaster('success', 'thanks.much', 'info');
           this.liked = !this.liked;
+
+          if (value === 1) {
+            this.sw.sendNotification(
+              this.setNotification(Object.assign({}, LIKE_PUSH))
+            ).subscribe();
+          }
         }
       }, (err: HttpErrorResponse) => {
         err.status === 0 ?
@@ -93,6 +102,14 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+  }
+
+  setNotification(payload: NotificationPayload): NotificationPayload {
+    payload.body = payload.body.concat(`.\n${this.article.title}`);
+    payload.data.url = `${URI}/article/${this.article.slug}`;
+    payload.user = this.article.user;
+
+    return payload;
   }
 
 }

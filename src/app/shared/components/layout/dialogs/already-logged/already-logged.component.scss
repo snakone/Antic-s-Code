@@ -5,12 +5,20 @@ mat-dialog-content {
   & p {
     display: flex;
     align-items: center;
-    line-height: .5rem;
+    justify-content: center;
     margin: 0;
 
     & mat-icon {
       font-size: 1.5rem;
       margin-right: 1rem;
     }
+  }
+
+  & .logout {
+    margin-top: .8rem;
+    text-align: center;
+     & span {
+      cursor: pointer;
+     }
   }
 }

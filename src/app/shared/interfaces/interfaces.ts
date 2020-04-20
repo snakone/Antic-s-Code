@@ -31,6 +31,7 @@ export interface Article extends Content {
   views?: number;
   summary?: string;
   status?: string;
+  user?: string;
 }
 
 export interface Category extends Content {
@@ -257,7 +258,7 @@ export interface NotificationPayload {
 }
 
 interface NotificationData {
-  url: string;
+  url?: string;
   data?: any;
 }
 

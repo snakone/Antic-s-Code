@@ -50,7 +50,9 @@ export class PushService {
             this.saveSubscription(sub)
              .pipe(switchMap((res: SWResponse) =>
                res.ok && !this.ls.get('welcome') ?
-               this.sendNotification(WELCOME_PUSH) :
+               this.sendNotification(
+                 this.setNotification(Object.assign({}, WELCOME_PUSH))
+               ) :
                of({ok: false})
              ))
              .subscribe((res: SWResponse) => {
@@ -70,11 +72,16 @@ export class PushService {
   }
 
   public sendNotification(payload: NotificationPayload): Observable<SWResponse> {
-    return this.http.post(this.API_NOTIFICATION, { payload, device: this.setDevice() });
+    return this.http.post(this.API_NOTIFICATION, { payload });
   }
 
   private setDevice(): string {
     return this.deviceDetector.isDesktop() ? 'Desktop' : 'Mobile';
+  }
+
+  private setNotification(payload: NotificationPayload): NotificationPayload {
+    payload.user = this.ls.get('user');
+    return payload;
   }
 
 }

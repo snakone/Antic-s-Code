@@ -15,6 +15,7 @@ import { LoginService } from '@app/core/services/login/login.service';
 import { CrafterService } from '@app/core/services/crafter/crafter.service';
 import { PushService } from '@app/core/services/push/push.service';
 import { NEW_USER_PUSH } from '@app/shared/shared.data';
+import { UserService } from '@app/core/services/user/user.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -35,6 +36,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
               private ls: StorageService,
               private store: Store<AppState>,
               private crafter: CrafterService,
+              private userService: UserService,
               private router: Router,
               public dialogRef: MatDialogRef<LoginComponent>,
               private sw: PushService) { }
@@ -101,10 +103,11 @@ export class SignUpComponent implements OnInit, OnDestroy {
     this.store.dispatch(UserActions.setUser({user: data.user}));
     this.ls.setKey('token', data.token);
     this.ls.setKey('user', data.user._id);
+    this.userService.setUser(data.user);
     this.crafter.toaster(data.user.name, 'welcome', 'info');
     this.sw.showPrompt();
     this.sw.sendNotification(
-      this.setNotification(NEW_USER_PUSH, data.user)
+      this.setNotification(Object.assign({}, NEW_USER_PUSH), data.user)
       ).subscribe();
     this.router.navigateByUrl('/profile');
   }
@@ -124,7 +127,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
   private setNotification(payload: NotificationPayload,
                           user: User): NotificationPayload {
     payload.body = payload.body
-    .concat(`.\nBienvenido/a ${user.name}!!`);
+    .concat(`.\n¡¡Bienvenido/a ${user.name}!!`);
     return payload;
 }
 

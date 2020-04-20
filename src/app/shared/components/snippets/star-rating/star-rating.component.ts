@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { Article, User, Interaction, InteractionResponse } from '@app/shared/interfaces/interfaces';
+import { Article, User, Interaction, InteractionResponse, NotificationPayload } from '@app/shared/interfaces/interfaces';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { NoAccountComponent } from '@layout/dialogs/no-account/no-account.component';
@@ -7,6 +7,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { UserService } from '@app/core/services/user/user.service';
 import { CrafterService } from '@app/core/services/crafter/crafter.service';
 import { InteractionService } from '@app/core/services/interaction/interaction.service';
+import { URI } from '@app/app.config';
+import { STAR_PUSH } from '@app/shared/shared.data';
+import { PushService } from '@app/core/services/push/push.service';
 
 @Component({
   selector: 'app-star-rating',
@@ -23,7 +26,8 @@ export class StarRatingComponent implements OnInit, OnDestroy {
 
   constructor(private userService: UserService,
               private crafter: CrafterService,
-              private interaction: InteractionService) { }
+              private interaction: InteractionService,
+              private sw: PushService) { }
 
   ngOnInit() {
     this.user = this.userService.getUser();
@@ -50,6 +54,9 @@ export class StarRatingComponent implements OnInit, OnDestroy {
         .subscribe((res: InteractionResponse) => {
           if (res.ok) {
             this.crafter.toaster('success', 'thanks.much', 'info');
+            this.sw.sendNotification(
+              this.setNotification(Object.assign({}, STAR_PUSH))
+            ).subscribe();
           }
         }, (err: HttpErrorResponse) => {
           err.status === 0 ?
@@ -68,6 +75,14 @@ export class StarRatingComponent implements OnInit, OnDestroy {
                            'try.again',
                            'error');
     }
+  }
+
+  setNotification(payload: NotificationPayload): NotificationPayload {
+    payload.body = payload.body.concat(`.\n${this.article.title}`);
+    payload.data.url = `${URI}/article/${this.article.slug}`;
+    payload.user = this.article.user;
+
+    return payload;
   }
 
   ngOnDestroy(): void {
