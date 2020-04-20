@@ -10,7 +10,9 @@
 # dependencies
 /node_modules
 /post_images
-/src/assets/downloads
+
+# environments
+/src/environments
 
 # profiling files
 chrome-profiler-events.json
