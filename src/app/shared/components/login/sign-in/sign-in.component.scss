@@ -3,6 +3,9 @@ form { margin-top: 1rem }
 mat-form-field {
   width: 98%;
   margin-bottom: -.5rem;
+  &-wrapper {
+    padding-bottom: 1rem;
+  }
 }
 
 button {
@@ -18,8 +21,12 @@ mat-checkbox {
 }
 
 p {
-  margin-top: 1rem;
+  margin-top: 2rem;
   margin-bottom: 0;
+  font-size: .9rem;
+}
+
+.bold {
   font-size: .9rem;
 }
 

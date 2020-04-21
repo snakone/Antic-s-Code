@@ -7,10 +7,12 @@
     "ng": "ng",
     "ngc": "ngc -p src/tsconfig.app.json",
     "start": "ng serve",
+    "testing": "ng serve --c=testing -o",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "release-testing": "ng build --prod --buildOptimizer=true --output-hashing=all --c=testing",
     "release": "ng build --prod --buildOptimizer=true --output-hashing=all"
   },
   "private": true,

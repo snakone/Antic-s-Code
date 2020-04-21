@@ -129,7 +129,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
     payload.body = payload.body
     .concat(`.\n¡¡Bienvenido/a ${user.name}!!`);
     return payload;
-}
+  }
 
   ngOnDestroy(): void {
     this.unsubscribe$.next();

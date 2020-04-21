@@ -12,7 +12,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 export class ErrorService {
 
-  readonly API_ERRORS = APP_CONSTANTS.END_POINT + 'errors/';
+  readonly API_ERRORS = environment.api + 'errors/';
 
   constructor(private http: HttpService,
               private ls: StorageService) {

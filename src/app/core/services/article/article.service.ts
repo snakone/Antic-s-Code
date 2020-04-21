@@ -16,7 +16,7 @@ import {
 
 export class ArticleService {
 
-  readonly API_ARTICLES = APP_CONSTANTS.END_POINT + 'articles/';
+  readonly API_ARTICLES = environment.api + 'articles/';
   public page = 0;
 
   constructor(private http: HttpService) {
@@ -49,7 +49,7 @@ export class ArticleService {
   }
 
   public getArticleBySlug(slug: string): Observable<ArticleResponse> {
-    return this.http.get(APP_CONSTANTS.END_POINT + 'article/' + slug);
+    return this.http.get(environment.api + 'article/' + slug);
   }
 
   public getArticlesByCategory(category: string): Observable<ArticleResponse> {

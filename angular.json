@@ -27,8 +27,7 @@
               "src/assets",
               "src/manifest.webmanifest",
               "src/robots.txt",
-              "src/sitemap.xml",
-              "src/_redirects"
+              "src/sitemap.xml"
             ],
             "styles": [
               "src/styles.scss",
@@ -52,6 +51,14 @@
             "es5BrowserSupport": true
           },
           "configurations": {
+            "testing": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.testing.ts"
+                }
+              ]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -90,6 +97,9 @@
             "browserTarget": "antics-code:build"
           },
           "configurations": {
+            "testing": {
+              "browserTarget": "antics-code:build:testing"
+            },
             "production": {
               "browserTarget": "antics-code:build:production"
             }
@@ -115,8 +125,6 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest",
-              "src/manifest.webmanifest",
               "src/manifest.webmanifest"
             ]
           }

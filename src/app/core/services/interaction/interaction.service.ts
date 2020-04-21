@@ -11,7 +11,7 @@ import { environment } from '@env/environment';
 
 export class InteractionService {
 
-  readonly API_INTERACTION = APP_CONSTANTS.END_POINT + 'interaction';
+  readonly API_INTERACTION = environment.api + 'interaction';
 
   constructor(private http: HttpService) {
     if (!environment.production) { console.log('InteractionService'); }
