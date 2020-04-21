@@ -20,14 +20,11 @@ button {
   & mat-checkbox {
     display: inline-flex;
     margin-top: 1rem;
-    margin-bottom: 1rem;
   }
 }
 
 .bold {
-  font-weight: normal !important;
   cursor: pointer;
-  &:hover { font-weight: bold !important }
  }
 
 

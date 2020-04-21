@@ -11,8 +11,8 @@ import { environment } from '@env/environment';
 
 export class LoginService {
 
-  readonly API_LOGIN = APP_CONSTANTS.END_POINT + 'login';
-  readonly API_USER = APP_CONSTANTS.END_POINT + 'users';
+  readonly API_LOGIN = environment.api + 'login';
+  readonly API_USER = environment.api + 'users';
 
   constructor(private http: HttpService) {
     if (!environment.production) { console.log('LoginService'); }

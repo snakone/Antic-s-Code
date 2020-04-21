@@ -1,0 +1,43 @@
+.google-in {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 2rem 1rem;
+
+  &.m-bottom {
+    @media(min-width: 550px) {
+      margin-bottom: 0;
+    }
+  }
+
+  @media(max-width: 550px) {
+    margin: 0 0 1rem;
+  }
+
+  & button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: auto;
+    line-height: 1rem;
+    background-color: rgba(110, 110, 110, 0.103);
+    padding: 6px 1rem 5px;
+
+    & img {
+      width: 18px;
+      height: 18px;
+      margin-right: .5rem;
+      position: relative;
+      top: -1px;
+    }
+
+    &.disabled img {
+      opacity: .6;
+    }
+  }
+}
+
+p {
+  margin-top: 2rem;
+  font-size: .9rem;
+}

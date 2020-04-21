@@ -15,8 +15,8 @@ import { environment } from '@env/environment';
 
 export class UserService {
 
-  readonly API_USERS = APP_CONSTANTS.END_POINT + 'users';
-  readonly API_TOKEN = APP_CONSTANTS.END_POINT + 'token';
+  readonly API_USERS = environment.api + 'users';
+  readonly API_TOKEN = environment.api + 'token';
   private user: User;
 
   constructor(private http: HttpService,
@@ -26,7 +26,7 @@ export class UserService {
   }
 
   public getUserById(id: string): Observable<UserResponse> {
-    return this.http.get(APP_CONSTANTS.END_POINT + `user/${id}`);
+    return this.http.get(environment.api + `user/${id}`);
   }
 
   public getUserByName(name: string): Observable<UserResponse> {

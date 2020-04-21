@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, OnDestroy, Input } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { UserResponse } from '@app/shared/interfaces/interfaces';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -15,6 +15,7 @@ import { LoginService } from '@app/core/services/login/login.service';
 import { UserService } from '@app/core/services/user/user.service';
 import { CrafterService } from '@app/core/services/crafter/crafter.service';
 import { PushService } from '@app/core/services/push/push.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -36,7 +37,8 @@ export class SignInComponent implements OnInit, OnDestroy {
               private userService: UserService,
               private crafter: CrafterService,
               public dialogRef: MatDialogRef<LoginComponent>,
-              private sw: PushService) { }
+              private sw: PushService,
+              private router: Router) { }
 
   ngOnInit() {
     this.createSignInForm();
@@ -110,6 +112,7 @@ export class SignInComponent implements OnInit, OnDestroy {
     this.ls.setKey('remember', this.remember);
     this.sw.showPrompt();
     this.crafter.toaster(data.user.name, 'welcome', 'info');
+    this.router.navigateByUrl('/profile');
   }
 
   private handleError(type?: string): void {

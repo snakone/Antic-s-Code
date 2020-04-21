@@ -9,9 +9,6 @@ import * as fromCategories from '@core/ngrx/reducers/category.reducer';
 import * as fromUsers from '@core/ngrx/reducers/user.reducer';
 import * as fromSearch from '@core/ngrx/reducers/search.reducer';
 
-const DEV = 'http://localhost:3000/';
-const PRE = 'http://192.168.1.97:3000/';
-const PROD = 'https://antics-code.herokuapp.com/';
 export const URI = 'https://anticscode.netlify.com';
 const APP_VERSION = '0.8.2';
 export const DESKTOP_VERSION = '0.5.0';
@@ -26,25 +23,19 @@ export interface AppState {
 export interface AppConfig {
   TITLE: string;
   DEFAULT_LANGUAGE: string;
-  END_POINT: string;
   APP_VERSION: string;
   DISQUS: string;
   THEME: string;
   PLATFORM: string;
-  MAINTENANCE: boolean;
-  PUSH_KEY: string
 }
 
 export const APP_CONSTANTS: AppConfig = {
   TITLE: 'Antic\'s Code',
   DEFAULT_LANGUAGE: 'es',
-  END_POINT: DEV,
   APP_VERSION,
   DISQUS: 'antics-code',
   THEME: 'default',
   PLATFORM: 'Angular',
-  MAINTENANCE: false,
-  PUSH_KEY: 'BBLiOnKY2ZADekUk2DjlEUXM42nFWIMzJIQ98js1iMnvj8H4qcGIxKKVaKmR0GKAHYyRUMobzkXnVK-w1qhvmFc'
 };
 
 export const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {

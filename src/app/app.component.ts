@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppState, APP_CONSTANTS } from './app.config';
+import { AppState } from './app.config';
 import { Store } from '@ngrx/store';
 
 import * as UserActions from '@core/ngrx/actions/user.actions';
@@ -9,6 +9,7 @@ import { MaintenanceComponent } from '@layout/dialogs/maintenance/maintenance.co
 import { CrafterService } from '@core/services/crafter/crafter.service';
 import { ThemeService } from '@core/services/theme/theme.service';
 import { PushService } from '@core/services/push/push.service';
+import { environment } from '@env/environment';
 
 @Component({
   selector: 'app-root',
@@ -64,7 +65,7 @@ export class AppComponent implements OnInit {
     this.loaded = true;
     this.openLanguageSnack();
 
-    if (APP_CONSTANTS.MAINTENANCE) {
+    if (environment.maintenance) {
       this.sorryMaintenance();
     }
   }
@@ -72,7 +73,7 @@ export class AppComponent implements OnInit {
   private sorryMaintenance(): void {
     setTimeout(() => {
       this.crafter.dialog(
-        MaintenanceComponent, { cause: 'Push Notifications'}
+        MaintenanceComponent, { cause: 'Google Sign In'}
       );
     }, 4000);
   }

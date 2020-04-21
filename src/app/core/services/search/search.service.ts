@@ -11,7 +11,7 @@ import { environment } from '@env/environment';
 
 export class SearchService {
 
-  readonly API_SEARCH = APP_CONSTANTS.END_POINT + 'search/';
+  readonly API_SEARCH = environment.api + 'search/';
 
   constructor(private http: HttpService) {
     if (!environment.production) { console.log('SearchService'); }

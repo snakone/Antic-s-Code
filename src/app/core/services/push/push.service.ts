@@ -1,5 +1,4 @@
 import { Injectable, Inject } from '@angular/core';
-import { APP_CONSTANTS } from '@app/app.config';
 import { HttpService } from '../http/http.service';
 import { environment } from '@env/environment';
 import { Observable, of } from 'rxjs';
@@ -17,9 +16,9 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 
 export class PushService {
 
-  readonly API_SUBSCRIPTION = APP_CONSTANTS.END_POINT + 'subscription';
-  readonly API_NOTIFICATION = APP_CONSTANTS.END_POINT + 'notification';
-  readonly pushKey = APP_CONSTANTS.PUSH_KEY;
+  readonly API_SUBSCRIPTION = environment.api + 'subscription';
+  readonly API_NOTIFICATION = environment.api + 'notification';
+  readonly pushKey = environment.keys.push;
 
   constructor(@Inject(DOCUMENT) private document: Document,
               private http: HttpService,

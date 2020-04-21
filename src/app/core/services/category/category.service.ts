@@ -11,14 +11,14 @@ import { environment } from '@env/environment';
 
 export class CategoryService {
 
-  readonly API_CATEGORIES = APP_CONSTANTS.END_POINT + 'categories/';
+  readonly API_CATEGORIES = environment.api + 'category/';
 
   constructor(private http: HttpService) {
     if (!environment.production) { console.log('CategoryService'); }
   }
 
   public getCategoryByName(name: string): Observable<CategoryResponse> {
-    return this.http.get(APP_CONSTANTS.END_POINT + 'category/' + name);
+    return this.http.get(this.API_CATEGORIES + name);
   }
 
 }
