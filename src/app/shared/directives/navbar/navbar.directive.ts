@@ -25,7 +25,7 @@ export class NavbarDirective implements AfterViewInit, OnDestroy {
     fromEvent(window, 'scroll')
       .pipe(
         takeUntil(this.unsubscribe$),
-        debounceTime(200),
+        debounceTime(100),
         distinctUntilChanged()
       )
       .subscribe(() => this.onScroll());

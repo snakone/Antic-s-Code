@@ -7,12 +7,16 @@
    justify-content: center;
    align-items: center;
    position: relative;
-   @media(max-width: 700px) { justify-content: flex-start }
+   top: -6px;
+   @media(max-width: 700px) {
+     justify-content: flex-start;
+     top: 2px;
+   }
 
    & mat-icon {
      font-size: 1.5rem;
-     width: 2.1333rem;
-     height: 2.1333rem;
+     width: 30px;
+     height: 30px;
      box-sizing: border-box;
      border-radius: 20rem;
      background: var(--section-border-color);
@@ -22,7 +26,8 @@
      margin-right: .8rem;
      position: relative;
      top: -1px;
-     padding-top: 3px;
+     padding-top: 2px;
+     margin-top: 3px;
      user-select: none;
      color: var(--primary-color);
 
@@ -34,7 +39,9 @@
    }
 
    & img {
-    width: 40px;
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
     padding: 5px;
     border-radius: 20rem;
 

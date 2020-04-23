@@ -46,7 +46,9 @@
               "node_modules/prismjs/components/prism-kotlin.min.js",
               "node_modules/prismjs/components/prism-markup.min.js",
               "node_modules/prismjs/components/prism-typescript.min.js",
-              "node_modules/prismjs/components/prism-go.min.js"
+              "node_modules/prismjs/components/prism-git.min.js",
+              "node_modules/prismjs/components/prism-go.min.js",
+              "node_modules/prismjs/components/prism-python.min.js"
             ],
             "es5BrowserSupport": true
           },

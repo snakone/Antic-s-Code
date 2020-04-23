@@ -32,7 +32,6 @@ span {
   cursor: pointer;
   & mat-icon { font-size: 1.666rem }
   &:hover { color: var(--primary-color) }
-  @media(max-width: 550px) { right: -16px }
 }
 
 .display { display: block !important }

@@ -2,7 +2,9 @@
   <app-content-box [border]="true">
       <ul>
         <div *ngIf="index">
-          <li *ngFor="let i of index">{{i.title}}
+          <li *ngFor="let i of index"
+              (click)="scroll(i.id)"
+              [ngClass]="{'active' : i.id == scrollSpy}">{{i.title}}
             <p>{{i.subtitle}}</p>
           </li>
         </div>

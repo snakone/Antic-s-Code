@@ -163,6 +163,12 @@
     box-sizing: content-box;
   }
 
+  .anchor {
+    position: absolute;
+    margin-top: -2rem;
+    @media(max-width: 550px) { margin-top: 0 }
+  }
+
   @media(max-width: 550px) {
     p:first-child { margin-top: 10px }
   }
