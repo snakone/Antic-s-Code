@@ -24,6 +24,9 @@
     </div>
   </div>
   <div *ngIf="(articles$ | async)?.length === 0">
-    <p><strong>{{user?.name}}</strong> aún no ha escrito ningún artículo.</p>
+    <p>
+      <strong>{{user?.name}}</strong>
+      aún no ha escrito ningún artículo.
+    </p>
   </div>
 </app-content-box>

@@ -23,15 +23,20 @@ export class StickyBoxComponent implements OnInit, OnDestroy {
 
   private subscribeToScroll(): void {
     if (this.empty) { return; }
-    fromEvent(window, 'scroll').pipe(debounceTime(100))
-    .pipe(takeUntil(this.unsubscribe$))
+    fromEvent(window, 'scroll')
+    .pipe(
+      takeUntil(this.unsubscribe$),
+      debounceTime(100)
+    )
     .subscribe(() => this.onScroll());
   }
 
   private onScroll(): void {
+    if (!this.selector) { return; }
     const width = window.document.body.clientWidth;
     const div = document.getElementById(this.selector)
                         .getBoundingClientRect().height;
+
     if (width < 985 || div < 799) {
       this.display = true;
       return;

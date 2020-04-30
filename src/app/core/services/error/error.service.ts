@@ -1,25 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '../http/http.service';
-import { CustomError } from '@app/shared/interfaces/interfaces';
+import { CustomError } from '@shared/interfaces/interfaces';
 import { APP_CONSTANTS } from '@app/app.config';
-import { StorageService } from '@app/core/storage/storage.service';
+import { StorageService } from '@core/storage/storage.service';
 import { environment } from '@env/environment';
 import { HttpErrorResponse } from '@angular/common/http';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
 
 export class ErrorService {
 
   readonly API_ERRORS = environment.api + 'errors/';
 
-  constructor(private http: HttpService,
-              private ls: StorageService) {
-      if (!environment.production) { console.log('HttpErrorService'); }
-  }
+  constructor(
+    private http: HttpService,
+    private ls: StorageService
+  ) { }
 
-  saveError(err: Error | HttpErrorResponse): void {
+  public saveError(err: Error | HttpErrorResponse): void {
     const error = this.manageError(err);
     this.http.post(this.API_ERRORS, error).toPromise().then();
   }

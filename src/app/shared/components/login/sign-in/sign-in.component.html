@@ -1,11 +1,11 @@
 <div class="animated fadeIn">
   <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
-    <mat-form-field color="accent">
+    <mat-form-field color="accent">  <!-- EMAIL -->
       <input matInput
              [placeholder]="'email' | translate"
              formControlName="email">
     </mat-form-field>
-    <mat-form-field color="accent">
+    <mat-form-field color="accent">  <!-- PASSWORD -->
       <input matInput
               [placeholder]="'password' | translate"
               formControlName="password"

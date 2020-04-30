@@ -1,35 +1,55 @@
-<app-page-header [title]="article?.title || 'Artículo'"
-                 [subTitle]="'article' | translate">
-</app-page-header>
-<app-section input="#f5f7fc">
-  <div class="row">  <!-- ARTICLE CONTENT -->
-    <div *ngIf="article" class="col-lg-8 col-md-8">
-      <app-article-card id="single-article-section"
-                        [article]="article"
-                        [single]="true">
-        <hr class="mobile" *ngIf="article.index.length">
-        <app-article-index-box class="mobile"
-                               [index]="article.index"
-                               [mobile]="true"
-                               *ngIf="article.index.length">
-        </app-article-index-box>
-        <hr class="mobile" *ngIf="article.index.length">
-        <app-content-maker [template]="article.message"></app-content-maker>
-        <app-links-box *ngIf="article.links.length"
-                       [links]="article.links">
-        </app-links-box>
-      </app-article-card>
-      <app-star-rating [article]="article"></app-star-rating>
-      <app-disqus [identifier]="article.slug"></app-disqus>
+<ng-container *ngIf="(article$ | async) as article; else noArticle">
+  <app-page-header [title]="article.title"
+                   [subTitle]="'article' | translate">
+  </app-page-header>
+  <app-section input="#f5f7fc">
+    <div class="row">  <!-- ARTICLE CONTENT -->
+      <div class="col-lg-8 col-md-8">
+        <!-- ARTICLE CARD -->
+        <app-article-card id="single-article-section"
+                          [article]="article"
+                          [single]="true">
+
+            <hr class="mobile" *ngIf="article.index">
+
+            <app-index-box class="mobile"
+                           [index]="article.index"
+                           [mobile]="true">
+            </app-index-box>
+
+            <hr class="mobile" *ngIf="article.index">
+
+            <app-content-maker [template]="article.message"></app-content-maker>
+            <app-links-box [links]="article.links"></app-links-box>
+        </app-article-card>
+
+        <app-star-rating [article]="article"></app-star-rating>
+        <app-disqus [identifier]="article.slug"></app-disqus>
+      </div>
+      <div class="col-lg-4 col-md-4">  <!-- SIDEBAR -->
+        <app-index-box class="desktop"
+                       [index]="article.index">
+        </app-index-box>
+      </div>
     </div>
-    <div *ngIf="!article" class="col-lg-8 col-md-8">
-      <app-article-card-skeleton [single]="true"></app-article-card-skeleton>
+  </app-section>
+</ng-container>
+
+<ng-template #noArticle>
+  <app-page-header title="Artículo"
+                   [subTitle]="'article' | translate">
+  </app-page-header>
+  <app-section input="#f5f7fc">
+    <div class="row">
+      <div class="col-lg-8 col-md-8">
+        <app-article-card-skeleton [single]="true">
+        </app-article-card-skeleton>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        <app-index-box class="desktop"
+                       [index]="null">
+        </app-index-box>
+      </div>
     </div>
-    <div class="col-lg-4 col-md-4">  <!-- SIDEBAR -->
-      <app-article-index-box class="desktop"
-                             [index]="article?.index"
-                             *ngIf="article?.index.length">
-      </app-article-index-box>
-    </div>
-  </div>
-</app-section>
+  </app-section>
+</ng-template>

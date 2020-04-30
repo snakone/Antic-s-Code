@@ -14,7 +14,10 @@ export class LoginComponent implements AfterViewInit {
   isCon = false;
   conditions = false;
 
-  constructor(@Optional() @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+  constructor(
+    @Optional() @Inject(MAT_DIALOG_DATA)
+    public data: DialogData
+  ) { }
 
   ngAfterViewInit() {
     setTimeout(() => {

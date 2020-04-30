@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatSnackBarRef } from '@angular/material/snack-bar';
-import { LanguageService } from '@app/core/language/services/language.service';
-import { StorageService } from '@app/core/storage/storage.service';
+import { LanguageService } from '@core/language/services/language.service';
+import { StorageService } from '@core/storage/storage.service';
 
 @Component({
   selector: 'app-language-snack',
@@ -11,15 +11,17 @@ import { StorageService } from '@app/core/storage/storage.service';
 
 export class LanguageSnackComponent {
 
-  constructor(private lang: LanguageService,
-              private ls: StorageService,
-              public snackbar: MatSnackBarRef<LanguageSnackComponent>) { }
+  constructor(
+    private lang: LanguageService,
+    private ls: StorageService,
+    public snackbar: MatSnackBarRef<LanguageSnackComponent>
+  ) { }
 
-  closeSnackBar(): void {
+  public closeSnackBar(): void {
     this.snackbar.dismiss();
   }
 
-  setLanguage(value?: string): void {
+  public setLanguage(value?: string): void {
     this.ls.setKey('user_lang', true);
     if (value) {
       this.lang.change(value);

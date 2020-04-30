@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Article } from '@app/shared/interfaces/interfaces';
+import { Article } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-liked-home-grid',

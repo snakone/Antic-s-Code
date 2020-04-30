@@ -46,6 +46,7 @@ export interface Category extends Content {
 }
 
 export interface ArticleResponse extends ServerResponse {
+  article?: Article;
   articles?: Article[];
   page?: number;
 }

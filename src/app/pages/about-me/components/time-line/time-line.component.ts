@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as AOS from 'aos';
-import { AOS_SETTINGS } from '@app/shared/shared.data';
-import { TIME_LINE } from '@shared/shared.data';
+import { AOS_SETTINGS, TIME_LINE } from '@shared/shared.data';
 
 @Component({
   selector: 'app-time-line',

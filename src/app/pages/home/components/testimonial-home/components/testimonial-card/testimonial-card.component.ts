@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CarouselSlide } from '@app/shared/interfaces/interfaces';
+import { CarouselSlide } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-testimonial-card',

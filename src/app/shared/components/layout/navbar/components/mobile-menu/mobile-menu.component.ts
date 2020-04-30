@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { MENU, HOME_MENU } from '@app/shared/shared.data';
+import { MENU, HOME_MENU } from '@shared/shared.data';
 
 @Component({
   selector: 'app-mobile-menu',
@@ -9,7 +9,7 @@ import { MENU, HOME_MENU } from '@app/shared/shared.data';
 
 export class MobileMenuComponent {
 
-  @Output() close: EventEmitter<void> = new EventEmitter<void>();
+  @Output() close = new EventEmitter<void>();
   items = MENU;
   menu = HOME_MENU;
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserService } from '@app/core/services/user/user.service';
+import { UserService } from '@core/services/user/user.service';
 import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
 
@@ -11,9 +11,11 @@ import { MatDialogRef } from '@angular/material/dialog';
 
 export class AlreadyLoggedComponent {
 
-  constructor(private user: UserService,
-              private router: Router,
-              private dialog: MatDialogRef<AlreadyLoggedComponent>) { }
+  constructor(
+    private user: UserService,
+    private router: Router,
+    private dialog: MatDialogRef<AlreadyLoggedComponent>
+  ) { }
 
   public logOut(): void {
     this.router.navigateByUrl('/home')

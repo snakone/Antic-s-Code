@@ -25,8 +25,8 @@ import { ArticleEffects } from './ngrx/effects/article.effects';
 import { CategoryEffects } from './ngrx/effects/category.effects';
 import { UserEffects } from './ngrx/effects/user.effects';
 import { SearchEffects } from './ngrx/effects/search.effects';
+import { InteractionEffects } from './ngrx/effects/interaction.effects';
 import { reducers } from './ngrx/reducers/reducers.index';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { ToastrModule } from 'ngx-toastr';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
@@ -48,11 +48,9 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
       ArticleEffects,
       CategoryEffects,
       UserEffects,
-      SearchEffects
+      SearchEffects,
+      InteractionEffects
     ]),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25
-    }),
     LanguageModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
@@ -75,7 +73,7 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
     if (parentModule) {
-      throw new Error('CoreModule is already loaded. Import it in the AppModule only');
+      throw new Error('CoreModule is already loaded.');
     }
   }
 }

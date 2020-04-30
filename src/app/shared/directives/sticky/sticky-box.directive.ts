@@ -20,8 +20,10 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
   private unsubscribe$ = new Subject<void>();
   height: number;
 
-  constructor(private el: ElementRef,
-              private renderer: Renderer2) { }
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2
+  ) { }
 
   ngAfterViewInit(): void {
     this.startSticky();
@@ -42,7 +44,6 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
   }
 
   private makeSticky(): void {
-
     const el = this.el.nativeElement;
     let height = el.offsetHeight;
     if (!el || height === 0) { return; }

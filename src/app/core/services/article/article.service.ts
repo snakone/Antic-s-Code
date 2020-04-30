@@ -1,5 +1,4 @@
 import { Injectable} from '@angular/core';
-import { APP_CONSTANTS } from '@app/app.config';
 import { HttpService } from '../http/http.service';
 import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
@@ -8,60 +7,91 @@ import {
   ArticleResponse,
   CountResponse,
   CategoryCountResponse,
+  Article,
 } from '@shared/interfaces/interfaces';
 
-@Injectable({
-  providedIn: 'root'
-})
+import { filter, map } from 'rxjs/operators';
+
+@Injectable({providedIn: 'root'})
 
 export class ArticleService {
 
   readonly API_ARTICLES = environment.api + 'articles/';
   public page = 0;
 
-  constructor(private http: HttpService) {
-    if (!environment.production) { console.log('ArticleService'); }
-  }
+  constructor(private http: HttpService) { }
 
-  public getArticles(): Observable<ArticleResponse> {
+  public get(): Observable<Article[]> {
     this.page++;
-    return this.http.get(this.API_ARTICLES + '?page=' + this.page);
+    return this.http
+      .get<ArticleResponse>(this.API_ARTICLES + '?page=' + this.page)
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.articles)
+      );
   }
 
-  public publishArticle(id: string, draft: boolean): Observable<ArticleResponse> {
-    return this.http.post(this.API_ARTICLES + 'publish/' + id, {draft});
+  public getLast(): Observable<Article[]> {
+    return this.http
+      .get<ArticleResponse>(this.API_ARTICLES + 'last')
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.articles)
+      );
   }
 
-  public getLastArticles(): Observable<ArticleResponse> {
-    return this.http.get(this.API_ARTICLES + 'last');
+  public getCount(): Observable<number> {
+    return this.http
+      .get<CountResponse>(this.API_ARTICLES + 'count')
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.count)
+      );
   }
 
-  public getArticlesCount(): Observable<CountResponse> {
-    return this.http.get(this.API_ARTICLES + 'count');
+  public getMostLiked(): Observable<Article[]> {
+    return this.http
+      .get<ArticleResponse>(this.API_ARTICLES + 'liked')
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.articles)
+      );
   }
 
-  public getMostLikedArticles(): Observable<ArticleResponse> {
-    return this.http.get(this.API_ARTICLES + 'liked');
+  public getByUser(id: string): Observable<Article[]> {
+    return this.http
+      .get<ArticleResponse>(this.API_ARTICLES + 'user/' + id)
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.articles)
+      );
   }
 
-  public getArticlesByUser(id: string): Observable<ArticleResponse> {
-    return this.http.get(this.API_ARTICLES + 'user/' + id);
+  public getBySlug(slug: string): Observable<Article> {
+    return this.http
+      .get<ArticleResponse>(environment.api + 'article/' + slug)
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.article)
+      );
   }
 
-  public getArticleBySlug(slug: string): Observable<ArticleResponse> {
-    return this.http.get(environment.api + 'article/' + slug);
+  public getByCategory(category: string): Observable<Article[]> {
+    return this.http
+      .get<ArticleResponse>(this.API_ARTICLES + 'category/' + category)
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.articles)
+      );
   }
 
-  public getArticlesByCategory(category: string): Observable<ArticleResponse> {
-    return this.http.get(this.API_ARTICLES + 'category/' + category);
-  }
-
-  public getArticlesByCategoryCount(): Observable<CategoryCountResponse> {
-    return this.http.get(this.API_ARTICLES + 'categories/count');
-  }
-
-  public sendLike(id: string): Observable<ArticleResponse> {
-    return this.http.post(this.API_ARTICLES + 'likes/' + id, null);
+  public getByCategoryCount(): Observable<object> {
+    return this.http
+      .get<CategoryCountResponse>(this.API_ARTICLES + 'categories/count')
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.count)
+      );
   }
 
   public resetPage(): void {

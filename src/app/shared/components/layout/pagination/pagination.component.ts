@@ -16,7 +16,7 @@ export class PaginationComponent {
 
   constructor(private pagination: PaginationService) { }
 
-  changeFrom(id: string, page: number): void {
+  public changeFrom(id: string, page: number): void {
     this.pagination.setCurrentPage(id, page);
     this.scroll(this.selector);
     window.dispatchEvent(new Event('resize'));  // Sticky

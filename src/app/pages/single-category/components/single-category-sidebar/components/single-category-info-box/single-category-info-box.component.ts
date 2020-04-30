@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Category } from '@app/shared/interfaces/interfaces';
+import { Category } from '@shared/interfaces/interfaces';
 import * as moment from 'moment';
 
 @Component({
@@ -17,7 +17,9 @@ export class SingleCategoryInfoBoxComponent implements OnInit {
 
   ngOnInit() {
     moment.locale('es');
-    this.updated = moment(this.category.updated, 'DD/MM/YYYY').fromNow();
+    this.updated = moment(
+      this.category.updated, 'DD/MM/YYYY'
+    ).fromNow();
     if (this.updated.startsWith('Invalid')) {
       this.updated = null;
     }

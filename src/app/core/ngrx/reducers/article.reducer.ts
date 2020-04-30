@@ -1,22 +1,24 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import * as ArticleActions from '../actions/article.actions';
-import { Article } from '@app/shared/interfaces/interfaces';
+import { Article } from '@shared/interfaces/interfaces';
 
 export interface ArticleState {
   articles: Article[];
   articlesLoaded: boolean;
-  articlesByUser: Article[];
-  articlesByUserLoaded: boolean;
-  categoryCount: object;
-  categoryCountLoaded: boolean;
+  byUser: Article[];
+  byUserLoaded: boolean;
+  byCategory: Article[];
+  byCategoryLoaded: boolean;
+  bySlug: Article;
+  bySlugLoaded: boolean;
   last: Article[];
   lastLoaded: boolean;
   liked: Article[];
   likedLoaded: boolean;
   count: number;
   countLoaded: boolean;
-  slug: Article;
-  slugLoaded: boolean;
+  categoryCount: object;
+  categoryCountLoaded: boolean;
   full: boolean;
   error: string;
 }
@@ -24,18 +26,20 @@ export interface ArticleState {
 export const inititalState: ArticleState = {
   articles: [],
   articlesLoaded: false,
-  articlesByUser: null,
-  articlesByUserLoaded: false,
-  categoryCount: {},
-  categoryCountLoaded: false,
+  byUser: [],
+  byUserLoaded: false,
+  byCategory: [],
+  byCategoryLoaded: false,
+  bySlug: {},
+  bySlugLoaded: false,
   last: [],
   lastLoaded: false,
   liked: [],
   likedLoaded: false,
   count: 0,
   countLoaded: false,
-  slug: null,
-  slugLoaded: false,
+  categoryCount: {},
+  categoryCountLoaded: false,
   full: false,
   error: null,
 };
@@ -43,113 +47,128 @@ export const inititalState: ArticleState = {
 const featureReducer = createReducer(
   inititalState,
   // GET ARTICLES
-  on(ArticleActions.getArticles, state => (
+  on(ArticleActions.get, state => (
     { ...state, articlesLoaded: false, error: null }
   )),
-  on(ArticleActions.getArticlesSuccess, (state, { articles }) => (
+  on(ArticleActions.getSuccess, (state, { articles }) => (
     {
       ...state,
       articlesLoaded: true,
-      error: null,
       articles: [...state.articles, ...articles],
+      error: null,
       full: completed(articles)
     }
   )),
-  on(ArticleActions.getArticlesFailure, (state, { error }) => (
+  on(ArticleActions.getFailure, (state, { error }) => (
     { ...state, articlesLoaded: false, error }
   )),
   // GET ARTICLES COUNT
-  on(ArticleActions.getArticlesCount, state => (
+  on(ArticleActions.getCount, state => (
     { ...state, countLoaded: false, error: null }
   )),
-  on(ArticleActions.getArticlesCountSuccess, (state, { count }) => (
+  on(ArticleActions.getCountSuccess, (state, { count }) => (
     {
       ...state,
       countLoaded: true,
-      error: null,
-      count
+      count,
+      error: null
     }
   )),
-  on(ArticleActions.getArticlesCountFailure, (state, { error }) => (
+  on(ArticleActions.getCountFailure, (state, { error }) => (
     { ...state, countLoaded: false, error }
   )),
   // GET LAST ARTICLES
-  on(ArticleActions.getLastArticles, state => (
+  on(ArticleActions.getLast, state => (
     { ...state, lastLoaded: false, error: null }
   )),
-  on(ArticleActions.getLastArticlesSuccess, (state, { articles }) => (
+  on(ArticleActions.getLastSuccess, (state, { articles }) => (
     {
       ...state,
       lastLoaded: true,
-      error: null,
-      last: articles
+      last: articles,
+      error: null
     }
   )),
-  on(ArticleActions.getLastArticlesFailure, state => (
+  on(ArticleActions.getLastFailure, state => (
     { ...state, lastLoaded: false, error: null }
   )),
   // GET MOST LIKED ARTICLES
-  on(ArticleActions.getMostLikedArticles, state => (
+  on(ArticleActions.getMostLiked, state => (
     { ...state, likedLoaded: false, error: null }
   )),
-  on(ArticleActions.getMostLikedArticlesSuccess, (state, { articles }) => (
+  on(ArticleActions.getMostLikedSuccess, (state, { articles }) => (
     {
       ...state,
       likedLoaded: true,
+      liked: articles,
       error: null,
-      liked: articles
     }
   )),
-  on(ArticleActions.getMostLikedArticlesFailure, (state, { error }) => (
+  on(ArticleActions.getMostLikedFailure, (state, { error }) => (
     { ...state, likedLoaded: false, error }
   )),
   // ARTICLE BY SLUG
-  on(ArticleActions.getArticleBySlug, (state, { slug }) => (
-    { ...state, slugLoaded: false, error: null }
+  on(ArticleActions.getBySlug, (state) => (
+    { ...state, bySlugLoaded: false, error: null, bySlug: null }
   )),
-  on(ArticleActions.getArticleBySlugSuccess, (state, { article }) => (
+  on(ArticleActions.getBySlugSuccess, (state, { article }) => (
     {
       ...state,
-      slugLoaded: true,
+      bySlugLoaded: true,
+      bySlug: article,
       error: null,
-      slug: article
     }
   )),
-  on(ArticleActions.getArticleBySlugFailure, (state, { error }) => (
-    { ...state, slugLoaded: false, error }
+  on(ArticleActions.getBySlugFailure, (state, { error }) => (
+    { ...state, bySlugLoaded: false, error }
   )),
   // ARTICLE BY USER
-  on(ArticleActions.getArticlesByUser, (state, { id }) => (
-    { ...state, articlesByUserLoaded: false, error: null }
+  on(ArticleActions.getByUser, (state) => (
+    { ...state, byUserLoaded: false, error: null }
   )),
-  on(ArticleActions.getArticlesByUserSuccess, (state, { articles }) => (
+  on(ArticleActions.getByUserSuccess, (state, { articles }) => (
     {
       ...state,
-      articlesByUserLoaded: true,
+      byUserLoaded: true,
+      byUser: articles,
       error: null,
-      articlesByUser: articles
     }
   )),
-  on(ArticleActions.getArticlesByUserFailure, (state, { error }) => (
-    { ...state, articlesByUserLoaded: false, error }
+  on(ArticleActions.getByUserFailure, (state, { error }) => (
+    { ...state, byUserLoaded: false, error }
+  )),
+  // ARTICLES BY CATEGORY
+  on(ArticleActions.getByCategory, state => (
+    { ...state, byCategoryLoaded: false, error: null }
+  )),
+  on(ArticleActions.getByCategorySuccess, (state, { articles }) => (
+    {
+      ...state,
+      byCategoryLoaded: true,
+      byCategory: articles,
+      error: null,
+    }
+  )),
+  on(ArticleActions.getByCategoryFailure, (state, { error }) => (
+    { ...state, byCategoryLoaded: false, error }
   )),
   // ARTICLES BY CATEGORY COUNT
-  on(ArticleActions.getArticlesByCategoryCount, state => (
+  on(ArticleActions.getByCategoryCount, state => (
     { ...state, categoryCountLoaded: false, error: null }
   )),
-  on(ArticleActions.getArticlesByCategoryCountSuccess, (state, { count }) => (
+  on(ArticleActions.getByCategoryCountSuccess, (state, { count }) => (
     {
       ...state,
       categoryCountLoaded: true,
+      categoryCount: count,
       error: null,
-      categoryCount: count
     }
   )),
-  on(ArticleActions.getArticlesByCategoryCountFailure, (state, { error }) => (
+  on(ArticleActions.getByCategoryCountFailure, (state, { error }) => (
     { ...state, categoryCountLoaded: false, error }
   )),
   // RESET
-  on(ArticleActions.resetArticles, (state) => (
+  on(ArticleActions.reset, (state) => (
     {
       ...state,
       articlesLoaded: false,
@@ -159,10 +178,10 @@ const featureReducer = createReducer(
     }
   )),
   on(ArticleActions.resetSlug, (state) => (
-    { ...state, slugLoaded: false, error: null, slug: null }
+    { ...state, bySlugLoaded: false, error: null, slug: null }
   )),
-  on(ArticleActions.resetArticlesByUser, (state) => (
-    { ...state, articlesByUserLoaded: false, error: null, articlesByUser: null }
+  on(ArticleActions.resetByUser, (state) => (
+    { ...state, byUserLoaded: false, error: null, byUser: null }
   ))
 );
 
@@ -172,10 +191,12 @@ export function reducer(state: ArticleState | undefined, action: Action) {
 
 export const getArticles = (state: ArticleState) => state.articles;
 export const getArticlesLoaded = (state: ArticleState) => state.articlesLoaded;
-export const getArticlesByUser = (state: ArticleState) => state.articlesByUser;
-export const getArticlesByUserLoaded = (state: ArticleState) => state.articlesByUserLoaded;
+export const getByUser = (state: ArticleState) => state.byUser;
+export const getByUserLoaded = (state: ArticleState) => state.byUserLoaded;
+export const getByCategory = (state: ArticleState) => state.byCategory;
+export const getByCategoryLoaded = (state: ArticleState) => state.byCategoryLoaded;
 export const getFull = (state: ArticleState) => state.full;
-export const getSlug = (state: ArticleState) => state.slug;
+export const getSlug = (state: ArticleState) => state.bySlug;
 export const getLast = (state: ArticleState) => state.last;
 export const getMostLiked = (state: ArticleState) => state.liked;
 export const getMostLikedLoaded = (state: ArticleState) => state.likedLoaded;

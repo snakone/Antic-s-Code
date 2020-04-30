@@ -20,7 +20,7 @@ export class SearchSortBarComponent implements OnInit {
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.count$ = this.store.select(fromSearch.getResultCount);
+    this.count$ = this.store.select(fromSearch.getCount);
   }
 
   sort(): void {

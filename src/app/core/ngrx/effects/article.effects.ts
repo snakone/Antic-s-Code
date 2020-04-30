@@ -1,27 +1,29 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
-
 import * as ArticleActions from './../actions/article.actions';
 import { map, concatMap, catchError } from 'rxjs/operators';
-import { ArticleService } from '@app/core/services/article/article.service';
+import { ArticleService } from '@core/services/article/article.service';
 
 @Injectable()
 
 export class ArticleEffects {
-  constructor(private actions: Actions,
-              private articleService: ArticleService) { }
+
+  constructor(
+    private actions: Actions,
+    private articleSrv: ArticleService
+  ) { }
 
   // GET ARTICLES
   loadArticlesEffect$ = createEffect(() => this.actions
     .pipe(
-      ofType(ArticleActions.getArticles),
+      ofType(ArticleActions.get),
       concatMap(() =>
-      this.articleService.getArticles()
+      this.articleSrv.get()
         .pipe(
-          map(res => ArticleActions.getArticlesSuccess({articles: res.articles})),
+          map(articles => ArticleActions.getSuccess({ articles })),
           catchError(error =>
-              of(ArticleActions.getArticlesFailure({ error: error.message }))
+              of(ArticleActions.getFailure({ error: error.message }))
           )
         )
       )
@@ -31,13 +33,13 @@ export class ArticleEffects {
   // GET ARTICLES COUNT
   loadArticlesCountEffect$ = createEffect(() => this.actions
     .pipe(
-      ofType(ArticleActions.getArticlesCount),
+      ofType(ArticleActions.getCount),
       concatMap(() =>
-      this.articleService.getArticlesCount()
+      this.articleSrv.getCount()
         .pipe(
-          map(res => ArticleActions.getArticlesCountSuccess({count: res.count})),
+          map(count => ArticleActions.getCountSuccess({ count })),
           catchError(error =>
-              of(ArticleActions.getArticlesCountFailure({ error: error.message }))
+              of(ArticleActions.getCountFailure({ error: error.message }))
           )
         )
       )
@@ -47,13 +49,13 @@ export class ArticleEffects {
   // GET ARTICLE BY SLUG
   loadArticleBySlugEffect$ = createEffect(() => this.actions
   .pipe(
-    ofType(ArticleActions.getArticleBySlug),
+    ofType(ArticleActions.getBySlug),
     concatMap((action) =>
-    this.articleService.getArticleBySlug(action.slug)
+    this.articleSrv.getBySlug(action.slug)
       .pipe(
-        map(res => ArticleActions.getArticleBySlugSuccess({article: res.articles[0]})),
+        map(article => ArticleActions.getBySlugSuccess({ article })),
         catchError(error =>
-            of(ArticleActions.getArticleBySlugFailure({ error: error.message }))
+            of(ArticleActions.getBySlugFailure({ error: error.message }))
           )
         )
       )
@@ -63,13 +65,13 @@ export class ArticleEffects {
   // GET ARTICLES BY USER
   getArticlesByUserEffect$ = createEffect(() => this.actions
   .pipe(
-    ofType(ArticleActions.getArticlesByUser),
+    ofType(ArticleActions.getByUser),
     concatMap((action) =>
-    this.articleService.getArticlesByUser(action.id)
+    this.articleSrv.getByUser(action.id)
       .pipe(
-        map(res => ArticleActions.getArticlesByUserSuccess({articles: res.articles})),
+        map(articles => ArticleActions.getByUserSuccess({ articles })),
         catchError(error =>
-            of(ArticleActions.getArticlesByUserFailure({ error: error.message }))
+            of(ArticleActions.getByUserFailure({ error: error.message }))
           )
         )
       )
@@ -79,13 +81,13 @@ export class ArticleEffects {
   // GET LAST ARTICLES
   loadLastArticlesEffect$ = createEffect(() => this.actions
     .pipe(
-      ofType(ArticleActions.getLastArticles),
+      ofType(ArticleActions.getLast),
       concatMap(() =>
-        this.articleService.getLastArticles()
+        this.articleSrv.getLast()
           .pipe(
-            map(res => ArticleActions.getLastArticlesSuccess({ articles: res.articles })),
+            map(articles => ArticleActions.getLastSuccess({ articles })),
             catchError(error =>
-              of(ArticleActions.getLastArticlesFailure({ error: error.message }))
+              of(ArticleActions.getLastFailure({ error: error.message }))
           )
         )
       )
@@ -95,29 +97,45 @@ export class ArticleEffects {
   // GET MOST LIKED ARTICLES
   loadMostLikedEffect$ = createEffect(() => this.actions
   .pipe(
-    ofType(ArticleActions.getMostLikedArticles),
+    ofType(ArticleActions.getMostLiked),
     concatMap(() =>
-      this.articleService.getMostLikedArticles()
+      this.articleSrv.getMostLiked()
         .pipe(
-          map(res => ArticleActions.getMostLikedArticlesSuccess({ articles: res.articles })),
+          map(articles => ArticleActions.getMostLikedSuccess({ articles })),
           catchError(error =>
-            of(ArticleActions.getMostLikedArticlesFailure({ error: error.message }))
+            of(ArticleActions.getMostLikedFailure({ error: error.message }))
         )
        )
      )
     )
   );
 
+  // GET ARTICLES BY CATEGORY
+  loadArticlesByCategoryEffect$ = createEffect(() => this.actions
+  .pipe(
+    ofType(ArticleActions.getByCategory),
+    concatMap((action) =>
+      this.articleSrv.getByCategory(action.category)
+        .pipe(
+          map(articles => ArticleActions.getByCategorySuccess({ articles })),
+          catchError(error =>
+            of(ArticleActions.getByCategoryFailure({ error: error.message }))
+        )
+        )
+      )
+    )
+  );
+
   // GET ARTICLES BY CATEGORY COUNT
   loadArticlesByCategoryCountEffect$ = createEffect(() => this.actions
   .pipe(
-    ofType(ArticleActions.getArticlesByCategoryCount),
+    ofType(ArticleActions.getByCategoryCount),
     concatMap(() =>
-      this.articleService.getArticlesByCategoryCount()
+      this.articleSrv.getByCategoryCount()
         .pipe(
-          map(res => ArticleActions.getArticlesByCategoryCountSuccess({ count: res.count })),
+          map(count => ArticleActions.getByCategoryCountSuccess({ count })),
           catchError(error =>
-            of(ArticleActions.getArticlesByCategoryCountFailure({ error: error.message }))
+            of(ArticleActions.getByCategoryCountFailure({ error: error.message }))
         )
        )
      )

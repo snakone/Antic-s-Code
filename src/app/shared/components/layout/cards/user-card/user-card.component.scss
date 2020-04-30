@@ -87,6 +87,10 @@
       }
      }
   }
+
+  &.last {
+    margin-bottom: 0;
+  }
 }
 
 @media(max-width: 750px) {
@@ -164,7 +168,6 @@
     }
 
     &.last {
-      margin-bottom: 0;
       padding-bottom: 0;
 
       &:after {

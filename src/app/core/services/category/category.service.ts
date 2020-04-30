@@ -1,24 +1,25 @@
 import { Injectable} from '@angular/core';
-import { APP_CONSTANTS } from '@app/app.config';
 import { HttpService } from '../http/http.service';
 import { Observable } from 'rxjs';
-import { CategoryResponse } from '@app/shared/interfaces/interfaces';
+import { CategoryResponse, Category } from '@shared/interfaces/interfaces';
 import { environment } from '@env/environment';
+import { filter, map } from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
 
 export class CategoryService {
 
   readonly API_CATEGORIES = environment.api + 'category/';
 
-  constructor(private http: HttpService) {
-    if (!environment.production) { console.log('CategoryService'); }
-  }
+  constructor(private http: HttpService) { }
 
-  public getCategoryByName(name: string): Observable<CategoryResponse> {
-    return this.http.get(this.API_CATEGORIES + name);
+  public getByName(name: string): Observable<Category> {
+    return this.http
+      .get<CategoryResponse>(this.API_CATEGORIES + name)
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.category)
+      );
   }
 
 }

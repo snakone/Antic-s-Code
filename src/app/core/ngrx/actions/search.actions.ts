@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { SearchRequest, SearchResponse } from '@shared/interfaces/interfaces';
+import { SearchRequest, Article } from '@shared/interfaces/interfaces';
 
 // SEARCH
 export const searchContent =
@@ -8,12 +8,11 @@ export const searchContent =
 
 export const searchContentSuccess =
   createAction('[Search API] Search Content Success',
-  props<{ result: SearchResponse }>());
+  props<{ result: Article[] }>());
 
 export const searchContentFailure =
   createAction('[Search API] Search Content Failure',
   props<{ error: string }>());
-
 
 // RESET SEARCH
 export const resetSearch =

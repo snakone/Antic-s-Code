@@ -6,10 +6,9 @@ import { ArticleLayoutModule } from '../article-layout/article-layout.module';
 import { MarkdownModule } from 'ngx-markdown';
 
 import { ContentBoxComponent } from './content-box/content-box.component';
-import { LastArticlesBoxComponent } from './last-articles-box/last-articles-box.component';
 import { LinksBoxComponent } from './links-box/links-box.component';
 import { StickyBoxComponent } from './sticky-box/sticky-box.component';
-import { ArticleIndexBoxComponent } from './article-index-box/article-index-box.component';
+import { IndexBoxComponent } from './index-box/index-box.component';
 import { SettingsBoxComponent } from './settings-box/settings-box.component';
 import { ProfileInfoBoxComponent } from './profile-info-box/profile-info-box.component';
 import { RelatedArticlesBoxComponent } from './related-articles-box/related-articles-box.component';
@@ -18,10 +17,9 @@ import { UserArticlesBoxComponent } from './user-articles-box/user-articles-box.
 @NgModule({
   declarations: [
     ContentBoxComponent,
-    LastArticlesBoxComponent,
     LinksBoxComponent,
     StickyBoxComponent,
-    ArticleIndexBoxComponent,
+    IndexBoxComponent,
     SettingsBoxComponent,
     ProfileInfoBoxComponent,
     RelatedArticlesBoxComponent,
@@ -36,10 +34,9 @@ import { UserArticlesBoxComponent } from './user-articles-box/user-articles-box.
   ],
   exports: [
     ContentBoxComponent,
-    LastArticlesBoxComponent,
     LinksBoxComponent,
     StickyBoxComponent,
-    ArticleIndexBoxComponent,
+    IndexBoxComponent,
     SettingsBoxComponent,
     ProfileInfoBoxComponent,
     RelatedArticlesBoxComponent,

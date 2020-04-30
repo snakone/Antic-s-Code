@@ -8,19 +8,15 @@ export const getSearchState = createSelector(
   (state: AppState) => state.search
 );
 
-export const getSearchResult = createSelector(
+export const getResult = createSelector(
   getSearchState, fromSearch.getResult
 );
 
-export const getSearchResultLoaded = createSelector(
+export const getResultLoaded = createSelector(
   getSearchState, fromSearch.getResultLoaded
 );
 
-export const getResultSearched = createSelector(
-  getSearchState, fromSearch.getResultSearched
-);
-
-export const getResultCount = createSelector(
+export const getCount = createSelector(
   getSearchState, fromSearch.getResultCount
 );
 

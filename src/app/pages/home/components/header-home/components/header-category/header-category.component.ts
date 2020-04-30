@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { POPULAR_CATEGORIES } from '@app/shared/shared.data';
+import { POPULAR_CATEGORIES } from '@shared/shared.data';
 
 @Component({
   selector: 'app-header-category',

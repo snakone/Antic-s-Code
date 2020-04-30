@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PAGE_BG } from '@app/shared/shared.data';
+import { PAGE_BG } from '@shared/shared.data';
 
 @Component({
   selector: 'app-page-header',

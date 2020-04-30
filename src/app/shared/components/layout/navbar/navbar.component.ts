@@ -3,9 +3,9 @@ import { LoginComponent } from '../../login/login.component';
 import { AppState } from '@app/app.config';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { User } from '@app/shared/interfaces/interfaces';
-import * as fromUser from '@core/ngrx/selectors/user.selectors';
-import { CrafterService } from '@app/core/services/crafter/crafter.service';
+import { User } from '@shared/interfaces/interfaces';
+import * as fromUsers from '@core/ngrx/selectors/user.selectors';
+import { CrafterService } from '@core/services/crafter/crafter.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,24 +18,26 @@ export class NavBarComponent implements OnInit {
   @ViewChild('drawer') drawer: ElementRef;
   user$: Observable<User>;
 
-  constructor(private crafter: CrafterService,
-              private store: Store<AppState>) { }
+  constructor(
+    private crafter: CrafterService,
+    private store: Store<AppState>
+  ) { }
 
   ngOnInit() {
-    this.user$ = this.store.select(fromUser.getUser);
+    this.user$ = this.store.select(fromUsers.get);
   }
 
-  openLogin(): void {
+  public openLogin(): void {
     this.crafter.dialog(LoginComponent, {register: false});
   }
 
-  openDrawer(): void {
+  public openDrawer(): void {
     try {
       this.drawer.nativeElement.open();
     } catch (err) { console.log(err); }
   }
 
-  closeDrawer(): void {
+  public closeDrawer(): void {
     try {
       this.drawer.nativeElement.close();
     } catch (err) { console.log(err); }

@@ -6,6 +6,7 @@ import { DEFAULT_SWIPER_CONFIG } from '@app/app.config';
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss']
 })
+
 export class CarouselComponent implements OnInit {
 
   @Input() array: any[];
@@ -20,7 +21,7 @@ export class CarouselComponent implements OnInit {
     }, 1000);
   }
 
-  navigate(value: number): void {
+  public navigate(value: number): void {
     const i = this.index + value;
     const n = this.array.length - 1;
 

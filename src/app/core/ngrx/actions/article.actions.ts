@@ -2,99 +2,112 @@ import { props, createAction } from '@ngrx/store';
 import { Article } from '@app/shared/interfaces/interfaces';
 
 // GET ARTICLES
-export const getArticles =
+export const get =
   createAction('[Articles API] Get Articles');
 
-export const getArticlesSuccess =
+export const getSuccess =
   createAction('[Articles API] Get Articles Success',
   props<{ articles: Article[] }>());
 
-export const getArticlesFailure =
+export const getFailure =
   createAction('[Articles API] Get Articles Failure',
   props<{ error: string }>());
 
 // GET LAST ARTICLES
-export const getLastArticles =
+export const getLast =
   createAction('[Articles API] Get Last Articles');
 
-export const getLastArticlesSuccess =
+export const getLastSuccess =
   createAction('[Articles API] Get Last Articles Success',
   props<{ articles: Article[] }>());
 
-export const getLastArticlesFailure =
+export const getLastFailure =
   createAction('[Articles API] Get Last Articles Failure',
   props<{ error: string }>());
 
 // GET MOST LIKED ARTICLES
-export const getMostLikedArticles =
+export const getMostLiked =
   createAction('[Articles API] Get Most Liked Articles');
 
-export const getMostLikedArticlesSuccess =
+export const getMostLikedSuccess =
   createAction('[Articles API] Get Most Liked Articles Success',
   props<{ articles: Article[] }>());
 
-export const getMostLikedArticlesFailure =
+export const getMostLikedFailure =
   createAction('[Articles API] Get Most Liked Articles Failure',
   props<{ error: string }>());
 
 // GET ARTICLES COUNT
-export const getArticlesCount =
+export const getCount =
   createAction('[Articles API] Get Articles Count');
 
-export const getArticlesCountSuccess =
+export const getCountSuccess =
   createAction('[Articles API] Get Articles Count Success',
   props<{ count: number }>());
 
-export const getArticlesCountFailure =
+export const getCountFailure =
   createAction('[Articles API] Get Articles Count Failure',
   props<{ error: string }>());
 
 // GET ARTICLE BY SLUG
-export const getArticleBySlug =
+export const getBySlug =
   createAction('[Articles API] Get Article by Slug',
   props<{ slug: string }>());
 
-export const getArticleBySlugSuccess =
+export const getBySlugSuccess =
   createAction('[Articles API] Get Articles by Slug Success',
   props<{ article: Article }>());
 
-export const getArticleBySlugFailure =
+export const getBySlugFailure =
   createAction('[Articles API] Get Article by Slug Failure',
   props<{ error: string }>());
 
 // GET ARTICLES BY USER
-export const getArticlesByUser =
+export const getByUser =
   createAction('[Articles API] Get Articles by User',
   props<{ id: string }>());
 
-export const getArticlesByUserSuccess =
+export const getByUserSuccess =
   createAction('[Articles API] Get Articles by User Success',
   props<{ articles: Article[] }>());
 
-export const getArticlesByUserFailure =
+export const getByUserFailure =
   createAction('[Articles API] Get Articles by User Failure',
   props<{ error: string }>());
 
+// GET ARTICLES BY CATEGORY
+export const getByCategory =
+createAction('[Articles API] Get Articles by Category',
+props<{ category: string }>());
+
+export const getByCategorySuccess =
+createAction('[Articles API] Get Articles by Category Success',
+props<{ articles: Article[] }>());
+
+export const getByCategoryFailure =
+createAction('[Articles API] Get Articles by Category Failure',
+props<{ error: string }>());
+
 // GET ARTICLES BY CATEGORY COUNT
-export const getArticlesByCategoryCount =
+export const getByCategoryCount =
   createAction('[Articles API] Get Articles by Category Count');
 
-export const getArticlesByCategoryCountSuccess =
+export const getByCategoryCountSuccess =
   createAction('[Articles API] Get Articles by Category Count Success',
   props<{ count: object }>());
 
-export const getArticlesByCategoryCountFailure =
+export const getByCategoryCountFailure =
   createAction('[Articles API] Get Articles by Category Count Failure',
   props<{ error: string }>());
 
 // RESET ARTICLES
-export const resetArticles =
+export const reset =
   createAction('[Articles API] Reset Articles');
 
 export const resetSlug =
   createAction('[Articles API] Reset Article Slug');
 
-export const resetArticlesByUser =
+export const resetByUser =
   createAction('[Articles API] Reset Articles By User');
 
 

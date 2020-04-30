@@ -23,6 +23,7 @@
     -webkit-transition: all .3s ease;
     -o-transition: all .3s ease;
     transition: all .3s ease;
+    cursor: pointer;
 
     & h3 {
       color: var(--light-color);

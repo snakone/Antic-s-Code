@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { User } from '@app/shared/interfaces/interfaces';
+import { User } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-profile-content',

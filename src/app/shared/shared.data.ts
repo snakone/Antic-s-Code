@@ -586,6 +586,14 @@ export const MY_SKILLS: string[] = [
   'Compromiso',
 ];
 
+export const CONDITIONS: string[] = [
+  'term.one',
+  'term.two',
+  'term.three',
+  'term.four',
+  'term.five',
+]
+
 const DOWNLOAD_URI: any = {
   windows: 'https://mega.nz/file/stQkES6B#E1Jv2SXXVIrjqJ4yyblb1YCWyWbWUyvD4FN2UrD_EBQ',
   mac: 'https://mega.nz/file/V8ZkAQCC#uhcc9C0qSu6SCHU-VQ-TJSCdeBG7DAedvxNqpSvj3jY',

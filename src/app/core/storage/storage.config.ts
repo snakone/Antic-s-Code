@@ -8,7 +8,7 @@ export interface ModuleConfig {
 export interface StorageConfig extends ModuleConfig {
   LANGUAGE: string;
   THEME: string;
-  REMEMBER: boolean;  // Remember Email on Login
+  REMEMBER: boolean;
   WELCOME: boolean;
 }
 
@@ -21,15 +21,14 @@ export const STORAGE_CONSTANTS: StorageConfig = {
 };
 
 export class Storage {
-// tslint:disable: no-inferrable-types
-// tslint:disable: variable-name
-  lang: string = APP_CONSTANTS.DEFAULT_LANGUAGE;
-  token: string = null;
-  user: string = null;
-  remember: boolean = STORAGE_CONSTANTS.REMEMBER;
-  user_lang: boolean = false;
-  theme: string = STORAGE_CONSTANTS.THEME;
-  welcome: boolean = STORAGE_CONSTANTS.WELCOME
+  lang = APP_CONSTANTS.DEFAULT_LANGUAGE;
+  token = null;
+  user = null;
+  remember = STORAGE_CONSTANTS.REMEMBER;
+  // tslint:disable-next-line:variable-name
+  user_lang = false;
+  theme = STORAGE_CONSTANTS.THEME;
+  welcome = STORAGE_CONSTANTS.WELCOME
 }
 
 export let STORAGE_CONFIG = new InjectionToken<StorageConfig>('storage.config');
