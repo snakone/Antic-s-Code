@@ -435,17 +435,17 @@ export const CATEGORY_INDEX: Index[] = [
   {
     title: 'Introducción',
     subtitle: 'Una breve introducción',
-    id: 'cat-intro'
+    id: 'introducción'
   },
   {
     title: 'Conceptos',
     subtitle: 'Conceptos básicos',
-    id: 'cat-concepts'
+    id: 'conceptos'
   },
   {
     title: 'Ejemplos',
     subtitle: 'Aprende con ejemplos',
-    id: 'cat-examples'
+    id: 'ejemplos'
   },
   {
     title: 'Preguntas y Respuestas',

@@ -68,4 +68,10 @@ h2:after {
   h2 { font-size: 35px }
 }
 
+.anchor {
+  position: absolute;
+  margin-top: -2rem;
+  @media(max-width: 550px) { margin-top: 0 }
+}
+
 
