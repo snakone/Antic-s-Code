@@ -8,6 +8,7 @@ export interface SearchState {
   loaded: boolean;
   error: string;
   count: number;
+  searched: boolean;
 }
 
 export const inititalState: SearchState = {
@@ -15,7 +16,8 @@ export const inititalState: SearchState = {
   request: null,
   loaded: false,
   error: null,
-  count: 0
+  count: 0,
+  searched: false
 };
 
 const featureReducer = createReducer(
@@ -26,7 +28,8 @@ const featureReducer = createReducer(
       ...state,
       error: null,
       result: null,
-      request
+      request,
+      searched: true
     }
   )),
   on(SearchActions.searchContentSuccess, (state, { result }) => (
@@ -49,13 +52,15 @@ const featureReducer = createReducer(
       error: null,
       result: null,
       count: 0,
-      request: null
+      request: null,
+      searched: false
     }
   )),
 );
 
 export const getResult = (state: SearchState) => state.result;
 export const getResultLoaded = (state: SearchState) => state.loaded;
+export const getResultSearched = (state: SearchState) => state.searched;
 export const getResultCount = (state: SearchState) => state.count;
 export const getRequest = (state: SearchState) => state.request;
 

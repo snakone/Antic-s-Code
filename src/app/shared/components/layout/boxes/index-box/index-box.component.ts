@@ -10,7 +10,6 @@ import { Index } from '@shared/interfaces/interfaces';
 export class IndexBoxComponent implements AfterContentInit {
 
   @Input() index: Index[];
-  @Input() mobile: boolean;
   public scrollSpy: string;
 
   constructor() { }
@@ -25,7 +24,7 @@ export class IndexBoxComponent implements AfterContentInit {
   }
 
   private listenToScroll(): void {
-    if (this.mobile || !this.index) { return; }
+    if (!this.index) { return; }
     setTimeout(() => {
       const anchors = document.querySelectorAll('.anchor');
       try {

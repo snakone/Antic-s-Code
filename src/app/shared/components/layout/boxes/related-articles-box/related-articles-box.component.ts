@@ -51,7 +51,7 @@ export class RelatedArticlesBoxComponent implements OnInit, OnDestroy {
     this.store.dispatch(SearchActions
       .searchContent({
         request: {
-          value: this.category.category.toLowerCase()
+          value: this.category.category
         }
       }));
     this.router.navigateByUrl('/search');
@@ -60,6 +60,7 @@ export class RelatedArticlesBoxComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+    this.store.dispatch(ArticleActions.resetByCategory());
   }
 
 }

@@ -182,6 +182,9 @@ const featureReducer = createReducer(
   )),
   on(ArticleActions.resetByUser, (state) => (
     { ...state, byUserLoaded: false, error: null, byUser: null }
+  )),
+  on(ArticleActions.resetByCategory, (state) => (
+    { ...state, byCategoryLoaded: false, error: null, byCategory: null }
   ))
 );
 

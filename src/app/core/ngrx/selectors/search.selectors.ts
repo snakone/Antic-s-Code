@@ -23,3 +23,7 @@ export const getCount = createSelector(
 export const getRequest = createSelector(
   getSearchState, fromSearch.getRequest
 );
+
+export const getSearched = createSelector(
+  getSearchState, fromSearch.getResultSearched
+);

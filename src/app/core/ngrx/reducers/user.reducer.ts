@@ -18,7 +18,7 @@ export const inititalState: UserState = {
   user: null,
   users: [],
   loaded: false,
-  mostActive: [],
+  mostActive: null,
   mostActiveLoaded: false,
   public: null,
   publicLoaded: false,

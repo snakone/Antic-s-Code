@@ -12,9 +12,8 @@
 
             <hr class="mobile" *ngIf="article.index">
 
-            <app-index-box class="mobile"
-                           [index]="article.index"
-                           [mobile]="true">
+            <app-index-box *onlyMobile
+                           [index]="article.index">
             </app-index-box>
 
             <hr class="mobile" *ngIf="article.index">
@@ -27,7 +26,7 @@
         <app-disqus [identifier]="article.slug"></app-disqus>
       </div>
       <div class="col-lg-4 col-md-4">  <!-- SIDEBAR -->
-        <app-index-box class="desktop"
+        <app-index-box *onlyDesktop
                        [index]="article.index">
         </app-index-box>
       </div>
@@ -46,7 +45,7 @@
         </app-article-card-skeleton>
       </div>
       <div class="col-lg-4 col-md-4">
-        <app-index-box class="desktop"
+        <app-index-box *onlyDesktop
                        [index]="null">
         </app-index-box>
       </div>

@@ -69,9 +69,9 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
       switchMap(_ => (
         fromEvent(window, 'scroll')
           .pipe(
-            debounceTime(300),
-            takeUntil(this.unsubscribe$),
             takeWhile(() => !_),
+            debounceTime(300),
+            takeUntil(this.unsubscribe$)
           )
         )
       )).subscribe(e => this.makeScroll(e));

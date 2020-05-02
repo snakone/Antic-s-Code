@@ -37,7 +37,7 @@ export class SearchResultComponent implements OnInit, OnDestroy {
   }
 
   private checkData(): void {
-    this.store.select(fromSearch.getResultLoaded)
+    this.store.select(fromSearch.getSearched)
      .pipe(
        filter(res => !res),
        takeUntil(this.unsubscribe$)

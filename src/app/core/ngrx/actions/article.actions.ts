@@ -110,4 +110,7 @@ export const resetSlug =
 export const resetByUser =
   createAction('[Articles API] Reset Articles By User');
 
+export const resetByCategory =
+  createAction('[Articles API] Reset Articles By Category');
+
 

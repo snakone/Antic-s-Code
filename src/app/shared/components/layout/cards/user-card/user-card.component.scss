@@ -1,7 +1,7 @@
 .user-card {
   background: #fff;
   border-radius: 2px;
-  margin-bottom: .8rem;
+  margin-bottom: .5rem;
   padding: .5rem 0 .5rem 0;
   position: relative;
   transition: all .5s ease-in;
@@ -34,10 +34,18 @@
     font-size: 1.4rem;
     position: relative;
     top: -3px;
+    display: flex;
 
     & span {
       margin-right: .5rem;
       font-size: 1.6rem;
+    }
+
+    & img {
+      width: 28px;
+      height: 28px;
+
+      margin-right: 10px;
     }
   }
 
@@ -132,6 +140,7 @@
 
 @media(max-width: 475px) {
   .user-card {
+    margin-bottom: .8rem;
     & .profile-social {
       position: relative !important;
 
@@ -204,7 +213,7 @@
     align-items: center;
 
     & h3 {
-      background: var(--skeleton-color);
+      background: var(--skeleton-color-tint);
       width: 3rem;
       line-height: 2rem;
       height: 2rem;

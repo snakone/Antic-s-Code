@@ -7,7 +7,7 @@
       <span>{{a.title}}</span>
     </div>
   </div>
-  <div class="see-more">
+  <div class="see-more" *ngIf="articles.length > 0">
     <mat-icon>forward</mat-icon>
     <a (click)="seeMore()">Ver más Artículos relacionados</a>
   </div>
