@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MAIN_CATEGORIES } from '@app/shared/shared.data';
+import { MAIN_CATEGORIES } from '@shared/shared.data';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
+import { Subject, Observable } from 'rxjs';
+import { takeUntil, filter } from 'rxjs/operators';
+
 import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 import * as ArticleActions from '@core/ngrx/actions/article.actions';
-
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-category-grid',
@@ -18,33 +18,27 @@ export class CategoryGridComponent implements OnInit, OnDestroy {
 
   categories = MAIN_CATEGORIES;
   count: object = {};
+  count$: Observable<object>;
   private unsubscribe$ = new Subject<void>();
 
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
     this.checkData();
-    this.getCount();
+    this.count$ = this.store.select(fromArticles.getByCategoryCount);
   }
 
   private checkData(): void {
     this.store.select(fromArticles.getCategoryCountLoaded)
-     .pipe(takeUntil(this.unsubscribe$))
-     .subscribe((res: boolean) => {
-       if (!res) {
+     .pipe(
+       takeUntil(this.unsubscribe$),
+       filter(res => !res)
+      )
+     .subscribe(_ =>
          this.store.dispatch(
-           ArticleActions.getArticlesByCategoryCount()
-        );
-       }
-    });
-  }
-
-  private getCount(): void {
-    this.store.select(fromArticles.getArticlesByCategoryCount)
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((res: object) => {
-        if (res) { this.count = res; }
-    });
+           ArticleActions.getByCategoryCount()
+        )
+    );
   }
 
   ngOnDestroy(): void {

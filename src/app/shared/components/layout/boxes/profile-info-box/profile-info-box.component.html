@@ -23,8 +23,10 @@
           </a>
           <li [class]="s.selector + ' not'"
               *ngIf="!user.profile[s.selector]">
-              {{s.name}} <img src="assets/icons/{{s.selector}}.svg"
-                              [alt]="s.selector" loading="lazy"/>
+              {{s.name}}
+              <img src="assets/icons/{{s.selector}}.svg"
+                   [alt]="s.selector"
+                   loading="lazy"/>
           </li>
         </div>
       </ul>

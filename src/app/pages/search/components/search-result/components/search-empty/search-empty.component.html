@@ -1,21 +1,31 @@
 <app-content-box>
-  <div *ngIf="request$ | async as req">
+  <div *ngIf="(request$ | async) as req">
       <h3>{{'no.results' | translate}}</h3>
       <p>{{'sorry.results' | translate}}</p><br>
 
       <ul>
         <li><span class="bold black">{{'value' | translate}}: </span>
-          <span class="defined" *ngIf="req.value; else notDefined">{{req.value | translate}}</span>
+          <span class="defined"
+                *ngIf="req.value; else notDefined">
+                {{req.value | translate}}
+          </span>
         </li>
         <li><span class="bold black">{{'category' | translate}}: </span>
-          <span class="defined" *ngIf="req.category; else notDefined">{{req.category | translate}}</span>
+          <span class="defined"
+                *ngIf="req.category; else notDefined">
+                {{req.category | translate}}
+          </span>
         </li>
         <li><span class="bold black">{{'thread' | translate}}: </span>
-          <span class="defined" *ngIf="req.tag; else notDefined">{{req.tag | translate}}</span>
+          <span class="defined"
+                *ngIf="req.tag; else notDefined">
+                {{req.tag | translate}}
+          </span>
         </li>
         <li><span class="bold black">{{'level' | translate}}: </span>
           <span *ngIf="req.level; else notDefined">
-            <span class="defined" *ngFor="let l of req.level; let i = index">
+            <span class="defined"
+                 *ngFor="let l of req.level; let i = index">
                 <span class="slash" *ngIf="i >= 1"> - </span>
                 {{l + ' '}}
             </span>
@@ -23,27 +33,30 @@
         </li>
         <li><span class="bold black">{{'stars' | translate}}: </span>
           <span *ngIf="req.stars; else notDefined">
-              <span class="defined" *ngFor="let s of req.stars; let i = index">
-                  <span class="slash" *ngIf="i >= 1"> - </span>
-                  {{s + ' '}}
-              </span>
+            <span class="defined"
+                  *ngFor="let s of req.stars; let i = index">
+                <span class="slash" *ngIf="i >= 1"> - </span>
+                {{s + ' '}}
             </span>
+          </span>
         </li>
         <li><span class="bold black">{{'tags' | translate}}: </span>
           <span *ngIf="req.badges; else notDefined">
-              <span class="defined" *ngFor="let b of req.badges; let i = index">
-                  <span class="slash" *ngIf="i >= 1"> - </span>
-                  {{b + ' '}}
-              </span>
+            <span class="defined"
+                  *ngFor="let b of req.badges; let i = index">
+                <span class="slash" *ngIf="i >= 1"> - </span>
+                {{b + ' '}}
             </span>
+          </span>
         </li>
         <li><span class="bold black">{{'order.by' | translate}}: </span>
           <span *ngIf="req.type; else notDefined">
-              <span class="defined" *ngFor="let t of req.type; let i = index">
-                  <span class="slash" *ngIf="i >= 1"> - </span>
-                  {{(t | translate) + ' '}}
-              </span>
+            <span class="defined"
+                  *ngFor="let t of req.type; let i = index">
+                <span class="slash" *ngIf="i >= 1"> - </span>
+                {{(t | translate) + ' '}}
             </span>
+          </span>
         </li>
         <li><span class="bold black">{{'order.title' | translate}}: </span>
           <span *ngIf="req.sort; else notDefined">

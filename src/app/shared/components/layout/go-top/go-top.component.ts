@@ -10,7 +10,7 @@ export class GoTopComponent {
 
   constructor() { }
 
-  goTop(): void {
+  public goTop(): void {
     window.scrollTo({top: 0, behavior: 'auto'});
   }
 

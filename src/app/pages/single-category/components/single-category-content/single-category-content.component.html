@@ -1,5 +1,4 @@
-<app-single-category-index-box></app-single-category-index-box>
-<div class="mobile">
+<div *onlyMobile>
   <div class="row">
     <div class="col-lg-12">
       <app-single-category-info-box [category]="category">
@@ -12,11 +11,16 @@
   </button>
 </div>
 
+<app-single-category-index-box></app-single-category-index-box>
+
  <!-- CATEGORY CONTENT -->
-<app-single-category-intro [category]="category"></app-single-category-intro>
-<app-single-category-concepts [category]="category"></app-single-category-concepts>
-<app-single-category-examples [category]="category"></app-single-category-examples>
+ <div *ngIf="category.message">
+  <app-content-maker [template]="category.message">
+  </app-content-maker>
+</div>
+
 <app-single-category-faq-box [category]="category"></app-single-category-faq-box>
+
 <app-links-box *ngIf="category?.links.length > 0"
                [links]="category?.links">
 </app-links-box>

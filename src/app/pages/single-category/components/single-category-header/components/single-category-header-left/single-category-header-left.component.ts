@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Category } from '@app/shared/interfaces/interfaces';
+import { Category } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-single-category-header-left',

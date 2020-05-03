@@ -1,4 +1,11 @@
-import { Directive, ElementRef, OnDestroy, Renderer2, AfterViewInit } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  OnDestroy,
+  Renderer2,
+  AfterViewInit
+} from '@angular/core';
+
 import { takeUntil, distinctUntilChanged, debounceTime } from 'rxjs/operators';
 import { fromEvent, Subject } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
@@ -11,17 +18,18 @@ export class NavbarDirective implements AfterViewInit, OnDestroy {
 
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private el: ElementRef,
-              private renderer: Renderer2,
-              private dialog: MatDialog,
-              private sheet: MatBottomSheet) {
-  }
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2,
+    private dialog: MatDialog,
+    private sheet: MatBottomSheet
+  ) { }
 
   ngAfterViewInit(): void {
     this.listenScroll();
   }
 
-  listenScroll(): void {
+  private listenScroll(): void {
     fromEvent(window, 'scroll')
       .pipe(
         takeUntil(this.unsubscribe$),

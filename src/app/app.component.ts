@@ -21,17 +21,17 @@ export class AppComponent implements OnInit {
 
   loaded = false;
 
-  constructor(private ls: StorageService,
-              private crafter: CrafterService,
-              private theme: ThemeService,
-              private store: Store<AppState>,
-              private sw: PushService) { }
+  constructor(
+    private ls: StorageService,
+    private crafter: CrafterService,
+    private theme: ThemeService,
+    private store: Store<AppState>,
+    private sw: PushService
+  ) { }
 
   ngOnInit() {
     this.checkUserToken();
     this.setTheme();
-    this.serviceWorker();
-
     window.onload = () => {
       this.onLoad();
     }
@@ -44,10 +44,11 @@ export class AppComponent implements OnInit {
   }
 
   private openLanguageSnack(): void {
-    if (!(this.ls.get('lang') === 'es') ||
-          this.ls.get('user_lang')) { return; }
+    const lang = this.ls.get('lang') !== 'es';
+    const user = this.ls.get('user_lang');
+    if (lang || user) { return; }
     setTimeout(() => {
-      this.crafter.snack(LanguageSnackComponent, -1);  // Infinite
+      this.crafter.snack(LanguageSnackComponent, -1);
     }, 8000);
   }
 
@@ -55,14 +56,11 @@ export class AppComponent implements OnInit {
     this.theme.set(this.ls.get('theme'));
   }
 
-  private serviceWorker(): void {
-    this.sw.updateSW();
-    this.sw.showPrompt();
-  }
-
   private onLoad(): void {
-    document.getElementById('app').classList.remove('hide');
+    const app = document.getElementById('app');
+    app.classList.remove('hide');
     this.loaded = true;
+    this.sw.updateSW();
     this.openLanguageSnack();
 
     if (environment.maintenance) {
@@ -73,7 +71,7 @@ export class AppComponent implements OnInit {
   private sorryMaintenance(): void {
     setTimeout(() => {
       this.crafter.dialog(
-        MaintenanceComponent, { cause: 'Google Sign In'}
+        MaintenanceComponent, { cause: 'Refactorizando'}
       );
     }, 4000);
   }

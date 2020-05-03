@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { CONDITIONS } from '@shared/shared.data';
 
 @Component({
   selector: 'app-conditions',
@@ -9,6 +10,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class ConditionsComponent {
 
   @Output() close = new EventEmitter<boolean>();
+  conditions = CONDITIONS;
 
   constructor() { }
 

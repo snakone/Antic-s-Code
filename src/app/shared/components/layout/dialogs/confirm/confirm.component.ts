@@ -6,11 +6,12 @@ import { MatDialogRef } from '@angular/material/dialog';
   templateUrl: './confirm.component.html',
   styleUrls: ['./confirm.component.scss']
 })
+
 export class ConfirmComponent {
 
   constructor(public dialogRef: MatDialogRef<ConfirmComponent>) { }
 
-  noClick(): void {
+  public noClick(): void {
     this.dialogRef.close();
   }
 

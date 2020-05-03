@@ -17,22 +17,22 @@ export const inititalState: CategoryState = {
 const featureReducer = createReducer(
   inititalState,
   // GET CATEGORY BY NAME
-  on(CategoryActions.getCategoryByName, (state, { name }) => (
-    { ...state, loaded: false, error: null }
+  on(CategoryActions.getByName, (state) => (
+    { ...state, loaded: false, error: null, category: null }
   )),
-  on(CategoryActions.getCategoryByNameSuccess, (state, { category }) => (
+  on(CategoryActions.getByNameSuccess, (state, { category }) => (
     {
       ...state,
       loaded: true,
+      category,
       error: null,
-      category
     }
   )),
-  on(CategoryActions.getCategoryByNameFailure, (state, { error }) => (
+  on(CategoryActions.getByNameFailure, (state, { error }) => (
     { ...state, loaded: false, error }
   )),
   // RESET
-  on(CategoryActions.resetCategory, (state) => (
+  on(CategoryActions.reset, (state) => (
     { ...state, loaded: false, error: null, category: null }
   )),
 );

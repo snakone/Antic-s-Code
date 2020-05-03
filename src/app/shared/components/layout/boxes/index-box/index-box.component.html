@@ -1,7 +1,8 @@
-<app-sticky-box selector="single-article-section">
+<app-sticky-box [selector]="index?.length > 0 ?
+                           'single-article-section' : null">
   <app-content-box [border]="true">
       <ul>
-        <div *ngIf="index">
+        <div *ngIf="index?.length > 0">
           <li *ngFor="let i of index"
               (click)="scroll(i.id)"
               [ngClass]="{'active' : i.id == scrollSpy}">{{i.title}}

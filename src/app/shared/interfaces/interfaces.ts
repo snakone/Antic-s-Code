@@ -35,9 +35,7 @@ export interface Article extends Content {
 }
 
 export interface Category extends Content {
-  intro?: string;
-  concepts?: string;
-  examples?: string;
+  message?: string;
   name?: string;
   info?: CategoryInfo;
   icon?: string;
@@ -46,6 +44,7 @@ export interface Category extends Content {
 }
 
 export interface ArticleResponse extends ServerResponse {
+  article?: Article;
   articles?: Article[];
   page?: number;
 }

@@ -1,12 +1,14 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { Category, ArticleResponse, Article } from '@app/shared/interfaces/interfaces';
-import { ArticleService } from '@app/core/services/article/article.service';
-import { takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { Category, Article } from '@shared/interfaces/interfaces';
+import { takeUntil, filter } from 'rxjs/operators';
+import { Subject, Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
 import { Router } from '@angular/router';
+
 import * as SearchActions from '@core/ngrx/actions/search.actions';
+import * as fromArticles from '@core/ngrx/selectors/article.selectors';
+import * as ArticleActions from '@core/ngrx/actions/article.actions';
 
 @Component({
   selector: 'app-related-articles-box',
@@ -17,32 +19,39 @@ import * as SearchActions from '@core/ngrx/actions/search.actions';
 export class RelatedArticlesBoxComponent implements OnInit, OnDestroy {
 
   @Input() category: Category;
-  articles: Article[];
+  articles$: Observable<Article[]>;
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private articleService: ArticleService,
-              private store: Store<AppState>,
-              private router: Router) { }
+  constructor(
+    private store: Store<AppState>,
+    private router: Router
+  ) { }
 
   ngOnInit() {
-    this.getRelatedArticles();
+    this.checkData();
+    this.articles$ = this.store.select(fromArticles.getByCategory);
   }
 
-  private getRelatedArticles(): void {
-    this.articleService.getArticlesByCategory(this.category.category)
-    .pipe(takeUntil(this.unsubscribe$))
-    .subscribe((res: ArticleResponse) => {
-      if (res.ok) {
-        this.articles = res.articles;
-      }
+  private checkData(): void {
+    this.store.select(fromArticles.getByCategoryLoaded)
+     .pipe(
+       filter(res => !res),
+       takeUntil(this.unsubscribe$)
+      )
+      .subscribe(_ => {
+         this.store.dispatch(
+           ArticleActions.getByCategory(
+             {category: this.category.category}
+          )
+        );
     });
   }
 
-  seeMore(): void {
+  public seeMore(): void {
     this.store.dispatch(SearchActions
       .searchContent({
         request: {
-          value: this.category.category.toLowerCase()
+          value: this.category.category
         }
       }));
     this.router.navigateByUrl('/search');
@@ -51,6 +60,7 @@ export class RelatedArticlesBoxComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+    this.store.dispatch(ArticleActions.resetByCategory());
   }
 
 }

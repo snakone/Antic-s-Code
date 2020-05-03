@@ -9,7 +9,8 @@
       <h5 [routerLink]="'/article/' + a.slug">{{a.title}}</h5>
 
       <div class="article-info">
-        <mat-icon class="views" [matTooltip]="'views' | translate"
+        <mat-icon class="views"
+                  [matTooltip]="'views' | translate"
                   matTooltipPosition="above">
                   visibility
         </mat-icon>
@@ -22,8 +23,11 @@
         <span>{{a.likes}}</span>
       </div>
     </div>
-  </div>
-  <div *ngIf="(articles$ | async)?.length === 0">
-    <p><strong>{{user?.name}}</strong> aún no ha escrito ningún artículo.</p>
+    <div *ngIf="articles.length === 0">
+      <p>
+        <strong>{{user?.name}}</strong>
+        aún no ha escrito ningún artículo.
+      </p>
+    </div>
   </div>
 </app-content-box>

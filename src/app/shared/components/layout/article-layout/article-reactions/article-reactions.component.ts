@@ -1,17 +1,23 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { Article, Interaction, InteractionResponse, NotificationPayload } from '@app/shared/interfaces/interfaces';
+
+import {
+  User,
+  Article,
+  Interaction,
+  NotificationPayload
+ } from '@shared/interfaces/interfaces';
+
 import { Store } from '@ngrx/store';
 import { AppState, URI } from '@app/app.config';
-import * as fromUser from '@core/ngrx/selectors/user.selectors';
+import * as fromInteractions from '@core/ngrx/selectors/interaction.selectors';
 import { NoAccountComponent } from '../../dialogs/no-account/no-account.component';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { HttpErrorResponse } from '@angular/common/http';
-import { CrafterService } from '@app/core/services/crafter/crafter.service';
-import { UserService } from '@app/core/services/user/user.service';
-import { InteractionService } from '@app/core/services/interaction/interaction.service';
-import { PushService } from '@app/core/services/push/push.service';
-import { LIKE_PUSH } from '@app/shared/shared.data';
+import { CrafterService } from '@core/services/crafter/crafter.service';
+import { UserService } from '@core/services/user/user.service';
+import { InteractionService } from '@core/services/interaction/interaction.service';
+import { PushService } from '@core/services/push/push.service';
+import { LIKE_PUSH } from '@shared/shared.data';
 
 @Component({
   selector: 'app-article-reactions',
@@ -25,35 +31,31 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
   @Input() single: boolean;
   liked: boolean;
   private unsubscribe$ = new Subject<void>();
+  user: User;
 
-  constructor(private crafter: CrafterService,
-              private userService: UserService,
-              private store: Store<AppState>,
-              private interaction: InteractionService,
-              private sw: PushService) { }
+  constructor(
+    private crafter: CrafterService,
+    private userSrv: UserService,
+    private store: Store<AppState>,
+    private intSrv: InteractionService,
+    private sw: PushService
+  ) { }
 
   ngOnInit() {
-    this.getArticleLiked();
+    this.user = this.userSrv.getUser();
+    this.getIntByUser();
   }
 
-  private getArticleLiked(): void {
-    this.store.select(fromUser.getInteractionByUser)
+  private getIntByUser(): void {
+    this.store.select(fromInteractions.getByUser)
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((res: Interaction[]) => {
-        if (res) {
-         const int = res.filter((i: Interaction) => {
-           return i.content === this.article._id &&
-                  i.user === this.userService.getUser()._id &&
-                  i.type === 'like';
-         });
-         if (int.length === 0) { return; }
-         int[0].value === 1 ? this.liked = true : this.liked = false;
-        }
-    });
+      .subscribe(
+        (res: Interaction[]) => this.markInteraction(res)
+      );
   }
 
-  doLike(value: number): void {
-    if (!this.userService.getUser()) {
+  public doLike(value: number): void {
+    if (!this.user) {
       this.crafter.dialog(NoAccountComponent, {
         type: 'like',
         author: this.article.author
@@ -63,15 +65,14 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
 
     const int: Interaction = {
       content: this.article._id,
-      user: this.userService.getUser()._id,
+      user: this.user._id,
       type: 'like',
       value
     };
 
-    this.interaction.doInteraction(int)
+    this.intSrv.make(int)
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((res: InteractionResponse) => {
-        if (res.ok) {
+      .subscribe(_ => {
           this.crafter.toaster('success', 'thanks.much', 'info');
           this.liked = !this.liked;
 
@@ -80,36 +81,31 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
               this.setNotification(Object.assign({}, LIKE_PUSH))
             ).subscribe();
           }
-        }
-      }, (err: HttpErrorResponse) => {
-        err.status === 0 ?
-        this.handleError('server') : this.handleError();
-    });
+      });
   }
 
-  private handleError(type?: string): void {
-    if (type === 'server') {
-      this.crafter.toaster('server.error',
-                           'server.bad',
-                           'error');
-    } else {
-      this.crafter.toaster('update.failed',
-                           'try.again',
-                           'error');
-    }
+  private markInteraction(ints: Interaction[]): void {
+    const int = ints.filter((i: Interaction) => (
+        i.content === this.article._id &&
+        i.user === this.user._id &&
+        i.type === 'like'
+      )
+    );
+    int.length > 0 && int[0].value === 1 ?
+    this.liked = true : this.liked = false;
   }
 
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
-  }
 
   setNotification(payload: NotificationPayload): NotificationPayload {
     payload.body = payload.body.concat(`.\n${this.article.title}`);
     payload.data.url = `${URI}/article/${this.article.slug}`;
     payload.user = this.article.user;
-
     return payload;
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
 }

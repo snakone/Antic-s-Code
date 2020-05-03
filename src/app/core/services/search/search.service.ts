@@ -1,24 +1,31 @@
 import { Injectable} from '@angular/core';
-import { APP_CONSTANTS } from '@app/app.config';
 import { HttpService } from '../http/http.service';
 import { Observable } from 'rxjs';
-import { SearchResponse, SearchRequest } from '@app/shared/interfaces/interfaces';
-import { environment } from '@env/environment';
 
-@Injectable({
-  providedIn: 'root'
-})
+import {
+  SearchResponse,
+  SearchRequest,
+  Article
+} from '@shared/interfaces/interfaces';
+
+import { environment } from '@env/environment';
+import { filter, map } from 'rxjs/operators';
+
+@Injectable({providedIn: 'root'})
 
 export class SearchService {
 
   readonly API_SEARCH = environment.api + 'search/';
 
-  constructor(private http: HttpService) {
-    if (!environment.production) { console.log('SearchService'); }
-  }
+  constructor(private http: HttpService) { }
 
-  public searchContent(request: SearchRequest): Observable<SearchResponse> {
-    return this.http.post(this.API_SEARCH, request);
+  public searchContent(request: SearchRequest): Observable<Article[]> {
+    return this.http
+      .post<SearchResponse>(this.API_SEARCH, request)
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.articles)
+      );
   }
 
 }

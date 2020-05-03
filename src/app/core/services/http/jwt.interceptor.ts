@@ -12,25 +12,26 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HttpResponse,
   HttpErrorResponse,
 } from '@angular/common/http';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
 
 export class JwtInterceptor implements HttpInterceptor {
 
-  constructor(private store: Store<AppState>,
-              private ls: StorageService,
-              private errorService: ErrorService) { }
+  constructor(
+    private store: Store<AppState>,
+    private ls: StorageService,
+    private errorSrv: ErrorService
+  ) { }
 
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    return next.handle(request).pipe(tap(((res: HttpResponse<any>) => {
+  intercept<T>(
+    request: HttpRequest<T>,
+    next: HttpHandler): Observable<HttpEvent<T>> {
+    return next.handle(request).pipe(tap((() => {
     }), ((error: HttpErrorResponse) => {
         if (error.status === 0) { return; }
-        this.errorService.saveError(error);
+        this.errorSrv.saveError(error);
         if (error.status === 401) {
           const id = this.ls.get('user');
           if (!id) { return throwError(error); }

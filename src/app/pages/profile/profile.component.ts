@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppState } from '@app/app.config';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { User } from '@app/shared/interfaces/interfaces';
+import { User } from '@shared/interfaces/interfaces';
 import * as fromUsers from '@core/ngrx/selectors/user.selectors';
 
 @Component({
@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit {
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
-    this.user$ = this.store.select(fromUsers.getUser);
+    this.user$ = this.store.select(fromUsers.get);
   }
 
 }

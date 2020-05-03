@@ -40,20 +40,38 @@
 
 h2 {
   line-height: 1.2;
-  font-size: 24px;
+  font-size: 1.7rem;
+  position: relative;
 }
 
 h2:before {
-  content: " ";
+  content: "";
   display: block;
   border-bottom: 1px solid #ececec;
-  padding-top: 44px;
+  padding-top: 30px;
   margin-bottom: 40px;
   box-sizing: inherit;
 }
 
+h2:after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: 2rem;
+  left: 2px;
+  bottom: -4px;
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
 @media(min-width: 1280px) {
   h2 { font-size: 35px }
+}
+
+.anchor {
+  position: absolute;
+  margin-top: -2rem;
+  @media(max-width: 550px) { margin-top: 0 }
 }
 
 

@@ -2,10 +2,10 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 import * as ArticleActions from '@core/ngrx/actions/article.actions';
 import { Observable, Subject } from 'rxjs';
-import { Article, User } from '@app/shared/interfaces/interfaces';
+import { Article, User } from '@shared/interfaces/interfaces';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-articles-box',
@@ -23,24 +23,26 @@ export class UserArticlesBoxComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.checkData();
-    this.articles$ = this.store.select(fromArticles.getArticlesByUser);
+    this.articles$ = this.store.select(fromArticles.getByUser);
   }
 
   private checkData(): void {
-    this.store.select(fromArticles.getArticlesByUserLoaded)
-     .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((res: boolean) => {
-       if (!res) {
-         this.store.dispatch(ArticleActions
-          .getArticlesByUser({id: this.user._id}));
-       }
+    this.store.select(fromArticles.getByUserLoaded)
+     .pipe(
+       filter(res => !res),
+       takeUntil(this.unsubscribe$)
+      )
+      .subscribe(_ => {
+         this.store.dispatch(
+           ArticleActions.getByUser({id: this.user._id})
+         );
     });
   }
 
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
-    this.store.dispatch(ArticleActions.resetArticlesByUser());
+    this.store.dispatch(ArticleActions.resetByUser());
   }
 
 }

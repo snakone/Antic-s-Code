@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { GoogleService } from '@app/core/services/google.service';
+import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
+import { GoogleService } from '@core/services/login/google.service';
 import { environment } from '@env/environment';
-import { HttpErrorResponse } from '@angular/common/http';
-import { UserResponse, User, NotificationPayload } from '@app/shared/interfaces/interfaces';
+import { UserResponse, User, NotificationPayload } from '@shared/interfaces/interfaces';
 import { MatDialogRef } from '@angular/material/dialog';
 import { LoginComponent } from '../login.component';
-import { PushService } from '@app/core/services/push/push.service';
+import { PushService } from '@core/services/push/push.service';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
-import { UserService } from '@app/core/services/user/user.service';
-import { CrafterService } from '@app/core/services/crafter/crafter.service';
-import { StorageService } from '@app/core/storage/storage.service';
-import * as UserActions from '@core/ngrx/actions/user.actions';
-import { NEW_USER_PUSH } from '@app/shared/shared.data';
+import { UserService } from '@core/services/user/user.service';
+import { CrafterService } from '@core/services/crafter/crafter.service';
+import { StorageService } from '@core/storage/storage.service';
+import { NEW_USER_PUSH } from '@shared/shared.data';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 declare const gapi: any;
 
@@ -23,16 +23,21 @@ declare const gapi: any;
   styleUrls: ['./google-in.component.scss']
 })
 
-export class GoogleInComponent implements OnInit {
+export class GoogleInComponent implements OnInit, OnDestroy {
 
-  constructor(private google: GoogleService,
-              public dialogRef: MatDialogRef<LoginComponent>,
-              private sw: PushService,
-              private ls: StorageService,
-              private store: Store<AppState>,
-              private userService: UserService,
-              private crafter: CrafterService,
-              private router: Router) { }
+  private unsubscribe$ = new Subject<void>();
+
+  constructor(
+    private google: GoogleService,
+    public dialogRef: MatDialogRef<LoginComponent>,
+    private sw: PushService,
+    private ls: StorageService,
+    private store: Store<AppState>,
+    private userSrv: UserService,
+    private crafter: CrafterService,
+    private router: Router,
+    private zone: NgZone
+  ) { }
 
   ngOnInit(): void {
     this.initGoogle();
@@ -58,26 +63,17 @@ export class GoogleInComponent implements OnInit {
   private googlePrompt(element: HTMLElement): void {
     this.google.auth2.attachClickHandler(element, {}, profile => {
       const token = profile.getAuthResponse().id_token;
-      this.google.googleSignIn(token)
-      .subscribe((res: UserResponse) => {
-        if (res.ok) { this.handleSignIn(res); }
-      },
-        (err: HttpErrorResponse) => {
-          err.status === 0 ?
-          this.handleError('server') : this.handleError();
-      });
+      this.google.signIn(token)
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((res: UserResponse) => this.handleSignIn(res));
     });
   }
 
   private handleSignIn(data: UserResponse): void {
     this.dialogRef.close();
-    this.store.dispatch(UserActions.setUser({user: data.user}));
-    this.userService.setUser(data.user);
-    this.ls.setKey('token', data.token);
-    this.ls.setKey('user', data.user._id);
-    this.sw.showPrompt();
+    this.userSrv.login(data);
     this.crafter.toaster(data.user.name, 'welcome', 'info');
-    this.router.navigateByUrl('/profile');
+    this.zone.run(() => this.router.navigateByUrl('/profile'));
 
     if (data.message.indexOf('Created') > -1) {
       this.sw.sendNotification(
@@ -86,23 +82,16 @@ export class GoogleInComponent implements OnInit {
     }
   }
 
-  private handleError(type?: string): void {
-    if (type === 'server') {
-      this.crafter.toaster('server.error',
-                           'server.bad',
-                           'error');
-    } else {
-      this.crafter.toaster('incorrect.login',
-                           'try.again',
-                           'error');
-    }
-  }
-
   private setNotification(payload: NotificationPayload,
                           user: User): NotificationPayload {
       payload.body = payload.body
-      .concat(`.\n¡¡Bienvenido/a ${user.name}!!`);
+      .concat(`.\n¡Bienvenido/a ${user.name}!`);
       return payload;
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
 }

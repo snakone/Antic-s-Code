@@ -1,9 +1,7 @@
 <div class="conditions animated fadeIn">
-  <p><span>1.</span> {{'term.one' | translate}}</p>
-  <p><span>2.</span> {{'term.two' | translate}}</p>
-  <p><span>3.</span> {{'term.three' | translate}}</p>
-  <p><span>4.</span> {{'term.four' | translate}}</p>
-  <p><span>5.</span> {{'term.five' | translate}}</p>
+  <p *ngFor="let c of conditions; let i = index">
+    <span>{{i + 1}}.</span> {{c | translate}}
+  </p>
   <button (click)="closeConditions()"
           class="btn-orange"
           aria-label="Close"

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatMenu } from '@angular/material/menu';
-import { MENU, HOME_MENU } from '@app/shared/shared.data';
+import { MENU, HOME_MENU } from '@shared/shared.data';
 
 @Component({
   selector: 'app-navigation',
@@ -22,7 +22,8 @@ export class NavigationComponent implements OnInit {
   }
 
   private listenCloseMenu(): void {
-    this.menu.closed.subscribe(() => this.collapse = !this.collapse);
+    this.menu.closed
+     .subscribe(() => this.collapse = !this.collapse);
   }
 
 }

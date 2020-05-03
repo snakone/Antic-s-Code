@@ -1,15 +1,14 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { Article, User, Interaction, InteractionResponse, NotificationPayload } from '@app/shared/interfaces/interfaces';
+import { Article, User, Interaction, NotificationPayload } from '@shared/interfaces/interfaces';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { NoAccountComponent } from '@layout/dialogs/no-account/no-account.component';
-import { HttpErrorResponse } from '@angular/common/http';
 import { UserService } from '@app/core/services/user/user.service';
-import { CrafterService } from '@app/core/services/crafter/crafter.service';
-import { InteractionService } from '@app/core/services/interaction/interaction.service';
+import { CrafterService } from '@core/services/crafter/crafter.service';
+import { InteractionService } from '@core/services/interaction/interaction.service';
 import { URI } from '@app/app.config';
-import { STAR_PUSH } from '@app/shared/shared.data';
-import { PushService } from '@app/core/services/push/push.service';
+import { STAR_PUSH } from '@shared/shared.data';
+import { PushService } from '@core/services/push/push.service';
 
 @Component({
   selector: 'app-star-rating',
@@ -24,16 +23,18 @@ export class StarRatingComponent implements OnInit, OnDestroy {
   user: User;
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private userService: UserService,
-              private crafter: CrafterService,
-              private interaction: InteractionService,
-              private sw: PushService) { }
+  constructor(
+    private userSrv: UserService,
+    private crafter: CrafterService,
+    private intSrv: InteractionService,
+    private sw: PushService
+  ) { }
 
   ngOnInit() {
-    this.user = this.userService.getUser();
+    this.user = this.userSrv.getUser();
   }
 
-  doStar(s: number): void {
+  public doStar(star: number): void {
     if (!this.user) {
       this.crafter.dialog(NoAccountComponent, {
         type: 'star',
@@ -41,39 +42,22 @@ export class StarRatingComponent implements OnInit, OnDestroy {
       });
       return;
     }
-    if (s) {
+    if (star) {
       const int: Interaction = {
         content: this.article._id,
-        user: this.userService.getUser()._id,
+        user: this.user._id,
         type: 'star',
-        value: s
+        value: star
       };
 
-      this.interaction.doInteraction(int)
+      this.intSrv.make(int)
         .pipe(takeUntil(this.unsubscribe$))
-        .subscribe((res: InteractionResponse) => {
-          if (res.ok) {
+        .subscribe(_ => {
             this.crafter.toaster('success', 'thanks.much', 'info');
             this.sw.sendNotification(
               this.setNotification(Object.assign({}, STAR_PUSH))
             ).subscribe();
-          }
-        }, (err: HttpErrorResponse) => {
-          err.status === 0 ?
-          this.handleError('server') : this.handleError();
-      });
-    }
-  }
-
-  private handleError(type?: string): void {
-    if (type === 'server') {
-      this.crafter.toaster('server.error',
-                           'server.bad',
-                           'error');
-    } else {
-      this.crafter.toaster('update.failed',
-                           'try.again',
-                           'error');
+        });
     }
   }
 
@@ -81,7 +65,6 @@ export class StarRatingComponent implements OnInit, OnDestroy {
     payload.body = payload.body.concat(`.\n${this.article.title}`);
     payload.data.url = `${URI}/article/${this.article.slug}`;
     payload.user = this.article.user;
-
     return payload;
   }
 

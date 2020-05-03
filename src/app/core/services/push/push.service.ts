@@ -1,18 +1,16 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpService } from '../http/http.service';
 import { environment } from '@env/environment';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { StorageService } from '@core/storage/storage.service';
 import { SwUpdate, SwPush } from '@angular/service-worker';
 import { DOCUMENT } from '@angular/common';
-import { NotificationPayload, SWResponse } from '@app/shared/interfaces/interfaces';
-import { WELCOME_PUSH } from '@app/shared/shared.data';
-import { switchMap } from 'rxjs/operators';
+import { NotificationPayload, SWResponse } from '@shared/interfaces/interfaces';
+import { WELCOME_PUSH } from '@shared/shared.data';
+import { filter, switchMap } from 'rxjs/operators';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
 
 export class PushService {
 
@@ -20,67 +18,75 @@ export class PushService {
   readonly API_NOTIFICATION = environment.api + 'notification';
   readonly pushKey = environment.keys.push;
 
-  constructor(@Inject(DOCUMENT) private document: Document,
-              private http: HttpService,
-              private ls: StorageService,
-              private swUpdate: SwUpdate,
-              private swPush: SwPush,
-              private deviceDetector: DeviceDetectorService) {
-    if (!environment.production) { console.log('NotificationService'); }
-  }
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private http: HttpService,
+    private ls: StorageService,
+    private swUpdate: SwUpdate,
+    private swPush: SwPush,
+    private deviceDetector: DeviceDetectorService
+  ) { }
 
   public updateSW(): void {
     this.swUpdate.available
-     .subscribe(event => {
-      if (event) {
-          this.swUpdate.activateUpdate()
-          .then(() => this.document.location.reload());
-        }
+    .pipe(filter(event => event && !!event))
+     .subscribe(_ => {
+        this.swUpdate.activateUpdate()
+        .then(() => this.document.location.reload());
     });
   }
 
   public showPrompt(): void {
-    if (this.ls.get('token')) {
-      setTimeout(() => {
-        this.swPush.requestSubscription({
-          serverPublicKey: this.pushKey
-        }).then((sub: PushSubscription) => {
-          if (sub) {
-            this.saveSubscription(sub)
-             .pipe(switchMap((res: SWResponse) =>
-               res.ok && !this.ls.get('welcome') ?
-               this.sendNotification(
-                 this.setNotification(Object.assign({}, WELCOME_PUSH))
-               ) :
-               of({ok: false})
-             ))
-             .subscribe((res: SWResponse) => {
-               if (res.ok) {
-                this.ls.setKey('welcome', true);
-               }
-             });
-          }
-        })
-        .catch(err => console.error(err));
-      }, 10000);
-    }
+    setTimeout(() => {
+      this.swPush.requestSubscription({
+        serverPublicKey: this.pushKey
+      }).then((sub: PushSubscription) => {
+        if (sub) {
+          this.saveSubscription(sub)
+            .pipe(
+              filter(res => res && !this.ls.get('welcome')),
+              switchMap(_ => this.sendNotification(
+                this.setNotification(Object.assign({}, WELCOME_PUSH))
+              ))
+            )
+            .subscribe(_ => this.ls.setKey('welcome', true));
+        }
+      })
+      .catch(err => console.error(err));
+    }, 10000);
   }
 
-  public saveSubscription(sub: PushSubscription): Observable<SWResponse> {
-    return this.http.post(this.API_SUBSCRIPTION, { sub, device: this.setDevice() });
+  public saveSubscription(
+    sub: PushSubscription
+  ): Observable<SWResponse> {
+    return this.http
+      .post<SWResponse>(
+        this.API_SUBSCRIPTION,
+        { sub, device: this.setDevice() }
+      ).pipe(
+        filter(res => res && !!res.ok)
+      );
   }
 
-  public sendNotification(payload: NotificationPayload): Observable<SWResponse> {
-    return this.http.post(this.API_NOTIFICATION, { payload });
+  public sendNotification(
+    payload: NotificationPayload
+  ): Observable<SWResponse> {
+    return this.http
+      .post<SWResponse>(this.API_NOTIFICATION, { payload })
+      .pipe(
+        filter(res => res && !!res.ok)
+      );
+  }
+
+  private setNotification(
+    payload: NotificationPayload
+  ): NotificationPayload {
+    payload.user = this.ls.get('user');
+    return payload;
   }
 
   private setDevice(): string {
     return this.deviceDetector.isDesktop() ? 'Desktop' : 'Mobile';
-  }
-
-  private setNotification(payload: NotificationPayload): NotificationPayload {
-    payload.user = this.ls.get('user');
-    return payload;
   }
 
 }
