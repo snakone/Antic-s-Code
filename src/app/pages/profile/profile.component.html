@@ -2,7 +2,7 @@
                  [subTitle]="'welcome.profile' | translate">
 </app-page-header>
 <app-section input="#f5f7fc">
-  <div class="row" *ngIf="user$ | async as user">
+  <div class="row" *ngIf="(user$ | async) as user">
     <div class="col-lg-8 col-md-8">  <!-- CONTENT -->
       <app-profile-content [user]="user"></app-profile-content>
       <app-settings-box *onlyMobile></app-settings-box>

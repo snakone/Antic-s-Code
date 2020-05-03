@@ -8,7 +8,7 @@
   }
 
   ul, ol {
-    margin-top: 20px;
+    margin-top: 30px;
     font-size: 16px;
     color: #1a1a1a;
     padding-left: 20px;
@@ -145,6 +145,10 @@
     word-break: break-word;
     height: auto !important;
     margin: 30px auto !important;
+
+    & span {
+      font-size: .9rem !important;
+    }
   }
 
   img {

@@ -88,3 +88,29 @@ ul {
 .flex-box {
   justify-content: initial !important;
 }
+
+.skeleton {
+  & h4 {
+    width: 6rem;
+    height: 1.2rem;
+    background: var(--skeleton-color-tint);
+    margin-bottom: .6rem;
+  }
+
+  & span:not(.verified) {
+    width: 10rem;
+    height: 1rem;
+    background: var(--skeleton-color);
+  }
+
+  & .verified {
+    left: 6rem;
+  }
+
+  & ul span {
+    width: 8rem;
+    height: 1rem;
+    background: var(--skeleton-color-tint);
+  }
+}
+

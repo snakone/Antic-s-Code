@@ -16,10 +16,16 @@ export class SingleCategoryInfoBoxComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (this.category) {
+      this.fromNow();
+    }
+  }
+
+  private fromNow(): void {
     moment.locale('es');
     this.updated = moment(
       this.category.updated, 'DD/MM/YYYY'
-    ).fromNow();
+    ).startOf('day').fromNow();
     if (this.updated.startsWith('Invalid')) {
       this.updated = null;
     }

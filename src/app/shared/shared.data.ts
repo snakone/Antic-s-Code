@@ -595,9 +595,9 @@ export const CONDITIONS: string[] = [
 ]
 
 const DOWNLOAD_URI: any = {
-  windows: 'https://mega.nz/file/stQkES6B#E1Jv2SXXVIrjqJ4yyblb1YCWyWbWUyvD4FN2UrD_EBQ',
-  mac: 'https://mega.nz/file/V8ZkAQCC#uhcc9C0qSu6SCHU-VQ-TJSCdeBG7DAedvxNqpSvj3jY',
-  linux: 'https://mega.nz/file/clRykKDI#kbUFZKg-wQJljCbUtx9tvsGmRLhpyFwe39QGQW8LzYc'
+  windows: 'https://mega.nz/file/A9RxxSwQ#v0t7Z5OCYtk1zvdS7brVRfl3SzG6nXgh7d8ZY4NWqq0',
+  mac: 'https://mega.nz/file/Q9AjGKhZ#XsmpzalQFBmSeR20gtAqlPjOMoc-hhID1XxC7vq9K74',
+  linux: 'https://mega.nz/file/UwJFiQLQ#M6dDVestTnjENMdrFrk_RcyOtRQkBGHVr31_TuVCTP8'
 };
 
 export const DOWNLOAD_BUTTONS: DownloadButton[] = [

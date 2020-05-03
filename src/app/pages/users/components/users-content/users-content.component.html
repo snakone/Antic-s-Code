@@ -34,11 +34,10 @@
 
   <div class="row">
     <div class="col-lg-12" *ngIf="filteredUsers?.length > 0; else skeleton">
-      <app-user-card *ngFor="let user of filteredUsers |
-                                                paginate: {
-                                                  itemsPerPage: itemsPerPage,
-                                                  currentPage: page,
-                                                  id: 'users-pagination' }; let last = last"
+      <app-user-card *ngFor="let user of filteredUsers | paginate: {
+                                                          itemsPerPage: itemsPerPage,
+                                                          currentPage: page,
+                                                          id: 'users-pagination' }; let last = last"
                      [user]="user"
                      [last]="last">
       </app-user-card>

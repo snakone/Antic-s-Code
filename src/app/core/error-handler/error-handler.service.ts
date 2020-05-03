@@ -23,13 +23,14 @@ export class ErrorHandlerService implements ErrorHandler {
       }
     }
 
-    if (error instanceof HttpErrorResponse) { return; }
     service.saveError(error);
 
     if (this.chunkFailedMessage.test(error?.message || null)) {
       window.location.reload();
       return;
     }
+
+    throw error;
   }
 
 }

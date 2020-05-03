@@ -28,7 +28,8 @@ import { MarkdownModule } from 'ngx-markdown';
     SingleCategorySidebarModule
   ],
   exports: [
-    SingleCategoryContentComponent
+    SingleCategoryContentComponent,
+    SingleCategoryIndexBoxComponent
   ]
 })
 
