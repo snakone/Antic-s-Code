@@ -1,8 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { CrafterService } from '@app/core/services/services.index';
-import { LoginComponent } from '@app/shared/components/login/login.component';
+import { Component, Inject } from '@angular/core';
+import { LoginComponent } from '@shared/components/login/login.component';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DialogData } from '@app/shared/interfaces/interfaces';
+import { DialogData } from '@shared/interfaces/interfaces';
+import { CrafterService } from '@core/services/crafter/crafter.service';
 
 @Component({
   selector: 'app-no-account',
@@ -10,19 +10,20 @@ import { DialogData } from '@app/shared/interfaces/interfaces';
   styleUrls: ['./no-account.component.scss']
 })
 
-export class NoAccountComponent implements OnInit {
+export class NoAccountComponent {
 
   type: string;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData,
-              private crafter: CrafterService,
-              public dialogRef: MatDialogRef<NoAccountComponent>) { }
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    private crafter: CrafterService,
+    public dialogRef: MatDialogRef<NoAccountComponent>
+  ) { }
 
-  ngOnInit() { }
-
-  openLogin(register: boolean): void {
+  public openLogin(register: boolean): void {
     this.dialogRef.close();
-    this.crafter.dialog(LoginComponent, {register});  // Navigate to Register TAP
+    // Navigate to Register TAP
+    this.crafter.dialog(LoginComponent, {register});
   }
 
 }

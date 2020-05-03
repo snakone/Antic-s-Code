@@ -9,7 +9,6 @@ import { Component } from '@angular/core';
 export class SearchComponent {
 
   grid = true;
-  count: number;
 
   constructor() { }
 

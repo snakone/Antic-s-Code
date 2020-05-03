@@ -21,6 +21,12 @@
         margin: 0 0 2rem 0;
       }
 
+      & p {
+        @media (max-width: 550px) {
+          font-size: 1rem !important;
+        }
+      }
+
       & ul {
         margin: 0;
         padding-left: 0;
@@ -35,7 +41,13 @@
             cursor: pointer;
             color: var(--primary-color);
           }
-         }
+
+          & span {
+            @media (max-width: 550px) {
+              font-size: 1rem !important;
+            }
+          }
+        }
       }
 
       & p {
@@ -58,4 +70,5 @@
 }
 
 .col-lg-3 { box-sizing: border-box }
+
 @media(max-width: 475px) { .col-xs-6 { width: 100% } }

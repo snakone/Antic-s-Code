@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-article-card-skeleton',
@@ -6,12 +6,10 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./article-card-skeleton.component.scss']
 })
 
-export class ArticleCardSkeletonComponent implements OnInit {
+export class ArticleCardSkeletonComponent {
 
   @Input() single: boolean;
 
   constructor() { }
-
-  ngOnInit() { }
 
 }

@@ -1,13 +1,14 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { Article, User } from '@app/shared/interfaces/interfaces';
-import { Subject, Observable, fromEvent, of } from 'rxjs';
-import { takeUntil, debounceTime, switchMap } from 'rxjs/operators';
+import { Article } from '@shared/interfaces/interfaces';
+import { Subject, fromEvent, Observable } from 'rxjs';
+import { takeUntil, debounceTime, switchMap, filter, takeWhile } from 'rxjs/operators';
 import { ArticleService } from '@core/services/article/article.service';
 import { AppState } from '@app/app.config';
 import { Store } from '@ngrx/store';
+
 import * as ArticleActions from '@core/ngrx/actions/article.actions';
 import * as fromArticles from '@core/ngrx/selectors/article.selectors';
-import * as UserActions from '@core/ngrx/actions/user.actions';
+import * as InterActions from '@core/ngrx/actions/interaction.actions';
 import * as fromUsers from '@core/ngrx/selectors/user.selectors';
 
 @Component({
@@ -19,78 +20,87 @@ import * as fromUsers from '@core/ngrx/selectors/user.selectors';
 export class ArticlesContentComponent implements OnInit, OnDestroy {
 
   @Input() grid: boolean;  // Display GRID
-  articles: Article[] = [];
+  articles$: Observable<Article[]>;
   private unsubscribe$ = new Subject<void>();
+  section: HTMLElement;
 
-  constructor(private articleService: ArticleService,
-              private store: Store<AppState>) { }
+  constructor(
+    private articleSrv: ArticleService,
+    private store: Store<AppState>
+  ) { }
 
   ngOnInit() {
-    this.getArticles();
+    this.checkData();
     this.hasEnded();
     this.getInteraction();
+    this.section = document.getElementById('articles-section');
+    this.articles$ = this.store.select(fromArticles.get);
   }
 
-  private getArticles(): void {
-    this.store.select(fromArticles.getArticles)
-     .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((res: Article[]) => {
-        if (res.length === 0) {
-          this.store.dispatch(ArticleActions.getArticles());
-        } else {
-          this.articles = res;
-        }
+  private checkData(): void {
+    this.store.select(fromArticles.getLoaded)
+     .pipe(
+       filter(res => !res),
+       takeUntil(this.unsubscribe$)
+      )
+     .subscribe(_ => {
+         this.store.dispatch(
+           ArticleActions.get()
+        );
     });
   }
 
   private getInteraction(): void {
-    this.store.select(fromUsers.getUser)
-     .pipe(takeUntil(this.unsubscribe$))
-     .subscribe((res: User) => {
-      if (res) { this.store.dispatch(UserActions.getInteractionByUser()); }
-    });
+    this.store.select(fromUsers.get)
+     .pipe(
+       filter(res => !!res),
+       takeUntil(this.unsubscribe$)
+      )
+     .subscribe(_ =>
+      this.store.dispatch(
+        InterActions.getByUser()
+    ));
   }
 
   private hasEnded(): void {
-    this.store.select(fromArticles.getFullArticles)
-      .pipe(takeUntil(this.unsubscribe$),
-        switchMap((loaded: boolean) => {
-          if (!loaded) {
-            return fromEvent(window, 'scroll')
-                .pipe(
-                debounceTime(300),
-                takeUntil(this.unsubscribe$)
-              );
-          } else {
-            try {
-              return of(null);
-            } catch (err) { console.log(err); }
-          }
-        })).subscribe(e => { if (e) { this.makeScroll(e); }});
+    this.store.select(fromArticles.getFull)
+    .pipe(
+      takeUntil(this.unsubscribe$),
+      switchMap(_ => (
+        fromEvent(window, 'scroll')
+          .pipe(
+            takeWhile(() => !_),
+            debounceTime(300),
+            takeUntil(this.unsubscribe$)
+          )
+        )
+      )).subscribe(e => this.makeScroll(e));
   }
 
   private makeScroll(e: any): void {
-    if (this.articles.length < 1) { return; }
-    let fromBottom = 450;
-    if (this.grid) { fromBottom = 650; }
-    if (window.document.body.clientWidth < 985) { fromBottom = 1400; }
+    const bottom = this.fromBottom();
     try {
       const top = e.target.scrollingElement.scrollTop;
-      const offset = document.getElementById('articles-section').offsetHeight;
-      if (offset - top <= fromBottom) {
+      if (this.section.offsetHeight - top <= bottom) {
         setTimeout(() => {
-          this.store.dispatch(ArticleActions.getArticles());
+          this.store.dispatch(ArticleActions.get());
         }, 300);
      }
     } catch (err) { console.log(err); }
   }
 
+  private fromBottom(): number {
+    let bottom = 450;
+    if (this.grid) { bottom = 650; }
+    if (window.document.body.clientWidth < 985) { bottom = 1400; }
+    return bottom;
+  }
+
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
-    this.articleService.resetPage();
-    this.store.dispatch(ArticleActions.resetArticles());
-    this.store.dispatch(UserActions.resetInteraction());
+    this.articleSrv.resetPage();
+    this.store.dispatch(ArticleActions.reset());
   }
 
 }

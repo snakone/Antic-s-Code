@@ -1,15 +1,21 @@
-<div id="cat-faq" class="faq" *ngIf="category?.faq.length > 0">
+<div class="anchor" id="cat-faq"></div>
+<div class="faq" *ngIf="category?.faq.length > 0">
   <h2>Preguntas y Respuestas</h2>
   <mat-accordion>
     <mat-expansion-panel class="mat-elevation-z0"
                           *ngFor="let f of category.faq; let i = index"
-                          [expanded]="i === 0">
+                          [expanded]="i === 0"
+                          (afterExpand)="resize()"
+                          (afterCollapse)="resize()">
       <mat-expansion-panel-header>
         <mat-panel-description>
           {{f.question}}
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <p>{{f.answer}}</p>
+      <markdown ngPreserveWhitespaces
+                class="answer"
+                [data]="f.answer">
+      </markdown>
     </mat-expansion-panel>
   </mat-accordion>
 </div>

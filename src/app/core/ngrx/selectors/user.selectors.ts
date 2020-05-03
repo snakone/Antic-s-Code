@@ -8,15 +8,15 @@ export const getUserState = createSelector(
   (state: AppState) => state.user
 );
 
-export const getUser = createSelector(
+export const get = createSelector(
   getUserState, fromUsers.getUser
 );
 
-export const getAllUsers = createSelector(
+export const getAll = createSelector(
   getUserState, fromUsers.getAllUsers
 );
 
-export const getAllUsersLoaded = createSelector(
+export const getAllLoaded = createSelector(
   getUserState, fromUsers.getAllUsersLoaded
 );
 
@@ -28,24 +28,16 @@ export const getMostActiveLoaded = createSelector(
   getUserState, fromUsers.getMostActiveLoaded
 );
 
-export const getUserEmail = createSelector(
+export const getEmail = createSelector(
   getUserState, fromUsers.getEmail
 );
 
-export const getUserByName = createSelector(
+export const getByName = createSelector(
   getUserState, fromUsers.getUserByName
 );
 
-export const getUserByNameLoaded = createSelector(
+export const getByNameLoaded = createSelector(
   getUserState, fromUsers.getUserByNameLoaded
-);
-
-export const getInteractionByUser = createSelector(
-  getUserState, fromUsers.getInteractionByUser
-);
-
-export const getInteractionByUserLoaded = createSelector(
-  getUserState, fromUsers.getInteractionByUserLoaded
 );
 
 

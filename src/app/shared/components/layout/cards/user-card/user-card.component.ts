@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { User } from '@app/shared/interfaces/interfaces';
-import { SOCIAL_PROFILE } from '@app/shared/shared.data';
+import { Component, Input } from '@angular/core';
+import { User } from '@shared/interfaces/interfaces';
+import { SOCIAL_PROFILE } from '@shared/shared.data';
 
 @Component({
   selector: 'app-user-card',
@@ -8,7 +8,7 @@ import { SOCIAL_PROFILE } from '@app/shared/shared.data';
   styleUrls: ['./user-card.component.scss']
 })
 
-export class UserCardComponent implements OnInit {
+export class UserCardComponent {
 
   @Input() user: User;
   @Input() skeleton: boolean;
@@ -16,7 +16,5 @@ export class UserCardComponent implements OnInit {
   social = SOCIAL_PROFILE;
 
   constructor() { }
-
-  ngOnInit() { }
 
 }

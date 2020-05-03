@@ -1,12 +1,13 @@
 import { Component, OnInit, OnDestroy, Input, EventEmitter, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
-import { Subject, of } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
+import { takeUntil, filter } from 'rxjs/operators';
+import { Article } from '@shared/interfaces/interfaces';
+import { PaginationService } from 'ngx-pagination';
+
 import * as fromSearch from '@core/ngrx/selectors/search.selectors';
 import * as SearchActions from '@core/ngrx/actions/search.actions';
-import { takeUntil, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { SearchResponse, Article } from '@app/shared/interfaces/interfaces';
-import { PaginationService } from 'ngx-pagination';
 
 @Component({
   selector: 'app-search-result',
@@ -22,55 +23,41 @@ export class SearchResultComponent implements OnInit, OnDestroy {
   itemsPerPage = 4;
 
   private unsubscribe$ = new Subject<void>();
-  articles: Article[];
+  articles$: Observable<Article[]>;
 
-  constructor(private store: Store<AppState>,
-              private pagination: PaginationService) { }
+  constructor(
+    private store: Store<AppState>,
+    private pagination: PaginationService
+  ) { }
 
   ngOnInit() {
-    this.articles = null;
+    this.articles$ = this.store.select(fromSearch.getResult);
     this.checkData();
-    this.getResult();
     this.getCurrentPage();
   }
 
   private checkData(): void {
-    this.store.select(fromSearch.getResultSearched)
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((res: boolean) => {
-        if (!res) {
-          this.store.dispatch(SearchActions.searchContent({request: {value: ''} }));
-        }
-    });
-  }
-
-  private getResult(): void {
-    this.store.select(fromSearch.getSearchResultLoaded)
-      .pipe(
-        switchMap((res: boolean) => {
-          return res ? this.store.select(fromSearch.getSearchResult) :
-          of({ok: false});
-        }),
-        distinctUntilChanged(),
-        takeUntil(this.unsubscribe$))
-      .subscribe((res: SearchResponse) => {
-        if (res.ok) {
-          this.articles = null;
-          setTimeout(() => {
-            this.articles = res.articles;
-          }, 1000);
-        }
+    this.store.select(fromSearch.getSearched)
+     .pipe(
+       filter(res => !res),
+       takeUntil(this.unsubscribe$)
+      )
+      .subscribe(_ => {
+         this.store.dispatch(
+          SearchActions.searchContent({request: {value: ''} })
+        );
     });
   }
 
   private getCurrentPage(): void {
     this.pagination.change
-     .pipe(takeUntil(this.unsubscribe$))
-     .subscribe((res: string) => {
-        if (res) {
-          this.page = this.pagination.getCurrentPage(res);
-       }
-     });
+     .pipe(
+       takeUntil(this.unsubscribe$),
+       filter(res => res && !!res)
+      )
+     .subscribe((res: string) =>
+      this.page = this.pagination.getCurrentPage(res)
+    );
   }
 
   ngOnDestroy(): void {

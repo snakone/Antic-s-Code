@@ -1,81 +1,63 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import * as UserActions from '../actions/user.actions';
-import { User, Interaction, MostActive } from '@app/shared/interfaces/interfaces';
+import { User, MostActive } from '@shared/interfaces/interfaces';
 
 export interface UserState {
   user: User;
   users: User[];
+  loaded: boolean;
   mostActive: MostActive[];
   mostActiveLoaded: boolean;
   public: User;
-  email: string;
-  loaded: boolean;
   publicLoaded: boolean;
-  usersLoaded: boolean;
+  email: string;
   error: string;
-  interaction: Interaction[];
-  interactionLoaded: boolean;
 }
 
 export const inititalState: UserState = {
   user: null,
-  users: null,
+  users: [],
+  loaded: false,
   mostActive: null,
   mostActiveLoaded: false,
   public: null,
-  email: null,
-  loaded: false,
   publicLoaded: false,
-  usersLoaded: false,
-  error: null,
-  interaction: null,
-  interactionLoaded: false
+  email: null,
+  error: null
 };
 
 const featureReducer = createReducer(
   inititalState,
   // SET USER
-  on(UserActions.setUser, (state, { user }) => {
-    if (!user.profile) { user.profile = {}; }
-    return (
-      {
-        ...state,
-        loaded: false,
-        error: null,
-        user
-      }
-    ); }),
-  on(UserActions.setUserSuccess, (state) => (
+  on(UserActions.set, (state) => (
+      { ...state, error: null }
+  )),
+  on(UserActions.setSuccess, (state, { user }) => (
+    {...state, error: null, user }
+  )),
+  on(UserActions.setFailure, (state, { error }) => (
+    { ...state, loaded: false, error }
+  )),
+  // GET ALL USERS
+  on(UserActions.get, (state) => (
+    { ...state, loaded: false, error: null }
+  )),
+  on(UserActions.getSuccess, (state, { users }) => (
     {
       ...state,
       loaded: true,
-      error: null
-    }
-  )),
-  // GET ALL USERS
-  on(UserActions.getAllUsers, (state) => (
-    {
-      ...state,
-      usersLoaded: false,
-      error: null
-    }
-  )),
-  on(UserActions.getAllUsersSuccess, (state, { users }) => (
-    {
-      ...state,
-      usersLoaded: true,
       error: null,
       users
     }
   )),
-  on(UserActions.getAllUsersFailure, (state, { error }) => (
-    { ...state, usersLoaded: false, error, users: null }
+  on(UserActions.getFailure, (state, { error }) => (
+    { ...state, loaded: false, error, users: null }
   )),
    // GET USER BY NAME
-   on(UserActions.getUserByName, (state, { name }) => (
+   on(UserActions.getByName, (state, { name }) => (
     { ...state, publicLoaded: false, error: null }
   )),
-  on(UserActions.getUserByNameSuccess, (state, { user }) => (
+  on(UserActions.getByNameSuccess, (state, { user }) => (
     {
       ...state,
       publicLoaded: true,
@@ -83,29 +65,14 @@ const featureReducer = createReducer(
       public: user
     }
   )),
-  on(UserActions.getUserByNameFailure, (state, { error }) => (
+  on(UserActions.getByNameFailure, (state, { error }) => (
     { ...state, publicLoaded: false, error }
   )),
-   // GET INTERACTION BY USER
-  on(UserActions.getInteractionByUser, (state) => (
-  { ...state, interactionLoaded: false, error: null }
-  )),
-  on(UserActions.getInteractionByUserSuccess, (state, { interaction }) => (
-    {
-      ...state,
-      error: null,
-      interaction,
-      interactionLoaded: true
-    }
-  )),
-  on(UserActions.getInteractionByUserFailure, (state, { error }) => (
-    { ...state, interactionLoaded: true, error }
-  )),
   // GET MOST ACTIVE USERS
-  on(UserActions.getMostActiveUsers, (state) => (
+  on(UserActions.getMostActive, (state) => (
    { ...state, mostActiveLoaded: false, error: null }
  )),
- on(UserActions.getMostActiveUsersSuccess, (state, { active }) => (
+ on(UserActions.getMostActiveSuccess, (state, { active }) => (
    {
      ...state,
      mostActive: active,
@@ -113,74 +80,42 @@ const featureReducer = createReducer(
      error: null
    }
  )),
- on(UserActions.getMostActiveUsersFailure, (state, { error }) => (
+ on(UserActions.getMostActiveFailure, (state, { error }) => (
    { ...state, mostActiveLoaded: false, error }
  )),
   // SET USER EMAIL
-  on(UserActions.setUserEmail, (state, { email }) => (
-    {
-      ...state,
-      loaded: false,
-      error: null
-    }
+  on(UserActions.setEmail, (state) => (
+    { ...state, error: null }
   )),
-  on(UserActions.setUserEmailSuccess, (state, { email }) => (
-    {
-      ...state,
-      loaded: true,
-      error: null,
-      email
-    }
+  on(UserActions.setEmailSuccess, (state, { email }) => (
+    { ...state, error: null, email }
   )),
-  on(UserActions.setUserEmailFailure, (state, { error }) => (
+  on(UserActions.setEmailFailure, (state, { error }) => (
     { ...state, loaded: false, error }
   )),
   // VERIFY TOKEN
   on(UserActions.verifyToken, (state) => (
-    {
-      ...state,
-      loaded: false,
-      error: null
-    }
+    { ...state, error: null }
   )),
   on(UserActions.verifyTokenSuccess, (state, { user }) => (
-    {
-      ...state,
-      loaded: true,
-      error: null,
-      user
-    }
+    { ...state, error: null, user }
   )),
   on(UserActions.verifyTokenFailure, (state, { error }) => (
-    { ...state, loaded: false, error, user: null }
+    { ...state, error, user: null }
   )),
   // REFRESH TOKEN
-  on(UserActions.refreshToken, (state, { id }) => (
-    {
-      ...state,
-      loaded: false,
-      error: null
-    }
+  on(UserActions.refreshToken, (state) => (
+    { ...state, loaded: false, error: null }
   )),
   on(UserActions.refreshTokenSuccess, (state, { user }) => (
-    {
-      ...state,
-      loaded: true,
-      error: null,
-      user
-    }
+    { ...state, error: null, user }
   )),
   on(UserActions.refreshTokenFailure, (state, { error }) => (
     { ...state, loaded: false, error, user: null }
   )),
   // USER LOG OUT
   on(UserActions.userLogOut, (state) => (
-    {
-      ...state,
-      loaded: true,
-      error: null,
-      user: null
-    }
+    { ...state, error: null, user: null }
   )),
   // RESET
   on(UserActions.resetUserName, (state) => (
@@ -189,14 +124,6 @@ const featureReducer = createReducer(
       loaded: false,
       error: null,
       public: null
-    }
-  )),
-  on(UserActions.resetInteraction, (state) => (
-    {
-      ...state,
-      interactionLoaded: false,
-      error: null,
-      interaction: null
     }
   ))
 );
@@ -211,7 +138,5 @@ export const getMostActive = (state: UserState) => state.mostActive;
 export const getMostActiveLoaded = (state: UserState) => state.mostActiveLoaded;
 export const getUserByName = (state: UserState) => state.public;
 export const getUserByNameLoaded = (state: UserState) => state.publicLoaded;
-export const getInteractionByUser = (state: UserState) => state.interaction;
-export const getAllUsersLoaded = (state: UserState) => state.usersLoaded;
-export const getInteractionByUserLoaded = (state: UserState) => state.interactionLoaded;
+export const getAllUsersLoaded = (state: UserState) => state.loaded;
 export const getEmail = (state: UserState) => state.email;

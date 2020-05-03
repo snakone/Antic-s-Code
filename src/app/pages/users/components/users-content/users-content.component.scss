@@ -58,13 +58,19 @@ app-pagination {
     top: -12px;
 
     & span {
-      font-size: 1.4rem !important;
+      display: flex;
+      align-items: center;
       margin-left: 1.2rem;
 
       &:hover {
         cursor: pointer;
         filter: brightness(1.2);
       }
+    }
+
+    & img {
+      width: 28px;
+      height: 28px;
     }
 
     @media(max-width: 550px) {

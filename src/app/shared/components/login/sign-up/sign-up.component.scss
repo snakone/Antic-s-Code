@@ -1,8 +1,9 @@
 .sign-up-wrapper {
   position: relative;
+  margin-bottom: -.5rem;
 }
 
-form { margin-top: 1rem }
+form { margin-top: .333rem }
 mat-form-field { width: 98% }
 mat-hint { font-size: .8rem }
 .invalid { color: red }
@@ -11,23 +12,22 @@ mat-hint { font-size: .8rem }
 button {
   width: 100%;
   color: var(--light-color);
-  margin-top: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: -1rem;
 }
 
 .check {
   text-align: left;
+  margin-top: .5rem;
 
   & mat-checkbox {
     display: inline-flex;
     margin-top: 1rem;
-    margin-bottom: 1rem;
   }
 }
 
 .bold {
-  font-weight: normal !important;
   cursor: pointer;
-  &:hover { font-weight: bold !important }
  }
 
 

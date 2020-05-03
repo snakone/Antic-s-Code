@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Article } from '@app/shared/interfaces/interfaces';
+import { Component, Input } from '@angular/core';
+import { Article } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-liked-home-grid',
@@ -7,12 +7,10 @@ import { Article } from '@app/shared/interfaces/interfaces';
   styleUrls: ['./liked-home-grid.component.scss']
 })
 
-export class LikedHomeGridComponent implements OnInit {
+export class LikedHomeGridComponent {
 
   @Input() articles: Article[];
 
   constructor() { }
-
-  ngOnInit() { }
 
 }

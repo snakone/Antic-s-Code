@@ -2,7 +2,15 @@
      [routerLink]="'/profile/' + user.name"
      *ngIf="!skeleton">
  <h4>
-   <span>{{user.account | rol}}</span>
+   <span *ngIf="user.account === 'Super'">
+    <img [src]="'crown.png' | image:'unicode'">
+   </span>
+   <span *ngIf="user.account === 'Admin'">
+    <img [src]="'mage.png' | image:'unicode'">
+   </span>
+   <span *ngIf="user.account === 'User'">
+    <img [src]="'user.png' | image:'unicode'">
+   </span>
    {{user.name}}
  </h4>
 

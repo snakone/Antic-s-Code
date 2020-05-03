@@ -16,7 +16,15 @@ img {
 
 .col-lg-6 {
   max-width: 576px;
+
+  @media(max-width: 550px) {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
   @media(max-width: 992px) {
+    max-width: 100% !important;
+    width: 100%;
     & img {
       margin: 2rem auto 0;
       display: block;

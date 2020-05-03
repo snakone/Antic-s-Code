@@ -1,13 +1,12 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { UserService } from '@app/core/services/services.index';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { User, UserResponse } from '@app/shared/interfaces/interfaces';
+import { User } from '@shared/interfaces/interfaces';
 import { CrafterService } from '@core/services/crafter/crafter.service';
-import { Subject, of } from 'rxjs';
+import { Subject } from 'rxjs';
 import { DeleteAccountComponent } from '@layout/dialogs/delete-account/delete-account.component';
-import { takeUntil, switchMap } from 'rxjs/operators';
-import { HttpErrorResponse } from '@angular/common/http';
+import { takeUntil, switchMap, filter } from 'rxjs/operators';
 import { StorageService } from '@core/storage/storage.service';
+import { UserService } from '@core/services/user/user.service';
 
 @Component({
   selector: 'app-profile-actions',
@@ -15,51 +14,38 @@ import { StorageService } from '@core/storage/storage.service';
   styleUrls: ['./profile-actions.component.scss']
 })
 
-export class ProfileActionsComponent implements OnInit, OnDestroy {
+export class ProfileActionsComponent implements OnDestroy {
 
   @Input() user: User;
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private userService: UserService,
-              private router: Router,
-              private crafter: CrafterService,
-              private ls: StorageService) { }
+  constructor(
+    private userSrv: UserService,
+    private router: Router,
+    private crafter: CrafterService,
+    private ls: StorageService
+  ) { }
 
-  ngOnInit() { }
-
-  delete(): void {
-    this.crafter.dialog(DeleteAccountComponent).afterClosed()
-      .pipe(switchMap((res: boolean) => {
-        return res ? this.userService.deleteUser() :
-               of({ ok: false });
-      }), takeUntil(this.unsubscribe$))
-      .subscribe((res: UserResponse) => {
-        if (res.ok) {
-          this.crafter.toaster('goodbye', 'miss.you', 'info');
-          this.ls.reset();
-          this.logOut();
-        }
-      }, (err: HttpErrorResponse) => {
-        err.status === 0 ?
-        this.handleError('server') : this.handleError();
-    });
+  public delete(): void {
+    this.crafter.dialog(DeleteAccountComponent)
+    .afterClosed()
+      .pipe(
+        takeUntil(this.unsubscribe$),
+        filter(res => res && !!res),
+        switchMap(_ => this.userSrv.delete())
+      )
+      .subscribe(_ => this.deleteSuccess());
   }
 
-  logOut(): void {
+  private deleteSuccess(): void {
+    this.crafter.toaster('goodbye', 'miss.you', 'info');
+    this.logOut();
+    this.ls.reset();
+  }
+
+  public logOut(): void {
     this.router.navigateByUrl('/home')
-      .then(() => this.userService.logout());
-  }
-
-  private handleError(type?: string): void {
-    if (type === 'server') {
-      this.crafter.toaster('server.error',
-                           'server.bad',
-                           'error');
-    } else {
-      this.crafter.toaster('update.error',
-                           'server.bad',
-                           'error');
-    }
+      .then(() => this.userSrv.logout());
   }
 
   ngOnDestroy(): void {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { PaginationService } from 'ngx-pagination';
 
 @Component({
@@ -7,7 +7,7 @@ import { PaginationService } from 'ngx-pagination';
   styleUrls: ['./pagination.component.scss'],
 })
 
-export class PaginationComponent implements OnInit {
+export class PaginationComponent {
 
   @Input() id: string;
   @Input() margin: number;
@@ -16,9 +16,7 @@ export class PaginationComponent implements OnInit {
 
   constructor(private pagination: PaginationService) { }
 
-  ngOnInit() { }
-
-  changeFrom(id: string, page: number): void {
+  public changeFrom(id: string, page: number): void {
     this.pagination.setCurrentPage(id, page);
     this.scroll(this.selector);
     window.dispatchEvent(new Event('resize'));  // Sticky
@@ -26,7 +24,7 @@ export class PaginationComponent implements OnInit {
 
   private scroll(id: string): void {
     const el = document.getElementById(id);
-    if (el) { el.scrollIntoView({ behavior: 'auto', block: 'start' }); }
+    if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   }
 
 }

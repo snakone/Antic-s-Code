@@ -8,8 +8,7 @@ ul {
   list-style-type: circle;
   padding-left: var(--big-padding);
   margin: 0 auto;
-  margin-bottom: 50px;
-  @media(min-width: 993px) {   margin-bottom: 0 }
+  margin-bottom: 0;
 }
 
 li:not(p) {

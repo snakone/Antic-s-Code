@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-go-top',
@@ -6,13 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./go-top.component.scss']
 })
 
-export class GoTopComponent implements OnInit {
+export class GoTopComponent {
 
   constructor() { }
 
-  ngOnInit() { }
-
-  goTop(): void {
+  public goTop(): void {
     window.scrollTo({top: 0, behavior: 'auto'});
   }
 

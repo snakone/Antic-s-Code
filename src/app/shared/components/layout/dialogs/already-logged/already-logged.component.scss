@@ -1,0 +1,24 @@
+mat-dialog-content {
+  position: relative;
+  text-align: center;
+
+  & p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+
+    & mat-icon {
+      font-size: 1.5rem;
+      margin-right: 1rem;
+    }
+  }
+
+  & .logout {
+    margin-top: .8rem;
+    text-align: center;
+     & span {
+      cursor: pointer;
+     }
+  }
+}

@@ -1,5 +1,6 @@
 <app-content-box title="Informacíon"
-                 icon="event_note">
+                 icon="event_note"
+                 *ngIf="category">
     <div class="info-box flex-box">
       <div class="info-box-avatar">
         <img [src]="category.icon | image: 'logos'"
@@ -10,8 +11,11 @@
           {{category.name}}
           <span class="verified"></span>
         </h4>
-        <span class="info-box-time">
-          Posted 6 days ago
+        <span class="info-box-time" *ngIf="updated">
+          Actualizado {{updated}}
+        </span>
+        <span class="info-box-time" *ngIf="!updated">
+          Sin actualizar
         </span>
       </div>
     </div>
@@ -37,4 +41,30 @@
         </li>
       </ul>
     </div>
+</app-content-box>
+
+<app-content-box title="Informacíon"
+                 icon="event_note"
+                 *ngIf="!category">
+    <div class="info-box flex-box">
+      <div class="info-box-avatar">
+        <img src="assets/img/no-image.png"
+             alt="no-image" loading="lazy"/>
+      </div>
+      <div class="info-box-data skeleton">
+        <h4 class="flex-box">
+          <span class="verified"></span>
+        </h4>
+        <span class="info-box-time">
+        </span>
+      </div>
+    </div>
+    <div class="info-box-list skeleton">  <!-- ICON LIST -->
+    <ul>
+      <li *ngFor="let l of ['school', 'public', 'link', 'schedule']">
+        <mat-icon>{{l}}</mat-icon>
+        <span></span>
+      </li>
+    </ul>
+  </div>
 </app-content-box>

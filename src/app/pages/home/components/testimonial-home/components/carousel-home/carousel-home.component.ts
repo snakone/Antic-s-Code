@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
-import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
+import { Component } from '@angular/core';
 import { TESTIMONIALS } from '@shared/shared.data';
 
 @Component({
@@ -9,31 +7,10 @@ import { TESTIMONIALS } from '@shared/shared.data';
   styleUrls: ['./carousel-home.component.scss']
 })
 
-export class CarouselHomeComponent implements OnInit {
+export class CarouselHomeComponent {
 
-  index = 0;
-  config = SWIPER_CONFIG;
   testimonials = TESTIMONIALS;
 
   constructor() { }
-
-  ngOnInit() { }
-
-  navigate(value: number): void {
-    const i = this.index + value;
-    const n = this.testimonials.length - 1;
-
-    if (i >= n) {
-      this.index = n;
-      return;
-    }
-
-    if (i <= 0) {
-      this.index = 0;
-      return;
-    }
-
-    this.index = i;
-  }
 
 }

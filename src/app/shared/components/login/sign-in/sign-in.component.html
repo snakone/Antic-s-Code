@@ -1,11 +1,11 @@
 <div class="animated fadeIn">
   <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
-    <mat-form-field color="accent" floatLabel="never">
+    <mat-form-field color="accent">  <!-- EMAIL -->
       <input matInput
              [placeholder]="'email' | translate"
              formControlName="email">
     </mat-form-field>
-    <mat-form-field color="accent" floatLabel="never">
+    <mat-form-field color="accent">  <!-- PASSWORD -->
       <input matInput
               [placeholder]="'password' | translate"
               formControlName="password"
@@ -24,6 +24,8 @@
             mat-button>
       {{'sign.in' | translate}}
     </button>
+
+    <app-google-in></app-google-in>
 
     <p>{{'no.account' | translate}}
       <span class="bold" (click)="signUp()">

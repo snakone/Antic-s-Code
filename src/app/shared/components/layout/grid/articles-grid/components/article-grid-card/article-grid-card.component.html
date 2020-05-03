@@ -1,7 +1,11 @@
 <div class="card animated fadeIn">
   <article class="card-content" [ngClass]="{'search' : search}">
     <figure [routerLink]="'/article/' + article.slug">  <!-- CARD IMAGE -->
-      <img [alt]="article.title" loading="lazy" [src]="article.cover"/>
+      <img [alt]="article.title"
+           #img
+           loading="lazy"
+           [src]="article.cover"
+           (error)="img.src = 'assets/img/no-image.png'; img.alt='No Image'"/>
       <app-article-card-badges [badges]="article.badges"></app-article-card-badges>
     </figure>
     <div class="card-info">  <!-- CARD TITLE -->

@@ -3,12 +3,12 @@ import {
   FooterList,
   Config,
   Role,
-  Tag,
   StarList,
   TimeLine,
   Index,
   CarouselSlide,
-  DownloadButton
+  DownloadButton,
+  NotificationPayload
 } from './interfaces/interfaces';
 
 import { AosOptions } from 'aos';
@@ -21,9 +21,9 @@ export const MENU: List[] = [
 ];
 
 export const HOME_MENU: List[] = [
-  { name: 'advantages', link: '/home', icon: 'autorenew' },
-  { name: 'collaborate', link: '/code', icon: 'present_to_all' },
-  { name: 'support', link: '/categories', icon: 'help_outline' },
+  { name: 'advantages', link: '/advantages', icon: 'autorenew' },
+  { name: 'collaborate', link: '/collaborate', icon: 'present_to_all' },
+  { name: 'support', link: '/support', icon: 'help_outline' },
   { name: 'about.me', link: '/about-me', icon: 'directions_run' },
   { name: 'searcher', link: '/search', icon: 'search' }
 ];
@@ -57,21 +57,6 @@ export const TAGS: string[] = [
   'Config',
   'Git',
   'Antic\'s Code'
-];
-
-export const TAGS_ICON: Tag[] = [
-  { name: 'Consola', icon: 'computer' },
-  { name: 'Desarrollo', icon: 'build' },
-  { name: 'Diseño', icon: 'color_lens' },
-  { name: 'Material', icon: 'view_compact' },
-  { name: 'Frontend', icon: 'personal_video' },
-  { name: 'Backend', icon: 'cast_connected' },
-  { name: 'Mobile', icon: 'phone_android' },
-  { name: 'Javascript', icon: 'code' },
-  { name: 'Typescript', icon: 'language' },
-  { name: 'Database', icon: 'cloud_queue' },
-  { name: 'Ionic', icon: 'phone_android' },
-  { name: 'Config', icon: 'toc' }
 ];
 
 export const POPULAR_CATEGORIES: List[] = [
@@ -231,7 +216,7 @@ export const ROLES: Role[] = [
 ];
 
 export const PROFILE_LANGS: string[] = [
-  'JavaScript',
+  'Javascript',
   'Python',
   'Java',
   'C++',
@@ -243,16 +228,22 @@ export const PROFILE_LANGS: string[] = [
 ];
 
 export const PAGE_BG = {
-  code: 'assets/img/page_bg/code.mp4',
-  categories: 'assets/img/page_bg/categories.mp4',
-  articles: 'assets/img/page_bg/articles.mp4',
+  about: 'assets/img/page_bg/about.mp4',
+  advantages: 'assets/img/page_bg/advantages.mp4',
   article: 'assets/img/page_bg/article.mp4',
-  users: 'assets/img/page_bg/users.mp4',
+  articles: 'assets/img/page_bg/articles.mp4',
+  categories: 'assets/img/page_bg/categories.mp4',
+  collaborate: 'assets/img/page_bg/collaborate.mp4',
+  contact: 'assets/img/page_bg/contact.mp4',
+  create: 'assets/img/page_bg/create.mp4',
+  help: 'assets/img/page_bg/help.mp4',
+  politics: 'assets/img/page_bg/politics.mp4',
   profile: 'assets/img/page_bg/profile.mp4',
   public: 'assets/img/page_bg/public.mp4',
   search: 'assets/img/page_bg/search.mp4',
-  about: 'assets/img/page_bg/about.mp4',
-  create: 'assets/img/page_bg/create.mp4'
+  support: 'assets/img/page_bg/support.mp4',
+  users: 'assets/img/page_bg/users.mp4',
+  works: 'assets/img/page_bg/works.mp4'
 };
 
 export const COUNTRIES: string[] = [
@@ -346,7 +337,7 @@ export const CREATE_SLIDES: CarouselSlide[] = [
     subtitle: 'Nos tomamos en enserio mantener un mismo formato para todos los Artículos.',
     message: `Rellena los datos, contra más información proporciones, más rico en contenido será.
               Escribir una buena introducción es esencial para atraer a los lectores,
-              ten lo en cuenta.`
+              tenlo en cuenta.`
   },
   {
     image: 'markdown.jpg',
@@ -377,15 +368,66 @@ export const CREATE_SLIDES: CarouselSlide[] = [
 export const FOOTER_LIST: FooterList[] = [
   {
     title: 'info',
-    list: ['about.me', 'contact', 'support', 'politics']
+    list: [
+      {
+        name: 'about-me',
+        translate: 'about.me'
+      },
+      {
+        name: 'contact',
+        translate: 'contact'
+      },
+      {
+        name: 'support',
+        translate: 'support'
+      },
+      {
+        name: 'politics',
+        translate: 'politics'
+      }
+    ]
   },
   {
     title: 'useful.links',
-    list: ['register', 'how.it.works', 'advantages', 'collaborate']
+    list: [
+      {
+        name: 'register',
+        translate: 'register'
+      },
+      {
+        name: 'how-works',
+        translate: 'how.it.works'
+      },
+      {
+        name: 'advantages',
+        translate: 'advantages'
+      },
+      {
+        name: 'collaborate',
+        translate: 'collaborate'
+      }
+    ]
   },
   {
     title: 'connect.me',
-    list: ['help', 'Twitter', 'Facebook', 'Youtube']
+    list: [
+      {
+        name: 'help',
+        translate: 'help'
+      },
+      {
+        name: 'Twitter',
+        translate: 'Twitter'
+      },
+      {
+        name: 'Facebook',
+        translate: 'Facebook'
+      },
+      {
+        name: 'Youtube',
+        translate: 'Youtube'
+      }
+    ]
   }
 ];
 
@@ -393,17 +435,17 @@ export const CATEGORY_INDEX: Index[] = [
   {
     title: 'Introducción',
     subtitle: 'Una breve introducción',
-    id: 'cat-intro'
+    id: 'introducción'
   },
   {
     title: 'Conceptos',
     subtitle: 'Conceptos básicos',
-    id: 'cat-concepts'
+    id: 'conceptos'
   },
   {
     title: 'Ejemplos',
     subtitle: 'Aprende con ejemplos',
-    id: 'cat-examples'
+    id: 'ejemplos'
   },
   {
     title: 'Preguntas y Respuestas',
@@ -466,8 +508,9 @@ export const TIME_LINE: TimeLine[] = [
   },
   {
     year: 2005,
-    message: `Dejé de lado el camino para aventurarme en la <strong>Formación Profesional</strong>. Me decidí
-              por la rama tecnologíca empezando por lo más básico, la electricidad y la electrónica.`,
+    message: `Dejé de lado el camino para aventurarme en la <strong>Formación Profesional</strong>.
+              Me decidípor la rama tecnologíca empezando por lo más básico, la electricidad y la
+              electrónica.`,
     side: 'left',
     fade: 'fade-right'
   },
@@ -543,10 +586,18 @@ export const MY_SKILLS: string[] = [
   'Compromiso',
 ];
 
+export const CONDITIONS: string[] = [
+  'term.one',
+  'term.two',
+  'term.three',
+  'term.four',
+  'term.five',
+]
+
 const DOWNLOAD_URI: any = {
-  windows: 'https://mega.nz/file/l8oSSYbQ#Uly8bRPQCJy66Mr-cHqrmUw8X89n1pfW2n1_wanPqxo',
-  mac: 'https://mega.nz/file/gtwkQKYa#QxjgT902_XbGm6dKisEhmI_RGdI86gD3U5cl3x0ikl4',
-  linux: 'https://mega.nz/file/p8pSSIhR#oQxMPBPCRJNYrACIfIniFnG0Kx7e_EMoRrSU56-D180'
+  windows: 'https://mega.nz/file/A9RxxSwQ#v0t7Z5OCYtk1zvdS7brVRfl3SzG6nXgh7d8ZY4NWqq0',
+  mac: 'https://mega.nz/file/Q9AjGKhZ#XsmpzalQFBmSeR20gtAqlPjOMoc-hhID1XxC7vq9K74',
+  linux: 'https://mega.nz/file/UwJFiQLQ#M6dDVestTnjENMdrFrk_RcyOtRQkBGHVr31_TuVCTP8'
 };
 
 export const DOWNLOAD_BUTTONS: DownloadButton[] = [
@@ -569,6 +620,44 @@ export const DOWNLOAD_BUTTONS: DownloadButton[] = [
     link: DOWNLOAD_URI.linux
   }
 ];
+
+export const WELCOME_PUSH: NotificationPayload = {
+  body: 'Bienvenido/a',
+  requireInteraction: false,
+  actions: [
+    { action: 'explore', title: 'Gracias por visitarnos' }
+  ],
+  broadcast: false
+};
+
+export const NEW_USER_PUSH: NotificationPayload = {
+  body: 'Nuevo Usuario Registrado',
+  requireInteraction: false,
+  actions: [
+    { action: 'explore', title: 'Aceptar' }
+  ],
+  broadcast: true
+};
+
+export const LIKE_PUSH: NotificationPayload = {
+  body: 'Nuevo Like en tu Artículo',
+  requireInteraction: false,
+  actions: [
+    { action: 'explore', title: '¡Genial!' }
+  ],
+  data: {},
+  broadcast: false
+}
+
+export const STAR_PUSH: NotificationPayload = {
+  body: 'Nueva Puntuación en tu Artículo',
+  requireInteraction: false,
+  actions: [
+    { action: 'explore', title: '¡Genial!' }
+  ],
+  data: {},
+  broadcast: false
+}
 
 
 

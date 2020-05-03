@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-categories',
@@ -6,10 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./categories.component.scss']
 })
 
-export class CategoriesComponent implements OnInit {
+export class CategoriesComponent {
 
   constructor() { }
-
-  ngOnInit() { }
 
 }

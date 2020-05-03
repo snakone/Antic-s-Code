@@ -5,12 +5,18 @@
 mat-form-field {
   position: relative;
   box-sizing: border-box;
+  margin-top: .8rem;
 }
 
 button {
   margin: 1rem auto;
   margin-bottom: 6px;  // Match Search Result Bottom
   width: 100%;
+
+  @media(max-width: 993px) {
+    margin-top: 2rem;
+    margin-bottom: 1.2rem;
+  }
 }
 
 h3 {
@@ -18,8 +24,6 @@ h3 {
   margin-top: 1.5rem;
   margin-bottom: .8rem;
 }
-
-.order { margin-bottom: 1.2rem }
 
 ::ng-deep .mat-form-field-wrapper {
   padding-bottom: .8rem;
@@ -79,8 +83,6 @@ h3 {
     }
   }
 }
-
-.first { margin-top: .8rem }
 
 
 

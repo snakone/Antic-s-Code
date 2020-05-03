@@ -1,23 +1,23 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import * as SearchActions from '../actions/search.actions';
-import { SearchResponse, SearchRequest } from '@shared/interfaces/interfaces';
+import { SearchRequest, Article } from '@shared/interfaces/interfaces';
 
 export interface SearchState {
-  result: SearchResponse;
+  result: Article[];
   request: SearchRequest;
   loaded: boolean;
   error: string;
-  searched: boolean;
   count: number;
+  searched: boolean;
 }
 
 export const inititalState: SearchState = {
-  result: null,
+  result: [],
   request: null,
   loaded: false,
   error: null,
-  searched: false,
-  count: 0
+  count: 0,
+  searched: false
 };
 
 const featureReducer = createReducer(
@@ -26,11 +26,10 @@ const featureReducer = createReducer(
   on(SearchActions.searchContent, (state, { request }) => (
     {
       ...state,
-      loaded: false,
       error: null,
-      result: { ok: false },
-      searched: true,
-      request
+      result: null,
+      request,
+      searched: true
     }
   )),
   on(SearchActions.searchContentSuccess, (state, { result }) => (
@@ -39,7 +38,7 @@ const featureReducer = createReducer(
       loaded: true,
       error: null,
       result,
-      count: result.articles.length
+      count: result.length
     }
   )),
   on(SearchActions.searchContentFailure, (state, { error }) => (
@@ -51,10 +50,10 @@ const featureReducer = createReducer(
       ...state,
       loaded: false,
       error: null,
-      result: { ok: false },
+      result: null,
       count: 0,
-      searched: false,
-      request: null
+      request: null,
+      searched: false
     }
   )),
 );

@@ -3,23 +3,27 @@ import { of } from 'rxjs';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import * as CategoryActions from './../actions/category.actions';
 import { map, concatMap, catchError } from 'rxjs/operators';
-import { CategoryService } from '@app/core/services/category/category.service';
+import { CategoryService } from '@core/services/category/category.service';
 
 @Injectable()
 
 export class CategoryEffects {
-  constructor(private actions: Actions,
-              private categoryService: CategoryService) { }
+
+  constructor(
+    private actions: Actions,
+    private categorySrv: CategoryService
+  ) { }
+
   // GET CATEGORY BY NAME
   loadCategoryByNameEffect$ = createEffect(() => this.actions
     .pipe(
-      ofType(CategoryActions.getCategoryByName),
+      ofType(CategoryActions.getByName),
       concatMap((action) =>
-      this.categoryService.getCategoryByName(action.name)
+      this.categorySrv.getByName(action.name)
         .pipe(
-          map(res => CategoryActions.getCategoryByNameSuccess({category: res.category[0]})),
+          map(category => CategoryActions.getByNameSuccess({ category })),
           catchError(error =>
-              of(CategoryActions.getCategoryByNameFailure({ error: error.message }))
+              of(CategoryActions.getByNameFailure({ error: error.message }))
           )
         )
       )

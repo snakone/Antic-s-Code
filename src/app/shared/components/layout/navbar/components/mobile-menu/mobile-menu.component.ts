@@ -1,5 +1,5 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { MENU, HOME_MENU } from '@app/shared/shared.data';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { MENU, HOME_MENU } from '@shared/shared.data';
 
 @Component({
   selector: 'app-mobile-menu',
@@ -7,17 +7,15 @@ import { MENU, HOME_MENU } from '@app/shared/shared.data';
   styleUrls: ['./mobile-menu.component.scss']
 })
 
-export class MobileMenuComponent implements OnInit {
+export class MobileMenuComponent {
 
-  @Output() close: EventEmitter<void> = new EventEmitter<void>();
+  @Output() close = new EventEmitter<void>();
   items = MENU;
   menu = HOME_MENU;
 
   constructor() { }
 
-  ngOnInit() { }
-
-  closeDrawer(): void {
+  public closeDrawer(): void {
     this.close.emit();
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CREATE_SLIDES } from '@shared/shared.data';
 
 @Component({
@@ -7,12 +7,10 @@ import { CREATE_SLIDES } from '@shared/shared.data';
   styleUrls: ['./create-carousel.component.scss']
 })
 
-export class CreateCarouselComponent implements OnInit {
+export class CreateCarouselComponent {
 
   slides = CREATE_SLIDES;
 
   constructor() { }
-
-  ngOnInit() { }
 
 }

@@ -4,13 +4,14 @@ import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
 import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 import * as ArticleActions from '@core/ngrx/actions/article.actions';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-articles-sort-bar',
   templateUrl: './articles-sort-bar.component.html',
   styleUrls: ['./articles-sort-bar.component.scss']
 })
+
 export class ArticlesSortBarComponent implements OnInit, OnDestroy {
 
   @Output() grid = new EventEmitter<boolean>();
@@ -22,20 +23,23 @@ export class ArticlesSortBarComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.checkData();
-    this.count$ = this.store.select(fromArticles.getArticlesCount);
+    this.count$ = this.store.select(fromArticles.getCount);
   }
 
   private checkData(): void {
     this.store.select(fromArticles.getCountLoaded)
-     .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((res: boolean) => {
-       if (!res) {
-         this.store.dispatch(ArticleActions.getArticlesCount());
-       }
+     .pipe(
+       filter(res => !res),
+       takeUntil(this.unsubscribe$)
+      )
+      .subscribe(_ => {
+         this.store.dispatch(
+           ArticleActions.getCount()
+        );
     });
   }
 
-  sort(): void {
+  public sort(): void {
     this.active = !this.active;
     this.grid.emit(this.active);
   }

@@ -31,19 +31,20 @@ export interface Article extends Content {
   views?: number;
   summary?: string;
   status?: string;
+  user?: string;
 }
 
 export interface Category extends Content {
-  intro?: string;
-  concepts?: string;
-  examples?: string;
+  message?: string;
   name?: string;
   info?: CategoryInfo;
   icon?: string;
   faq?: FAQ[];
+  updated?: string;
 }
 
 export interface ArticleResponse extends ServerResponse {
+  article?: Article;
   articles?: Article[];
   page?: number;
 }
@@ -65,6 +66,9 @@ export interface CountResponse extends ServerResponse {
 export interface CategoryCountResponse extends ServerResponse {
   count?: object;
 }
+
+// tslint:disable-next-line:no-empty-interface
+export interface SWResponse extends ServerResponse {}
 
 export interface User {
   _id?: string;
@@ -105,6 +109,11 @@ export interface DialogData {
   register?: boolean;
   author?: string;
   type?: string;
+  cause?: string;
+}
+
+export interface SheetData {
+  message?: string;
 }
 
 export interface SearchRequest {
@@ -147,7 +156,11 @@ export interface DownloadButton {
 
 export interface FooterList {
   title: string;
-  list: string[];
+  list: FooterLink[];
+}
+
+interface FooterLink extends Translation {
+  name: string;
 }
 
 export interface FAQ {
@@ -166,11 +179,6 @@ export interface Index {
   title: string;
   subtitle: string;
   id: string;
-}
-
-export interface Tag {
-  name: string;
-  icon: string;
 }
 
 export interface Config {
@@ -234,4 +242,26 @@ export class CustomError {
     this.author = author;
     this.platform = platform;
   }
+}
+
+export interface NotificationPayload {
+  title?: string;
+  body: string;
+  icon?: string;
+  vibrate?: number[];
+  requireInteraction?: boolean;
+  data?: NotificationData;
+  actions: NotificationAction[];
+  user?: string;
+  broadcast?: boolean;
+}
+
+interface NotificationData {
+  url?: string;
+  data?: any;
+}
+
+interface NotificationAction {
+  action: string;
+  title: string;
 }
