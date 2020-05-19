@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MY_SKILLS_LOGO, MY_SKILLS } from '@app/shared/shared.data';
+import { MY_SOFT_SKILLS, MY_HARD_SKILLS } from '@app/shared/shared.data';
 
 @Component({
   selector: 'app-about-skills',
@@ -9,8 +9,8 @@ import { MY_SKILLS_LOGO, MY_SKILLS } from '@app/shared/shared.data';
 
 export class AboutSkillsComponent {
 
-  skillsIcon = MY_SKILLS_LOGO;
-  skills = MY_SKILLS;
+  softSkills = MY_SOFT_SKILLS;
+  hardSkills = MY_HARD_SKILLS;
 
   constructor() { }
 
