@@ -2,8 +2,7 @@
   <h3>Puntua este Artículo</h3>
   <div class="stars-select">
     <ng-container *ngFor="let s of [5,4,3,2,1]">
-      <input *ngIf="user"
-             [class]="'star star-' + s"
+      <input [class]="'star star-' + s"
              [id]="'star-' + s"
              [value]="s"
              type="radio"

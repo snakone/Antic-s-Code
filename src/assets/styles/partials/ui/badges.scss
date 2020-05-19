@@ -38,7 +38,7 @@
 }
 
 .meta-star {
-  @include meta-data(var(--success-color), 2.3rem);
+  @include meta-data(var(--success-color), 2.2rem);
 }
 
 .meta-star-card {
@@ -46,7 +46,7 @@
 }
 
 .meta-like {
-  @include meta-data(var(--primary-color), 2.3rem);
+  @include meta-data(var(--primary-color), 2.2rem);
 }
 
 .meta-like-card {
@@ -54,7 +54,7 @@
 }
 
 .meta-view {
-  @include meta-data(var(--react-color), 2.3rem);
+  @include meta-data(var(--react-color), 2.2rem);
 }
 
 .meta-view-card {
@@ -62,11 +62,11 @@
 }
 
 .meta-review {
-  @include meta-data(#6f32cc, 2.3rem)
+  @include meta-data(#6f32cc, 2.2rem)
 }
 
 .meta-type {
-  @include meta-data(transparent, 2.13rem);
+  @include meta-data(transparent, 2.2rem);
   border: 1px solid rgba(255,255,255,.5);
   padding-left: 0;
   padding: 0 1rem;
@@ -75,24 +75,18 @@
     color: var(--primary-color) !important;
     border: 1px solid var(--primary-color) !important;
    }
+
+   & mat-icon {
+    left: 0;
+  }
 }
 
 .verified {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
   justify-content: center;
   width: 1.06667rem;
   height: 1.06667rem;
-  -webkit-border-radius: 20rem;
   border-radius: 20rem;
   margin-left: .96667rem;
   position: relative;

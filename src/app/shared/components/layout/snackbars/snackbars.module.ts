@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { LanguageSnackComponent } from './language-snack/language-snack.component';
-import { SharedModule } from '@app/shared/shared.module';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
     LanguageSnackComponent
   ],
   imports: [
-    SharedModule
-  ],
-  entryComponents: [
-    LanguageSnackComponent
+    MatIconModule,
+    MatButtonModule
   ]
 })
 

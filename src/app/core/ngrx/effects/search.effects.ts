@@ -3,21 +3,25 @@ import { of } from 'rxjs';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import * as SearchActions from './../actions/search.actions';
 import { map, concatMap, catchError } from 'rxjs/operators';
-import { SearchService } from '@app/core/services/services.index';
+import { SearchService } from '@core/services/search/search.service';
 
 @Injectable()
 
 export class SearchEffects {
-  constructor(private actions: Actions,
-              private searchService: SearchService) { }
+
+  constructor(
+    private actions: Actions,
+    private searchSrv: SearchService
+  ) { }
+
   // SEARCH CONTENT
   searchContentEffect$ = createEffect(() => this.actions
     .pipe(
       ofType(SearchActions.searchContent),
       concatMap((action) =>
-      this.searchService.searchContent(action.request)
+      this.searchSrv.searchContent(action.request)
         .pipe(
-          map(res => SearchActions.searchContentSuccess({result: res})),
+          map(result => SearchActions.searchContentSuccess({ result })),
           catchError(error =>
               of(SearchActions.searchContentFailure({ error: error.message }))
           )

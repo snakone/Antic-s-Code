@@ -1,5 +1,5 @@
 <app-content-box [title]="'Artículos de ' + user?.name">
-  <div *ngIf="(articles$ | async) as articles; else noArticles">
+  <div *ngIf="(articles$ | async) as articles">
     <div class="article-item" *ngFor="let a of articles">
       <img [src]="(a.category | logo) | image:'logos'"
              [alt]="a.category" loading="lazy"
@@ -9,7 +9,8 @@
       <h5 [routerLink]="'/article/' + a.slug">{{a.title}}</h5>
 
       <div class="article-info">
-        <mat-icon class="views" [matTooltip]="'views' | translate"
+        <mat-icon class="views"
+                  [matTooltip]="'views' | translate"
                   matTooltipPosition="above">
                   visibility
         </mat-icon>
@@ -22,8 +23,11 @@
         <span>{{a.likes}}</span>
       </div>
     </div>
+    <div *ngIf="articles.length === 0">
+      <p>
+        <strong>{{user?.name}}</strong>
+        aún no ha escrito ningún artículo.
+      </p>
+    </div>
   </div>
-  <ng-template #noArticles>
-    <strong>{{user?.name}}</strong> aún no ha escrito ningún artículo.
-  </ng-template>
 </app-content-box>

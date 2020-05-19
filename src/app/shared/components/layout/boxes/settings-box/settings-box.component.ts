@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LANGUAGES, THEMES } from '@shared/shared.data';
-import { StorageService } from '@app/core/storage/storage.service';
-import { CrafterService, ThemeService } from '@app/core/services/services.index';
+import { StorageService } from '@core/storage/storage.service';
 import { LanguageService } from '@core/language/services/language.service';
+import { ThemeService } from '@core/services/theme/theme.service';
+import { CrafterService } from '@core/services/crafter/crafter.service';
 
 @Component({
   selector: 'app-settings-box',
@@ -18,29 +19,33 @@ export class SettingsBoxComponent implements OnInit {
   languages = LANGUAGES;
   themes = THEMES;
 
-  constructor(private theme: ThemeService,
-              private ls: StorageService,
-              private language: LanguageService,
-              private crafter: CrafterService) { }
+  constructor(
+    private theme: ThemeService,
+    private ls: StorageService,
+    private language: LanguageService,
+    private crafter: CrafterService
+  ) { }
 
   ngOnInit() {
     this.createSettingsForm();
   }
 
   private createSettingsForm(): void {
-    this.settingsForm = new FormGroup({
-              language: new FormControl(this.ls.get('lang'), [Validators.required]),
-                 theme: new FormControl(this.ls.get('theme'), [Validators.required]),
-    });
+    this.settingsForm = new FormGroup(
+      {
+        language: new FormControl(this.ls.get('lang'), [
+          Validators.required
+        ]),
+        theme: new FormControl(this.ls.get('theme'), [
+          Validators.required
+        ])
+      }
+    );
   }
 
-  onSubmit(): void {
+  public onSubmit(): void {
     if (this.settingsForm.invalid) { return; }
-
-    const lang = this.settingsForm.value.language;
-    const theme = this.settingsForm.value.theme;
-
-    this.theme.remove(this.ls.get('theme'));
+    const { lang, theme } = this.settingsForm.value;
     this.theme.set(theme);
     this.language.change(lang);
     this.crafter.toaster('updated', 'config.save', 'info');

@@ -19,6 +19,14 @@ span {
   @media(max-width: 550px) { font-size: .9rem !important }
 }
 
+strong {
+  font-size: inherit;
+}
+
+span strong {
+  font-size: inherit;
+}
+
 h1 {
   color: var(--light-color);
   font-size: 2rem;
@@ -60,5 +68,18 @@ ul.none {
     color: var(--p-color);
     @media(max-width: 550px) { font-size: .9rem !important }
   }
+}
+
+.answer code {
+  border-top: 0;
+  box-sizing: border-box;
+  font-family: source-code-pro,Menlo,Monaco,Consolas,Courier New,monospace;
+  background: rgba(255, 229, 100, 0.2);
+  border-radius: 2px;
+  font-size: inherit;
+}
+
+.summary p:last-of-type {
+  margin-bottom: .5rem;
 }
 

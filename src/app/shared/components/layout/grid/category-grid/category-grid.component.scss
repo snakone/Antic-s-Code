@@ -5,6 +5,10 @@
     overflow: hidden;
     margin-bottom: 2rem;
 
+    @media(max-width: 550px) {
+      margin-bottom: 1rem;
+    }
+
   & figure {
       position: relative;
       -webkit-border-radius: 3px;

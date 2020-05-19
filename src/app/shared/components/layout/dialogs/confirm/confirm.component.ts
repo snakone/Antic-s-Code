@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -6,14 +6,12 @@ import { MatDialogRef } from '@angular/material/dialog';
   templateUrl: './confirm.component.html',
   styleUrls: ['./confirm.component.scss']
 })
-export class ConfirmComponent implements OnInit {
+
+export class ConfirmComponent {
 
   constructor(public dialogRef: MatDialogRef<ConfirmComponent>) { }
 
-  ngOnInit() {
-  }
-
-  noClick(): void {
+  public noClick(): void {
     this.dialogRef.close();
   }
 

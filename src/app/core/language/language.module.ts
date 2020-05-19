@@ -1,5 +1,5 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { LanguageService } from '@app/core/language/services/language.service';
+import { LanguageService } from '@core/language/services/language.service';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
@@ -8,12 +8,10 @@ import { TranslateModule } from '@ngx-translate/core';
 
 export class LanguageModule {
   constructor(public language: LanguageService) {}
-  public static forRoot(): ModuleWithProviders {
+  public static forRoot(): ModuleWithProviders<LanguageModule> {
     return {
       ngModule: LanguageModule,
-      providers: [
-        LanguageService
-      ]
+      providers: [LanguageService]
     };
   }
 }

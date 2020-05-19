@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { CarouselSlide } from '@app/shared/interfaces/interfaces';
+import { Component, Input } from '@angular/core';
+import { CarouselSlide } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-testimonial-card',
@@ -7,12 +7,10 @@ import { CarouselSlide } from '@app/shared/interfaces/interfaces';
   styleUrls: ['./testimonial-card.component.scss']
 })
 
-export class TestimonialCardComponent implements OnInit {
+export class TestimonialCardComponent {
 
   @Input() t: CarouselSlide;
 
   constructor() { }
-
-  ngOnInit() { }
 
 }

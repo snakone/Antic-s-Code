@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { User } from '@app/shared/interfaces/interfaces';
-import { SOCIAL_PROFILE } from '@app/shared/shared.data';
+import { Component, Input } from '@angular/core';
+import { User } from '@shared/interfaces/interfaces';
+import { SOCIAL_PROFILE } from '@shared/shared.data';
 
 @Component({
   selector: 'app-profile-info-box',
@@ -8,13 +8,11 @@ import { SOCIAL_PROFILE } from '@app/shared/shared.data';
   styleUrls: ['./profile-info-box.component.scss']
 })
 
-export class ProfileInfoBoxComponent implements OnInit {
+export class ProfileInfoBoxComponent {
 
   @Input() user: User;
   social = SOCIAL_PROFILE;
 
   constructor() { }
-
-  ngOnInit() { }
 
 }

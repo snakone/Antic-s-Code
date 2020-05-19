@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-articles-home',
@@ -6,10 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./articles-home.component.scss']
 })
 
-export class ArticlesHomeComponent implements OnInit {
+export class ArticlesHomeComponent{
 
   constructor() { }
-
-  ngOnInit() { }
 
 }

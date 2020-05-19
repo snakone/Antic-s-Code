@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DialogData } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-maintenance',
@@ -9,11 +10,18 @@ import { MatDialogRef } from '@angular/material/dialog';
 
 export class MaintenanceComponent implements OnInit {
 
-  constructor(private dialog: MatDialogRef<MaintenanceComponent>) { }
+  cause: string;
 
-  ngOnInit() { }
+  constructor(
+    private dialog: MatDialogRef<MaintenanceComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData
+  ) { }
 
-  close(): void {
+  ngOnInit() {
+    this.cause = this.data.cause;
+  }
+
+  public close(): void {
     this.dialog.close();
   }
 

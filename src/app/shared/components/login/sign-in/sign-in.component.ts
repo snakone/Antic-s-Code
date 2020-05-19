@@ -1,17 +1,19 @@
 import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { LoginService, UserService, CrafterService } from '@app/core/services/services.index';
-import { UserResponse } from '@app/shared/interfaces/interfaces';
-import { HttpErrorResponse } from '@angular/common/http';
-import { StorageService } from '@app/core/storage/storage.service';
+import { UserResponse } from '@shared/interfaces/interfaces';
+import { StorageService } from '@core/storage/storage.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AppState } from '@app/app.config';
 import { Store } from '@ngrx/store';
 import * as UserActions from '@core/ngrx/actions/user.actions';
 import * as fromUsers from '@core/ngrx/selectors/user.selectors';
-import { Subject, Observable, of } from 'rxjs';
-import { takeUntil, switchMap } from 'rxjs/operators';
+import { Subject, Observable } from 'rxjs';
+import { takeUntil, switchMap, filter, tap } from 'rxjs/operators';
 import { LoginComponent } from '../login.component';
+import { LoginService } from '@core/services/login/login.service';
+import { UserService } from '@core/services/user/user.service';
+import { CrafterService } from '@core/services/crafter/crafter.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -27,20 +29,39 @@ export class SignInComponent implements OnInit, OnDestroy {
   remember = false;
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private login: LoginService,
-              private ls: StorageService,
-              private store: Store<AppState>,
-              private userService: UserService,
-              private crafter: CrafterService,
-              public dialogRef: MatDialogRef<LoginComponent>) { }
+  constructor(
+    private login: LoginService,
+    private ls: StorageService,
+    private store: Store<AppState>,
+    private userSrv: UserService,
+    private crafter: CrafterService,
+    public dialogRef: MatDialogRef<LoginComponent>,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.createSignInForm();
     this.rememberMe();
-    this.userEmail$ = this.store.select(fromUsers.getUserEmail);
+    this.userEmail$ = this.store.select(fromUsers.getEmail);
   }
 
-  onSubmit(): void {
+  private createSignInForm(): void {
+    this.signInForm = new FormGroup({
+      email: new FormControl(null, [
+         Validators.required,
+         Validators.email,
+         Validators.minLength(5),
+         Validators.maxLength(35)
+      ]),
+      password: new FormControl(null, [
+         Validators.required,
+         Validators.minLength(5),
+         Validators.maxLength(25)
+      ])
+    });
+  }
+
+  public onSubmit(): void {
     if (this.signInForm.invalid) { return; }
     const { email, password } = this.signInForm.value;
     this.signIn(email, password);
@@ -49,71 +70,43 @@ export class SignInComponent implements OnInit, OnDestroy {
   private signIn(e: string, p: string): void {
     this.login.signIn(e, p)
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((res: UserResponse) => {
-        if (res.ok) { this.handleSignIn(res); }
-      },
-        (err: HttpErrorResponse) => {
-          err.status === 0 ?
-          this.handleError('server') : this.handleError();
-      });
+      .subscribe((res: UserResponse) => this.handleSignIn(res));
   }
 
-  signUp(): void {
+  private handleSignIn(data: UserResponse): void {
+    this.dialogRef.close();
+    this.userSrv.login(data, this.remember);
+    this.crafter.toaster(data.user.name, 'welcome', 'info');
+    this.router.navigateByUrl('/profile');
+  }
+
+  public signUp(): void {
     this.changed.emit(true);
-  }
-
-  private createSignInForm(): void {
-    this.signInForm = new FormGroup({
-       email: new FormControl(null, [Validators.required,
-                                     Validators.email,
-                                     Validators.minLength(5),
-                                     Validators.maxLength(35)]),
-    password: new FormControl(null, [Validators.required,
-                                     Validators.minLength(5),
-                                     Validators.maxLength(25)])});
   }
 
   private rememberMe(): void {
     const id = this.ls.get('user');
     const re = this.ls.get('remember');
 
-    if ( re && id) {
-      this.store.select(fromUsers.getUserEmail)
-        .pipe(takeUntil(this.unsubscribe$),
-          switchMap((email: string) => {
-            if (email) {
-              this.signInForm.controls.email.setValue(email);
-              this.remember = true;
-            }
-            return email ? of({ok: false}) : this.userService.getUserById(id);
-          })).subscribe((res: UserResponse) => {
-            if (res.ok) {
-              this.store.dispatch(UserActions.setUserEmail({ email: res.user.email }));
-          }
-      });
+    if (re && id) {
+      this.store.select(fromUsers.getEmail)
+        .pipe(
+          takeUntil(this.unsubscribe$),
+          tap(res => this.setRemember(res)),
+          filter(res => !res),
+          switchMap(() => this.userSrv.getById(id))
+        )
+        .subscribe(_ =>
+            this.store.dispatch(
+              UserActions.setEmail({ email: _.email })
+            )
+        );
     }
   }
 
-  private handleSignIn(data: UserResponse): void {
-    this.dialogRef.close();
-    this.store.dispatch(UserActions.setUser({user: data.user}));
-    this.userService.setUser(data.user);
-    this.ls.setKey('token', data.token);
-    this.ls.setKey('user', data.user._id);
-    this.ls.setKey('remember', this.remember);
-    this.crafter.toaster(data.user.name, 'welcome', 'info');
-  }
-
-  private handleError(type?: string): void {
-    if (type === 'server') {
-      this.crafter.toaster('server.error',
-                           'server.bad',
-                           'error');
-    } else {
-      this.crafter.toaster('incorrect.login',
-                           'try.again',
-                           'error');
-    }
+  private setRemember(email: string): void {
+    this.signInForm.controls.email.setValue(email);
+    this.remember = email ? true : false;
   }
 
   ngOnDestroy(): void {

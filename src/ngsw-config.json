@@ -1,21 +1,29 @@
 {
-  "index": "/index.html",
+  "index": "/",
   "assetGroups": [
     {
       "name": "Antic's Code",
       "installMode": "prefetch",
       "resources": {
         "files": [
-          "/assets/icons/favicon.png",
           "/index.html",
           "/*.css",
-          "/*.js"
+          "/*.js",
+          "/manifest.webmanifest"
         ],
         "urls": [
           "https://stackpath.bootstrapcdn.com/font-awesome/**",
           "https://fonts.googleapis.com/**"
         ]
-      }
+      },
+      "icons": [
+        {
+          "src": "assets/img/logo-pwa.png",
+          "sized": "196x196",
+          "type": "image/png",
+          "purpose": "maskable"
+        }
+      ]
     }, {
       "name": "assets",
       "installMode": "lazy",

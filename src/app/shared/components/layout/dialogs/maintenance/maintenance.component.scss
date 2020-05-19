@@ -1,4 +1,7 @@
 mat-dialog-content {
+  overflow: hidden !important;
+  max-width: 540px;
+
   h4 {
     margin-top: 0;
     margin-bottom: 1rem;
@@ -6,10 +9,14 @@ mat-dialog-content {
   }
 
   .col {
-    margin: 1rem auto;
-    margin-top: 1.5rem;
+    margin-top: 2.33rem;
+    margin-bottom: 0rem;
     text-align: center;
+
+    & button {
+      width: 50%;
+    }
   }
 
-  p { margin: .5rem auto }
+  p { margin: 0 auto }
 }

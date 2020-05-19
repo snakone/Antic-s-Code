@@ -8,7 +8,7 @@
   }
 
   ul, ol {
-    margin-top: 20px;
+    margin-top: 30px;
     font-size: 16px;
     color: #1a1a1a;
     padding-left: 20px;
@@ -109,6 +109,13 @@
     border-top: 0;
     box-sizing: border-box;
     font-family: source-code-pro,Menlo,Monaco,Consolas,Courier New,monospace;
+    background: rgba(255, 229, 100, 0.2);
+    border-radius: 2px;
+    font-size: inherit;
+  }
+
+  blockquote code {
+    background: rgba(123, 103, 50, 0.4);
   }
 
   code[class*=language-], pre[class*=language-]  {
@@ -138,6 +145,10 @@
     word-break: break-word;
     height: auto !important;
     margin: 30px auto !important;
+
+    & span {
+      font-size: .9rem !important;
+    }
   }
 
   img {
@@ -154,6 +165,12 @@
     border-bottom: 1px solid #ececec;
     margin-top: 30px;
     box-sizing: content-box;
+  }
+
+  .anchor {
+    position: absolute;
+    margin-top: -2rem;
+    @media(max-width: 550px) { margin-top: 0 }
   }
 
   @media(max-width: 550px) {

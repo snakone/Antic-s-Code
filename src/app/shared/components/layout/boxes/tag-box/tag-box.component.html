@@ -1,9 +1,0 @@
-<app-content-box [title]="'popular.thread' | translate">
-  <ul>
-    <li *ngFor="let t of tags" (click)="search(t.name)">
-      <mat-icon class="icon">{{t.icon}}</mat-icon>
-      <span>{{t.name | translate}}</span>
-      <mat-icon class="select">keyboard_arrow_right</mat-icon>
-    </li>
-  </ul>
-</app-content-box>

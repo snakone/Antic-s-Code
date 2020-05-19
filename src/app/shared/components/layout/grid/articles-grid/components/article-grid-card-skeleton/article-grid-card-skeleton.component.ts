@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-article-grid-card-skeleton',
@@ -6,10 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article-grid-card-skeleton.component.scss']
 })
 
-export class ArticleGridCardSkeletonComponent implements OnInit {
+export class ArticleGridCardSkeletonComponent {
 
   constructor() { }
-
-  ngOnInit() { }
 
 }

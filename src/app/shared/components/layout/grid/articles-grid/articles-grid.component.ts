@@ -2,11 +2,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
 import { AppState } from '@app/app.config';
+import { Article } from '@shared/interfaces/interfaces';
+import { takeUntil, filter } from 'rxjs/operators';
 
-import { Article } from '@app/shared/interfaces/interfaces';
 import * as fromArticles from '@core/ngrx/selectors/article.selectors';
 import * as ArticleActions from '@core/ngrx/actions/article.actions';
-import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-articles-grid',
@@ -16,7 +16,7 @@ import { takeUntil } from 'rxjs/operators';
 
 export class ArticlesGridComponent implements OnInit, OnDestroy {
 
-  articles: Article[] = [];
+  articles$: Observable<Article[]>;
   count$: Observable<number>;
   private unsubscribe$ = new Subject<void>();
 
@@ -24,26 +24,19 @@ export class ArticlesGridComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.checkData();
-    this.getArticles();
+    this.count$ = this.store.select(fromArticles.getCount);
+    this.articles$ = this.store.select(fromArticles.getLast);
   }
 
   private checkData(): void {
-    this.store.select(fromArticles.getLastArticlesAndCountLoaded)
-     .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((res: boolean) => {
-       if (!res) {
-         this.store.dispatch(ArticleActions.getLastArticles());
-         this.store.dispatch(ArticleActions.getArticlesCount());
-       }
-    });
-  }
-
-  private getArticles(): void {
-    this.count$ = this.store.select(fromArticles.getArticlesCount);
-    this.store.select(fromArticles.getLastArticles)
-    .pipe(takeUntil(this.unsubscribe$))
-    .subscribe((res: Article[]) => {
-      if (res.length > 0) { this.articles = res; }
+    this.store.select(fromArticles.getLastAndCountLoaded)
+     .pipe(
+       filter(res => !res),
+       takeUntil(this.unsubscribe$)
+      )
+      .subscribe(_ => {
+         this.store.dispatch(ArticleActions.getLast());
+         this.store.dispatch(ArticleActions.getCount());
     });
   }
 

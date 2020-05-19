@@ -73,6 +73,7 @@
   "back": "Back",
   "name": "Name",
   "email": "Email",
+  "message": "Message",
   "password": "Password",
   "repeat.password": "Repeat Password",
   "i.accept": "I accept the",

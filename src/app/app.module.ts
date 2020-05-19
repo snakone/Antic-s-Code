@@ -13,6 +13,7 @@ import { SharedModule } from '@shared/shared.module';
 import { StoreModule } from '@ngrx/store';
 import { environment } from '../environments/environment';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { HomeModule } from './pages/home/home.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     CoreModule,
     ComponentsModule,
     SharedModule,
+    HomeModule,
     BrowserAnimationsModule,
     StoreModule.forRoot({}, {
       runtimeChecks: {

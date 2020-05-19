@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
-import { SearchRequest } from '@app/shared/interfaces/interfaces';
+import { SearchRequest } from '@shared/interfaces/interfaces';
 import { Observable } from 'rxjs';
 import * as fromSearch from '@core/ngrx/selectors/search.selectors';
 

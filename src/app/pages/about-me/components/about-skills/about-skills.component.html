@@ -1,10 +1,20 @@
 <div class="wrapper">
-  <div class="grid-logo">
-    <i *ngFor="let i of skillsIcon"
-       [class]="i + ' colored'">
-    </i>
+  <div class="grid-cards">
+    <div class="row flex">
+      <div class="col-lg-4 col-sm-6" *ngFor="let h of hardSkills">
+        <div class="card">
+          <img [src]="h.icon | image: 'skills'"/>
+          <h3>{{h.name}}</h3>
+          <p class="area">{{h.area}}</p>
+          <p>{{h.message}}</p>
+          <p>Lo aprendí en
+            <span class="primary">{{h.year}}</span>
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="grid-skills">
-    <span *ngFor="let s of skills">{{s}}</span>
+    <span *ngFor="let s of softSkills">{{s}}</span>
   </div>
 </div>

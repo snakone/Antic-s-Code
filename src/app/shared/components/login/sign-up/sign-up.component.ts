@@ -1,17 +1,16 @@
 import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { User, UserResponse } from '@app/shared/interfaces/interfaces';
-import { HttpErrorResponse } from '@angular/common/http';
-import { LoginService, CrafterService } from '@app/core/services/services.index';
+import { User, UserResponse, NotificationPayload } from '@shared/interfaces/interfaces';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { MatDialogRef } from '@angular/material/dialog';
 import { LoginComponent } from '../login.component';
-import { Store } from '@ngrx/store';
-import { AppState } from '@app/app.config';
-import * as UserActions from '@core/ngrx/actions/user.actions';
-import { StorageService } from '@app/core/storage/storage.service';
 import { Router } from '@angular/router';
+import { LoginService } from '@core/services/login/login.service';
+import { CrafterService } from '@core/services/crafter/crafter.service';
+import { PushService } from '@core/services/push/push.service';
+import { NEW_USER_PUSH } from '@shared/shared.data';
+import { UserService } from '@core/services/user/user.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -28,22 +27,52 @@ export class SignUpComponent implements OnInit, OnDestroy {
   conditions: boolean;
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private login: LoginService,
-              private ls: StorageService,
-              private store: Store<AppState>,
-              private crafter: CrafterService,
-              private router: Router,
-              public dialogRef: MatDialogRef<LoginComponent>) { }
+  constructor(
+    private login: LoginService,
+    private crafter: CrafterService,
+    private userSrv: UserService,
+    private router: Router,
+    public dialogRef: MatDialogRef<LoginComponent>,
+    private sw: PushService
+  ) { }
 
   ngOnInit() {
     this.createSignUpForm();
   }
 
-  openConditions(): void {
+  private createSignUpForm(): void {
+    this.signUpForm = new FormGroup({
+      name: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(20),
+        Validators.pattern(this.namePattern)
+      ]),
+      email: new FormControl(null, [
+        Validators.required,
+        Validators.email,
+        Validators.minLength(5),
+        Validators.maxLength(35)
+      ]),
+      password: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(25)
+      ]),
+      password2: new FormControl('', [
+        Validators.required
+      ])
+    },
+    {
+      validators: this.theyMatchError('password', 'password2')
+    });
+  }
+
+  public openConditions(): void {
     this.changed.emit(true);
   }
 
-  onSubmit(): void {
+  public onSubmit(): void {
     if (this.signUpForm.invalid) { return; }
     const user: User = this.signUpForm.value;
     this.signUp(user);
@@ -52,31 +81,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
   private signUp(user: User): void {
     this.login.signUp(user)
      .pipe(takeUntil(this.unsubscribe$))
-     .subscribe((res: UserResponse) => {
-        if (res.ok) {
-          this.handleSignUp(res);
-        }
-      }, (err: HttpErrorResponse) => {
-        err.status === 0 ?
-        this.handleError('server') : this.handleError();
-    });
-  }
-
-  private createSignUpForm(): void {
-    this.signUpForm = new FormGroup({
-          name: new FormControl(null, [Validators.required,
-                                       Validators.minLength(3),
-                                       Validators.maxLength(20),
-                                       Validators.pattern(this.namePattern)]),
-         email: new FormControl(null, [Validators.required,
-                                       Validators.email,
-                                       Validators.minLength(5),
-                                       Validators.maxLength(35)]),
-      password: new FormControl(null, [Validators.required,
-                                       Validators.minLength(5),
-                                       Validators.maxLength(25)]),
-       password2: new FormControl('', [Validators.required])
-    }, { validators: this.theyMatchError('password', 'password2')});
+     .subscribe((res: UserResponse) => this.handleSignUp(res));
   }
 
   private theyMatchError(one: string, two: string) {
@@ -94,23 +99,21 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
   private handleSignUp(data: UserResponse): void {
     this.dialogRef.close();
-    this.store.dispatch(UserActions.setUser({user: data.user}));
-    this.ls.setKey('token', data.token);
-    this.ls.setKey('user', data.user._id);
+    this.userSrv.login(data);
     this.crafter.toaster(data.user.name, 'welcome', 'info');
+    this.sw.sendNotification(
+      this.setNotification(Object.assign({}, NEW_USER_PUSH), data.user)
+      ).subscribe();
     this.router.navigateByUrl('/profile');
   }
 
-  private handleError(type?: string): void {
-    if (type === 'server') {
-      this.crafter.toaster('server.error',
-                           'server.bad',
-                           'error');
-    } else {
-      this.crafter.toaster('sign.in.error',
-                           'email.unique',
-                           'error');
-    }
+  private setNotification(
+    payload: NotificationPayload,
+    user: User
+  ): NotificationPayload {
+      payload.body = payload.body
+      .concat(`.\n¡¡Bienvenido/a ${user.name}!!`);
+      return payload;
   }
 
   ngOnDestroy(): void {

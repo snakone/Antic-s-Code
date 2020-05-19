@@ -62,7 +62,10 @@
         font-size: 1.66rem;
         line-height: 2rem;
         color: var(--primary-color);
-        @media(max-width: 650px) { font-size: 1.33rem }
+        @media(max-width: 650px) {
+          font-size: 1.33rem;
+          line-height: 1.7rem;
+        }
 
         &:hover {
           color: var(--violet-color);

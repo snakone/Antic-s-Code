@@ -1,0 +1,32 @@
+<div class="wrapper">
+  <div class="row flex">
+    <div class="col-lg-6"
+         *ngFor="let c of companies">
+      <div class="card">
+        <h3>{{c.name}}</h3>
+        <p>
+          <a [href]="c.link" target="NEW">{{c.type}}</a>
+        </p>
+        <ul>
+          <li>
+            <span class="primary">Puesto</span>:
+             <span>{{c.rank}} </span>
+             <span class="already"
+                   *ngIf="c.now">(Actualmente ejerciendo)
+              </span>
+          </li>
+          <li class="card-task">
+            <span class="primary">Tareas realizadas</span>:
+             <span *ngFor="let t of c.tasks">{{t}} </span>
+          </li>
+          <li>
+            <span class="primary">Clientes destacados</span>:
+             <span *ngFor="let cl of c.clients; let last = last">
+               {{cl}}<span *ngIf="!last">,</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

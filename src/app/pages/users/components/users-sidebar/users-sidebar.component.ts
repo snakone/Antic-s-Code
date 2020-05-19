@@ -1,9 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MostActive, MostActiveResponse } from '@app/shared/interfaces/interfaces';
-import { Subject } from 'rxjs';
+import { MostActive } from '@shared/interfaces/interfaces';
+import { Subject, Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, filter } from 'rxjs/operators';
+
 import * as UserActions from '@core/ngrx/actions/user.actions';
 import * as fromUsers from '@core/ngrx/selectors/user.selectors';
 
@@ -15,33 +16,26 @@ import * as fromUsers from '@core/ngrx/selectors/user.selectors';
 
 export class UsersSidebarComponent implements OnInit, OnDestroy {
 
-  activeUsers: MostActive[] = [];
+  activeUsers$: Observable<MostActive[]>;
   private unsubscribe$ = new Subject<void>();
 
   constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
    this.checkData();
-   this.getMostActive();
+   this.activeUsers$ = this.store.select(fromUsers.getMostActive);
   }
 
   private checkData(): void {
     this.store.select(fromUsers.getMostActiveLoaded)
-     .pipe(takeUntil(this.unsubscribe$))
-     .subscribe((res: boolean) => {
-       if (!res) {
-         this.store.dispatch(UserActions.getMostActiveUsers());
-       }
-    });
-  }
-
-  private getMostActive(): void {
-    this.store.select(fromUsers.getMostActive)
-    .pipe(takeUntil(this.unsubscribe$))
-    .subscribe((res: MostActive[]) => {
-      if (res) {
-        this.activeUsers = res;
-      }
+     .pipe(
+       takeUntil(this.unsubscribe$),
+       filter(res => !res)
+      )
+     .subscribe(_ => {
+       this.store.dispatch(
+         UserActions.getMostActive()
+      )
     });
   }
 

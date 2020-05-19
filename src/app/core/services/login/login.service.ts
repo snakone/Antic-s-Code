@@ -1,28 +1,37 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '../http/http.service';
-import { APP_CONSTANTS } from '@app/app.config';
-import { User, UserResponse } from '@app/shared/interfaces/interfaces';
+import { User, UserResponse } from '@shared/interfaces/interfaces';
 import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
+import { filter } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({ providedIn: 'root'})
 
 export class LoginService {
 
-  readonly API_LOGIN = APP_CONSTANTS.END_POINT + 'login';
-  readonly API_USER = APP_CONSTANTS.END_POINT + 'users';
+  readonly API_LOGIN = environment.api + 'login';
+  readonly API_USER = environment.api + 'users';
 
-  constructor(private http: HttpService) {
-    if (!environment.production) { console.log('LoginService'); }
-  }
+  constructor(private http: HttpService) { }
 
-  public signIn(email: string, password: string): Observable<UserResponse> {
+  public signIn(
+    email: string,
+    password: string
+  ): Observable<UserResponse> {
     const body = { email, password };
-    return this.http.post(this.API_LOGIN, body);
+    return this.http
+      .post<UserResponse>(this.API_LOGIN, body)
+      .pipe(
+        filter(res => res && !!res.ok)
+      );
   }
 
   public signUp(body: User): Observable<UserResponse> {
-    return this.http.post(this.API_USER, body);
+    return this.http
+      .post<UserResponse>(this.API_USER, body)
+      .pipe(
+        filter(res => res && !!res.ok)
+      );
   }
 
 }

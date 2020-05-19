@@ -1,23 +1,8 @@
 * { box-sizing: border-box}
 
-.mobile {
-  @media(min-width: 993px) { display: none }
-}
-
 button {
   width: 100%;
   margin-bottom: 2rem;
-    @media(max-width: 750px) { margin-bottom: 0 }
+  @media(max-width: 993px) { margin-bottom: 4rem }
 }
 
-.col-md-6 {
-  max-width: 50%;
-  width: 50%;
-  display: inline-block;
-
-  @media(max-width: 750px) {
-    max-width: 100%;
-    width: 100%;
-    display: block;
-  }
-}

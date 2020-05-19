@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { COUNTRIES } from '@app/shared/shared.data';
+import { Component } from '@angular/core';
+import { COUNTRIES } from '@shared/shared.data';
 
 @Component({
   selector: 'app-liked-home-list',
@@ -7,12 +7,10 @@ import { COUNTRIES } from '@app/shared/shared.data';
   styleUrls: ['./liked-home-list.component.scss']
 })
 
-export class LikedHomeListComponent implements OnInit {
+export class LikedHomeListComponent {
 
   countries = COUNTRIES;
 
   constructor() { }
-
-  ngOnInit() { }
 
 }

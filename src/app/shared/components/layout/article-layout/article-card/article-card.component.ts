@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Article } from '@app/shared/interfaces/interfaces';
 
 @Component({
@@ -7,14 +7,12 @@ import { Article } from '@app/shared/interfaces/interfaces';
   styleUrls: ['./article-card.component.scss']
 })
 
-export class ArticleCardComponent implements OnInit {
+export class ArticleCardComponent {
 
   @Input() article: Article;
   @Input() shadow: boolean;
   @Input() single: boolean;  // Single or GRID
 
   constructor() { }
-
-  ngOnInit() { }
 
 }

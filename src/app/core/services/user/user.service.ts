@@ -1,80 +1,148 @@
 import { Injectable } from '@angular/core';
-import { APP_CONSTANTS, AppState } from '@app/app.config';
+import { AppState } from '@app/app.config';
 import { HttpService } from '../http/http.service';
-import { User, UserResponse, MostActiveResponse } from '@app/shared/interfaces/interfaces';
+
+import {
+  User,
+  UserResponse,
+  MostActiveResponse,
+  MostActive,
+  MessageRequest
+ } from '@shared/interfaces/interfaces';
+
 import { Observable, of } from 'rxjs';
-import { StorageService } from '@app/core/storage/storage.service';
+import { StorageService } from '@core/storage/storage.service';
 import { Store } from '@ngrx/store';
 import * as UserActions from '@core/ngrx/actions/user.actions';
-import { map } from 'rxjs/operators';
+import { map, filter, tap } from 'rxjs/operators';
 import { environment } from '@env/environment';
+import { PushService } from '../push/push.service';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 
 export class UserService {
 
-  readonly API_USERS = APP_CONSTANTS.END_POINT + 'users';
-  readonly API_TOKEN = APP_CONSTANTS.END_POINT + 'token';
+  readonly API_USERS = environment.api + 'users';
+  readonly API_TOKEN = environment.api + 'token';
   private user: User;
 
-  constructor(private http: HttpService,
-              private ls: StorageService,
-              private store: Store<AppState>) {
-      if (!environment.production) { console.log('UserService'); }
+  constructor(
+    private http: HttpService,
+    private ls: StorageService,
+    private store: Store<AppState>,
+    private sw: PushService
+  ) { }
+
+  public getById(id: string): Observable<User> {
+    return this.http
+      .get<UserResponse>(environment.api + `user/${id}`)
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.user)
+      );
   }
 
-  public getUserById(id: string): Observable<UserResponse> {
-    return this.http.get(APP_CONSTANTS.END_POINT + `user/${id}`);
+  public getByName(name: string): Observable<User> {
+    return this.http
+      .get<UserResponse>(this.API_USERS + `/public/${name}`)
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.user)
+      );
   }
 
-  public getUserByName(name: string): Observable<UserResponse> {
-    return this.http.get(this.API_USERS + `/public/${name}`);
+  public getUsers(): Observable<User[]> {
+    return this.http
+      .get<UserResponse>(this.API_USERS)
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.users)
+      );
   }
 
-  public getUsers(): Observable<UserResponse> {
-    return this.http.get(this.API_USERS);
+  public update(user: User): Observable<UserResponse> {
+    return this.http
+      .put<UserResponse>(this.API_USERS, user)
+      .pipe(
+        filter(res => res && !!res.ok)
+      );
   }
 
-  public updateUser(user: User): Observable<UserResponse> {
-    return this.http.put(this.API_USERS, user);
+  public delete(): Observable<User> {
+    return this.http
+      .delete<UserResponse>(this.API_USERS)
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.user)
+      );
   }
 
-  public deleteUser(): Observable<UserResponse> {
-    return this.http.delete(this.API_USERS);
-  }
-
-  public getMostActiveUsers(): Observable<MostActiveResponse> {
-    return this.http.get(this.API_USERS + '/active');
+  public getMostActive(): Observable<MostActive[]> {
+    return this.http
+      .get<MostActiveResponse>(this.API_USERS + '/active')
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.users)
+      );
   }
 
   public refreshToken(id: string): Observable<UserResponse> {
-    return this.http.post(this.API_TOKEN + `/${id}`, null);
+    return this.http
+      .post<UserResponse>(this.API_TOKEN + `/${id}`, null)
+      .pipe(
+        filter(res => res && !!res.ok),
+        tap(res => this.setToken(res))
+      );
   }
 
-  public verifyToken(): Observable<UserResponse> {
-    if (!this.ls.get('token')) { return of(null); }
-    return this.http.get(this.API_TOKEN)
-      .pipe(map((res: UserResponse) => {
-        if (res.ok) {
-          this.user = res.user;
-          this.store.dispatch(UserActions.setUser({ user: res.user }));
-          return res;
-        } else { this.logout(); }
-    }));
+  public verifyToken(): Observable<User> {
+    return this.http
+      .get<UserResponse>(this.API_TOKEN)
+      .pipe(
+        filter(res => res && !!res),
+        map(res => res.user),
+        tap(res => this.setUser(res))
+      );
+  }
+
+  public sendMeAMessage(request: MessageRequest): Observable<UserResponse> {
+    return this.http
+    .post<UserResponse>(environment.api + 'message', request)
+    .pipe(
+      filter(res => res && !!res.ok)
+    );
   }
 
   public getUser(): User {
     return this.user || null;
   }
 
-  public setUser(user: User): void {
+  private setUser(user: User): void {
     this.user = user;
+  }
+
+  public login(
+    data: UserResponse,
+    remember: boolean = false
+  ): void {
+      this.store.dispatch(UserActions.set({user: data.user}));
+      this.setUser(data.user);
+      this.ls.setKey('token', data.token);
+      this.ls.setKey('user', data.user._id);
+      this.ls.setKey('remember', remember);
+      this.sw.showPrompt();
   }
 
   public logout(): void {
     this.ls.setKey('token', null);
+    this.ls.setKey('welcome', false);
     this.store.dispatch(UserActions.userLogOut());
     this.user = null;
+  }
+
+  private setToken(data: UserResponse): void {
+    this.ls.setKey('token', data.token);
+    this.setUser(data.user);
   }
 
 }

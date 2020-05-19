@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-contact-home-input',
@@ -6,13 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-home-input.component.scss']
 })
 
-export class ContactHomeInputComponent implements OnInit {
+export class ContactHomeInputComponent {
 
   email = '';
 
   constructor() { }
-
-  ngOnInit() { }
 
   onSubmit(): void {
     if (this.email === '') { return; }

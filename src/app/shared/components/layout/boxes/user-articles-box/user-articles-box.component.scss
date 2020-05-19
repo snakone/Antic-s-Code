@@ -103,10 +103,10 @@
       width: 100%;
       border-bottom: 1px solid var(--p-color);
       opacity: .3;
+    }
 
-      &:last-child {
-        border-bottom: 0;
-      }
+    &:last-of-type:after {
+      border-bottom: none;
     }
   }
 
@@ -118,3 +118,5 @@
     }
   }
 }
+
+p { margin: 0 }

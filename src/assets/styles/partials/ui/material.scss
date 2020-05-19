@@ -17,6 +17,15 @@
   margin-left: 5px !important;
 }
 
+mat-option.category .mat-option-text {
+  display: flex !important;
+  align-items: center;
+}
+
+mat-option.all {
+  padding-left: 58px !important;
+}
+
 .mat-snack-bar-container {
   min-width: 280px !important;
   max-width: 30vw !important;
@@ -39,5 +48,8 @@
   transform: translateY(15%) !important;
 }
 
-.mat-snack-bar-handset { width: auto !important }
+.mat-snack-bar-handset {
+  width: auto !important;
+  max-width: 93vw !important;
+}
 

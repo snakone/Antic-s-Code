@@ -1,7 +1,7 @@
 <app-content-box>
   <div class="filter-box">
     <form [formGroup]="searchForm" (ngSubmit)="submit()">
-      <mat-form-field class="first" appearance="outline" color="accent">  <!-- VALUE -->
+      <mat-form-field appearance="outline" color="accent">  <!-- VALUE -->
         <mat-label>¿Qué estás buscando?</mat-label>
         <input matInput
                formControlName="value"
@@ -9,7 +9,7 @@
       </mat-form-field>
       <mat-form-field appearance="outline" color="accent">  <!-- CATEGORY -->
         <mat-label>{{'choose.category' | translate}}</mat-label>
-        <mat-select formControlName="category">
+        <mat-select formControlName="category" aria-label="Select Category">
           <mat-option *ngFor="let cat of categories" [value]="cat" role="option">
             {{cat | translate}}
           </mat-option>
@@ -18,8 +18,11 @@
       </mat-form-field>
       <mat-form-field appearance="outline" color="accent">  <!-- TAG -->
         <mat-label>{{'pick.thread' | translate}}</mat-label>
-        <mat-select formControlName="tag">
-          <mat-option *ngFor="let t of tags" [value]="t" role="option">
+        <mat-select formControlName="tag" aria-label="Select a Tag">
+          <mat-option *ngFor="let t of tags"
+                      [value]="t"
+                      role="option"
+                      aria-selected="false">
             {{t | translate}}
           </mat-option>
           <mat-option value="" role="option">{{'all.a' | translate}}</mat-option>
@@ -45,7 +48,7 @@
                       (change)="badgeChanged($event)">{{b}}
         </mat-checkbox>
       </div>
-      <h3 class="order">{{'order.title' | translate}}</h3>   <!-- ORDER -->
+      <h3>{{'order.title' | translate}}</h3>   <!-- ORDER -->
       <mat-form-field appearance="outline" color="accent">
         <mat-label>{{'order.type' | translate}}</mat-label>
         <mat-select #max formControlName="type" multiple>

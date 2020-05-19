@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { POPULAR_CATEGORIES } from '@app/shared/shared.data';
+import { Component } from '@angular/core';
+import { POPULAR_CATEGORIES } from '@shared/shared.data';
 
 @Component({
   selector: 'app-header-category',
@@ -7,12 +7,10 @@ import { POPULAR_CATEGORIES } from '@app/shared/shared.data';
   styleUrls: ['./header-category.component.scss']
 })
 
-export class HeaderCategoryComponent implements OnInit {
+export class HeaderCategoryComponent {
 
   categories = POPULAR_CATEGORIES;
 
   constructor() { }
-
-  ngOnInit() { }
 
 }

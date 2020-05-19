@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MAIN_CATEGORIES } from '@app/shared/shared.data';
+import { Component } from '@angular/core';
+import { MAIN_CATEGORIES } from '@shared/shared.data';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
 import { Router } from '@angular/router';
@@ -11,22 +11,24 @@ import * as SearchActions from '@core/ngrx/actions/search.actions';
   styleUrls: ['./navbar-search.component.scss']
 })
 
-export class NavBarSearchComponent implements OnInit {
+export class NavBarSearchComponent {
 
   focused = false;
   categories = MAIN_CATEGORIES;
   value: string;
 
-  constructor(private store: Store<AppState>,
-              private router: Router) { }
+  constructor(
+    private store: Store<AppState>,
+    private router: Router
+  ) { }
 
-  ngOnInit() { }
-
-  focusOut(): void {
+  public focusOut(): void {
     this.focused = false;
     if (!this.value) { return; }
     this.store.dispatch(SearchActions
-      .searchContent({ request: { value: this.value } }));
+      .searchContent(
+        { request: { value: this.value } }
+    ));
     this.router.navigateByUrl('/search');
   }
 

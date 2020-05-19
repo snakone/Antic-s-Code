@@ -3,12 +3,14 @@ import {
   FooterList,
   Config,
   Role,
-  Tag,
   StarList,
   TimeLine,
   Index,
   CarouselSlide,
-  DownloadButton
+  DownloadButton,
+  NotificationPayload,
+  Skill,
+  WorkCompany
 } from './interfaces/interfaces';
 
 import { AosOptions } from 'aos';
@@ -21,9 +23,9 @@ export const MENU: List[] = [
 ];
 
 export const HOME_MENU: List[] = [
-  { name: 'advantages', link: '/home', icon: 'autorenew' },
-  { name: 'collaborate', link: '/code', icon: 'present_to_all' },
-  { name: 'support', link: '/categories', icon: 'help_outline' },
+  { name: 'advantages', link: '/advantages', icon: 'autorenew' },
+  { name: 'collaborate', link: '/collaborate', icon: 'present_to_all' },
+  { name: 'support', link: '/support', icon: 'help_outline' },
   { name: 'about.me', link: '/about-me', icon: 'directions_run' },
   { name: 'searcher', link: '/search', icon: 'search' }
 ];
@@ -39,6 +41,7 @@ export const CATEGORIES: string[] = [
   'Design',
   'GO',
   'Python',
+  'Git',
   'Antic\'s'
 ];
 
@@ -54,22 +57,8 @@ export const TAGS: string[] = [
   'Database',
   'Ionic',
   'Config',
+  'Git',
   'Antic\'s Code'
-];
-
-export const TAGS_ICON: Tag[] = [
-  { name: 'Consola', icon: 'computer' },
-  { name: 'Desarrollo', icon: 'build' },
-  { name: 'Diseño', icon: 'color_lens' },
-  { name: 'Material', icon: 'view_compact' },
-  { name: 'Frontend', icon: 'personal_video' },
-  { name: 'Backend', icon: 'cast_connected' },
-  { name: 'Mobile', icon: 'phone_android' },
-  { name: 'Javascript', icon: 'code' },
-  { name: 'Typescript', icon: 'language' },
-  { name: 'Database', icon: 'cloud_queue' },
-  { name: 'Ionic', icon: 'phone_android' },
-  { name: 'Config', icon: 'toc' }
 ];
 
 export const POPULAR_CATEGORIES: List[] = [
@@ -157,10 +146,16 @@ export const MAIN_CATEGORIES: List[] = [
     class: 'odd.jpg'
   },
   {
+    name: 'Git System',
+    icon: 'git-logo.png',
+    category: 'Git',
+    class: 'even.jpg'
+  },
+  {
     name: 'Antic\'s Code',
     icon: 'antics-logo.png',
     category: 'Antic\'s',
-    class: 'even.jpg'
+    class: 'odd.jpg'
   }
 ];
 
@@ -223,7 +218,7 @@ export const ROLES: Role[] = [
 ];
 
 export const PROFILE_LANGS: string[] = [
-  'JavaScript',
+  'Javascript',
   'Python',
   'Java',
   'C++',
@@ -235,16 +230,22 @@ export const PROFILE_LANGS: string[] = [
 ];
 
 export const PAGE_BG = {
-  code: 'assets/img/page_bg/code.mp4',
-  categories: 'assets/img/page_bg/categories.mp4',
-  articles: 'assets/img/page_bg/articles.mp4',
+  about: 'assets/img/page_bg/about.mp4',
+  advantages: 'assets/img/page_bg/advantages.mp4',
   article: 'assets/img/page_bg/article.mp4',
-  users: 'assets/img/page_bg/users.mp4',
+  articles: 'assets/img/page_bg/articles.mp4',
+  categories: 'assets/img/page_bg/categories.mp4',
+  collaborate: 'assets/img/page_bg/collaborate.mp4',
+  contact: 'assets/img/page_bg/contact.mp4',
+  create: 'assets/img/page_bg/create.mp4',
+  help: 'assets/img/page_bg/help.mp4',
+  politics: 'assets/img/page_bg/politics.mp4',
   profile: 'assets/img/page_bg/profile.mp4',
   public: 'assets/img/page_bg/public.mp4',
   search: 'assets/img/page_bg/search.mp4',
-  about: 'assets/img/page_bg/about.mp4',
-  create: 'assets/img/page_bg/create.mp4'
+  support: 'assets/img/page_bg/support.mp4',
+  users: 'assets/img/page_bg/users.mp4',
+  works: 'assets/img/page_bg/works.mp4'
 };
 
 export const COUNTRIES: string[] = [
@@ -338,7 +339,7 @@ export const CREATE_SLIDES: CarouselSlide[] = [
     subtitle: 'Nos tomamos en enserio mantener un mismo formato para todos los Artículos.',
     message: `Rellena los datos, contra más información proporciones, más rico en contenido será.
               Escribir una buena introducción es esencial para atraer a los lectores,
-              ten lo en cuenta.`
+              tenlo en cuenta.`
   },
   {
     image: 'markdown.jpg',
@@ -369,15 +370,66 @@ export const CREATE_SLIDES: CarouselSlide[] = [
 export const FOOTER_LIST: FooterList[] = [
   {
     title: 'info',
-    list: ['about.me', 'contact', 'support', 'politics']
+    list: [
+      {
+        name: 'about-me',
+        translate: 'about.me'
+      },
+      {
+        name: 'contact',
+        translate: 'contact'
+      },
+      {
+        name: 'support',
+        translate: 'support'
+      },
+      {
+        name: 'politics',
+        translate: 'politics'
+      }
+    ]
   },
   {
     title: 'useful.links',
-    list: ['register', 'how.it.works', 'advantages', 'collaborate']
+    list: [
+      {
+        name: 'register',
+        translate: 'register'
+      },
+      {
+        name: 'how-works',
+        translate: 'how.it.works'
+      },
+      {
+        name: 'advantages',
+        translate: 'advantages'
+      },
+      {
+        name: 'collaborate',
+        translate: 'collaborate'
+      }
+    ]
   },
   {
     title: 'connect.me',
-    list: ['help', 'Twitter', 'Facebook', 'Youtube']
+    list: [
+      {
+        name: 'help',
+        translate: 'help'
+      },
+      {
+        name: 'Twitter',
+        translate: 'Twitter'
+      },
+      {
+        name: 'Facebook',
+        translate: 'Facebook'
+      },
+      {
+        name: 'Youtube',
+        translate: 'Youtube'
+      }
+    ]
   }
 ];
 
@@ -385,17 +437,17 @@ export const CATEGORY_INDEX: Index[] = [
   {
     title: 'Introducción',
     subtitle: 'Una breve introducción',
-    id: 'cat-intro'
+    id: 'introducción'
   },
   {
     title: 'Conceptos',
     subtitle: 'Conceptos básicos',
-    id: 'cat-concepts'
+    id: 'conceptos'
   },
   {
     title: 'Ejemplos',
     subtitle: 'Aprende con ejemplos',
-    id: 'cat-examples'
+    id: 'ejemplos'
   },
   {
     title: 'Preguntas y Respuestas',
@@ -444,8 +496,8 @@ export const TIME_LINE: TimeLine[] = [
   {
     year: 2000,
     message: `Mi andada por el <strong>instituto</strong> fué bastante normal. Cabe destacar
-              que en uno de esos años, gané un concurso al mejor relato en el día de Sant Jordi.<br>
-              Hablaba sobre el ser humano y el pensamiento abstracto.`,
+              que en uno de esos años, conseguí el primer puesto en un concurso al mejor relato
+              en el día de Sant Jordi.<br> Hablaba sobre el ser humano y el pensamiento abstracto.`,
     side: 'left',
     fade: 'fade-right'
   },
@@ -458,14 +510,15 @@ export const TIME_LINE: TimeLine[] = [
   },
   {
     year: 2005,
-    message: `Dejé de lado el camino para aventurarme en la <strong>Formación Profesional</strong>. Me decidí
-              por la rama tecnologíca empezando por lo más básico, la electricidad y la electrónica.`,
+    message: `Dejé de lado el camino para aventurarme en la <strong>Formación Profesional</strong>.
+              Me decidí por la rama tecnológica empezando por lo más básico, la electricidad y la
+              electrónica.`,
     side: 'left',
     fade: 'fade-right'
   },
   {
     year: 2007,
-    message: `Seguí el rumbo que había tomado y continué con mis estudios en tecnología pero
+    message: `Seguí el rumbo que había tomado y continué mis estudios en tecnología sin embargo
               esta vez con estudios superiores en <strong>informática y telecomunicaciones</strong>.`,
     side: 'right',
     fade: 'fade-left'
@@ -498,25 +551,154 @@ export const TIME_LINE: TimeLine[] = [
   }
 ];
 
-export const MY_SKILLS_LOGO: string[] = [
-  'devicon-html5-plain-wordmark',
-  'devicon-css3-plain-wordmark',
-  'devicon-javascript-plain',
-  'devicon-php-plain',
-  'devicon-mysql-plain-wordmark',
-  'devicon-wordpress-plain-wordmark',
-  'devicon-nodejs-plain-wordmark',
-  'devicon-angularjs-plain',
-  'devicon-mongodb-plain-wordmark',
-  'devicon-express-original',
-  'devicon-typescript-plain',
-  'devicon-atom-original',
-  'devicon-bootstrap-plain-wordmark',
-  'devicon-heroku-original-wordmark',
-  'devicon-jquery-plain-wordmark'
+export const MY_SOCIAL: List[] = [
+  {
+    name: 'Linkedin',
+    icon: 'fa fa-linkedin',
+    link: 'https://www.linkedin.com/in/sergio-martinez-9b933a13a/'
+  },
+  {
+    name: 'Github',
+    icon: 'fa fa-github-square',
+    link: 'https://github.com/snakone'
+  },
+  {
+    name: 'Twitter',
+    icon: 'fa fa-twitter',
+    link: '#'
+  }
 ];
 
-export const MY_SKILLS: string[] = [
+export const MY_HARD_SKILLS: Skill[] = [
+ {
+   name: 'HTML',
+   area: 'Creación páginas web',
+   message: 'Maquetación, estructura, identación, legible, estándares, accesibilidad.',
+   year: 2004,
+   icon: 'html.png'
+ },
+ {
+  name: 'CSS',
+  area: 'Diseño páginas web',
+  message: 'Cascada, herencia, box-model, flex-box, grid, layouts, interfaces, SCSS.',
+  year: 2006,
+  icon: 'css.png'
+ },
+ {
+  name: 'Javascript',
+  area: 'Programación',
+  message: 'Limpio, Ecmascript, lógica, reactivo, legible, async-wait, operaciones.',
+  year: 2014,
+  icon: 'javascript.png'
+ },
+ {
+  name: 'PHP',
+  area: 'Programación',
+  message: 'Conexiones, envío de formularios, obtener, procesar y mostrar datos.',
+  year: 2012,
+  icon: 'php.png'
+ },
+ {
+  name: 'MySQL',
+  area: 'Base de datos relacional',
+  message: 'Administración y diseño de base de datos, modelo entidad-relación.',
+  year: 2012,
+  icon: 'mysql.png'
+ },
+ {
+  name: 'Wordpress',
+  area: 'Gestor de contenido',
+  message: 'Instalación, administración, edición, diseño, escribir contenido.',
+  year: 2010,
+  icon: 'wordpress.png'
+ },
+ {
+  name: 'Nodejs',
+  area: 'Servidor web con Javascript',
+  message: 'Entorno, uso de paquetes de npm, dependencias, actualizaciones, librerías',
+  year: 2017,
+  icon: 'node.png'
+ },
+ {
+  name: 'Angular',
+  area: 'Framework web',
+  message: 'Creación de aplicaciones web de todo tipo, modular, legible, reutilizable.',
+  year: 2018,
+  icon: 'angular.png'
+ },
+ {
+  name: 'MongoDB',
+  area: 'Base de datos no relacional',
+  message: 'Diseñar y administrar bases de datos no relacionales basadas en documentos JSON.',
+  year: 2018,
+  icon: 'mongo.png'
+ },
+ {
+  name: 'Node Express',
+  area: 'Framework de Node',
+  message: 'Creación de servidores, API REST, controladores, middlewares, JWT.',
+  year: 2018,
+  icon: 'express.png'
+ },
+ {
+  name: 'Typescript',
+  area: 'Programación',
+  message: 'Clases, interfaces, tipado, legible, autocompletado, evitar errores.',
+  year: 2018,
+  icon: 'typescript.svg'
+ },
+ {
+  name: 'VSCode',
+  area: 'Entorno de trabajo',
+  message: 'Extensiones, prettier, emmet, atajos de teclado, terminal integrado.',
+  year: 2018,
+  icon: 'vscode.png'
+ },
+ {
+  name: 'Boostrap',
+  area: 'Diseño Responsive',
+  message: 'Grid, responsive, mobile first, clases, flex-box, diseño de interfaces.',
+  year: 2014,
+  icon: 'boostrap.png'
+ },
+ {
+  name: 'Heroku',
+  area: 'Alojamiento servidores',
+  message: 'Despliegue de aplicaciones a la nube, administración, seguimiento.',
+  year: 2019,
+  icon: 'heroku.png'
+ },
+ {
+  name: 'JQuery',
+  area: 'Programación',
+  message: 'Entender y ejecutar scripts de todo tipo para ciertas funcionalidades.',
+  year: 2009,
+  icon: 'jquery.png'
+ },
+ {
+  name: 'Git',
+  area: 'Trabajo en equipo',
+  message: 'Entorno corporativo para trabajar en diversos entornos de desarrollo.',
+  year: 2018,
+  icon: 'git.png'
+ },
+ {
+  name: 'Ionic',
+  area: 'Híbrido',
+  message: 'Creación, ampliación y corrección de aplicaciones para teléfonos móbiles.',
+  year: 2019,
+  icon: 'ionic.png'
+ },
+ {
+  name: 'Rxjs',
+  area: 'Programación reactiva',
+  message: 'Observables, flujo de datos, pipes, operadores, manejo del flujo',
+  year: 2019,
+  icon: 'rxjs.png'
+ }
+];
+
+export const MY_SOFT_SKILLS: string[] = [
   'Cooperación',
   'Orientación al cliente',
   'Networking',
@@ -535,10 +717,51 @@ export const MY_SKILLS: string[] = [
   'Compromiso',
 ];
 
+export const MY_COMPANIES: WorkCompany[] = [
+  {
+    name: 'Slash Mobility',
+    type: 'Consultora de Software',
+    rank: 'Software Developer',
+    tasks: [
+      'Dar soluciones tecnológicas a otras compañias usando software.',
+      'Desarrollo ágil, rápido y eficaz. Tiempo de entrega medio, 3 meses.'
+    ],
+    clients: [
+      'Catalana Occidente',
+      'Bank Sabadell',
+      'Accenture'
+    ],
+    link: 'https://www.slashmobility.com',
+    now: false
+  },
+  {
+    name: 'AT Sistemas',
+    type: 'Consultora de Software',
+    rank: 'Software Developer',
+    tasks: [
+      'Desarrollar soluciones específicas para diversos tipos de aplicaciones.',
+      'Coordinar los diferentes equipos que se relacionan con el desarrollo "Frontend".'
+    ],
+    clients: [
+      'Generali'
+    ],
+    link: 'https://www.atsistemas.com/es',
+    now: true
+  }
+];
+
+export const CONDITIONS: string[] = [
+  'term.one',
+  'term.two',
+  'term.three',
+  'term.four',
+  'term.five',
+]
+
 const DOWNLOAD_URI: any = {
-  windows: 'https://mega.nz/#!JlwBgBiJ!XuEUYJr0EcBM89CG4TN2EjXKwMjRs5_L4FyxhXgUdY4',
-  mac: 'https://mega.nz/#!JwxHnZSa!nMnwu1t7k3J0Ti9UDed-yg1yUM6reIZ9NKvKYqUnOG8',
-  linux: 'https://mega.nz/#!pppllLpS!QoBJl8vj8H4evthLblXAeQkwBpklI7yw4TatEANAsZI'
+  windows: 'https://mega.nz/file/A9RxxSwQ#v0t7Z5OCYtk1zvdS7brVRfl3SzG6nXgh7d8ZY4NWqq0',
+  mac: 'https://mega.nz/file/Q9AjGKhZ#XsmpzalQFBmSeR20gtAqlPjOMoc-hhID1XxC7vq9K74',
+  linux: 'https://mega.nz/file/UwJFiQLQ#M6dDVestTnjENMdrFrk_RcyOtRQkBGHVr31_TuVCTP8'
 };
 
 export const DOWNLOAD_BUTTONS: DownloadButton[] = [
@@ -561,6 +784,44 @@ export const DOWNLOAD_BUTTONS: DownloadButton[] = [
     link: DOWNLOAD_URI.linux
   }
 ];
+
+export const WELCOME_PUSH: NotificationPayload = {
+  body: 'Bienvenido/a',
+  requireInteraction: false,
+  actions: [
+    { action: 'explore', title: 'Gracias por visitarnos' }
+  ],
+  broadcast: false
+};
+
+export const NEW_USER_PUSH: NotificationPayload = {
+  body: 'Nuevo Usuario Registrado',
+  requireInteraction: false,
+  actions: [
+    { action: 'explore', title: 'Aceptar' }
+  ],
+  broadcast: true
+};
+
+export const LIKE_PUSH: NotificationPayload = {
+  body: 'Nuevo Like en tu Artículo',
+  requireInteraction: false,
+  actions: [
+    { action: 'explore', title: '¡Genial!' }
+  ],
+  data: {},
+  broadcast: false
+}
+
+export const STAR_PUSH: NotificationPayload = {
+  body: 'Nueva Puntuación en tu Artículo',
+  requireInteraction: false,
+  actions: [
+    { action: 'explore', title: '¡Genial!' }
+  ],
+  data: {},
+  broadcast: false
+}
 
 
 

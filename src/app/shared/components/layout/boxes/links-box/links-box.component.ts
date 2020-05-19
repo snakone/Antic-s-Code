@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Link } from '@app/shared/interfaces/interfaces';
 
 @Component({
@@ -7,12 +7,10 @@ import { Link } from '@app/shared/interfaces/interfaces';
   styleUrls: ['./links-box.component.scss']
 })
 
-export class LinksBoxComponent implements OnInit {
+export class LinksBoxComponent {
 
   @Input() links: Link[];
 
   constructor() { }
-
-  ngOnInit() { }
 
 }
