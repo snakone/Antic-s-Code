@@ -128,6 +128,22 @@ export interface SearchRequest {
   sort?: number;
 }
 
+export interface MessageRequest {
+  name: string;
+  email: string;
+  message: string;
+}
+
+export interface WorkCompany {
+  name: string;
+  type: string;
+  rank: string;
+  tasks: string[];
+  clients: string[];
+  link: string;
+  now: boolean;
+}
+
 export interface SearchResponse extends ServerResponse {
   articles?: Article[];
 }
@@ -138,6 +154,14 @@ export interface List {
   link?: string;
   category?: string;
   class?: string;
+}
+
+export interface Skill {
+  name: string;
+  area: string;
+  message: string;
+  year: number;
+  icon: string;
 }
 
 export interface CarouselSlide {

@@ -6,33 +6,44 @@
     estoy abierto a todo tipo de tecnologías relacionadas con el desarrollo web moderno.<br>
     Si estás interesado, puedes enviarme un mensaje y contarme tu historia y por qué quieres que esté en ella,
     seguramente llegaremos a un acuerdo.<br></p>
-  </div>
-  <div class="col-lg-6 col-md-6">
     <div class="social">
       <h4>Redes Sociales</h4>
       <ul>
-        <li>
-          <a href="https://www.linkedin.com/in/sergio-martinez-9b933a13a/" target="NEW">
-            Linkedin
+        <li *ngFor="let s of mySocial">
+          <a [href]="s.link" target="NEW">
+            {{s.name}}
           </a>
-          <a class="default" href="https://www.linkedin.com/in/sergio-martinez-9b933a13a/" target="NEW">
-            <i class="fa fa-linkedin"></i>
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/snakone" target="NEW">
-            Github
-          </a>
-          <a class="default" href="https://github.com/snakone" target="NEW">
-            <i class="fa fa-github-square"></i>
+          <a class="default" [href]="s.link" target="NEW">
+            <i [class]="s.icon"></i>
           </a>
         </li>
       </ul>
-      <div class="input">
-        <a href="mailto:sergio.martinez87.web@gmail.com">
-            <button mat-button class="btn-pink">Enviar Mensaje</button>
-        </a>
-      </div>
     </div>
+  </div>
+  <div class="col-lg-6 col-md-6">
+    <form [formGroup]="contactForm" #f="ngForm">
+      <mat-form-field color="accent" appearance="outline">  <!-- NAME -->
+        <mat-label>{{'name' | translate}}</mat-label>
+        <input matInput
+               formControlName="name">
+      </mat-form-field>
+      <mat-form-field color="accent" appearance="outline">  <!-- EMAIL -->
+        <mat-label>{{'email' | translate}}</mat-label>
+        <input matInput
+               formControlName="email">
+      </mat-form-field>
+      <mat-form-field color="accent" appearance="outline">  <!-- MESSAGE -->
+        <mat-label>{{'message' | translate}}</mat-label>
+        <textarea matInput
+               formControlName="message">
+        </textarea>
+      </mat-form-field>
+      <button mat-button
+              [disabled]="contactForm.invalid"
+              class="btn-pink"
+              (click)="onSubmit()"
+              type="submit">Enviar Mensaje
+      </button>
+    </form>
   </div>
 </div>

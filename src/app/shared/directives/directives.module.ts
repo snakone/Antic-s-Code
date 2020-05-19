@@ -4,6 +4,7 @@ import { TopButtonDirective } from './top-button/top-button.directive';
 import { NavbarDirective } from './navbar/navbar.directive';
 import { OnlyMobileDirective } from './only-mobile/only-mobile.directive';
 import { OnlyDesktopDirective } from './only-desktop/only-desktop.directive';
+import { ContactMeDirective } from './contact-me/contact-me.directive';
 
 @NgModule({
   declarations: [
@@ -11,14 +12,16 @@ import { OnlyDesktopDirective } from './only-desktop/only-desktop.directive';
     TopButtonDirective,
     NavbarDirective,
     OnlyMobileDirective,
-    OnlyDesktopDirective
+    OnlyDesktopDirective,
+    ContactMeDirective
   ],
   exports: [
     StickyBoxDirective,
     TopButtonDirective,
     NavbarDirective,
     OnlyMobileDirective,
-    OnlyDesktopDirective
+    OnlyDesktopDirective,
+    ContactMeDirective
   ]
 })
 

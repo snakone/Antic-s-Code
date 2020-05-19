@@ -1,4 +1,4 @@
-.go-top-button {
+.fab-button {
   display: none;
   position: fixed;
   bottom: 20px;
@@ -6,14 +6,15 @@
   z-index: 99;
   border: none;
   outline: none;
-  font-weight:bold;
-  float:right;
+  font-weight: bold;
+  float: right;
   cursor: pointer;
   border-radius: 50%;
   background: var(--light-color);
   color: var(--primary-color);
   padding: 8px;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+              0 10px 10px rgba(0,0,0,0.22);
   transition: all 1s;
   @media(max-width: 550px) {
     padding: 5px;
@@ -26,7 +27,8 @@
   }
 
   &:hover {
-    box-shadow: 2px 20px 34px rgba(0,0,0,0.40), 2px 16px 16px rgba(0,0,0,0.45);
+    box-shadow: 2px 20px 34px rgba(0,0,0,0.40),
+                2px 16px 16px rgba(0,0,0,0.45);
   }
 
   & mat-icon {

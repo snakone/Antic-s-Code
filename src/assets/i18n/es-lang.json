@@ -72,6 +72,7 @@
   "back": "Volver",
   "name": "Nombre",
   "email": "Correo",
+  "message": "Mensaje",
   "password": "Contraseña",
   "repeat.password": "Repite Contraseña",
   "i.accept": "Acepto las",

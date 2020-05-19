@@ -6,7 +6,8 @@ import {
   User,
   UserResponse,
   MostActiveResponse,
-  MostActive
+  MostActive,
+  MessageRequest
  } from '@shared/interfaces/interfaces';
 
 import { Observable, of } from 'rxjs';
@@ -102,6 +103,14 @@ export class UserService {
         map(res => res.user),
         tap(res => this.setUser(res))
       );
+  }
+
+  public sendMeAMessage(request: MessageRequest): Observable<UserResponse> {
+    return this.http
+    .post<UserResponse>(environment.api + 'message', request)
+    .pipe(
+      filter(res => res && !!res.ok)
+    );
   }
 
   public getUser(): User {

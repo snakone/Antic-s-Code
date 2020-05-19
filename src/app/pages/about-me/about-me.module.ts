@@ -8,7 +8,7 @@ import { AboutIntroComponent } from './components/about-intro/about-intro.compon
 import { TimeLineComponent } from './components/time-line/time-line.component';
 import { AboutSkillsComponent } from './components/about-skills/about-skills.component';
 import { AboutContactComponent } from './components/about-contact/about-contact.component';
-import { HomeModule } from '../home/home.module';
+import { AboutWorkComponent } from './components/about-work/about-work.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +16,14 @@ import { HomeModule } from '../home/home.module';
     AboutIntroComponent,
     TimeLineComponent,
     AboutSkillsComponent,
-    AboutContactComponent],
+    AboutContactComponent,
+    AboutWorkComponent
+  ],
   imports: [
     CommonModule,
     AboutMeRouting,
     LayoutModule,
-    SharedModule,
-    HomeModule
+    SharedModule
   ]
 })
 
