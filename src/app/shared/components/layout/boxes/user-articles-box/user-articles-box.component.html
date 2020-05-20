@@ -1,10 +1,16 @@
-<app-content-box [title]="'Artículos de ' + user?.name">
-  <div *ngIf="(articles$ | async) as articles">
-    <div class="article-item" *ngFor="let a of articles">
+<div class="user-articles">
+  <span id="user-articles"></span>
+</div>
+<app-content-box [title]="'Artículos de ' + (user?.name || 'Usuario')">
+  <ng-container *ngIf="(articles$ | async) as articles">
+    <div class="article-item" *ngFor="let a of articles |
+                                               paginate: { itemsPerPage: itemsPerPage,
+                                                           currentPage: page,
+                                                           id: 'user-articles' }">
       <img [src]="(a.category | logo) | image:'logos'"
-             [alt]="a.category" loading="lazy"
-             [matTooltip]="a.category"
-              matTooltipPosition="above"/>
+           [alt]="a.category" loading="lazy"
+           [matTooltip]="a.category"
+           matTooltipPosition="above"/>
 
       <h5 [routerLink]="'/article/' + a.slug">{{a.title}}</h5>
 
@@ -25,9 +31,20 @@
     </div>
     <div *ngIf="articles.length === 0">
       <p>
-        <strong>{{user?.name}}</strong>
+        <strong>{{user?.name || 'Este usuario'}}</strong>
         aún no ha escrito ningún artículo.
       </p>
     </div>
-  </div>
+  </ng-container>
 </app-content-box>
+
+<div class="row-pagination"
+    *ngIf="(articles$ | async)?.length > itemsPerPage">
+  <pagination-controls (pageChange)="changeFrom($event)"
+                        class="pagination"
+                        previousLabel=""
+                        nextLabel=""
+                        id="user-articles">
+  </pagination-controls>
+</div>
+

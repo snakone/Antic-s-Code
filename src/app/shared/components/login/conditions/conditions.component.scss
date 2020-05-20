@@ -1,6 +1,5 @@
 .conditions {
   width: 100%;
-  margin-top: 1rem;
 
   & p span {
     font-weight: bold;
@@ -12,11 +11,14 @@ button {
   width: 100%;
   color: var(--light-color);
   margin-top: 1.5rem;
-  margin-bottom: .5rem;
+  position: relative;
+  top: 1rem;
 }
 
 p {
-  margin-top: 1.5rem;
-  margin-bottom: .5rem;
+  margin-top: 1.1rem;
+  margin-bottom: .6rem;
   font-size: .85rem;
+  text-align: left;
+  &:first-child { margin-top: 0}
  }

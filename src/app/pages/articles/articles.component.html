@@ -12,11 +12,12 @@
         <app-articles-content></app-articles-content>
       </div>
       <div class="col-lg-4 col-md-4">
-        <app-articles-sidebar></app-articles-sidebar>
+        <app-articles-sidebar [block]="true"></app-articles-sidebar>
       </div>
     </div>
     <div *ngIf="grid" class="col-lg-12">
       <app-articles-content [grid]="grid"></app-articles-content>
+      <app-articles-sidebar></app-articles-sidebar>
     </div>
   </div>
 </app-section>

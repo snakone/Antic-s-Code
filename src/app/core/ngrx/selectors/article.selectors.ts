@@ -44,6 +44,14 @@ export const getMostLikedLoaded = createSelector(
   getArticlesState, fromArticles.getMostLikedLoaded
 );
 
+export const getMostViewed = createSelector(
+  getArticlesState, fromArticles.getMostViewed
+);
+
+export const getMostViewedLoaded = createSelector(
+  getArticlesState, fromArticles.getMostViewedLoaded
+);
+
 export const getFull = createSelector(
   getArticlesState, fromArticles.getFull
 );

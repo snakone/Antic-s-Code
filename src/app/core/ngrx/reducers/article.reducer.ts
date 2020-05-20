@@ -15,6 +15,8 @@ export interface ArticleState {
   lastLoaded: boolean;
   liked: Article[];
   likedLoaded: boolean;
+  viewed: Article[];
+  viewedLoaded: boolean;
   count: number;
   countLoaded: boolean;
   categoryCount: object;
@@ -36,6 +38,8 @@ export const inititalState: ArticleState = {
   lastLoaded: false,
   liked: [],
   likedLoaded: false,
+  viewed: null,
+  viewedLoaded: false,
   count: 0,
   countLoaded: false,
   categoryCount: {},
@@ -106,6 +110,21 @@ const featureReducer = createReducer(
   )),
   on(ArticleActions.getMostLikedFailure, (state, { error }) => (
     { ...state, likedLoaded: false, error }
+  )),
+  // GET MOST VIEWED ARTICLES
+  on(ArticleActions.getMostViewed, state => (
+    { ...state, viewedLoaded: false, error: null }
+  )),
+  on(ArticleActions.getMostViewedSuccess, (state, { articles }) => (
+    {
+      ...state,
+      viewedLoaded: true,
+      viewed: articles,
+      error: null,
+    }
+  )),
+  on(ArticleActions.getMostViewedFailure, (state, { error }) => (
+    { ...state, viewedLoaded: false, error }
   )),
   // ARTICLE BY SLUG
   on(ArticleActions.getBySlug, (state) => (
@@ -203,6 +222,8 @@ export const getSlug = (state: ArticleState) => state.bySlug;
 export const getLast = (state: ArticleState) => state.last;
 export const getMostLiked = (state: ArticleState) => state.liked;
 export const getMostLikedLoaded = (state: ArticleState) => state.likedLoaded;
+export const getMostViewed = (state: ArticleState) => state.viewed;
+export const getMostViewedLoaded = (state: ArticleState) => state.viewedLoaded;
 export const getCount = (state: ArticleState) => state.count;
 export const getCountLoaded = (state: ArticleState) => state.countLoaded;
 export const getCategoryCount = (state: ArticleState) => state.categoryCount;

@@ -1,0 +1,12 @@
+<app-content-box [title]="'loved.lang' | translate">
+  <button mat-button
+          class="btn-orange"
+          aria-label="Favorite Language"
+          *ngIf="user">
+    {{user.profile?.language || 'not.defined' | translate}}
+  </button>
+  <button mat-button
+          class="skeleton"
+          *ngIf="!user">.
+  </button>
+</app-content-box>

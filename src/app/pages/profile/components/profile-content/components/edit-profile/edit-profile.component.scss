@@ -1,7 +1,7 @@
 * { box-sizing: border-box }
 
 form {
-  margin: auto;
+  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -17,6 +17,7 @@ mat-form-field {
 
   & textarea {
     min-height: 100px;
+    resize: none !important;
   }
 }
 

@@ -6,10 +6,10 @@
   </p>
   <p class="bold black">"{{'delete.sentence' | translate}}"</p>
   <form [formGroup]="deleteAccountForm" (ngSubmit)="onSubmit()">
-    <mat-form-field color="accent">
-        <input matInput
-              [placeholder]="'put.sentence' | translate"
-              formControlName="delete">
+    <mat-form-field color="accent" appearance="outline">
+      <mat-label>{{'put.sentence' | translate}}</mat-label>
+      <input matInput
+            formControlName="delete">
     </mat-form-field>
 
     <mat-dialog-actions align="end">

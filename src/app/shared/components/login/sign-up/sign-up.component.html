@@ -1,28 +1,25 @@
 <div class="sign-up-wrapper animated fadeIn">
   <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-    <mat-form-field color="accent">  <!-- NAME -->
+    <mat-form-field color="accent" appearance="outline">  <!-- NAME -->
+      <mat-label>{{'name' | translate}}</mat-label>
       <input matInput
-             [placeholder]="'name' | translate"
              formControlName="name">
-      <mat-hint align="end">3-20 {{'chars' | translate}}</mat-hint>
     </mat-form-field>
-    <mat-form-field color="accent">  <!-- EMAIL -->
+    <mat-form-field color="accent" appearance="outline">  <!-- EMAIL -->
+      <mat-label>{{'email' | translate}}</mat-label>
       <input matInput
-             [placeholder]="'email' | translate"
              formControlName="email">
-      <mat-hint align="end">5-35 {{'chars' | translate}}</mat-hint>
     </mat-form-field>
-    <mat-form-field color="accent">  <!-- PASSWORD -->
+    <mat-form-field color="accent" appearance="outline">  <!-- PASSWORD -->
+      <mat-label>{{'password' | translate}}</mat-label>
       <input matInput
-             [placeholder]="'password' | translate"
              formControlName="password"
              type="password"
              [ngClass]="{'valid': !matchError}">
-      <mat-hint align="end">5-25 {{'chars' | translate}}</mat-hint>
     </mat-form-field>
-    <mat-form-field color="accent">  <!-- REPEAT -->
+    <mat-form-field color="accent" appearance="outline">  <!-- REPEAT -->
+      <mat-label>{{'repeat.password' | translate}}</mat-label>
       <input matInput
-             [placeholder]="'repeat.password' | translate"
              formControlName="password2"
              type="password"
              [ngClass]="matchError === true ? 'invalid' : 'valid'">
