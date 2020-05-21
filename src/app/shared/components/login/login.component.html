@@ -5,7 +5,7 @@
                    isCon = false">
           <mat-icon>keyboard_arrow_left</mat-icon>
     </span>
-    <h3>Antic's Code</h3>
+    <h3 *ngIf="!isCon">Antic's Code</h3>
     <app-sign-in *ngIf="!isReg && !isCon"
                  (changed)="isReg = $event">
     </app-sign-in>
@@ -15,7 +15,7 @@
     </app-sign-up>
     <app-conditions *ngIf="isCon && !isReg"
                     (close)="isReg = $event;
-                             conditions = $event">
+                             isCon = !isCon">
     </app-conditions>
   </div>
 </mat-dialog-content>

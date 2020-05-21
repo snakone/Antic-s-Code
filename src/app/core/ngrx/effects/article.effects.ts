@@ -24,10 +24,7 @@ export class ArticleEffects {
           map(articles => ArticleActions.getSuccess({ articles })),
           catchError(error =>
               of(ArticleActions.getFailure({ error: error.message }))
-          )
-        )
-      )
-    )
+    ))))
   );
 
   // GET ARTICLES COUNT
@@ -40,42 +37,33 @@ export class ArticleEffects {
           map(count => ArticleActions.getCountSuccess({ count })),
           catchError(error =>
               of(ArticleActions.getCountFailure({ error: error.message }))
-          )
-        )
-      )
-    )
+    ))))
   );
 
   // GET ARTICLE BY SLUG
   loadArticleBySlugEffect$ = createEffect(() => this.actions
-  .pipe(
-    ofType(ArticleActions.getBySlug),
-    concatMap((action) =>
-    this.articleSrv.getBySlug(action.slug)
-      .pipe(
-        map(article => ArticleActions.getBySlugSuccess({ article })),
-        catchError(error =>
-            of(ArticleActions.getBySlugFailure({ error: error.message }))
-          )
-        )
-      )
-    )
+    .pipe(
+      ofType(ArticleActions.getBySlug),
+      concatMap((action) =>
+      this.articleSrv.getBySlug(action.slug)
+        .pipe(
+          map(article => ArticleActions.getBySlugSuccess({ article })),
+          catchError(error =>
+              of(ArticleActions.getBySlugFailure({ error: error.message }))
+    ))))
   );
 
   // GET ARTICLES BY USER
   getArticlesByUserEffect$ = createEffect(() => this.actions
-  .pipe(
-    ofType(ArticleActions.getByUser),
-    concatMap((action) =>
-    this.articleSrv.getByUser(action.id)
-      .pipe(
-        map(articles => ArticleActions.getByUserSuccess({ articles })),
-        catchError(error =>
-            of(ArticleActions.getByUserFailure({ error: error.message }))
-          )
-        )
-      )
-    )
+    .pipe(
+      ofType(ArticleActions.getByUser),
+      concatMap((action) =>
+      this.articleSrv.getByUser(action.id)
+        .pipe(
+          map(articles => ArticleActions.getByUserSuccess({ articles })),
+          catchError(error =>
+              of(ArticleActions.getByUserFailure({ error: error.message }))
+    ))))
   );
 
   // GET LAST ARTICLES
@@ -88,58 +76,59 @@ export class ArticleEffects {
             map(articles => ArticleActions.getLastSuccess({ articles })),
             catchError(error =>
               of(ArticleActions.getLastFailure({ error: error.message }))
-          )
-        )
-      )
-    )
+    ))))
   );
 
   // GET MOST LIKED ARTICLES
   loadMostLikedEffect$ = createEffect(() => this.actions
-  .pipe(
-    ofType(ArticleActions.getMostLiked),
-    concatMap(() =>
-      this.articleSrv.getMostLiked()
-        .pipe(
-          map(articles => ArticleActions.getMostLikedSuccess({ articles })),
-          catchError(error =>
-            of(ArticleActions.getMostLikedFailure({ error: error.message }))
-        )
-       )
-     )
-    )
+    .pipe(
+      ofType(ArticleActions.getMostLiked),
+      concatMap(() =>
+        this.articleSrv.getMostLiked()
+          .pipe(
+            map(articles => ArticleActions.getMostLikedSuccess({ articles })),
+            catchError(error =>
+              of(ArticleActions.getMostLikedFailure({ error: error.message }))
+    ))))
+  );
+
+  // GET MOST VIEWED ARTICLES
+  loadMostViewedEffect$ = createEffect(() => this.actions
+    .pipe(
+      ofType(ArticleActions.getMostViewed),
+      concatMap(() =>
+        this.articleSrv.getMostViewed()
+          .pipe(
+            map(articles => ArticleActions.getMostViewedSuccess({ articles })),
+            catchError(error =>
+              of(ArticleActions.getMostViewedFailure({ error: error.message }))
+    ))))
   );
 
   // GET ARTICLES BY CATEGORY
   loadArticlesByCategoryEffect$ = createEffect(() => this.actions
-  .pipe(
-    ofType(ArticleActions.getByCategory),
-    concatMap((action) =>
-      this.articleSrv.getByCategory(action.category)
-        .pipe(
-          map(articles => ArticleActions.getByCategorySuccess({ articles })),
-          catchError(error =>
-            of(ArticleActions.getByCategoryFailure({ error: error.message }))
-        )
-        )
-      )
-    )
+    .pipe(
+      ofType(ArticleActions.getByCategory),
+      concatMap((action) =>
+        this.articleSrv.getByCategory(action.category)
+          .pipe(
+            map(articles => ArticleActions.getByCategorySuccess({ articles })),
+            catchError(error =>
+              of(ArticleActions.getByCategoryFailure({ error: error.message }))
+    ))))
   );
 
   // GET ARTICLES BY CATEGORY COUNT
   loadArticlesByCategoryCountEffect$ = createEffect(() => this.actions
-  .pipe(
-    ofType(ArticleActions.getByCategoryCount),
-    concatMap(() =>
-      this.articleSrv.getByCategoryCount()
-        .pipe(
-          map(count => ArticleActions.getByCategoryCountSuccess({ count })),
-          catchError(error =>
-            of(ArticleActions.getByCategoryCountFailure({ error: error.message }))
-        )
-       )
-     )
-    )
+    .pipe(
+      ofType(ArticleActions.getByCategoryCount),
+      concatMap(() =>
+        this.articleSrv.getByCategoryCount()
+          .pipe(
+            map(count => ArticleActions.getByCategoryCountSuccess({ count })),
+            catchError(error =>
+              of(ArticleActions.getByCategoryCountFailure({ error: error.message }))
+    ))))
   );
 
 }

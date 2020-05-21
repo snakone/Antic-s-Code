@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-articles-sidebar',
@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
 })
 
 export class ArticlesSidebarComponent {
+
+  @Input() block: boolean;
+  @Input() viewed: boolean;
+  @Input() sidebar: boolean;
 
   constructor() { }
 }

@@ -58,6 +58,15 @@ export class ArticleService {
       );
   }
 
+  public getMostViewed(): Observable<Article[]> {
+    return this.http
+      .get<ArticleResponse>(this.API_ARTICLES + 'viewed')
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.articles)
+      );
+  }
+
   public getByUser(id: string): Observable<Article[]> {
     return this.http
       .get<ArticleResponse>(this.API_ARTICLES + 'user/' + id)

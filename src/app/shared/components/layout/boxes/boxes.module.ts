@@ -13,6 +13,10 @@ import { SettingsBoxComponent } from './settings-box/settings-box.component';
 import { ProfileInfoBoxComponent } from './profile-info-box/profile-info-box.component';
 import { RelatedArticlesBoxComponent } from './related-articles-box/related-articles-box.component';
 import { UserArticlesBoxComponent } from './user-articles-box/user-articles-box.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ExpansionBoxComponent } from './expansion-box/expansion-box.component';
+import { FavoriteLangBoxComponent } from './favorite-lang-box/favorite-lang-box.component';
+import { MostViewedBoxComponent } from './most-viewed-box/most-viewed-box.component';
 
 @NgModule({
   declarations: [
@@ -23,13 +27,17 @@ import { UserArticlesBoxComponent } from './user-articles-box/user-articles-box.
     SettingsBoxComponent,
     ProfileInfoBoxComponent,
     RelatedArticlesBoxComponent,
-    UserArticlesBoxComponent
+    UserArticlesBoxComponent,
+    ExpansionBoxComponent,
+    FavoriteLangBoxComponent,
+    MostViewedBoxComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     RouterModule,
     ArticleLayoutModule,
+    NgxPaginationModule,
     MarkdownModule.forChild()
   ],
   exports: [
@@ -40,7 +48,10 @@ import { UserArticlesBoxComponent } from './user-articles-box/user-articles-box.
     SettingsBoxComponent,
     ProfileInfoBoxComponent,
     RelatedArticlesBoxComponent,
-    UserArticlesBoxComponent
+    UserArticlesBoxComponent,
+    ExpansionBoxComponent,
+    FavoriteLangBoxComponent,
+    MostViewedBoxComponent
   ]
 })
 

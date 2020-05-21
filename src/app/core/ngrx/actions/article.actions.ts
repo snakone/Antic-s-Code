@@ -37,6 +37,18 @@ export const getMostLikedFailure =
   createAction('[Articles API] Get Most Liked Articles Failure',
   props<{ error: string }>());
 
+// GET MOST VIEWED ARTICLES
+export const getMostViewed =
+  createAction('[Articles API] Get Most Viewed Articles');
+
+export const getMostViewedSuccess =
+  createAction('[Articles API] Get Most Liked Viewed Success',
+  props<{ articles: Article[] }>());
+
+export const getMostViewedFailure =
+  createAction('[Articles API] Get Most Liked Viewed Failure',
+  props<{ error: string }>());
+
 // GET ARTICLES COUNT
 export const getCount =
   createAction('[Articles API] Get Articles Count');

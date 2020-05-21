@@ -42,7 +42,7 @@ export class AboutContactComponent implements OnInit, OnDestroy {
          Validators.minLength(5),
          Validators.maxLength(35)
       ]),
-      message: new FormControl(null, [
+      text: new FormControl(null, [
          Validators.required,
          Validators.minLength(5),
          Validators.maxLength(200)

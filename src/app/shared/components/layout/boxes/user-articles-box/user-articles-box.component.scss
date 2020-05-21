@@ -120,3 +120,43 @@
 }
 
 p { margin: 0 }
+
+.user-articles {
+  position: relative;
+
+  & span {
+    position: absolute;
+    top: -5rem;
+  }
+}
+
+.row-pagination {
+  margin: 2rem auto;
+  margin-left: -1px;
+  text-align: center;
+  width: 100%;
+  border: 1px solid var(--section-border-color);
+  background: var(--light-color);
+}
+
+::ng-deep .pagination .ngx-pagination a {
+  color: var(--primary-color);
+  background: none;
+  border-bottom: none;
+
+  &:hover {
+    background: none;
+    outline: none;
+    cursor: pointer;
+  }
+}
+
+::ng-deep .pagination .ngx-pagination .current {
+  background: var(--primary-color);
+  opacity: 0.8;
+  border-radius: 4px;
+}
+
+::ng-deep .ngx-pagination  {
+  padding-left: 0 !important;
+}

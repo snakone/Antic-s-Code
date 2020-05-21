@@ -1,3 +1,5 @@
+* { box-sizing: border-box }
+
 .related {
   margin-bottom: 1rem;
   border-top-left-radius: 5px;
@@ -50,4 +52,20 @@ mat-icon {
   font-size: 1.4rem;
   position: relative;
   top: 2px;
+}
+
+.col-md-6 {
+  width: 100%;
+  max-width: 100%;
+}
+
+@media(max-width: 992px) {
+  .row { margin-top: 2rem }
+}
+
+@media(min-width: 600px) and (max-width: 992px) {
+  .col-md-6 {
+    width: 50%;
+    float: left;
+  }
 }
