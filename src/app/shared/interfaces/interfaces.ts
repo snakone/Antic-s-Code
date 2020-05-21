@@ -131,7 +131,7 @@ export interface SearchRequest {
 export interface MessageRequest {
   name: string;
   email: string;
-  message: string;
+  text: string;
 }
 
 export interface WorkCompany {

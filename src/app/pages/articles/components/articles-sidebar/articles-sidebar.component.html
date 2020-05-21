@@ -1,8 +1,11 @@
 <div class="row">
-  <div class="col-lg-6" [ngClass]="{'block' : block}">
-    <app-most-viewed-box></app-most-viewed-box>
+  <div *ngIf="viewed"
+       class="col-lg-6"
+       [ngClass]="{'block' : block}">
+    <app-most-viewed-box [sidebar]="sidebar"></app-most-viewed-box>
   </div>
-  <div class="col-lg-6" [ngClass]="{'block' : block}">
+  <div class="col-lg-6"
+       [ngClass]="{'block' : block}">
     <app-articles-category-list-box></app-articles-category-list-box>
   </div>
 </div>

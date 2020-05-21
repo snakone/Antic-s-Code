@@ -6,7 +6,10 @@
           aria-label="Name">{{'favorite' | translate}}
   </button>
 </div>
-<app-articles-sidebar></app-articles-sidebar>
+<app-articles-sidebar [block]="true"
+                      [viewed]="true"
+                      [sidebar]="true">
+</app-articles-sidebar>
 
 <app-sticky-box selector="category-section"
                 [empty]="true"

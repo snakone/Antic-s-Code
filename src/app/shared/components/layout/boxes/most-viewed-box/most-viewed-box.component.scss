@@ -46,8 +46,10 @@ li {
       justify-content: center;
     }
 
-    @media(max-width: 1150px) and (min-width: 993px) {
-      font-size: .8rem;
+    &.sidebar {
+      @media(max-width: 1150px) and (min-width: 993px) {
+        font-size: .8rem;
+      }
     }
   }
 }

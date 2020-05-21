@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Article } from '@shared/interfaces/interfaces';
 import { Store } from '@ngrx/store';
@@ -16,6 +16,7 @@ import * as ArticleActions from '@core/ngrx/actions/article.actions';
 
 export class MostViewedBoxComponent implements OnInit, OnDestroy {
 
+  @Input() sidebar: boolean;
   articles$: Observable<Article[]>;
   private unsubscribe$ = new Subject<void>();
 

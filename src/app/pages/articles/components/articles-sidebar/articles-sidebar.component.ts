@@ -9,6 +9,8 @@ import { Component, Input } from '@angular/core';
 export class ArticlesSidebarComponent {
 
   @Input() block: boolean;
+  @Input() viewed: boolean;
+  @Input() sidebar: boolean;
 
   constructor() { }
 }

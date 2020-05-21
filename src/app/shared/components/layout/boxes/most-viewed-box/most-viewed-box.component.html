@@ -1,4 +1,4 @@
-<app-content-box title="Los más vistos">
+<app-content-box title="Los Artículos más vistos">
  <ng-container *ngIf="(articles$ | async) as articles; else noArticles">
   <ul class="none">
     <li *ngFor="let a of articles"
@@ -6,7 +6,9 @@
       <img [src]="(a.category | logo) | image: 'logos'"
            [alt]="a.category"
            loading="lazy"/>
-      <span [attr.data-views]="a.views">{{a.title}}</span>
+      <span [attr.data-views]="a.views"
+            [ngClass]="{'sidebar': sidebar}"
+      >{{a.title}}</span>
     </li>
   </ul>
  </ng-container>
