@@ -1,18 +1,17 @@
-mat-form-field, button { width: 100% }
-button { margin-top: 1rem }
-
-mat-form-field {
-  @media(max-width: 992px) and (min-width: 500px) {
-    max-width: 46%;
-    &:first-child { margin-right: 2rem }
-   }
+mat-form-field, button {
+  width: 100%;
+  @media(max-width: 992px) and (min-width: 550px) {
+    max-width: 48%;
+  }
 }
+
+button { margin: .6rem 0 0 auto }
 
 form {
   margin: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-between;
   margin-top: .5rem;
 }
 

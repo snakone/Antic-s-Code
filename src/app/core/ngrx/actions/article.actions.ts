@@ -1,5 +1,5 @@
 import { props, createAction } from '@ngrx/store';
-import { Article } from '@app/shared/interfaces/interfaces';
+import { Article, TagRequest } from '@app/shared/interfaces/interfaces';
 
 // GET ARTICLES
 export const get =
@@ -89,16 +89,29 @@ export const getByUserFailure =
 
 // GET ARTICLES BY CATEGORY
 export const getByCategory =
-createAction('[Articles API] Get Articles by Category',
-props<{ category: string }>());
+  createAction('[Articles API] Get Articles by Category',
+  props<{ category: string }>());
 
 export const getByCategorySuccess =
-createAction('[Articles API] Get Articles by Category Success',
-props<{ articles: Article[] }>());
+  createAction('[Articles API] Get Articles by Category Success',
+  props<{ articles: Article[] }>());
 
 export const getByCategoryFailure =
-createAction('[Articles API] Get Articles by Category Failure',
-props<{ error: string }>());
+  createAction('[Articles API] Get Articles by Category Failure',
+  props<{ error: string }>());
+
+// GET ARTICLES BY TAGS
+export const getByTags =
+  createAction('[Articles API] Get Articles by Tags',
+  props<{ request: TagRequest }>());
+
+export const getByTagsSuccess =
+  createAction('[Articles API] Get Articles by Tags Success',
+  props<{ articles: Article[] }>());
+
+export const getByTagsFailure =
+  createAction('[Articles API] Get Articles by Tags Failure',
+  props<{ error: string }>());
 
 // GET ARTICLES BY CATEGORY COUNT
 export const getByCategoryCount =
@@ -124,5 +137,8 @@ export const resetByUser =
 
 export const resetByCategory =
   createAction('[Articles API] Reset Articles By Category');
+
+export const resetByTags =
+  createAction('[Articles API] Reset Articles By Tags');
 
 

@@ -7,14 +7,14 @@
     </p>
     <p>Versión actual: <strong>{{version}}</strong></p>
   </div>
-  <div class="col-lg-6 col-md-6 download">
-    <button *ngFor="let b of buttons"
-             [class]="b.class + ' mat-button'"
-             mat-button>
-          <a [href]="b.link" target="NEW" class="default">
-            <img [src]="b.icon | image:'buttons'" [alt]="b.platform"/>
-            {{b.platform}}
-          </a>
-    </button>
+  <div class="col-lg-6 col-md-6">
+    <div class="download">
+      <button *ngFor="let b of buttons"
+              mat-button>
+            <a [href]="b.link" target="NEW" class="default">
+              <img [src]="b.icon | image:'buttons'" [alt]="b.platform"/>
+            </a>
+      </button>
+    </div>
   </div>
 </div>

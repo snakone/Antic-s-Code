@@ -118,6 +118,19 @@ export class ArticleEffects {
     ))))
   );
 
+  // GET ARTICLES BY CATEGORY
+  loadArticlesByTagsEffect$ = createEffect(() => this.actions
+    .pipe(
+      ofType(ArticleActions.getByTags),
+      concatMap((action) =>
+        this.articleSrv.getByTags(action.request)
+          .pipe(
+            map(articles => ArticleActions.getByTagsSuccess({ articles })),
+            catchError(error =>
+              of(ArticleActions.getByTagsFailure({ error: error.message }))
+    ))))
+  );
+
   // GET ARTICLES BY CATEGORY COUNT
   loadArticlesByCategoryCountEffect$ = createEffect(() => this.actions
     .pipe(

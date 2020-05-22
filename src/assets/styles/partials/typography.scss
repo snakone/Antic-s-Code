@@ -5,26 +5,17 @@
 
 .black { color: black !important }
 .white { color: var(--bg-color) !important }
-
 .active { color: var(--primary-color) }
+strong { font-size: inherit }
+span strong { font-size: inherit}
 
 p {
   color: var(--p-color);
   line-height: 1.5rem;
+}
 
+span, p, li, a, input, textarea, mat-label {
   @media(max-width: 550px) { font-size: .9rem !important }
-}
-
-span {
-  @media(max-width: 550px) { font-size: .9rem !important }
-}
-
-strong {
-  font-size: inherit;
-}
-
-span strong {
-  font-size: inherit;
 }
 
 h1 {
@@ -66,7 +57,6 @@ ul.none {
 
   & li {
     color: var(--p-color);
-    @media(max-width: 550px) { font-size: .9rem !important }
   }
 }
 

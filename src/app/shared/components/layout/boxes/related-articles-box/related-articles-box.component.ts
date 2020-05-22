@@ -35,7 +35,7 @@ export class RelatedArticlesBoxComponent implements OnInit, OnDestroy {
   private checkData(): void {
     this.store.select(fromArticles.getByCategoryLoaded)
      .pipe(
-       filter(res => !res),
+       filter(res => !res && !!this.category),
        takeUntil(this.unsubscribe$)
       )
       .subscribe(_ => {

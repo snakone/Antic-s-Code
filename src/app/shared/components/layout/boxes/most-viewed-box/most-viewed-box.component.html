@@ -1,4 +1,4 @@
-<app-content-box title="Los Artículos más vistos">
+<app-content-box title="Lo más visto">
  <ng-container *ngIf="(articles$ | async) as articles; else noArticles">
   <ul class="none">
     <li *ngFor="let a of articles"

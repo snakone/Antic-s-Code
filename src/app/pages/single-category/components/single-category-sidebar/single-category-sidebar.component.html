@@ -1,13 +1,9 @@
-<div *onlyDesktop>
-  <app-single-category-info-box [category]="category">
-  </app-single-category-info-box>
-  <button mat-button
-          class="btn-pink"
-          aria-label="Name">{{'favorite' | translate}}
-  </button>
-</div>
+<app-single-category-info-box *onlyDesktop
+                              [category]="category">
+</app-single-category-info-box>
+
 <app-articles-sidebar [block]="true"
-                      [viewed]="true"
+                      [viewed]="category ? true : false"
                       [sidebar]="true">
 </app-articles-sidebar>
 

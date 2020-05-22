@@ -164,6 +164,11 @@ export interface Skill {
   icon: string;
 }
 
+export interface TagRequest {
+  id: string;
+  tags: string[];
+}
+
 export interface CarouselSlide {
   image: string;
   title: string;

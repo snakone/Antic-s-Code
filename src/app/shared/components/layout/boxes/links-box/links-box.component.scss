@@ -2,6 +2,14 @@ ul {
   margin: 0;
   list-style: none;
   padding-left: 20px;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  line-height: 1.2;
+  font-size: 1.7rem;
+  position: relative;
+  margin-bottom: 2.2rem;
 }
 
 li { margin: 8px auto }
@@ -25,5 +33,3 @@ a:hover {
   background-color: #bbeffd;
   border-bottom-color: #1a1a1a;
 }
-
-.links { margin-top: 3rem }
