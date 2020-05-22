@@ -72,6 +72,14 @@ export const getByCategoryLoaded = createSelector(
   getArticlesState, fromArticles.getByCategoryLoaded
 );
 
+export const getByTags = createSelector(
+  getArticlesState, fromArticles.getByTags
+);
+
+export const getByTagsLoaded = createSelector(
+  getArticlesState, fromArticles.getByTagsLoaded
+);
+
 export const getByCategoryCount = createSelector(
   getArticlesState, fromArticles.getCategoryCount
 );

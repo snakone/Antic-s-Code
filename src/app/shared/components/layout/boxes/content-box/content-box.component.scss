@@ -22,7 +22,7 @@
     &-header {
       padding: 1.1666rem 2rem;
       border-bottom: 1px solid var(--section-border-color);
-      @media(max-width: 450px) { padding: 1rem 1.5rem }
+      @media(max-width: 550px) { padding: 1rem 1.2rem }
 
     & h4 {
       margin-bottom: 0;
@@ -40,12 +40,7 @@
     }
 
     &-title {
-      -webkit-box-pack: justify;
-      -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
       justify-content: space-between;
-      -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
       flex-wrap: wrap;
     }
 

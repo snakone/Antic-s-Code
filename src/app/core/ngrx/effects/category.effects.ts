@@ -24,9 +24,6 @@ export class CategoryEffects {
           map(category => CategoryActions.getByNameSuccess({ category })),
           catchError(error =>
               of(CategoryActions.getByNameFailure({ error: error.message }))
-          )
-        )
-      )
-    )
+    ))))
   );
 }

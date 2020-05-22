@@ -27,7 +27,7 @@ li {
 
   & span {
     position: relative;
-    color: #000000;
+    color: black;
 
     &::after {
       content: attr(data-views);
@@ -44,6 +44,7 @@ li {
       font-size: 0.6rem;
       align-items: center;
       justify-content: center;
+      opacity: .7;
     }
 
     &.sidebar {

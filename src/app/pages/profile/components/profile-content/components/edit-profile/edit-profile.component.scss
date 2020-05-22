@@ -1,14 +1,15 @@
 * { box-sizing: border-box }
 
 form {
-  margin-top: 1rem;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-top: .3rem;
 }
 
 mat-form-field {
-  width: 46%;
+  width: 48%;
+  margin-bottom: .5rem;
   @media(max-width: 550px) { width: 100% }
 }
 
@@ -24,6 +25,7 @@ mat-form-field {
 .select { top: -1px }
 
 button {
-  margin: 1rem auto;
-  width: 100%;
+  margin: 0 0 0 auto;
+  width: 48%;
+  @media(max-width: 550px) { width: 100% }
 }

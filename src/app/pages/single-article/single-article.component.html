@@ -9,19 +9,16 @@
         <app-article-card id="single-article-section"
                           [article]="article"
                           [single]="true">
-
             <hr class="mobile" *ngIf="article.index">
-
             <app-index-box *onlyMobile
                            [index]="article.index">
             </app-index-box>
-
             <hr class="mobile" *ngIf="article.index">
-
             <app-content-maker [template]="article.message"></app-content-maker>
-            <app-links-box [links]="article.links"></app-links-box>
         </app-article-card>
 
+        <app-links-box [links]="article.links"></app-links-box>
+        <app-related-tags-box [article]="article"></app-related-tags-box>
         <app-star-rating [article]="article"></app-star-rating>
         <app-disqus [identifier]="article.slug"></app-disqus>
       </div>

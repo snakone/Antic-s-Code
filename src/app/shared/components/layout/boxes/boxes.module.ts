@@ -17,6 +17,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ExpansionBoxComponent } from './expansion-box/expansion-box.component';
 import { FavoriteLangBoxComponent } from './favorite-lang-box/favorite-lang-box.component';
 import { MostViewedBoxComponent } from './most-viewed-box/most-viewed-box.component';
+import { RelatedTagsBoxComponent } from './related-tags-box/related-tags-box.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MostViewedBoxComponent } from './most-viewed-box/most-viewed-box.compon
     UserArticlesBoxComponent,
     ExpansionBoxComponent,
     FavoriteLangBoxComponent,
-    MostViewedBoxComponent
+    MostViewedBoxComponent,
+    RelatedTagsBoxComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +53,8 @@ import { MostViewedBoxComponent } from './most-viewed-box/most-viewed-box.compon
     UserArticlesBoxComponent,
     ExpansionBoxComponent,
     FavoriteLangBoxComponent,
-    MostViewedBoxComponent
+    MostViewedBoxComponent,
+    RelatedTagsBoxComponent
   ]
 })
 

@@ -1,5 +1,13 @@
 * { box-sizing: border-box }
 
+h2 {
+  line-height: 1.2;
+  font-size: 1.7rem;
+  position: relative;
+  padding-top: 2rem;
+  margin-bottom: 2.2rem;
+}
+
 .related {
   margin-bottom: 1rem;
   border-top-left-radius: 5px;
@@ -41,7 +49,8 @@
   display: flex;
   align-items: center;
   width: 100%;
-  margin: 1rem auto 2.5rem auto;
+  margin: 1rem auto 3rem auto;
+  @media(max-width: 550px) { margin: 0 auto 2rem auto; }
 }
 
 mat-icon {
@@ -58,11 +67,7 @@ mat-icon {
   max-width: 100%;
 }
 
-@media(max-width: 992px) {
-  .row { margin-top: 1rem }
-}
-
-@media(min-width: 600px) and (max-width: 992px) {
+@media(min-width: 600px) {
   .col-md-6 {
     width: 50%;
     float: left;
