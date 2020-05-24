@@ -27,12 +27,16 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field color="accent" appearance="outline">  <!-- AVATAR -->
+    <mat-form-field color="accent"
+                    appearance="outline"
+                    class="top">  <!-- AVATAR -->
       <mat-label>{{'url.avatar' | translate}}</mat-label>
       <input matInput
              formControlName="avatar">
     </mat-form-field>
-    <mat-form-field color="accent" appearance="outline">  <!-- TWITTER -->
+    <mat-form-field color="accent"
+                    appearance="outline"
+                    class="half-top">  <!-- TWITTER -->
       <mat-label>{{'twitter.page' | translate}}</mat-label>
       <input matInput
             formControlName="twitter">
@@ -47,7 +51,9 @@
       <input matInput
             formControlName="portfolio">
     </mat-form-field>
-    <mat-form-field color="accent" class="textarea" appearance="outline">  <!-- BIO -->
+    <mat-form-field color="accent"
+                    class="textarea top"
+                    appearance="outline">  <!-- BIO -->
       <mat-label>{{'my.bio' | translate}}</mat-label>
       <textarea matInput
                 formControlName="bio">

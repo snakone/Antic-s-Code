@@ -51,7 +51,7 @@ export class SearchFilterComponent implements OnInit {
     this.searchForm = new FormGroup({
        value: new FormControl(null, []),
     category: new FormControl(null, []),
-         tag: new FormControl(null, []),
+         tags: new FormControl(null, []),
        level: new FormControl(null, []),
         type: new FormControl(null, []),
         sort: new FormControl(null, [])

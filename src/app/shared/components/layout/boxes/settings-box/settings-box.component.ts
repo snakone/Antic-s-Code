@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { LANGUAGES, THEMES } from '@shared/shared.data';
+import { LANGUAGES, THEMES, SHOW_EMAIL } from '@shared/shared.data';
 import { StorageService } from '@core/storage/storage.service';
 import { LanguageService } from '@core/language/services/language.service';
 import { ThemeService } from '@core/services/theme/theme.service';
 import { CrafterService } from '@core/services/crafter/crafter.service';
+import { UserService } from '@core/services/user/user.service';
+import { User } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-settings-box',
@@ -14,16 +16,19 @@ import { CrafterService } from '@core/services/crafter/crafter.service';
 
 export class SettingsBoxComponent implements OnInit {
 
+  @Input() user: User;
   settingsForm: FormGroup;
   lang: string;
   languages = LANGUAGES;
   themes = THEMES;
+  email = SHOW_EMAIL;
 
   constructor(
     private theme: ThemeService,
     private ls: StorageService,
     private language: LanguageService,
-    private crafter: CrafterService
+    private crafter: CrafterService,
+    private userSrv: UserService
   ) { }
 
   ngOnInit() {
@@ -38,6 +43,9 @@ export class SettingsBoxComponent implements OnInit {
         ]),
         theme: new FormControl(this.ls.get('theme'), [
           Validators.required
+        ]),
+        email: new FormControl(this.userSrv.getUser().showEmail, [
+          Validators.required
         ])
       }
     );
@@ -45,10 +53,12 @@ export class SettingsBoxComponent implements OnInit {
 
   public onSubmit(): void {
     if (this.settingsForm.invalid) { return; }
-    const { lang, theme } = this.settingsForm.value;
+    const { language, theme, email } = this.settingsForm.value;
     this.theme.set(theme);
-    this.language.change(lang);
-    this.crafter.toaster('updated', 'config.save', 'info');
+    this.language.change(language);
+    this.user.showEmail = email;
+    this.userSrv.update(this.user).toPromise()
+     .then(_ => this.crafter.toaster('updated', 'config.save', 'info'));
   }
 
 }

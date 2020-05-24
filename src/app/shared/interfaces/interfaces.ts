@@ -77,6 +77,7 @@ export interface User {
   password: string;
   account: string;
   profile?: UserProfile;
+  showEmail?: boolean;
 }
 
 interface UserProfile {
@@ -119,7 +120,7 @@ export interface SheetData {
 export interface SearchRequest {
   value: string;
   category?: string;
-  tag?: string;
+  tags?: string[];
   year?: string;
   level?: string[];
   badges?: string[];
@@ -181,6 +182,16 @@ export interface DownloadButton {
   class: string;
   icon: string;
   link: string;
+}
+
+export interface UserRol {
+  rol: string;
+  icon: string;
+}
+
+export interface ShowEmail {
+  text: string;
+  show: boolean;
 }
 
 export interface FooterList {

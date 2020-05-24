@@ -1,14 +1,7 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { User } from '@shared/interfaces/interfaces';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ROLES, PROFILE_LANGS } from '@shared/shared.data';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { UserResponse } from '@shared/interfaces/interfaces';
-import { StorageService } from '@app/core/storage/storage.service';
-import * as UserActions from '@core/ngrx/actions/user.actions';
-import { Store } from '@ngrx/store';
-import { AppState } from '@app/app.config';
 import { UserService } from '@core/services/user/user.service';
 import { CrafterService } from '@core/services/crafter/crafter.service';
 
@@ -18,20 +11,17 @@ import { CrafterService } from '@core/services/crafter/crafter.service';
   styleUrls: ['./edit-profile.component.scss']
 })
 
-export class EditProfileComponent implements OnInit, OnDestroy {
+export class EditProfileComponent implements OnInit {
 
   @Input() user: User;
   form: FormGroup;
   roles = ROLES;
   languages = PROFILE_LANGS;
   urlPattern = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
-  private unsubscribe$ = new Subject<void>();
 
   constructor(
     private userSrv: UserService,
-    private store: Store<AppState>,
-    private crafter: CrafterService,
-    private ls: StorageService
+    private crafter: CrafterService
   ) { }
 
   ngOnInit() {
@@ -76,7 +66,7 @@ export class EditProfileComponent implements OnInit, OnDestroy {
     });
   }
 
-  onSubmit(): void {
+  public onSubmit(): void {
     if (this.form.invalid) { return; }
     this.user.name = this.form.value.name;
     this.user.email = this.form.value.email;
@@ -85,20 +75,10 @@ export class EditProfileComponent implements OnInit, OnDestroy {
   }
 
   private editUser(user: User): void {
-    this.userSrv.update(user)
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((res: UserResponse) => this.editSuccess(res));
-  }
-
-  private editSuccess(data: UserResponse): void {
-    this.store.dispatch(UserActions.set({ user: data.user }));
-    this.ls.setKey('token', data.token);
-    this.crafter.toaster('success', 'profile.updated', 'info');
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
+    this.userSrv.update(user).toPromise()
+      .then(_ => this.crafter
+        .toaster('success', 'profile.updated', 'info')
+      );
   }
 
 }

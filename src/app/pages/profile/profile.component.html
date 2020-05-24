@@ -5,12 +5,12 @@
   <div class="row" *ngIf="(user$ | async) as user">
     <div class="col-lg-8 col-md-8">  <!-- CONTENT -->
       <app-profile-content [user]="user"></app-profile-content>
-      <app-settings-box *onlyMobile></app-settings-box>
+      <app-settings-box [user]="user" *onlyMobile></app-settings-box>
       <app-profile-actions [user]="user" *onlyMobile></app-profile-actions>
     </div>
-    <div class="col-lg-4 col-md-4">   <!-- SIDEBAR -->
-      <app-settings-box *onlyDesktop></app-settings-box>
-      <app-profile-actions [user]="user" *onlyDesktop></app-profile-actions>
+    <div class="col-lg-4 col-md-4" *onlyDesktop>  <!-- SIDEBAR -->
+      <app-settings-box [user]="user"></app-settings-box>
+      <app-profile-actions [user]="user"></app-profile-actions>
     </div>
   </div>
 </app-section>
