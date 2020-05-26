@@ -10,7 +10,9 @@ import {
   DownloadButton,
   NotificationPayload,
   Skill,
-  WorkCompany
+  WorkCompany,
+  UserRol,
+  ShowEmail
 } from './interfaces/interfaces';
 
 import { AosOptions } from 'aos';
@@ -58,7 +60,7 @@ export const TAGS: string[] = [
   'Ionic',
   'Config',
   'Git',
-  'Antic\'s Code'
+  'Antic\'s'
 ];
 
 export const POPULAR_CATEGORIES: List[] = [
@@ -474,6 +476,17 @@ export const AOS_SETTINGS: AosOptions = {
   mirror: false,
   anchorPlacement: 'top-bottom',
 };
+
+export const USER_ROLS: UserRol[] = [
+  { rol: 'Admin', icon: 'mage.png' },
+  { rol: 'User', icon: 'user.png' },
+  { rol: 'All', icon: 'all.png' }
+];
+
+export const SHOW_EMAIL: ShowEmail[] = [
+  { text: 'Mostrar', show: true },
+  { text: 'Ocultar', show: false }
+];
 
 // TIME LINE
 export const TIME_LINE: TimeLine[] = [

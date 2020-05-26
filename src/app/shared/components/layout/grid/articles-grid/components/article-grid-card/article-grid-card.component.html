@@ -25,7 +25,7 @@
               <p>
                 <mat-icon>place</mat-icon>
                 <span class="hover"
-                      *ngFor="let t of article.tags | slice:0:2; let i = index">
+                      *ngFor="let t of article.tags; let i = index">
                   <span class="slash" *ngIf="i >= 1"> - </span>{{t | translate}}
                 </span>
               </p>

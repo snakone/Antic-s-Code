@@ -17,9 +17,12 @@
           </span>
         </li>
         <li><span class="bold black">{{'thread' | translate}}: </span>
-          <span class="defined"
-                *ngIf="req.tag; else notDefined">
-                {{req.tag | translate}}
+          <span *ngIf="req.tags; else notDefined">
+            <span class="defined"
+                  *ngFor="let t of req.tags; let i = index">
+                <span class="slash" *ngIf="i >= 1"> - </span>
+                {{t + ' '}}
+            </span>
           </span>
         </li>
         <li><span class="bold black">{{'level' | translate}}: </span>

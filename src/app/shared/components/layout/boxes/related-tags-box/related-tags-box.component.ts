@@ -51,13 +51,14 @@ export class RelatedTagsBoxComponent implements OnInit, OnDestroy {
   }
 
   public seeMore(): void {
-    // this.store.dispatch(SearchActions
-    //   .searchContent({
-    //     request: {
-    //       tags: this.article.tags
-    //     }
-    //   }));
-    // this.router.navigateByUrl('/search');
+    this.store.dispatch(SearchActions
+      .searchContent({
+        request: {
+          value: '',
+          tags: this.article.tags
+        }
+      }));
+    this.router.navigateByUrl('/search');
   }
 
   ngOnDestroy(): void {

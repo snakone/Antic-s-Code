@@ -18,14 +18,18 @@
       </mat-form-field>
       <mat-form-field appearance="outline" color="accent">  <!-- TAG -->
         <mat-label>{{'pick.thread' | translate}}</mat-label>
-        <mat-select formControlName="tag" aria-label="Select a Tag">
+        <mat-select #max_tag
+                    formControlName="tags"
+                    aria-label="Select a Tag"
+                    multiple>
           <mat-option *ngFor="let t of tags"
                       [value]="t"
                       role="option"
-                      aria-selected="false">
+                      #option_tag
+                      [disabled]="max_tag?.selected.length >= 2 &&
+                                  !option_tag.selected">
             {{t | translate}}
           </mat-option>
-          <mat-option value="" role="option">{{'all.a' | translate}}</mat-option>
         </mat-select>
       </mat-form-field>
       <h3>{{'level' | translate}}</h3>   <!-- LEVEL -->
@@ -51,12 +55,16 @@
       <h3>{{'order.title' | translate}}</h3>   <!-- ORDER -->
       <mat-form-field appearance="outline" color="accent">
         <mat-label>{{'order.type' | translate}}</mat-label>
-        <mat-select #max formControlName="type" multiple>
+        <mat-select #max_type
+                    formControlName="type"
+                    aria-label="Select a Type"
+                    multiple>
           <mat-option *ngFor="let t of types"
-                      #option
+                      #option_type
                       [value]="t"
                       role="option"
-                      [disabled]="max?.selected.length >= 2 && !option.selected">
+                      [disabled]="max_type?.selected.length >= 2 &&
+                                  !option_type.selected">
                       {{t | translate}}
           </mat-option>
         </mat-select>

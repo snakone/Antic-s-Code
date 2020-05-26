@@ -64,7 +64,11 @@ export class UserService {
     return this.http
       .put<UserResponse>(this.API_USERS, user)
       .pipe(
-        filter(res => res && !!res.ok)
+        filter(res => res && !!res.ok),
+        tap(res => {
+          this.ls.setKey('token', res.token);
+          this.store.dispatch(UserActions.set({ user: res.user }));
+        })
       );
   }
 

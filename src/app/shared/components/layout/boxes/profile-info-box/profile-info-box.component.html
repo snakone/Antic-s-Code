@@ -6,11 +6,15 @@
             alt="Avatar"
             loading="lazy"/>
       <h3>{{user.name}}</h3>
-      <p *ngIf="user.email">{{user.email}}</p>
+      <p *ngIf="user.email && user.showEmail">{{user.email}}</p>
+      <p *ngIf="user.profile?.language" class="bold">
+        {{user.profile?.language}}
+      </p>
       <button mat-button class="btn-purple" aria-label="Rol">
         {{(user.profile?.rol | translate) || ('not.defined' | translate)}}
       </button>
     </div>
+
     <ng-template #noUser>
       <div class="profile-data skeleton">
         <img src="assets/img/profile/no-photo.jpg"
@@ -21,6 +25,7 @@
           <p></p>
       </div>
     </ng-template>
+
     <div class="profile-social">
       <ul>
         <div *ngFor="let s of social">
