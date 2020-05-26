@@ -213,5 +213,33 @@
   "create.article": "Crear un Artículo",
   "start.here": "Todo empieza aquí",
   "mobile.dev": "Mobile",
-  "apply": "Aplicar"
+  "apply": "Aplicar",
+  "errors": {
+    "server": {
+      "title": "Error de servidor",
+      "message": "Ha habido un error interno en el servidor. Si el error continúa, por favor prueba más tarde o ponte en contacto con nosotros. Disculpa las molestias."
+    },
+    "web": {
+      "title": "Error de red",
+      "message": "Parece ser que hay un error de red. Comprueba que tienes acceso a Internet y prueba otra vez. Si el problema persiste ponte en contacto con nosotros."
+    },
+    "code": {
+      "title": "Error de código",
+      "message": "Lo sentimos, hubo un error de ejecución en el código. Por favor, prueba de refrescar la página si el error continúa, sino ponte en contacto con nosotros. Disculpa las molestias."
+    },
+    "register": {
+      "title": "Ya estás registrado",
+      "message": "Si de verdad quieres registrar una nueva cuenta a parte de la que ya tienes, por favor desconéctate primero y vuelve a probar de nuevo."
+    },
+    "request": {
+      "title": "Error de datos",
+      "message": "Ha habido un error al verificar los datos. Por favor comprueba los datos introducidos y vuelve a probar de nuevo. Si el problema persiste ponte en contacto con nosotros."
+    }
+  },
+  "modals": {
+    "maintenance": {
+      "title": "Mantenimiento",
+      "message": "Estamos trabajando en mejorar la página y es probable que algunas partes no funcionen correctamente. Disculpa las molestias, estamos trabajando para que todo vuelva a la normalidad lo antes posible. Gracias por tu compresión."
+    }
+  }
  }

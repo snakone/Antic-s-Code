@@ -26,7 +26,9 @@
 
     <div class="search-user-sort">
       <span *ngFor="let r of userRols"
-            (click)="sort(r.rol)">
+            (click)="sort(r.rol)"
+            [matTooltip]="r.name"
+             matTooltipPosition="above">
         <img [src]="r.icon | image: 'unicode'"/>
       </span>
     </div>

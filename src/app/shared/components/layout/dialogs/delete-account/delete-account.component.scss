@@ -1,17 +1,23 @@
-h3 {
-  font-size: 1.6rem;
-  padding-top: 1rem;
-  margin-bottom: 1.2rem;
+h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
 }
 
 p { margin-bottom: 1rem }
 
 mat-dialog-content {
- max-height: fit-content;  // Avoid Scroll
- max-width: 50vw !important;
- @media(max-width: 650px) { max-width: 90vw !important;}
+  position: relative;
+  overflow: hidden;
+  padding: 0 .5rem;
+  margin: 0;
+  max-width: 50vh;
 }
 
-mat-dialog-actions { margin-bottom: 0 !important }
+mat-dialog-actions {
+  margin-bottom: 0 !important;
+  padding: 0;
+}
+
 form, mat-form-field { width: 100% }
 .black { margin-bottom: 2rem }

@@ -23,7 +23,7 @@ export class NoAccountComponent {
   public openLogin(register: boolean): void {
     this.dialogRef.close();
     // Navigate to Register TAP
-    this.crafter.dialog(LoginComponent, {register});
+    this.crafter.dialog(LoginComponent, {register}, 'Login');
   }
 
 }

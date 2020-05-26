@@ -187,6 +187,7 @@ export interface DownloadButton {
 export interface UserRol {
   rol: string;
   icon: string;
+  name: string;
 }
 
 export interface ShowEmail {
@@ -206,6 +207,12 @@ interface FooterLink extends Translation {
 export interface FAQ {
   question: string;
   answer: string;
+}
+
+export interface MessageModalData {
+  title: string;
+  message: string;
+  icon: string;
 }
 
 export interface CategoryInfo {

@@ -478,9 +478,9 @@ export const AOS_SETTINGS: AosOptions = {
 };
 
 export const USER_ROLS: UserRol[] = [
-  { rol: 'Admin', icon: 'mage.png' },
-  { rol: 'User', icon: 'user.png' },
-  { rol: 'All', icon: 'all.png' }
+  { rol: 'Admin', icon: 'mage.png', name: 'Admin' },
+  { rol: 'User', icon: 'user.png', name: 'Users' },
+  { rol: 'All', icon: 'all.png', name: 'Todos' }
 ];
 
 export const SHOW_EMAIL: ShowEmail[] = [

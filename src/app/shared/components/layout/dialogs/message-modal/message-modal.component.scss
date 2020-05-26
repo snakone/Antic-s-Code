@@ -1,0 +1,31 @@
+mat-dialog-content {
+  position: relative;
+  overflow: hidden;
+  padding: 0 .5rem;
+  margin: 0;
+  max-width: 50vh;
+
+  & h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    & mat-icon {
+      margin-right: 1.5rem;
+      position: relative;
+      top: -2px;
+      font-size: 2rem;
+    }
+  }
+
+  & p { margin-bottom: 1.5rem }
+
+  & button {
+    width: 100%;
+    margin: 1rem auto 0 auto;
+    display: block;
+  }
+}

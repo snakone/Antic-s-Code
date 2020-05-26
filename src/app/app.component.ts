@@ -70,9 +70,9 @@ export class AppComponent implements OnInit {
 
   private sorryMaintenance(): void {
     setTimeout(() => {
-      this.crafter.dialog(
-        MaintenanceComponent, { cause: 'Refactorizando'}
-      );
+      this.crafter.modal('modals.maintenance.title',
+                         'modals.maintenance.message',
+                         'info');
     }, 4000);
   }
 
