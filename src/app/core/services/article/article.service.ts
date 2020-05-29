@@ -8,6 +8,7 @@ import {
   CountResponse,
   CategoryCountResponse,
   Article,
+  TagRequest,
 } from '@shared/interfaces/interfaces';
 
 import { filter, map } from 'rxjs/operators';
@@ -58,6 +59,15 @@ export class ArticleService {
       );
   }
 
+  public getMostViewed(): Observable<Article[]> {
+    return this.http
+      .get<ArticleResponse>(this.API_ARTICLES + 'viewed')
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.articles)
+      );
+  }
+
   public getByUser(id: string): Observable<Article[]> {
     return this.http
       .get<ArticleResponse>(this.API_ARTICLES + 'user/' + id)
@@ -79,6 +89,15 @@ export class ArticleService {
   public getByCategory(category: string): Observable<Article[]> {
     return this.http
       .get<ArticleResponse>(this.API_ARTICLES + 'category/' + category)
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.articles)
+      );
+  }
+
+  public getByTags(request: TagRequest): Observable<Article[]> {
+    return this.http
+      .post<ArticleResponse>(this.API_ARTICLES + 'tags', request)
       .pipe(
         filter(res => res && !!res.ok),
         map(_ => _.articles)

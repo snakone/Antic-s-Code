@@ -1,14 +1,10 @@
 .stars {
   width: 100%;
-  margin-top: -1.5rem;
   margin-bottom: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @media(max-width: 550px) {
-    display: block;
-    margin-top: -2.5rem;
-  }
+  @media(max-width: 550px) { display: block }
 
   & h3 {
     font-size: 1.5rem;
@@ -45,6 +41,8 @@ label.star {
     padding-right: 10px;
   }
 }
+
+label.star.star-5 { padding-right: 0 }
 
  input.star:checked ~ label.star:before {
   content: '\f005';

@@ -3,7 +3,9 @@
     <div class="row flex">
       <div class="col-lg-4 col-sm-6" *ngFor="let h of hardSkills">
         <div class="card">
-          <img [src]="h.icon | image: 'skills'"/>
+          <img [src]="h.icon | image: 'skills'"
+               [alt]="h.name"
+               loading="lazy"/>
           <h3>{{h.name}}</h3>
           <p class="area">{{h.area}}</p>
           <p>{{h.message}}</p>

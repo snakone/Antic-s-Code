@@ -3,6 +3,7 @@
     position: relative;
     margin-top: .5rem;
     margin-bottom: 1.3rem;
+    & p { margin-top: .3rem }
   }
 
   &-data {
@@ -62,4 +63,31 @@
 .not {
   color: var(--p-color) !important;
   font-weight: bold;
+}
+
+.skeleton {
+  & h3 {
+    width: 8rem;
+    background: var(--skeleton-color);
+    margin-top: 2rem;
+    margin-bottom: 0;
+    outline: none;
+    height: 2rem;
+    @media(max-width: 650px) { height: 1.66rem }
+    @media(max-width: 500px) { width: 90% }
+  }
+
+  & button {
+    width: 12rem;
+    margin-top: 1rem;
+    background: var(--skeleton-color-tint);
+    color: var(--skeleton-color-tint);
+  }
+
+  & p {
+    background: var(--skeleton-color-tint);
+    height: 1.3rem;
+    width: 10rem;
+    margin-top: 1.3rem;
+  }
 }

@@ -8,6 +8,7 @@ import { PaginationService } from 'ngx-pagination';
 
 import * as UserActions from '@core/ngrx/actions/user.actions';
 import * as fromUsers from '@core/ngrx/selectors/user.selectors';
+import { USER_ROLS } from '@shared/shared.data';
 
 @Component({
   selector: 'app-users-content',
@@ -23,6 +24,7 @@ export class UsersContentComponent implements OnInit, OnDestroy {
   page = 1;
   itemsPerPage = 10;
   value = '';
+  userRols = USER_ROLS;
 
   constructor(
     private store: Store<AppState>,

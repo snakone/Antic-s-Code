@@ -12,6 +12,7 @@ export class ProfileInfoBoxComponent {
 
   @Input() user: User;
   social = SOCIAL_PROFILE;
+  showEmail: boolean;
 
   constructor() { }
 

@@ -77,6 +77,7 @@ export interface User {
   password: string;
   account: string;
   profile?: UserProfile;
+  showEmail?: boolean;
 }
 
 interface UserProfile {
@@ -119,7 +120,7 @@ export interface SheetData {
 export interface SearchRequest {
   value: string;
   category?: string;
-  tag?: string;
+  tags?: string[];
   year?: string;
   level?: string[];
   badges?: string[];
@@ -131,7 +132,7 @@ export interface SearchRequest {
 export interface MessageRequest {
   name: string;
   email: string;
-  message: string;
+  text: string;
 }
 
 export interface WorkCompany {
@@ -164,6 +165,11 @@ export interface Skill {
   icon: string;
 }
 
+export interface TagRequest {
+  id: string;
+  tags: string[];
+}
+
 export interface CarouselSlide {
   image: string;
   title: string;
@@ -178,6 +184,17 @@ export interface DownloadButton {
   link: string;
 }
 
+export interface UserRol {
+  rol: string;
+  icon: string;
+  name: string;
+}
+
+export interface ShowEmail {
+  text: string;
+  show: boolean;
+}
+
 export interface FooterList {
   title: string;
   list: FooterLink[];
@@ -190,6 +207,12 @@ interface FooterLink extends Translation {
 export interface FAQ {
   question: string;
   answer: string;
+}
+
+export interface MessageModalData {
+  title: string;
+  message: string;
+  icon: string;
 }
 
 export interface CategoryInfo {

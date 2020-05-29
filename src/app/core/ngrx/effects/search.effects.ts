@@ -24,9 +24,6 @@ export class SearchEffects {
           map(result => SearchActions.searchContentSuccess({ result })),
           catchError(error =>
               of(SearchActions.searchContentFailure({ error: error.message }))
-          )
-        )
-      )
-    )
+    ))))
   );
 }

@@ -1,15 +1,16 @@
 * { box-sizing: border-box }
 
 form {
-  margin: auto;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-top: .3rem;
 }
 
 mat-form-field {
-  width: 46%;
-  @media(max-width: 550px) { width: 100% }
+  width: 48%;
+  margin-bottom: .5rem;
+  @media(max-width: 700px) { width: 100% }
 }
 
 .textarea {
@@ -17,12 +18,21 @@ mat-form-field {
 
   & textarea {
     min-height: 100px;
+    resize: none !important;
   }
 }
 
 .select { top: -1px }
 
 button {
-  margin: 1rem auto;
-  width: 100%;
+  margin: 0 0 0 auto;
+  width: 48%;
+  @media(max-width: 700px) { width: 100% }
+}
+
+.top { margin-top: 2rem }
+
+.half-top {
+  margin-top: 2rem;
+  @media(max-width: 700px) { margin-top: 0 }
 }

@@ -5,7 +5,6 @@ import * as UserActions from '../actions/user.actions';
 import { map, concatMap, catchError } from 'rxjs/operators';
 import { StorageService } from '@core/storage/storage.service';
 import { UserService } from '@core/services/user/user.service';
-import { InteractionService } from '@core/services/interaction/interaction.service';
 
 @Injectable()
 
@@ -25,56 +24,46 @@ export class UserEffects {
          of(UserActions.setSuccess({user: action.user}))),
           catchError(error =>
               of(UserActions.setFailure({ error: error.message }))
-        )
-      )
+    ))
   );
 
   // GET ALL USER
   getUsersEffect$ = createEffect(() => this.actions
-  .pipe(
-    ofType(UserActions.get),
-    concatMap(() =>
-    this.userSrv.getUsers()
     .pipe(
-      map(users => UserActions.getSuccess({ users })),
-        catchError(error =>
-            of(UserActions.getFailure({ error: error.message }))
-        )
-      )
-    )
-   )
+      ofType(UserActions.get),
+      concatMap(() =>
+      this.userSrv.getUsers()
+      .pipe(
+        map(users => UserActions.getSuccess({ users })),
+          catchError(error =>
+              of(UserActions.getFailure({ error: error.message }))
+    ))))
   );
 
   // GET USER BY NAME
   getUserByNameEffect$ = createEffect(() => this.actions
-  .pipe(
-    ofType(UserActions.getByName),
-    concatMap((action) =>
-    this.userSrv.getByName(action.name)
-      .pipe(
-        map(user => UserActions.getByNameSuccess({ user })),
-        catchError(error =>
-            of(UserActions.getByNameFailure({ error: error.message }))
-          )
-        )
-      )
-    )
+    .pipe(
+      ofType(UserActions.getByName),
+      concatMap((action) =>
+      this.userSrv.getByName(action.name)
+        .pipe(
+          map(user => UserActions.getByNameSuccess({ user })),
+          catchError(error =>
+              of(UserActions.getByNameFailure({ error: error.message }))
+    ))))
   );
 
   // GET MOST ACTIVE USERS
   getMostActiveUsersEffect$ = createEffect(() => this.actions
-  .pipe(
-    ofType(UserActions.getMostActive),
-    concatMap(() =>
-    this.userSrv.getMostActive()
-      .pipe(
-        map(users => UserActions.getMostActiveSuccess({ active: users })),
-        catchError(error =>
-            of(UserActions.getMostActiveFailure({ error: error.message }))
-          )
-        )
-      )
-    )
+    .pipe(
+      ofType(UserActions.getMostActive),
+      concatMap(() =>
+      this.userSrv.getMostActive()
+        .pipe(
+          map(users => UserActions.getMostActiveSuccess({ active: users })),
+          catchError(error =>
+              of(UserActions.getMostActiveFailure({ error: error.message }))
+    ))))
   );
 
   // SET USER EMAIL
@@ -85,8 +74,7 @@ export class UserEffects {
          of(UserActions.setEmailSuccess({email: action.email}))),
           catchError(error =>
               of(UserActions.setEmailFailure({ error: error.message }))
-        )
-      )
+    ))
   );
 
   // VERIFY TOKEN
@@ -99,10 +87,7 @@ export class UserEffects {
           map(user => UserActions.verifyTokenSuccess({ user })),
           catchError(error =>
               of(UserActions.verifyTokenFailure({ error: error.message }))
-          )
-        )
-      )
-    )
+    ))))
   );
 
   // REFRESH TOKEN
@@ -115,10 +100,7 @@ export class UserEffects {
           map(res => UserActions.refreshTokenSuccess({ user: res.user })),
           catchError(error =>
               of(UserActions.refreshTokenFailure({ error: error.message }))
-          )
-        )
-      )
-    )
+    ))))
   );
 
 }

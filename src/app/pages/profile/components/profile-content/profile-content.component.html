@@ -2,7 +2,6 @@
 <app-user-articles-box *ngIf="user"
                        [user]="user">
 </app-user-articles-box>
-<app-content-box [title]="'edit.profile' | translate"
-                 icon="edit">
-    <app-edit-profile [user]="user"></app-edit-profile>
-</app-content-box>
+
+<app-edit-profile [user]="user"></app-edit-profile>
+

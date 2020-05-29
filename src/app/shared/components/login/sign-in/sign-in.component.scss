@@ -1,8 +1,7 @@
-form { margin-top: 1rem }
+form { margin-top: 2rem }
 
 mat-form-field {
   width: 98%;
-  margin-bottom: -.5rem;
   &-wrapper {
     padding-bottom: 1rem;
   }
@@ -16,8 +15,9 @@ button {
 
 mat-checkbox {
   display: flex;
-  margin-top: 1rem;
+  margin-top: .8rem;
   margin-bottom: 1rem;
+  margin-left: .3rem;
 }
 
 p {

@@ -1,1 +1,27 @@
+* { box-sizing: border-box }
 
+.col-lg-6 {
+  max-width: 100%;
+  width: 50%;
+  float: left;
+  margin-top: 1rem;
+
+  @media(max-width: 850px) {
+    width: 100%;
+    &:last-of-type {
+      margin-top: 0;
+    }
+  }
+
+  @media(max-width: 550px) {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+.block {
+  @media(min-width: 993px) {
+    width: 100%;
+    margin-top: 0;
+  }
+}

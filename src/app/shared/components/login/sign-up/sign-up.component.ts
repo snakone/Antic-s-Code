@@ -84,6 +84,16 @@ export class SignUpComponent implements OnInit, OnDestroy {
      .subscribe((res: UserResponse) => this.handleSignUp(res));
   }
 
+  private handleSignUp(data: UserResponse): void {
+    this.dialogRef.close();
+    this.userSrv.login(data);
+    this.crafter.toaster(data.user.name, 'welcome', 'info');
+    this.sw.sendNotification(
+      this.setNotification(Object.assign({}, NEW_USER_PUSH), data.user)
+      ).subscribe();
+    this.router.navigateByUrl('/profile');
+  }
+
   private theyMatchError(one: string, two: string) {
     return (group: FormGroup) => {
       const p = group.controls[one].value;
@@ -95,16 +105,6 @@ export class SignUpComponent implements OnInit, OnDestroy {
       this.matchError = true;
       return { error: true };
     };
-  }
-
-  private handleSignUp(data: UserResponse): void {
-    this.dialogRef.close();
-    this.userSrv.login(data);
-    this.crafter.toaster(data.user.name, 'welcome', 'info');
-    this.sw.sendNotification(
-      this.setNotification(Object.assign({}, NEW_USER_PUSH), data.user)
-      ).subscribe();
-    this.router.navigateByUrl('/profile');
   }
 
   private setNotification(

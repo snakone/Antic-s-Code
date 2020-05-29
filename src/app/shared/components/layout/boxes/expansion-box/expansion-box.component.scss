@@ -1,0 +1,31 @@
+mat-expansion-panel {
+  border: 1px solid var(--section-border-color);
+  margin-bottom: 2rem !important;
+}
+
+mat-expansion-panel-header {
+  background: #fff !important;
+  height: 61px !important;
+  padding-left: 1.2rem !important;
+  @media(min-width: 550px) { padding-left: 2rem !important }
+}
+
+h4 {
+  margin-bottom: 0;
+  margin-top: 0;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--title-color);
+
+  & mat-icon {
+    margin-right: var(--small-padding);
+    position: relative;
+    top: 2px;
+  }
+ }
+
+.title {
+  font-size: 1.2rem !important;
+  @media(max-width: 359px) { font-size: 1rem !important }
+  @media(min-width: 1080px) { font-size: 1.4rem !important }
+ }

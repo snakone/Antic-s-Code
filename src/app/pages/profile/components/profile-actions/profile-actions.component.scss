@@ -1,4 +1,18 @@
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 button {
   width: 100%;
-  margin: .5rem auto;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+  &:last-child { margin-bottom: 0 }
+
+  @media(max-width: 992px) and (min-width: 700px) {
+    width: 31.33%;
+    margin-bottom: 0
+  }
 }

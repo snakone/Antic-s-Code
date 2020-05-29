@@ -1,54 +1,27 @@
-<div class="user-card" [ngClass]="{'last': last}"
-     [routerLink]="'/profile/' + user.name"
-     *ngIf="!skeleton">
- <h4>
-   <span *ngIf="user.account === 'Super'">
-    <img [src]="'crown.png' | image:'unicode'">
-   </span>
-   <span *ngIf="user.account === 'Admin'">
-    <img [src]="'mage.png' | image:'unicode'">
-   </span>
-   <span *ngIf="user.account === 'User'">
-    <img [src]="'user.png' | image:'unicode'">
-   </span>
-   {{user.name}}
- </h4>
-
- <div class="user-card-info">
-  <div class="user-card-rol">
-    {{(user.profile?.rol | translate) || 'not.defined' | translate}} |
-    <span>{{user.profile?.language || 'not.defined' | translate}}</span>
-  </div>
-
-  <div class="profile-social">
-    <ul>
-      <div *ngFor="let s of social">
-        <a *ngIf="user.profile[s.selector]"
-           [href]="user.profile[s.selector]"
-           target="_NEW">
-          <li>
-            <img src="assets/icons/{{s.selector}}.svg"
-                 [alt]="s.selector"
-                 loading="lazy"/>
-          </li>
-        </a>
-        <li class="not"
-            *ngIf="!user.profile[s.selector]">
-            <img src="assets/icons/{{s.selector}}.svg"
-                 [alt]="s.selector"
-                 loading="lazy"/>
-        </li>
+<div class="card-content"
+    [ngClass]="{'last': last}"
+    *ngIf="!skeleton">
+  <div class="user-card">
+      <div class="user-card-flex"
+           [routerLink]="'/profile/' + user.name">
+        <img [src]="user.profile?.avatar || 'assets/img/profile/no-photo.jpg'"
+             alt="Avatar"
+             loading="lazy"
+             #img
+             (error)="img.src = 'assets/img/profile/no-photo.jpg'; img.alt='No Avatar'"/>
+        <div>
+          <h4>{{user.name}}</h4>
+          <span>{{(user.profile?.rol | translate) || 'not.defined' | translate}}</span> |
+          <span>{{user.profile?.language || 'not.defined' | translate}}</span>
+        </div>
       </div>
-    </ul>
+      <mat-icon (click)="show()">person_add</mat-icon>
   </div>
- </div>
 </div>
 
 <div *ngIf="skeleton" class="skeleton">
   <h4></h4>
   <div class="info">
-    <h3></h3>
-    <h3></h3>
     <h3></h3>
   </div>
 </div>

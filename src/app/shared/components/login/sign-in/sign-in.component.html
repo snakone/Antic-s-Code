@@ -1,15 +1,15 @@
 <div class="animated fadeIn">
   <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
-    <mat-form-field color="accent">  <!-- EMAIL -->
+    <mat-form-field color="accent" appearance="outline">  <!-- EMAIL -->
+      <mat-label>{{'email' | translate}}</mat-label>
       <input matInput
-             [placeholder]="'email' | translate"
              formControlName="email">
     </mat-form-field>
-    <mat-form-field color="accent">  <!-- PASSWORD -->
+    <mat-form-field color="accent" appearance="outline">  <!-- PASSWORD -->
+      <mat-label>{{'password' | translate}}</mat-label>
       <input matInput
-              [placeholder]="'password' | translate"
-              formControlName="password"
-              type="password">
+             formControlName="password"
+             type="password">
     </mat-form-field>
 
     <mat-checkbox [(ngModel)]="remember"

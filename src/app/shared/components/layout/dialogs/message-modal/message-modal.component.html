@@ -1,0 +1,13 @@
+<mat-dialog-content>
+  <h4>
+    <mat-icon color="danger"
+              [style.color]="color">{{data.icon}}
+    </mat-icon>
+    {{data.title | translate}}
+  </h4>
+  <p>{{data.message | translate}}</p>
+  <button mat-button
+          class="btn-pink"
+          (click)="close()">{{'accept' | translate}}
+  </button>
+</mat-dialog-content>

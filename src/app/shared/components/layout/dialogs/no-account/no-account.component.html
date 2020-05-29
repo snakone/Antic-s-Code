@@ -1,12 +1,18 @@
 <mat-dialog-content>
   <div *ngIf="data.type === 'like'">
-    <h3>Crea una cuenta para interactuar</h3>
-    <p>Los likes ayudan a que {{data.author}} escriba más artículos.</p>
+    <h4>Crea una cuenta para interactuar</h4>
+    <p>Los likes ayudan a que
+      <span class="bold">{{data.author}}</span>
+       escriba más artículos.
+    </p>
   </div>
 
   <div *ngIf="data.type === 'star'">
     <h3>Crea una cuenta para interactuar</h3>
-    <p>Las estrellas ayudan a que {{data.author}} sea más respetado/a.</p>
+    <p>Las estrellas ayudan a que
+       <span class="bold">{{data.author}}</span>
+       sea más respetado/a.
+    </p>
   </div>
 
   <button mat-button

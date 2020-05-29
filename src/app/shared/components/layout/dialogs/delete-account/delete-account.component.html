@@ -1,15 +1,15 @@
 <mat-dialog-content>
-  <h3 mat-dialog-title>{{'delete.acc' | translate}}</h3>
+  <h4>{{'delete.acc' | translate}}</h4>
   <p>
     <span class="bold black">{{(user$ | async)?.name}}</span>,
     <span [innerHTML]="'delete.account.p' | translate"></span>
   </p>
   <p class="bold black">"{{'delete.sentence' | translate}}"</p>
   <form [formGroup]="deleteAccountForm" (ngSubmit)="onSubmit()">
-    <mat-form-field color="accent">
-        <input matInput
-              [placeholder]="'put.sentence' | translate"
-              formControlName="delete">
+    <mat-form-field color="accent" appearance="outline">
+      <mat-label>{{'put.sentence' | translate}}</mat-label>
+      <input matInput
+             formControlName="delete">
     </mat-form-field>
 
     <mat-dialog-actions align="end">

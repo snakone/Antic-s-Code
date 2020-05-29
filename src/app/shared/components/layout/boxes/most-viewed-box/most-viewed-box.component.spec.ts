@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AlreadyLoggedComponent } from './already-logged.component';
+import { MostViewedBoxComponent } from './most-viewed-box.component';
 
-describe('AlreadyLoggedComponent', () => {
-  let component: AlreadyLoggedComponent;
-  let fixture: ComponentFixture<AlreadyLoggedComponent>;
+describe('MostViewedBoxComponent', () => {
+  let component: MostViewedBoxComponent;
+  let fixture: ComponentFixture<MostViewedBoxComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AlreadyLoggedComponent ]
+      declarations: [ MostViewedBoxComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AlreadyLoggedComponent);
+    fixture = TestBed.createComponent(MostViewedBoxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -32,14 +32,14 @@ export class HeaderSearchComponent implements OnInit {
     this.searchForm = new FormGroup({
        value: new FormControl(null, []),
     category: new FormControl(null, []),
-         tag: new FormControl(null, [])
+         tags: new FormControl(null, [])
     });
   }
 
   onSubmit(): void {
     if (this.searchForm.value.value == null &&
         this.searchForm.value.category == null &&
-        this.searchForm.value.tag == null) { return; }
+        this.searchForm.value.tags == null) { return; }
     const request: SearchRequest = this.searchForm.value;
     this.store.dispatch(SearchActions.searchContent({ request }));
     this.router.navigateByUrl('/search');

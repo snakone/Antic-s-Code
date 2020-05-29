@@ -10,6 +10,7 @@ import {
 import { Observable } from 'rxjs';
 import { StorageService } from '@core/storage/storage.service';
 import { catchError } from 'rxjs/operators';
+import { CrafterService } from '../crafter/crafter.service';
 
 @Injectable({providedIn: 'root'})
 
@@ -23,16 +24,18 @@ export class HttpService {
 
   constructor(
     private http: HttpClient,
-    private storage: StorageService
+    private storage: StorageService,
+    private crafter: CrafterService
   ) { }
 
   public get<T>(url: string,
                 headers?: HttpHeaders,
-                params?: HttpParams): Observable<T> {
+                params?: HttpParams,
+                handler: boolean = true): Observable<T> {
     return this.http
       .get<T>(url, { headers: this.createHeaders(headers), params })
       .pipe(catchError((err: HttpErrorResponse) => {
-        this.error(err);
+        if (handler) { this.error(err); }
         throw err;
       }
     ));
@@ -41,11 +44,12 @@ export class HttpService {
   public post<T>(url: string,
                  body: any | null,
                  headers?: HttpHeaders,
-                 params?: HttpParams): Observable<T> {
+                 params?: HttpParams,
+                 handler: boolean = true): Observable<T> {
     return this.http
       .post<T>(url, body, { headers: this.createHeaders(headers), params })
       .pipe(catchError((err: HttpErrorResponse) => {
-        this.error(err);
+        if (handler) { this.error(err); }
         throw err;
       }
     ));
@@ -54,11 +58,12 @@ export class HttpService {
   public put<T>(url: string,
                 body: any | null,
                 headers?: HttpHeaders,
-                params?: HttpParams): Observable<T> {
+                params?: HttpParams,
+                handler: boolean = true): Observable<T> {
     return this.http
       .put<T>(url, body, { headers: this.createHeaders(headers), params })
       .pipe(catchError((err: HttpErrorResponse) => {
-        this.error(err);
+        if (handler) { this.error(err); }
         throw err;
       }
     ));
@@ -66,11 +71,12 @@ export class HttpService {
 
   public delete<T>(url: string,
                    headers?: HttpHeaders,
-                   params?: HttpParams): Observable<T> {
+                   params?: HttpParams,
+                   handler: boolean = true): Observable<T> {
     return this.http
       .delete<T>(url, { headers: this.createHeaders(headers), params })
       .pipe(catchError((err: HttpErrorResponse) => {
-        this.error(err);
+        if (handler) { this.error(err); }
         throw err;
       }
     ));
@@ -90,8 +96,19 @@ export class HttpService {
 
   private error(err: HttpErrorResponse): void {
     switch (err.status) {
-      case 406: console.log('Bad')
-        break;
+      case 0: this.crafter
+                    .modal('errors.web.title',
+                           'errors.web.message');
+       break;
+      case 400: case 406: this.crafter
+                    .modal('errors.request.title',
+                           'errors.request.message',
+                           'help');
+       break;
+      case 409: case 500: this.crafter
+                    .modal('errors.server.title',
+                           'errors.server.message');
+       break;
       default: console.log(err)
     }
   }

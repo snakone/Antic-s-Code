@@ -1,0 +1,24 @@
+<app-content-box title="Lo más visto">
+ <ng-container *ngIf="(articles$ | async) as articles; else noArticles">
+  <ul class="none">
+    <li *ngFor="let a of articles"
+        [routerLink]="'/article/' + a.slug">
+      <img [src]="(a.category | logo) | image: 'logos'"
+           [alt]="a.category"
+           loading="lazy"/>
+      <span [attr.data-views]="a.views"
+            [ngClass]="{'sidebar': sidebar}"
+      >{{a.title}}</span>
+    </li>
+  </ul>
+ </ng-container>
+</app-content-box>
+
+<ng-template #noArticles>
+  <ul class="none skeleton">
+    <li *ngFor="let a of [1,2,3,4,5,6,7,8,9,10]">
+      <p></p>
+      <span></span>
+    </li>
+  </ul>
+</ng-template>

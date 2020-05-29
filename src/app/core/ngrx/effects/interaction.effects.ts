@@ -16,18 +16,15 @@ export class InteractionEffects {
 
   // GET INTERACTION BY USER
   getInteractionByUserEffect$ = createEffect(() => this.actions
-  .pipe(
-    ofType(InterActions.getByUser),
-    concatMap(() =>
-    this.interactionSrv.getByUser()
-      .pipe(
-        map(interaction => InterActions.getByUserSuccess({ interaction })),
-        catchError(error =>
-            of(InterActions.getByUserFailure({ error: error.message }))
-          )
-        )
-      )
-    )
+    .pipe(
+      ofType(InterActions.getByUser),
+      concatMap(() =>
+      this.interactionSrv.getByUser()
+        .pipe(
+          map(interaction => InterActions.getByUserSuccess({ interaction })),
+          catchError(error =>
+              of(InterActions.getByUserFailure({ error: error.message }))
+    ))))
   );
 
 }

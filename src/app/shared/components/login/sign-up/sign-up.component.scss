@@ -3,9 +3,8 @@
   margin-bottom: -.5rem;
 }
 
-form { margin-top: .333rem }
+form { margin-top: 1.8rem }
 mat-form-field { width: 98% }
-mat-hint { font-size: .8rem }
 .invalid { color: red }
 .valid { color: var(--success-color) }
 
@@ -13,12 +12,14 @@ button {
   width: 100%;
   color: var(--light-color);
   margin-top: 1.5rem;
-  margin-bottom: -1rem;
+  margin-bottom: .8rem;
+  @media(max-width: 550px) { margin-bottom: 0 }
 }
 
 .check {
   text-align: left;
   margin-top: .5rem;
+  margin-left: .3rem;
 
   & mat-checkbox {
     display: inline-flex;

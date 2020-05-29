@@ -7,12 +7,14 @@ import { UsersRouting } from './users.routing';
 import { UsersContentComponent } from './components/users-content/users-content.component';
 import { UsersSidebarComponent } from './components/users-sidebar/users-sidebar.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MostActiveUsersComponent } from './components/users-sidebar/components/most-active-users/most-active-users.component';
 
 @NgModule({
   declarations: [
     UsersComponent,
     UsersContentComponent,
-    UsersSidebarComponent
+    UsersSidebarComponent,
+    MostActiveUsersComponent
   ],
   imports: [
     CommonModule,

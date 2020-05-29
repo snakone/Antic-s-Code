@@ -28,7 +28,7 @@ export class NavBarComponent implements OnInit {
   }
 
   public openLogin(): void {
-    this.crafter.dialog(LoginComponent, {register: false});
+    this.crafter.dialog(LoginComponent, {register: false}, 'Login');
   }
 
   public openDrawer(): void {

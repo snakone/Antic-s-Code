@@ -35,7 +35,7 @@
   "Desarrollo": "Develop",
   "Diseño": "Design",
   "Consola": "Console",
-  "Config": "Configuration",
+  "Config": "Config",
   "Framework": "Framework",
   "all": "All",
   "all.a": "All",
@@ -132,10 +132,10 @@
   "sign.up.error": "Sign Up Error",
   "email.unique": "Email must be unique",
   "edit.profile": "Edit your Profile",
-  "web.dev": "Web Developer",
-  "front.dev": "Frontend Developer",
-  "back.dev": "Backend Developer",
-  "full.dev": "Full-Stack Developer",
+  "web.dev": "Web",
+  "front.dev": "Frontend",
+  "back.dev": "Backend",
+  "full.dev": "Full-Stack",
   "design.dev": "Designer",
   "design.web": "Web Designer",
   "fb.page": "Your Facebook page",
@@ -214,5 +214,6 @@
   "create": "Create",
   "create.article": "Create an Article",
   "start.here": "Start right here",
-  "mobile.dev": "Mobile Developer"
+  "mobile.dev": "Mobile Developer",
+  "apply": "Apply"
 }

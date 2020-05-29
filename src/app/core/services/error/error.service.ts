@@ -19,7 +19,7 @@ export class ErrorService {
 
   public saveError(err: Error | HttpErrorResponse): void {
     const error = this.manageError(err);
-    this.http.post(this.API_ERRORS, error).toPromise().then();
+    this.http.post(this.API_ERRORS, error, null, null, false).toPromise().then();
   }
 
   private manageError(err: Error | HttpErrorResponse): CustomError {

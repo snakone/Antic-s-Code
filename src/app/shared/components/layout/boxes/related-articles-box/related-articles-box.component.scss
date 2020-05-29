@@ -1,3 +1,5 @@
+* { box-sizing: border-box }
+
 .related {
   margin-bottom: 1rem;
   border-top-left-radius: 5px;
@@ -36,11 +38,10 @@
 }
 
 .see-more {
-  margin-top: 2rem;
   display: flex;
   align-items: center;
   width: 100%;
-  margin-bottom: 1.5rem;
+  margin: 1rem auto 2.5rem auto;
 }
 
 mat-icon {
@@ -50,4 +51,20 @@ mat-icon {
   font-size: 1.4rem;
   position: relative;
   top: 2px;
+}
+
+.col-md-6 {
+  width: 100%;
+  max-width: 100%;
+}
+
+@media(max-width: 992px) {
+  .row { margin-top: 1rem }
+}
+
+@media(min-width: 600px) and (max-width: 992px) {
+  .col-md-6 {
+    width: 50%;
+    float: left;
+  }
 }

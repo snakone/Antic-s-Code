@@ -9,12 +9,16 @@ export interface ArticleState {
   byUserLoaded: boolean;
   byCategory: Article[];
   byCategoryLoaded: boolean;
+  byTags: Article[];
+  byTagsLoaded: boolean;
   bySlug: Article;
   bySlugLoaded: boolean;
   last: Article[];
   lastLoaded: boolean;
   liked: Article[];
   likedLoaded: boolean;
+  viewed: Article[];
+  viewedLoaded: boolean;
   count: number;
   countLoaded: boolean;
   categoryCount: object;
@@ -30,12 +34,16 @@ export const inititalState: ArticleState = {
   byUserLoaded: false,
   byCategory: [],
   byCategoryLoaded: false,
+  byTags: [],
+  byTagsLoaded: false,
   bySlug: {},
   bySlugLoaded: false,
   last: [],
   lastLoaded: false,
   liked: [],
   likedLoaded: false,
+  viewed: null,
+  viewedLoaded: false,
   count: 0,
   countLoaded: false,
   categoryCount: {},
@@ -107,6 +115,21 @@ const featureReducer = createReducer(
   on(ArticleActions.getMostLikedFailure, (state, { error }) => (
     { ...state, likedLoaded: false, error }
   )),
+  // GET MOST VIEWED ARTICLES
+  on(ArticleActions.getMostViewed, state => (
+    { ...state, viewedLoaded: false, error: null }
+  )),
+  on(ArticleActions.getMostViewedSuccess, (state, { articles }) => (
+    {
+      ...state,
+      viewedLoaded: true,
+      viewed: articles,
+      error: null,
+    }
+  )),
+  on(ArticleActions.getMostViewedFailure, (state, { error }) => (
+    { ...state, viewedLoaded: false, error }
+  )),
   // ARTICLE BY SLUG
   on(ArticleActions.getBySlug, (state) => (
     { ...state, bySlugLoaded: false, error: null, bySlug: null }
@@ -152,6 +175,21 @@ const featureReducer = createReducer(
   on(ArticleActions.getByCategoryFailure, (state, { error }) => (
     { ...state, byCategoryLoaded: false, error }
   )),
+  // ARTICLES BY TAGS
+  on(ArticleActions.getByTags, state => (
+    { ...state, byTagsLoaded: false, error: null }
+  )),
+  on(ArticleActions.getByTagsSuccess, (state, { articles }) => (
+    {
+      ...state,
+      byTagsLoaded: true,
+      byTags: articles,
+      error: null,
+    }
+  )),
+  on(ArticleActions.getByTagsFailure, (state, { error }) => (
+    { ...state, byTagsLoaded: false, error }
+  )),
   // ARTICLES BY CATEGORY COUNT
   on(ArticleActions.getByCategoryCount, state => (
     { ...state, categoryCountLoaded: false, error: null }
@@ -185,6 +223,9 @@ const featureReducer = createReducer(
   )),
   on(ArticleActions.resetByCategory, (state) => (
     { ...state, byCategoryLoaded: false, error: null, byCategory: null }
+  )),
+  on(ArticleActions.resetByTags, (state) => (
+    { ...state, byTagsLoaded: false, error: null, byTags: null }
   ))
 );
 
@@ -198,11 +239,15 @@ export const getByUser = (state: ArticleState) => state.byUser;
 export const getByUserLoaded = (state: ArticleState) => state.byUserLoaded;
 export const getByCategory = (state: ArticleState) => state.byCategory;
 export const getByCategoryLoaded = (state: ArticleState) => state.byCategoryLoaded;
+export const getByTags = (state: ArticleState) => state.byTags;
+export const getByTagsLoaded = (state: ArticleState) => state.byTagsLoaded;
 export const getFull = (state: ArticleState) => state.full;
 export const getSlug = (state: ArticleState) => state.bySlug;
 export const getLast = (state: ArticleState) => state.last;
 export const getMostLiked = (state: ArticleState) => state.liked;
 export const getMostLikedLoaded = (state: ArticleState) => state.likedLoaded;
+export const getMostViewed = (state: ArticleState) => state.viewed;
+export const getMostViewedLoaded = (state: ArticleState) => state.viewedLoaded;
 export const getCount = (state: ArticleState) => state.count;
 export const getCountLoaded = (state: ArticleState) => state.countLoaded;
 export const getCategoryCount = (state: ArticleState) => state.categoryCount;

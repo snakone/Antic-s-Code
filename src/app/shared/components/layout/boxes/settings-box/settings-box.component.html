@@ -1,20 +1,34 @@
 <app-content-box [title]="'settings' | translate"
                  icon="settings">
     <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
-      <mat-form-field color="accent">
+      <mat-form-field color="accent" appearance="outline">
         <mat-label>{{'language' | translate}}</mat-label>  <!-- LANGUAGE -->
         <mat-select formControlName="language">
-          <mat-option *ngFor="let l of languages" [value]="l.selector" role="option">
+          <mat-option *ngFor="let l of languages"
+                       [value]="l.selector"
+                       role="option">
             {{l.selector | translate}}
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field color="accent">
+      <mat-form-field color="accent" appearance="outline">
         <mat-label>{{'theme' | translate}}</mat-label>   <!-- THEME -->
         <mat-select formControlName="theme">
-          <mat-option *ngFor="let t of themes" [value]="t.selector" role="option">
+          <mat-option *ngFor="let t of themes"
+                      [value]="t.selector"
+                      role="option">
             {{t.selector | translate}}
             <span [class]="'theme-sample ' + t.selector"></span>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field color="accent" appearance="outline">
+        <mat-label>Mostrar/Ocultar</mat-label>   <!-- EMAIL -->
+        <mat-select formControlName="email">
+          <mat-option *ngFor="let e of email"
+                      [value]="e.show"
+                      role="option">
+            {{e.text}}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -22,7 +36,7 @@
       <button type="submit"
               mat-button
               aria-label="Save"
-              class="btn-pink">{{'save' | translate}}
+              class="btn-pink">{{'apply' | translate}}
       </button>
     </form>
 </app-content-box>
