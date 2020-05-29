@@ -33,7 +33,7 @@
     & ul {
       list-style: none;
       margin: 0;
-      margin-top: .6rem;
+      margin-top: 0;
       text-align: right;
       margin-right: .3rem;
      }
@@ -49,6 +49,20 @@
         width: 25px;
         margin-left: .9rem;
        }
+     }
+
+     & .total {
+       margin-top: 1.5rem;
+       & mat-icon {
+         margin-left: 1rem;
+         &.likes { color: var(--primary-color) }
+         &.views { color: var(--p-color) }
+        }
+
+      @media(max-width: 550px) {
+        margin-top: .88rem;
+        & mat-icon { font-size: 23px }
+      }
      }
   }
 

@@ -18,6 +18,7 @@ export class ErrorService {
   ) { }
 
   public saveError(err: Error | HttpErrorResponse): void {
+    if (err instanceof HttpErrorResponse && err.status === 0) { return; }
     const error = this.manageError(err);
     this.http.post(this.API_ERRORS, error, null, null, false).toPromise().then();
   }

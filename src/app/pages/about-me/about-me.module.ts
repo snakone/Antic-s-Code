@@ -9,6 +9,7 @@ import { TimeLineComponent } from './components/time-line/time-line.component';
 import { AboutSkillsComponent } from './components/about-skills/about-skills.component';
 import { AboutContactComponent } from './components/about-contact/about-contact.component';
 import { AboutWorkComponent } from './components/about-work/about-work.component';
+import { AboutGoalComponent } from './components/about-goal/about-goal.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AboutWorkComponent } from './components/about-work/about-work.component
     TimeLineComponent,
     AboutSkillsComponent,
     AboutContactComponent,
-    AboutWorkComponent
+    AboutWorkComponent,
+    AboutGoalComponent
   ],
   imports: [
     CommonModule,

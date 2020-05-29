@@ -78,6 +78,8 @@ export interface User {
   account: string;
   profile?: UserProfile;
   showEmail?: boolean;
+  likes?: number;
+  views?: number;
 }
 
 interface UserProfile {
@@ -231,6 +233,11 @@ export interface Index {
 export interface Config {
   name: string;
   selector: string;
+}
+
+export interface TotalUserData {
+  name: string;
+  icon: string;
 }
 
 export interface Link {

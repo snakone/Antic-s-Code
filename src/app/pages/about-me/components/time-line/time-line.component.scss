@@ -4,7 +4,8 @@
 
 .timeline {
   position: relative;
-  margin: 2rem auto 5rem;
+  margin: 2rem auto 6rem;
+  @media(max-width: 550px) { margin-bottom: 5rem }
 
   & h2 {
     font-size: 1.5rem;
