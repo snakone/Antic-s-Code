@@ -45,6 +45,11 @@
                    loading="lazy"/>
           </li>
         </div>
+        <div class="total" *ngIf="user">
+          <li *ngFor="let t of total">{{user[t.name] || 0}}
+            <mat-icon [class]="t.name">{{t.icon}}</mat-icon>
+          </li>
+        </div>
       </ul>
     </div>
   </div>

@@ -12,7 +12,8 @@ import {
   Skill,
   WorkCompany,
   UserRol,
-  ShowEmail
+  ShowEmail,
+  TotalUserData
 } from './interfaces/interfaces';
 
 import { AosOptions } from 'aos';
@@ -216,8 +217,12 @@ export const ROLES: Role[] = [
   { name: 'Designer', translate: 'design.dev' },
   { name: 'Web Designer', translate: 'design.web' },
   { name: 'Mobile Developer', translate: 'mobile.dev' },
-
 ];
+
+export const TOTAL_USER_DATA: TotalUserData[] = [
+  { name: 'likes', icon: 'favorite' },
+  { name: 'views', icon: 'visibility' }
+]
 
 export const PROFILE_LANGS: string[] = [
   'Javascript',
