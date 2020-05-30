@@ -23,7 +23,7 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field color="accent" appearance="outline">
-        <mat-label>Mostrar/Ocultar</mat-label>   <!-- EMAIL -->
+        <mat-label>{{'email' | translate}}</mat-label>   <!-- EMAIL -->
         <mat-select formControlName="email">
           <mat-option *ngFor="let e of email"
                       [value]="e.show"

@@ -234,6 +234,14 @@
     "request": {
       "title": "Error de datos",
       "message": "Ha habido un error al verificar los datos. Por favor comprueba los datos introducidos y vuelve a probar de nuevo. Si el problema persiste ponte en contacto con nosotros."
+    },
+    "access": {
+      "title": "Error de Acceso",
+      "message": "Se ha denegado el acceso a este servicio por prevenir de un origen desconocido. Disculpa las molestias, si el problema persiste ponte en contacto con nosotros."
+    },
+    "unknown": {
+      "title": "Error desconocido",
+      "message": "No sabemos el que sin embargo algo malo pasó. Disculpa las molestias, si el problema persiste ponte en contacto con nosotros."
     }
   },
   "modals": {

@@ -5,13 +5,18 @@ import { Directive, HostListener, ElementRef } from '@angular/core';
 
 export class TopButtonDirective {
 
+  displayed = false;
+  button = this.el.nativeElement.style;
+
   constructor(private el: ElementRef) { }
 
   @HostListener('window:scroll') do() {
     try {
-      const button = this.el.nativeElement.style;
       const scroll = document.documentElement.scrollTop;
-      scroll > 550 ? button.display = 'block' : button.display = 'none';
+      if (scroll > 550 && this.displayed) { return; }
+      scroll > 550 ?
+      (this.button.display = 'block', this.displayed = true) :
+      (this.button.display = 'none', this.displayed = false);
     } catch (err) {
       console.log(err);
      }

@@ -12,20 +12,27 @@ import {
 export class ContactMeDirective {
 
   @Output() show = new EventEmitter<void>();
+  button = this.el.nativeElement.style;
+  displayed = false;
 
   constructor(private el: ElementRef) { }
 
   @HostListener('window:scroll') do() {
     try {
-      const button = this.el.nativeElement.style;
       const scroll = document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight;
-
       const difference = window.innerWidth > 993 ? 2000 : 2700;
 
+      if ((
+            (height - scroll) < difference ||
+            scroll < 100
+          ) &&
+            !this.displayed
+         ) { return; }
+
       (height - scroll) < difference || scroll < 100 ?
-       button.display = 'none' :
-       button.display = 'block';
+       (this.button.display = 'none', this.displayed = false) :
+       (this.button.display = 'block', this.displayed = true);
     } catch (err) {
       console.log(err);
      }

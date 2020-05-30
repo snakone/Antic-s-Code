@@ -91,7 +91,7 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
 
   private fromBottom(): number {
     let bottom = 450;
-    if (this.grid) { bottom = 650; }
+    if (this.grid) { bottom = 850; }
     if (window.document.body.clientWidth < 985) { bottom = 1400; }
     return bottom;
   }

@@ -44,9 +44,18 @@ mat-option.all {
   padding: 0 .75em 0 1.2em !important;
 }
 
-.mat-expansion-panel-body {
+.expansion .mat-expansion-panel-body {
   padding: 1.5rem 2rem !important;
   @media(max-width: 550px) { padding: 1.2rem !important }
+}
+
+.faq .mat-expansion-panel-body {
+  padding: 0 1rem 0 8px !important;
+  & p {
+    color: var(--p-color)!important;
+    margin: 5px auto;
+    line-height: 1.5rem;
+  }
 }
 
 .mat-form-field-label-wrapper {

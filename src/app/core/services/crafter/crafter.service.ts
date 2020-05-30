@@ -7,6 +7,7 @@ import { ComponentType } from '@angular/cdk/overlay';
 import { TranslateService } from '@ngx-translate/core';
 import { DialogData, SheetData } from '@shared/interfaces/interfaces';
 import { MessageModalComponent } from '@layout/dialogs/message-modal/message-modal.component';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({providedIn: 'root'})
 
@@ -72,6 +73,28 @@ export class CrafterService {
         icon
       }
     })
+  }
+
+  public handleError(err: HttpErrorResponse): void {
+    switch (err.status) {
+      case 0: this.modal('errors.web.title',
+                         'errors.web.message');
+       break;
+      case 400: case 406:
+                this.modal('errors.request.title',
+                           'errors.request.message',
+                           'help');
+       break;
+      case 403: this.modal('errors.access.title',
+                           'errors.access.message');
+       break;
+      case 409: case 500:
+                this.modal('errors.server.title',
+                           'errors.server.message');
+       break;
+      default: this.modal('errors.unknown.title',
+                          'errors.unknown.message');
+    }
   }
 
   private translate(text: string): string {
