@@ -45,7 +45,8 @@ export const CATEGORIES: string[] = [
   'GO',
   'Python',
   'Git',
-  'Antic\'s'
+  'Antic\'s',
+  'Deno'
 ];
 
 export const TAGS: string[] = [
@@ -159,6 +160,12 @@ export const MAIN_CATEGORIES: List[] = [
     icon: 'antics-logo.png',
     category: 'Antic\'s',
     class: 'odd.jpg'
+  },
+  {
+    name: 'Server Typescript',
+    icon: 'deno-logo.png',
+    category: 'Deno',
+    class: 'even.jpg'
   }
 ];
 
@@ -560,12 +567,21 @@ export const TIME_LINE: TimeLine[] = [
   },
   {
     year: 2019,
-    message: `Lo último que puedo decir es que gracias a <strong>IT Academy Barcelona</strong> por fín
+    message: `Gracias a <strong>IT Academy Barcelona</strong> por fín
               encontré un trabajo en una empresa desarrolladora de software.<br>
               Desde aquí dar las <strong>gracias</strong> a todas las personas que me ayudaron a
               llegar hasta este momento. Un saludo a todos ellos.`,
     side: 'left',
     fade: 'fade-right'
+  },
+  {
+    year: 2020,
+    message: `Sigo trabajando como desarrollador de software, ahora mismo a <strong>distancia</strong>.
+              En este tiempo he aprendido más a fondo Angular y también a <strong>trabajar en equipo</strong>
+              con otros desarrolladores.<br> Coordinarse con los demás equipos implicados en el desarrollo
+              es esencial para llevar un buen ritmo de trabajo.`,
+    side: 'right',
+    fade: 'fade-left'
   }
 ];
 
@@ -777,9 +793,9 @@ export const CONDITIONS: string[] = [
 ]
 
 const DOWNLOAD_URI: any = {
-  windows: 'https://mega.nz/file/A9RxxSwQ#v0t7Z5OCYtk1zvdS7brVRfl3SzG6nXgh7d8ZY4NWqq0',
-  mac: 'https://mega.nz/file/Q9AjGKhZ#XsmpzalQFBmSeR20gtAqlPjOMoc-hhID1XxC7vq9K74',
-  linux: 'https://mega.nz/file/UwJFiQLQ#M6dDVestTnjENMdrFrk_RcyOtRQkBGHVr31_TuVCTP8'
+  windows: 'https://mega.nz/file/k1JVQYCA#1kM_McHNND1KXbFi04F3i_diIKJs1AvCWAItmmnCmoI',
+  mac: 'https://mega.nz/file/9sRzTYCQ#-W0mFuVVqY81B_MJjkv690BexZYVMUNwlXcP6orSYGo',
+  linux: 'https://mega.nz/file/E4QnmYZT#W6BwCfl28vsA6E8yZeqsvg3zXIAO8N9u65LLlqTVH-s'
 };
 
 export const DOWNLOAD_BUTTONS: DownloadButton[] = [

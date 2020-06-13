@@ -51,7 +51,7 @@ export class CrafterService {
 
   public dialog<T>(
     component: ComponentType<T>,
-    data?: DialogData,
+    data?: any,
     id?: string
   ): MatDialogRef<T> {
     return this.matDialog.open(component, {data, id: id ? id :null});
@@ -84,6 +84,10 @@ export class CrafterService {
                 this.modal('errors.request.title',
                            'errors.request.message',
                            'help');
+       break;
+      case 401: this.modal('errors.token.title',
+                           'errors.token.message',
+                           'info');
        break;
       case 403: this.modal('errors.access.title',
                            'errors.access.message');

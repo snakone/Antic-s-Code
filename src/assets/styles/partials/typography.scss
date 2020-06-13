@@ -14,7 +14,7 @@ p {
   line-height: 1.5rem;
 }
 
-span, p, li, a, input, textarea, mat-label, p code {
+span, p, li, a, input, textarea, mat-label, p code, td {
   @media(max-width: 550px) { font-size: .9rem !important }
 }
 

@@ -130,7 +130,8 @@
   "try.again": "Inténtalo de nuevo",
   "sign.up.error": "Error en el Registro",
   "email.unique": "El Correo debe ser único",
-  "edit.profile": "Edita tu Perfil",
+  "edit.your.profile": "Edita tu Perfil",
+  "edit.profile": "Editar Perfil",
   "web.dev": "Web",
   "front.dev": "Frontend",
   "back.dev": "Backend",
@@ -150,7 +151,7 @@
   "update.failed": "Actualización fallida",
   "log.out": "Desconectar",
   "actions": "Acciones",
-  "delete.acc": "Eliminar tu Cuenta",
+  "delete.acc": "Eliminar Cuenta",
   "favorite.lang": "Tu Lenguaje favorito",
   "not.defined": "Sin definir",
   "bio.not.defined": "No definido. Escribe algo sobre tí.",
@@ -214,6 +215,7 @@
   "start.here": "Todo empieza aquí",
   "mobile.dev": "Mobile",
   "apply": "Aplicar",
+  "see.all": "Ver Todas",
   "errors": {
     "server": {
       "title": "Error de servidor",
@@ -238,6 +240,10 @@
     "access": {
       "title": "Error de Acceso",
       "message": "Se ha denegado el acceso a este servicio por prevenir de un origen desconocido. Disculpa las molestias, si el problema persiste ponte en contacto con nosotros."
+    },
+    "token": {
+        "title": "Acceso Caducado",
+        "message": "Tu token para acceder a Antic's Code ha caducado, pero no te preocupes, lo hemos actualizado por ti. Puedes seguir usando la página como siempre."
     },
     "unknown": {
       "title": "Error desconocido",

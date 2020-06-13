@@ -34,11 +34,10 @@
                        [value]="tag"
                        role="option"
                        #option
-                      [disabled]="max?.selected.length >= 2 &&
+                       [disabled]="max?.selected.length >= 2 &&
                                   !option.selected">
             {{tag | translate}}
           </mat-option>
-          <mat-option value="" role="option">{{'all' | translate}}</mat-option>
         </mat-select>
       </mat-form-field>
       <button type="submit"

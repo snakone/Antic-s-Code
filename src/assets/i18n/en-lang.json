@@ -131,7 +131,8 @@
   "try.again": "Try again",
   "sign.up.error": "Sign Up Error",
   "email.unique": "Email must be unique",
-  "edit.profile": "Edit your Profile",
+  "edit.your.profile": "Edit your Profile",
+  "edit.profile": "Edit Profile",
   "web.dev": "Web",
   "front.dev": "Frontend",
   "back.dev": "Backend",
@@ -151,7 +152,7 @@
   "update.failed": "Error Updating",
   "log.out": "Log out",
   "actions": "Actions",
-  "delete.acc": "Delete your Account",
+  "delete.acc": "Delete Account",
   "favorite.lang": "Your favorite Language",
   "not.defined": "Not Defined",
   "bio.not.defined": "Not Defined. Write something about You",
@@ -215,5 +216,6 @@
   "create.article": "Create an Article",
   "start.here": "Start right here",
   "mobile.dev": "Mobile Developer",
-  "apply": "Apply"
+  "apply": "Apply",
+  "see.all": "See All"
 }

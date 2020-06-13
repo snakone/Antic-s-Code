@@ -1,16 +1,16 @@
 <app-content-box [title]="'actions' | translate">
   <div class="buttons">
-    <button class="btn-blue"
+    <button class="btn-normal-blue"
             [routerLink]="'/profile/' + user.name"
             aria-label="Profile"
-            mat-button>{{'visit.public.profile' | translate}}
+            mat-button>{{'public.profile' | translate}}
     </button>
-    <button class="btn-purple"
+    <button class="btn-normal-grey"
             (click)="logOut()"
             aria-label="Sign Out"
             mat-button>{{'log.out' | translate}}
     </button>
-    <button class="btn-danger"
+    <button class="btn-normal-danger"
           (click)="delete()"
           aria-label="Delete"
           mat-button>{{'delete.acc' | translate}}

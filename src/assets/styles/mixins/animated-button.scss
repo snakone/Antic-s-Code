@@ -29,3 +29,13 @@
     100% { background-position: 400% }
   }
 }
+
+@mixin button-color($color) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background: $color;
+  position: relative;
+  color: var(--button-color);
+}

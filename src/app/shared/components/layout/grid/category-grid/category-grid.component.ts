@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { MAIN_CATEGORIES } from '@shared/shared.data';
 import { Store } from '@ngrx/store';
 import { AppState } from '@app/app.config';
@@ -16,6 +16,7 @@ import * as ArticleActions from '@core/ngrx/actions/article.actions';
 
 export class CategoryGridComponent implements OnInit, OnDestroy {
 
+  @Input() isHome = false;
   categories = MAIN_CATEGORIES;
   count: object = {};
   count$: Observable<object>;

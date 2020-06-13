@@ -156,6 +156,7 @@
     display: block;
     margin: 30px auto;
     border-radius: 4px;
+    &.icon { margin: 0 auto }
   }
 
   hr {
@@ -165,6 +166,62 @@
     border-bottom: 1px solid #ececec;
     margin-top: 30px;
     box-sizing: content-box;
+  }
+
+  table {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+
+  th,
+  td {
+    padding: 12px 15px;
+    background-color: rgba(46, 58, 89, 0.2);
+    color: #fff;
+  }
+
+  th {
+    text-align: left;
+  }
+
+  .th {
+    display: inline-block;
+    min-width: 5rem;
+    text-align: center;
+    @media(max-width: 550px) { min-width: 3rem }
+  }
+
+  thead {
+    th {
+      background-color: var(--primary-color);
+    }
+  }
+
+  tbody {
+    tr {
+      &:hover {
+        background-color: rgba(46, 58, 89, 0.3);
+      }
+    }
+    td {
+      position: relative;
+      background-color: rgba(46, 58, 89);
+      &:hover {
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: -9999px;
+          bottom: -9999px;
+          background-color: rgba(46, 58, 89, 0.2);
+          z-index: -1;
+        }
+      }
+    }
   }
 
   .anchor {

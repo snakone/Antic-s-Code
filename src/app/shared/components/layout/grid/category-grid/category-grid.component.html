@@ -1,6 +1,6 @@
 <div class="row flex">
   <div class="col-lg-4 col-sm-6"
-      *ngFor="let c of categories">
+      *ngFor="let c of categories | slice:0: isHome ? 6 : categories.length">
     <div class="category-image">
       <figure [routerLink]="'/category/' + c.category">
         <img [src]="c.class | image:'categories'"
@@ -22,5 +22,13 @@
         </figcaption>
       </figure>
     </div>
+  </div>
+  <div class="col-lg-12 explore" *ngIf="isHome">
+    <button class="btn-purple"
+            mat-button
+            aria-label="Discover"
+            [routerLink]="'/categories'">
+      <span>{{'see.all' | translate}} {{categories.length}} +</span>
+    </button>
   </div>
 </div>
