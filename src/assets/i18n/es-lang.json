@@ -138,6 +138,7 @@
   "full.dev": "Full-Stack",
   "design.dev": "Diseñador",
   "design.web": "Diseñador Web",
+  "mobile.dev": "Mobile",
   "fb.page": "Tu página de Facebook",
   "twitter.page": "Tu Twitter",
   "portfolio.page": "Tu Portfolio personal",
@@ -213,7 +214,6 @@
   "create": "Crear",
   "create.article": "Crear un Artículo",
   "start.here": "Todo empieza aquí",
-  "mobile.dev": "Mobile",
   "apply": "Aplicar",
   "see.all": "Ver Todas",
   "errors": {
