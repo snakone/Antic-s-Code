@@ -97,6 +97,7 @@ export interface Interaction {
   content: string;
   user: string;
   type: string;
+  author: string;
   value: number;
 }
 

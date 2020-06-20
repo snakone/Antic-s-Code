@@ -5,11 +5,11 @@ import { Store } from '@ngrx/store';
 import * as UserActions from '@core/ngrx/actions/user.actions';
 import { StorageService } from '@core/storage/storage.service';
 import { LanguageSnackComponent } from '@layout/snackbars/language-snack/language-snack.component';
-import { MaintenanceComponent } from '@layout/dialogs/maintenance/maintenance.component';
 import { CrafterService } from '@core/services/crafter/crafter.service';
 import { ThemeService } from '@core/services/theme/theme.service';
 import { PushService } from '@core/services/push/push.service';
 import { environment } from '@env/environment';
+import { SocketService } from '@core/sockets/services/socket.service';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +26,8 @@ export class AppComponent implements OnInit {
     private crafter: CrafterService,
     private theme: ThemeService,
     private store: Store<AppState>,
-    private sw: PushService
+    private sw: PushService,
+    public socket: SocketService
   ) { }
 
   ngOnInit() {

@@ -1,0 +1,20 @@
+<div class="animated fadeInLeft fab-button"
+   ContactAdmin
+   [class]="class"
+   id="fab-admin">
+
+  <i class="fa fa-commenting-o"
+     aria-hidden="true"
+     (click)="class = 'opened'"
+      matBadge="1"
+            matBadgeColor="accent"
+            matBadgeSize="small"></i>
+  <app-contact-chat *ngIf="class === 'opened'"
+                    (close)="class = 'closed'">
+  </app-contact-chat>
+</div>
+
+<div class="backdrop"
+     *ngIf="class === 'opened'"
+     (click)="class = 'closed'">
+</div>

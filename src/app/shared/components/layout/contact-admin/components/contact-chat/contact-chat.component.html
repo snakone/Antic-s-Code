@@ -1,0 +1,41 @@
+<div class="contact-chat">
+  <div class="chat-header">
+    <span>Chat en vivo</span>
+    <div class="ring-container">
+        <div *ngIf="socket.isOn" class="ringring"></div>
+        <div *ngIf="socket.isOn" class="circle"></div>
+        <div *ngIf="!socket.isOn" class="circle-red"></div>
+    </div>
+    <mat-icon class="chat" (click)="closeChat()">close</mat-icon>
+  </div>
+
+  <div class="chat-content" id="chat-content">
+    <div class="chat-message animated fadeIn"
+         *ngFor="let c of chat; let i = index"
+         [ngClass]="{'reverse': (i + 1) % 2 === 0}">
+      <div class="message-avatar">
+        <img src="assets/img/logo.png"/>
+      </div>
+      <div class="message-bubble">
+        <p>{{c.user}}</p>
+        {{c.message}}
+        <div class="date">
+          <span>11-10-2020</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-text">
+    <textarea rows="1"
+              [(ngModel)]="message"
+              autofocus
+              id="chat-textarea">
+    </textarea>
+    <button mat-button
+            (click)="sendMessage()">
+      <mat-icon class="chat">send</mat-icon>
+    </button>
+  </div>
+
+</div>

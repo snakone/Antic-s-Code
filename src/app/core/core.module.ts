@@ -33,6 +33,7 @@ import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { NgMarkdownModule } from './markdown/markdown.module';
 import { DeviceDetectorModule } from 'ngx-device-detector';
+import { SocketsModule } from './sockets/sockets.module';
 
 @NgModule({
   imports: [
@@ -40,6 +41,7 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
     StorageModule,
     LoadingBarModule,
     NgMarkdownModule,
+    SocketsModule,
     LoadingBarHttpClientModule,
     DeviceDetectorModule.forRoot(),
     NgxWebstorageModule.forRoot(CORE_MODULE_CONSTANTS.WEBSTORAGE_CONFIG),
