@@ -54,4 +54,5 @@
 
 .moveUp {
   bottom: 80px;
+  @media(max-width: 550px) { bottom: 65px }
 }

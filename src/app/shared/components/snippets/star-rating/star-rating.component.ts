@@ -46,7 +46,6 @@ export class StarRatingComponent implements OnInit, OnDestroy {
       const int: Interaction = {
         content: this.article._id,
         user: this.user._id,
-        author: this.article.user,
         type: 'star',
         value: star
       };

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 
 export class SocketService {
 
-  isOn: boolean;
+  public isOn: boolean;
 
   constructor(private socket: Socket) {
     this.isOn = false;
@@ -14,15 +14,8 @@ export class SocketService {
   }
 
   private check(): void {
-    this.socket.on('connect', () => {
-      console.log('Socket conectado');
-      this.isOn = true;
-    });
-
-    this.socket.on('disconnect', () => {
-      console.log('Socket desconectado');
-      this.isOn = false;
-    });
+    this.socket.on('connect', () => this.isOn = true);
+    this.socket.on('disconnect', () => this.isOn = false);
   }
 
   public emit(event: string, payload?: any, cb?: () => void): void {

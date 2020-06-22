@@ -1,8 +1,10 @@
-import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input, OnChanges } from '@angular/core';
 import { SocketService } from '@core/sockets/services/socket.service';
-import { ChatService } from '@core/services/chat/chat.service';
-import { takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { ChatMessage } from '@shared/interfaces/interfaces';
+import * as ChatActions from '@core/ngrx/actions/chat.actions';
+
+import { Store } from '@ngrx/store';
+import { AppState } from '@app/app.config';
 
 @Component({
   selector: 'app-contact-chat',
@@ -10,20 +12,20 @@ import { Subject } from 'rxjs';
   styleUrls: ['./contact-chat.component.scss']
 })
 
-export class ContactChatComponent implements OnInit, OnDestroy {
+export class ContactChatComponent implements OnInit, OnChanges {
 
+  @Input() chat: ChatMessage[];
   @Output() close = new EventEmitter<boolean>();
-  private unsubscribe$ = new Subject<void>();
   message = '';
-  chat: any[] = [];
   textarea: HTMLElement;
   content: HTMLElement;
 
-  constructor(public socket: SocketService,
-              private chatSrv: ChatService) { }
+  constructor(
+    public socket: SocketService,
+    private store: Store<AppState>
+  ) { }
 
   ngOnInit(): void {
-    this.listenMessages();
     this.textarea = document.getElementById('chat-textarea');
     this.content = document.getElementById('chat-content');
   }
@@ -32,27 +34,26 @@ export class ContactChatComponent implements OnInit, OnDestroy {
     this.close.emit(true);
   }
 
-  private listenMessages(): void {
-    this.chatSrv.listen().
-    pipe(takeUntil(this.unsubscribe$))
-    .subscribe(res => {
-      this.chat.push(res);
-      setTimeout(() => {
-        this.content.scrollTop = this.content.scrollHeight;
-      }, 50);
-    });
+  ngOnChanges(): void {
+    setTimeout(() => {
+      this.content.scrollTop = this.content.scrollHeight;
+    }, 50);
+  }
+
+  public keyDownFunction(event: KeyboardEvent): void {
+    // tslint:disable-next-line: deprecation
+    console.log(event)
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      this.sendMessage();
+    }
   }
 
   public sendMessage(): void {
     if (!this.message) { return; }
-    this.chatSrv.send(this.message);
+    this.store.dispatch(ChatActions.send({ request: this.message}));
     this.message = '';
     this.textarea.focus();
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
   }
 
 }

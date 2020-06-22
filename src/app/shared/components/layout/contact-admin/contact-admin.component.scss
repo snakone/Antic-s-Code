@@ -4,6 +4,10 @@
   display: block;
   transition: all .3s;
   box-sizing: border-box;
+  z-index: 1000;
+  @media (max-width: 550px) {
+    &.opened { padding: 8px }
+  }
 }
 
 i {

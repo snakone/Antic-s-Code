@@ -1,7 +1,8 @@
 <div class="animated fadeInLeft fab-button"
    ContactAdmin
    [class]="class"
-   id="fab-admin">
+   id="fab-admin"
+   *ngIf="ls.storage?.chat">
 
   <i class="fa fa-commenting-o"
      aria-hidden="true"
@@ -10,7 +11,8 @@
             matBadgeColor="accent"
             matBadgeSize="small"></i>
   <app-contact-chat *ngIf="class === 'opened'"
-                    (close)="class = 'closed'">
+                    (close)="class = 'closed'"
+                    [chat]="(messages | async).reverse()">
   </app-contact-chat>
 </div>
 

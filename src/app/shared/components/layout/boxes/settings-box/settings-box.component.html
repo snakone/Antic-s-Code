@@ -25,10 +25,21 @@
       <mat-form-field color="accent" appearance="outline">
         <mat-label>{{'email' | translate}}</mat-label>   <!-- EMAIL -->
         <mat-select formControlName="email">
-          <mat-option *ngFor="let e of email"
+          <mat-option *ngFor="let e of show"
                       [value]="e.show"
                       role="option">
             {{e.text}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field color="accent" appearance="outline">
+        <mat-label>{{'chat.button' | translate}}</mat-label>   <!-- CHAT -->
+        <mat-select formControlName="chat">
+          <mat-option *ngFor="let c of show"
+                      [value]="c.show"
+                      role="option">
+            {{c.text}}
           </mat-option>
         </mat-select>
       </mat-form-field>

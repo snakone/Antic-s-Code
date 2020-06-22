@@ -12,15 +12,15 @@
   <div class="chat-content" id="chat-content">
     <div class="chat-message animated fadeIn"
          *ngFor="let c of chat; let i = index"
-         [ngClass]="{'reverse': (i + 1) % 2 === 0}">
+         [ngClass]="{'reverse': !c.own}">
       <div class="message-avatar">
-        <img src="assets/img/logo.png"/>
+        <img [src]="c.avatar || 'assets/img/profile/no-photo.jpg'"/>
       </div>
       <div class="message-bubble">
         <p>{{c.user}}</p>
         {{c.message}}
         <div class="date">
-          <span>11-10-2020</span>
+          <span>{{c.date}}</span>
         </div>
       </div>
     </div>
@@ -30,7 +30,8 @@
     <textarea rows="1"
               [(ngModel)]="message"
               autofocus
-              id="chat-textarea">
+              id="chat-textarea"
+              (keydown)="keyDownFunction($event)">
     </textarea>
     <button mat-button
             (click)="sendMessage()">

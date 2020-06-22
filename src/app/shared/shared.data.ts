@@ -12,7 +12,7 @@ import {
   Skill,
   WorkCompany,
   UserRol,
-  ShowEmail,
+  ShowHide,
   TotalUserData
 } from './interfaces/interfaces';
 
@@ -495,7 +495,7 @@ export const USER_ROLS: UserRol[] = [
   { rol: 'All', icon: 'all.png', name: 'Todos' }
 ];
 
-export const SHOW_EMAIL: ShowEmail[] = [
+export const SHOW_HIDE: ShowHide[] = [
   { text: 'Mostrar', show: true },
   { text: 'Ocultar', show: false }
 ];

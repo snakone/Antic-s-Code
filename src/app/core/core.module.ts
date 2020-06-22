@@ -26,6 +26,7 @@ import { CategoryEffects } from './ngrx/effects/category.effects';
 import { UserEffects } from './ngrx/effects/user.effects';
 import { SearchEffects } from './ngrx/effects/search.effects';
 import { InteractionEffects } from './ngrx/effects/interaction.effects';
+import { ChatEffects } from './ngrx/effects/chat.effects';
 import { reducers } from './ngrx/reducers/reducers.index';
 
 import { ToastrModule } from 'ngx-toastr';
@@ -51,7 +52,8 @@ import { SocketsModule } from './sockets/sockets.module';
       CategoryEffects,
       UserEffects,
       SearchEffects,
-      InteractionEffects
+      InteractionEffects,
+      ChatEffects
     ]),
     LanguageModule.forRoot(),
     TranslateModule.forRoot({

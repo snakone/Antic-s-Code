@@ -10,7 +10,7 @@ import {
   MessageRequest
  } from '@shared/interfaces/interfaces';
 
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { StorageService } from '@core/storage/storage.service';
 import { Store } from '@ngrx/store';
 import * as UserActions from '@core/ngrx/actions/user.actions';
@@ -25,6 +25,7 @@ export class UserService {
   readonly API_USERS = environment.api + 'users';
   readonly API_TOKEN = environment.api + 'token';
   private user: User;
+  public chatUser: string;
 
   constructor(
     private http: HttpService,
@@ -121,8 +122,17 @@ export class UserService {
     return this.user || null;
   }
 
+  public getChatUser(): string {
+    return this.chatUser || null;
+  }
+
   private setUser(user: User): void {
     this.user = user;
+    this.chatUser = user.name;
+  }
+
+  public setChatUser(name: string): void {
+    this.chatUser = name;
   }
 
   public login(
@@ -140,8 +150,10 @@ export class UserService {
   public logout(): void {
     this.ls.setKey('token', null);
     this.ls.setKey('welcome', false);
+    this.ls.setKey('chat', true);
     this.store.dispatch(UserActions.userLogOut());
     this.user = null;
+    this.chatUser = null;
   }
 
   private setToken(data: UserResponse): void {
