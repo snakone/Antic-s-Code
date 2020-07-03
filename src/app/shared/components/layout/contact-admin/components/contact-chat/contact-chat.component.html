@@ -18,7 +18,7 @@
       </div>
       <div class="message-bubble">
         <p>{{c.user}}</p>
-        {{c.message}}
+        <span>{{c.message}}</span>
         <div class="date">
           <span>{{c.date}}</span>
         </div>
@@ -31,10 +31,13 @@
               [(ngModel)]="message"
               autofocus
               id="chat-textarea"
-              (keydown)="keyDownFunction($event)">
+              (keydown)="keyDownFunction($event)"
+              wrap="hard"
+              maxlength="100">
     </textarea>
     <button mat-button
-            (click)="sendMessage()">
+            (click)="sendMessage()"
+            [disabled]="!message || message.length > 100">
       <mat-icon class="chat">send</mat-icon>
     </button>
   </div>

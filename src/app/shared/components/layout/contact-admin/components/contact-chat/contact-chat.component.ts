@@ -42,15 +42,14 @@ export class ContactChatComponent implements OnInit, OnChanges {
 
   public keyDownFunction(event: KeyboardEvent): void {
     // tslint:disable-next-line: deprecation
-    console.log(event)
-    if (event.keyCode === 13) {
+    if (event.keyCode === 13 && !event.shiftKey) {
       event.preventDefault();
       this.sendMessage();
     }
   }
 
   public sendMessage(): void {
-    if (!this.message) { return; }
+    if (!this.message || this.message.length > 100) { return; }
     this.store.dispatch(ChatActions.send({ request: this.message}));
     this.message = '';
     this.textarea.focus();
