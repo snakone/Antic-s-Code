@@ -26,6 +26,7 @@ import { CategoryEffects } from './ngrx/effects/category.effects';
 import { UserEffects } from './ngrx/effects/user.effects';
 import { SearchEffects } from './ngrx/effects/search.effects';
 import { InteractionEffects } from './ngrx/effects/interaction.effects';
+import { ChatEffects } from './ngrx/effects/chat.effects';
 import { reducers } from './ngrx/reducers/reducers.index';
 
 import { ToastrModule } from 'ngx-toastr';
@@ -33,6 +34,7 @@ import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { NgMarkdownModule } from './markdown/markdown.module';
 import { DeviceDetectorModule } from 'ngx-device-detector';
+import { SocketsModule } from './sockets/sockets.module';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
@@ -48,6 +50,7 @@ const Material = [
     StorageModule,
     LoadingBarModule,
     NgMarkdownModule,
+    SocketsModule,
     LoadingBarHttpClientModule,
     DeviceDetectorModule.forRoot(),
     NgxWebstorageModule.forRoot(CORE_MODULE_CONSTANTS.WEBSTORAGE_CONFIG),
@@ -57,7 +60,8 @@ const Material = [
       CategoryEffects,
       UserEffects,
       SearchEffects,
-      InteractionEffects
+      InteractionEffects,
+      ChatEffects
     ]),
     LanguageModule.forRoot(),
     TranslateModule.forRoot({

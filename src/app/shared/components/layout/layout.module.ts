@@ -9,8 +9,6 @@ import { ArticlesGridModule } from './grid/articles-grid/articles-grid.module';
 import { ArticleLayoutModule } from './article-layout/article-layout.module';
 import { SnackbarsModule } from './snackbars/snackbars.module';
 import { DialogsModule } from './dialogs/dialogs.module';
-import { CardsModule } from './cards/cards.module';
-import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SharedModule } from '../../shared.module';
 
 import { CategoryGridComponent } from './grid/category-grid/category-grid.component';
@@ -21,6 +19,9 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { GoTopComponent } from './go-top/go-top.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { SwiperModule } from 'ngx-swiper-wrapper';
+import { CardsModule } from './cards/cards.module';
+import { ContactAdminModule } from './contact-admin/contact-admin.module';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -53,6 +54,7 @@ const Material = [
     SnackbarsModule,
     DialogsModule,
     SwiperModule,
+    ContactAdminModule,
     CardsModule,
     ...Material
   ],
@@ -72,7 +74,8 @@ const Material = [
     GoTopComponent,
     DialogsModule,
     CarouselComponent,
-    CardsModule
+    CardsModule,
+    ContactAdminModule
   ]
 })
 

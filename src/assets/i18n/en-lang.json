@@ -258,5 +258,6 @@
       "title": "Maintenance",
       "message": "We are working on improving the page and some parts may not work properly. Sorry for the inconvenience, we continue to develop so that everything returns to normal as soon as possible. Thanks for your understanding."
     }
-  }
+  },
+  "chat.button": "Chat Button"
 }

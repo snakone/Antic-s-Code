@@ -13,13 +13,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 const Material = [
   MatDialogModule,
   MatFormFieldModule,
   MatIconModule,
   MatCheckboxModule,
-  MatInputModule
+  MatInputModule,
+  MatButtonModule
 ];
 
 @NgModule({

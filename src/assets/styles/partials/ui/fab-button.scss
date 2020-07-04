@@ -18,7 +18,7 @@
   transition: all 1s;
   @media(max-width: 550px) {
     padding: 5px;
-    & mat-icon {
+    & mat-icon:not(.chat), i {
       width: 25px !important;
       height: 25px !important;
       font-size: 1.5rem !important;
@@ -31,7 +31,7 @@
                 2px 16px 16px rgba(0,0,0,0.45);
   }
 
-  & mat-icon {
+  & mat-icon:not(.chat), i {
     width: 30px;
     height: 30px;
     font-size: 1.8rem;

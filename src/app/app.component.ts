@@ -4,8 +4,9 @@ import { environment } from '@env/environment';
 import { StorageService } from '@core/storage/storage.service';
 import { CrafterService } from '@core/services/crafter/crafter.service';
 import { PushService } from '@core/services/push/push.service';
-import { ThemeService } from '@core/services/theme/theme.service';
+import { SocketService } from '@core/sockets/services/socket.service';
 import { UsersFacade } from '@core/ngrx/facade/users.facade';
+import { ThemeService } from '@core/services/theme/theme.service';
 
 import { LanguageSnackComponent } from '@layout/snackbars/language-snack/language-snack.component';
 
@@ -24,7 +25,8 @@ export class AppComponent implements OnInit {
     private crafter: CrafterService,
     private theme: ThemeService,
     private sw: PushService,
-    private usersFacade: UsersFacade
+    private usersFacade: UsersFacade,
+    public socket: SocketService
   ) { }
 
   ngOnInit() {

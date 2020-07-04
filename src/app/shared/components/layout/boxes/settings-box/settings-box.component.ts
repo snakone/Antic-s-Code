@@ -6,10 +6,10 @@ import { LanguageService } from '@core/language/services/language.service';
 import { ThemeService } from '@core/services/theme/theme.service';
 import { CrafterService } from '@core/services/crafter/crafter.service';
 import { UserService } from '@core/services/user/user.service';
-import { User } from '@shared/interfaces/interfaces';
 
+import { User } from '@shared/interfaces/interfaces';
 import { LANGUAGES, THEMES } from '@shared/data/app';
-import { SHOW_EMAIL } from '@app/shared/data/user';
+import { SHOW_HIDE } from '@shared/data/user';
 
 @Component({
   selector: 'app-settings-box',
@@ -24,7 +24,7 @@ export class SettingsBoxComponent implements OnInit {
   lang: string;
   languages = LANGUAGES;
   themes = THEMES;
-  email = SHOW_EMAIL;
+  show = SHOW_HIDE;
 
   constructor(
     private theme: ThemeService,
@@ -52,17 +52,21 @@ export class SettingsBoxComponent implements OnInit {
         email: new FormControl(
           this.userSrv.getUser().showEmail, [
           Validators.required
+        ]),
+        chat: new FormControl(this.ls.get('chat'), [
+          Validators.required
         ])
       }
     );
   }
 
   public onSubmit(): void {
-    if (this.settingsForm.invalid) return;
-    const { language, theme, email } = this.settingsForm.value;
+    if (this.settingsForm.invalid) { return; }
+    const { language, theme, email, chat } = this.settingsForm.value;
     this.theme.set(theme);
     this.language.change(language);
     this.user.showEmail = email;
+    this.ls.setKey('chat', chat);
     this.userSrv.update(this.user).toPromise()
      .then(_ => this.crafter.toaster('updated', 'config.save', 'info'));
   }

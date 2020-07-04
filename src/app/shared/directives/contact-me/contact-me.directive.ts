@@ -12,7 +12,7 @@ import {
 export class ContactMeDirective {
 
   @Output() show = new EventEmitter<void>();
-  button = this.el.nativeElement.style;
+  button = this.el.nativeElement;
   displayed = false;
 
   constructor(private el: ElementRef) { }
@@ -30,12 +30,22 @@ export class ContactMeDirective {
             !this.displayed
          ) return;
 
-      (height - scroll) < difference || scroll < 100 ?
-       (this.button.display = 'none', this.displayed = false) :
-       (this.button.display = 'block', this.displayed = true);
+       (height - scroll) < difference || scroll < 100 ?
+       (this.button.style.display = 'none', this.displayed = false) :
+       (this.button.style.display = 'block', this.displayed = true);
+
+       scroll > 550 && this.displayed ? this.toggle() : this.untoggle();
     } catch (err) {
       console.log(err);
      }
+  }
+
+  private toggle(): void {
+    this.button.classList.add('moveUp');
+  }
+
+  private untoggle(): void {
+    this.button.classList.remove('moveUp');
   }
 
 }

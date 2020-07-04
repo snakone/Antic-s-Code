@@ -3,8 +3,8 @@ import {
   TotalUserData,
   Config,
   UserRol,
-  ShowEmail,
-  List
+  List,
+  ShowHide
 } from '../interfaces/interfaces';
 
 export const SOCIAL_PROFILE: Config[] = [
@@ -46,11 +46,6 @@ export const USER_ROLS: UserRol[] = [
   { rol: 'All', icon: 'all.png', name: 'Todos' }
 ];
 
-export const SHOW_EMAIL: ShowEmail[] = [
-  { text: 'Mostrar', show: true },
-  { text: 'Ocultar', show: false }
-];
-
 export const MY_SOCIAL: List[] = [
   {
     name: 'Linkedin',
@@ -67,4 +62,9 @@ export const MY_SOCIAL: List[] = [
     icon: 'fa fa-twitter',
     link: '#'
   }
+];
+
+export const SHOW_HIDE: ShowHide[] = [
+  { text: 'Mostrar', show: true },
+  { text: 'Ocultar', show: false }
 ];

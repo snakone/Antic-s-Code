@@ -6,6 +6,7 @@ import * as fromCategories from '@core/ngrx/reducers/category.reducer';
 import * as fromUsers from '@core/ngrx/reducers/user.reducer';
 import * as fromSearch from '@core/ngrx/reducers/search.reducer';
 import * as fromInteractions from '@core/ngrx/reducers/interaction.reducer';
+import * as fromChat from '@core/ngrx/reducers/chat.reducer';
 
 export const URI = 'https://anticscode.netlify.com';
 const APP_VERSION = '0.9.2';
@@ -16,7 +17,8 @@ export interface AppState {
   categories: fromCategories.CategoryState;
   user: fromUsers.UserState;
   search: fromSearch.SearchState;
-  interaction: fromInteractions.InteractionState
+  interaction: fromInteractions.InteractionState,
+  chat: fromChat.ChatState
 }
 
 export interface AppConfig {

@@ -5,7 +5,6 @@ import { SharedModule } from '@app/shared/shared.module';
 
 import { DeleteAccountComponent } from './delete-account/delete-account.component';
 import { NoAccountComponent } from './no-account/no-account.component';
-import { MaintenanceComponent } from './maintenance/maintenance.component';
 import { MessageModalComponent } from './message-modal/message-modal.component';
 
 import { MatIconModule } from '@angular/material/icon';
@@ -26,7 +25,6 @@ const Material = [
   declarations: [
     DeleteAccountComponent,
     NoAccountComponent,
-    MaintenanceComponent,
     MessageModalComponent
   ],
   imports: [

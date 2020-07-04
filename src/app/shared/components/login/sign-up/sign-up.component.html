@@ -3,26 +3,30 @@
     <mat-form-field color="accent" appearance="outline">  <!-- NAME -->
       <mat-label>{{'name' | translate}}</mat-label>
       <input matInput
-             formControlName="name">
+             formControlName="name"
+             autocomplete="off">
     </mat-form-field>
     <mat-form-field color="accent" appearance="outline">  <!-- EMAIL -->
       <mat-label>{{'email' | translate}}</mat-label>
       <input matInput
-             formControlName="email">
+             formControlName="email"
+             autocomplete="off">
     </mat-form-field>
     <mat-form-field color="accent" appearance="outline">  <!-- PASSWORD -->
       <mat-label>{{'password' | translate}}</mat-label>
       <input matInput
              formControlName="password"
              type="password"
-             [ngClass]="{'valid': !matchError}">
+             [ngClass]="{'valid': !matchError}"
+             autocomplete="off">
     </mat-form-field>
     <mat-form-field color="accent" appearance="outline">  <!-- REPEAT -->
       <mat-label>{{'repeat.password' | translate}}</mat-label>
       <input matInput
              formControlName="password2"
              type="password"
-             [ngClass]="matchError === true ? 'invalid' : 'valid'">
+             [ngClass]="matchError === true ? 'invalid' : 'valid'"
+             autocomplete="off">
     </mat-form-field>
 
     <div class="check">

@@ -192,7 +192,7 @@ export interface UserRol {
   name: string;
 }
 
-export interface ShowEmail {
+export interface ShowHide {
   text: string;
   show: boolean;
 }
@@ -269,6 +269,18 @@ export interface MostActive {
 
 export interface MostActiveResponse extends ServerResponse {
   users: MostActive[];
+}
+
+export interface ChatMessage {
+  user: string;
+  message: string;
+  own?: boolean;
+  avatar?: string;
+  date?: string;
+}
+
+export interface ChatResponse extends ServerResponse {
+  messages: ChatMessage[];
 }
 
 export class CustomError {

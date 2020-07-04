@@ -3,13 +3,15 @@
     <mat-form-field color="accent" appearance="outline">  <!-- EMAIL -->
       <mat-label>{{'email' | translate}}</mat-label>
       <input matInput
-             formControlName="email">
+             formControlName="email"
+             autocomplete="off">
     </mat-form-field>
     <mat-form-field color="accent" appearance="outline">  <!-- PASSWORD -->
       <mat-label>{{'password' | translate}}</mat-label>
       <input matInput
              formControlName="password"
-             type="password">
+             type="password"
+             autocomplete="off">
     </mat-form-field>
 
     <mat-checkbox [(ngModel)]="remember"
