@@ -1,16 +1,19 @@
 import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { User, UserResponse, NotificationPayload } from '@shared/interfaces/interfaces';
+import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { MatDialogRef } from '@angular/material/dialog';
-import { LoginComponent } from '../login.component';
-import { Router } from '@angular/router';
 import { LoginService } from '@core/services/login/login.service';
 import { CrafterService } from '@core/services/crafter/crafter.service';
 import { PushService } from '@core/services/push/push.service';
-import { NEW_USER_PUSH } from '@shared/shared.data';
 import { UserService } from '@core/services/user/user.service';
+
+import { NEW_USER_PUSH } from '@shared/data/notifications';
+import { User, UserResponse, NotificationPayload } from '@shared/interfaces/interfaces';
+
+import { LoginComponent } from '../login.component';
 
 @Component({
   selector: 'app-sign-up',

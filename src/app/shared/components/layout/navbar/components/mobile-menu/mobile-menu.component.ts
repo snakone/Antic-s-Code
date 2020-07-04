@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { MENU, HOME_MENU } from '@shared/shared.data';
+import { MENU, HOME_MENU } from '@shared/data/menu';
 
 @Component({
   selector: 'app-mobile-menu',

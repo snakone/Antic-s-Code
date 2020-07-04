@@ -8,6 +8,12 @@ import { LikedHomeComponent } from './liked-home.component';
 import { LikedHomeGridComponent } from './components/liked-home-grid/liked-home-grid.component';
 import { LikedHomeListComponent } from './components/liked-home-list/liked-home-list.component';
 
+import { MatIconModule } from '@angular/material/icon';
+
+const Material = [
+  MatIconModule
+];
+
 @NgModule({
   declarations: [
     LikedHomeComponent,
@@ -18,7 +24,8 @@ import { LikedHomeListComponent } from './components/liked-home-list/liked-home-
     CommonModule,
     LayoutModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    ...Material
   ],
   exports: [
     LikedHomeComponent

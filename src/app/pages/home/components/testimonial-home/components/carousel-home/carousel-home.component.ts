@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TESTIMONIALS } from '@shared/shared.data';
+import { TESTIMONIALS } from '@shared/data/carousel';
 
 @Component({
   selector: 'app-carousel-home',

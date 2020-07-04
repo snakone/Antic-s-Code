@@ -1,12 +1,10 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { MAIN_CATEGORIES } from '@shared/shared.data';
-import { Store } from '@ngrx/store';
-import { AppState } from '@app/app.config';
+
 import { Subject, Observable } from 'rxjs';
 import { takeUntil, filter } from 'rxjs/operators';
+import { ArticlesFacade } from '@core/ngrx/facade/article.facade';
 
-import * as fromArticles from '@core/ngrx/selectors/article.selectors';
-import * as ArticleActions from '@core/ngrx/actions/article.actions';
+import { MAIN_CATEGORIES } from '@shared/data/categories';
 
 @Component({
   selector: 'app-category-grid',
@@ -22,24 +20,20 @@ export class CategoryGridComponent implements OnInit, OnDestroy {
   count$: Observable<object>;
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private articlesFacade: ArticlesFacade) { }
 
   ngOnInit() {
     this.checkData();
-    this.count$ = this.store.select(fromArticles.getByCategoryCount);
+    this.count$ = this.articlesFacade.byCategoryCount$;
   }
 
   private checkData(): void {
-    this.store.select(fromArticles.getCategoryCountLoaded)
+    this.articlesFacade.byCategoryCountLoaded$
      .pipe(
        takeUntil(this.unsubscribe$),
        filter(res => !res)
       )
-     .subscribe(_ =>
-         this.store.dispatch(
-           ArticleActions.getByCategoryCount()
-        )
-    );
+     .subscribe(_ => this.articlesFacade.getByCategoryCount());
   }
 
   ngOnDestroy(): void {

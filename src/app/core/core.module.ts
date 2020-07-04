@@ -34,6 +34,14 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { NgMarkdownModule } from './markdown/markdown.module';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+
+const Material = [
+  MatSnackBarModule,
+  MatBottomSheetModule
+];
+
 @NgModule({
   imports: [
     CommonModule,
@@ -59,7 +67,8 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
         deps: [HttpClient]
       }
     }),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ...Material
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

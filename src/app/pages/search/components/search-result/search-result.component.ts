@@ -1,13 +1,18 @@
-import { Component, OnInit, OnDestroy, Input, EventEmitter, Output } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { AppState } from '@app/app.config';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  Input,
+  EventEmitter,
+  Output
+} from '@angular/core';
+
 import { Subject, Observable } from 'rxjs';
 import { takeUntil, filter } from 'rxjs/operators';
-import { Article } from '@shared/interfaces/interfaces';
 import { PaginationService } from 'ngx-pagination';
+import { SearchFacade } from '@core/ngrx/facade/search.facade';
 
-import * as fromSearch from '@core/ngrx/selectors/search.selectors';
-import * as SearchActions from '@core/ngrx/actions/search.actions';
+import { Article } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-search-result',
@@ -26,27 +31,23 @@ export class SearchResultComponent implements OnInit, OnDestroy {
   articles$: Observable<Article[]>;
 
   constructor(
-    private store: Store<AppState>,
+    private searchFacade: SearchFacade,
     private pagination: PaginationService
   ) { }
 
   ngOnInit() {
-    this.articles$ = this.store.select(fromSearch.getResult);
+    this.articles$ = this.searchFacade.result$;
     this.checkData();
     this.getCurrentPage();
   }
 
   private checkData(): void {
-    this.store.select(fromSearch.getSearched)
+    this.searchFacade.searched$
      .pipe(
        filter(res => !res),
        takeUntil(this.unsubscribe$)
       )
-      .subscribe(_ => {
-         this.store.dispatch(
-          SearchActions.searchContent({request: {value: ''} })
-        );
-    });
+      .subscribe(_ => this.searchFacade.search({value: ''}));
   }
 
   private getCurrentPage(): void {
@@ -63,7 +64,7 @@ export class SearchResultComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
-    this.store.dispatch(SearchActions.resetSearch());
+    this.searchFacade.reset();
   }
 
 }

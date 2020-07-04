@@ -8,6 +8,20 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { ConditionsComponent } from './conditions/conditions.component';
 import { GoogleInComponent } from './google-in/google-in.component';
 
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatInputModule } from '@angular/material/input';
+
+const Material = [
+  MatDialogModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatCheckboxModule,
+  MatInputModule
+];
+
 @NgModule({
   declarations: [
     LoginComponent,
@@ -18,7 +32,8 @@ import { GoogleInComponent } from './google-in/google-in.component';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    ...Material
   ]
 })
 

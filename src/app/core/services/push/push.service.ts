@@ -1,14 +1,16 @@
 import { Injectable, Inject } from '@angular/core';
-import { HttpService } from '../http/http.service';
-import { environment } from '@env/environment';
-import { Observable } from 'rxjs';
-import { StorageService } from '@core/storage/storage.service';
 import { SwUpdate, SwPush } from '@angular/service-worker';
+import { environment } from '@env/environment';
 import { DOCUMENT } from '@angular/common';
-import { NotificationPayload, SWResponse } from '@shared/interfaces/interfaces';
-import { WELCOME_PUSH } from '@shared/shared.data';
-import { filter, switchMap } from 'rxjs/operators';
+
+import { HttpService } from '../http/http.service';
+import { StorageService } from '@core/storage/storage.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
+
+import { Observable } from 'rxjs';
+import { filter, switchMap } from 'rxjs/operators';
+import { NotificationPayload, SWResponse } from '@shared/interfaces/interfaces';
+import { WELCOME_PUSH } from '@shared/data/notifications';
 
 @Injectable({providedIn: 'root'})
 

@@ -1,19 +1,19 @@
 import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { UserResponse } from '@shared/interfaces/interfaces';
-import { StorageService } from '@core/storage/storage.service';
+import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
-import { AppState } from '@app/app.config';
-import { Store } from '@ngrx/store';
-import * as UserActions from '@core/ngrx/actions/user.actions';
-import * as fromUsers from '@core/ngrx/selectors/user.selectors';
-import { Subject, Observable } from 'rxjs';
-import { takeUntil, switchMap, filter, tap } from 'rxjs/operators';
-import { LoginComponent } from '../login.component';
+
+import { StorageService } from '@core/storage/storage.service';
 import { LoginService } from '@core/services/login/login.service';
 import { UserService } from '@core/services/user/user.service';
 import { CrafterService } from '@core/services/crafter/crafter.service';
-import { Router } from '@angular/router';
+import { UsersFacade } from '@core/ngrx/facade/users.facade';
+import { Subject, Observable } from 'rxjs';
+import { takeUntil, switchMap, filter, tap } from 'rxjs/operators';
+
+import { UserResponse } from '@shared/interfaces/interfaces';
+
+import { LoginComponent } from '../login.component';
 
 @Component({
   selector: 'app-sign-in',
@@ -32,7 +32,7 @@ export class SignInComponent implements OnInit, OnDestroy {
   constructor(
     private login: LoginService,
     private ls: StorageService,
-    private store: Store<AppState>,
+    private usersFacade: UsersFacade,
     private userSrv: UserService,
     private crafter: CrafterService,
     public dialogRef: MatDialogRef<LoginComponent>,
@@ -42,7 +42,7 @@ export class SignInComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.createSignInForm();
     this.rememberMe();
-    this.userEmail$ = this.store.select(fromUsers.getEmail);
+    this.userEmail$ = this.usersFacade.email$;
   }
 
   private createSignInForm(): void {
@@ -89,18 +89,14 @@ export class SignInComponent implements OnInit, OnDestroy {
     const re = this.ls.get('remember');
 
     if (re && id) {
-      this.store.select(fromUsers.getEmail)
+      this.usersFacade.email$
         .pipe(
           takeUntil(this.unsubscribe$),
           tap(res => this.setRemember(res)),
           filter(res => !res),
           switchMap(() => this.userSrv.getById(id))
         )
-        .subscribe(_ =>
-            this.store.dispatch(
-              UserActions.setEmail({ email: _.email })
-            )
-        );
+        .subscribe(_ => this.usersFacade.setEmail(_.email));
     }
   }
 

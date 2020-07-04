@@ -1,15 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { AppState } from '@app/app.config';
+
+import { UserService } from '@core/services/user/user.service';
+import { ArticlesFacade } from '@core/ngrx/facade/article.facade';
+import { InteractionFacade } from '@core/ngrx/facade/interaction.facade';
+
 import { Article } from '@shared/interfaces/interfaces';
 import { Subject, Observable } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { UserService } from '@core/services/user/user.service';
-
-import * as ArticleActions from '@core/ngrx/actions/article.actions';
-import * as fromArticles from '@core/ngrx/selectors/article.selectors';
-import * as InterActions from '@core/ngrx/actions/interaction.actions';
 
 @Component({
   selector: 'app-single-article',
@@ -25,37 +23,30 @@ export class SingleArticleComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private userSrv: UserService,
-    private store: Store<AppState>
+    private articleFacade: ArticlesFacade,
+    private interFacade: InteractionFacade
   ) { }
 
   ngOnInit() {
     this.getArticleBySlug();
     this.getInteraction();
-    this.article$ = this.store.select(fromArticles.getBySlug)
+    this.article$ = this.articleFacade.bySlug$;
   }
 
   private getArticleBySlug(): void {
     this.route.params
      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(params => {
-        this.store.dispatch(
-          ArticleActions.getBySlug({ slug: params.slug })
-        );
-    });
+      .subscribe(params => this.articleFacade.getBySlug(params.slug));
   }
 
   private getInteraction(): void {
-    if (this.userSrv.getUser()) {
-      this.store.dispatch(
-        InterActions.getByUser()
-      );
-    }
+    if (this.userSrv.getUser()) this.interFacade.getByUser();
   }
 
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
-    this.store.dispatch(ArticleActions.resetSlug());
+    this.articleFacade.resetBySlug();
   }
 
 }

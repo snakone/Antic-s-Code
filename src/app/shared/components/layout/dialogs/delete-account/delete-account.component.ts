@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
-import { AppState } from '@app/app.config';
-import { Store } from '@ngrx/store';
-import { User } from '@shared/interfaces/interfaces';
+import { UsersFacade } from '@core/ngrx/facade/users.facade';
+
 import { Observable } from 'rxjs';
-import * as fromUsers from '@core/ngrx/selectors/user.selectors';
+import { User } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-delete-account',
@@ -23,12 +22,12 @@ export class DeleteAccountComponent implements OnInit {
   constructor(
     private dialog: MatDialogRef<DeleteAccountComponent>,
     private translate: TranslateService,
-    private store: Store<AppState>
+    private userFacade: UsersFacade
   ) { }
 
   ngOnInit() {
     this.createDeleteAccountForm();
-    this.user$ = this.store.select(fromUsers.get);
+    this.user$ = this.userFacade.user$;
   }
 
   private createDeleteAccountForm(): void {

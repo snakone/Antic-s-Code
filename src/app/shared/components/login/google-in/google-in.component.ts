@@ -1,19 +1,19 @@
 import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
-import { GoogleService } from '@core/services/login/google.service';
-import { environment } from '@env/environment';
-import { UserResponse, User, NotificationPayload } from '@shared/interfaces/interfaces';
 import { MatDialogRef } from '@angular/material/dialog';
-import { LoginComponent } from '../login.component';
+import { Router } from '@angular/router';
+import { environment } from '@env/environment';
+
+import { GoogleService } from '@core/services/login/google.service';
 import { PushService } from '@core/services/push/push.service';
-import { Store } from '@ngrx/store';
-import { AppState } from '@app/app.config';
 import { UserService } from '@core/services/user/user.service';
 import { CrafterService } from '@core/services/crafter/crafter.service';
-import { StorageService } from '@core/storage/storage.service';
-import { NEW_USER_PUSH } from '@shared/shared.data';
-import { Router } from '@angular/router';
+
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { NEW_USER_PUSH } from '@shared/data/notifications';
+import { UserResponse, User, NotificationPayload } from '@shared/interfaces/interfaces';
+
+import { LoginComponent } from '../login.component';
 
 declare const gapi: any;
 
@@ -31,8 +31,6 @@ export class GoogleInComponent implements OnInit, OnDestroy {
     private google: GoogleService,
     public dialogRef: MatDialogRef<LoginComponent>,
     private sw: PushService,
-    private ls: StorageService,
-    private store: Store<AppState>,
     private userSrv: UserService,
     private crafter: CrafterService,
     private router: Router,

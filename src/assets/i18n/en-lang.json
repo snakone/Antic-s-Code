@@ -74,6 +74,7 @@
   "name": "Name",
   "email": "Email",
   "message": "Message",
+  "message.send": "Message send",
   "password": "Password",
   "repeat.password": "Repeat Password",
   "i.accept": "I accept the",
@@ -217,5 +218,45 @@
   "create.article": "Create an Article",
   "start.here": "Start right here",
   "apply": "Apply",
-  "see.all": "See All"
+  "see.all": "See All",
+  "errors": {
+    "server": {
+      "title": "Server Error",
+      "message": "There has been an internal error on the server. If the error continues, please try again later or contact us. Sorry for the disturbances."
+    },
+    "web": {
+      "title": "Network Error",
+      "message": "There seems to be a network error. Check that you have Internet access and try again. If the problem persists, contact us."
+    },
+    "code": {
+      "title": "Code Error",
+      "message": "Sorry, there was a runtime error in the code. Please try to refresh the page if the error continues, otherwise contact us. Sorry for the disturbances."
+    },
+    "register": {
+      "title": "Already registered",
+      "message": "If you really want to sign up for a new account other than the one you already have, please log out first and try again."
+    },
+    "request": {
+      "title": "Data Error",
+      "message": "There was an error verifying the data. Please check the entered data and try again. If the problem persists, contact us."
+    },
+    "access": {
+      "title": "Access Error",
+      "message": "Access to this service has been denied for preventing from an unknown origin. Sorry for the inconvenience, if the problem persists, contact us."
+    },
+    "token": {
+        "title": "Acceso Expired",
+        "message": "Your token to access Antic's Code has expired, but do not worry, we have updated it for you. You can continue using the page as always."
+    },
+    "unknown": {
+      "title": "Unkown error",
+      "message": "We don't know yet but something bad happened. Sorry for the inconvenience, if the problem persists, contact us."
+    }
+  },
+  "modals": {
+    "maintenance": {
+      "title": "Maintenance",
+      "message": "We are working on improving the page and some parts may not work properly. Sorry for the inconvenience, we continue to develop so that everything returns to normal as soon as possible. Thanks for your understanding."
+    }
+  }
 }

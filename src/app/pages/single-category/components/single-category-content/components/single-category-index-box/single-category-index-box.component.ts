@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CATEGORY_INDEX } from '@app/shared/shared.data';
+import { CATEGORY_INDEX } from '@shared/data/categories';
 
 @Component({
   selector: 'app-single-category-index-box',

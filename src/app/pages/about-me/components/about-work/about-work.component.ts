@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MY_COMPANIES } from '@shared/shared.data';
+import { MY_COMPANIES } from '@shared/data/me';
 
 @Component({
   selector: 'app-about-work',

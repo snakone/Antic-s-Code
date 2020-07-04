@@ -21,13 +21,6 @@
   }
 }
 
-.col-lg-12 {
-  @media(max-width: 550px) {
-    padding-right: 0;
-    padding-left: 0;
-  }
-}
-
 hr {
   @media(max-width: 993px) { margin-bottom: 2rem }
 }

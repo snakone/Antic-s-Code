@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { CONDITIONS } from '@shared/shared.data';
+import { CONDITIONS } from '@shared/data/app';
 
 @Component({
   selector: 'app-conditions',

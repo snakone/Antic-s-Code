@@ -8,7 +8,7 @@ import * as fromSearch from '@core/ngrx/reducers/search.reducer';
 import * as fromInteractions from '@core/ngrx/reducers/interaction.reducer';
 
 export const URI = 'https://anticscode.netlify.com';
-const APP_VERSION = '0.9.1';
+const APP_VERSION = '0.9.2';
 export const DESKTOP_VERSION = '0.5.2';
 
 export interface AppState {

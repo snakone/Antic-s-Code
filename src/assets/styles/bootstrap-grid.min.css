@@ -410,6 +410,14 @@
     width: 8.33333333%;
   }
 }
+
+@media(max-width: 550px) {
+  .col-lg-12 {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
 .media {
   margin-top: 15px;
 }

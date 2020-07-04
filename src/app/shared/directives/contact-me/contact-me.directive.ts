@@ -28,7 +28,7 @@ export class ContactMeDirective {
             scroll < 100
           ) &&
             !this.displayed
-         ) { return; }
+         ) return;
 
       (height - scroll) < difference || scroll < 100 ?
        (this.button.display = 'none', this.displayed = false) :

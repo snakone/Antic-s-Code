@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MY_SOFT_SKILLS, MY_HARD_SKILLS } from '@app/shared/shared.data';
+import { MY_SOFT_SKILLS, MY_HARD_SKILLS } from '@shared/data/me';
 
 @Component({
   selector: 'app-about-skills',

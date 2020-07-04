@@ -1,14 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LayoutModule } from '@app/shared/components/layout/layout.module';
-import { SharedModule } from '@app/shared/shared.module';
+
+import { MarkdownModule } from 'ngx-markdown';
+import { SharedModule } from '@shared/shared.module';
+import { LayoutModule } from '@shared/components/layout/layout.module';
 
 import { ArticlesComponent } from './articles.component';
 import { ArticlesRouting } from './articles.routing';
 import { ArticlesSidebarModule } from './components/articles-sidebar/articles-sidebar.module';
 import { ArticlesContentComponent } from './components/articles-content/articles-content.component';
 import { ArticlesSortBarComponent } from './components/articles-sort-bar/articles-sort-bar.component';
-import { MarkdownModule } from 'ngx-markdown';
+
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+
+const Material = [
+  MatTooltipModule,
+  MatFormFieldModule,
+  MatIconModule
+];
 
 @NgModule({
   declarations: [
@@ -22,7 +33,8 @@ import { MarkdownModule } from 'ngx-markdown';
     SharedModule,
     ArticlesRouting,
     ArticlesSidebarModule,
-    MarkdownModule.forChild()
+    MarkdownModule.forChild(),
+    ...Material
   ]
 })
 

@@ -1,15 +1,13 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { Article } from '@shared/interfaces/interfaces';
+
+import { ArticleService } from '@core/services/article/article.service';
+import { ArticlesFacade } from '@core/ngrx/facade/article.facade';
+import { UsersFacade } from '@core/ngrx/facade/users.facade';
+import { InteractionFacade } from '@core/ngrx/facade/interaction.facade';
+
 import { Subject, fromEvent, Observable } from 'rxjs';
 import { takeUntil, debounceTime, switchMap, filter, takeWhile } from 'rxjs/operators';
-import { ArticleService } from '@core/services/article/article.service';
-import { AppState } from '@app/app.config';
-import { Store } from '@ngrx/store';
-
-import * as ArticleActions from '@core/ngrx/actions/article.actions';
-import * as fromArticles from '@core/ngrx/selectors/article.selectors';
-import * as InterActions from '@core/ngrx/actions/interaction.actions';
-import * as fromUsers from '@core/ngrx/selectors/user.selectors';
+import { Article } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-articles-content',
@@ -26,7 +24,9 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
 
   constructor(
     private articleSrv: ArticleService,
-    private store: Store<AppState>
+    private userFacade: UsersFacade,
+    private articleFacade: ArticlesFacade,
+    private interactionFacade: InteractionFacade
   ) { }
 
   ngOnInit() {
@@ -34,36 +34,29 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
     this.hasEnded();
     this.getInteraction();
     this.section = document.getElementById('articles-section');
-    this.articles$ = this.store.select(fromArticles.get);
+    this.articles$ = this.articleFacade.articles$;
   }
 
   private checkData(): void {
-    this.store.select(fromArticles.getLoaded)
+    this.articleFacade.loaded$
      .pipe(
        filter(res => !res),
        takeUntil(this.unsubscribe$)
       )
-     .subscribe(_ => {
-         this.store.dispatch(
-           ArticleActions.get()
-        );
-    });
+     .subscribe(_ => this.articleFacade.get());
   }
 
   private getInteraction(): void {
-    this.store.select(fromUsers.get)
+    this.userFacade.user$
      .pipe(
        filter(res => !!res),
        takeUntil(this.unsubscribe$)
       )
-     .subscribe(_ =>
-      this.store.dispatch(
-        InterActions.getByUser()
-    ));
+     .subscribe(_ => this.interactionFacade.getByUser());
   }
 
   private hasEnded(): void {
-    this.store.select(fromArticles.getFull)
+    this.articleFacade.getFull$
     .pipe(
       takeUntil(this.unsubscribe$),
       switchMap(_ => (
@@ -83,7 +76,7 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
       const top = e.target.scrollingElement.scrollTop;
       if (this.section.offsetHeight - top <= bottom) {
         setTimeout(() => {
-          this.store.dispatch(ArticleActions.get());
+          this.articleFacade.get();
         }, 300);
      }
     } catch (err) { console.log(err); }
@@ -91,8 +84,8 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
 
   private fromBottom(): number {
     let bottom = 450;
-    if (this.grid) { bottom = 850; }
-    if (window.document.body.clientWidth < 985) { bottom = 1400; }
+    if (this.grid) bottom = 850;
+    if (window.document.body.clientWidth < 985) bottom = 1400;
     return bottom;
   }
 
@@ -100,7 +93,7 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
     this.articleSrv.resetPage();
-    this.store.dispatch(ArticleActions.reset());
+    this.articleFacade.reset();
   }
 
 }

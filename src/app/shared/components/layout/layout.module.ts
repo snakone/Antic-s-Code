@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { BoxesModule } from './boxes/boxes.module';
@@ -7,20 +8,27 @@ import { NavbarModule } from './navbar/navbar.module';
 import { ArticlesGridModule } from './grid/articles-grid/articles-grid.module';
 import { ArticleLayoutModule } from './article-layout/article-layout.module';
 import { SnackbarsModule } from './snackbars/snackbars.module';
+import { DialogsModule } from './dialogs/dialogs.module';
+import { CardsModule } from './cards/cards.module';
+import { SwiperModule } from 'ngx-swiper-wrapper';
+import { SharedModule } from '../../shared.module';
 
 import { CategoryGridComponent } from './grid/category-grid/category-grid.component';
 import { SectionComponent } from './section/section.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { LoadingComponent } from './loading/loading.component';
 import { PaginationComponent } from './pagination/pagination.component';
-import { SharedModule } from '../../shared.module';
-import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { GoTopComponent } from './go-top/go-top.component';
-import { DialogsModule } from './dialogs/dialogs.module';
 import { CarouselComponent } from './carousel/carousel.component';
-import { SwiperModule } from 'ngx-swiper-wrapper';
-import { CardsModule } from './cards/cards.module';
+
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+
+const Material = [
+  MatIconModule,
+  MatButtonModule
+];
 
 @NgModule({
   declarations: [
@@ -45,7 +53,8 @@ import { CardsModule } from './cards/cards.module';
     SnackbarsModule,
     DialogsModule,
     SwiperModule,
-    CardsModule
+    CardsModule,
+    ...Material
   ],
   exports: [
     ArticleLayoutModule,

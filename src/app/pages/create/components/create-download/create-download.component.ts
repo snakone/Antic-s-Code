@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DESKTOP_VERSION } from '@app/app.config';
-import { DOWNLOAD_BUTTONS } from '@shared/shared.data';
+import { DOWNLOAD_BUTTONS } from '@shared/data/download';
 
 @Component({
   selector: 'app-create-download',
