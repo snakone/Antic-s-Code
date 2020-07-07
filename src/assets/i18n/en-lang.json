@@ -496,5 +496,7 @@
         }
       }
     }
-  }
+  },
+  "like": "Like",
+  "share": "Share"
 }

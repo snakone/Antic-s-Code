@@ -23,6 +23,12 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "aot": true,
+            "allowedCommonJsDependencies": [
+              "hammerjs",
+              "socket.io-client",
+              "debug",
+              "socket.io-parser"
+            ],
             "assets": [
               "src/assets",
               "src/manifest.webmanifest",
