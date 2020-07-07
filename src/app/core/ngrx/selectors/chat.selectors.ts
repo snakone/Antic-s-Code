@@ -16,10 +16,6 @@ export const getLoaded = createSelector(
   getChatState, fromChat.getLastLoaded
 );
 
-export const getLast = createSelector(
-  getChatState, fromChat.getLast
-);
-
 export const getLastLoaded = createSelector(
   getChatState, fromChat.getLastLoaded
 );

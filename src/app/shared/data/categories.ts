@@ -122,23 +122,23 @@ export const POPULAR_CATEGORIES: List[] = [
 
 export const CATEGORY_INDEX: Index[] = [
   {
-    title: 'Introducción',
-    subtitle: 'Una breve introducción',
+    title: 'category.index.intro.title',
+    subtitle: 'category.index.intro.subtitle',
     id: 'introducción'
   },
   {
-    title: 'Conceptos',
-    subtitle: 'Conceptos básicos',
+    title: 'category.index.concepts.title',
+    subtitle: 'category.index.concepts.subtitle',
     id: 'conceptos'
   },
   {
-    title: 'Ejemplos',
-    subtitle: 'Aprende con ejemplos',
+    title: 'category.index.examples.title',
+    subtitle: 'category.index.examples.subtitle',
     id: 'ejemplos'
   },
   {
-    title: 'Preguntas y Respuestas',
-    subtitle: 'Preguntas frecuentes',
+    title: 'category.index.question.title',
+    subtitle: 'category.index.question.subtitle',
     id: 'cat-faq'
   },
 ];

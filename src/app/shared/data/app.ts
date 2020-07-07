@@ -36,11 +36,11 @@ export const PAGE_BG = {
 };
 
 export const CONDITIONS: string[] = [
-  'term.one',
-  'term.two',
-  'term.three',
-  'term.four',
-  'term.five',
+  'terms.one',
+  'terms.two',
+  'terms.three',
+  'terms.four',
+  'terms.five',
 ];
 
 // AOS Settings

@@ -1,4 +1,4 @@
-<app-content-box [title]="'settings' | translate"
+<app-content-box title="settings"
                  icon="settings">
     <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
       <mat-form-field color="accent" appearance="outline">
@@ -28,7 +28,7 @@
           <mat-option *ngFor="let e of show"
                       [value]="e.show"
                       role="option">
-            {{e.text}}
+            {{e.text | translate}}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -39,7 +39,7 @@
           <mat-option *ngFor="let c of show"
                       [value]="c.show"
                       role="option">
-            {{c.text}}
+            {{c.text | translate}}
           </mat-option>
         </mat-select>
       </mat-form-field>

@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '@app/shared/shared.module';
+
 import { SwiperModule } from 'ngx-swiper-wrapper';
-import { LayoutModule } from '@app/shared/components/layout/layout.module';
+import { SectionModule } from '@layout/section/section.module';
+import { CarouselModule } from '@layout/carousel/carousel.module';
 
 import { TestimonialHomeComponent } from './testimonial-home.component';
 import { CarouselHomeComponent } from './components/carousel-home/carousel-home.component';
@@ -15,8 +17,9 @@ import { TestimonialCardComponent } from './components/testimonial-card/testimon
   ],
   imports: [
     SwiperModule,
-    LayoutModule,
-    SharedModule
+    SectionModule,
+    SharedModule,
+    CarouselModule
   ],
   exports: [
     TestimonialHomeComponent

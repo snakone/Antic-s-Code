@@ -2,17 +2,19 @@
 
 .row {
   margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 7rem;
   display: flex;
   flex-wrap: wrap;
  }
 
 img {
-  max-width: 95%;
+  max-width: 69%;
   margin-left: 3rem;
-  margin-top: .3rem;
+  margin-top: .5rem;
   border-radius: 4px;
 }
+
+h3 { margin-top: 0 !important }
 
 .col-lg-6 {
   max-width: 576px;
@@ -32,19 +34,12 @@ img {
   }
 }
 
-ul {
-  margin-top: 1.6rem;
-  margin-left: 20px !important;
-
-  & li {
-    margin: .66rem auto;
-  }
-}
+ul { margin-top: 2rem }
 
 .image {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 
   @media(max-width: 992px) {
     display: none;

@@ -10,7 +10,8 @@ import * as fromChat from '@core/ngrx/reducers/chat.reducer';
 
 export const URI = 'https://anticscode.netlify.com';
 const APP_VERSION = '0.9.2';
-export const DESKTOP_VERSION = '0.5.2';
+export const DESKTOP_VERSION = '0.5.3';
+export const MOBILE_VERSION = '0.1.2';
 
 export interface AppState {
   articles: fromArticles.ArticleState;

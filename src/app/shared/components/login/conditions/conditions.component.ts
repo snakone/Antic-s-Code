@@ -14,7 +14,7 @@ export class ConditionsComponent {
 
   constructor() { }
 
-  closeConditions(): void {
+  public closeConditions(): void {
     this.close.emit(true);
   }
 

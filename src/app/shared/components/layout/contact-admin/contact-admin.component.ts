@@ -1,13 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+
 import { UserService } from '@core/services/user/user.service';
 import { StorageService } from '@core/storage/storage.service';
-import * as fromChat from '@core/ngrx/selectors/chat.selector';
-import * as ChatActions from '@core/ngrx/actions/chat.actions';
+import { ChatFacade } from '@core/ngrx/facade/chat.facace';
+
 import { Observable, Subject } from 'rxjs';
+import { filter, takeUntil } from 'rxjs/operators';
 import { ChatMessage } from '@app/shared/interfaces/interfaces';
-import { Store } from '@ngrx/store';
-import { AppState } from '@app/app.config';
-import { filter, takeUntil, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-contact-admin',
@@ -24,23 +23,23 @@ export class ContactAdminComponent implements OnInit, OnDestroy {
   constructor(
     public user: UserService,
     public ls: StorageService,
-    private store: Store<AppState>
+    private chatFacade: ChatFacade
   ) { }
 
   ngOnInit(): void {
     this.checkData();
-    this.messages = this.store.select(fromChat.getMessages);
+    this.messages = this.chatFacade.messages$;
   }
 
   private checkData(): void {
-    this.store.select(fromChat.getLoaded)
+    this.chatFacade.loaded$
      .pipe(
        filter(res => !res),
        takeUntil(this.unsubscribe$)
       )
      .subscribe(_ => {
-        this.store.dispatch(ChatActions.getFirst());
-        this.store.dispatch(ChatActions.getMessages());
+        this.chatFacade.getMessages();
+        this.chatFacade.getFirst();
     });
   }
 

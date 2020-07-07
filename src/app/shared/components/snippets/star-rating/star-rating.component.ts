@@ -1,14 +1,14 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { URI } from '@app/app.config';
 
-import { UserService } from '@app/core/services/user/user.service';
+import { UserService } from '@core/services/user/user.service';
 import { CrafterService } from '@core/services/crafter/crafter.service';
 import { InteractionService } from '@core/services/interaction/interaction.service';
+import { PushService } from '@core/services/push/push.service';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { STAR_PUSH } from '@shared/data/notifications';
-import { PushService } from '@core/services/push/push.service';
 import { Article, User, Interaction, NotificationPayload } from '@shared/interfaces/interfaces';
 
 import { NoAccountComponent } from '@layout/dialogs/no-account/no-account.component';

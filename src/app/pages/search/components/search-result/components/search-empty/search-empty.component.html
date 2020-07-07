@@ -21,7 +21,7 @@
             <span class="defined"
                   *ngFor="let t of req.tags; let i = index">
                 <span class="slash" *ngIf="i >= 1"> - </span>
-                {{t + ' '}}
+                {{(t | translate) + ' '}}
             </span>
           </span>
         </li>
@@ -30,7 +30,7 @@
             <span class="defined"
                  *ngFor="let l of req.level; let i = index">
                 <span class="slash" *ngIf="i >= 1"> - </span>
-                {{l + ' '}}
+                {{(l | translate) + ' '}}
             </span>
           </span>
         </li>
@@ -48,7 +48,7 @@
             <span class="defined"
                   *ngFor="let b of req.badges; let i = index">
                 <span class="slash" *ngIf="i >= 1"> - </span>
-                {{b + ' '}}
+                {{(b | translate) + ' '}}
             </span>
           </span>
         </li>
@@ -63,10 +63,10 @@
         </li>
         <li><span class="bold black">{{'order.title' | translate}}: </span>
           <span *ngIf="req.sort; else notDefined">
-            <span class="defined" *ngIf="req.sort === -1">
+            <span class="defined" *ngIf="req.sort === '-1'">
               {{'order.desc' | translate}}
              </span>
-             <span class="defined" *ngIf="req.sort === 1">
+             <span class="defined" *ngIf="req.sort === '1'">
               {{'order.asc' | translate}}
              </span>
           </span>

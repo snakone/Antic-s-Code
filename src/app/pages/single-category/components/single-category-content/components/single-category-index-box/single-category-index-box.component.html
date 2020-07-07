@@ -1,8 +1,8 @@
-<h2>Índice de Contenido</h2>
+<h2>{{'content.index' | translate}}</h2>
 <ul>
   <li (click)="scroll(i.id)"
-      *ngFor="let i of index">{{i.title}}
-      <p>{{i.subtitle}}</p>
+      *ngFor="let i of index">{{i.title | translate}}
+      <p>{{i.subtitle | translate}}</p>
   </li>
 </ul>
 

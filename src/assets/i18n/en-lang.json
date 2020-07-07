@@ -5,6 +5,7 @@
   "categories": "Categories",
   "article": "Article",
   "articles": "Articles",
+  "user": "User",
   "users": "Users",
   "our.users": "Our Users",
   "users.list": "User List",
@@ -13,6 +14,7 @@
   "advantages": "Advantages",
   "collaborate": "Cooperate",
   "support": "Support",
+  "get.support": "Get Support",
   "about.me": "About Me",
   "searcher": "Searcher",
   "enter": "Log In",
@@ -44,12 +46,15 @@
   "info": "Information",
   "contact": "Contact",
   "politics": "Policies",
+  "our.politics": "Our Policies",
   "useful.links": "Useful Links",
   "register": "Register",
   "how.it.works": "How it works?",
+  "discover.works": "Discover how to use Antic's",
   "connect.me": "Connect with Me",
   "help": "Help",
   "on.desktop": "Antic's Desktop",
+  "download": "Download",
   "download.app": "Download the App",
   "learn": "Learn Development",
   "find.any": "Search, find any kind of related articles, tutorials, code, videos...",
@@ -79,18 +84,20 @@
   "repeat.password": "Repeat Password",
   "i.accept": "I accept the",
   "accept": "Accept",
-  "terms.use": "Terms of use",
   "chars": "Characters",
   "remember": "Remember Me?",
   "sign.in": "Log In",
   "sign.in.error": "Error on Log In",
   "no.account": "No Account?",
   "register.now": "Register now!",
-  "term.one": "The use of this portal is completely free. You do not need an account to be able to see it's content.",
-  "term.two": "With an account on your own, You will be able to interact with the portal, track your learning as You use it. You'll have access to your own profile which you can share to show others what you're made of.",
-  "term.three": "Your data will be used exclusively for the use of this portal. In no case will it be given to third parties. Sensitive data such as passwords are encrypted, only you will have access to them.",
-  "term.four": "Remember to maintain a healthy attitude when interacting with other users. We all want to learn. You can also teach something to others.",
-  "term.five": "The content of the portal is strictly oriented to a technological audience of any level, especially focused on web development with Javacript. It is also a good place to learn from scratch some modern web technology.",
+  "terms": {
+    "use": "Terms of use",
+    "one": "The use of this portal is completely free. You do not need an account to be able to see it's content.",
+    "two": "With an account on your own, You will be able to interact with the portal, track your learning as You use it. You'll have access to your own profile which you can share to show others what you're made of.",
+    "three": "Your data will be used exclusively for the use of this portal. In no case will it be given to third parties. Sensitive data such as passwords are encrypted, only you will have access to them.",
+    "four": "Remember to maintain a healthy attitude when interacting with other users. We all want to learn. You can also teach something to others.",
+    "five": "The content of the portal is strictly oriented to a technological audience of any level, especially focused on web development with Javacript. It is also a good place to learn from scratch some modern web technology."
+  },
   "views": "Views",
   "Básico": "Basic",
   "Medio": "Medium",
@@ -103,19 +110,13 @@
   "last.article": "Last Articles",
   "index": "Index",
   "article.useful": "Have You found it useful?",
+  "article.rate": "Rate this Article",
   "Nuevo": "New",
   "Destacado": "Prominent",
   "Popular": "Hot",
   "published": "Published:",
   "written": "Written:",
   "favorite": "Favorite",
-  "all.code": "All the Code",
-  "code.list": "Code List",
-  "welcome.code": "Welcome to the code list. Here you will find all the code used on the articles of this portal. It's a",
-  "library": "library",
-  "of.code": "where you can find interesting things and learn something new.",
-  "code.intro": "The code is randomly sorted to give the feeling that You see new code every time. Read the description to find out what the code is, find out about the level necessary to carry it out, that includes complexity, knowledge of the user and time of accomplishment.",
-  "code.final": "Finally, the code is sorted by categories. Use the list to",
   "order": "sort by",
   "the.code": " your favorite category.",
   "code.now": "Actually there's",
@@ -124,6 +125,7 @@
   "all.categories": "All the Categories",
   "all.articles": "All the Articles",
   "updated": "Updated",
+  "no.updated": "Not updated",
   "config.save": "Configuration saved",
   "welcome": "Welcome",
   "server.error": "Server Error",
@@ -152,7 +154,7 @@
   "profile.updated": "Profile updated",
   "success": "Success",
   "update.failed": "Error Updating",
-  "log.out": "Log out",
+  "log.out": "Log Out",
   "actions": "Actions",
   "delete.acc": "Delete Account",
   "favorite.lang": "Your favorite Language",
@@ -215,7 +217,7 @@
   "log.now": "Sign in",
   "thanks.much": "Thank You so much!",
   "create": "Create",
-  "create.article": "Create an Article",
+  "create.article": "Create Content",
   "start.here": "Start right here",
   "apply": "Apply",
   "see.all": "See All",
@@ -245,7 +247,7 @@
       "message": "Access to this service has been denied for preventing from an unknown origin. Sorry for the inconvenience, if the problem persists, contact us."
     },
     "token": {
-        "title": "Acceso Expired",
+        "title": "Acces Expired",
         "message": "Your token to access Antic's Code has expired, but do not worry, we have updated it for you. You can continue using the page as always."
     },
     "unknown": {
@@ -259,5 +261,240 @@
       "message": "We are working on improving the page and some parts may not work properly. Sorry for the inconvenience, we continue to develop so that everything returns to normal as soon as possible. Thanks for your understanding."
     }
   },
-  "chat.button": "Chat Button"
+  "chat.button": "Chat Button",
+  "score.article": "Score this Article",
+  "enter.with": "Or enter with...",
+  "no.write.yet": "I ain't write anything yet. I'm on it!",
+  "articles.of": "{{name}}'s Articles",
+  "related.articles": "Related Articles",
+  "see.more": "See more",
+  "faq": "Questions and Answers",
+  "most.viewed": "The most Viewed",
+  "users.intro": "<p class='first-p'>All registered Users in <strong>Antic's Code</strong> are listed below.</p><p>You can find developers and designers of all kinds. Perhaps some of them may be the person you need to bring your ideas to reality. Remember you can register for <strong>free</strong> and join this community!</p><p>Actually We are <strong>{{count}}</strong> developers and designers!</p>",
+  "know.me": "Behind the Scenes",
+  "get.help": "Get help",
+  "see.more.related": "See more related Articles",
+  "show": "Show",
+  "hide": "Hide",
+  "live.chat": "Live Chat",
+  "content.index": "Index Content",
+  "search.any": "Search for anything...",
+  "search.users": "Search for Users",
+  "created.on": "Created in",
+  "article.create": "Article Creation",
+  "antics.intro": "We introduce Antic's Code Desktop a <strong>desktop</strong> program with which you will be able to create content for this same portal. It is easier than you think, for this follow these simple steps:",
+  "download.steps": {
+    "one": "Download the application for your platform",
+    "two": "Login with your own Antic's Code account",
+    "three": "Enter into the <strong>Create</strong> section, green pencil icon",
+    "four": "Follow the instructions",
+    "five": "Once approved, your Article will be live"
+  },
+  "create.anything": "Create all kinds of content",
+  "desktop.intro": "Do you find it interesting? Do you want to join a community of developers? Download Antic's Code now! It is totally free. You will need an Antic's Code account to enter.",
+  "actual.version": "Current version:",
+  "and.now": "And now",
+  "create.anywhere": "Create content from wherever you want",
+  "mobile.intro": "Do you want to create content from anywhere? Now with Antic's Code <strong>Mobile</strong> it is possible. Download the application, you can create and edit your content on any place. What are you waiting for?",
+  "create.slides": {
+    "start": {
+      "title": "Write an Article",
+      "subtitle": "Basic concepts for good writing.",
+      "message": "One of the few requirements for writing in Antic's Code is knowing Markdown, everything else is up to you. Articles will be visible both here and in Antic's Code Desktop. What are you waiting to capture your knowledge?"
+    },
+    "form": {
+      "title": "Article Creation",
+      "subtitle": "A good Article contains a great variety of information.",
+      "message": "Take your time to fill in the details of the Article. It is important to know how to choose well. The title will serve to create a unique link with which you can share the content."
+    },
+    "form-valid": {
+      "title": "Fill the Data",
+      "subtitle": "We take seriously maintaining the same format for all Articles.",
+      "message": "Fill in the data, the more information you provide, the richer content it will be. Writing a good introduction is essential to attract readers, keep that in mind."
+    },
+    "markdown": {
+      "title": "Let's do it",
+      "subtitle": "Use Markdown to write a rich Article.",
+      "message": "You will have a panel to write Makrdown and a preview of the Article. Don't worry if you need a break. If you exit the application, You can downupload the Article where you left it."
+    },
+    "info": {
+      "title": "Additional Information",
+      "subtitle": "You can add links regarding the Article.",
+      "message": "Add external links to increase the value of the Article. Leaving the reader at a standstill is something important to avoid as it leads to abandoning the application."
+    },
+    "article": {
+      "title": "Your content",
+      "subtitle": "Create and share content with other people interested in programming.",
+      "message": "When the moderation team approves your Article, it will be listed along with the others. From that moment, any user will be able to read and learn from your content."
+    }
+  },
+  "testimonials": {
+    "one": "A fantastic place, to carry good practices. Antic's Code helps me stay current in the tech industry.",
+    "two": "Using Antic's Code is really easy, I have found all the necessary items without getting lost. It is the best place to write your Article.",
+    "three": "I know few places where you can easily share information, and Antic's Code is one of the best."
+  },
+  "category.index": {
+    "intro": {
+      "title": "Introduction",
+      "subtitle": "A short introduction"
+    },
+    "concepts": {
+      "title": "Concepts",
+      "subtitle": "Basic concepts"
+    },
+    "examples": {
+      "title": "Examples",
+      "subtitle": "Learn with examples"
+    },
+    "question": {
+      "title": "Answer and Questions",
+      "subtitle": "Frequently questions"
+    }
+  },
+  "in.touch": "We are in <span>Contact</span>",
+  "lets.talk": "Let's Talk?",
+  "social.media": "Social Media",
+  "send.message": "Send Message",
+  "pro.obj": "Career <span>Goals</span>",
+  "meta.client": "Goals and Benefits for clients",
+  "tech.skills": "Quality <span>Techniques</span>",
+  "skills.develop": "Skills and Performance",
+  "learned.on": "I learned it on",
+  "job.world": "World of <span>Work</span>",
+  "experience": "Experience",
+  "rank": "Rank",
+  "now.working": "(Currently exercising)",
+  "task.done": "Completed tasks",
+  "featured.clients": "Featured Clients",
+  "skip": "Skip",
+  "crono": "Chronology",
+  "me": {
+    "history": "<span> History </span> of a Developer",
+    "like.see": "You like what you see? Do you think I can be useful in any of your projects? I have created this site with passion and it is just an example of what I can do. Although my specialty is <span class='angular'>Angular</span>/<span class='ionic'>Ionic</span>, I am open to all kinds of technologies related to modern web development.<br> If you are interested, you can send me a message and tell me your story and why you want me to be in it, we will surely reach an agreement.",
+    "build": "I personally built this site to help myself share content in a simple and beautiful way with other people interested in programming. <br> Do you think I did a good job? If you think so, surely you can <strong>benefit</strong> from my knowledge and experience in one way or another. <br> If you want to contact me you can do so at the bottom of this page or using the button in the lower left corner.",
+    "quote": "My main objective is to use my knowledge to develop <strong>Software</strong> that helps other people or entities to be better every day. Thanks to this and with a lot of effort someday I will fulfill one of my goals, to be a recognized <strong>programmer</strong>.",
+    "intro": "My name is Sergio Martínez and I am the <strong>creator</strong> of this site. My idea was to have my own space to share my knowledge about programming using the technologies I know how to use. <br> Join me to get to know the person behind all this a little better. It should be noted that the system is built entirely <strong>from scratch</strong>, without using content management libraries or other similar software.",
+    "time": {
+      "born": "I was born in a privileged place, <strong> Barcelona </strong>. In the last century, this city has been one of the great technological references worldwide, especially thanks to the well-known 'Mobile World Congress'",
+      "school": "At school I was one of the first to learn multiplication tables from memory, and the faculty of teachers thought about taking me a whole course ahead of time because of the results I was giving. Which it didn't happen in the end.",
+      "collage": "My walk through the <strong>institute</strong> was quite normal. It should be noted that in one of those years, I got first place in a contest for the best story on the day of Sant Jordi. <br> I spoke about the human being and abstract thought.",
+      "first": "I created my first web page in the <strong>computer</strong> classes of the institute and to this day I have not stopped learning and creating new things.",
+      "study": "I left the path aside to venture into <strong>Vocational Training</strong>. I decided on the technological branch starting with the most basic, electricity and electronics.",
+      "more": "I followed the path I had taken and continued my studies in technology, however this time with higher studies in <strong>computing and telecommunications</strong>.",
+      "cim": "At the <strong>CIM</strong> foundation, part of the Polytechnic University of Catalonia, I learned to connect the web pages that I liked so much to <strong>databases</strong>, increasing their degree of complexity.",
+      "ita": "History repeats itself, it seems that technology is faster than me. I left my job which had nothing to do with this matter to try again to study web programming, my true <strong>passion</strong>, this time in an academy called <strong>IT Academy Barcelona</strong>.",
+      "job": "Thanks to <strong>IT Academy Barcelona</strong> I finally found a job in a software development company. <br> From here I give <strong>thanks</strong> to all the people who helped me get to this moment. Greetings to all of them.",
+      "keep": "I'm still working as a software developer, right now although <strong>away</strong> from the office. In this time I have learned more about Angular and also <strong> working as a team </strong> with other developers. <br> Coordinating with the other teams involved in development is essential to keep a good pace of work."
+    },
+    "skills": {
+      "hard": {
+        "html": {
+          "area": "Creation of web pages",
+          "message": "Layout, structure, indentation, readable, standards, accessibility."
+        },
+        "css": {
+          "area": "Web-page design",
+          "message": "Cascade, inheritance, box-model, flex-box, layouts, interfaces, SCSS."
+        },
+        "js": {
+          "area": "Programming",
+          "message": "Clean, Ecmascript, logical, reactive, readable, async-wait, operations."
+        },
+        "php": {
+          "area": "Programming",
+          "message": "Connections, form submission, processing and displaying data."
+        },
+        "sql": {
+          "area": "Relational database",
+          "message": "Administration and database design, entity-relationship model."
+        },
+        "press": {
+          "area": "Content manager",
+          "message": "Installation, administration, editing, design, writing content."
+        },
+        "node": {
+          "area": "Javascript web server",
+          "message": "Environment, use of npm packages, dependencies, updates, libraries."
+        },
+        "angular": {
+          "area": "Web Framework",
+          "message": "Creation of web applications of all kinds, modular, readable, reusable."
+        },
+        "mongo": {
+          "area": "Non-relational database",
+          "message": "Design and manage non-relational databases based on JSON."
+        },
+        "express": {
+          "area": "Node Framework",
+          "message": "Creation of servers, REST API, controllers, middlewares, JWT."
+        },
+        "ts": {
+          "area": "Programming",
+          "message": "Classes, interfaces, typing, readable, autocomplete, avoid errors."
+        },
+        "vsc": {
+          "area": "Work environment",
+          "message": "Extensions, emmet, keyboard shortcuts, integrated terminal."
+        },
+        "bootstrap": {
+          "area": "Responsive Design",
+          "message": "Grid, responsive, mobile first, classes, flex-box, interface design."
+        },
+        "heroku": {
+          "area": "Server hosting",
+          "message": "Deployment of applications to the cloud, administration, monitoring."
+        },
+        "jquery": {
+          "area": "Programming",
+          "message": "Understand and execute scripts of all kinds for certain functionalities."
+        },
+        "git": {
+          "area": "Teamwork",
+          "message": "Corporate environment to work in various development environments."
+        },
+        "ionic": {
+          "area": "Hybrid",
+          "message": "Creation, expansion and correction of applications for mobile phones."
+        },
+        "rxjs": {
+          "area": "Reactive programming",
+          "message": "Observables, data flow, pipes, operators, flow management."
+        }
+      },
+      "soft": {
+        "cooperation": "Cooperation",
+        "client": "Customer orientation",
+        "network": "Networking",
+        "communication": "Communication",
+        "empathy": "Empathy",
+        "plan": "Planning",
+        "easy": "Easy learning",
+        "knowledge": "Knowledge",
+        "flex": "Flexibility",
+        "creative": "Creativity",
+        "hope": "Enthusiasm",
+        "concept": "Conceptual thinking",
+        "order": "Order and Quality",
+        "look": "Good presence",
+        "spirit": "Overcoming spirit",
+        "compromise": "Commitment"
+      }
+    },
+    "work": {
+      "slash": {
+        "type": "Software Consultant",
+        "task": {
+          "one": "Give technological solutions to other companies using software.",
+          "two": "Agile, fast and efficient development. Average delivery time, 3 months."
+        }
+      },
+      "ats": {
+        "type": "Software Consultant",
+        "task": {
+          "one": "Develop specific solutions for various types of applications.",
+          "two": "Coordinate the different teams that are related to the Frontend development."
+        }
+      }
+    }
+  }
 }

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LayoutModule } from '@shared/components/layout/layout.module';
 import { SharedModule } from '@shared/shared.module';
 
 import { ProfileContentComponent } from './profile-content.component';
@@ -10,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { BoxesModule } from '@layout/boxes/boxes.module';
 
 const Material = [
   MatFormFieldModule,
@@ -25,8 +25,8 @@ const Material = [
   ],
   imports: [
     CommonModule,
-    LayoutModule,
     SharedModule,
+    BoxesModule,
     ...Material
   ],
   exports: [ProfileContentComponent]

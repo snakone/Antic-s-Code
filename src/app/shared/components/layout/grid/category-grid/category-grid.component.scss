@@ -86,6 +86,10 @@ img {
   width: 100%;
 }
 
+@media(min-width: 800px) {
+  .col-lg-4 { max-width: 359px }
+}
+
 @media(max-width: 820px) and (min-width: 803px) {
   .col-lg-4 {
     max-width: 340px;

@@ -128,7 +128,7 @@ export interface SearchRequest {
   badges?: string[];
   stars?: number[];
   type?: string[];
-  sort?: number;
+  sort?: string;
 }
 
 export interface MessageRequest {
@@ -181,7 +181,6 @@ export interface CarouselSlide {
 
 export interface DownloadButton {
   platform: string;
-  class: string;
   icon: string;
   link: string;
 }

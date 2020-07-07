@@ -1,23 +1,42 @@
 import {
   Directive,
-  HostListener,
   ElementRef,
   Output,
-  EventEmitter
+  EventEmitter,
+  AfterViewInit,
+  OnDestroy
 } from '@angular/core';
+
+import { Subject, fromEvent } from 'rxjs';
+import { takeUntil, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 // tslint:disable-next-line:directive-selector
 @Directive({selector: '[ContactMe]'})
 
-export class ContactMeDirective {
+export class ContactMeDirective implements AfterViewInit, OnDestroy {
 
   @Output() show = new EventEmitter<void>();
   button = this.el.nativeElement;
   displayed = false;
+  private unsubscribe$ = new Subject<void>();
 
   constructor(private el: ElementRef) { }
 
-  @HostListener('window:scroll') do() {
+  ngAfterViewInit(): void {
+    this.listenScroll();
+  }
+
+  private listenScroll(): void {
+    fromEvent(window, 'scroll')
+      .pipe(
+        takeUntil(this.unsubscribe$),
+        debounceTime(100),
+        distinctUntilChanged()
+      )
+      .subscribe(() => this.onScroll());
+  }
+
+  private onScroll(): void {
     try {
       const scroll = document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight;
@@ -46,6 +65,11 @@ export class ContactMeDirective {
 
   private untoggle(): void {
     this.button.classList.remove('moveUp');
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
 }

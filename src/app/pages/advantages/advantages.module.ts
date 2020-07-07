@@ -4,15 +4,19 @@ import { CommonModule } from '@angular/common';
 import { AdvantagesRoutingModule } from './advantages.routing';
 import { AdvantagesComponent } from './advantages.component';
 import { SharedModule } from '@app/shared/shared.module';
-import { LayoutModule } from '@app/shared/components/layout/layout.module';
+
+import { SectionModule } from '@layout/section/section.module';
+import { PageHeaderModule } from '@layout/page-header/page-header.module';
+
 
 @NgModule({
   declarations: [AdvantagesComponent],
   imports: [
     CommonModule,
     AdvantagesRoutingModule,
-    LayoutModule,
     SharedModule,
+    SectionModule,
+    PageHeaderModule,
   ]
 })
 

@@ -89,7 +89,7 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
   private markInteraction(ints: Interaction[]): void {
     const int = ints.filter((i: Interaction) => (
         i.content === this.article._id &&
-        i.user === this.user._id &&
+        i.user === this.user?._id &&
         i.type === 'like'
       )
     );

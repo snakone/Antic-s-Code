@@ -8,18 +8,5 @@
    }
 }
 
-.col-lg-8 {
-  max-width: 100%;
-  @media(max-width: 992px) {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  @media(max-width: 550px) {
-   padding-right: 0;
-   padding-left: 0;
-  }
-}
-
 .hide { display: none }
 

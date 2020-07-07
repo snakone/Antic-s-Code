@@ -4,7 +4,6 @@ import { ChatMessage } from '@shared/interfaces/interfaces';
 
 export interface ChatState {
   messages: ChatMessage[];
-  last: ChatMessage;
   lastLoaded: boolean;
   lastMessage: string;
   loaded: boolean;
@@ -15,7 +14,6 @@ export const inititalState: ChatState = {
   messages: [],
   loaded: false,
   error: null,
-  last: null,
   lastLoaded: false,
   lastMessage: ''
 };
@@ -74,7 +72,6 @@ const featureReducer = createReducer(
 
 export const getMessages = (state: ChatState) => state.messages;
 export const getLoaded = (state: ChatState) => state.loaded;
-export const getLast = (state: ChatState) => state.last;
 export const getLastLoaded = (state: ChatState) => state.lastLoaded;
 
 export function reducer(state: ChatState | undefined, action: Action) {

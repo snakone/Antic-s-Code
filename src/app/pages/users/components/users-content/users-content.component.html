@@ -1,22 +1,13 @@
-<app-content-box [title]="'users.list' | translate">
-  <p>A continuación se lista todos los usuarios registrados en
-    <strong>Antic's Code</strong>.
-  </p>
-  <p>
-    Puedes encontrar desarrolladores y
-    diseñadores de todo tipo. Quizá alguno de ellos pueda ser la persona
-    que necesitas para llevar tus ideas a la realidad.
-  </p>
-  <p>¡Actualmente somos
-    <strong>{{users?.length || 0}}</strong>
-    programadores!
-  </p>
-
+<app-content-box title="users.list">
+  <div [innerHTML]="'users.intro' | translate: {
+                                      count: users ? users.length : 0
+                                    }">
+  </div>
   <div class="search-user">
     <mat-form-field appearance="outline"
                     color="accent"
                     class="search-users">
-      <mat-label>Buscar</mat-label>
+      <mat-label>{{'search.users' | translate}}</mat-label>
       <mat-icon matPrefix>search</mat-icon>
       <input type="text"
              matInput

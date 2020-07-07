@@ -12,6 +12,12 @@
   }
 }
 
+@media (min-width: 768px) and (max-width: 1200px) {
+  .col-sm-6 {
+    width: 50%;
+  }
+}
+
 .explore {
   margin-top: 20px;
   margin-bottom: 20px;

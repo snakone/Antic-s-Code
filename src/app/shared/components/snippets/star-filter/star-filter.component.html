@@ -1,0 +1,14 @@
+<div class="checkbox-group">
+  <mat-checkbox *ngFor="let s of list"
+                name="star"
+                [value]="s.number"
+                (change)="starChanged($event, s.active = !s.active)">
+                {{s.number}}
+        <div class="stars">
+          <span [ngClass]="{'active': s.active && (i !== s.number && i < s.number)}"
+                *ngFor="let icon of [5,4,3,2,1]; let i = index">
+            <mat-icon>star_border</mat-icon>
+          </span>
+        </div>
+ </mat-checkbox>
+</div>

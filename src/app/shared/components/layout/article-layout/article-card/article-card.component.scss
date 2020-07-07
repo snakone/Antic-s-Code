@@ -80,7 +80,13 @@
           margin-top: .1rem;
           margin-bottom: 0;
         }
-       }
+
+        @media (max-width: 550px) {
+          .category-tag {
+            font-size: 0.8rem !important;
+          }
+        }
+      }
     }
   }
 }

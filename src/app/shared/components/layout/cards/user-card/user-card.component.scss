@@ -36,7 +36,7 @@
   & h4 {
     margin-top: 0;
     margin-bottom: -.2rem;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     @media(max-width: 550px) { font-size: 1.2rem }
   }
 
@@ -56,8 +56,9 @@
   }
 
   & span {
+    font-size: .9rem;
     margin-right: .2rem;
-    &:last-of-type {
+    &.primary {
       margin-left: .2rem;
       color: var(--primary-color);
     }

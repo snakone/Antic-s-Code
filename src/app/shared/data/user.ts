@@ -65,6 +65,6 @@ export const MY_SOCIAL: List[] = [
 ];
 
 export const SHOW_HIDE: ShowHide[] = [
-  { text: 'Mostrar', show: true },
-  { text: 'Ocultar', show: false }
+  { text: 'show', show: true },
+  { text: 'hide', show: false }
 ];

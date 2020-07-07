@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CATEGORY_INDEX } from '@shared/data/categories';
 
 @Component({
   selector: 'app-single-category-index-box',
   templateUrl: './single-category-index-box.component.html',
-  styleUrls: ['./single-category-index-box.component.scss']
+  styleUrls: ['./single-category-index-box.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class SingleCategoryIndexBoxComponent {

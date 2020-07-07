@@ -5,7 +5,7 @@
     <span [innerHTML]="'delete.account.p' | translate"></span>
   </p>
   <p class="bold black">"{{'delete.sentence' | translate}}"</p>
-  <form [formGroup]="deleteAccountForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="deleteForm" (ngSubmit)="onSubmit()">
     <mat-form-field color="accent" appearance="outline">
       <mat-label>{{'put.sentence' | translate}}</mat-label>
       <input matInput
@@ -21,7 +21,7 @@
               type="submit"
               class="btn-danger"
               aria-label="Accept"
-              [disabled]="deleteAccountForm.invalid">
+              [disabled]="deleteForm.invalid">
               {{'accept' | translate}}
       </button>
     </mat-dialog-actions>

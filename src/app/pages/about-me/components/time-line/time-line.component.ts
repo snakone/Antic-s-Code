@@ -19,4 +19,9 @@ export class TimeLineComponent implements OnInit {
     AOS.init(AOS_SETTINGS);
   }
 
+  public scroll(box: string): void {
+    const el = document.getElementById(box);
+    if (el) { el.scrollIntoView({ behavior: 'auto', block: 'start' }); }
+  }
+
 }

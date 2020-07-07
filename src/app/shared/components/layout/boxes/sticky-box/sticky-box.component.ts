@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { debounceTime, takeUntil } from 'rxjs/operators';
+import { debounceTime, takeUntil, filter } from 'rxjs/operators';
 import { fromEvent, Subject } from 'rxjs';
 
 @Component({
@@ -26,25 +26,29 @@ export class StickyBoxComponent implements OnInit, OnDestroy {
     fromEvent(window, 'scroll')
     .pipe(
       takeUntil(this.unsubscribe$),
+      filter(res => !!res && !!this.selector),
       debounceTime(100)
     )
     .subscribe(() => this.onScroll());
   }
 
   private onScroll(): void {
-    if (!this.selector) { return; }
-    const width = window.document.body.clientWidth;
-    const div = document.getElementById(this.selector)
-                        .getBoundingClientRect().height;
+    try {
+      const width = window.document.body.clientWidth;
+      const div = document.getElementById(this.selector)
+                          .getBoundingClientRect().height;
 
-    if (width < 985 || div < 799) {
-      this.display = true;
-      return;
+      if (width < 985 || div < 799) {
+        this.display = true;
+        return;
+      }
+
+      const height = window.document.body.clientHeight;
+      const scroll = window.scrollY;
+      this.display = !((scroll / height) * 100 > 84);  // 84% SCROLL
+    } catch(err) {
+      console.log(err);
     }
-
-    const height = window.document.body.clientHeight;
-    const scroll = window.scrollY;
-    this.display = !((scroll / height) * 100 > 84);  // 84% SCROLL
   }
 
   ngOnDestroy(): void {

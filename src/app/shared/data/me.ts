@@ -3,82 +3,61 @@ import { TimeLine, Skill, WorkCompany } from '../interfaces/interfaces';
 export const TIME_LINE: TimeLine[] = [
   {
     year: 1987,
-    message: `Nací en un lugar privilegiado, <strong>Barcelona</strong>. En el último siglo,
-              esta ciudad ha sido una de las grandes referencias tecnológicas a nivel mundial
-              sobretodo gracias al conocido 'Mobile World Congress'`,
+    message: 'me.time.born',
     side: 'left',
     fade: 'fade-right'
   },
   {
     year: 1992,
-    message: `En el colegio fuí de los primeros en aprender de memoría las tablas de multiplicar,
-              además el claustro de profesores pensó en adelantarme un curso entero por los resultados
-              que daba. Cosa que al final no pasó.`,
+    message: 'me.time.school',
     side: 'right',
     fade: 'fade-left'
   },
   {
     year: 2000,
-    message: `Mi andada por el <strong>instituto</strong> fué bastante normal. Cabe destacar
-              que en uno de esos años, conseguí el primer puesto en un concurso al mejor relato
-              en el día de Sant Jordi.<br> Hablaba sobre el ser humano y el pensamiento abstracto.`,
+    message: 'me.time.collage',
     side: 'left',
     fade: 'fade-right'
   },
   {
     year: 2003,
-    message: `Creé mi primera página web en las clases de <strong>informática</strong> del instituto y
-              hasta día de hoy no he dejado de aprender y crear cosas nuevas.`,
+    message: 'me.time.first',
     side: 'right',
     fade: 'fade-left'
   },
   {
     year: 2005,
-    message: `Dejé de lado el camino para aventurarme en la <strong>Formación Profesional</strong>.
-              Me decidí por la rama tecnológica empezando por lo más básico, la electricidad y la
-              electrónica.`,
+    message: 'me.time.study',
     side: 'left',
     fade: 'fade-right'
   },
   {
     year: 2007,
-    message: `Seguí el rumbo que había tomado y continué mis estudios en tecnología sin embargo
-              esta vez con estudios superiores en <strong>informática y telecomunicaciones</strong>.`,
+    message: 'me.time.more',
     side: 'right',
     fade: 'fade-left'
   },
   {
     year: 2014,
-    message: `En la fundación <strong>CIM</strong>
-              parte de la Universidad Politécnica de Cataluña aprendí a conectar las páginas web que tanto me gustaban
-              a <strong>bases de datos</strong>, aumentando el grado de complejidad de éstas.`,
+    message: 'me.time.cim',
     side: 'left',
     fade: 'fade-right'
   },
   {
     year: 2018,
-    message: `La historia se repite, parece que la tecnología es más rápida que yo. Dejé mi trabajo el cual
-              no tenía nada que ver con este asunto para volver a intentar estudiar programación web,
-              mi verdadera <strong>pasión</strong>, esta vez en una
-              academia llamada <strong>IT Academy Barcelona</strong>.`,
+    message: 'me.time.ita',
     side: 'right',
     fade: 'fade-left'
   },
   {
     year: 2019,
-    message: `Gracias a <strong>IT Academy Barcelona</strong> por fín
-              encontré un trabajo en una empresa desarrolladora de software.<br>
-              Desde aquí dar las <strong>gracias</strong> a todas las personas que me ayudaron a
-              llegar hasta este momento. Un saludo a todos ellos.`,
+    message: 'me.time.job',
     side: 'left',
     fade: 'fade-right'
   },
   {
     year: 2020,
-    message: `Sigo trabajando como desarrollador de software, ahora mismo a <strong>distancia</strong>.
-              En este tiempo he aprendido más a fondo Angular y también a <strong>trabajar en equipo</strong>
-              con otros desarrolladores.<br> Coordinarse con los demás equipos implicados en el desarrollo
-              es esencial para llevar un buen ritmo de trabajo.`,
+    message: 'me.time.keep',
     side: 'right',
     fade: 'fade-left'
   }
@@ -89,159 +68,159 @@ export const TIME_LINE: TimeLine[] = [
 export const MY_HARD_SKILLS: Skill[] = [
  {
    name: 'HTML',
-   area: 'Creación páginas web',
-   message: 'Maquetación, estructura, identación, legible, estándares, accesibilidad.',
+   area: 'me.skills.hard.html.area',
+   message: 'me.skills.hard.html.message',
    year: 2004,
    icon: 'html.png'
  },
  {
   name: 'CSS',
-  area: 'Diseño páginas web',
-  message: 'Cascada, herencia, box-model, flex-box, grid, layouts, interfaces, SCSS.',
+  area: 'me.skills.hard.css.area',
+  message: 'me.skills.hard.css.message',
   year: 2006,
   icon: 'css.png'
  },
  {
   name: 'Javascript',
-  area: 'Programación',
-  message: 'Limpio, Ecmascript, lógica, reactivo, legible, async-wait, operaciones.',
+  area: 'me.skills.hard.js.area',
+  message: 'me.skills.hard.js.message',
   year: 2014,
   icon: 'javascript.png'
  },
  {
   name: 'PHP',
-  area: 'Programación',
-  message: 'Conexiones, envío de formularios, obtener, procesar y mostrar datos.',
+  area: 'me.skills.hard.php.area',
+  message: 'me.skills.hard.php.message',
   year: 2012,
   icon: 'php.png'
  },
  {
   name: 'MySQL',
-  area: 'Base de datos relacional',
-  message: 'Administración y diseño de base de datos, modelo entidad-relación.',
+  area: 'me.skills.hard.sql.area',
+  message: 'me.skills.hard.sql.message',
   year: 2012,
   icon: 'mysql.png'
  },
  {
   name: 'Wordpress',
-  area: 'Gestor de contenido',
-  message: 'Instalación, administración, edición, diseño, escribir contenido.',
+  area: 'me.skills.hard.press.area',
+  message: 'me.skills.hard.press.message',
   year: 2010,
   icon: 'wordpress.png'
  },
  {
   name: 'Nodejs',
-  area: 'Servidor web con Javascript',
-  message: 'Entorno, uso de paquetes de npm, dependencias, actualizaciones, librerías',
+  area: 'me.skills.hard.node.area',
+  message: 'me.skills.hard.node.message',
   year: 2017,
   icon: 'node.png'
  },
  {
   name: 'Angular',
-  area: 'Framework web',
-  message: 'Creación de aplicaciones web de todo tipo, modular, legible, reutilizable.',
+  area: 'me.skills.hard.angular.area',
+  message: 'me.skills.hard.angular.message',
   year: 2018,
   icon: 'angular.png'
  },
  {
   name: 'MongoDB',
-  area: 'Base de datos no relacional',
-  message: 'Diseñar y administrar bases de datos no relacionales basadas en documentos JSON.',
+  area: 'me.skills.hard.mongo.area',
+  message: 'me.skills.hard.mongo.message',
   year: 2018,
   icon: 'mongo.png'
  },
  {
   name: 'Node Express',
-  area: 'Framework de Node',
-  message: 'Creación de servidores, API REST, controladores, middlewares, JWT.',
+  area: 'me.skills.hard.express.area',
+  message: 'me.skills.hard.express.message',
   year: 2018,
   icon: 'express.png'
  },
  {
   name: 'Typescript',
-  area: 'Programación',
-  message: 'Clases, interfaces, tipado, legible, autocompletado, evitar errores.',
+  area: 'me.skills.hard.ts.area',
+  message: 'me.skills.hard.ts.message',
   year: 2018,
   icon: 'typescript.svg'
  },
  {
   name: 'VSCode',
-  area: 'Entorno de trabajo',
-  message: 'Extensiones, prettier, emmet, atajos de teclado, terminal integrado.',
+  area: 'me.skills.hard.vsc.area',
+  message: 'me.skills.hard.vsc.message',
   year: 2018,
   icon: 'vscode.png'
  },
  {
-  name: 'Boostrap',
-  area: 'Diseño Responsive',
-  message: 'Grid, responsive, mobile first, clases, flex-box, diseño de interfaces.',
+  name: 'Bootstrap',
+  area: 'me.skills.hard.bootstrap.area',
+  message: 'me.skills.hard.bootstrap.message',
   year: 2014,
   icon: 'boostrap.png'
  },
  {
   name: 'Heroku',
-  area: 'Alojamiento servidores',
-  message: 'Despliegue de aplicaciones a la nube, administración, seguimiento.',
+  area: 'me.skills.hard.heroku.area',
+  message: 'me.skills.hard.heroku.message',
   year: 2019,
   icon: 'heroku.png'
  },
  {
   name: 'JQuery',
-  area: 'Programación',
-  message: 'Entender y ejecutar scripts de todo tipo para ciertas funcionalidades.',
+  area: 'me.skills.hard.jquery.area',
+  message: 'me.skills.hard.jquery.message',
   year: 2009,
   icon: 'jquery.png'
  },
  {
   name: 'Git',
-  area: 'Trabajo en equipo',
-  message: 'Entorno corporativo para trabajar en diversos entornos de desarrollo.',
+  area: 'me.skills.hard.git.area',
+  message: 'me.skills.hard.git.message',
   year: 2018,
   icon: 'git.png'
  },
  {
   name: 'Ionic',
-  area: 'Híbrido',
-  message: 'Creación, ampliación y corrección de aplicaciones para teléfonos móbiles.',
+  area: 'me.skills.hard.ionic.area',
+  message: 'me.skills.hard.ionic.message',
   year: 2019,
   icon: 'ionic.png'
  },
  {
   name: 'Rxjs',
-  area: 'Programación reactiva',
-  message: 'Observables, flujo de datos, pipes, operadores, manejo del flujo',
+  area: 'me.skills.hard.rxjs.area',
+  message: 'me.skills.hard.rxjs.message',
   year: 2019,
   icon: 'rxjs.png'
  }
 ];
 
 export const MY_SOFT_SKILLS: string[] = [
-  'Cooperación',
-  'Orientación al cliente',
-  'Networking',
-  'Comunicación',
-  'Empatía',
-  'Planificación',
-  'Fácil aprendizaje',
-  'Conocimiento',
-  'Flexibilidad',
-  'Creatividad',
-  'Entusiasmo',
-  'Pensamiento conceptual',
-  'Orden y Calidad',
-  'Buena presencia',
-  'Espíritu superación',
-  'Compromiso',
+  'me.skills.soft.cooperation',
+  'me.skills.soft.client',
+  'me.skills.soft.network',
+  'me.skills.soft.communication',
+  'me.skills.soft.empathy',
+  'me.skills.soft.plan',
+  'me.skills.soft.easy',
+  'me.skills.soft.knowledge',
+  'me.skills.soft.flex',
+  'me.skills.soft.creative',
+  'me.skills.soft.hope',
+  'me.skills.soft.concept',
+  'me.skills.soft.order',
+  'me.skills.soft.look',
+  'me.skills.soft.spirit',
+  'me.skills.soft.compromise'
 ];
 
 export const MY_COMPANIES: WorkCompany[] = [
   {
     name: 'Slash Mobility',
-    type: 'Consultora de Software',
+    type: 'me.work.slash.type',
     rank: 'Software Developer',
     tasks: [
-      'Dar soluciones tecnológicas a otras compañias usando software.',
-      'Desarrollo ágil, rápido y eficaz. Tiempo de entrega medio, 3 meses.'
+      'me.work.slash.task.one',
+      'me.work.slash.task.two'
     ],
     clients: [
       'Catalana Occidente',
@@ -253,11 +232,11 @@ export const MY_COMPANIES: WorkCompany[] = [
   },
   {
     name: 'AT Sistemas',
-    type: 'Consultora de Software',
+    type: 'me.work.ats.type',
     rank: 'Software Developer',
     tasks: [
-      'Desarrollar soluciones específicas para diversos tipos de aplicaciones.',
-      'Coordinar los diferentes equipos que se relacionan con el desarrollo "Frontend".'
+      'me.work.ats.task.one',
+      'me.work.ats.task.two'
     ],
     clients: [
       'Generali'

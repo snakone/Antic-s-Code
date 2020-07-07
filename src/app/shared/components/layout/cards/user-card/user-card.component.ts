@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { User } from '@shared/interfaces/interfaces';
 import { CrafterService } from '@core/services/crafter/crafter.service';
 
-
 @Component({
   selector: 'app-user-card',
   templateUrl: './user-card.component.html',

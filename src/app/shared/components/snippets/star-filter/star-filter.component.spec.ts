@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MostActiveUsersComponent } from './most-active-users.component';
+import { StarFilterComponent } from './star-filter.component';
 
-describe('MostActiveUsersComponent', () => {
-  let component: MostActiveUsersComponent;
-  let fixture: ComponentFixture<MostActiveUsersComponent>;
+describe('StarFilterComponent', () => {
+  let component: StarFilterComponent;
+  let fixture: ComponentFixture<StarFilterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MostActiveUsersComponent ]
+      declarations: [ StarFilterComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MostActiveUsersComponent);
+    fixture = TestBed.createComponent(StarFilterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

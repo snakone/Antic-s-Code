@@ -38,7 +38,7 @@ export class HeaderSearchComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.searchForm.value == null) return;
+    if (Object.values(this.searchForm.value).every(v => v == null)) return;
     const request: SearchRequest = this.searchForm.value;
     this.searchFacade.search(request);
     this.router.navigateByUrl('/search');

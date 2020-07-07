@@ -1,6 +1,6 @@
 <ng-container *ngIf="(article$ | async) as article; else noArticle">
   <app-page-header [title]="article.title"
-                   [subTitle]="'article' | translate">
+                   subTitle="article">
   </app-page-header>
   <app-section input="#f5f7fc">
     <div class="row">  <!-- ARTICLE CONTENT -->
@@ -32,7 +32,7 @@
 </ng-container>
 
 <ng-template #noArticle>
-  <app-page-header title="Artículo"
+  <app-page-header title="article"
                    [subTitle]="'article' | translate">
   </app-page-header>
   <app-section input="#f5f7fc">
@@ -42,8 +42,7 @@
         </app-article-card-skeleton>
       </div>
       <div class="col-lg-4 col-md-4">
-        <app-index-box *onlyDesktop
-                       [index]="null">
+        <app-index-box *onlyDesktop>
         </app-index-box>
       </div>
     </div>

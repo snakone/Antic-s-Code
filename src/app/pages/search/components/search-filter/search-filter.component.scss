@@ -19,6 +19,17 @@ button {
   }
 }
 
+@media(max-width: 993px) and (min-width: 550px) {
+  .responsive {
+    display: flex;
+    justify-content: space-between;
+    & mat-form-field { width: 48% }
+    & div { width: 100% }
+  }
+
+  button { width: 50% }
+}
+
 h3 {
   font-size: 1rem;
   margin-top: 1.5rem;
@@ -48,41 +59,7 @@ h3 {
   border-color: var(--p-color) !important;
 }
 
-.stars {
-  display: inline-block;
-  margin-left: 1.2rem;
-  position: relative;
-  top: 2px;
 
-  & span {
-    margin-left: .4rem;
-    width: 1.33333rem;
-    height: 1.33333rem;
-    display: inline-flex;
-    align-items: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    font-size: .66667rem;
-    color: var(--bg-color);
-    -webkit-border-radius: 20rem;
-    border-radius: 20rem;
-    opacity: .2;
-    margin-right: .3rem;
-    margin-left: .3rem;
-    background: var(--primary-color);
-    transition: all .5s ease-in;
-
-    &.active { opacity: 1}
-    &:hover { filter: brightness(1.5) }
-
-    & mat-icon {
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-}
 
 
 

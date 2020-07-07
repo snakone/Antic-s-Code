@@ -30,6 +30,8 @@ ul {
      font-weight: bold;
      position: relative;
      top: -8px;
+     cursor: pointer;
+     outline: none;
 
      @media(max-width: 550px) {
        font-size: 1.2rem !important;
@@ -42,6 +44,8 @@ ul {
        top: 0;
        background: var(--skeleton-color);
      }
+
+     &:hover { color: var(--primary-color) }
    }
 
    & .count {

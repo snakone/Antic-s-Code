@@ -14,14 +14,18 @@
   @media(max-width: 800px) {
     width: 100%;
     max-width: 100%;
-   }
-}
+  }
 
-.col-lg-4 {
   @media(max-width: 550px) {
     padding-right: 15px !important;
     padding-left: 15px !important;
    }
+}
+
+@media (min-width: 800px) and (max-width: 1220px) {
+  .col-sm-6 {
+    width: 50%;
+  }
 }
 
 .grid-skills {

@@ -5,11 +5,14 @@
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 2rem;
- }
+}
+
+h3 {
+  margin-top: 8rem;
+}
 
 .col-lg-6 {
   max-width: 576px;
-
   @media(max-width: 550px) {
     padding-right: 15px;
     padding-left: 15px;
@@ -57,3 +60,5 @@
     }
   }
 }
+
+.m-top { margin-top: 4rem }

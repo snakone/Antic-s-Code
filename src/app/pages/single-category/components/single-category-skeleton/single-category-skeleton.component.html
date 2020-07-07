@@ -1,0 +1,24 @@
+<app-single-category-header></app-single-category-header>
+  <app-section input="#f5f7fc">
+    <div class="row">
+      <div class="col-lg-8 col-md-8">
+        <app-single-category-index-box></app-single-category-index-box>
+        <div>
+          <h2></h2>
+          <div class="skeleton"
+               *ngFor="let s of [1,2,3,4,5]">
+          </div>
+        </div>
+        <div>
+          <h2></h2>
+          <div class="skeleton"
+               *ngFor="let s of [1,2,3,4,5,6]">
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        <app-single-category-sidebar>
+        </app-single-category-sidebar>
+      </div>
+  </div>
+  </app-section>

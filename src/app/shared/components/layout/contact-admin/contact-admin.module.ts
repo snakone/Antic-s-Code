@@ -1,12 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ContactAdminComponent } from './contact-admin.component';
-import { DirectivesModule } from '@shared/directives/directives.module';
+import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
-import { ContactChatComponent } from './components/contact-chat/contact-chat.component';
 import { MatButtonModule } from '@angular/material/button';
-import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
+
+import { DirectivesModule } from '@shared/directives/directives.module';
+import { ContactAdminComponent } from './contact-admin.component';
+import { ContactChatComponent } from './components/contact-chat/contact-chat.component';
+
+const Material = [
+  MatIconModule,
+  MatBadgeModule,
+  MatButtonModule
+];
 
 @NgModule({
   declarations: [
@@ -16,10 +24,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     DirectivesModule,
-    MatIconModule,
-    MatBadgeModule,
-    MatButtonModule,
-    FormsModule
+    FormsModule,
+    TranslateModule,
+    ...Material
   ],
   exports: [
     ContactAdminComponent

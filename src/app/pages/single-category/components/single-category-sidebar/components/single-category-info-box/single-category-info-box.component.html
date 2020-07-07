@@ -1,4 +1,4 @@
-<app-content-box title="Informacíon"
+<app-content-box title="info"
                  icon="event_note"
                  *ngIf="category">
     <div class="info-box flex-box">
@@ -12,10 +12,10 @@
           <span class="verified"></span>
         </h4>
         <span class="info-box-time" *ngIf="updated">
-          Actualizado {{updated}}
+          {{'updated' | translate}} {{updated}}
         </span>
         <span class="info-box-time" *ngIf="!updated">
-          Sin actualizar
+          {{'no.updated' | translate}}
         </span>
       </div>
     </div>
@@ -37,13 +37,13 @@
         </li>
         <li>
           <mat-icon>schedule</mat-icon>
-          <span>Creado en {{category.info.age}}</span>
+          <span>{{'created.on' | translate}} {{category.info.age}}</span>
         </li>
       </ul>
     </div>
 </app-content-box>
 
-<app-content-box title="Informacíon"
+<app-content-box title="info"
                  icon="event_note"
                  *ngIf="!category">
     <div class="info-box flex-box">

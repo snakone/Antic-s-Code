@@ -1,15 +1,15 @@
 <div class="animated fadeInLeft fab-button"
-   ContactAdmin
-   [class]="class"
-   id="fab-admin"
-   *ngIf="ls.storage?.chat">
-
+     ContactAdmin
+     [class]="class"
+     id="fab-admin"
+     *ngIf="ls.storage?.chat">
   <i class="fa fa-commenting-o"
      aria-hidden="true"
      (click)="class = 'opened'"
       matBadge="1"
-            matBadgeColor="accent"
-            matBadgeSize="small"></i>
+      matBadgeColor="accent"
+      matBadgeSize="small">
+  </i>
   <app-contact-chat *ngIf="class === 'opened'"
                     (close)="class = 'closed'"
                     [chat]="(messages | async).reverse()">

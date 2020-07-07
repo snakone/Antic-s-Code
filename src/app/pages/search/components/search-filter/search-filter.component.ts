@@ -5,9 +5,9 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
 import { PaginationService } from 'ngx-pagination';
 import { SearchFacade } from '@core/ngrx/facade/search.facade';
 
-import { SearchRequest, StarList } from '@shared/interfaces/interfaces';
+import { SearchRequest } from '@shared/interfaces/interfaces';
 import { CATEGORIES } from '@shared/data/categories';
-import { SEARCH_TYPES, STAR_LIST } from '@shared/data/search';
+import { SEARCH_TYPES } from '@shared/data/search';
 import { TAGS, LEVELS, BADGES } from '@shared/data/article';
 
 @Component({
@@ -24,7 +24,6 @@ export class SearchFilterComponent implements OnInit {
   levels = LEVELS;
   badges = BADGES;
   types = SEARCH_TYPES;
-  list = [];
   levelsArray = [] as string[];
   badgesArray = [] as string[];
   starsArray = [] as number[];
@@ -37,7 +36,6 @@ export class SearchFilterComponent implements OnInit {
 
   ngOnInit() {
     this.createSearchForm();
-    this.list = this.resetList(STAR_LIST);
   }
 
   private createSearchForm(): void {
@@ -53,9 +51,9 @@ export class SearchFilterComponent implements OnInit {
 
   public submit(): void {
     const request: SearchRequest = this.searchForm.value;
-    request.stars = this.starsArray.length === 0 ? this.starsArray : null;
-    request.badges = this.badgesArray.length === 0 ? this.badgesArray : null;
-    request.level = this.levelsArray.length === 0 ? this.levelsArray : null;
+    request.stars = this.starsArray.length !== 0 ? this.starsArray : null;
+    request.badges = this.badgesArray.length !== 0 ? this.badgesArray : null;
+    request.level = this.levelsArray.length !== 0 ? this.levelsArray : null;
 
     this.searchFacade.search(request);
     this.scroll('search-section');
@@ -86,11 +84,6 @@ export class SearchFilterComponent implements OnInit {
   private scroll(id: string): void {
     const el = document.getElementById(id);
     if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-  }
-
-  private resetList(list: StarList[]): StarList[] {
-    list.forEach((l: StarList) => l.active = false);
-    return list;
   }
 
 }

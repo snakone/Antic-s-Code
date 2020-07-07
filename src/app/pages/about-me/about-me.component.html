@@ -1,37 +1,17 @@
-<app-page-header title="Conóceme"
-                 [subTitle]="'about.me' | translate">
+<app-page-header title="know.me"
+                 subTitle="about.me">
 </app-page-header>
 <app-section input="#f5f7fc">
   <div class="row">
     <div class="col-lg-12 about-intro">
-      <h3>Sergio <span>Martínez</span></h3> <!-- INTRO -->
-      <p>Front End Developer</p>
       <app-about-intro></app-about-intro>
-      <h3><span>Objetivos</span> Profesionales</h3>  <!-- BENEFITS -->
-      <p>Metas y Beneficios para clientes</p>
       <app-about-goal></app-about-goal>
-      <h3><span>Cualidades</span> Técnicas</h3> <!-- SKILLS -->
-      <p>Habilidades y Desempeño</p>
       <app-about-skills></app-about-skills>
-      <h3>Mundo <span>Laboral</span></h3> <!-- WORK -->
-      <p>Experiencia</p>
       <app-about-work></app-about-work>
-      <h3><span>Historia</span> de un Developer</h3> <!-- TIME LINE -->
-      <div class="skip">
-        <p>Cronología</p>
-        <p class="skip-text" (click)="scroll('skip-timeline')">¿Saltar?</p>
-      </div>
       <app-time-line></app-time-line>
-      <h3 id="contact-title">Estamos en <span>Contacto</span></h3> <!-- CONTACT -->
-      <p>¿Hablamos?</p>
       <app-about-contact></app-about-contact>
     </div>
   </div>
 </app-section>
 
-<a class="default animated fadeInRight fab-button"
-     ContactMe
-     id="contact"
-     (click)="scroll('skip-timeline')">
-  <mat-icon color="primary">contact_mail</mat-icon>
-</a>
+<app-contact-me></app-contact-me>

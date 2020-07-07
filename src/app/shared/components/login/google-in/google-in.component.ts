@@ -75,15 +75,15 @@ export class GoogleInComponent implements OnInit, OnDestroy {
 
     if (data.message.indexOf('Created') > -1) {
       this.sw.sendNotification(
-        this.setNotification(Object.assign({}, NEW_USER_PUSH), data.user)
-        ).subscribe();
+        this.setNotification(Object.assign({}, NEW_USER_PUSH), data.user.name)
+      ).toPromise().then();
     }
   }
 
   private setNotification(payload: NotificationPayload,
-                          user: User): NotificationPayload {
+                          name: string): NotificationPayload {
       payload.body = payload.body
-      .concat(`.\n¡Bienvenido/a ${user.name}!`);
+      .concat(`.\n¡Bienvenido/a ${name}!`);
       return payload;
   }
 

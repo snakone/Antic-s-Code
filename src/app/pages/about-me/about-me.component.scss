@@ -1,51 +1,5 @@
 * { box-sizing: border-box }
 
-.about-intro {
-  width: 100%;
-  & h3 {
-    font-size: 1.9rem;
-    margin-top: 4rem;
-    margin-bottom: .2333rem;
-    line-height: 2.2rem;
-    &:first-child {margin-top: 0 !important }
-    & span {
-      color: var(--primary-color);
-      font-size: inherit !important;
-    }
+.about-intro { width: 100% }
 
-    @media(max-width: 550px) {
-      margin-top: 2.5rem !important;
-      font-size: 1.7rem;
-    }
-  }
 
-  & p {
-    font-size: 1.2rem;
-    @media(max-width: 550px) {
-      font-size: 1rem !important;
-    }
-  }
-}
-
-.skip {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-
-  &-text {
-    color: var(--tag-color);
-    cursor: pointer;
-  }
-}
-
-.fab-button {
-  right: 14px;
-  left: unset;
-  transition: bottom .3s ease;
-  & mat-icon { font-size: 1.7rem }
-}
-
-.moveUp {
-  bottom: 80px;
-  @media(max-width: 550px) { bottom: 65px }
-}

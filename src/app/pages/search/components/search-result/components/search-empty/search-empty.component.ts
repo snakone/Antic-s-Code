@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { SearchFacade } from '@core/ngrx/facade/search.facade';
 
 import { SearchRequest } from '@shared/interfaces/interfaces';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search-empty',

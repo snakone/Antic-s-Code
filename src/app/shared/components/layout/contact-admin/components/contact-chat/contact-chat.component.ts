@@ -1,10 +1,16 @@
-import { Component, OnInit, EventEmitter, Output, Input, OnChanges } from '@angular/core';
-import { SocketService } from '@core/sockets/services/socket.service';
-import { ChatMessage } from '@shared/interfaces/interfaces';
-import * as ChatActions from '@core/ngrx/actions/chat.actions';
+import {
+  Component,
+  OnInit,
+  EventEmitter,
+  Output,
+  Input,
+  OnChanges
+} from '@angular/core';
 
-import { Store } from '@ngrx/store';
-import { AppState } from '@app/app.config';
+import { SocketService } from '@core/sockets/services/socket.service';
+import { ChatFacade } from '@core/ngrx/facade/chat.facace';
+
+import { ChatMessage } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-contact-chat',
@@ -22,7 +28,7 @@ export class ContactChatComponent implements OnInit, OnChanges {
 
   constructor(
     public socket: SocketService,
-    private store: Store<AppState>
+    private chatFacade: ChatFacade
   ) { }
 
   ngOnInit(): void {
@@ -49,8 +55,8 @@ export class ContactChatComponent implements OnInit, OnChanges {
   }
 
   public sendMessage(): void {
-    if (!this.message || this.message.length > 100) { return; }
-    this.store.dispatch(ChatActions.send({ request: this.message}));
+    if (!this.message || this.message.length > 100) return;
+    this.chatFacade.send(this.message);
     this.message = '';
     this.textarea.focus();
   }

@@ -7,7 +7,6 @@ import { ArticleLayoutModule } from '../article-layout/article-layout.module';
 import { MarkdownModule } from 'ngx-markdown';
 import { NgxPaginationModule } from 'ngx-pagination';
 
-import { ContentBoxComponent } from './content-box/content-box.component';
 import { LinksBoxComponent } from './links-box/links-box.component';
 import { StickyBoxComponent } from './sticky-box/sticky-box.component';
 import { IndexBoxComponent } from './index-box/index-box.component';
@@ -19,6 +18,7 @@ import { ExpansionBoxComponent } from './expansion-box/expansion-box.component';
 import { FavoriteLangBoxComponent } from './favorite-lang-box/favorite-lang-box.component';
 import { MostViewedBoxComponent } from './most-viewed-box/most-viewed-box.component';
 import { RelatedTagsBoxComponent } from './related-tags-box/related-tags-box.component';
+import { MostActiveBoxComponent } from './most-active-box/most-active-box.component';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -26,6 +26,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { ContentBoxModule } from './content-box/content-box.module';
 
 const Material = [
   MatFormFieldModule,
@@ -33,12 +35,12 @@ const Material = [
   MatIconModule,
   MatButtonModule,
   MatInputModule,
-  MatSelectModule
+  MatSelectModule,
+  MatTooltipModule
 ];
 
 @NgModule({
   declarations: [
-    ContentBoxComponent,
     LinksBoxComponent,
     StickyBoxComponent,
     IndexBoxComponent,
@@ -49,7 +51,8 @@ const Material = [
     ExpansionBoxComponent,
     FavoriteLangBoxComponent,
     MostViewedBoxComponent,
-    RelatedTagsBoxComponent
+    RelatedTagsBoxComponent,
+    MostActiveBoxComponent
   ],
   imports: [
     CommonModule,
@@ -57,11 +60,11 @@ const Material = [
     RouterModule,
     ArticleLayoutModule,
     NgxPaginationModule,
+    ContentBoxModule,
     MarkdownModule.forChild(),
     ...Material
   ],
   exports: [
-    ContentBoxComponent,
     LinksBoxComponent,
     StickyBoxComponent,
     IndexBoxComponent,
@@ -72,7 +75,9 @@ const Material = [
     ExpansionBoxComponent,
     FavoriteLangBoxComponent,
     MostViewedBoxComponent,
-    RelatedTagsBoxComponent
+    RelatedTagsBoxComponent,
+    MostActiveBoxComponent,
+    ContentBoxModule
   ]
 })
 
