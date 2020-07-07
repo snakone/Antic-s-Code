@@ -49,8 +49,7 @@
               "node_modules/prismjs/components/prism-git.min.js",
               "node_modules/prismjs/components/prism-go.min.js",
               "node_modules/prismjs/components/prism-python.min.js"
-            ],
-            "es5BrowserSupport": true
+            ]
           },
           "configurations": {
             "testing": {
