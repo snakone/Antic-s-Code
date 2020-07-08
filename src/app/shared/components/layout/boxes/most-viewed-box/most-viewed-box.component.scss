@@ -9,7 +9,7 @@ li {
   justify-content: flex-start;
   margin-bottom: .666rem;
   outline: none;
-  &:last-of-type { margin-bottom: 0 }
+  &:last-of-type { margin-bottom: 3px }
 
   &:hover {
     cursor: pointer;
@@ -48,7 +48,7 @@ li {
     }
 
     &.sidebar {
-      @media(max-width: 1150px) and (min-width: 993px) {
+      @media(max-width: 1200px) and (min-width: 993px) {
         font-size: .8rem;
       }
     }

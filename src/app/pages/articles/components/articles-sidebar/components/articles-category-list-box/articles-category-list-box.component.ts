@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MAIN_CATEGORIES } from '@app/shared/shared.data';
+import { MAIN_CATEGORIES } from '@shared/data/categories';
 
 @Component({
   selector: 'app-articles-category-list-box',

@@ -1,52 +1,5 @@
 * { box-sizing: border-box }
 
-.about-intro {
-  width: 100%;
-  & h3 {
-    font-size: 1.9rem;
-    margin-top: 4rem;
-    margin-bottom: .2333rem;
-    line-height: 2.2rem;
-    &:first-child {margin-top: 0 !important }
-    & span {
-      color: var(--primary-color);
-      font-size: inherit !important;
-    }
+.about-intro { width: 100% }
 
-    @media(max-width: 550px) {
-      margin-top: 2.5rem !important;
-      font-size: 1.7rem;
-    }
-  }
 
-  & p {
-    font-size: 1.2rem;
-    @media(max-width: 550px) {
-      font-size: 1rem !important;
-    }
-  }
-}
-
-.col-lg-12 {
-  @media(max-width: 550px) {
-    padding-right: 0;
-    padding-left: 0;
-   }
-}
-
-.skip {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-
-  &-text {
-    color: var(--tag-color);
-    cursor: pointer;
-  }
-}
-
-.fab-button {
-  left: 18px;
-  right: unset;
-  & mat-icon { font-size: 1.7rem }
-}

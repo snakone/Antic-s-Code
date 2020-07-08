@@ -1,14 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+
 import { Subject } from 'rxjs';
-import { Store } from '@ngrx/store';
-import { AppState } from '@app/app.config';
 import { takeUntil, filter } from 'rxjs/operators';
-import { User } from '@shared/interfaces/interfaces';
 import { PaginationService } from 'ngx-pagination';
 
-import * as UserActions from '@core/ngrx/actions/user.actions';
-import * as fromUsers from '@core/ngrx/selectors/user.selectors';
-import { USER_ROLS } from '@shared/shared.data';
+import { USER_ROLS } from '@shared/data/user';
+import { User } from '@shared/interfaces/interfaces';
+import { UsersFacade } from '@core/ngrx/facade/users.facade';
 
 @Component({
   selector: 'app-users-content',
@@ -27,7 +25,7 @@ export class UsersContentComponent implements OnInit, OnDestroy {
   userRols = USER_ROLS;
 
   constructor(
-    private store: Store<AppState>,
+    private usersFacade: UsersFacade,
     private pagination: PaginationService
   ) { }
 
@@ -38,17 +36,16 @@ export class UsersContentComponent implements OnInit, OnDestroy {
   }
 
   private checkData(): void {
-    this.store.select(fromUsers.getAllLoaded)
+    this.usersFacade.allLoaded$
      .pipe(
        takeUntil(this.unsubscribe$),
        filter(res => !res)
       )
-     .subscribe(_ => this.store.dispatch(UserActions.get())
-    );
+     .subscribe(_ => this.usersFacade.get());
   }
 
   private getUsers(): void {
-    this.store.select(fromUsers.getAll)
+    this.usersFacade.all$
     .pipe(takeUntil(this.unsubscribe$))
     .subscribe((res: User[]) => {
       this.users = res;

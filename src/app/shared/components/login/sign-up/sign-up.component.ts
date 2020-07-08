@@ -1,16 +1,20 @@
 import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { User, UserResponse, NotificationPayload } from '@shared/interfaces/interfaces';
+import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { MatDialogRef } from '@angular/material/dialog';
-import { LoginComponent } from '../login.component';
-import { Router } from '@angular/router';
 import { LoginService } from '@core/services/login/login.service';
 import { CrafterService } from '@core/services/crafter/crafter.service';
 import { PushService } from '@core/services/push/push.service';
-import { NEW_USER_PUSH } from '@shared/shared.data';
 import { UserService } from '@core/services/user/user.service';
+
+import { NEW_USER_PUSH } from '@shared/data/notifications';
+import { User, UserResponse, NotificationPayload } from '@shared/interfaces/interfaces';
+import { NamePattern } from '@shared/data/patterns';
+
+import { LoginComponent } from '../login.component';
 
 @Component({
   selector: 'app-sign-up',
@@ -22,7 +26,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
   @Output() changed = new EventEmitter<boolean>();
   signUpForm: FormGroup;
-  namePattern = '^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$';
+  namePattern = NamePattern;
   matchError = false;
   conditions: boolean;
   private unsubscribe$ = new Subject<void>();
@@ -73,7 +77,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
   }
 
   public onSubmit(): void {
-    if (this.signUpForm.invalid) { return; }
+    if (this.signUpForm.invalid) return;
     const user: User = this.signUpForm.value;
     this.signUp(user);
   }
@@ -89,8 +93,8 @@ export class SignUpComponent implements OnInit, OnDestroy {
     this.userSrv.login(data);
     this.crafter.toaster(data.user.name, 'welcome', 'info');
     this.sw.sendNotification(
-      this.setNotification(Object.assign({}, NEW_USER_PUSH), data.user)
-      ).subscribe();
+      this.setNotification(Object.assign({}, NEW_USER_PUSH), data.user.name)
+    ).toPromise().then();
     this.router.navigateByUrl('/profile');
   }
 
@@ -109,10 +113,10 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
   private setNotification(
     payload: NotificationPayload,
-    user: User
+    name: string
   ): NotificationPayload {
       payload.body = payload.body
-      .concat(`.\n¡¡Bienvenido/a ${user.name}!!`);
+      .concat(`.\n¡¡Bienvenido/a ${name}!!`);
       return payload;
   }
 

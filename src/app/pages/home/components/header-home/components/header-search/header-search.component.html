@@ -4,7 +4,8 @@
       <mat-form-field class="default" color="accent">  <!-- VALUE -->
         <mat-label>{{'search.for' | translate}}</mat-label>
         <input matInput
-               formControlName="value">
+               formControlName="value"
+               autocomplete="off">
       </mat-form-field>
       <mat-form-field class="select" color="accent">  <!-- CATEGORY -->
         <mat-label>{{'choose.category' | translate}}</mat-label>
@@ -33,6 +34,7 @@
           <mat-option *ngFor="let tag of tags"
                        [value]="tag"
                        role="option"
+                       class="p-left"
                        #option
                        [disabled]="max?.selected.length >= 2 &&
                                   !option.selected">

@@ -1,5 +1,17 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 
+import {  URI } from '@app/app.config';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
+import { CrafterService } from '@core/services/crafter/crafter.service';
+import { UserService } from '@core/services/user/user.service';
+import { InteractionService } from '@core/services/interaction/interaction.service';
+import { PushService } from '@core/services/push/push.service';
+import { InteractionFacade } from '@core/ngrx/facade/interaction.facade';
+
+import { NoAccountComponent } from '../../dialogs/no-account/no-account.component';
+
 import {
   User,
   Article,
@@ -7,17 +19,7 @@ import {
   NotificationPayload
  } from '@shared/interfaces/interfaces';
 
-import { Store } from '@ngrx/store';
-import { AppState, URI } from '@app/app.config';
-import * as fromInteractions from '@core/ngrx/selectors/interaction.selectors';
-import { NoAccountComponent } from '../../dialogs/no-account/no-account.component';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { CrafterService } from '@core/services/crafter/crafter.service';
-import { UserService } from '@core/services/user/user.service';
-import { InteractionService } from '@core/services/interaction/interaction.service';
-import { PushService } from '@core/services/push/push.service';
-import { LIKE_PUSH } from '@shared/shared.data';
+import { LIKE_PUSH } from '@shared/data/notifications';
 
 @Component({
   selector: 'app-article-reactions',
@@ -36,7 +38,7 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
   constructor(
     private crafter: CrafterService,
     private userSrv: UserService,
-    private store: Store<AppState>,
+    private interFacade: InteractionFacade,
     private intSrv: InteractionService,
     private sw: PushService
   ) { }
@@ -47,7 +49,7 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
   }
 
   private getIntByUser(): void {
-    this.store.select(fromInteractions.getByUser)
+    this.interFacade.byUser$
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
         (res: Interaction[]) => this.markInteraction(res)
@@ -87,7 +89,7 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
   private markInteraction(ints: Interaction[]): void {
     const int = ints.filter((i: Interaction) => (
         i.content === this.article._id &&
-        i.user === this.user._id &&
+        i.user === this.user?._id &&
         i.type === 'like'
       )
     );

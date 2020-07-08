@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+
 import { TranslateService } from '@ngx-translate/core';
-import { AppState } from '@app/app.config';
-import { Store } from '@ngrx/store';
-import { User } from '@shared/interfaces/interfaces';
+import { UsersFacade } from '@core/ngrx/facade/users.facade';
 import { Observable } from 'rxjs';
-import * as fromUsers from '@core/ngrx/selectors/user.selectors';
+
+import { User } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-delete-account',
@@ -17,31 +17,31 @@ import * as fromUsers from '@core/ngrx/selectors/user.selectors';
 export class DeleteAccountComponent implements OnInit {
 
   user$: Observable<User>;
-  deleteAccountForm: FormGroup;
+  deleteForm: FormGroup;
   matchError = false;
 
   constructor(
     private dialog: MatDialogRef<DeleteAccountComponent>,
     private translate: TranslateService,
-    private store: Store<AppState>
+    private userFacade: UsersFacade
   ) { }
 
   ngOnInit() {
-    this.createDeleteAccountForm();
-    this.user$ = this.store.select(fromUsers.get);
+    this.createDeleteForm();
+    this.user$ = this.userFacade.user$;
   }
 
-  private createDeleteAccountForm(): void {
-    this.deleteAccountForm = new FormGroup({
+  private createDeleteForm(): void {
+    this.deleteForm = new FormGroup({
       delete: new FormControl(null, [Validators.required])
     }, {
       validators: this.theyMatchError('delete',
-                  this.instant('delete.sentence'))
+                  this.translate.instant('delete.sentence'))
     });
   }
 
   public onSubmit(): void {
-    if (this.deleteAccountForm.invalid) { return; }
+    if (this.deleteForm.invalid) return;
     this.dialog.close(true);
   }
 
@@ -56,10 +56,6 @@ export class DeleteAccountComponent implements OnInit {
       this.matchError = true;
       return { error: true };
     };
-  }
-
-  private instant(value: string): string {
-    return this.translate.instant(value);
   }
 
 }

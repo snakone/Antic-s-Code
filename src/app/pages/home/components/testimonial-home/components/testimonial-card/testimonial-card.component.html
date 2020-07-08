@@ -6,7 +6,7 @@
   </div>
   <h4>{{t.title}}</h4>  <!-- INFO -->
   <span>{{t.subtitle}}</span>
-  <p>{{t.message}}</p>
+  <p [innerHTML]="t.message | translate"></p>
 </div>
 
 

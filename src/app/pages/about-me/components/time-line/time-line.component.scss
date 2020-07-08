@@ -13,6 +13,17 @@
   }
 }
 
+.skip {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  &-text {
+    color: var(--tag-color);
+    cursor: pointer;
+  }
+}
+
 /* The actual timeline (the vertical ruler) */
 .timeline::after {
   content: '';
@@ -135,7 +146,7 @@
   }
 }
 
-.skip {
+.skip-line {
   position: absolute;
   margin-top: -1.2rem;
 }

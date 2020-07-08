@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { COUNTRIES } from '@shared/shared.data';
+import { COUNTRIES } from '@shared/data/home';
 
 @Component({
   selector: 'app-liked-home-list',

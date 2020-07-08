@@ -1,19 +1,19 @@
 import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app.routing';
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.routing';
 import { APP_CONFIG, APP_CONSTANTS } from './app.config';
-import { CoreModule } from '@core/core.module';
 import { HammerConfig } from './core/hammer.config';
 
-import { ComponentsModule } from '@shared/components/components.module';
+import { CoreModule } from '@core/core.module';
 import { SharedModule } from '@shared/shared.module';
 import { StoreModule } from '@ngrx/store';
-import { environment } from '../environments/environment';
-import { ServiceWorkerModule } from '@angular/service-worker';
 import { HomeModule } from './pages/home/home.module';
+import { StarterModule } from '@layout/starter.module';
 
 @NgModule({
   declarations: [
@@ -23,9 +23,9 @@ import { HomeModule } from './pages/home/home.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    ComponentsModule,
-    SharedModule,
+    StarterModule,
     HomeModule,
+    SharedModule,
     BrowserAnimationsModule,
     StoreModule.forRoot({}, {
       runtimeChecks: {

@@ -6,6 +6,14 @@ import { SingleCategoryHeaderLeftComponent } from './components/single-category-
 import { SingleCategoryHeaderRightComponent } from './components/single-category-header-right/single-category-header-right.component';
 import { SingleCategoryHeaderComponent } from './single-category-header.component';
 
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+const Material = [
+  MatIconModule,
+  MatFormFieldModule
+];
+
 @NgModule({
   declarations: [
     SingleCategoryHeaderComponent,
@@ -14,7 +22,8 @@ import { SingleCategoryHeaderComponent } from './single-category-header.componen
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    ...Material
   ],
   exports: [
     SingleCategoryHeaderComponent

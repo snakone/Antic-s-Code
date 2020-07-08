@@ -74,3 +74,12 @@ mat-option.all {
   max-width: 93vw !important;
 }
 
+.mat-expansion-panel:not(.mat-expanded)
+.mat-expansion-panel-header:hover:not([aria-disabled=true]) {
+  background: transparent !important;
+}
+
+.mat-checkbox-inner-container { top: 2px }
+.p-left .mat-option-text { padding-left: .4rem }
+
+

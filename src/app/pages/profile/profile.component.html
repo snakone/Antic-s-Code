@@ -1,5 +1,5 @@
-<app-page-header [title]="(user$ | async)?.name || ''"
-                 [subTitle]="'welcome.profile' | translate">
+<app-page-header [title]="(user$ | async)?.name || 'user'"
+                 subTitle="welcome.profile">
 </app-page-header>
 <app-section input="#f5f7fc">
   <div class="row" *ngIf="(user$ | async) as user">

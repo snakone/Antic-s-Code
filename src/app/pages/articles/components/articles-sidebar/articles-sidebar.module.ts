@@ -8,6 +8,12 @@ import { BoxesModule } from '@layout/boxes/boxes.module';
 import { ArticlesSidebarComponent } from './articles-sidebar.component';
 import { ArticlesCategoryListBoxComponent } from './components/articles-category-list-box/articles-category-list-box.component';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+const Material = [
+  MatFormFieldModule
+];
+
 @NgModule({
   declarations: [
     ArticlesSidebarComponent,
@@ -17,7 +23,8 @@ import { ArticlesCategoryListBoxComponent } from './components/articles-category
     CommonModule,
     SharedModule,
     BoxesModule,
-    RouterModule
+    RouterModule,
+    ...Material
   ],
   exports: [
     ArticlesSidebarComponent

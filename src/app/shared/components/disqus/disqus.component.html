@@ -1,7 +1,8 @@
 <div class="wrapper">
   <disqus class="disqus"
           *ngIf="identifier"
-          [identifier]="identifier">
+          [identifier]="identifier"
+          [language]="getLanguage()">
   </disqus>
 </div>
 

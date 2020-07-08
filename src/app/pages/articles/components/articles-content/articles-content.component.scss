@@ -11,6 +11,12 @@
    }
 }
 
+@media (min-width: 768px) and (max-width: 1200px) {
+  .col-sm-6 {
+    width: 50%;
+  }
+}
+
 .flex {
   justify-content: start;
   min-height: 500px;

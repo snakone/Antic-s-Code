@@ -6,7 +6,6 @@ import { RandomizerPipe } from './randomizer/randomizer.pipe';
 import { SanitizerPipe } from './sanitizer/sanitizer.pipe';
 import { DigitsPipe } from './digits/digits.pipe';
 import { LogoPipe } from './logo/logo.pipe';
-import { RolPipe } from './rol/rol.pipe';
 
 @NgModule({
   declarations: [
@@ -15,8 +14,7 @@ import { RolPipe } from './rol/rol.pipe';
     RandomizerPipe,
     SanitizerPipe,
     DigitsPipe,
-    LogoPipe,
-    RolPipe
+    LogoPipe
   ],
   exports: [
     ImagePipe,
@@ -24,8 +22,7 @@ import { RolPipe } from './rol/rol.pipe';
     RandomizerPipe,
     SanitizerPipe,
     DigitsPipe,
-    LogoPipe,
-    RolPipe
+    LogoPipe
   ]
 })
 

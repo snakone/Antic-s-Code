@@ -1,7 +1,7 @@
 <div class="anchor" id="cat-faq"></div>
 
 <div class="faq" *ngIf="category?.faq.length > 0">
-  <h2>Preguntas y Respuestas</h2>
+  <h2>{{'faq' | translate}}</h2>
   <mat-accordion>
     <mat-expansion-panel class="mat-elevation-z0"
                          *ngFor="let f of category.faq; let i = index"

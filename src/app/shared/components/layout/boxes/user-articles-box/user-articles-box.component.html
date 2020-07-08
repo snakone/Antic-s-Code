@@ -1,7 +1,11 @@
 <div class="user-articles">
   <span id="user-articles"></span>
 </div>
-<app-content-box [title]="'Artículos de ' + (user?.name || 'Usuario')">
+<app-content-box [title]="'articles.of' | translate: {
+                                            name: user?.name ?
+                                                  user.name :
+                                                  ('user' | translate)
+                                          }">
   <ng-container *ngIf="(articles$ | async) as articles">
     <div class="article-item" *ngFor="let a of articles |
                                                paginate: { itemsPerPage: itemsPerPage,
@@ -30,7 +34,7 @@
       </div>
     </div>
     <div *ngIf="articles.length === 0">
-      <p>Aún no he escrito ningún artículo. ¡Estoy en ello!</p>
+      <p>{{'no.write.yet' | translate}}</p>
     </div>
   </ng-container>
 </app-content-box>

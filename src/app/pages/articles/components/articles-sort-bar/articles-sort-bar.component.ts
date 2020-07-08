@@ -1,10 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { Store } from '@ngrx/store';
-import { AppState } from '@app/app.config';
-import * as fromArticles from '@core/ngrx/selectors/article.selectors';
-import * as ArticleActions from '@core/ngrx/actions/article.actions';
+
 import { takeUntil, filter } from 'rxjs/operators';
+import { ArticlesFacade } from '@core/ngrx/facade/article.facade';
 
 @Component({
   selector: 'app-articles-sort-bar',
@@ -19,24 +17,20 @@ export class ArticlesSortBarComponent implements OnInit, OnDestroy {
   active = false;
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private articleFacade: ArticlesFacade) { }
 
   ngOnInit() {
     this.checkData();
-    this.count$ = this.store.select(fromArticles.getCount);
+    this.count$ = this.articleFacade.count$;
   }
 
   private checkData(): void {
-    this.store.select(fromArticles.getCountLoaded)
+    this.articleFacade.countLoaded$
      .pipe(
        filter(res => !res),
        takeUntil(this.unsubscribe$)
       )
-      .subscribe(_ => {
-         this.store.dispatch(
-           ArticleActions.getCount()
-        );
-    });
+      .subscribe(_ => this.articleFacade.getCount());
   }
 
   public sort(): void {

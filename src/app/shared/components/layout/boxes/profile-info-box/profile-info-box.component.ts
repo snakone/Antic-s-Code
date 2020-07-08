@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { User } from '@shared/interfaces/interfaces';
-import { SOCIAL_PROFILE, TOTAL_USER_DATA } from '@shared/shared.data';
+import { SOCIAL_PROFILE, TOTAL_USER_DATA } from '@shared/data/user';
 
 @Component({
   selector: 'app-profile-info-box',

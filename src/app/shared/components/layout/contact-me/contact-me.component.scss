@@ -1,0 +1,11 @@
+.fab-button {
+  right: 14px;
+  left: unset;
+  transition: bottom .3s ease;
+  & mat-icon { font-size: 1.7rem }
+}
+
+.moveUp {
+  bottom: 80px;
+  @media(max-width: 550px) { bottom: 65px }
+}

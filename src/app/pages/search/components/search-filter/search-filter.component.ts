@@ -1,21 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-
-import {
-  CATEGORIES,
-  TAGS,
-  LEVELS,
-  BADGES,
-  SEARCH_TYPES,
-  STAR_LIST
-} from '@shared/shared.data';
-
 import { MatCheckboxChange } from '@angular/material/checkbox';
-import { SearchRequest, StarList } from '@shared/interfaces/interfaces';
-import * as SearchActions from '@core/ngrx/actions/search.actions';
-import { Store } from '@ngrx/store';
-import { AppState } from '@app/app.config';
+
 import { PaginationService } from 'ngx-pagination';
+import { SearchFacade } from '@core/ngrx/facade/search.facade';
+
+import { SearchRequest } from '@shared/interfaces/interfaces';
+import { CATEGORIES } from '@shared/data/categories';
+import { SEARCH_TYPES } from '@shared/data/search';
+import { TAGS, LEVELS, BADGES } from '@shared/data/article';
 
 @Component({
   selector: 'app-search-filter',
@@ -31,20 +24,18 @@ export class SearchFilterComponent implements OnInit {
   levels = LEVELS;
   badges = BADGES;
   types = SEARCH_TYPES;
-  list = [];
   levelsArray = [] as string[];
   badgesArray = [] as string[];
   starsArray = [] as number[];
   active = false;
 
   constructor(
-    private store: Store<AppState>,
+    private searchFacade: SearchFacade,
     private pagination: PaginationService
   ) { }
 
   ngOnInit() {
     this.createSearchForm();
-    this.list = this.resetList(STAR_LIST);
   }
 
   private createSearchForm(): void {
@@ -60,15 +51,11 @@ export class SearchFilterComponent implements OnInit {
 
   public submit(): void {
     const request: SearchRequest = this.searchForm.value;
-    request.stars = this.starsArray;
-    request.badges = this.badgesArray;
-    request.level = this.levelsArray;
+    request.stars = this.starsArray.length !== 0 ? this.starsArray : null;
+    request.badges = this.badgesArray.length !== 0 ? this.badgesArray : null;
+    request.level = this.levelsArray.length !== 0 ? this.levelsArray : null;
 
-    if (request.stars.length === 0) { request.stars = null; }
-    if (request.badges.length === 0) { request.badges = null; }
-    if (request.level.length === 0) { request.level = null; }
-
-    this.store.dispatch(SearchActions.searchContent({ request }));
+    this.searchFacade.search(request);
     this.scroll('search-section');
 
     setTimeout(() => {
@@ -97,11 +84,6 @@ export class SearchFilterComponent implements OnInit {
   private scroll(id: string): void {
     const el = document.getElementById(id);
     if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-  }
-
-  private resetList(list: StarList[]): StarList[] {
-    list.forEach((l: StarList) => l.active = false);
-    return list;
   }
 
 }

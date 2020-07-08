@@ -1,13 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LayoutModule } from '@app/shared/components/layout/layout.module';
-import { ProfileRouting } from './profile.routing';
-import { SharedModule } from '@app/shared/shared.module';
+import { MatButtonModule } from '@angular/material/button';
 
-import { ProfileComponent } from './profile.component';
+import { ProfileRouting } from './profile.routing';
+import { SharedModule } from '@shared/shared.module';
 import { ArticlesSidebarModule } from '../articles/components/articles-sidebar/articles-sidebar.module';
 import { ProfileContentModule } from './components/profile-content/profile-content.module';
+
+import { BoxesModule } from '@layout/boxes/boxes.module';
+import { SectionModule } from '@layout/section/section.module';
+import { PageHeaderModule } from '@layout/page-header/page-header.module';
+
+import { ProfileComponent } from './profile.component';
 import { ProfileActionsComponent } from './components/profile-actions/profile-actions.component';
+
+const Material = [
+  MatButtonModule
+];
 
 @NgModule({
   declarations: [
@@ -16,11 +25,14 @@ import { ProfileActionsComponent } from './components/profile-actions/profile-ac
   ],
   imports: [
     CommonModule,
-    LayoutModule,
     SharedModule,
     ProfileRouting,
     ProfileContentModule,
-    ArticlesSidebarModule
+    ArticlesSidebarModule,
+    ...Material,
+    BoxesModule,
+    PageHeaderModule,
+    SectionModule
   ]
 })
 

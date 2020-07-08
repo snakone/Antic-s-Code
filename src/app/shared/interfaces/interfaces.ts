@@ -128,7 +128,7 @@ export interface SearchRequest {
   badges?: string[];
   stars?: number[];
   type?: string[];
-  sort?: number;
+  sort?: string;
 }
 
 export interface MessageRequest {
@@ -181,7 +181,6 @@ export interface CarouselSlide {
 
 export interface DownloadButton {
   platform: string;
-  class: string;
   icon: string;
   link: string;
 }
@@ -192,7 +191,7 @@ export interface UserRol {
   name: string;
 }
 
-export interface ShowEmail {
+export interface ShowHide {
   text: string;
   show: boolean;
 }
@@ -269,6 +268,18 @@ export interface MostActive {
 
 export interface MostActiveResponse extends ServerResponse {
   users: MostActive[];
+}
+
+export interface ChatMessage {
+  user: string;
+  message: string;
+  own?: boolean;
+  avatar?: string;
+  date?: string;
+}
+
+export interface ChatResponse extends ServerResponse {
+  messages: ChatMessage[];
 }
 
 export class CustomError {

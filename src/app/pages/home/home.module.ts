@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HomeRouting } from './home.routing';
 import { HomeComponent } from './home.component';
-import { LayoutModule } from '@shared/components/layout/layout.module';
 import { SharedModule } from '@shared/shared.module';
 
 import { ArticlesHomeComponent } from './components/articles-home/articles-home.component';
@@ -14,20 +13,24 @@ import {
   ContactHomeModule
 } from './home.index';
 
+import { GridModule } from '@layout/grid/grid.module';
+import { SectionModule } from '@layout/section/section.module';
+
 @NgModule({
   declarations: [
     HomeComponent,
     ArticlesHomeComponent,
-    CategoryHomeComponent
+    CategoryHomeComponent,
   ],
   imports: [
-    LayoutModule,
     HomeRouting,
     HeaderHomeModule,
     LikedHomeModule,
     TestimonialHomeModule,
     ContactHomeModule,
-    SharedModule
+    SharedModule,
+    GridModule,
+    SectionModule
   ]
 })
 

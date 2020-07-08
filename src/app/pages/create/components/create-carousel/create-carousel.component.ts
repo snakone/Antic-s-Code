@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CREATE_SLIDES } from '@shared/shared.data';
+import { CREATE_SLIDES } from '@shared/data/carousel';
 
 @Component({
   selector: 'app-create-carousel',

@@ -6,17 +6,20 @@ import * as fromCategories from '@core/ngrx/reducers/category.reducer';
 import * as fromUsers from '@core/ngrx/reducers/user.reducer';
 import * as fromSearch from '@core/ngrx/reducers/search.reducer';
 import * as fromInteractions from '@core/ngrx/reducers/interaction.reducer';
+import * as fromChat from '@core/ngrx/reducers/chat.reducer';
 
 export const URI = 'https://anticscode.netlify.com';
-const APP_VERSION = '0.9.1';
-export const DESKTOP_VERSION = '0.5.2';
+const APP_VERSION = '0.9.2';
+export const DESKTOP_VERSION = '0.5.3';
+export const MOBILE_VERSION = '0.1.2';
 
 export interface AppState {
   articles: fromArticles.ArticleState;
   categories: fromCategories.CategoryState;
   user: fromUsers.UserState;
   search: fromSearch.SearchState;
-  interaction: fromInteractions.InteractionState
+  interaction: fromInteractions.InteractionState,
+  chat: fromChat.ChatState
 }
 
 export interface AppConfig {

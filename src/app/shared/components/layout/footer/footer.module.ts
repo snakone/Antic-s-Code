@@ -1,10 +1,19 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from '@app/shared/shared.module';
+
+import { SharedModule } from '@shared/shared.module';
 
 import { FooterBarComponent } from './components/footer-bar/footer-bar.component';
 import { FooterComponent } from './footer.component';
-import { RouterModule } from '@angular/router';
+
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+
+const Material = [
+  MatIconModule,
+  MatButtonModule
+];
 
 @NgModule({
   declarations: [
@@ -14,7 +23,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    ...Material
   ],
   exports: [
     FooterComponent

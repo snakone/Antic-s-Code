@@ -1,13 +1,12 @@
+<div class="about-me">
+  <h3 id="contact-title" [innerHTML]="'in.touch' | translate"></h3> <!-- CONTACT -->
+  <p>{{'lets.talk' | translate}}</p>
+</div>
 <div class="row">
   <div class="col-lg-6 col-md-6 intro">
-    <p>¿Te gusta lo que ves? ¿Crees que puedo serte útil en algún proyecto? He creado este sitio con pasión
-    y es sólo un ejemplo de lo que puedo hacer. Aunque mi especialidad es
-    <span class="angular">Angular</span>/<span class="ionic">Ionic</span>,
-    estoy abierto a todo tipo de tecnologías relacionadas con el desarrollo web moderno.<br>
-    Si estás interesado, puedes enviarme un mensaje y contarme tu historia y por qué quieres que esté en ella,
-    seguramente llegaremos a un acuerdo.<br></p>
+    <p [innerHTML]="'me.like.see' | translate"></p>
     <div class="social">
-      <h4>Redes Sociales</h4>
+      <h4>{{'social.media' | translate}}</h4>
       <ul>
         <li *ngFor="let s of mySocial">
           <a [href]="s.link" target="NEW">
@@ -42,7 +41,7 @@
               [disabled]="contactForm.invalid"
               class="btn-pink"
               (click)="onSubmit()"
-              type="submit">Enviar Mensaje
+              type="submit">{{'send.message' | translate}}
       </button>
     </form>
   </div>

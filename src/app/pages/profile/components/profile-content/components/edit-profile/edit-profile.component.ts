@@ -1,9 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from '@shared/interfaces/interfaces';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ROLES, PROFILE_LANGS } from '@shared/shared.data';
+
 import { UserService } from '@core/services/user/user.service';
 import { CrafterService } from '@core/services/crafter/crafter.service';
+
+import { ROLES, PROFILE_LANGS } from '@shared/data/user';
+import { User } from '@shared/interfaces/interfaces';
+import { URLPattern } from '@shared/data/patterns';
 
 @Component({
   selector: 'app-edit-profile',
@@ -17,7 +20,7 @@ export class EditProfileComponent implements OnInit {
   form: FormGroup;
   roles = ROLES;
   languages = PROFILE_LANGS;
-  urlPattern = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+  urlPattern = URLPattern;
 
   constructor(
     private userSrv: UserService,

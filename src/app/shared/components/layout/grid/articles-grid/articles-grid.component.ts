@@ -1,12 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Store } from '@ngrx/store';
+
+import { ArticlesFacade } from '@core/ngrx/facade/article.facade';
 import { Observable, Subject } from 'rxjs';
-import { AppState } from '@app/app.config';
-import { Article } from '@shared/interfaces/interfaces';
 import { takeUntil, filter } from 'rxjs/operators';
 
-import * as fromArticles from '@core/ngrx/selectors/article.selectors';
-import * as ArticleActions from '@core/ngrx/actions/article.actions';
+import { Article } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-articles-grid',
@@ -20,23 +18,23 @@ export class ArticlesGridComponent implements OnInit, OnDestroy {
   count$: Observable<number>;
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private articlesFacade: ArticlesFacade) { }
 
   ngOnInit() {
     this.checkData();
-    this.count$ = this.store.select(fromArticles.getCount);
-    this.articles$ = this.store.select(fromArticles.getLast);
+    this.count$ = this.articlesFacade.count$;
+    this.articles$ = this.articlesFacade.last$;
   }
 
   private checkData(): void {
-    this.store.select(fromArticles.getLastAndCountLoaded)
+    this.articlesFacade.lastCountLoaded$
      .pipe(
        filter(res => !res),
        takeUntil(this.unsubscribe$)
       )
       .subscribe(_ => {
-         this.store.dispatch(ArticleActions.getLast());
-         this.store.dispatch(ArticleActions.getCount());
+         this.articlesFacade.getLast();
+         this.articlesFacade.getCount();
     });
   }
 

@@ -1,3 +1,7 @@
+<div class="about-me">
+  <h3 [innerHTML]="'tech.skills' | translate"></h3> <!-- SKILLS -->
+  <p>{{'skills.develop' | translate}}</p>
+</div>
 <div class="wrapper">
   <div class="grid-cards">
     <div class="row flex">
@@ -7,9 +11,9 @@
                [alt]="h.name"
                loading="lazy"/>
           <h3>{{h.name}}</h3>
-          <p class="area">{{h.area}}</p>
-          <p>{{h.message}}</p>
-          <p>Lo aprendí en
+          <p class="area">{{h.area | translate}}</p>
+          <p>{{h.message | translate}}</p>
+          <p>{{'learned.on' | translate}}
             <span class="primary">{{h.year}}</span>
           </p>
         </div>
@@ -17,6 +21,6 @@
     </div>
   </div>
   <div class="grid-skills">
-    <span *ngFor="let s of softSkills">{{s}}</span>
+    <span *ngFor="let s of softSkills">{{s | translate}}</span>
   </div>
 </div>

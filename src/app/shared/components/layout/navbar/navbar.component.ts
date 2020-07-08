@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { LoginComponent } from '../../login/login.component';
-import { AppState } from '@app/app.config';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { User } from '@shared/interfaces/interfaces';
-import * as fromUsers from '@core/ngrx/selectors/user.selectors';
+
 import { CrafterService } from '@core/services/crafter/crafter.service';
+import { UsersFacade } from '@core/ngrx/facade/users.facade';
+import { Observable } from 'rxjs';
+
+import { User } from '@shared/interfaces/interfaces';
+import { LoginComponent } from '../../login/login.component';
 
 @Component({
   selector: 'app-navbar',
@@ -20,11 +20,11 @@ export class NavBarComponent implements OnInit {
 
   constructor(
     private crafter: CrafterService,
-    private store: Store<AppState>
+    private usersFacade: UsersFacade
   ) { }
 
   ngOnInit() {
-    this.user$ = this.store.select(fromUsers.get);
+    this.user$ = this.usersFacade.user$;
   }
 
   public openLogin(): void {

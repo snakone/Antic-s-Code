@@ -1,14 +1,17 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { Article, User, Interaction, NotificationPayload } from '@shared/interfaces/interfaces';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { NoAccountComponent } from '@layout/dialogs/no-account/no-account.component';
-import { UserService } from '@app/core/services/user/user.service';
+import { URI } from '@app/app.config';
+
+import { UserService } from '@core/services/user/user.service';
 import { CrafterService } from '@core/services/crafter/crafter.service';
 import { InteractionService } from '@core/services/interaction/interaction.service';
-import { URI } from '@app/app.config';
-import { STAR_PUSH } from '@shared/shared.data';
 import { PushService } from '@core/services/push/push.service';
+
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { STAR_PUSH } from '@shared/data/notifications';
+import { Article, User, Interaction, NotificationPayload } from '@shared/interfaces/interfaces';
+
+import { NoAccountComponent } from '@layout/dialogs/no-account/no-account.component';
 
 @Component({
   selector: 'app-star-rating',

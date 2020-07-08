@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AppState } from '@app/app.config';
 import { HttpService } from '../http/http.service';
+import { environment } from '@env/environment';
 
 import {
   User,
@@ -10,13 +10,11 @@ import {
   MessageRequest
  } from '@shared/interfaces/interfaces';
 
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { StorageService } from '@core/storage/storage.service';
-import { Store } from '@ngrx/store';
-import * as UserActions from '@core/ngrx/actions/user.actions';
 import { map, filter, tap } from 'rxjs/operators';
-import { environment } from '@env/environment';
 import { PushService } from '../push/push.service';
+import { UsersFacade } from '@core/ngrx/facade/users.facade';
 
 @Injectable({providedIn: 'root'})
 
@@ -25,11 +23,12 @@ export class UserService {
   readonly API_USERS = environment.api + 'users';
   readonly API_TOKEN = environment.api + 'token';
   private user: User;
+  public chatUser: string;
 
   constructor(
     private http: HttpService,
     private ls: StorageService,
-    private store: Store<AppState>,
+    private userFacade: UsersFacade,
     private sw: PushService
   ) { }
 
@@ -67,7 +66,7 @@ export class UserService {
         filter(res => res && !!res.ok),
         tap(res => {
           this.ls.setKey('token', res.token);
-          this.store.dispatch(UserActions.set({ user: res.user }));
+          this.userFacade.set(res.user);
         })
       );
   }
@@ -121,15 +120,24 @@ export class UserService {
     return this.user || null;
   }
 
+  public getChatUser(): string {
+    return this.chatUser || null;
+  }
+
   private setUser(user: User): void {
     this.user = user;
+    this.chatUser = user.name;
+  }
+
+  public setChatUser(name: string): void {
+    this.chatUser = name;
   }
 
   public login(
     data: UserResponse,
     remember: boolean = false
   ): void {
-      this.store.dispatch(UserActions.set({user: data.user}));
+      this.userFacade.set(data.user);
       this.setUser(data.user);
       this.ls.setKey('token', data.token);
       this.ls.setKey('user', data.user._id);
@@ -140,8 +148,10 @@ export class UserService {
   public logout(): void {
     this.ls.setKey('token', null);
     this.ls.setKey('welcome', false);
-    this.store.dispatch(UserActions.userLogOut());
+    this.ls.setKey('chat', true);
+    this.userFacade.logOut();
     this.user = null;
+    this.chatUser = null;
   }
 
   private setToken(data: UserResponse): void {

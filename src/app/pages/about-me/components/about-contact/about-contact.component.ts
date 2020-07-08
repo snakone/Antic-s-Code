@@ -1,11 +1,13 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { MY_SOCIAL } from '@shared/shared.data';
 import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
-import { MessageRequest } from '@shared/interfaces/interfaces';
+
 import { UserService } from '@core/services/user/user.service';
+import { CrafterService } from '@core/services/crafter/crafter.service';
+
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { CrafterService } from '@core/services/crafter/crafter.service';
+import { MY_SOCIAL } from '@shared/data/user';
+import { MessageRequest } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-about-contact',
@@ -51,13 +53,13 @@ export class AboutContactComponent implements OnInit, OnDestroy {
   }
 
   public onSubmit(): void {
-    if (this.contactForm.invalid) { return; }
+    if (this.contactForm.invalid) return;
     const request: MessageRequest = this.contactForm.value;
 
     this.userSrv.sendMeAMessage(request)
     .pipe(takeUntil(this.unsubscribe$))
      .subscribe(_ => {
-       this.crafter.toaster('Mensaje enviado', 'Muchas gracias', 'info');
+       this.crafter.toaster('message.send', 'thanks.much', 'info');
        this.f.resetForm();
      });
   }

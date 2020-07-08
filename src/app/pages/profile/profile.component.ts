@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { User } from '@shared/interfaces/interfaces';
 import * as fromUsers from '@core/ngrx/selectors/user.selectors';
+import { UsersFacade } from '@app/core/ngrx/facade/users.facade';
 
 @Component({
   selector: 'app-profile',
@@ -15,10 +16,10 @@ export class ProfileComponent implements OnInit {
 
   user$: Observable<User>;
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private usersFacade: UsersFacade) { }
 
   ngOnInit() {
-    this.user$ = this.store.select(fromUsers.get);
+    this.user$ = this.usersFacade.user$;
   }
 
 }

@@ -11,13 +11,9 @@
     margin-top: 30px;
     font-size: 16px;
     color: #1a1a1a;
-    padding-left: 20px;
+    padding-left: 0;
     margin-left: 0;
     margin-bottom: 10px;
-  }
-
-  ul {
-    list-style: disc;
   }
 
   ul li, ol li {
@@ -98,6 +94,7 @@
     & p {
       margin: 0 !important;
       color: white !important;
+      font-size: .95rem;
     }
   }
 
@@ -116,6 +113,7 @@
 
   blockquote code {
     background: rgba(123, 103, 50, 0.4);
+    font-size: .95rem;
   }
 
   code[class*=language-], pre[class*=language-]  {
