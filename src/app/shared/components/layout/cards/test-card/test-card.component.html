@@ -1,0 +1,27 @@
+<div class="course">
+  <div class="course-preview">
+    <img [src]="category.icon | image: 'logos'"
+         [alt]="category.category"/>
+    <h6>{{'category' | translate}}</h6>
+    <h2>{{category.name}}</h2>
+    <a href="#" class="default">{{'view.test' | translate}}
+      <i class="fa fa-chevron-right"></i>
+    </a>
+  </div>
+  <div class="course-info">
+    <h6>{{'test.available' | translate}}</h6>
+    <p>Callbacks & Closures</p>
+    <p>Functions & Fetch</p>
+    <!-- <p>Promises & Hoisting</p> -->
+    <div class="progress-container">
+      <div class="progress"></div>
+      <span class="progress-text">
+        6/9 {{'test.done' | translate}}
+      </span>
+    </div>
+    <button mat-button
+            class="btn"
+            [routerLink]="category.category"
+            >{{'visit' | translate}}</button>
+  </div>
+</div>

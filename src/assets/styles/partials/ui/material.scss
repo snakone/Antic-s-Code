@@ -82,4 +82,10 @@ mat-option.all {
 .mat-checkbox-inner-container { top: 2px }
 .p-left .mat-option-text { padding-left: .4rem }
 
+.edit-dialog .mat-dialog-container {
+  padding: 0 !important;
+  border-radius: 10px;
+  @media(max-width: 700px) { height: 80vh !important }
+}
+
 

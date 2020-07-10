@@ -41,7 +41,7 @@ export class DeleteAccountComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    if (this.deleteForm.invalid) return;
+    if (this.deleteForm.invalid) { return; }
     this.dialog.close(true);
   }
 

@@ -13,7 +13,7 @@ import { MostActive } from '@shared/interfaces/interfaces';
 
 export class MostActiveBoxComponent implements OnInit, OnDestroy {
 
-  activeUsers$: Observable<MostActive[]>;
+  activeUsers$: Observable<MostActive[]> | undefined;
   private unsubscribe$ = new Subject<void>();
 
   constructor(private usersFacade: UsersFacade) { }

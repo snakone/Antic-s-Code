@@ -10,7 +10,7 @@
     </figure>
     <div class="card-info">  <!-- CARD TITLE -->
       <div class="card-info-content" [ngClass]="{'title' : title}">
-        <h4 [routerLink]="'/article/' + article.slug">{{article.title}}</h4>
+        <h1 [routerLink]="'/article/' + article.slug">{{article.title}}</h1>
         <div class="card-info-meta">
           <span class="meta-star-card meta-star-icon">
             {{article.stars}} <mat-icon>star_rate</mat-icon>
@@ -62,10 +62,7 @@
         <div class="card-bottom-right">
           <ul>
             <li class="card-bottom-right-count">
-              <mat-icon [matTooltip]="'views' | translate"
-                        matTooltipPosition="above">
-                        visibility
-              </mat-icon>
+              <mat-icon>visibility</mat-icon>
               <span>{{article.views}} +</span>
             </li>
           </ul>

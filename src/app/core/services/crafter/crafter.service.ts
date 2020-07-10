@@ -52,16 +52,17 @@ export class CrafterService {
   public dialog<T>(
     component: ComponentType<T>,
     data?: any,
-    id?: string
+    id?: string,
+    css?: string
   ): MatDialogRef<T> {
-    return this.matDialog.open(component, {data, id: id ? id :null});
+    return this.matDialog.open(component, {data, id: id || '', panelClass: css});
   }
 
   public modal(
     title: string,
     message: string,
     icon: string = 'error'
-  ): MatDialogRef<MessageModalComponent> {
+  ): MatDialogRef<MessageModalComponent> | undefined {
     if (this.matDialog.openDialogs.length > 0 &&
         this.matDialog.openDialogs[0].id !== 'Login') {
       return;
@@ -72,30 +73,30 @@ export class CrafterService {
         message,
         icon
       }
-    })
+    });
   }
 
   public handleError(err: HttpErrorResponse): void {
     switch (err.status) {
       case 0: this.modal('errors.web.title',
                          'errors.web.message');
-       break;
+              break;
       case 400: case 406:
                 this.modal('errors.request.title',
                            'errors.request.message',
                            'help');
-       break;
+                break;
       case 401: this.modal('errors.token.title',
                            'errors.token.message',
                            'info');
-       break;
+                break;
       case 403: this.modal('errors.access.title',
                            'errors.access.message');
-       break;
+                break;
       case 409: case 500:
                 this.modal('errors.server.title',
                            'errors.server.message');
-       break;
+                break;
       default: this.modal('errors.unknown.title',
                           'errors.unknown.message');
     }

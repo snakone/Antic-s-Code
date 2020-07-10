@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { UserService } from '@core/services/user/user.service';
@@ -7,6 +7,7 @@ import { CrafterService } from '@core/services/crafter/crafter.service';
 import { ROLES, PROFILE_LANGS } from '@shared/data/user';
 import { User } from '@shared/interfaces/interfaces';
 import { URLPattern } from '@shared/data/patterns';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-edit-profile',
@@ -16,7 +17,7 @@ import { URLPattern } from '@shared/data/patterns';
 
 export class EditProfileComponent implements OnInit {
 
-  @Input() user: User;
+  // @Input() user: User;
   form: FormGroup;
   roles = ROLES;
   languages = PROFILE_LANGS;
@@ -24,7 +25,8 @@ export class EditProfileComponent implements OnInit {
 
   constructor(
     private userSrv: UserService,
-    private crafter: CrafterService
+    private crafter: CrafterService,
+    @Inject(MAT_DIALOG_DATA) public user: User
   ) { }
 
   ngOnInit() {

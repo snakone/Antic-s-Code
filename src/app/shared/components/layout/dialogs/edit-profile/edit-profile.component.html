@@ -1,5 +1,9 @@
-<app-expansion-box title="edit.your.profile"
-                   icon="edit">
+<app-content-box title="edit.your.profile"
+                 icon="edit"
+                 [margin]="false">
+  <div class="exit">
+    <mat-icon>close</mat-icon>
+  </div>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <mat-form-field color="accent" appearance="outline">  <!-- NAME -->
       <mat-label>{{'user.name' | translate}}</mat-label>
@@ -68,4 +72,4 @@
             {{'save' | translate}}
     </button>
   </form>
-</app-expansion-box>
+</app-content-box>

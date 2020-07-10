@@ -33,10 +33,10 @@ export class FooterComponent {
         this.crafter.dialog(LoginComponent, {register: true}, 'Login') :
         this.crafter.modal('errors.register.title',
                            'errors.register.message',
-                           'info');;
+                           'info');
   }
 
-    this.router.navigateByUrl(`/${value}`);
+      this.router.navigateByUrl(`/${value}`);
   }
 
 }

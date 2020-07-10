@@ -9,7 +9,7 @@
   "users": "Usuarios",
   "our.users": "Nuestros Usuarios",
   "users.list": "Lista de Usuarios",
-  "most.active": "Los más Activos",
+  "most.active": "Más Activos",
   "menu": "Menú",
   "advantages": "Ventajas",
   "collaborate": "Colaborar",
@@ -248,6 +248,10 @@
     "unknown": {
       "title": "Error desconocido",
       "message": "No sabemos el que sin embargo algo malo pasó. Disculpa las molestias, si el problema persiste ponte en contacto con nosotros."
+    },
+    "test": {
+      "title": "Acceso denegado",
+      "message": "Lo sentimos, esta característica hace uso de tu información como usuario. Es necesario estar registrado para acceder a ella."
     }
   },
   "modals": {
@@ -360,7 +364,7 @@
   "now.working": "(Actualmente ejerciendo)",
   "task.done": "Tareas realizadas",
   "featured.clients": "Clientes destacados",
-  "skip": "Saltar",
+  "skip": "Saltar?",
   "crono": "Cronología",
   "me": {
     "history": "<span>Historia</span> de un Developer",
@@ -492,5 +496,16 @@
     }
   },
   "like": "Me gusta",
-  "share": "Compartir"
+  "share": "Compartir",
+  "test.page": "Prueba tus habilidades",
+  "do.test": "Test de nuestras categorías",
+  "testing": "Pruebas",
+  "test": "Prueba",
+  "best.score": "Mejor puntuación",
+  "test.intro": "Prueba tus habilidades con estos <strong>test</strong> sobre nuestras categorías. Puedes comprobar el resultado después de hacer el test o en tu perfil. Otras personas sabrán de qué estás hecho.",
+  "take.look": "Echa un vistazo a nuestras categorias",
+  "test.available": "Test disponibles",
+  "visit": "Visitar",
+  "view.test": "Ver todos los test",
+  "test.done": "Test hechos"
 }

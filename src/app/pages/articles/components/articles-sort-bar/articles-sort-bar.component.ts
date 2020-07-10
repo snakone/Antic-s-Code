@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, OnDestroy, Input } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
 import { takeUntil, filter } from 'rxjs/operators';
@@ -13,8 +13,8 @@ import { ArticlesFacade } from '@core/ngrx/facade/article.facade';
 export class ArticlesSortBarComponent implements OnInit, OnDestroy {
 
   @Output() grid = new EventEmitter<boolean>();
+  @Input() active = false;
   count$: Observable<number>;
-  active = false;
   private unsubscribe$ = new Subject<void>();
 
   constructor(private articleFacade: ArticlesFacade) { }

@@ -1,0 +1,18 @@
+<app-content-box title="category.list" icon="playlist_add_check">
+  <div class="category-content">
+    <p [innerHTML]="'test.intro' | translate"></p>
+    <!-- <div class="category-grid">
+      <app-test-category-grid [categories]="categories"></app-test-category-grid>
+    </div> -->
+  </div>
+</app-content-box>
+
+
+<div class="category-list">
+  <app-test-card *ngFor="let c of categories; let last = last; let first = first"
+                  [category]="c"
+                  [first]="first"
+                  [last]="last">
+  </app-test-card>
+</div>
+

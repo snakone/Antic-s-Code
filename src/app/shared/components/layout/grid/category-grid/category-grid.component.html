@@ -13,7 +13,7 @@
                        alt="Category Logo" loading="lazy"/>
                 </span>
               </div>
-              <h4>{{c.name}}</h4>
+              <h1>{{c.name}}</h1>
               <span class="category-badge">
                 {{(count$ | async)[c.category] || 0}}
                 {{'article' | translate}}<span *ngIf="count[c.category] != 1">s</span>

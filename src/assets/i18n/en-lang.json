@@ -9,7 +9,7 @@
   "users": "Users",
   "our.users": "Our Users",
   "users.list": "User List",
-  "most.active": "The most Active",
+  "most.active": "Most Active",
   "menu": "Menu",
   "advantages": "Advantages",
   "collaborate": "Cooperate",
@@ -253,6 +253,10 @@
     "unknown": {
       "title": "Unkown error",
       "message": "We don't know yet but something bad happened. Sorry for the inconvenience, if the problem persists, contact us."
+    },
+    "test": {
+      "title": "Access Denied",
+      "message": "We apologize, this feature makes use of your information as a user. You must be registered to access it."
     }
   },
   "modals": {
@@ -352,7 +356,7 @@
     }
   },
   "in.touch": "We are in <span>Contact</span>",
-  "lets.talk": "Let's Talk?",
+  "lets.talk": "Let's Talk!",
   "social.media": "Social Media",
   "send.message": "Send Message",
   "pro.obj": "Career <span>Goals</span>",
@@ -366,7 +370,7 @@
   "now.working": "(Currently exercising)",
   "task.done": "Completed tasks",
   "featured.clients": "Featured Clients",
-  "skip": "Skip",
+  "skip": "Skip?",
   "crono": "Chronology",
   "me": {
     "history": "<span> History </span> of a Developer",
@@ -498,5 +502,16 @@
     }
   },
   "like": "Like",
-  "share": "Share"
+  "share": "Share",
+  "test.page": "Prove your Skills",
+  "do.test": "Test about our categories",
+  "testing": "Testing",
+  "test": "Test",
+  "best.score": "Best Scores",
+  "test.intro": "Prove your skills with the following <strong>test</strong> about our categories. You can check the result after the test or in your Profile. Other people will know of what are You made!",
+  "take.look": "Take a look to our categories",
+  "test.available": "Test available",
+  "visit": "Visit",
+  "view.test": "View all test",
+  "test.done": "Test done"
 }

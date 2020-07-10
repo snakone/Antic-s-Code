@@ -1,0 +1,18 @@
+.category-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media(max-width: 750px) {
+    flex-wrap: wrap;
+  }
+
+  & img {
+    width: 30px;
+    margin: .6rem;
+    cursor: pointer;
+    &:hover { filter: brightness(1.2) }
+    &:first-child { margin-left: 0 }
+    &:last-child { margin-right: 0 }
+  }
+}

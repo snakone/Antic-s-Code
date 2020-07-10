@@ -7,6 +7,7 @@ import { DeleteAccountComponent } from '@layout/dialogs/delete-account/delete-ac
 import { takeUntil, switchMap, filter } from 'rxjs/operators';
 import { StorageService } from '@core/storage/storage.service';
 import { UserService } from '@core/services/user/user.service';
+import { EditProfileComponent } from '@layout/dialogs/edit-profile/edit-profile.component';
 
 @Component({
   selector: 'app-profile-actions',
@@ -46,6 +47,10 @@ export class ProfileActionsComponent implements OnDestroy {
   public logOut(): void {
     this.router.navigateByUrl('/home')
       .then(() => this.userSrv.logout());
+  }
+
+  public openModal(): void {
+    this.crafter.dialog(EditProfileComponent, this.user, null, 'edit-dialog');
   }
 
   ngOnDestroy(): void {

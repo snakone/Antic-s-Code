@@ -1,0 +1,8 @@
+<div class="category-grid">
+  <img *ngFor="let c of categories"
+        [src]="c.icon | image: 'logos'"
+        [alt]="c.category"
+        (click)="scroll(c.category)"
+        [matTooltip]="c.category"
+        matTooltipPosition="above"/>
+</div>

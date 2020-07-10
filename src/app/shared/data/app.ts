@@ -32,7 +32,8 @@ export const PAGE_BG = {
   search: 'assets/img/page_bg/search.mp4',
   support: 'assets/img/page_bg/support.mp4',
   users: 'assets/img/page_bg/users.mp4',
-  works: 'assets/img/page_bg/works.mp4'
+  works: 'assets/img/page_bg/works.mp4',
+  test: 'assets/img/page_bg/test.mp4'
 };
 
 export const CONDITIONS: string[] = [
