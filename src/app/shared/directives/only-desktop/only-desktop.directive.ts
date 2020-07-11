@@ -45,7 +45,7 @@ export class OnlyDesktopDirective implements AfterViewInit, OnDestroy {
   }
 
   private checkWidth(e: Window): boolean {
-    return e.innerWidth > 993 ? true : false
+    return e.innerWidth > 993 ? true : false;
   }
 
   ngOnDestroy(): void {

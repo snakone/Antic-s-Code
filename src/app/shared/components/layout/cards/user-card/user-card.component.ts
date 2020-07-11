@@ -12,12 +12,12 @@ export class UserCardComponent {
 
   @Input() user: User;
   @Input() skeleton: boolean;
-  @Input() last: boolean;
+  @Input() first: boolean;
 
   constructor(private crafter: CrafterService) { }
 
   public show(): void {
-    console.log('hey');
+    console.log(this.user);
   }
 
 }

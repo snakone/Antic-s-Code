@@ -2,16 +2,18 @@
                               [category]="category">
 </app-single-category-info-box>
 
-<app-articles-sidebar [block]="true"
-                      [viewed]="category ? true : false"
-                      [sidebar]="true">
-</app-articles-sidebar>
-
 <app-sticky-box selector="category-section"
                 [empty]="true"
                 *ngIf="category">
   <app-related-articles-box [category]="category"></app-related-articles-box>
 </app-sticky-box>
+
+<!-- <app-articles-sidebar [block]="true"
+                      [viewed]="category ? true : false"
+                      [sidebar]="true">
+</app-articles-sidebar> -->
+
+
 
 
 

@@ -33,7 +33,7 @@ export class IndexBoxComponent implements AfterContentInit {
           this.scrollSpy = int[0].target.id;
         });
         anchors.forEach((el: Element) => {
-          inter.observe(el)
+          inter.observe(el);
         });
       } catch (err) { console.log(err); }
     }, 2500);

@@ -8,6 +8,7 @@
                        [value]="l.selector"
                        role="option">
             {{l.selector | translate}}
+            <img [src]="(l.selector | image: 'flags') + '.svg'"/>
           </mat-option>
         </mat-select>
       </mat-form-field>

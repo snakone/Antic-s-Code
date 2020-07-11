@@ -1,7 +1,6 @@
-app-carousel { margin-top: 5rem }
-
 .swiper-slide {
   margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   @media(max-width: 550px) { margin-top: 0 }
 }
 
@@ -44,7 +43,7 @@ h3 { margin-top: 5rem }
     margin-top: 0 ;
     font-weight: 700;
     line-height: 1.2;
-    color: var(--title-color);
+    color: var(--new-color);
     font-size: 1.2rem;
   }
 

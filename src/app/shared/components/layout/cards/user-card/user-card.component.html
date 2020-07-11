@@ -1,9 +1,8 @@
 <div class="card-content"
-    [ngClass]="{'last': last}"
+    [ngClass]="{'first': first}"
     *ngIf="!skeleton">
   <div class="user-card">
-      <div class="user-card-flex"
-           [routerLink]="'/profile/' + user.name">
+      <div class="user-card-flex">
         <img [src]="user.profile?.avatar || 'assets/img/profile/no-photo.jpg'"
              alt="Avatar"
              loading="lazy"
@@ -17,7 +16,11 @@
           </span>
         </div>
       </div>
-      <mat-icon (click)="show()">person_add</mat-icon>
+  </div>
+  <div class="actions">
+    <mat-icon [routerLink]="'/profile/' + user.name">open_in_new</mat-icon>
+    <mat-icon (click)="show()">person_add</mat-icon>
+    <mat-icon (click)="show()" color="success">thumb_up</mat-icon>
   </div>
 </div>
 

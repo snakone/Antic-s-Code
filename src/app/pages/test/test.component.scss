@@ -1,1 +1,10 @@
 * { box-sizing: border-box }
+
+.col-lg-4 {
+  max-width: 100%;
+  @media(max-width: 992px) {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 2rem;
+   }
+}

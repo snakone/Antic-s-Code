@@ -3,7 +3,8 @@ import { AosOptions } from 'aos';
 
 export const LANGUAGES: Config[] = [
   { name: 'Spanish', selector: 'es' },
-  { name: 'English', selector: 'en' }
+  { name: 'English', selector: 'en' },
+  { name: 'Català', selector: 'cat' }
 ];
 
 

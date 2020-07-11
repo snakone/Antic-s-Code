@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { UserService } from '@core/services/user/user.service';
@@ -7,7 +7,7 @@ import { CrafterService } from '@core/services/crafter/crafter.service';
 import { ROLES, PROFILE_LANGS } from '@shared/data/user';
 import { User } from '@shared/interfaces/interfaces';
 import { URLPattern } from '@shared/data/patterns';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-edit-profile',
@@ -26,7 +26,8 @@ export class EditProfileComponent implements OnInit {
   constructor(
     private userSrv: UserService,
     private crafter: CrafterService,
-    @Inject(MAT_DIALOG_DATA) public user: User
+    @Inject(MAT_DIALOG_DATA) public user: User,
+    private dialog: MatDialogRef<EditProfileComponent>,
   ) { }
 
   ngOnInit() {
@@ -84,6 +85,10 @@ export class EditProfileComponent implements OnInit {
       .then(_ => this.crafter
         .toaster('success', 'profile.updated', 'info')
       );
+  }
+
+  public close(): void {
+    this.dialog.close();
   }
 
 }

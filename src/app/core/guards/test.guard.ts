@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate } from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -13,7 +13,8 @@ export class TestGuard implements CanActivate {
 
   constructor(
     private userFacade: UsersFacade,
-    private crafter: CrafterService
+    private crafter: CrafterService,
+    private router: Router
   ) { }
 
   canActivate(): Observable<boolean> {
@@ -27,6 +28,7 @@ export class TestGuard implements CanActivate {
       'errors.test.title',
       'errors.test.message',
       'info');
+    this.router.navigateByUrl('/');
   }
 
 }

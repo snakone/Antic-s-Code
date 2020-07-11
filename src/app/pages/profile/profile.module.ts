@@ -13,9 +13,13 @@ import { PageHeaderModule } from '@layout/page-header/page-header.module';
 
 import { ProfileComponent } from './profile.component';
 import { ProfileActionsComponent } from './components/profile-actions/profile-actions.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 const Material = [
-  MatButtonModule
+  MatButtonModule,
+  MatIconModule,
+  MatTooltipModule
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-<app-content-box title="most.active" icon="favorite_border">
+<app-content-box title="most.active" icon="thumb_up">
   <ng-container *ngIf="(activeUsers$ | async) as users; else noUsers">
     <ul>
       <li *ngFor="let user of users; let i = index">

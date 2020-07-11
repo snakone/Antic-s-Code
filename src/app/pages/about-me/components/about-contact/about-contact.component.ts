@@ -53,7 +53,7 @@ export class AboutContactComponent implements OnInit, OnDestroy {
   }
 
   public onSubmit(): void {
-    if (this.contactForm.invalid) return;
+    if (this.contactForm.invalid) { return; }
     const request: MessageRequest = this.contactForm.value;
 
     this.userSrv.sendMeAMessage(request)

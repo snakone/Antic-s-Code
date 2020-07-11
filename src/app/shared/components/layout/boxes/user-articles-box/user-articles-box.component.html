@@ -5,7 +5,8 @@
                                             name: user?.name ?
                                                   user.name :
                                                   ('user' | translate)
-                                          }">
+                                          }"
+                 icon="grading">
   <ng-container *ngIf="(articles$ | async) as articles">
     <div class="article-item" *ngFor="let a of articles |
                                                paginate: { itemsPerPage: itemsPerPage,

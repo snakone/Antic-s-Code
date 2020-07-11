@@ -4,8 +4,10 @@ form {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
 }
+
+.edit-profile { position: relative }
 
 mat-form-field {
   width: 48%;
@@ -35,4 +37,13 @@ button {
 .half-top {
   margin-top: 2rem;
   @media(max-width: 700px) { margin-top: 0 }
+}
+
+.exit {
+  position: absolute;
+  right: 0;
+  top: -2.6rem;
+  right: -.5rem;
+  & mat-icon { font-size: 1.5rem }
+  cursor: pointer;
 }

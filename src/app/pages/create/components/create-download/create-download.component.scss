@@ -1,15 +1,11 @@
 * { box-sizing: border-box }
 
 .row {
-  margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
 }
 
-h3 {
-  margin-top: 8rem;
-}
+h3 { margin-top: 0 }
 
 .col-lg-6 {
   max-width: 576px;

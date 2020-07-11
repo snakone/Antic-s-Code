@@ -85,6 +85,7 @@ mat-option.all {
 .edit-dialog .mat-dialog-container {
   padding: 0 !important;
   border-radius: 10px;
+  max-width: 993px;
   @media(max-width: 700px) { height: 80vh !important }
 }
 

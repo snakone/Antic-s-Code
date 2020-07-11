@@ -1,8 +1,11 @@
 <div class="course">
   <div class="course-preview">
-    <img [src]="category.icon | image: 'logos'"
-         [alt]="category.category"/>
-    <h6>{{'category' | translate}}</h6>
+    <div style="display: flex">
+      <img [src]="category.icon | image: 'logos'"
+           [alt]="category.category"/>
+      <h6>{{'category' | translate}}</h6>
+    </div>
+
     <h2>{{category.name}}</h2>
     <a href="#" class="default">{{'view.test' | translate}}
       <i class="fa fa-chevron-right"></i>

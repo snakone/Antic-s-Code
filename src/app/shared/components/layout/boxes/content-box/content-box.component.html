@@ -1,7 +1,9 @@
 <div class="content-box animated fadeIn"
      [ngClass]="{'content-box-no-border': border,
                  'content-box-no-margin': !margin }">
-  <div class="content-box-header" *ngIf="title">
+  <div class="content-box-header"
+       *ngIf="title"
+       [ngClass]="{'content-box-header-modal': modal }">
     <div class="content-box-title flex-box">
       <h4 class="flex-box">
         <mat-icon *ngIf="icon">{{icon}}</mat-icon>

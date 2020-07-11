@@ -15,7 +15,6 @@ import { ProfileInfoBoxComponent } from './profile-info-box/profile-info-box.com
 import { RelatedArticlesBoxComponent } from './related-articles-box/related-articles-box.component';
 import { UserArticlesBoxComponent } from './user-articles-box/user-articles-box.component';
 import { ExpansionBoxComponent } from './expansion-box/expansion-box.component';
-import { FavoriteLangBoxComponent } from './favorite-lang-box/favorite-lang-box.component';
 import { MostViewedBoxComponent } from './most-viewed-box/most-viewed-box.component';
 import { RelatedTagsBoxComponent } from './related-tags-box/related-tags-box.component';
 import { MostActiveBoxComponent } from './most-active-box/most-active-box.component';
@@ -49,7 +48,6 @@ const Material = [
     RelatedArticlesBoxComponent,
     UserArticlesBoxComponent,
     ExpansionBoxComponent,
-    FavoriteLangBoxComponent,
     MostViewedBoxComponent,
     RelatedTagsBoxComponent,
     MostActiveBoxComponent
@@ -73,7 +71,6 @@ const Material = [
     RelatedArticlesBoxComponent,
     UserArticlesBoxComponent,
     ExpansionBoxComponent,
-    FavoriteLangBoxComponent,
     MostViewedBoxComponent,
     RelatedTagsBoxComponent,
     MostActiveBoxComponent,

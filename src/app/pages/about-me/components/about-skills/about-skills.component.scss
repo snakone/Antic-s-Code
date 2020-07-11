@@ -48,14 +48,14 @@
   & span {
       padding-right: 5px;
       font-size: 1.1rem;
-      color: var(--title-color);
+      color: var(--new-color);
       @media(max-width: 550px) { font-size: 1rem }
       padding-top: 8px;
       font-weight: bold;
 
     &:nth-child(odd) {
       color: var(--p-color);
-     &:hover { color: var(--title-color) }
+     &:hover { color: var(--new-color) }
     }
 
     &:hover {

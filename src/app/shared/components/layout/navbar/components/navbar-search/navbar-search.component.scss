@@ -29,7 +29,7 @@ input {
     & input {
       border-color: rgba(39, 43, 65, .1);
       &::placeholder {
-        color: var(--title-color);
+        color: var(--new-color);
         opacity: .5;
        }
 

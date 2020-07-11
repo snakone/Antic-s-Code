@@ -25,6 +25,7 @@
   "settings": "Settings",
   "es": "Spanish",
   "en": "English",
+  "cat": "Catalonian",
   "save": "Save",
   "language": "Language",
   "theme": "Theme",
@@ -513,5 +514,6 @@
   "test.available": "Test available",
   "visit": "Visit",
   "view.test": "View all test",
-  "test.done": "Test done"
+  "test.done": "Test done",
+  "see.profile": "See Profile"
 }
