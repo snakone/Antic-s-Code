@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { List } from '@shared/interfaces/interfaces';
+import { Test } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-test-card',
@@ -9,7 +9,7 @@ import { List } from '@shared/interfaces/interfaces';
 
 export class TestCardComponent {
 
-  @Input() category: List;
+  @Input() test: Test;
   @Input() first: boolean;
   @Input() last: boolean;
 

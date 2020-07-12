@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { UsersFacade } from '@core/ngrx/facade/users.facade';
+import { UsersFacade } from '@store/users/users.facade';
 
 import { takeUntil, filter } from 'rxjs/operators';
 import { MostActive } from '@shared/interfaces/interfaces';

@@ -9,6 +9,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { DirectivesModule } from '@shared/directives/directives.module';
 import { ContactAdminComponent } from './contact-admin.component';
 import { ContactChatComponent } from './components/contact-chat/contact-chat.component';
+import { ChatAccessModule } from '@store/chat/data-access/chat-access.module';
 
 const Material = [
   MatIconModule,
@@ -23,6 +24,7 @@ const Material = [
   ],
   imports: [
     CommonModule,
+    ChatAccessModule,
     DirectivesModule,
     FormsModule,
     TranslateModule,

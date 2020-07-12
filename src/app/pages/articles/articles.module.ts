@@ -18,6 +18,7 @@ import { ContentBoxModule } from '@layout/boxes/content-box/content-box.module';
 import { ArticlesComponent } from './articles.component';
 import { ArticlesContentComponent } from './components/articles-content/articles-content.component';
 import { ArticlesSortBarComponent } from './components/articles-sort-bar/articles-sort-bar.component';
+import { InteractionAccessModule } from '@store/interactions/data-access/interaction-access.module';
 
 const Material = [
   MatTooltipModule,
@@ -33,6 +34,7 @@ const Material = [
   ],
   imports: [
     CommonModule,
+    InteractionAccessModule,
     SharedModule,
     ArticlesRouting,
     ArticlesSidebarModule,

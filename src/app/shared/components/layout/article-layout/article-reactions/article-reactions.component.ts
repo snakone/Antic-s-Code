@@ -8,7 +8,7 @@ import { CrafterService } from '@core/services/crafter/crafter.service';
 import { UserService } from '@core/services/user/user.service';
 import { InteractionService } from '@core/services/interaction/interaction.service';
 import { PushService } from '@core/services/push/push.service';
-import { InteractionFacade } from '@core/ngrx/facade/interaction.facade';
+import { InterFacade } from '@store/interactions/interaction.facade';
 
 import { NoAccountComponent } from '../../dialogs/no-account/no-account.component';
 
@@ -38,7 +38,7 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
   constructor(
     private crafter: CrafterService,
     private userSrv: UserService,
-    private interFacade: InteractionFacade,
+    private interFacade: InterFacade,
     private intSrv: InteractionService,
     private sw: PushService
   ) { }

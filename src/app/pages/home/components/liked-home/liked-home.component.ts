@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { ArticlesFacade } from '@core/ngrx/facade/article.facade';
+import { ArticlesFacade } from '@store/articles/article.facade';
 
 import { Subject, Observable } from 'rxjs';
 import { takeUntil, filter } from 'rxjs/operators';

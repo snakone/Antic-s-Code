@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MAIN_CATEGORIES } from '@shared/data/categories';
-import { List } from '@app/shared/interfaces/interfaces';
+import { List, Test } from '@app/shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-test-content',
@@ -9,6 +9,8 @@ import { List } from '@app/shared/interfaces/interfaces';
 })
 
 export class TestContentComponent implements OnInit {
+
+  @Input() tests: Test[];
 
   categories: List[];
 

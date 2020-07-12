@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Test } from '@app/shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-single-test-sidebar',
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
 })
 
 export class SingleTestSidebarComponent {
+
+  @Input() test: Test;
 
   constructor() { }
 

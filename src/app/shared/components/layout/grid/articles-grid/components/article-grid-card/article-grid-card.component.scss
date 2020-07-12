@@ -179,11 +179,17 @@
         width: 100%;
         height: 100%;
         object-fit: none;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 10px;
       }
      }
     & .card-info {
       flex: 2;
      }
+
+    & .card-bottom {
+      border-bottom-left-radius: 0;
+    }
   }
 }
 

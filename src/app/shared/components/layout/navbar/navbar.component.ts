@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 import { CrafterService } from '@core/services/crafter/crafter.service';
-import { UsersFacade } from '@core/ngrx/facade/users.facade';
+import { UsersFacade } from '@store/users/users.facade';
 import { Observable } from 'rxjs';
 
 import { User } from '@shared/interfaces/interfaces';

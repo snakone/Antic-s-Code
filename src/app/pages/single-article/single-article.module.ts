@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from '@app/shared/shared.module';
+import { SharedModule } from '@shared/shared.module';
 import { ComponentsModule } from '@app/shared/components/components.module';
 
 import { SingleArticleRouting } from './single-article.routing';
@@ -11,6 +11,7 @@ import { BoxesModule } from '@layout/boxes/boxes.module';
 import { PageHeaderModule } from '@layout/page-header/page-header.module';
 import { SectionModule } from '@layout/section/section.module';
 import { ArticleLayoutModule } from '@layout/article-layout/article-layout.module';
+import { InteractionAccessModule } from '@store/interactions/data-access/interaction-access.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ArticleLayoutModule } from '@layout/article-layout/article-layout.modul
   ],
   imports: [
     CommonModule,
+    InteractionAccessModule,
     SingleArticleRouting,
     ComponentsModule,
     SharedModule,

@@ -1,1 +1,7 @@
-<p>single-test-content works!</p>
+<div *ngIf="test; else noTest">
+  <p>{{test | json}}</p>
+</div>
+
+<ng-template #noTest>
+  <p>NO TEST</p>
+</ng-template>

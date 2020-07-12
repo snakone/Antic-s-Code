@@ -1,12 +1,12 @@
 <div class="course">
   <div class="course-preview">
     <div style="display: flex">
-      <img [src]="category.icon | image: 'logos'"
-           [alt]="category.category"/>
+      <img [src]="(test.category | logo) | image: 'logos'"
+           [alt]="test.category"/>
       <h6>{{'category' | translate}}</h6>
     </div>
 
-    <h2>{{category.name}}</h2>
+    <h2>{{test.name}}</h2>
     <a href="#" class="default">{{'view.test' | translate}}
       <i class="fa fa-chevron-right"></i>
     </a>
@@ -24,7 +24,7 @@
     </div>
     <button mat-button
             class="btn"
-            [routerLink]="category.category"
+            [routerLink]="test.category"
             >{{'visit' | translate}}</button>
   </div>
 </div>

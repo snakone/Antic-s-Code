@@ -27,6 +27,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ContentBoxModule } from './content-box/content-box.module';
+import { StickyBoxModule } from './sticky-box/sticky-box.module';
+import { MostActiveBoxModule } from './most-active-box/most-active-box.module';
 
 const Material = [
   MatFormFieldModule,
@@ -41,16 +43,13 @@ const Material = [
 @NgModule({
   declarations: [
     LinksBoxComponent,
-    StickyBoxComponent,
     IndexBoxComponent,
     SettingsBoxComponent,
     ProfileInfoBoxComponent,
-    RelatedArticlesBoxComponent,
     UserArticlesBoxComponent,
     ExpansionBoxComponent,
     MostViewedBoxComponent,
-    RelatedTagsBoxComponent,
-    MostActiveBoxComponent
+    RelatedTagsBoxComponent
   ],
   imports: [
     CommonModule,
@@ -59,22 +58,24 @@ const Material = [
     ArticleLayoutModule,
     NgxPaginationModule,
     ContentBoxModule,
+    StickyBoxModule,
+    MostActiveBoxModule,
     MarkdownModule.forChild(),
     ...Material
   ],
   exports: [
     LinksBoxComponent,
-    StickyBoxComponent,
     IndexBoxComponent,
     SettingsBoxComponent,
     ProfileInfoBoxComponent,
-    RelatedArticlesBoxComponent,
     UserArticlesBoxComponent,
     ExpansionBoxComponent,
     MostViewedBoxComponent,
     RelatedTagsBoxComponent,
     MostActiveBoxComponent,
-    ContentBoxModule
+    ContentBoxModule,
+    StickyBoxModule,
+    MostActiveBoxModule
   ]
 })
 

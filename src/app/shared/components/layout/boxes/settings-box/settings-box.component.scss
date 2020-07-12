@@ -5,6 +5,11 @@ mat-form-field, button {
   }
 }
 
+mat-form-field {
+  margin-bottom: .3rem;
+  &:last-of-type { margin-bottom: 0 }
+}
+
 button { margin: .6rem 0 0 auto }
 
 form {

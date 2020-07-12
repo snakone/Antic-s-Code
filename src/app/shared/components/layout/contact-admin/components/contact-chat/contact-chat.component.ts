@@ -8,8 +8,7 @@ import {
 } from '@angular/core';
 
 import { SocketService } from '@core/sockets/services/socket.service';
-import { ChatFacade } from '@core/ngrx/facade/chat.facace';
-
+import { ChatFacade } from '@store/chat/chat.facace';
 import { ChatMessage } from '@shared/interfaces/interfaces';
 
 @Component({
@@ -55,7 +54,7 @@ export class ContactChatComponent implements OnInit, OnChanges {
   }
 
   public sendMessage(): void {
-    if (!this.message || this.message.length > 100) return;
+    if (!this.message || this.message.length > 100) { return; }
     this.chatFacade.send(this.message);
     this.message = '';
     this.textarea.focus();

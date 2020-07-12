@@ -5,7 +5,7 @@ import { Subject, Observable } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { User } from '@shared/interfaces/interfaces';
 
-import { UsersFacade } from '@core/ngrx/facade/users.facade';
+import { UsersFacade } from '@store/users/users.facade';
 
 @Component({
   selector: 'app-public-profile',

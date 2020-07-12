@@ -1,7 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Test } from '@shared/interfaces/interfaces';
+import { TestFacade } from '@store/test/test.facade';
 
 @Component({
   selector: 'app-single-test',
@@ -11,23 +13,29 @@ import { takeUntil } from 'rxjs/operators';
 
 export class SingleTestComponent implements OnInit, OnDestroy {
 
+  test$: Observable<Test>;
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+    private route: ActivatedRoute,
+    private testFacade: TestFacade
+  ) { }
 
   ngOnInit(): void {
+    this.test$ = this.testFacade.byCategory$;
     this.getTestByCategory();
   }
 
   getTestByCategory(): void {
     this.route.params
     .pipe(takeUntil(this.unsubscribe$))
-     .subscribe(params => console.log(params.category));
+     .subscribe(params => this.testFacade.getByCategory(params.category));
   }
 
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+    this.testFacade.reset();
   }
 
 }

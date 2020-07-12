@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
-import { SearchFacade } from '@core/ngrx/facade/search.facade';
+import { SearchFacade } from '@store/search/search.facade';
 
 import { SearchRequest } from '@shared/interfaces/interfaces';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search-empty',

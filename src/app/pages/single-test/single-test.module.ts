@@ -8,6 +8,7 @@ import { SectionModule } from '@layout/section/section.module';
 import { SingleTestComponent } from './single-test.component';
 import { SingleTestContentComponent } from './components/single-test-content/single-test-content.component';
 import { SingleTestSidebarComponent } from './components/single-test-sidebar/single-test-sidebar.component';
+import { TestAccessModule } from '@store/test/data-access/test-access.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SingleTestSidebarComponent } from './components/single-test-sidebar/sin
     CommonModule,
     SingleTestRoutingModule,
     PageHeaderModule,
-    SectionModule
+    SectionModule,
+    TestAccessModule
   ]
 })
 

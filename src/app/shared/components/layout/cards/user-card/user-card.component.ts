@@ -17,7 +17,7 @@ export class UserCardComponent {
   constructor(private crafter: CrafterService) { }
 
   public show(): void {
-    console.log(this.user);
+    console.log('hey');
   }
 
 }

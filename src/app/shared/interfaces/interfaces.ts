@@ -151,6 +151,40 @@ export interface SearchResponse extends ServerResponse {
   articles?: Article[];
 }
 
+export interface Test {
+  _id?: string;
+  title?: string;
+  category?: string;
+  name?: string;
+  intro?: string;
+  entries?: TestEntry[];
+}
+
+export interface TestEntry {
+  title?: string;
+  category?: string;
+  level?: string;
+  questions: TestQuestion[];
+}
+
+export interface TestQuestion {
+  id?: string;
+  category?: string;
+  question?: string;
+  answers?: TestAnswer[];
+  image?: string;
+}
+
+export interface TestAnswer {
+  key?: string;
+  value?: string;
+}
+
+export interface TestResponse extends ServerResponse {
+  tests?: Test[];
+  test?: Test;
+}
+
 export interface List {
   name: string;
   icon?: string;

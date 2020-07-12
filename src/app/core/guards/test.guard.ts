@@ -4,7 +4,7 @@ import { CanActivate, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '@shared/interfaces/interfaces';
-import { UsersFacade } from '../ngrx/facade/users.facade';
+import { UsersFacade } from '../ngrx/users/users.facade';
 import { CrafterService } from '../services/crafter/crafter.service';
 
 @Injectable({providedIn: 'root'})

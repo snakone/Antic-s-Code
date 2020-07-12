@@ -11,7 +11,7 @@ import { Observable, throwError } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { StorageService } from '../../storage/storage.service';
 import { ErrorService } from '../error/error.service';
-import { UsersFacade } from '../../ngrx/facade/users.facade';
+import { UsersFacade } from '../../ngrx/users/users.facade';
 
 @Injectable({providedIn: 'root'})
 

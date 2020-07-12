@@ -2,11 +2,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { UserService } from '@core/services/user/user.service';
 import { StorageService } from '@core/storage/storage.service';
-import { ChatFacade } from '@core/ngrx/facade/chat.facace';
+import { ChatFacade } from '@store/chat/chat.facace';
 
 import { Observable, Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
-import { ChatMessage } from '@app/shared/interfaces/interfaces';
+import { ChatMessage } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-contact-admin',

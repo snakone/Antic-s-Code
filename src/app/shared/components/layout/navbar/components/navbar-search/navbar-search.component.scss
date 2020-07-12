@@ -6,8 +6,9 @@ input {
   top: -4px;
   width: 80%;
   outline: none;
+  color: var(--light-color);
   &::placeholder {
-    color: var(--bg-color);
+    color: var(--light-color);
     opacity: .5;
    }
 }
@@ -33,7 +34,10 @@ input {
         opacity: .5;
        }
 
-      &:focus { outline: none }
+      &:focus {
+        outline: none;
+        color: var(--new-color);
+      }
     }
  }
   @media(max-width: 475px) { display: none }

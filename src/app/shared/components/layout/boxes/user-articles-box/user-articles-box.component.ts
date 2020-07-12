@@ -3,7 +3,7 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil, filter } from 'rxjs/operators';
 
-import { ArticlesFacade } from '@core/ngrx/facade/article.facade';
+import { ArticlesFacade } from '@store/articles/article.facade';
 import { Article, User } from '@shared/interfaces/interfaces';
 
 @Component({
