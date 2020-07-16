@@ -1,5 +1,5 @@
 import { props, createAction } from '@ngrx/store';
-import { Test } from '@shared/interfaces/interfaces';
+import { Test, TestEntry, TestRequest, TestRequestResult } from '@shared/interfaces/interfaces';
 
 // GET TEST
 export const get =
@@ -26,6 +26,34 @@ export const getByCategoryFailure =
   createAction('[Test API] Get Test by Category Failure',
   props<{ error: string }>());
 
+// SET ENTRY
+export const setEntry =
+  createAction('[Test API] Set Entry Test Success',
+  props<{ entry: TestEntry }>());
+
+export const setEntryFailure =
+  createAction('[Test API] Set Entry Test Failure',
+  props<{ error: string }>());
+
+// SAVE TEST REQUEST
+export const saveRequest =
+  createAction('[Test API] Save Test Request',
+  props<{ request: TestRequest }>());
+
+export const saveRequestSuccess =
+  createAction('[Test API] Save Test Request Success',
+  props<{ result: TestRequestResult }>());
+
+export const saveRequestFailure =
+  createAction('[Test API] Save Test Request Failure',
+  props<{ error: string }>());
+
 // RESET BY CATEGORY
 export const reset =
   createAction('[Test API] Reset Test');
+
+// RESET ENTRY
+export const resetEntry =
+  createAction('[Test API] Reset Entry');
+
+

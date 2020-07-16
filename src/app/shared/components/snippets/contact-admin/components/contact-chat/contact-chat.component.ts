@@ -4,7 +4,8 @@ import {
   EventEmitter,
   Output,
   Input,
-  OnChanges
+  OnChanges,
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 import { SocketService } from '@core/sockets/services/socket.service';
@@ -14,7 +15,8 @@ import { ChatMessage } from '@shared/interfaces/interfaces';
 @Component({
   selector: 'app-contact-chat',
   templateUrl: './contact-chat.component.html',
-  styleUrls: ['./contact-chat.component.scss']
+  styleUrls: ['./contact-chat.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class ContactChatComponent implements OnInit, OnChanges {
@@ -40,9 +42,7 @@ export class ContactChatComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
-    setTimeout(() => {
-      this.content.scrollTop = this.content.scrollHeight;
-    }, 50);
+    this.scrollChat();
   }
 
   public keyDownFunction(event: KeyboardEvent): void {
@@ -58,6 +58,12 @@ export class ContactChatComponent implements OnInit, OnChanges {
     this.chatFacade.send(this.message);
     this.message = '';
     this.textarea.focus();
+  }
+
+  private scrollChat(): void {
+    setTimeout(() => {
+      this.content.scrollTop = this.content.scrollHeight;
+    }, 100);
   }
 
 }

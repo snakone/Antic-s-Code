@@ -9,12 +9,10 @@ h3 { margin-top: 5rem }
 .slide {
     text-align: center;
     cursor: pointer;
-    @media(max-width: 750px) { margin-top: 1.2rem }
-    @media(max-width: 550px) { margin-top: 1rem }
 
   & p {
     width: 46.66667rem;
-    margin: 1.66667rem auto 0;
+    margin: 1.66667rem auto 1.222rem;
     font-size: 1.13333rem;
     line-height: 1.93333rem;
     color: var(--p-color);
@@ -48,8 +46,8 @@ h3 { margin-top: 5rem }
   }
 
   & span {
-    font-size: .93333rem;
-    color: var(--p-color);
+    font-size: .91333rem;
+    color: var(--new-color);
     display: block;
     margin-top: 5px;
   }

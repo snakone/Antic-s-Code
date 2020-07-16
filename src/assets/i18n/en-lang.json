@@ -70,13 +70,15 @@
   "liked.articles": "The Most Liked Articles",
   "liked.why": "Discover why these Articles are the most loved",
   "user.opinion": "Trusted by Many Users",
-  "user.says": "This is what people says about Antic's Code",
+  "user.says": "This is what people says about Antic's",
   "subscribe": "Subscribe to Newsletter",
   "subscribe.sub": "Subscribe to get update and information. Don't worry, we won't send spam!",
   "enter.email": "Enter your Email",
   "send": "Send",
   "discover": "Discover",
+  "next": "Next",
   "back": "Back",
+  "finish": "Finish",
   "name": "Name",
   "email": "Email",
   "message": "Message",
@@ -289,11 +291,11 @@
   "article.create": "Article Creation",
   "antics.intro": "We introduce Antic's Code Desktop a <strong>desktop</strong> program with which you will be able to create content for this same portal. It is easier than you think, for this follow these simple steps:",
   "download.steps": {
-    "one": "Download the application for your platform",
-    "two": "Login with your own Antic's Code account",
-    "three": "Enter into the <strong>Create</strong> section, green pencil icon",
+    "one": "Download the application.",
+    "two": "Login with your Antic's Code account",
+    "three": "Enter into the <strong>Create</strong> section.",
     "four": "Follow the instructions",
-    "five": "Once approved, your Article will be live"
+    "five": "Once approved, your Article is ready!"
   },
   "create.anything": "Create all kinds of content",
   "desktop.intro": "Do you find it interesting? Do you want to join a community of developers? Download Antic's Code now! It is totally free. You will need an Antic's Code account to enter.",
@@ -515,5 +517,6 @@
   "visit": "Visit",
   "view.test": "View all test",
   "test.done": "Test done",
-  "see.profile": "See Profile"
+  "see.profile": "See Profile",
+  "test.of": "Test about {{name}}"
 }

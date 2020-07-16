@@ -34,6 +34,7 @@
 .course p {
   margin: 0;
   color: black;
+  @media(max-width: 350px) { font-size: .8rem !important }
 }
 
 .course-info h6 {
@@ -105,9 +106,9 @@
 }
 
 .progress-text {
-	font-size: .8rem;
+	font-size: .8rem !important;
 	opacity: 0.7;
-	letter-spacing: 1px;
+  letter-spacing: 1px;
 }
 
 .btn {

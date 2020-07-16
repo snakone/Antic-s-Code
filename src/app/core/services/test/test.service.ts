@@ -1,6 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '../http/http.service';
-import { Test, TestResponse } from '@shared/interfaces/interfaces';
+
+import {
+  Test,
+  TestResponse,
+  TestRequest,
+  TestResultResponse,
+  TestRequestResult
+} from '@shared/interfaces/interfaces';
+
 import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
 import { filter, map } from 'rxjs/operators';
@@ -28,6 +36,15 @@ export class TestService {
       .pipe(
         filter(res => res && !!res.ok),
         map(_ => _.test)
+      );
+  }
+
+  public saveTestRequest(entry: TestRequest): Observable<TestRequestResult> {
+    return this.http
+      .post<TestResultResponse>(this.API_TEST + 'entries', entry)
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.result)
       );
   }
 

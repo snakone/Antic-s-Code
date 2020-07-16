@@ -19,7 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { SectionModule } from '@layout/section/section.module';
 import { PageHeaderModule } from '@layout/page-header/page-header.module';
-import { ContactMeModule } from '@layout/contact-me/contact-me.module';
+import { ContactMeModule } from '@shared/components/snippets/contact-me/contact-me.module';
 
 const Material = [
   MatFormFieldModule,

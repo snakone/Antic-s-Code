@@ -69,13 +69,15 @@
   "liked.articles": "Los Artículos más gustados",
   "liked.why": "Descubre por qué estos artículos son los preferidos del público",
   "user.opinion": "Confianza de los Usuarios",
-  "user.says": "Esto es lo que dice la gente de Antic's Code",
+  "user.says": "Esto es lo que dice la gente de Antic's",
   "subscribe": "Subscribirse al Boletín",
   "subscribe.sub": "Subscríbete para recibir información y actualizaciones. ¡No enviamos spam!",
   "enter.email": "Introduce tu Correo",
   "send": "Enviar",
   "discover": "Descubre",
+  "next": "Siguiente",
   "back": "Volver",
+  "finish": "Finilizar",
   "name": "Nombre",
   "email": "Correo",
   "message": "Mensaje",
@@ -84,7 +86,6 @@
   "repeat.password": "Repite Contraseña",
   "i.accept": "Acepto las",
   "accept": "Aceptar",
-
   "chars": "Caracteres",
   "remember": "¿Recordar?",
   "sign.in": "Entrar",
@@ -283,11 +284,11 @@
   "article.create": "Creación de Artículos",
   "antics.intro": "Presentamos Antic's Code Desktop un programa de <strong>escritorio</strong> con el cual serás capaz de crear contenido para este mismo portal. Es más fácil de lo que crees, para ello sigue estos sencillos pasos:",
   "download.steps": {
-    "one": "Descarga la aplicación para tu plataforma",
-    "two": "Ingresa con tu misma cuenta de Antic's Code",
-    "three": "Entra en la sección de <strong>Crear</strong>, icono de lápiz verde",
+    "one": "Descarga la aplicación.",
+    "two": "Ingresa con tu cuenta de Antic's Code.",
+    "three": "Entra en la sección de <strong>Crear</strong>.",
     "four": "Sigue las instrucciones",
-    "five": "Una vez aprobado, tu Artículo estará en vivo"
+    "five": "Al aprobarse, tu Artículo está listo!"
   },
   "create.anything": "Crea todo tipo de contenido",
   "desktop.intro": "¿Te resulta interesante? ¿Quieres unirte a una comunidad de programadores? ¡Descarga Antic's Code ya! Es totalmente gratuito. Necesitarás una cuenta de Antic's Code para poder entrar.",
@@ -508,5 +509,7 @@
   "test.available": "Test disponibles",
   "visit": "Visitar",
   "view.test": "Ver todos los test",
-  "test.done": "Test hechos"
+  "test.done": "Test hechos",
+  "test.of": "Test sobre {{name}}"
+
 }

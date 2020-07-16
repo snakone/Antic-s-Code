@@ -161,9 +161,11 @@ export interface Test {
 }
 
 export interface TestEntry {
+  uid?: string;
   title?: string;
   category?: string;
   level?: string;
+  message?: string;
   questions: TestQuestion[];
 }
 
@@ -173,6 +175,7 @@ export interface TestQuestion {
   question?: string;
   answers?: TestAnswer[];
   image?: string;
+  code?: string;
 }
 
 export interface TestAnswer {
@@ -183,6 +186,25 @@ export interface TestAnswer {
 export interface TestResponse extends ServerResponse {
   tests?: Test[];
   test?: Test;
+}
+
+export interface TestResultResponse extends ServerResponse {
+  result?: TestRequestResult;
+}
+
+export interface TestRequest {
+  uid?: string;
+  title?: string;
+  category?: string;
+  user?: string;
+  level?: string;
+  request?: { key: string }[];
+  created?: string;
+}
+
+export interface TestRequestResult {
+  correct?: number;
+  result?: { same?: boolean }[];
 }
 
 export interface List {

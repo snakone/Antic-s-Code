@@ -38,17 +38,23 @@
     & p {
       box-sizing: border-box;
       width: 46.66667rem;
-      margin: 1.86667rem auto 1.66667rem;
+      margin: 1.86667rem auto 1.5rem;
       font-size: 1.13333rem;
       line-height: 1.63333rem;
       color: var(--p-color);
       padding: 0 5rem;
-      @media (max-width: 820px) { width: 90% }
-      @media (max-width: 767.98px) { width: 80% }
+
+      @media (max-width: 820px) {
+        width: 80%;
+        padding: 0;
+      }
+
+      @media (max-width: 767.98px) { width: 90% }
       @media(max-width: 550px) {
         font-size: 1rem;
         width: 100%;
-       }
+      }
+
       @media(max-width: 330px) { font-size: .8rem }
     }
   }

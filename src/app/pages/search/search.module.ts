@@ -17,7 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { PageHeaderModule } from '@layout/page-header/page-header.module';
 import { SectionModule } from '@layout/section/section.module';
 import { ContentBoxModule } from '@layout/boxes/content-box/content-box.module';
-import { PaginationModule } from '@layout/pagination/pagination.module';
+import { PaginationModule } from '@shared/components/snippets/pagination/pagination.module';
 import { GridModule } from '@layout/grid/grid.module';
 
 import { SearchResultComponent } from './components/search-result/search-result.component';

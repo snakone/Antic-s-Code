@@ -40,4 +40,17 @@ export class TestEffects {
     ))))
   );
 
+  // SAVE TEST RESULT
+  saveTestResultEffect$ = createEffect(() => this.actions
+  .pipe(
+    ofType(TestActions.saveRequest),
+    concatMap(action =>
+    this.testSrv.saveTestRequest(action.request)
+      .pipe(
+        map(result => TestActions.saveRequestSuccess({ result })),
+        catchError(error =>
+            of(TestActions.saveRequestFailure({ error: error.message }))
+    ))))
+  );
+
 }

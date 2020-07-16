@@ -12,7 +12,6 @@ export class ContentBoxComponent {
   @Input() icon: string;
   @Input() border: boolean;
   @Input() margin = true;
-  @Input() modal = false;
 
   constructor() { }
 

@@ -10,10 +10,19 @@
       <mat-form-field appearance="outline" color="accent">  <!-- CATEGORY -->
         <mat-label>{{'choose.category' | translate}}</mat-label>
         <mat-select formControlName="category" aria-label="Select Category">
-          <mat-option *ngFor="let cat of categories" [value]="cat" role="option">
-            {{cat | translate}}
+          <mat-option *ngFor="let cat of categories"
+                      [value]="cat.category"
+                      role="option"
+                      class="category">
+            <img [src]="cat.icon | image:'logos'"
+                 [alt]="cat.category"
+                  class="logo" loading="lazy"/>
+            {{cat.name | translate}}
           </mat-option>
-          <mat-option value="" role="option">{{'all.a' | translate}}</mat-option>
+          <mat-option value=""
+                      role="option"
+                      class="all">{{'all.a' | translate}}
+          </mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="outline" color="accent">  <!-- TAG -->
@@ -26,6 +35,7 @@
                       [value]="t"
                       role="option"
                       #option_tag
+                      class="p-left"
                       [disabled]="max_tag?.selected.length >= 2 &&
                                   !option_tag.selected">
             {{t | translate}}
