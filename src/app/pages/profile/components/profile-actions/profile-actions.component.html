@@ -1,19 +1,19 @@
-<app-content-box title="actions"
+<app-content-box title="ACTIONS"
                  icon="check">
   <div class="icons">
-    <mat-icon [matTooltip]="'public.profile' | translate"
+    <mat-icon [matTooltip]="'PUBLIC.PROFILE' | translate"
               matTooltipPosition="above"
               [routerLink]="'/profile/' + user.name">assignment_ind
     </mat-icon>
-    <mat-icon [matTooltip]="'edit.profile' | translate"
+    <mat-icon [matTooltip]="'EDIT.PROFILE' | translate"
               matTooltipPosition="above"
               (click)="openModal()">edit
     </mat-icon>
-    <mat-icon [matTooltip]="'log.out' | translate"
+    <mat-icon [matTooltip]="'LOG.OUT' | translate"
               matTooltipPosition="above"
               (click)="logOut()">exit_to_app
     </mat-icon>
-    <mat-icon [matTooltip]="'delete.acc' | translate"
+    <mat-icon [matTooltip]="'DELETE.ACC' | translate"
               matTooltipPosition="above"
               (click)="delete()">delete_outline
     </mat-icon>

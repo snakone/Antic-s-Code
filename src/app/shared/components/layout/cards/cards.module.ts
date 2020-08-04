@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { UserCardComponent } from './user-card/user-card.component';
 import { TestCardComponent } from './test-card/test-card.component';
+import { EntryCardComponent } from './entry-card/entry-card.component';
 
 const Material = [
   MatIconModule,
@@ -17,7 +18,8 @@ const Material = [
 @NgModule({
   declarations: [
     UserCardComponent,
-    TestCardComponent
+    TestCardComponent,
+    EntryCardComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ const Material = [
   ],
   exports: [
     UserCardComponent,
-    TestCardComponent
+    TestCardComponent,
+    EntryCardComponent
   ]
 })
 

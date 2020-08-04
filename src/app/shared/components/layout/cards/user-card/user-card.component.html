@@ -10,7 +10,7 @@
              (error)="img.src = 'assets/img/profile/no-photo.jpg'; img.alt='No Avatar'"/>
         <div>
           <h4>{{user.name}}</h4>
-          <span>{{(user.profile?.rol | translate) || 'not.defined' | translate}}</span>
+          <span>{{(user.profile?.rol | translate) || 'NOT.DEFINED' | translate}}</span>
           <span *ngIf="user.profile?.language"> |
             <span class="primary">{{user.profile?.language}}</span>
           </span>

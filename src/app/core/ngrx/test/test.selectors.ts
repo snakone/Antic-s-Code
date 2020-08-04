@@ -35,3 +35,11 @@ export const getEntryLoaded = createSelector(
 export const getResultLoaded = createSelector(
   getTestState, fromTest.getResultLoaded
 );
+
+export const getEntriesByUser = createSelector(
+  getTestState, fromTest.getEntriesByUser
+);
+
+export const getEntriesByUserLoaded = createSelector(
+  getTestState, fromTest.getEntriesByUserLoaded
+);

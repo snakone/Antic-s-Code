@@ -1,13 +1,13 @@
 <mat-dialog-content>
-  <h4>{{'delete.acc' | translate}}</h4>
+  <h4>{{'DELETE.ACC' | translate}}</h4>
   <p>
     <span class="bold black">{{(user$ | async)?.name}}</span>,
-    <span [innerHTML]="'delete.account.p' | translate"></span>
+    <span [innerHTML]="'DELETE.ACCOUNT.P' | translate"></span>
   </p>
-  <p class="bold black">"{{'delete.sentence' | translate}}"</p>
+  <p class="bold black">"{{'DELETE.SENTENCE' | translate}}"</p>
   <form [formGroup]="deleteForm" (ngSubmit)="onSubmit()">
     <mat-form-field color="accent" appearance="outline">
-      <mat-label>{{'put.sentence' | translate}}</mat-label>
+      <mat-label>{{'PUT.SENTENCE' | translate}}</mat-label>
       <input matInput
              formControlName="delete"
              autocomplete="off">
@@ -16,13 +16,13 @@
     <mat-dialog-actions align="end">
       <button mat-button
               aria-label="Cancel"
-              mat-dialog-close>{{'cancel' | translate}}</button>
+              mat-dialog-close>{{'CANCEL' | translate}}</button>
       <button mat-button
               type="submit"
               class="btn-danger"
               aria-label="Accept"
               [disabled]="deleteForm.invalid">
-              {{'accept' | translate}}
+              {{'ACCEPT' | translate}}
       </button>
     </mat-dialog-actions>
   </form>

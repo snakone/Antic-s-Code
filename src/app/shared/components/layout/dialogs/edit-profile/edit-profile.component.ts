@@ -83,7 +83,7 @@ export class EditProfileComponent implements OnInit {
   private editUser(user: User): void {
     this.userSrv.update(user).toPromise()
       .then(_ => this.crafter
-        .toaster('success', 'profile.updated', 'info')
+        .toaster('SUCCESS', 'PROFILE.UPDATED', 'info')
       );
   }
 

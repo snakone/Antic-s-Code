@@ -1,22 +1,25 @@
 <app-content-box>
   <div *ngIf="(request$ | async) as req">
-      <h3>{{'no.results' | translate}}</h3>
-      <p>{{'sorry.results' | translate}}</p><br>
+      <h3>{{'NO.RESULTS' | translate}}</h3>
+      <p>{{'SORRY.RESULTS' | translate}}</p><br>
 
       <ul class="check">
-        <li><span class="bold black">{{'value' | translate}}: </span>
+        <li [ngClass]="{'no-mark': !req.value}">   <!-- VALUE -->
+          <span class="bold black">{{'VALUE' | translate}}: </span>
           <span class="defined"
                 *ngIf="req.value; else notDefined">
                 {{req.value | translate}}
           </span>
         </li>
-        <li><span class="bold black">{{'category' | translate}}: </span>
+        <li [ngClass]="{'no-mark': !req.category}">   <!-- CATEGORY -->
+          <span class="bold black">{{'CATEGORY.NAME' | translate}}: </span>
           <span class="defined"
                 *ngIf="req.category; else notDefined">
                 {{req.category | translate}}
           </span>
         </li>
-        <li><span class="bold black">{{'thread' | translate}}: </span>
+        <li [ngClass]="{'no-mark': !req.tags}">   <!-- TAGS -->
+          <span class="bold black">{{'THREAD' | translate}}: </span>
           <span *ngIf="req.tags; else notDefined">
             <span class="defined"
                   *ngFor="let t of req.tags; let i = index">
@@ -25,7 +28,8 @@
             </span>
           </span>
         </li>
-        <li><span class="bold black">{{'level' | translate}}: </span>
+        <li [ngClass]="{'no-mark': !req.level}">   <!-- LEVEL -->
+          <span class="bold black">{{'LEVEL.NAME' | translate}}: </span>
           <span *ngIf="req.level; else notDefined">
             <span class="defined"
                  *ngFor="let l of req.level; let i = index">
@@ -34,7 +38,8 @@
             </span>
           </span>
         </li>
-        <li><span class="bold black">{{'stars' | translate}}: </span>
+        <li [ngClass]="{'no-mark': !req.stars}">   <!-- STARS -->
+          <span class="bold black">{{'STARS' | translate}}: </span>
           <span *ngIf="req.stars; else notDefined">
             <span class="defined"
                   *ngFor="let s of req.stars; let i = index">
@@ -43,7 +48,8 @@
             </span>
           </span>
         </li>
-        <li><span class="bold black">{{'tags' | translate}}: </span>
+        <li [ngClass]="{'no-mark': !req.badges}">   <!-- BADGES -->
+          <span class="bold black">{{'TAGS.NAME' | translate}}: </span>
           <span *ngIf="req.badges; else notDefined">
             <span class="defined"
                   *ngFor="let b of req.badges; let i = index">
@@ -52,7 +58,8 @@
             </span>
           </span>
         </li>
-        <li><span class="bold black">{{'order.by' | translate}}: </span>
+        <li [ngClass]="{'no-mark': !req.type}">   <!-- ORDER -->
+          <span class="bold black">{{'ORDER.BY' | translate}}: </span>
           <span *ngIf="req.type; else notDefined">
             <span class="defined"
                   *ngFor="let t of req.type; let i = index">
@@ -61,13 +68,14 @@
             </span>
           </span>
         </li>
-        <li><span class="bold black">{{'order.title' | translate}}: </span>
+        <li [ngClass]="{'no-mark': !req.sort}">   <!-- SORT -->
+          <span class="bold black">{{'TYPE' | translate}}: </span>
           <span *ngIf="req.sort; else notDefined">
             <span class="defined" *ngIf="req.sort === '-1'">
-              {{'order.desc' | translate}}
+              {{'ORDER.DESC' | translate}}
              </span>
              <span class="defined" *ngIf="req.sort === '1'">
-              {{'order.asc' | translate}}
+              {{'ORDER.ASC' | translate}}
              </span>
           </span>
         </li>
@@ -75,5 +83,5 @@
   </div>
 </app-content-box>
 <ng-template #notDefined>
-  <span class="not-defined">{{'not.defined' | translate}}</span>
+  <span class="not-defined">{{'NOT.DEFINED' | translate}}</span>
 </ng-template>

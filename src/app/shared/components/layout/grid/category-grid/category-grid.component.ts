@@ -16,7 +16,6 @@ export class CategoryGridComponent implements OnInit, OnDestroy {
 
   @Input() isHome = false;
   categories = MAIN_CATEGORIES;
-  count: object = {};
   count$: Observable<object>;
   private unsubscribe$ = new Subject<void>();
 

@@ -1,8 +1,8 @@
 <ul class="badge">  <!-- FIRST LINE -->
   <li *ngFor="let b of category.badges">
-    <span [ngClass]="{'badge-featured' : b === 'Destacado',
-                      'badge-popular': b === 'Popular',
-                      'badge-new': b === 'Nuevo'}">
+    <span [ngClass]="{'badge-featured' : b === 'BADGE.PRO',
+                      'badge-popular': b === 'BADGE.HOT',
+                      'badge-new': b === 'BADGE.NEW'}">
                       {{b | translate}}
     </span>
   </li>
@@ -10,13 +10,13 @@
     <div class="badge-category hide-mobile">
       <img [src]="category.icon | image: 'logos'"
            [alt]="category.category" loading="lazy"/>
-      <span>{{category.category}}</span>
+      <span>{{category.category | translate}}</span>
     </div>
   </li>
 </ul>
 <ul class="meta">  <!-- SECOND LINE -->
   <li *ngFor="let c of category.tags | slice:0:2">
-    <span class="meta-type">{{c}}</span>
+    <span class="meta-type">{{c | translate}}</span>
   </li>
   <li>
     <span class="meta-star meta-star-icon">
@@ -29,5 +29,5 @@
     </span>
   </li>
 </ul>  <!-- THRID LINE -->
-<h1>{{category.name}}</h1>
-<p>{{category.title}}</p>
+<h1>{{category.name | translate}}</h1>
+<p>{{category.title | translate}}</p>

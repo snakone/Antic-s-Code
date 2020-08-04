@@ -1,4 +1,4 @@
-<app-content-box title="edit.your.profile"
+<app-content-box title="EDIT.YOUR.PROFILE"
                  icon="edit"
                  [margin]="false">
   <div class="edit-profile">
@@ -7,17 +7,17 @@
     </div>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <mat-form-field color="accent" appearance="outline">  <!-- NAME -->
-        <mat-label>{{'user.name' | translate}}</mat-label>
+        <mat-label>{{'USER.NAME' | translate}}</mat-label>
         <input matInput
                formControlName="name">
       </mat-form-field>
       <mat-form-field color="accent" appearance="outline">  <!-- EMAIL -->
-        <mat-label>{{'user.email' | translate}}</mat-label>
+        <mat-label>{{'USER.EMAIL' | translate}}</mat-label>
         <input matInput
                formControlName="email">
       </mat-form-field>
       <mat-form-field color="accent" class="select" appearance="outline">  <!-- ROL -->
-        <mat-label>{{'select.rol' | translate}}</mat-label>
+        <mat-label>{{'SELECT.ROL' | translate}}</mat-label>
         <mat-select formControlName="rol">
           <mat-option *ngFor="let r of roles" [value]="r.translate" role="option">
             {{r.translate | translate}}
@@ -25,7 +25,7 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field color="accent" class="select" appearance="outline">  <!-- LANGUAGE -->
-        <mat-label>{{'favorite.lang' | translate}}</mat-label>
+        <mat-label>{{'FAVORITE.LANG' | translate}}</mat-label>
         <mat-select formControlName="language">
           <mat-option *ngFor="let l of languages" [value]="l" role="option">
             {{l}}
@@ -35,31 +35,31 @@
       <mat-form-field color="accent"
                       appearance="outline"
                       class="top">  <!-- AVATAR -->
-        <mat-label>{{'url.avatar' | translate}}</mat-label>
+        <mat-label>{{'URL.AVATAR' | translate}}</mat-label>
         <input matInput
                formControlName="avatar">
       </mat-form-field>
       <mat-form-field color="accent"
                       appearance="outline"
                       class="half-top">  <!-- TWITTER -->
-        <mat-label>{{'twitter.page' | translate}}</mat-label>
+        <mat-label>{{'TWITTER.PAGE' | translate}}</mat-label>
         <input matInput
               formControlName="twitter">
       </mat-form-field>
       <mat-form-field color="accent" appearance="outline">  <!-- GITHUB -->
-        <mat-label>{{'github.page' | translate}}</mat-label>
+        <mat-label>{{'GITHUB.PAGE' | translate}}</mat-label>
         <input matInput
               formControlName="github">
       </mat-form-field>
       <mat-form-field color="accent" appearance="outline">  <!-- PORTFOLIO -->
-        <mat-label>{{'portfolio.page' | translate}}</mat-label>
+        <mat-label>{{'PORTFOLIO.PAGE' | translate}}</mat-label>
         <input matInput
               formControlName="portfolio">
       </mat-form-field>
       <mat-form-field color="accent"
                       class="textarea top"
                       appearance="outline">  <!-- BIO -->
-        <mat-label>{{'my.bio' | translate}}</mat-label>
+        <mat-label>{{'MY.BIO' | translate}}</mat-label>
         <textarea matInput
                   formControlName="bio">
         </textarea>
@@ -70,7 +70,7 @@
               class="btn-pink"
               aria-label="Edit"
               [disabled]="form.invalid">
-              {{'save' | translate}}
+              {{'SAVE' | translate}}
       </button>
     </form>
   </div>

@@ -28,24 +28,24 @@
           <button mat-button
                   matStepperNext
                   class="btn-pink"
-                  [disabled]="!selected[i].key">{{'next' | translate}}</button>
+                  [disabled]="!selected[i].key">{{'NEXT' | translate}}</button>
         </div>
         <div *ngIf="i !== 0 && i + 1 !== entry.questions.length"
               class="text-left">
-          <button mat-button matStepperPrevious>{{'back' | translate}}</button>
+          <button mat-button matStepperPrevious>{{'BACK' | translate}}</button>
           <button mat-button
                   matStepperNext
                   class="btn-pink"
-                  [disabled]="!selected[i].key">{{'next' | translate}}</button>
+                  [disabled]="!selected[i].key">{{'NEXT' | translate}}</button>
         </div>
         <div *ngIf="i + 1 === entry.questions.length"
               class="text-left">
-          <button mat-button matStepperPrevious>{{'back' | translate}}</button>
+          <button mat-button matStepperPrevious>{{'BACK' | translate}}</button>
           <button mat-button (click)="stepper.reset(); selected = makeStepSelector()">Reset</button>
           <button mat-button
                   (click)="finish();"
                   class="btn-pink"
-                  [disabled]="!selected[i].key">{{'finish' | translate}}</button>
+                  [disabled]="!selected[i].key">{{'FINISH' | translate}}</button>
         </div>
       </mat-step>
 
@@ -83,26 +83,25 @@
         </div>
         <div *ngIf="i === 0" class="text-left">
           <button mat-button
-                  matStepperNext
                   class="btn-pink"
-                  [disabled]="!selected[i].key">{{'next' | translate}}</button>
+                  [disabled]="!selected[i].key">{{'NEXT' | translate}}</button>
         </div>
         <div *ngIf="i !== 0 && i + 1 !== entry.questions.length"
               class="text-left">
-          <button mat-button matStepperPrevious>{{'back' | translate}}</button>
+          <button mat-button matStepperPrevious>{{'BACK' | translate}}</button>
           <button mat-button
                   matStepperNext
                   class="btn-pink"
-                  [disabled]="!selected[i].key">{{'next' | translate}}</button>
+                  [disabled]="!selected[i].key">{{'NEXT' | translate}}</button>
         </div>
         <div *ngIf="i + 1 === entry.questions.length"
               class="text-left">
-          <button mat-button matStepperPrevious>{{'back' | translate}}</button>
+          <button mat-button matStepperPrevious>{{'BACK' | translate}}</button>
           <button mat-button (click)="stepper.reset(); selected = makeStepSelector()">Reset</button>
           <button mat-button
                   (click)="finish()"
                   class="btn-pink"
-                  [disabled]="!selected[i].key">{{'finish' | translate}}</button>
+                  [disabled]="!selected[i].key">{{'FINISH' | translate}}</button>
         </div>
       </mat-step>
 

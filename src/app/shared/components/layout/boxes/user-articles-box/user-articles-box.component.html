@@ -1,10 +1,10 @@
 <div class="user-articles">
   <span id="user-articles"></span>
 </div>
-<app-content-box [title]="'articles.of' | translate: {
+<app-content-box [title]="'ARTICLES.OF' | translate: {
                                             name: user?.name ?
                                                   user.name :
-                                                  ('user' | translate)
+                                                  ('USER' | translate)
                                           }"
                  icon="grading">
   <ng-container *ngIf="(articles$ | async) as articles">
@@ -21,21 +21,21 @@
 
       <div class="article-info">
         <mat-icon class="views"
-                  [matTooltip]="'views' | translate"
+                  [matTooltip]="'VIEWS' | translate"
                   matTooltipPosition="above">
                   visibility
         </mat-icon>
         <span>{{a.views}}</span>
 
         <mat-icon class="bold"
-                  [matTooltip]="'likes' | translate"
+                  [matTooltip]="'LIKES' | translate"
                   matTooltipPosition="above">favorite_border
         </mat-icon>
         <span>{{a.likes}}</span>
       </div>
     </div>
     <div *ngIf="articles.length === 0">
-      <p>{{'no.write.yet' | translate}}</p>
+      <p>{{'NO.WRITE.YET' | translate}}</p>
     </div>
   </ng-container>
 </app-content-box>

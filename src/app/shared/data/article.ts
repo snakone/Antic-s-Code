@@ -1,27 +1,27 @@
 export const TAGS: string[] = [
-  'Consola',
-  'Desarrollo',
-  'Diseño',
-  'Material',
-  'Frontend',
-  'Backend',
-  'Typescript',
-  'Mobile',
-  'Database',
-  'Ionic',
-  'Config',
-  'Git',
-  'Antic\'s'
+  'TAGS.CONSOLE',
+  'TAGS.DEVELOP',
+  'TAGS.DESIGN',
+  'TAGS.MATERIAL',
+  'TAGS.FRONTEND',
+  'TAGS.BACKEND',
+  'TAGS.TYPESCRIPT',
+  'TAGS.MOBILE',
+  'TAGS.DATABASE',
+  'TAGS.IONIC',
+  'TAGS.CONFIG',
+  'TAGS.GIT',
+  'TAGS.ANTICS'
 ];
 
 export const LEVELS: string[] = [
-  'Básico',
-  'Medio',
-  'Avanzado'
+  'LEVEL.BASIC',
+  'LEVEL.MEDIUM',
+  'LEVEL.ADVANCED'
 ];
 
 export const BADGES: string[] = [
-  'Nuevo',
-  'Destacado',
-  'Popular'
+  'BADGE.NEW',
+  'BADGE.PRO',
+  'BADGE.HOT'
 ];

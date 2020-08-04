@@ -1,6 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
 import { TestFacade } from '@core/ngrx/test/test.facade';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-do-single-test',
@@ -8,15 +7,11 @@ import { tap } from 'rxjs/operators';
   styleUrls: ['./do-single-test.component.scss']
 })
 
-export class DoSingleTestComponent implements OnDestroy {
+export class DoSingleTestComponent {
 
-  entry$ = this.testFacade.entry$.pipe(tap(res => console.log(res)));
+  entry$ = this.testFacade.entry$;
   result$ = this.testFacade.result$;
 
   constructor(private testFacade: TestFacade) { }
-
-  ngOnDestroy() {
-    this.testFacade.resetEntry();
-  }
 
 }

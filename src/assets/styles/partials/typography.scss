@@ -69,20 +69,29 @@ ul.check, .template ul {
     list-style-type: none;
     margin: .66rem auto;
 
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 5px;
+      height: 11px;
+      border-width: 0 2px 2px 0;
+      border-style: solid;
+      border-color: var(--secondary-color);
+      transform-origin: bottom left;
+      transform: rotate(45deg);
+    }
+
+    &.no-mark {
       &:before {
         content: '';
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 5px;
-        height: 11px;
-        border-width: 0 2px 2px 0;
-        border-style: solid;
-        border-color: var(--secondary-color);
-        transform-origin: bottom left;
-        transform: rotate(45deg);
+        width: 0;
+        height: 0;
+        border-width: 0;
       }
+    }
   }
 }
 
@@ -140,4 +149,6 @@ code {
 .first-p {
   margin-top: 0;
 }
+
+.off { pointer-events: none }
 

@@ -1,10 +1,12 @@
-<app-page-header title="test.page"
-                 subTitle="do.test">
+<app-page-header title="TEST.PAGE"
+                 subTitle="DO.TEST">
 </app-page-header>
 <app-section input="#f5f7fc">
   <div class="row">
     <div class="col-lg-8 col-md-8" id="test-list">  <!-- CONTENT -->
-      <app-test-content [tests]="tests$ | async"></app-test-content>
+      <app-test-content [tests]="tests$ | async"
+                        [entriesByUser]="entriesByUser$ | async">
+      </app-test-content>
     </div>
     <div class="col-lg-4 col-md-4">   <!-- SIDEBAR -->
       <app-test-sidebar></app-test-sidebar>

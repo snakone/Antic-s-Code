@@ -25,8 +25,8 @@ export class TestGuard implements CanActivate {
 
   private showModal(): void {
     this.crafter.modal(
-      'errors.test.title',
-      'errors.test.message',
+      'ERRORS.TEST.TITLE',
+      'ERRORS.TEST.MESSAGE',
       'info');
     this.router.navigateByUrl('/');
   }

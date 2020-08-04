@@ -1,17 +1,17 @@
 import { List } from '../interfaces/interfaces';
 
 export const MENU: List[] = [
-  { name: 'home', link: '/home' },
-  { name: 'categories', link: '/categories' },
-  { name: 'articles', link: '/articles' },
-  { name: 'users', link: '/users' }
+  { name: 'HOME', link: '/home' },
+  { name: 'CATEGORIES', link: '/categories' },
+  { name: 'ARTICLES', link: '/articles' },
+  { name: 'USERS', link: '/users' }
 ];
 
 export const HOME_MENU: List[] = [
-  { name: 'advantages', link: '/advantages', icon: 'autorenew' },
-  { name: 'collaborate', link: '/collaborate', icon: 'present_to_all' },
-  { name: 'support', link: '/support', icon: 'help_outline' },
-  { name: 'testing', link: '/test', icon: 'anchor' },
-  { name: 'about.me', link: '/about-me', icon: 'directions_run' },
-  { name: 'searcher', link: '/search', icon: 'search' }
+  { name: 'ADVANTAGES', link: '/advantages', icon: 'autorenew' },
+  { name: 'COLLABORATE', link: '/collaborate', icon: 'present_to_all' },
+  { name: 'SUPPORT', link: '/support', icon: 'help_outline' },
+  { name: 'TESTING', link: '/test', icon: 'anchor' },
+  { name: 'ABOUT.ME', link: '/about-me', icon: 'directions_run' },
+  { name: 'SEARCHER', link: '/search', icon: 'search' }
 ];

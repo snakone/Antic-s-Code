@@ -6,7 +6,7 @@
         <img [src]="c.icon | image:'logos'"
              loading="lazy"
              [alt]="c.category"/>  <!-- LOGO LIST -->
-      <span>{{c.name}}</span>
+      <span>{{c.name | translate}}</span>
     </li>
   </ul>
 </app-content-box>

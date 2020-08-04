@@ -1,4 +1,4 @@
-<app-content-box title="most.active" icon="thumb_up">
+<app-content-box title="MOST.ACTIVE" icon="thumb_up">
   <ng-container *ngIf="(activeUsers$ | async) as users; else noUsers">
     <ul>
       <li *ngFor="let user of users; let i = index">
@@ -19,7 +19,7 @@
                 [routerLink]="'/profile/' + user.name">{{user.name}}
           </span>
           <span class="count">{{user.count}}
-            {{'article' | translate}}<span class="s" *ngIf="user.count > 1">s</span>
+            {{'ARTICLE' | translate}}<span class="s" *ngIf="user.count > 1">s</span>
           </span>
         </span>
       </li>

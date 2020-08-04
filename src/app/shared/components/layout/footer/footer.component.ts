@@ -31,8 +31,8 @@ export class FooterComponent {
       if (value === 'register') {
         return !this.userSrv.getUser() ?
         this.crafter.dialog(LoginComponent, {register: true}, 'Login') :
-        this.crafter.modal('errors.register.title',
-                           'errors.register.message',
+        this.crafter.modal('ERRORS.REGISTER.TITLE',
+                           'ERRORS.REGISTER.MESSAGE',
                            'info');
   }
 

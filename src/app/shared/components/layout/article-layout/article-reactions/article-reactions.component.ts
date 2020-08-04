@@ -2,7 +2,7 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 
 import {  URI } from '@app/app.config';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, filter } from 'rxjs/operators';
 
 import { CrafterService } from '@core/services/crafter/crafter.service';
 import { UserService } from '@core/services/user/user.service';
@@ -50,10 +50,11 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
 
   private getIntByUser(): void {
     this.interFacade.byUser$
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(
-        (res: Interaction[]) => this.markInteraction(res)
-      );
+      .pipe(
+        takeUntil(this.unsubscribe$),
+        filter(res => res && !!res.length)
+      )
+      .subscribe((res: Interaction[]) => this.markInteraction(res));
   }
 
   public doLike(value: number): void {
@@ -75,7 +76,7 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
     this.intSrv.make(int)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(_ => {
-          this.crafter.toaster('success', 'thanks.much', 'info');
+          this.crafter.toaster('SUCCESS', 'THANKS.MUCH', 'info');
           this.liked = !this.liked;
 
           if (value === 1) {
@@ -87,14 +88,10 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
   }
 
   private markInteraction(ints: Interaction[]): void {
-    const int = ints.filter((i: Interaction) => (
-        i.content === this.article._id &&
-        i.user === this.user?._id &&
-        i.type === 'like'
-      )
-    );
-    int.length > 0 && int[0].value === 1 ?
-    this.liked = true : this.liked = false;
+    const cb = (int: Interaction) => int.content === this.article._id &&
+                                     int.type === 'like' &&
+                                     int.value === 1;
+    this.liked = ints.some(cb);
   }
 
 

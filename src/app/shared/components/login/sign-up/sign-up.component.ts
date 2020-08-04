@@ -77,7 +77,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
   }
 
   public onSubmit(): void {
-    if (this.signUpForm.invalid) return;
+    if (this.signUpForm.invalid) { return; }
     const user: User = this.signUpForm.value;
     this.signUp(user);
   }
@@ -91,7 +91,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
   private handleSignUp(data: UserResponse): void {
     this.dialogRef.close();
     this.userSrv.login(data);
-    this.crafter.toaster(data.user.name, 'welcome', 'info');
+    this.crafter.toaster(data.user.name, 'WELCOME', 'info');
     this.sw.sendNotification(
       this.setNotification(Object.assign({}, NEW_USER_PUSH), data.user.name)
     ).toPromise().then();

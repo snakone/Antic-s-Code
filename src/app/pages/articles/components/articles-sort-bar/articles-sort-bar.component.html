@@ -1,16 +1,16 @@
 <app-content-box>
   <div class="wrapper">
     <div class="items">
-      <p>{{'total.articles' | translate}}</p>
-      <span>{{'articles' | translate}}: {{count$ | async}}</span>
+      <p>{{'TOTAL.ARTICLES' | translate}}</p>
+      <span>{{'ARTICLES' | translate}}: {{count$ | async}}</span>
     </div>
     <div class="sort">
       <mat-icon (click)="sort()"
-                [matTooltip]="'list' | translate"
+                [matTooltip]="'LIST' | translate"
                 matTooltipPosition="above"
                 [ngClass]="{'active': !active}">list_alt</mat-icon>
       <mat-icon (click)="sort()"
-                [matTooltip]="'grid' | translate"
+                [matTooltip]="'GRID' | translate"
                 matTooltipPosition="above"
                 [ngClass]="{'active': active}">border_all</mat-icon>
     </div>

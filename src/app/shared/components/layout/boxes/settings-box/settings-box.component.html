@@ -1,30 +1,30 @@
-<app-content-box title="settings"
+<app-content-box title="SETTINGS"
                  icon="settings">
     <form [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
       <mat-form-field color="accent" appearance="outline">
-        <mat-label>{{'language' | translate}}</mat-label>  <!-- LANGUAGE -->
+        <mat-label>{{'LANGUAGE' | translate}}</mat-label>  <!-- LANGUAGE -->
         <mat-select formControlName="language">
           <mat-option *ngFor="let l of languages"
                        [value]="l.selector"
                        role="option">
-            {{l.selector | translate}}
+            {{l.translate | translate}}
             <img [src]="(l.selector | image: 'flags') + '.svg'"/>
           </mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field color="accent" appearance="outline">
-        <mat-label>{{'theme' | translate}}</mat-label>   <!-- THEME -->
+        <mat-label>{{'THEME.NAME' | translate}}</mat-label>   <!-- THEME -->
         <mat-select formControlName="theme">
           <mat-option *ngFor="let t of themes"
                       [value]="t.selector"
                       role="option">
-            {{t.selector | translate}}
+            {{t.translate | translate}}
             <span [class]="'theme-sample ' + t.selector"></span>
           </mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field color="accent" appearance="outline">
-        <mat-label>{{'email' | translate}}</mat-label>   <!-- EMAIL -->
+        <mat-label>{{'EMAIL' | translate}}</mat-label>   <!-- EMAIL -->
         <mat-select formControlName="email">
           <mat-option *ngFor="let e of show"
                       [value]="e.show"
@@ -35,7 +35,7 @@
       </mat-form-field>
 
       <mat-form-field color="accent" appearance="outline">
-        <mat-label>{{'chat.button' | translate}}</mat-label>   <!-- CHAT -->
+        <mat-label>{{'CHAT.BUTTON' | translate}}</mat-label>   <!-- CHAT -->
         <mat-select formControlName="chat">
           <mat-option *ngFor="let c of show"
                       [value]="c.show"
@@ -48,7 +48,7 @@
       <button type="submit"
               mat-button
               aria-label="Save"
-              class="btn-pink">{{'apply' | translate}}
+              class="btn-pink">{{'APPLY' | translate}}
       </button>
     </form>
 </app-content-box>

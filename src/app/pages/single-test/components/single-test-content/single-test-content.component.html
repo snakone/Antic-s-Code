@@ -1,23 +1,9 @@
-<ng-container *ngIf="(test$ | async) as test; else noTest">
-  <app-content-box [title]="'test.of' | translate: {name: test.category}"
-                    icon="dvr">
-                    <div *ngFor="let entry of test.entries">
-                      <p class="first">
-                        {{entry.title}}
-                      </p>
-                      <p [innerHTML]="entry.message"></p>
-                      <button mat-button
-                              class="btn-pink"
-                              (click)="navigate(entry)">GO
-                      </button>
-                    </div>
-  </app-content-box>
+<ng-container *ngIf="(test$ | async) as test">
+  <app-entry-card *ngFor="let entry of test.entries"
+                  [entry]="entry"
+                  [entriesByUser]="entriesByUser$ | async"
+  ></app-entry-card>
 </ng-container>
 
-<ng-template #noTest>
-  <app-content-box title="Test" icon="dvr">
-    <app-spinner></app-spinner>
-  </app-content-box>
-</ng-template>
 
 

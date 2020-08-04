@@ -36,7 +36,7 @@ export class DeleteAccountComponent implements OnInit {
       delete: new FormControl(null, [Validators.required])
     }, {
       validators: this.theyMatchError('delete',
-                  this.translate.instant('delete.sentence'))
+                  this.translate.instant('DELETE.SENTENCE'))
     });
   }
 

@@ -1,4 +1,4 @@
-<app-content-box title="profile"
+<app-content-box title="PROFILE"
                  icon="person">
   <div class="profile-info">
     <div class="profile-data" *ngIf="user; else noUser">
@@ -11,7 +11,7 @@
         {{user.profile?.language}}
       </p>
       <button mat-button class="btn-purple" aria-label="Rol">
-        {{(user.profile?.rol | translate) || ('not.defined' | translate)}}
+        {{(user.profile?.rol | translate) || ('NOT.DEFINED' | translate)}}
       </button>
     </div>
 
@@ -58,6 +58,6 @@
       *ngIf="user.profile.bio"
       [innerHTML]="user.profile.bio | sanitizer: 'html'">
     </p>
-    <p *ngIf="!user.profile.bio">{{'bio.not.defined' | translate}}</p>
+    <p *ngIf="!user.profile.bio">{{'BIO.NOT.DEFINED' | translate}}</p>
   </div>
 </app-content-box>

@@ -40,6 +40,19 @@ export class TestEffects {
     ))))
   );
 
+    // GET ENTRIES BY USER
+  getEntriesByUserEffect$ = createEffect(() => this.actions
+    .pipe(
+      ofType(TestActions.getEntriesByUser),
+      concatMap(() =>
+      this.testSrv.getEntriesByUser()
+        .pipe(
+          map(entries => TestActions.getEntriesByUserSuccess({ entries })),
+          catchError(error =>
+              of(TestActions.getEntriesByUserFailure({ error: error.message }))
+    ))))
+  );
+
   // SAVE TEST RESULT
   saveTestResultEffect$ = createEffect(() => this.actions
   .pipe(
@@ -53,4 +66,9 @@ export class TestEffects {
     ))))
   );
 
+  customEffect$ = createEffect(() => this.actions
+    .pipe(
+      ofType(TestActions.saveRequestSuccess),
+      map(() => TestActions.getEntriesByUser())
+    ));
 }

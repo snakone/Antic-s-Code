@@ -45,6 +45,9 @@
       ],
       "@store/*": [
         "app/core/ngrx/*"
+      ],
+      "@snippets/*": [
+        "app/shared/components/snippets/*"
       ]
     }
   }

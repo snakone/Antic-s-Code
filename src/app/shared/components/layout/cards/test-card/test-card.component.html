@@ -1,31 +1,49 @@
 <div class="course">
-  <div class="course-preview">
+  <div class="course-preview">  <!-- LEFT SIDE -->
     <div style="display: flex">
       <img [src]="(test.category | logo) | image: 'logos'"
            [alt]="test.category"/>
-      <h6>{{'category' | translate}}</h6>
+      <h6>{{'CATEGORY.NAME' | translate}}</h6>
     </div>
 
-    <h2>{{test.name}}</h2>
+    <h2>{{test.name | translate}}</h2>
     <a [routerLink]="test.category"
-        class="default">{{'view.test' | translate}}
+        *ngIf="test.entries?.length"
+        class="default">{{'VIEW.TEST' | translate}}
+      <i class="fa fa-chevron-right"></i>
+    </a>
+    <a *ngIf="!test.entries?.length"
+        class="default off">{{'VIEW.TEST' | translate}}
       <i class="fa fa-chevron-right"></i>
     </a>
   </div>
-  <div class="course-info">
-    <h6>{{'test.available' | translate}}</h6>
-    <p>Callbacks & Closures</p>
-    <p>Functions & Fetch</p>
-    <!-- <p>Promises & Hoisting</p> -->
-    <div class="progress-container">
-      <div class="progress"></div>
+  <div class="course-info">   <!-- RIGHT SIDE -->
+    <h6>{{'TEST.AVAILABLE' | translate}}</h6>
+    <div *ngIf="test.entries?.length; else noEntry">
+      <p *ngFor="let e of test.entries | slice:0:3">
+        {{e.title}}
+        <mat-icon *ngIf="completed(e)">check</mat-icon>
+      </p>
+    </div>
+    <ng-template #noEntry>
+      <p>{{'NO.ENTRY.YET' | translate}}</p>
+    </ng-template>
+    <div class="progress-container">   <!-- PROGRESS -->
+      <div class="progress">
+        <div class="progress-bar"
+             [style.width]="calculateWidth()">
+        </div>
+      </div>
       <span class="progress-text">
-        6/9 {{'test.done' | translate}}
+        {{entryUserByCategory?.length || 0}}/{{test.entries?.length || 0}}
+        {{'TEST.DONE' | translate}}
       </span>
     </div>
     <button mat-button
             class="btn"
             [routerLink]="test.category"
-            >{{'visit' | translate}}</button>
+            [disabled]="!test.entries?.length"
+            >{{'VISIT' | translate}}
+    </button>
   </div>
 </div>

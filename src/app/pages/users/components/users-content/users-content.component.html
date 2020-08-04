@@ -1,5 +1,5 @@
-<app-content-box title="users.list" icon="person">
-  <div [innerHTML]="'users.intro' | translate: {
+<app-content-box title="USERS.LIST" icon="person">
+  <div [innerHTML]="'USERS.INTRO' | translate: {
                                       count: users ? users.length : 0
                                     }">
   </div>
@@ -7,7 +7,7 @@
     <mat-form-field appearance="outline"
                     color="accent"
                     class="search-users">
-      <mat-label>{{'search.users' | translate}}</mat-label>
+      <mat-label>{{'SEARCH.USERS' | translate}}</mat-label>
       <mat-icon matPrefix>search</mat-icon>
       <input type="text"
              matInput

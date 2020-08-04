@@ -1,6 +1,6 @@
 <ng-container *ngIf="(article$ | async) as article; else noArticle">
   <app-page-header [title]="article.title"
-                   subTitle="article">
+                   subTitle="ARTICLE">
   </app-page-header>
   <app-section input="#f5f7fc">
     <div class="row">  <!-- ARTICLE CONTENT -->
@@ -32,8 +32,8 @@
 </ng-container>
 
 <ng-template #noArticle>
-  <app-page-header title="article"
-                   subTitle="article">
+  <app-page-header title="ARTICLE"
+                   subTitle="ARTICLE">
   </app-page-header>
   <app-section input="#f5f7fc">
     <div class="row">

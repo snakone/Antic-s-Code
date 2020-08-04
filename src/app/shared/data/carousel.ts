@@ -5,57 +5,57 @@ export const TESTIMONIALS: CarouselSlide[] = [
     image: 'testimonial1.jpg',
     title: 'Eleazar Carreón',
     subtitle: 'Tamaulipas, México',
-    message: 'testimonials.one'
+    message: 'TESTIMONIALS.ONE'
   },
   {
     image: 'testimonial2.jpg',
     title: 'Daniel Solarte',
     subtitle: 'Medellín, Colombia',
-    message: 'testimonials.two'
+    message: 'TESTIMONIALS.TWO'
   },
   {
     image: 'testimonial3.jpg',
     title: 'Paolo Torregroza',
     subtitle: 'Guatavita, Colombia',
-    message: 'testimonials.three'
+    message: 'TESTIMONIALS.THREE'
   }
 ];
 
 export const CREATE_SLIDES: CarouselSlide[] = [
   {
     image: 'start.jpg',
-    title: 'create.slides.start.title',
-    subtitle: 'create.slides.start.subtitle',
-    message: 'create.slides.start.message'
+    title: 'CREATE.SLIDES.START.TITLE',
+    subtitle: 'CREATE.SLIDES.START.SUBTITLE',
+    message: 'CREATE.SLIDES.START.MESSAGE'
   },
   {
     image: 'form.jpg',
-    title: 'create.slides.form.title',
-    subtitle: 'create.slides.form.subtitle',
-    message: 'create.slides.form.message'
+    title: 'CREATE.SLIDES.FORM.TITLE',
+    subtitle: 'CREATE.SLIDES.FORM.SUBTITLE',
+    message: 'CREATE.SLIDES.FORM.MESSAGE'
   },
   {
     image: 'form-valid.jpg',
-    title: 'create.slides.form-valid.title',
-    subtitle: 'create.slides.form-valid.subtitle',
-    message: 'create.slides.form-valid.message'
+    title: 'CREATE.SLIDES.FORM-VALID.TITLE',
+    subtitle: 'CREATE.SLIDES.FORM-VALID.SUBTITLE',
+    message: 'CREATE.SLIDES.FORM-VALID.MESSAGE'
   },
   {
     image: 'markdown.jpg',
-    title: 'create.slides.markdown.title',
-    subtitle: 'create.slides.markdown.subtitle',
-    message: 'create.slides.markdown.message'
+    title: 'CREATE.SLIDES.MARKDOWN.TITLE',
+    subtitle: 'CREATE.SLIDES.MARKDOWN.SUBTITLE',
+    message: 'CREATE.SLIDES.MARKDOWN.MESSAGE'
   },
   {
     image: 'info.jpg',
-    title: 'create.slides.info.title',
-    subtitle: 'create.slides.info.subtitle',
-    message: 'create.slides.info.message'
+    title: 'CREATE.SLIDES.INFO.TITLE',
+    subtitle: 'CREATE.SLIDES.INFO.SUBTITLE',
+    message: 'CREATE.SLIDES.INFO.MESSAGE'
   },
     {
     image: 'article.jpg',
-    title: 'create.slides.article.title',
-    subtitle: 'create.slides.article.subtitle',
-    message: 'create.slides.article.message'
+    title: 'CREATE.SLIDES.ARTICLE.TITLE',
+    subtitle: 'CREATE.SLIDES.ARTICLE.SUBTITLE',
+    message: 'CREATE.SLIDES.ARTICLE.MESSAGE'
   }
 ];

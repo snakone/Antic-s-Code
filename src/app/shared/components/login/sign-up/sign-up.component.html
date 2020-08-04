@@ -1,19 +1,19 @@
 <div class="sign-up-wrapper animated fadeIn">
   <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
     <mat-form-field color="accent" appearance="outline">  <!-- NAME -->
-      <mat-label>{{'name' | translate}}</mat-label>
+      <mat-label>{{'NAME' | translate}}</mat-label>
       <input matInput
              formControlName="name"
              autocomplete="off">
     </mat-form-field>
     <mat-form-field color="accent" appearance="outline">  <!-- EMAIL -->
-      <mat-label>{{'email' | translate}}</mat-label>
+      <mat-label>{{'EMAIL' | translate}}</mat-label>
       <input matInput
              formControlName="email"
              autocomplete="off">
     </mat-form-field>
     <mat-form-field color="accent" appearance="outline">  <!-- PASSWORD -->
-      <mat-label>{{'password' | translate}}</mat-label>
+      <mat-label>{{'PASSWORD' | translate}}</mat-label>
       <input matInput
              formControlName="password"
              type="password"
@@ -21,7 +21,7 @@
              autocomplete="off">
     </mat-form-field>
     <mat-form-field color="accent" appearance="outline">  <!-- REPEAT -->
-      <mat-label>{{'repeat.password' | translate}}</mat-label>
+      <mat-label>{{'REPEAT.PASSWORD' | translate}}</mat-label>
       <input matInput
              formControlName="password2"
              type="password"
@@ -32,7 +32,7 @@
     <div class="check">
       <mat-checkbox [(ngModel)]="conditions"
                     [ngModelOptions]="{standalone: true}">
-            {{'i.accept' | translate}}
+            {{'I.ACCEPT' | translate}}
       </mat-checkbox>
       <span (click)="openConditions()"
             class="bold"> {{'terms.use' | translate}}
@@ -44,7 +44,7 @@
             aria-label="Register"
             [disabled]="signUpForm.invalid || !conditions"
             mat-button>
-      {{'register' | translate}}
+      {{'REGISTER' | translate}}
     </button>
   </form>
 </div>

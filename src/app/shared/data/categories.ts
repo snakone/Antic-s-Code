@@ -1,21 +1,5 @@
 import { List, Index } from '../interfaces/interfaces';
 
-export const CATEGORIES: string[] = [
-  'HTML',
-  'CSS',
-  'Javascript',
-  'Angular',
-  'Nodejs',
-  'MongoDB',
-  'Android',
-  'Design',
-  'GO',
-  'Python',
-  'Git',
-  'Antic\'s',
-  'Deno'
-];
-
 export const MAIN_CATEGORIES: List[] = [
   {
     name: 'Markup HTML5',
@@ -36,7 +20,7 @@ export const MAIN_CATEGORIES: List[] = [
     class: 'odd.jpg'
   },
   {
-    name: 'Web Design',
+    name: 'WEB.DESIGN',
     icon: 'design-logo.png',
     category: 'Design',
     class: 'even.jpg'
@@ -60,7 +44,7 @@ export const MAIN_CATEGORIES: List[] = [
     class: 'even.jpg'
   },
   {
-    name: 'Native Android',
+    name: 'ANDROID.NATIVE',
     icon: 'android-logo.png',
     category: 'Android',
     class: 'odd.jpg'
@@ -78,7 +62,7 @@ export const MAIN_CATEGORIES: List[] = [
     class: 'odd.jpg'
   },
   {
-    name: 'Git System',
+    name: 'GIT.SYSTEM',
     icon: 'git-logo.png',
     category: 'Git',
     class: 'even.jpg'
@@ -99,22 +83,22 @@ export const MAIN_CATEGORIES: List[] = [
 
 export const POPULAR_CATEGORIES: List[] = [
   {
-    name: 'code',
+    name: 'CODE',
     icon: 'code',
     class: 'icon-pink'
   },
   {
-    name: 'articles',
+    name: 'ARTICLES',
     icon: 'receipt',
     class: 'icon-orange'
   },
   {
-    name: 'tutorials',
+    name: 'TUTORIALS',
     icon: 'nature_people',
     class: 'icon-green'
   },
   {
-    name: 'examples',
+    name: 'EXAMPLES',
     icon: 'wallpaper',
     class: 'icon-red'
   },
@@ -122,23 +106,23 @@ export const POPULAR_CATEGORIES: List[] = [
 
 export const CATEGORY_INDEX: Index[] = [
   {
-    title: 'category.index.intro.title',
-    subtitle: 'category.index.intro.subtitle',
+    title: 'CATEGORY.INDEX.INTRO.TITLE',
+    subtitle: 'CATEGORY.INDEX.INTRO.SUBTITLE',
     id: 'introducción'
   },
   {
-    title: 'category.index.concepts.title',
-    subtitle: 'category.index.concepts.subtitle',
+    title: 'CATEGORY.INDEX.CONCEPTS.TITLE',
+    subtitle: 'CATEGORY.INDEX.CONCEPTS.SUBTITLE',
     id: 'conceptos'
   },
   {
-    title: 'category.index.examples.title',
-    subtitle: 'category.index.examples.subtitle',
+    title: 'CATEGORY.INDEX.EXAMPLES.TITLE',
+    subtitle: 'CATEGORY.INDEX.EXAMPLES.SUBTITLE',
     id: 'ejemplos'
   },
   {
-    title: 'category.index.question.title',
-    subtitle: 'category.index.question.subtitle',
+    title: 'CATEGORY.INDEX.QUESTION.TITLE',
+    subtitle: 'CATEGORY.INDEX.QUESTION.SUBTITLE',
     id: 'cat-faq'
   },
 ];

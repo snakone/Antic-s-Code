@@ -7,6 +7,7 @@ import { ChatFacade } from '@store/chat/chat.facace';
 import { Observable, Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { ChatMessage } from '@shared/interfaces/interfaces';
+import { SocketService } from '@core/sockets/services/socket.service';
 
 @Component({
   selector: 'app-contact-admin',
@@ -23,7 +24,8 @@ export class ContactAdminComponent implements OnInit, OnDestroy {
   constructor(
     public user: UserService,
     public ls: StorageService,
-    private chatFacade: ChatFacade
+    private chatFacade: ChatFacade,
+    public socket: SocketService
   ) { }
 
   ngOnInit(): void {

@@ -1,9 +1,9 @@
 import { StarList } from '../interfaces/interfaces';
 
 export const SEARCH_TYPES: string[] = [
-  'likes',
-  'stars',
-  'views'
+  'LIKES',
+  'STARS',
+  'VIEWS'
 ];
 
 export const STAR_LIST: StarList[] = [

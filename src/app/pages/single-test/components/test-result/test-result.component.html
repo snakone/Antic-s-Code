@@ -1,0 +1,18 @@
+<div class="result" *ngIf="badQuestions">
+  <h4>{{'TEST.RESULT' | translate}}</h4>
+
+  <p>{{'YOU.GUESS' | translate}}
+    <strong>{{request.correct}}</strong> {{'OF' | translate}}
+    <strong>{{entry.questions.length}}</strong> {{'QUESTIONS' | translate}}
+  </p>
+  <p *ngIf="sentence"
+      [innerHTML]="sentence | translate">
+  </p>
+
+  <ng-container *ngIf="badQuestions.length > 0">
+    <h4>{{'INCORRECT.ANSWER' | translate}}</h4>
+    <p *ngFor="let q of badQuestions">
+      {{q.question}}
+    </p>
+  </ng-container>
+</div>

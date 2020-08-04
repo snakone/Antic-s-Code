@@ -68,7 +68,7 @@ export class SettingsBoxComponent implements OnInit {
     this.user.showEmail = email;
     this.ls.setKey('chat', chat);
     this.userSrv.update(this.user).toPromise()
-     .then(_ => this.crafter.toaster('updated', 'config.save', 'info'));
+     .then(_ => this.crafter.toaster('UPDATED', 'CONFIG.SAVE', 'info'));
   }
 
 }

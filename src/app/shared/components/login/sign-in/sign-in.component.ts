@@ -76,7 +76,7 @@ export class SignInComponent implements OnInit, OnDestroy {
   private handleSignIn(data: UserResponse): void {
     this.dialogRef.close();
     this.userSrv.login(data, this.remember);
-    this.crafter.toaster(data.user.name, 'welcome', 'info');
+    this.crafter.toaster(data.user.name, 'WELCOME', 'info');
     this.router.navigateByUrl('/profile');
   }
 

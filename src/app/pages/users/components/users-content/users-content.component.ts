@@ -54,7 +54,7 @@ export class UsersContentComponent implements OnInit, OnDestroy {
   }
 
   public sort(rol: string): void {
-    if (rol === 'All') {
+    if (rol === 'ALL') {
       this.filteredUsers = this.users;
       this.doResize();
       return;

@@ -2,65 +2,65 @@ import { FooterList } from '../interfaces/interfaces';
 
 export const FOOTER_LIST: FooterList[] = [
   {
-    title: 'info',
+    title: 'INFO',
     list: [
       {
         name: 'about-me',
-        translate: 'about.me'
+        translate: 'ABOUT.ME'
       },
       {
         name: 'contact',
-        translate: 'contact'
+        translate: 'CONTACT'
       },
       {
         name: 'support',
-        translate: 'support'
+        translate: 'SUPPORT'
       },
       {
         name: 'politics',
-        translate: 'politics'
+        translate: 'POLITICS'
       }
     ]
   },
   {
-    title: 'useful.links',
+    title: 'USEFUL.LINKS',
     list: [
       {
         name: 'register',
-        translate: 'register'
+        translate: 'REGISTER'
       },
       {
         name: 'how-works',
-        translate: 'how.it.works'
+        translate: 'HOW.IT.WORKS'
       },
       {
         name: 'advantages',
-        translate: 'advantages'
+        translate: 'ADVANTAGES'
       },
       {
         name: 'collaborate',
-        translate: 'collaborate'
+        translate: 'COLLABORATE'
       }
     ]
   },
   {
-    title: 'connect.me',
+    title: 'CONNECT.ME',
     list: [
       {
         name: 'help',
-        translate: 'help'
+        translate: 'HELP'
       },
       {
         name: 'Twitter',
-        translate: 'Twitter'
+        translate: 'TWITTER'
       },
       {
         name: 'Facebook',
-        translate: 'Facebook'
+        translate: 'FACEBOOK'
       },
       {
         name: 'Youtube',
-        translate: 'Youtube'
+        translate: 'YOUTUBE'
       }
     ]
   }

@@ -2,9 +2,7 @@
   <div class="header-bg"
        *ngIf="category"
        [style.background-image]="'url('+ category.cover +')' | sanitizer: 'style'"
-       [ngClass]="{'bg-top' : category.category === 'Angular' ||
-                              category.category === 'Nodejs'  ||
-                              category.category === 'Javascript' }">
+       [ngClass]="{'bg-top' : bgTop.includes(category.category) }">
     <div class="category-header-content">
       <div class="container">
         <div class="row">

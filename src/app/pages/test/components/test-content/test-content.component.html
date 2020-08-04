@@ -1,18 +1,19 @@
-<app-content-box title="category.list" icon="playlist_add_check">
+<app-content-box title="CATEGORY.LIST" icon="playlist_add_check">
   <div class="category-content">
-    <p [innerHTML]="'test.intro' | translate"></p>
+    <p [innerHTML]="'TEST.INTRO' | translate"></p>
   </div>
 </app-content-box>
 
-<div class="category-list">
-  <app-test-card *ngFor="let t of tests;
-                         let last = last;
-                         let first = first"
-                  [test]="t"
-                  [first]="first"
-                  [last]="last">
+<div class="category-list" *ngIf="tests; else loading">
+  <app-test-card *ngFor="let t of tests"
+                 [test]="t"
+                 [entriesByUser]="entriesByUser">
   </app-test-card>
 </div>
+
+<ng-template #loading>
+  <app-spinner></app-spinner>
+</ng-template>
 
 
 

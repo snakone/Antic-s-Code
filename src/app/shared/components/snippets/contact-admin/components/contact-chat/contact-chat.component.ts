@@ -8,7 +8,6 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 
-import { SocketService } from '@core/sockets/services/socket.service';
 import { ChatFacade } from '@store/chat/chat.facace';
 import { ChatMessage } from '@shared/interfaces/interfaces';
 
@@ -22,15 +21,13 @@ import { ChatMessage } from '@shared/interfaces/interfaces';
 export class ContactChatComponent implements OnInit, OnChanges {
 
   @Input() chat: ChatMessage[];
+  @Input() isOn: boolean;
   @Output() close = new EventEmitter<boolean>();
   message = '';
   textarea: HTMLElement;
   content: HTMLElement;
 
-  constructor(
-    public socket: SocketService,
-    private chatFacade: ChatFacade
-  ) { }
+  constructor(private chatFacade: ChatFacade) { }
 
   ngOnInit(): void {
     this.textarea = document.getElementById('chat-textarea');

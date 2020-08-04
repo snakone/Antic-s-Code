@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MAIN_CATEGORIES } from '@shared/data/categories';
-import { List, Test } from '@app/shared/interfaces/interfaces';
+import { Component, Input } from '@angular/core';
+import { Test, TestEntry } from '@shared/interfaces/interfaces';
+import { TestFacade } from '@store/test/test.facade';
 
 @Component({
   selector: 'app-test-content',
@@ -8,16 +8,11 @@ import { List, Test } from '@app/shared/interfaces/interfaces';
   styleUrls: ['./test-content.component.scss']
 })
 
-export class TestContentComponent implements OnInit {
+export class TestContentComponent {
 
   @Input() tests: Test[];
+  @Input() entriesByUser: TestEntry[];
 
-  categories: List[];
-
-  constructor() { }
-
-  ngOnInit(): void {
-    this.categories = [...MAIN_CATEGORIES].filter(c => c.icon !== 'antics-logo.png');
-  }
+  constructor(private testFacade: TestFacade) { }
 
 }

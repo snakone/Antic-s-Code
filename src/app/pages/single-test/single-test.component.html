@@ -1,6 +1,6 @@
 <ng-container *ngIf="(test$ | async) as test; else noTest">
-  <app-page-header title="test.page"
-                  subTitle="do.test">
+  <app-page-header title="TEST.PAGE"
+                  subTitle="DO.TEST">
   </app-page-header>
   <app-section input="#f5f7fc">
     <div class="row">
@@ -15,13 +15,13 @@
 </ng-container>
 
 <ng-template #noTest>
-  <app-page-header title="test.page"
-                   subTitle="do.test">
+  <app-page-header title="TEST.PAGE"
+                   subTitle="DO.TEST">
   </app-page-header>
   <app-section input="#f5f7fc">
     <div class="row">
       <div class="col-lg-8 col-md-8">
-        <app-single-test-content></app-single-test-content>
+        <app-spinner></app-spinner>
       </div>
       <div class="col-lg-4 col-md-4">
         <app-single-test-sidebar></app-single-test-sidebar>

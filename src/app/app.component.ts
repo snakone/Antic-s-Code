@@ -65,8 +65,8 @@ export class AppComponent implements OnInit {
 
   private showMaintenance(): void {
     setTimeout(() => {
-      this.crafter.modal('modals.maintenance.title',
-                         'modals.maintenance.message',
+      this.crafter.modal('MODALS.MAINTENANCE.TITLE',
+                         'MODALS.MAINTENANCE.MESSAGE',
                          'info');
     }, 4000);
   }

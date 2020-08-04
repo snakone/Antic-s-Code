@@ -17,11 +17,17 @@ export class TestFacade {
   public entryLoaded$ = this.store.select(fromTest.getEntryLoaded);
   public result$ = this.store.select(fromTest.getResult);
   public resultLoaded$ = this.store.select(fromTest.getResultLoaded);
+  public entriesByUser$ = this.store.select(fromTest.getEntriesByUser);
+  public entriesByUserLoaded$ = this.store.select(fromTest.getEntriesByUserLoaded);
 
   constructor(private store: Store<TestPartialState>) { }
 
   public get(): void {
     this.store.dispatch(TestActions.get());
+  }
+
+  public getEntriesByUser(): void {
+    this.store.dispatch(TestActions.getEntriesByUser());
   }
 
   public setEntry(entry: TestEntry): void {
@@ -38,6 +44,10 @@ export class TestFacade {
 
   public resetEntry(): void {
     this.store.dispatch(TestActions.resetEntry());
+  }
+
+  public resetEntriesByUser(): void {
+    this.store.dispatch(TestActions.resetEntriesByUser());
   }
 
   public getByCategory(category: string): void {

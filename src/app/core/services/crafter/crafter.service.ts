@@ -78,27 +78,27 @@ export class CrafterService {
 
   public handleError(err: HttpErrorResponse): void {
     switch (err.status) {
-      case 0: this.modal('errors.web.title',
-                         'errors.web.message');
+      case 0: this.modal('ERRORS.WEB.TITLE',
+                         'ERRORS.WEB.MESSAGE');
               break;
       case 400: case 406:
-                this.modal('errors.request.title',
-                           'errors.request.message',
+                this.modal('ERRORS.REQUEST.TITLE',
+                           'ERRORS.REQUEST.MESSAGE',
                            'help');
                 break;
-      case 401: this.modal('errors.token.title',
-                           'errors.token.message',
+      case 401: this.modal('ERRORS.TOKEN.TITLE',
+                           'ERRORS.TOKEN.MESSAGE',
                            'info');
                 break;
-      case 403: this.modal('errors.access.title',
-                           'errors.access.message');
+      case 403: this.modal('ERRORS.ACCESS.TITLE',
+                           'ERRORS.ACCESS.MESSAGE');
                 break;
       case 409: case 500:
-                this.modal('errors.server.title',
-                           'errors.server.message');
+                this.modal('ERRORS.SERVER.TITLE',
+                           'ERRORS.SERVER.MESSAGE');
                 break;
-      default: this.modal('errors.unknown.title',
-                          'errors.unknown.message');
+      default: this.modal('ERRORS.UNKNOWN.TITLE',
+                          'ERRORS.UNKNOWN.MESSAGE');
     }
   }
 

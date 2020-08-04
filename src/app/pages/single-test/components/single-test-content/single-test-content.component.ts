@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { TestFacade } from '@store/test/test.facade';
-import { Router, ActivatedRoute } from '@angular/router';
-import { TestEntry } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-single-test-content',
@@ -12,16 +10,9 @@ import { TestEntry } from '@shared/interfaces/interfaces';
 export class SingleTestContentComponent {
 
   test$ = this.testFacade.byCategory$;
+  entriesByUser$ = this.testFacade.entriesByUser$;
 
-  constructor(
-    private testFacade: TestFacade,
-    private router: Router,
-    private route: ActivatedRoute
-  ) { }
+  constructor(private testFacade: TestFacade) { }
 
-  public navigate(entry: TestEntry): void {
-    this.testFacade.setEntry(entry);
-    this.router.navigate(['./do'], { relativeTo: this.route });
-  }
 
 }

@@ -6,7 +6,7 @@ import * as fromUsers from '@store/users/user.reducer';
 import * as fromSearch from '@store/search/search.reducer';
 
 export const URI = 'https://anticscode.netlify.com';
-const APP_VERSION = '0.9.31';
+const APP_VERSION = '0.9.4';
 export const DESKTOP_VERSION = '0.5.3';
 export const MOBILE_VERSION = '0.1.2';
 

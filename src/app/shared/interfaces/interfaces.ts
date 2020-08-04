@@ -188,8 +188,16 @@ export interface TestResponse extends ServerResponse {
   test?: Test;
 }
 
+export interface EntryResponse extends ServerResponse {
+  entries?: TestEntry[];
+}
+
 export interface TestResultResponse extends ServerResponse {
   result?: TestRequestResult;
+}
+
+export interface TestRawResponse extends ServerResponse {
+  result?: TestRawResult;
 }
 
 export interface TestRequest {
@@ -205,6 +213,11 @@ export interface TestRequest {
 export interface TestRequestResult {
   correct?: number;
   result?: { same?: boolean }[];
+}
+
+export interface TestRawResult {
+  uid?: string;
+  result?: { key: string }[];
 }
 
 export interface List {
@@ -288,6 +301,7 @@ export interface Index {
 export interface Config {
   name: string;
   selector: string;
+  translate?: string;
 }
 
 export interface TotalUserData {

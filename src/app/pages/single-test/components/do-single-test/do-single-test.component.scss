@@ -16,7 +16,6 @@ p {
    }
 
    & p {
-    line-height: .8rem;
 
     & span {
       font-weight: bold;
@@ -24,3 +23,5 @@ p {
     }
    }
 }
+
+br { margin-top: 3px }

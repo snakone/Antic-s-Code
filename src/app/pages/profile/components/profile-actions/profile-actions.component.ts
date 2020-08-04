@@ -39,7 +39,7 @@ export class ProfileActionsComponent implements OnDestroy {
   }
 
   private deleteSuccess(): void {
-    this.crafter.toaster('goodbye', 'miss.you', 'info');
+    this.crafter.toaster('GOODBYE', 'MISS.YOU', 'info');
     this.logOut();
     this.ls.reset();
   }

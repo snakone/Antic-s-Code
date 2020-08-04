@@ -26,6 +26,18 @@ export const getByCategoryFailure =
   createAction('[Test API] Get Test by Category Failure',
   props<{ error: string }>());
 
+// GET ENTRIES BY USER
+export const getEntriesByUser =
+  createAction('[Test API] Get Entries by User');
+
+export const getEntriesByUserSuccess =
+  createAction('[Test API] Get Entries by User Success',
+  props<{ entries: TestEntry[] }>());
+
+export const getEntriesByUserFailure =
+  createAction('[Test API] Get Entries by User Failure',
+  props<{ error: string }>());
+
 // SET ENTRY
 export const setEntry =
   createAction('[Test API] Set Entry Test Success',
@@ -55,5 +67,9 @@ export const reset =
 // RESET ENTRY
 export const resetEntry =
   createAction('[Test API] Reset Entry');
+
+// RESET ENTRIES BY USER
+export const resetEntriesByUser =
+  createAction('[Test API] Reset Entries by User');
 
 
