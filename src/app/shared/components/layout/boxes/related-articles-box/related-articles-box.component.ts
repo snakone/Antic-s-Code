@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ArticlesFacade } from '@core/ngrx/facade/article.facade';
-import { SearchFacade } from '@core/ngrx/facade/search.facade';
+import { ArticlesFacade } from '@store/articles/article.facade';
+import { SearchFacade } from '@store/search/search.facade';
 
 import { Category, Article } from '@shared/interfaces/interfaces';
 import { takeUntil, filter } from 'rxjs/operators';

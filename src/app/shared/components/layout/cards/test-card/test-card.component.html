@@ -1,0 +1,49 @@
+<div class="course">
+  <div class="course-preview">  <!-- LEFT SIDE -->
+    <div style="display: flex">
+      <img [src]="(test.category | logo) | image: 'logos'"
+           [alt]="test.category"/>
+      <h6>{{'CATEGORY.NAME' | translate}}</h6>
+    </div>
+
+    <h2>{{test.name | translate}}</h2>
+    <a [routerLink]="test.category"
+        *ngIf="test.entries?.length"
+        class="default">{{'VIEW.TEST' | translate}}
+      <i class="fa fa-chevron-right"></i>
+    </a>
+    <a *ngIf="!test.entries?.length"
+        class="default off">{{'VIEW.TEST' | translate}}
+      <i class="fa fa-chevron-right"></i>
+    </a>
+  </div>
+  <div class="course-info">   <!-- RIGHT SIDE -->
+    <h6>{{'TEST.AVAILABLE' | translate}}</h6>
+    <div *ngIf="test.entries?.length; else noEntry">
+      <p *ngFor="let e of test.entries | slice:0:3">
+        {{e.title}}
+        <mat-icon *ngIf="completed(e)">check</mat-icon>
+      </p>
+    </div>
+    <ng-template #noEntry>
+      <p>{{'NO.ENTRY.YET' | translate}}</p>
+    </ng-template>
+    <div class="progress-container">   <!-- PROGRESS -->
+      <div class="progress">
+        <div class="progress-bar"
+             [style.width]="calculateWidth()">
+        </div>
+      </div>
+      <span class="progress-text">
+        {{entryUserByCategory?.length || 0}}/{{test.entries?.length || 0}}
+        {{'TEST.DONE' | translate}}
+      </span>
+    </div>
+    <button mat-button
+            class="btn"
+            [routerLink]="test.category"
+            [disabled]="!test.entries?.length"
+            >{{'VISIT' | translate}}
+    </button>
+  </div>
+</div>

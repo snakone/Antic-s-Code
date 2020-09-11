@@ -1,0 +1,9 @@
+<ng-container *ngIf="(test$ | async) as test">
+  <app-entry-card *ngFor="let entry of test.entries"
+                  [entry]="entry"
+                  [entriesByUser]="entriesByUser$ | async"
+  ></app-entry-card>
+</ng-container>
+
+
+

@@ -28,6 +28,7 @@
 .bg-top {
   background-position: top !important;
   background-size: 100% 150% !important;
+  @media(max-width: 550px) { background-size: cover !important }
 }
 
 .category {

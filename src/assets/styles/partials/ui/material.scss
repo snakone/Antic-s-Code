@@ -82,4 +82,64 @@ mat-option.all {
 .mat-checkbox-inner-container { top: 2px }
 .p-left .mat-option-text { padding-left: .4rem }
 
+.edit-dialog .mat-dialog-container {
+  padding: 0 !important;
+  border-radius: 10px;
+  max-width: 993px;
+
+  & .content-box-body {
+    overflow: auto;
+    @media(max-width: 700px) { height: 80vh !important }
+  }
+}
+
+.mat-step-header .mat-step-icon-selected {
+  background-color: var(--primary-color) !important;
+}
+
+.mat-step-header .mat-step-icon-state-done {
+  background-color: var(--tertiary-color) !important;
+}
+
+.mat-horizontal-stepper-header-container {
+  justify-content: center;
+}
+
+.mat-stepper-label-position-bottom .mat-horizontal-stepper-header {
+  padding: 24px 6px !important;
+  &:first-child { margin-left: -6px !important }
+  &:last-child { margin-right: -6px !important }
+}
+
+.mat-vertical-stepper-header {
+  padding: 24px 4px !important;
+}
+
+.mat-vertical-content {
+  padding: 2px 0px 20px 26px !important;
+}
+
+.mat-horizontal-content-container {
+  padding: .5rem .6rem 0 !important;
+}
+
+.mat-vertical-content-container {
+  margin-left: 14.5px !important;
+}
+
+.mobile .mat-step-label {
+  white-space: normal !important;
+  font-size: .85rem;
+  line-height: 1rem;
+  font-weight: bold;
+}
+
+.mat-stepper-vertical-line::before {
+  left: .5px !important;
+}
+
+.mat-vertical-stepper-header .mat-step-icon {
+  margin-right: 1rem !important;
+}
+
 

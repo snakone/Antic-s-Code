@@ -1,0 +1,19 @@
+<app-content-box title="CATEGORY.LIST" icon="playlist_add_check">
+  <div class="category-content">
+    <p [innerHTML]="'TEST.INTRO' | translate"></p>
+  </div>
+</app-content-box>
+
+<div class="category-list" *ngIf="tests; else loading">
+  <app-test-card *ngFor="let t of tests"
+                 [test]="t"
+                 [entriesByUser]="entriesByUser">
+  </app-test-card>
+</div>
+
+<ng-template #loading>
+  <app-spinner></app-spinner>
+</ng-template>
+
+
+

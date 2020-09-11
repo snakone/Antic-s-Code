@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { SearchFacade } from '@core/ngrx/facade/search.facade';
+import { SearchFacade } from '@store/search/search.facade';
 
 @Component({
   selector: 'app-search-sort-bar',

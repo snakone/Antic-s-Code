@@ -5,7 +5,7 @@ import { Category } from '@shared/interfaces/interfaces';
 import { Subject, Observable } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { CategoryFacade } from '@core/ngrx/facade/category.facade';
+import { CategoryFacade } from '@store/categories/category.facade';
 
 @Component({
   selector: 'app-single-category',

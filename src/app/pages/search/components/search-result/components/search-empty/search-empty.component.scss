@@ -3,17 +3,6 @@ h3 {
   margin-top: 0;
 }
 
-ul {
-  padding-left: 1rem;
-  list-style-type: circle;
-  margin-bottom: 0;
-
-  & li {
-    color: var(--p-color);
-    & .black { margin-right: .2rem }
-  }
-}
-
 .defined {
   color:var(--primary-color);
 }

@@ -40,10 +40,10 @@ export const MOBILE_DOWNLOAD_BUTTONS: DownloadButton[] = [
 ];
 
 export const CREATE_STEPS: string[] = [
-  'download.steps.one',
-  'download.steps.two',
-  'download.steps.three',
-  'download.steps.four',
-  'download.steps.five',
+  'DOWNLOAD.STEPS.ONE',
+  'DOWNLOAD.STEPS.TWO',
+  'DOWNLOAD.STEPS.THREE',
+  'DOWNLOAD.STEPS.FOUR',
+  'DOWNLOAD.STEPS.FIVE',
 ];
 

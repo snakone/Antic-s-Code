@@ -2,13 +2,13 @@
   <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
     <div class="row">
       <mat-form-field class="default" color="accent">  <!-- VALUE -->
-        <mat-label>{{'search.for' | translate}}</mat-label>
+        <mat-label>{{'SEARCH.FOR' | translate}}</mat-label>
         <input matInput
                formControlName="value"
                autocomplete="off">
       </mat-form-field>
       <mat-form-field class="select" color="accent">  <!-- CATEGORY -->
-        <mat-label>{{'choose.category' | translate}}</mat-label>
+        <mat-label>{{'CHOOSE.CATEGORY' | translate}}</mat-label>
         <mat-select formControlName="category" aria-label="Select Category">
           <mat-option *ngFor="let cat of categories"
                       [value]="cat.category"
@@ -21,12 +21,12 @@
           </mat-option>
           <mat-option value=""
                       role="option"
-                      class="all">{{'all.a' | translate}}
+                      class="all">{{'ALL.A' | translate}}
           </mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field class="select" color="accent">  <!-- TAGS -->
-        <mat-label>{{'pick.thread' | translate}}</mat-label>
+        <mat-label>{{'PICK.THREAD' | translate}}</mat-label>
         <mat-select #max
                     formControlName="tags"
                     aria-label="Select a Tag"
@@ -46,7 +46,7 @@
               class="btn-purple"
               aria-label="Search"
               mat-button>
-        {{'search' | translate}}
+        {{'SEARCH' | translate}}
       </button>
     </div>
   </form>

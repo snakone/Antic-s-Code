@@ -31,12 +31,12 @@ export class FooterComponent {
       if (value === 'register') {
         return !this.userSrv.getUser() ?
         this.crafter.dialog(LoginComponent, {register: true}, 'Login') :
-        this.crafter.modal('errors.register.title',
-                           'errors.register.message',
-                           'info');;
+        this.crafter.modal('ERRORS.REGISTER.TITLE',
+                           'ERRORS.REGISTER.MESSAGE',
+                           'info');
   }
 
-    this.router.navigateByUrl(`/${value}`);
+      this.router.navigateByUrl(`/${value}`);
   }
 
 }

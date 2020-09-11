@@ -1,7 +1,6 @@
-app-carousel { margin-top: 5rem }
-
 .swiper-slide {
   margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   @media(max-width: 550px) { margin-top: 0 }
 }
 
@@ -10,12 +9,10 @@ h3 { margin-top: 5rem }
 .slide {
     text-align: center;
     cursor: pointer;
-    @media(max-width: 750px) { margin-top: 1.2rem }
-    @media(max-width: 550px) { margin-top: 1rem }
 
   & p {
     width: 46.66667rem;
-    margin: 1.66667rem auto 0;
+    margin: 1.66667rem auto 1.222rem;
     font-size: 1.13333rem;
     line-height: 1.93333rem;
     color: var(--p-color);
@@ -44,13 +41,13 @@ h3 { margin-top: 5rem }
     margin-top: 0 ;
     font-weight: 700;
     line-height: 1.2;
-    color: var(--title-color);
+    color: var(--new-color);
     font-size: 1.2rem;
   }
 
   & span {
-    font-size: .93333rem;
-    color: var(--p-color);
+    font-size: .91333rem;
+    color: var(--new-color);
     display: block;
     margin-top: 5px;
   }

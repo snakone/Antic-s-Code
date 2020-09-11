@@ -14,19 +14,19 @@ export const SOCIAL_PROFILE: Config[] = [
 ];
 
 export const ROLES: Role[] = [
-  { name: 'Web Developer', translate: 'web.dev' },
-  { name: 'Frontend Developer', translate: 'front.dev' },
-  { name: 'Backend Developer', translate: 'back.dev' },
-  { name: 'Full-Stack Developer', translate: 'full.dev' },
-  { name: 'Designer', translate: 'design.dev' },
-  { name: 'Web Designer', translate: 'design.web' },
-  { name: 'Mobile Developer', translate: 'mobile.dev' },
+  { name: 'Web Developer', translate: 'WEB.DEV' },
+  { name: 'Frontend Developer', translate: 'FRONT.DEV' },
+  { name: 'Backend Developer', translate: 'BACK.DEV' },
+  { name: 'Full-Stack Developer', translate: 'FULL.DEV' },
+  { name: 'Designer', translate: 'DESIGN.DEV' },
+  { name: 'Web Designer', translate: 'DESIGN.WEB' },
+  { name: 'Mobile Developer', translate: 'MOBILE.DEV' },
 ];
 
 export const TOTAL_USER_DATA: TotalUserData[] = [
   { name: 'likes', icon: 'favorite' },
   { name: 'views', icon: 'visibility' }
-]
+];
 
 export const PROFILE_LANGS: string[] = [
   'Javascript',
@@ -41,9 +41,9 @@ export const PROFILE_LANGS: string[] = [
 ];
 
 export const USER_ROLS: UserRol[] = [
-  { rol: 'Admin', icon: 'mage.png', name: 'Admin' },
-  { rol: 'User', icon: 'user.png', name: 'Users' },
-  { rol: 'All', icon: 'all.png', name: 'Todos' }
+  { rol: 'Admin', icon: 'mage.png', name: 'ADMIN' },
+  { rol: 'User', icon: 'user.png', name: 'USERS' },
+  { rol: 'ALL', icon: 'all.png', name: 'ALL' }
 ];
 
 export const MY_SOCIAL: List[] = [
@@ -65,6 +65,6 @@ export const MY_SOCIAL: List[] = [
 ];
 
 export const SHOW_HIDE: ShowHide[] = [
-  { text: 'show', show: true },
-  { text: 'hide', show: false }
+  { text: 'SHOW', show: true },
+  { text: 'HIDE', show: false }
 ];

@@ -5,6 +5,7 @@
 .footer-bar {
   padding: 0;
   border-top: 1px solid var(--section-border-color);
+  background: var(--new-color);
 
   &-content {
     padding: 1rem 0;
@@ -12,9 +13,14 @@
     height: var(--footer-bar-height);
     max-height: var(--footer-bar-height);
 
+    & p { color: var(--light-color) }
+
     & a {
       text-decoration: none;
-      & span { font-weight: bold }
+      & span {
+        font-weight: bold;
+        color: var(--primary-color);
+      }
     }
 
     & mat-icon {

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { SearchFacade } from '@core/ngrx/facade/search.facade';
+import { SearchFacade } from '@store/search/search.facade';
 import { MAIN_CATEGORIES } from '@shared/data/categories';
 
 @Component({
@@ -23,7 +23,7 @@ export class NavBarSearchComponent {
 
   public focusOut(): void {
     this.focused = false;
-    if (!this.value) return;
+    if (!this.value) { return; }
     this.searchFacade.search({value: this.value});
     this.router.navigateByUrl('/search');
   }

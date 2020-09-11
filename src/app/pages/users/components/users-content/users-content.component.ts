@@ -6,7 +6,7 @@ import { PaginationService } from 'ngx-pagination';
 
 import { USER_ROLS } from '@shared/data/user';
 import { User } from '@shared/interfaces/interfaces';
-import { UsersFacade } from '@core/ngrx/facade/users.facade';
+import { UsersFacade } from '@store/users/users.facade';
 
 @Component({
   selector: 'app-users-content',
@@ -54,7 +54,7 @@ export class UsersContentComponent implements OnInit, OnDestroy {
   }
 
   public sort(rol: string): void {
-    if (rol === 'All') {
+    if (rol === 'ALL') {
       this.filteredUsers = this.users;
       this.doResize();
       return;

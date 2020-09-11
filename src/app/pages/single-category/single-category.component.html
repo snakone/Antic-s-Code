@@ -3,6 +3,10 @@
   <app-section input="#f5f7fc">
       <div class="row">
           <div class="col-lg-8 col-md-8" id="category-section">
+            <app-single-category-index-box></app-single-category-index-box>
+            <app-single-category-info-box *onlyMobile
+                                          [category]="category">
+            </app-single-category-info-box>
             <app-single-category-content [category]="category">
             </app-single-category-content>
           </div>

@@ -22,9 +22,9 @@ export class MessageModalComponent implements OnInit {
   }
 
   private pickColor(icon: string): void {
-    switch(icon) {
+    switch (icon) {
       case 'error':
-        this.color = 'red'
+        this.color = 'red';
         break;
       case 'help':
         this.color = 'blue';
@@ -32,7 +32,7 @@ export class MessageModalComponent implements OnInit {
       case 'info':
         this.color = 'green';
         break;
-      default: this.color = 'red'
+      default: this.color = 'red';
     }
   }
 

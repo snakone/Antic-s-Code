@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 import { StorageService } from '@core/storage/storage.service';
 import { map, filter, tap } from 'rxjs/operators';
 import { PushService } from '../push/push.service';
-import { UsersFacade } from '@core/ngrx/facade/users.facade';
+import { UsersFacade } from '@app/core/ngrx/users/users.facade';
 
 @Injectable({providedIn: 'root'})
 

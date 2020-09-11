@@ -1,14 +1,15 @@
 * { box-sizing: border-box }
 
 .row {
-  margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
 }
 
-h3 {
-  margin-top: 8rem;
+h3 { margin-top: 0 }
+
+.m-top {
+  margin-top: 4rem;
+  @media(max-width: 991px) { margin-top: 3rem }
 }
 
 .col-lg-6 {
@@ -60,5 +61,3 @@ h3 {
     }
   }
 }
-
-.m-top { margin-top: 4rem }

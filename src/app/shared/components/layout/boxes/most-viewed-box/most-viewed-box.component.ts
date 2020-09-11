@@ -3,7 +3,7 @@ import { Observable, Subject } from 'rxjs';
 import { Article } from '@shared/interfaces/interfaces';
 
 import { filter, takeUntil } from 'rxjs/operators';
-import { ArticlesFacade } from '@core/ngrx/facade/article.facade';
+import { ArticlesFacade } from '@store/articles/article.facade';
 
 @Component({
   selector: 'app-most-viewed-box',

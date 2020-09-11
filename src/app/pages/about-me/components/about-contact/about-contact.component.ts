@@ -53,13 +53,13 @@ export class AboutContactComponent implements OnInit, OnDestroy {
   }
 
   public onSubmit(): void {
-    if (this.contactForm.invalid) return;
+    if (this.contactForm.invalid) { return; }
     const request: MessageRequest = this.contactForm.value;
 
     this.userSrv.sendMeAMessage(request)
     .pipe(takeUntil(this.unsubscribe$))
      .subscribe(_ => {
-       this.crafter.toaster('message.send', 'thanks.much', 'info');
+       this.crafter.toaster('MESSAGE.SEND', 'THANKS.MUCH', 'info');
        this.f.resetForm();
      });
   }

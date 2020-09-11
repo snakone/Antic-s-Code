@@ -3,61 +3,61 @@ import { TimeLine, Skill, WorkCompany } from '../interfaces/interfaces';
 export const TIME_LINE: TimeLine[] = [
   {
     year: 1987,
-    message: 'me.time.born',
+    message: 'ME.TIME.BORN',
     side: 'left',
     fade: 'fade-right'
   },
   {
     year: 1992,
-    message: 'me.time.school',
+    message: 'ME.TIME.SCHOOL',
     side: 'right',
     fade: 'fade-left'
   },
   {
     year: 2000,
-    message: 'me.time.collage',
+    message: 'ME.TIME.COLLAGE',
     side: 'left',
     fade: 'fade-right'
   },
   {
     year: 2003,
-    message: 'me.time.first',
+    message: 'ME.TIME.FIRST',
     side: 'right',
     fade: 'fade-left'
   },
   {
     year: 2005,
-    message: 'me.time.study',
+    message: 'ME.TIME.STUDY',
     side: 'left',
     fade: 'fade-right'
   },
   {
     year: 2007,
-    message: 'me.time.more',
+    message: 'ME.TIME.MORE',
     side: 'right',
     fade: 'fade-left'
   },
   {
     year: 2014,
-    message: 'me.time.cim',
+    message: 'ME.TIME.CIM',
     side: 'left',
     fade: 'fade-right'
   },
   {
     year: 2018,
-    message: 'me.time.ita',
+    message: 'ME.TIME.ITA',
     side: 'right',
     fade: 'fade-left'
   },
   {
     year: 2019,
-    message: 'me.time.job',
+    message: 'ME.TIME.JOB',
     side: 'left',
     fade: 'fade-right'
   },
   {
     year: 2020,
-    message: 'me.time.keep',
+    message: 'ME.TIME.KEEP',
     side: 'right',
     fade: 'fade-left'
   }
@@ -68,159 +68,159 @@ export const TIME_LINE: TimeLine[] = [
 export const MY_HARD_SKILLS: Skill[] = [
  {
    name: 'HTML',
-   area: 'me.skills.hard.html.area',
-   message: 'me.skills.hard.html.message',
+   area: 'ME.SKILLS.HARD.HTML.AREA',
+   message: 'ME.SKILLS.HARD.HTML.MESSAGE',
    year: 2004,
    icon: 'html.png'
  },
  {
   name: 'CSS',
-  area: 'me.skills.hard.css.area',
-  message: 'me.skills.hard.css.message',
+  area: 'ME.SKILLS.HARD.CSS.AREA',
+  message: 'ME.SKILLS.HARD.CSS.MESSAGE',
   year: 2006,
   icon: 'css.png'
  },
  {
   name: 'Javascript',
-  area: 'me.skills.hard.js.area',
-  message: 'me.skills.hard.js.message',
+  area: 'ME.SKILLS.HARD.JS.AREA',
+  message: 'ME.SKILLS.HARD.JS.MESSAGE',
   year: 2014,
   icon: 'javascript.png'
  },
  {
   name: 'PHP',
-  area: 'me.skills.hard.php.area',
-  message: 'me.skills.hard.php.message',
+  area: 'ME.SKILLS.HARD.PHP.AREA',
+  message: 'ME.SKILLS.HARD.PHP.MESSAGE',
   year: 2012,
   icon: 'php.png'
  },
  {
   name: 'MySQL',
-  area: 'me.skills.hard.sql.area',
-  message: 'me.skills.hard.sql.message',
+  area: 'ME.SKILLS.HARD.SQL.AREA',
+  message: 'ME.SKILLS.HARD.SQL.MESSAGE',
   year: 2012,
   icon: 'mysql.png'
  },
  {
   name: 'Wordpress',
-  area: 'me.skills.hard.press.area',
-  message: 'me.skills.hard.press.message',
+  area: 'ME.SKILLS.HARD.WORDPRESS.AREA',
+  message: 'ME.SKILLS.HARD.WORDPRESS.MESSAGE',
   year: 2010,
   icon: 'wordpress.png'
  },
  {
   name: 'Nodejs',
-  area: 'me.skills.hard.node.area',
-  message: 'me.skills.hard.node.message',
+  area: 'ME.SKILLS.HARD.NODE.AREA',
+  message: 'ME.SKILLS.HARD.NODE.MESSAGE',
   year: 2017,
   icon: 'node.png'
  },
  {
   name: 'Angular',
-  area: 'me.skills.hard.angular.area',
-  message: 'me.skills.hard.angular.message',
+  area: 'ME.SKILLS.HARD.ANGULAR.AREA',
+  message: 'ME.SKILLS.HARD.ANGULAR.MESSAGE',
   year: 2018,
   icon: 'angular.png'
  },
  {
   name: 'MongoDB',
-  area: 'me.skills.hard.mongo.area',
-  message: 'me.skills.hard.mongo.message',
+  area: 'ME.SKILLS.HARD.MONGO.AREA',
+  message: 'ME.SKILLS.HARD.MONGO.MESSAGE',
   year: 2018,
   icon: 'mongo.png'
  },
  {
   name: 'Node Express',
-  area: 'me.skills.hard.express.area',
-  message: 'me.skills.hard.express.message',
+  area: 'ME.SKILLS.HARD.EXPRESS.AREA',
+  message: 'ME.SKILLS.HARD.EXPRESS.MESSAGE',
   year: 2018,
   icon: 'express.png'
  },
  {
   name: 'Typescript',
-  area: 'me.skills.hard.ts.area',
-  message: 'me.skills.hard.ts.message',
+  area: 'ME.SKILLS.HARD.TS.AREA',
+  message: 'ME.SKILLS.HARD.TS.MESSAGE',
   year: 2018,
   icon: 'typescript.svg'
  },
  {
   name: 'VSCode',
-  area: 'me.skills.hard.vsc.area',
-  message: 'me.skills.hard.vsc.message',
+  area: 'ME.SKILLS.HARD.VSC.AREA',
+  message: 'ME.SKILLS.HARD.VSC.MESSAGE',
   year: 2018,
   icon: 'vscode.png'
  },
  {
   name: 'Bootstrap',
-  area: 'me.skills.hard.bootstrap.area',
-  message: 'me.skills.hard.bootstrap.message',
+  area: 'ME.SKILLS.HARD.BOOTSTRAP.AREA',
+  message: 'ME.SKILLS.HARD.BOOTSTRAP.MESSAGE',
   year: 2014,
   icon: 'boostrap.png'
  },
  {
   name: 'Heroku',
-  area: 'me.skills.hard.heroku.area',
-  message: 'me.skills.hard.heroku.message',
+  area: 'ME.SKILLS.HARD.HEROKU.AREA',
+  message: 'ME.SKILLS.HARD.HEROKU.MESSAGE',
   year: 2019,
   icon: 'heroku.png'
  },
  {
   name: 'JQuery',
-  area: 'me.skills.hard.jquery.area',
-  message: 'me.skills.hard.jquery.message',
+  area: 'ME.SKILLS.HARD.JQUERY.AREA',
+  message: 'ME.SKILLS.HARD.JQUERY.MESSAGE',
   year: 2009,
   icon: 'jquery.png'
  },
  {
   name: 'Git',
-  area: 'me.skills.hard.git.area',
-  message: 'me.skills.hard.git.message',
+  area: 'ME.SKILLS.HARD.GIT.AREA',
+  message: 'ME.SKILLS.HARD.GIT.MESSAGE',
   year: 2018,
   icon: 'git.png'
  },
  {
   name: 'Ionic',
-  area: 'me.skills.hard.ionic.area',
-  message: 'me.skills.hard.ionic.message',
+  area: 'ME.SKILLS.HARD.IONIC.AREA',
+  message: 'ME.SKILLS.HARD.IONIC.MESSAGE',
   year: 2019,
   icon: 'ionic.png'
  },
  {
   name: 'Rxjs',
-  area: 'me.skills.hard.rxjs.area',
-  message: 'me.skills.hard.rxjs.message',
+  area: 'ME.SKILLS.HARD.RXJS.AREA',
+  message: 'ME.SKILLS.HARD.RXJS.MESSAGE',
   year: 2019,
   icon: 'rxjs.png'
  }
 ];
 
 export const MY_SOFT_SKILLS: string[] = [
-  'me.skills.soft.cooperation',
-  'me.skills.soft.client',
-  'me.skills.soft.network',
-  'me.skills.soft.communication',
-  'me.skills.soft.empathy',
-  'me.skills.soft.plan',
-  'me.skills.soft.easy',
-  'me.skills.soft.knowledge',
-  'me.skills.soft.flex',
-  'me.skills.soft.creative',
-  'me.skills.soft.hope',
-  'me.skills.soft.concept',
-  'me.skills.soft.order',
-  'me.skills.soft.look',
-  'me.skills.soft.spirit',
-  'me.skills.soft.compromise'
+  'ME.SKILLS.SOFT.COOPERATION',
+  'ME.SKILLS.SOFT.CLIENT',
+  'ME.SKILLS.SOFT.NETWORK',
+  'ME.SKILLS.SOFT.COMMUNICATION',
+  'ME.SKILLS.SOFT.EMPATHY',
+  'ME.SKILLS.SOFT.PLAN',
+  'ME.SKILLS.SOFT.EASY',
+  'ME.SKILLS.SOFT.KNOWLEDGE',
+  'ME.SKILLS.SOFT.FLEX',
+  'ME.SKILLS.SOFT.CREATIVE',
+  'ME.SKILLS.SOFT.HOPE',
+  'ME.SKILLS.SOFT.CONCEPT',
+  'ME.SKILLS.SOFT.ORDER',
+  'ME.SKILLS.SOFT.LOOK',
+  'ME.SKILLS.SOFT.SPIRIT',
+  'ME.SKILLS.SOFT.COMPROMISE'
 ];
 
 export const MY_COMPANIES: WorkCompany[] = [
   {
     name: 'Slash Mobility',
-    type: 'me.work.slash.type',
+    type: 'ME.WORK.SLASH.TYPE',
     rank: 'Software Developer',
     tasks: [
-      'me.work.slash.task.one',
-      'me.work.slash.task.two'
+      'ME.WORK.SLASH.TASK.ONE',
+      'ME.WORK.SLASH.TASK.TWO'
     ],
     clients: [
       'Catalana Occidente',
@@ -232,11 +232,11 @@ export const MY_COMPANIES: WorkCompany[] = [
   },
   {
     name: 'AT Sistemas',
-    type: 'me.work.ats.type',
+    type: 'ME.WORK.ATS.TYPE',
     rank: 'Software Developer',
     tasks: [
-      'me.work.ats.task.one',
-      'me.work.ats.task.two'
+      'ME.WORK.ATS.TASK.ONE',
+      'ME.WORK.ATS.TASK.TWO'
     ],
     clients: [
       'Generali'

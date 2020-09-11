@@ -12,6 +12,7 @@ import { SingleCategorySkeletonComponent } from './components/single-category-sk
 
 import { MatIconModule } from '@angular/material/icon';
 import { SectionModule } from '@layout/section/section.module';
+import { CategoryAccessModule } from '@store/categories/data-access/category-access.module';
 
 const Material = [
   MatIconModule
@@ -24,6 +25,7 @@ const Material = [
   ],
   imports: [
     CommonModule,
+    CategoryAccessModule,
     SharedModule,
     SingleCategoryRouting,
     SingleCategoryHeaderModule,

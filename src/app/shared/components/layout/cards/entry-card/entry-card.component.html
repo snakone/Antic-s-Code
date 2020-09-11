@@ -1,0 +1,25 @@
+<div class="entry">
+  <div class="entry-content">
+    <p class="title">
+      {{entry.title}}
+      <mat-icon *ngIf="done">check</mat-icon>
+    </p>
+    <p [innerHTML]="entry.message"></p>
+    <div class="entry-data">
+      <p>
+        <span>{{'CATEGORY.NAME' | translate}}</span>:
+        <img [src]="(entry.category | logo) | image: 'logos'"
+             [alt]="entry.category"/>
+      </p>
+      <p>
+        <span>{{'LEVEL.NAME' | translate}}</span>: {{entry.level | translate}}
+      </p>
+      <button mat-button
+              class="btn-pink"
+              (click)="navigate(entry)"
+              [disabled]="done">
+              <span>{{'START' | translate}}</span>
+      </button>
+    </div>
+  </div>
+</div>

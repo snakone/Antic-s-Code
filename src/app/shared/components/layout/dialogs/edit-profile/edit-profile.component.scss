@@ -1,0 +1,49 @@
+* { box-sizing: border-box }
+
+form {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.edit-profile { position: relative }
+
+mat-form-field {
+  width: 48%;
+  margin-bottom: .5rem;
+  @media(max-width: 700px) { width: 100% }
+}
+
+.textarea {
+  width: 100% !important;
+
+  & textarea {
+    min-height: 100px;
+    resize: none !important;
+  }
+}
+
+.select { top: -1px }
+
+button {
+  margin: 0 0 0 auto;
+  width: 48%;
+  @media(max-width: 700px) { width: 100% }
+}
+
+.top { margin-top: 2rem }
+
+.half-top {
+  margin-top: 2rem;
+  @media(max-width: 700px) { margin-top: 0 }
+}
+
+.exit {
+  position: absolute;
+  right: 0;
+  top: -2.6rem;
+  right: -.5rem;
+  & mat-icon { font-size: 1.5rem }
+  cursor: pointer;
+}

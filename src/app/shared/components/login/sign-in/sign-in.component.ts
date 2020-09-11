@@ -7,7 +7,7 @@ import { StorageService } from '@core/storage/storage.service';
 import { LoginService } from '@core/services/login/login.service';
 import { UserService } from '@core/services/user/user.service';
 import { CrafterService } from '@core/services/crafter/crafter.service';
-import { UsersFacade } from '@core/ngrx/facade/users.facade';
+import { UsersFacade } from '@store/users/users.facade';
 import { Subject, Observable } from 'rxjs';
 import { takeUntil, switchMap, filter, tap } from 'rxjs/operators';
 
@@ -62,7 +62,7 @@ export class SignInComponent implements OnInit, OnDestroy {
   }
 
   public onSubmit(): void {
-    if (this.signInForm.invalid) return;
+    if (this.signInForm.invalid) { return; }
     const { email, password } = this.signInForm.value;
     this.signIn(email, password);
   }
@@ -76,7 +76,7 @@ export class SignInComponent implements OnInit, OnDestroy {
   private handleSignIn(data: UserResponse): void {
     this.dialogRef.close();
     this.userSrv.login(data, this.remember);
-    this.crafter.toaster(data.user.name, 'welcome', 'info');
+    this.crafter.toaster(data.user.name, 'WELCOME', 'info');
     this.router.navigateByUrl('/profile');
   }
 

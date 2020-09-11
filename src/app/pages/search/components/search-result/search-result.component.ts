@@ -10,7 +10,7 @@ import {
 import { Subject, Observable } from 'rxjs';
 import { takeUntil, filter } from 'rxjs/operators';
 import { PaginationService } from 'ngx-pagination';
-import { SearchFacade } from '@core/ngrx/facade/search.facade';
+import { SearchFacade } from '@store/search/search.facade';
 
 import { Article } from '@shared/interfaces/interfaces';
 

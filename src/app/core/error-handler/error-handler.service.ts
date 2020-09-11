@@ -27,7 +27,7 @@ export class ErrorHandlerService implements ErrorHandler {
     }
 
     if (!(error instanceof HttpErrorResponse)) {
-      crafter.modal('errors.code.title', 'errors.code.message');
+      crafter.modal('ERRORS.CODE.TITLE', 'ERRORS.CODE.MESSAGE');
     }
 
     service.saveError(error);

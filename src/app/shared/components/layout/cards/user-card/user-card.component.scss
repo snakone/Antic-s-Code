@@ -1,14 +1,18 @@
 .card-content {
+  background: var(--light-color);
+	border-radius: 10px;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+	max-width: 100%;
+	margin: 1.666rem auto;
+	overflow: hidden;
+  width: 100%;
   position: relative;
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: -1.05rem;
-    width: 100%;
-    border-bottom: 1px solid var(--p-color);
-    opacity: .2;
+
+  &:hover {
+    & .actions {
+      transform: translateX(0);
+    }
   }
-  &.last:after { border-bottom: none }
 }
 
 .user-card {
@@ -18,8 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.66rem;
-  &:first-of-type { padding-top: 0 }
+  padding: 1rem 1.5rem 1.1rem 1.5rem;
 
   &-flex {
     display: flex;
@@ -63,9 +66,23 @@
       color: var(--primary-color);
     }
   }
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 200px;
+  transform: translateX(200px);
+  background-color: var(--new-color);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transition: transform .3s ease-in-out;
 
   & mat-icon {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     width: 30px;
     height: 30px;
     box-sizing: border-box;
@@ -77,20 +94,21 @@
     align-items: center;
     position: relative;
     padding: 1rem;
-    margin-top: 5px;
     user-select: none;
+    outline: none;
+    margin: 0 .5rem;
     @media(max-width: 550px) { padding: 0 }
 
     &:hover {
       cursor: pointer;
-      color:black;
+      color: var(--primary-color);
       transition: all .3s ease;
       box-shadow: 0 0 6px rgba(0, 0, 0, .8);
     }
   }
 }
 
-.last .user-card { margin-bottom: 0 }
+.first { margin-top: 0 }
 
 @media(max-width: 750px) {
  .skeleton {
@@ -104,6 +122,13 @@
       margin-left: 0 !important;
       margin-right: 1rem;
     }
+  }
+}
+
+@media(max-width: 600px) {
+  .actions {
+    width: 100%;
+    transform: translateX(100%);
   }
 }
 

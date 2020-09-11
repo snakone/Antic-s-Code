@@ -9,6 +9,10 @@ ul {
   padding-left: var(--big-padding);
   margin: 0 auto;
   margin-bottom: 0;
+
+  @media(max-width: 992px) {
+    margin-bottom: 4rem;
+  }
 }
 
 li:not(p) {

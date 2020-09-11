@@ -21,13 +21,10 @@ import { DISQUS_SHORTNAME } from 'ngx-disqus';
 
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { ArticleEffects } from './ngrx/effects/article.effects';
-import { CategoryEffects } from './ngrx/effects/category.effects';
-import { UserEffects } from './ngrx/effects/user.effects';
-import { SearchEffects } from './ngrx/effects/search.effects';
-import { InteractionEffects } from './ngrx/effects/interaction.effects';
-import { ChatEffects } from './ngrx/effects/chat.effects';
-import { reducers } from './ngrx/reducers/reducers.index';
+import { ArticleEffects } from './ngrx/articles/article.effects';
+import { UserEffects } from './ngrx/users/user.effects';
+import { SearchEffects } from './ngrx/search/search.effects';
+import { reducers } from './ngrx/ngrx.index';
 
 import { ToastrModule } from 'ngx-toastr';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
@@ -57,11 +54,8 @@ const Material = [
     StoreModule.forFeature('AppState', reducers),
     EffectsModule.forRoot([
       ArticleEffects,
-      CategoryEffects,
       UserEffects,
-      SearchEffects,
-      InteractionEffects,
-      ChatEffects
+      SearchEffects
     ]),
     LanguageModule.forRoot(),
     TranslateModule.forRoot({

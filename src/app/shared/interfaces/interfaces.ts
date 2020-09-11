@@ -151,6 +151,75 @@ export interface SearchResponse extends ServerResponse {
   articles?: Article[];
 }
 
+export interface Test {
+  _id?: string;
+  title?: string;
+  category?: string;
+  name?: string;
+  intro?: string;
+  entries?: TestEntry[];
+}
+
+export interface TestEntry {
+  uid?: string;
+  title?: string;
+  category?: string;
+  level?: string;
+  message?: string;
+  questions: TestQuestion[];
+}
+
+export interface TestQuestion {
+  id?: string;
+  category?: string;
+  question?: string;
+  answers?: TestAnswer[];
+  image?: string;
+  code?: string;
+}
+
+export interface TestAnswer {
+  key?: string;
+  value?: string;
+}
+
+export interface TestResponse extends ServerResponse {
+  tests?: Test[];
+  test?: Test;
+}
+
+export interface EntryResponse extends ServerResponse {
+  entries?: TestEntry[];
+}
+
+export interface TestResultResponse extends ServerResponse {
+  result?: TestRequestResult;
+}
+
+export interface TestRawResponse extends ServerResponse {
+  result?: TestRawResult;
+}
+
+export interface TestRequest {
+  uid?: string;
+  title?: string;
+  category?: string;
+  user?: string;
+  level?: string;
+  request?: { key: string }[];
+  created?: string;
+}
+
+export interface TestRequestResult {
+  correct?: number;
+  result?: { same?: boolean }[];
+}
+
+export interface TestRawResult {
+  uid?: string;
+  result?: { key: string }[];
+}
+
 export interface List {
   name: string;
   icon?: string;
@@ -232,6 +301,7 @@ export interface Index {
 export interface Config {
   name: string;
   selector: string;
+  translate?: string;
 }
 
 export interface TotalUserData {

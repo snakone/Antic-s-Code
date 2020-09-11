@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 
 import { ArticleService } from '@core/services/article/article.service';
-import { ArticlesFacade } from '@core/ngrx/facade/article.facade';
-import { UsersFacade } from '@core/ngrx/facade/users.facade';
-import { InteractionFacade } from '@core/ngrx/facade/interaction.facade';
+import { ArticlesFacade } from '@store/articles/article.facade';
+import { UsersFacade } from '@store/users/users.facade';
+import { InterFacade } from '@store/interactions/interaction.facade';
 
 import { Subject, fromEvent, Observable } from 'rxjs';
 import { takeUntil, debounceTime, switchMap, filter, takeWhile } from 'rxjs/operators';
@@ -26,7 +26,7 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
     private articleSrv: ArticleService,
     private userFacade: UsersFacade,
     private articleFacade: ArticlesFacade,
-    private interactionFacade: InteractionFacade
+    private interactionFacade: InterFacade
   ) { }
 
   ngOnInit() {
@@ -84,8 +84,8 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
 
   private fromBottom(): number {
     let bottom = 450;
-    if (this.grid) bottom = 850;
-    if (window.document.body.clientWidth < 985) bottom = 1400;
+    if (this.grid) { bottom = 850; }
+    if (window.document.body.clientWidth < 985) { bottom = 1400; }
     return bottom;
   }
 

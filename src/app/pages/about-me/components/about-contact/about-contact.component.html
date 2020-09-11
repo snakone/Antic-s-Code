@@ -1,12 +1,12 @@
 <div class="about-me">
-  <h3 id="contact-title" [innerHTML]="'in.touch' | translate"></h3> <!-- CONTACT -->
-  <p>{{'lets.talk' | translate}}</p>
+  <h3 id="contact-title" [innerHTML]="'IN.TOUCH' | translate"></h3> <!-- CONTACT -->
+  <p>{{'LETS.TALK' | translate}}</p>
 </div>
 <div class="row">
   <div class="col-lg-6 col-md-6 intro">
-    <p [innerHTML]="'me.like.see' | translate"></p>
+    <p [innerHTML]="'ME.LIKE' | translate"></p>
     <div class="social">
-      <h4>{{'social.media' | translate}}</h4>
+      <h4>{{'SOCIAL.MEDIA' | translate}}</h4>
       <ul>
         <li *ngFor="let s of mySocial">
           <a [href]="s.link" target="NEW">
@@ -22,26 +22,29 @@
   <div class="col-lg-6 col-md-6">
     <form [formGroup]="contactForm" #f="ngForm">
       <mat-form-field color="accent" appearance="outline">  <!-- NAME -->
-        <mat-label>{{'name' | translate}}</mat-label>
+        <mat-label>{{'NAME' | translate}}</mat-label>
         <input matInput
-               formControlName="name">
+               formControlName="name"
+               autocomplete="off">
       </mat-form-field>
       <mat-form-field color="accent" appearance="outline">  <!-- EMAIL -->
-        <mat-label>{{'email' | translate}}</mat-label>
+        <mat-label>{{'EMAIL' | translate}}</mat-label>
         <input matInput
-               formControlName="email">
+               formControlName="email"
+               autocomplete="off">
       </mat-form-field>
       <mat-form-field color="accent" appearance="outline">  <!-- MESSAGE -->
-        <mat-label>{{'message' | translate}}</mat-label>
+        <mat-label>{{'MESSAGE' | translate}}</mat-label>
         <textarea matInput
-                  formControlName="text">
+                  formControlName="text"
+                  autocomplete="off">
         </textarea>
       </mat-form-field>
       <button mat-button
               [disabled]="contactForm.invalid"
               class="btn-pink"
               (click)="onSubmit()"
-              type="submit">{{'send.message' | translate}}
+              type="submit">{{'SEND.MESSAGE' | translate}}
       </button>
     </form>
   </div>

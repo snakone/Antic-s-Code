@@ -2,18 +2,19 @@ import { Config } from '../interfaces/interfaces';
 import { AosOptions } from 'aos';
 
 export const LANGUAGES: Config[] = [
-  { name: 'Spanish', selector: 'es' },
-  { name: 'English', selector: 'en' }
+  { name: 'Spanish', selector: 'es', translate: 'LANG.ES' },
+  { name: 'English', selector: 'en', translate: 'LANG.EN' },
+  { name: 'Català', selector: 'cat', translate: 'LANG.CAT' }
 ];
 
 
 export const THEMES: Config[] = [
-  { name: 'Default', selector: 'default' },
-  { name: 'Deep Blue', selector: 'deepblue' },
-  { name: 'Deep Green', selector: 'deepgreen' },
-  { name: 'Dark Red', selector: 'darkred' },
-  { name: 'Sky Blue', selector: 'skyblue' },
-  { name: 'Super Orange', selector: 'superorange' }
+  { name: 'Default', selector: 'default', translate: 'THEME.DEFAULT' },
+  { name: 'Deep Blue', selector: 'deepblue', translate: 'THEME.DEEPBLUE' },
+  { name: 'Deep Green', selector: 'deepgreen', translate: 'THEME.DEEPGREEN' },
+  { name: 'Dark Red', selector: 'darkred', translate: 'THEME.DARKRED' },
+  { name: 'Sky Blue', selector: 'skyblue', translate: 'THEME.SKYBLUE' },
+  { name: 'Super Orange', selector: 'superorange', translate: 'THEME.SUPERORANGE' }
 ];
 
 export const PAGE_BG = {
@@ -32,15 +33,16 @@ export const PAGE_BG = {
   search: 'assets/img/page_bg/search.mp4',
   support: 'assets/img/page_bg/support.mp4',
   users: 'assets/img/page_bg/users.mp4',
-  works: 'assets/img/page_bg/works.mp4'
+  works: 'assets/img/page_bg/works.mp4',
+  test: 'assets/img/page_bg/test.mp4'
 };
 
 export const CONDITIONS: string[] = [
-  'terms.one',
-  'terms.two',
-  'terms.three',
-  'terms.four',
-  'terms.five',
+  'TERMS.ONE',
+  'TERMS.TWO',
+  'TERMS.THREE',
+  'TERMS.FOUR',
+  'TERMS.FIVE',
 ];
 
 // AOS Settings

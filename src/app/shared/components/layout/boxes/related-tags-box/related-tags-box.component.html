@@ -1,5 +1,5 @@
 <ng-container *ngIf="(articles$ | async) as articles">
-  <h2>{{'related.articles' | translate}}</h2>
+  <h2>{{'RELATED.ARTICLES' | translate}}</h2>
   <div class="row">
     <div class="col-md-6" *ngFor="let a of articles">
       <div class="related">
@@ -15,6 +15,6 @@
 
   <div class="see-more" *ngIf="articles.length > 0">
     <mat-icon>forward</mat-icon>
-    <a (click)="seeMore()">{{'see.more' | translate}}</a>
+    <a (click)="seeMore()">{{'SEE.MORE' | translate}}</a>
   </div>
 </ng-container>

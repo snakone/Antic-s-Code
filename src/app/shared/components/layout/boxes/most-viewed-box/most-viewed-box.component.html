@@ -1,4 +1,5 @@
-<app-content-box title="most.viewed">
+<app-content-box title="MOST.VIEWED"
+                 icon="stars">
  <ng-container *ngIf="(articles$ | async) as articles; else noArticles">
   <ul class="none">
     <li *ngFor="let a of articles"

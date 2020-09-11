@@ -1,0 +1,32 @@
+.row-pagination {
+  margin: 2rem auto;
+  margin-left: -1px;
+  text-align: center;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--section-border-color);
+  background: var(--light-color);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.pagination .ngx-pagination a {
+  color: var(--primary-color);
+  background: none;
+  border-bottom: none;
+
+  &:hover {
+    background: none;
+    outline: none;
+    cursor: pointer;
+  }
+}
+
+.pagination .ngx-pagination .current {
+  background: var(--primary-color);
+  opacity: 0.8;
+  border-radius: 4px;
+}
+
+.ngx-pagination  {
+  padding-left: 0 !important;
+}

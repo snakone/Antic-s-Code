@@ -42,6 +42,12 @@
       ],
       "@layout/*": [
         "app/shared/components/layout/*"
+      ],
+      "@store/*": [
+        "app/core/ngrx/*"
+      ],
+      "@snippets/*": [
+        "app/shared/components/snippets/*"
       ]
     }
   }

@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 
 import { TranslateService } from '@ngx-translate/core';
-import { UsersFacade } from '@core/ngrx/facade/users.facade';
+import { UsersFacade } from '@store/users/users.facade';
 import { Observable } from 'rxjs';
 
 import { User } from '@shared/interfaces/interfaces';
@@ -36,12 +36,12 @@ export class DeleteAccountComponent implements OnInit {
       delete: new FormControl(null, [Validators.required])
     }, {
       validators: this.theyMatchError('delete',
-                  this.translate.instant('delete.sentence'))
+                  this.translate.instant('DELETE.SENTENCE'))
     });
   }
 
   public onSubmit(): void {
-    if (this.deleteForm.invalid) return;
+    if (this.deleteForm.invalid) { return; }
     this.dialog.close(true);
   }
 

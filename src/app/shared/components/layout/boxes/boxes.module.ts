@@ -15,7 +15,6 @@ import { ProfileInfoBoxComponent } from './profile-info-box/profile-info-box.com
 import { RelatedArticlesBoxComponent } from './related-articles-box/related-articles-box.component';
 import { UserArticlesBoxComponent } from './user-articles-box/user-articles-box.component';
 import { ExpansionBoxComponent } from './expansion-box/expansion-box.component';
-import { FavoriteLangBoxComponent } from './favorite-lang-box/favorite-lang-box.component';
 import { MostViewedBoxComponent } from './most-viewed-box/most-viewed-box.component';
 import { RelatedTagsBoxComponent } from './related-tags-box/related-tags-box.component';
 import { MostActiveBoxComponent } from './most-active-box/most-active-box.component';
@@ -28,6 +27,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ContentBoxModule } from './content-box/content-box.module';
+import { StickyBoxModule } from './sticky-box/sticky-box.module';
+import { MostActiveBoxModule } from './most-active-box/most-active-box.module';
 
 const Material = [
   MatFormFieldModule,
@@ -42,17 +43,13 @@ const Material = [
 @NgModule({
   declarations: [
     LinksBoxComponent,
-    StickyBoxComponent,
     IndexBoxComponent,
     SettingsBoxComponent,
     ProfileInfoBoxComponent,
-    RelatedArticlesBoxComponent,
     UserArticlesBoxComponent,
     ExpansionBoxComponent,
-    FavoriteLangBoxComponent,
     MostViewedBoxComponent,
-    RelatedTagsBoxComponent,
-    MostActiveBoxComponent
+    RelatedTagsBoxComponent
   ],
   imports: [
     CommonModule,
@@ -61,23 +58,24 @@ const Material = [
     ArticleLayoutModule,
     NgxPaginationModule,
     ContentBoxModule,
+    StickyBoxModule,
+    MostActiveBoxModule,
     MarkdownModule.forChild(),
     ...Material
   ],
   exports: [
     LinksBoxComponent,
-    StickyBoxComponent,
     IndexBoxComponent,
     SettingsBoxComponent,
     ProfileInfoBoxComponent,
-    RelatedArticlesBoxComponent,
     UserArticlesBoxComponent,
     ExpansionBoxComponent,
-    FavoriteLangBoxComponent,
     MostViewedBoxComponent,
     RelatedTagsBoxComponent,
     MostActiveBoxComponent,
-    ContentBoxModule
+    ContentBoxModule,
+    StickyBoxModule,
+    MostActiveBoxModule
   ]
 })
 

@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { UserService } from '@core/services/user/user.service';
-import { ArticlesFacade } from '@core/ngrx/facade/article.facade';
-import { InteractionFacade } from '@core/ngrx/facade/interaction.facade';
+import { ArticlesFacade } from '@store/articles/article.facade';
+import { InterFacade } from '@store/interactions/interaction.facade';
 
 import { Article } from '@shared/interfaces/interfaces';
 import { Subject, Observable } from 'rxjs';
@@ -24,7 +24,7 @@ export class SingleArticleComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private userSrv: UserService,
     private articleFacade: ArticlesFacade,
-    private interFacade: InteractionFacade
+    private interFacade: InterFacade
   ) { }
 
   ngOnInit() {
@@ -40,7 +40,7 @@ export class SingleArticleComponent implements OnInit, OnDestroy {
   }
 
   private getInteraction(): void {
-    if (this.userSrv.getUser()) this.interFacade.getByUser();
+    if (this.userSrv.getUser()) { this.interFacade.getByUser(); }
   }
 
   ngOnDestroy(): void {

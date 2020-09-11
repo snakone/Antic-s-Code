@@ -12,12 +12,12 @@ import { StorageService } from '@core/storage/storage.service';
 export class SingleCategoryInfoBoxComponent implements OnInit {
 
   @Input() category: Category;
-  updated: string;
+  updated: string = null;
 
   constructor(private ls: StorageService) { }
 
   ngOnInit() {
-    if (this.category) {
+    if (this.category?.updated) {
       this.fromNow();
     }
   }
@@ -27,9 +27,6 @@ export class SingleCategoryInfoBoxComponent implements OnInit {
     this.updated = moment(
       this.category.updated, 'DD/MM/YYYY'
     ).startOf('day').fromNow();
-    if (this.updated.startsWith('Invalid')) {
-      this.updated = null;
-    }
   }
 
 }

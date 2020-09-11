@@ -70,7 +70,7 @@ export class GoogleInComponent implements OnInit, OnDestroy {
   private handleSignIn(data: UserResponse): void {
     this.dialogRef.close();
     this.userSrv.login(data);
-    this.crafter.toaster(data.user.name, 'welcome', 'info');
+    this.crafter.toaster(data.user.name, 'WELCOME', 'info');
     this.zone.run(() => this.router.navigateByUrl('/profile'));
 
     if (data.message.indexOf('Created') > -1) {

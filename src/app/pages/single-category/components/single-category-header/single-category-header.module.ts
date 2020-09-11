@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from '@app/shared/shared.module';
+import { SharedModule } from '@shared/shared.module';
 
 import { SingleCategoryHeaderLeftComponent } from './components/single-category-header-left/single-category-header-left.component';
 import { SingleCategoryHeaderRightComponent } from './components/single-category-header-right/single-category-header-right.component';

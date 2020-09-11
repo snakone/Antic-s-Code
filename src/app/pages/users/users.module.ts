@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UsersRouting } from './users.routing';
 
-import { SharedModule } from '@app/shared/shared.module';
+import { SharedModule } from '@shared/shared.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { MatIconModule } from '@angular/material/icon';
@@ -12,9 +12,11 @@ import { MatInputModule } from '@angular/material/input';
 
 import { PageHeaderModule } from '@layout/page-header/page-header.module';
 import { SectionModule } from '@layout/section/section.module';
-import { BoxesModule } from '@layout/boxes/boxes.module';
 import { CardsModule } from '@layout/cards/cards.module';
-import { PaginationModule } from '@layout/pagination/pagination.module';
+import { PaginationModule } from '@shared/components/snippets/pagination/pagination.module';
+import { ContentBoxModule } from '@app/shared/components/layout/boxes/content-box/content-box.module';
+import { StickyBoxModule } from '@app/shared/components/layout/boxes/sticky-box/sticky-box.module';
+import { MostActiveBoxModule } from '@layout/boxes/most-active-box/most-active-box.module';
 
 import { UsersContentComponent } from './components/users-content/users-content.component';
 import { UsersSidebarComponent } from './components/users-sidebar/users-sidebar.component';
@@ -41,9 +43,11 @@ const Material = [
     PageHeaderModule,
     SectionModule,
     SharedModule,
-    BoxesModule,
+    ContentBoxModule,
+    StickyBoxModule,
     CardsModule,
     PaginationModule,
+    MostActiveBoxModule,
     ...Material
   ]
 })

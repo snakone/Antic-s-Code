@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { SearchFacade } from '@core/ngrx/facade/search.facade';
+import { SearchFacade } from '@store/search/search.facade';
 
 import { SearchRequest } from '@shared/interfaces/interfaces';
 import { MAIN_CATEGORIES } from '@shared/data/categories';
@@ -38,7 +38,7 @@ export class HeaderSearchComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (Object.values(this.searchForm.value).every(v => v == null)) return;
+    if (Object.values(this.searchForm.value).every(v => v == null)) { return; }
     const request: SearchRequest = this.searchForm.value;
     this.searchFacade.search(request);
     this.router.navigateByUrl('/search');
