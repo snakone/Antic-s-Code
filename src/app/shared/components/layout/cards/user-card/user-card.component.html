@@ -9,7 +9,7 @@
              #img
              (error)="img.src = 'assets/img/profile/no-photo.jpg'; img.alt='No Avatar'"/>
         <div>
-          <h4>{{user.name}}</h4>
+          <h4 [routerLink]="'/profile/' + user.name">{{user.name}}</h4>
           <span>{{(user.profile?.rol | translate) || 'NOT.DEFINED' | translate}}</span>
           <span *ngIf="user.profile?.language"> |
             <span class="primary">{{user.profile?.language}}</span>
@@ -18,9 +18,19 @@
       </div>
   </div>
   <div class="actions">
-    <mat-icon [routerLink]="'/profile/' + user.name">open_in_new</mat-icon>
-    <mat-icon (click)="show()">person_add</mat-icon>
-    <mat-icon (click)="show()" color="success">thumb_up</mat-icon>
+    <mat-icon [routerLink]="'/profile/' + user.name"
+              [matTooltip]="'SEE.PROFILE' | translate"
+              matTooltipPosition="above">open_in_new
+    </mat-icon>
+    <mat-icon (click)="show()"
+              [matTooltip]="'ADD.CONTACT' | translate"
+               matTooltipPosition="above">person_add
+    </mat-icon>
+    <mat-icon (click)="show()"
+              color="success"
+              [matTooltip]="'GIVE.LIKE' | translate"
+               matTooltipPosition="above">thumb_up
+    </mat-icon>
   </div>
 </div>
 

@@ -142,4 +142,29 @@ mat-option.all {
   margin-right: 1rem !important;
 }
 
+.antics-dialog {
+  position: relative;
+  overflow: hidden !important;
+  padding: 0 .5rem !important;
+  margin: 0 !important;
+  max-width: 50vh;
+
+  & h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    & mat-icon {
+      margin-right: 1rem;
+      position: relative;
+      top: -3px;
+      left: -5px;
+      font-size: 2rem;
+    }
+  }
+}
+
 

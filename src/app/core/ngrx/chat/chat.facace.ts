@@ -14,16 +14,20 @@ export class ChatFacade {
 
   constructor(private store: Store<ChatPartialState>) { }
 
+  public listenMessages(): void {
+    this.store.dispatch(ChatActions.listenMessages());
+  }
+
   public getMessages(): void {
     this.store.dispatch(ChatActions.getMessages());
   }
 
-  public getFirst(): void {
-    this.store.dispatch(ChatActions.getFirst());
+  public send(message: string): void {
+    this.store.dispatch(ChatActions.send({message}));
   }
 
-  public send(request: string): void {
-    this.store.dispatch(ChatActions.send({request}));
+  public deleteMessageById(id: string): void {
+    this.store.dispatch(ChatActions.deleteById({id}));
   }
 
 }

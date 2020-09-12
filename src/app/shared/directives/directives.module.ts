@@ -5,7 +5,7 @@ import { NavbarDirective } from './navbar/navbar.directive';
 import { OnlyMobileDirective } from './only-mobile/only-mobile.directive';
 import { OnlyDesktopDirective } from './only-desktop/only-desktop.directive';
 import { ContactMeDirective } from './contact-me/contact-me.directive';
-import { ContactAdminDirective } from './contact-admin/contact-admin.directive';
+import { PublicChatDirective } from './public-chat/public-chat.directive';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { ContactAdminDirective } from './contact-admin/contact-admin.directive';
     OnlyMobileDirective,
     OnlyDesktopDirective,
     ContactMeDirective,
-    ContactAdminDirective
+    PublicChatDirective
   ],
   exports: [
     StickyBoxDirective,
@@ -24,7 +24,7 @@ import { ContactAdminDirective } from './contact-admin/contact-admin.directive';
     OnlyMobileDirective,
     OnlyDesktopDirective,
     ContactMeDirective,
-    ContactAdminDirective
+    PublicChatDirective
   ]
 })
 

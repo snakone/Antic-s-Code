@@ -509,13 +509,13 @@
 .container:before,
 .row:after,
 .row:before {
-  display: table;
   content: " ";
 }
 .clearfix:after,
 .container-fluid:after,
 .container:after,
 .row:after {
+  display: table;
   clear: both;
 }
 .center-block {

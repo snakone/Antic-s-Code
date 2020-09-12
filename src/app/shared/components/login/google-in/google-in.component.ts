@@ -44,7 +44,7 @@ export class GoogleInComponent implements OnInit, OnDestroy {
   public initGoogle(): void {
     const element = document.getElementById('google');
     if (!this.google.loaded) {
-      gapi.load('auth2', ()=> {
+      gapi.load('auth2', () => {
         this.google.auth2 = gapi.auth2.init({
           client_id: environment.keys.google,
           cookiepolicy: 'single_host_origin',
@@ -69,7 +69,7 @@ export class GoogleInComponent implements OnInit, OnDestroy {
 
   private handleSignIn(data: UserResponse): void {
     this.dialogRef.close();
-    this.userSrv.login(data);
+    this.userSrv.logIn(data);
     this.crafter.toaster(data.user.name, 'WELCOME', 'info');
     this.zone.run(() => this.router.navigateByUrl('/profile'));
 

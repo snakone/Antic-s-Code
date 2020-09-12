@@ -1,0 +1,17 @@
+<div class="chat-message animated fadeIn"
+      *ngFor="let m of chat; let i = index"
+      [ngClass]="{'reverse': !m.own}">
+  <div class="message-avatar">
+    <img [src]="m.avatar || 'assets/img/profile/no-photo.jpg'"/>
+  </div>
+  <div class="message-bubble">
+    <mat-icon *ngIf="user?.account === 'Super'"
+              (click)="erase(m)">delete_outline
+    </mat-icon>
+    <p>{{m.user}}</p>
+    <span>{{m.message}}</span>
+    <div class="date">
+      <span>{{m.date}}</span>
+    </div>
+  </div>
+</div>

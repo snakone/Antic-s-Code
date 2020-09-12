@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import * as ChatActions from './chat.actions';
-import { map, concatMap, catchError } from 'rxjs/operators';
+import { map, concatMap, catchError, tap } from 'rxjs/operators';
 import { ChatService } from '@core/services/chat/chat.service';
 
 @Injectable()
@@ -19,7 +19,7 @@ export class ChatEffects {
     .pipe(
       ofType(ChatActions.send),
       concatMap((action) =>
-        of(this.chatSrv.send(action.request))
+        of(this.chatSrv.send(action.message))
         .pipe(
           map(message => ChatActions.sendSuccess({ message })),
           catchError(error =>
@@ -27,29 +27,44 @@ export class ChatEffects {
     ))))
   );
 
-  // GET MESSAGES
+  // LISTEN MESSAGES
   getMessagesEffect$ = createEffect(() => this.actions
   .pipe(
-    ofType(ChatActions.getMessages),
+    ofType(ChatActions.listenMessages),
     concatMap(_ =>
       this.chatSrv.listen()
       .pipe(
-        map(message => ChatActions.getMessagesSuccess({ message })),
+        map(message => ChatActions.listenMessagesSuccess({ message })),
+        catchError(error =>
+            of(ChatActions.listenMessagesFailure({ error: error.message }))
+    ))))
+  );
+
+  // GET MESSAGES
+  getFirstEffect$ = createEffect(() => this.actions
+  .pipe(
+    ofType(ChatActions.getMessages),
+    concatMap(_ =>
+      this.chatSrv.getMessages()
+      .pipe(
+        map(messages => ChatActions.getMessagesSuccess({ messages })),
         catchError(error =>
             of(ChatActions.getMessagesFailure({ error: error.message }))
     ))))
   );
 
-  // GET FIRST
-  getFirstEffect$ = createEffect(() => this.actions
+  // DELETE MESSAGE BY ID
+  deleteByIdEffect$ = createEffect(() => this.actions
   .pipe(
-    ofType(ChatActions.getFirst),
-    concatMap(_ =>
-      this.chatSrv.getMessages()
+    ofType(ChatActions.deleteById),
+    concatMap((action) =>
+      this.chatSrv.deleteById(action.id)
       .pipe(
-        map(messages => ChatActions.getFirstSuccess({ messages })),
+        map(_ => ChatActions.deleteByIdSuccess({id: action.id})),
         catchError(error =>
-            of(ChatActions.getFirstFailure({ error: error.message }))
+            of(ChatActions.deleteByIdFailure({ error: error.message }))
     ))))
   );
+
+
 }

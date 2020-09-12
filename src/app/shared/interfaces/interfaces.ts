@@ -11,7 +11,7 @@ interface Content {
   index?: Index[];
 }
 
-interface ServerResponse {
+export interface ServerResponse {
   ok: boolean;
   message?: string;
   err?: any;
@@ -113,6 +113,11 @@ export interface DialogData {
   author?: string;
   type?: string;
   cause?: string;
+}
+
+export interface ConfirmationData {
+  message: string;
+  args?: any;
 }
 
 export interface SheetData {
@@ -341,6 +346,7 @@ export interface MostActiveResponse extends ServerResponse {
 }
 
 export interface ChatMessage {
+  _id?: string;
   user: string;
   message: string;
   own?: boolean;

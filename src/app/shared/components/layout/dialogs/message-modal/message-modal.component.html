@@ -1,8 +1,6 @@
-<mat-dialog-content>
+<mat-dialog-content class="antics-dialog">
   <h4>
-    <mat-icon color="danger"
-              [style.color]="color">{{data.icon}}
-    </mat-icon>
+    <mat-icon [style.color]="color">{{data.icon}}</mat-icon>
     {{data.title | translate}}
   </h4>
   <p>{{data.message | translate}}</p>

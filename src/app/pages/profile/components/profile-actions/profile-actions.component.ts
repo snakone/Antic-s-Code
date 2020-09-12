@@ -46,7 +46,7 @@ export class ProfileActionsComponent implements OnDestroy {
 
   public logOut(): void {
     this.router.navigateByUrl('/home')
-      .then(() => this.userSrv.logout());
+      .then(() => this.userSrv.logOut());
   }
 
   public openModal(): void {

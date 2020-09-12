@@ -47,6 +47,7 @@
 /* The circles on the timeline */
 .container::after {
   content: '';
+  display: flex;
   position: absolute;
   width: 25px;
   height: 25px;

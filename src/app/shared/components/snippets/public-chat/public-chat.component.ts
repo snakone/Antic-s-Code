@@ -10,12 +10,12 @@ import { ChatMessage } from '@shared/interfaces/interfaces';
 import { SocketService } from '@core/sockets/services/socket.service';
 
 @Component({
-  selector: 'app-contact-admin',
-  templateUrl: './contact-admin.component.html',
-  styleUrls: ['./contact-admin.component.scss']
+  selector: 'app-public-chat',
+  templateUrl: './public-chat.component.html',
+  styleUrls: ['./public-chat.component.scss']
 })
 
-export class ContactAdminComponent implements OnInit, OnDestroy {
+export class PublicChatComponent implements OnInit, OnDestroy {
 
   class: string;
   messages: Observable<ChatMessage[]>;
@@ -41,7 +41,7 @@ export class ContactAdminComponent implements OnInit, OnDestroy {
       )
      .subscribe(_ => {
         this.chatFacade.getMessages();
-        this.chatFacade.getFirst();
+        this.chatFacade.listenMessages();
     });
   }
 

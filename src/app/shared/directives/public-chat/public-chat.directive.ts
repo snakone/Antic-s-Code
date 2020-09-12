@@ -3,9 +3,9 @@ import { Subject, fromEvent } from 'rxjs';
 import { takeUntil, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 // tslint:disable-next-line:directive-selector
-@Directive({selector: '[ContactAdmin]'})
+@Directive({selector: '[PublicChat]'})
 
-export class ContactAdminDirective implements AfterViewInit, OnDestroy {
+export class PublicChatDirective implements AfterViewInit, OnDestroy {
 
   displayed = false;
   button = this.el.nativeElement.classList;
@@ -30,7 +30,12 @@ export class ContactAdminDirective implements AfterViewInit, OnDestroy {
   private onScroll(): void {
     try {
       const scroll = document.documentElement.scrollTop;
-      if (scroll > 550 && this.displayed || scroll < 550 && !this.displayed) return;
+      if (
+        scroll > 550 &&
+        this.displayed ||
+        scroll < 550 && !this.displayed
+      ) { return; }
+
       scroll > 550 ? this.displayed = true : this.displayed = false;
     } catch (err) {
       console.log(err);

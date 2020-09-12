@@ -46,7 +46,7 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
 
   private makeSticky(): void {
     let height = this.element.offsetHeight;
-    if (!this.element || height === 0) return;
+    if (!this.element || height === 0) { return; }
 
     const width = window.document.body.clientWidth;
     if (width < 985) {  // 992px - Scrollbar 8px
@@ -57,8 +57,8 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
     let div: number;
     let padding = 214;  // If Content Above the Box
 
-    if (this.empty) height = 32; padding = 0;  // 32 = 2rem
-    if (!this.height) this.height = height;
+    if (this.empty) { height = 32; } padding = 0;  // 32 = 2rem
+    if (!this.height) { this.height = height; }
 
     const section = document.getElementById(this.selector);
     section ? div = section.getBoundingClientRect().height - this.element.offsetTop : div = 1;
@@ -75,7 +75,7 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
 
     try {
       this.setElementHeight(div, this.height, padding, this.element);
-    } catch(err) { console.log(err); }
+    } catch (err) { console.log(err); }
   }
 
   private setElementHeight(d: number, h: number, p: number, el: any): void {

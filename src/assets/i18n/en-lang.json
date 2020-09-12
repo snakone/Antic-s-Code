@@ -2,6 +2,7 @@
   "ABOUT.ME": "About Me",
   "ACCEPT": "Accept",
   "ACTIONS": "Actions",
+  "ADD.CONTACT": "Add Contact",
   "ADMIN": "Admin",
   "ADVANCED": "Advanced",
   "ADVANTAGES": "Advantages",
@@ -204,6 +205,7 @@
   "GET.SUPPORT": "Get Support",
   "GIT.SYSTEM": "Git System",
   "GITHUB.PAGE": "Your Github Profile",
+  "GIVE.LIKE": "Give a Like",
   "GOOD.SCORE": "Congratulations! You <strong>approved</strong> with a good score. Keep it doing!",
   "GOODBYE": "Farewell",
   "GREAT.SCORE": "Woah! This is good enough for you, isn't it? You <strong>approved</string> with a great score. Awesome!",
@@ -424,6 +426,11 @@
   "PUT.SENTENCE": "Write the sentence here again...",
   "QUESTIONS": "questions",
   "RANK": "Rank",
+  "CREATE.ACCOUNT": "Create an account to interact",
+  "DATA.HELPS": {
+    "STARS": "Giving a Star helps <span class='bold'>{{author}}</span> to be more respected.",
+    "LIKES": "Giving a Like helps <span class='bold'>{{author}}</span> to write more articles."
+  },
   "REGISTER": "Register",
   "REGISTER.NOW": "Register now!",
   "RELATED.ARTICLES": "Related Articles",
@@ -548,5 +555,8 @@
   "YOU.GUESS": "You guess right",
   "YOU.SURE": "Are You sure?",
   "YOUR.PROFILE": "My Profile",
-  "YOUTUBE": "Youtube"
+  "YOUTUBE": "Youtube",
+  "GUEST": "Guest",
+  "DELETE.CHAT.MESSAGE": "Do You want to delete the message <span class='bold'>{{message}}</span>?",
+  "MESSAGE.DELETED": "Message deleted"
 }

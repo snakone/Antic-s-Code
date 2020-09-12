@@ -22,7 +22,7 @@ const featureReducer = createReducer(
   inititalState,
   // SEND MESSAGE
   on(ChatActions.send, (state) => (
-    { ...state, loaded: false, error: null, lastMessage: '' }
+    { ...state, error: null, lastMessage: '' }
   )),
   on(ChatActions.sendSuccess, (state, { message }) => (
     {
@@ -35,11 +35,11 @@ const featureReducer = createReducer(
   on(ChatActions.sendFailure, (state, { error }) => (
     { ...state, loaded: false, error }
   )),
-  // GET MESSAGES
-  on(ChatActions.getMessages, (state) => (
-    { ...state, loaded: false, error: null }
+  // LISTEN MESSAGES
+  on(ChatActions.listenMessages, (state) => (
+    { ...state, error: null }
   )),
-  on(ChatActions.getMessagesSuccess, (state, { message }) => (
+  on(ChatActions.listenMessagesSuccess, (state, { message }) => (
     {
       ...state,
       error: null,
@@ -47,14 +47,14 @@ const featureReducer = createReducer(
       loaded: true
     }
   )),
-  on(ChatActions.getMessagesFailure, (state, { error }) => (
+  on(ChatActions.listenMessagesFailure, (state, { error }) => (
     { ...state, loaded: false, error }
   )),
-  // GET FIRST
-  on(ChatActions.getFirst, (state) => (
+  // GET MESSAGES
+  on(ChatActions.getMessages, (state) => (
     { ...state, error: null }
   )),
-  on(ChatActions.getFirstSuccess, (state, { messages }) => (
+  on(ChatActions.getMessagesSuccess, (state, { messages }) => (
     {
       ...state,
       error: null,
@@ -62,9 +62,24 @@ const featureReducer = createReducer(
       loaded: true
     }
   )),
-  on(ChatActions.getFirstFailure, (state, { error }) => (
+  on(ChatActions.getMessagesFailure, (state, { error }) => (
     { ...state, loaded: false, error }
   )),
+  // DELETE MESSAGE BY ID
+  on(ChatActions.deleteById, (state) => (
+    { ...state, error: null }
+  )),
+  on(ChatActions.deleteByIdSuccess, (state, { id }) => (
+    {
+      ...state,
+      error: null,
+      messages: [...state.messages.filter(m => m._id !== id)]
+    }
+  )),
+  on(ChatActions.deleteByIdFailure, (state, { error }) => (
+    { ...state, loaded: false, error }
+  )),
+  // RESET
   on(ChatActions.resetChat, (state) => (
     { ...state, messages: [], error: null, loaded: false }
   ))

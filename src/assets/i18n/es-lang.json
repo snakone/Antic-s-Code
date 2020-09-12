@@ -2,6 +2,7 @@
   "ABOUT.ME": "Sobre mí",
   "ACCEPT": "Aceptar",
   "ACTIONS": "Acciones",
+  "ADD.CONTACT": "Añadir Contacto",
   "ADMIN": "Admin",
   "ADVANCED": "Avanzado",
   "ADVANTAGES": "Ventajas",
@@ -204,6 +205,7 @@
   "GET.SUPPORT": "Obtén Soporte",
   "GIT.SYSTEM": "Sistema Git",
   "GITHUB.PAGE": "Tu perfil en Github",
+  "GIVE.LIKE": "Dar Like",
   "GOOD.SCORE": "¡Felicidades! Has <strong>aprobado</strong> con una buena puntuación. Sigue así.",
   "GOODBYE": "Hasta siempre",
   "GREAT.SCORE": "¡Woah! ¿Esto se te da bastante bien no? Has <strong>aprobado</strong> con una gran puntuación. ¡Genial!",
@@ -424,6 +426,11 @@
   "PUT.SENTENCE": "Vuelve a escribir la frase aquí...",
   "QUESTIONS": "preguntas",
   "RANK": "Puesto",
+  "CREATE.ACCOUNT": "Crea una cuenta para interactuar",
+  "DATA.HELPS": {
+    "STARS": "Las Estrellas ayudan a que <span class='bold'>{{author}}</span> sea más respetado/a.",
+    "LIKES": "Los Likes ayudan a que <span class='bold'>{{author}}</span> escriba más artículos."
+  },
   "REGISTER": "Registrarse",
   "REGISTER.NOW": "¡Regístrate!",
   "RELATED.ARTICLES": "Artículos Relacionados",
@@ -496,7 +503,7 @@
   "TEST.INTRO": "Prueba tus habilidades con estos <strong>test</strong> sobre nuestras categorías. Puedes comprobar el resultado después de hacer el test o en tu perfil. Otras personas sabrán de qué estás hecho.",
   "TEST.OF": "Test sobre {{name}}",
   "TEST.PAGE": "Prueba tus habilidades",
-  "TEST.RESULT": "Test Result",
+  "TEST.RESULT": "Resultado del Test",
   "TESTIMONIALS": {
       "ONE": "Un lugar fantástico, para llevar las buenas prácticas. Antic's Code me ayuda a estar actualizado en la industria de la tecnología.",
       "THREE": "Conozco pocos lugares en donde pueda compartir información con facilidad, y Antic's Code es uno de los mejores.",
@@ -548,5 +555,8 @@
   "YOU.GUESS": "Has acertado",
   "YOU.SURE": "¿Estás seguro?",
   "YOUR.PROFILE": "Mi Perfil",
-  "YOUTUBE": "Youtube"
+  "YOUTUBE": "Youtube",
+  "GUEST": "Invitado",
+  "DELETE.CHAT.MESSAGE": "¿Quieres eliminar el mensaje <span class='bold'>{{message}}</span>?",
+  "MESSAGE.DELETED": "Mensaje eliminado"
 }

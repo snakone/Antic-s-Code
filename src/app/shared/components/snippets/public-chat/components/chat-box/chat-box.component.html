@@ -1,0 +1,40 @@
+<div class="chat-box">
+  <div class="chat-header">
+    <span>{{'LIVE.CHAT' | translate}}</span>
+    <div class="ring-container">
+      <ng-container *ngIf="isOn">
+        <div class="ringring"></div>
+        <div class="circle circle-green"></div>
+      </ng-container>
+      <div *ngIf="!isOn" class="circle circle-red"></div>
+    </div>
+    <mat-icon class="chat"
+              (click)="closeChat()">close
+    </mat-icon>
+  </div>
+
+ <!-- CHAT MESSAGES -->
+  <div class="chat-content" id="chat-content">
+    <app-chat-message [chat]="chat"
+                      [user]="user"
+                      (deleted)="deleteMessage($event)">
+    </app-chat-message>
+  </div>
+
+ <!-- INPUT TEXT -->
+  <div class="chat-text">
+    <textarea rows="1"
+              [(ngModel)]="msg"
+              autofocus
+              id="chat-textarea"
+              (keydown)="keyDownFunction($event)"
+              wrap="hard"
+              [maxlength]="limit">
+    </textarea>
+    <button mat-button
+            (click)="sendMessage()"
+            [disabled]="!msg || msg.length > limit">
+      <mat-icon class="chat">send</mat-icon>
+    </button>
+  </div>
+</div>

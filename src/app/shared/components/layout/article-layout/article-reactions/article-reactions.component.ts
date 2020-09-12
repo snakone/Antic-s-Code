@@ -82,7 +82,7 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
           if (value === 1) {
             this.sw.sendNotification(
               this.setNotification(Object.assign({}, LIKE_PUSH))
-            ).subscribe();
+            ).toPromise().then();
           }
       });
   }

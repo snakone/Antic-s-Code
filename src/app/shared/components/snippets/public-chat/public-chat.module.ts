@@ -7,9 +7,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { DirectivesModule } from '@shared/directives/directives.module';
-import { ContactAdminComponent } from './contact-admin.component';
-import { ContactChatComponent } from './components/contact-chat/contact-chat.component';
+import { PublicChatComponent } from './public-chat.component';
+import { ChatBoxComponent } from './components/chat-box/chat-box.component';
 import { ChatAccessModule } from '@store/chat/data-access/chat-access.module';
+import { ChatMessageComponent } from './components/chat-message/chat-message.component';
 
 const Material = [
   MatIconModule,
@@ -19,8 +20,9 @@ const Material = [
 
 @NgModule({
   declarations: [
-    ContactAdminComponent,
-    ContactChatComponent
+    PublicChatComponent,
+    ChatBoxComponent,
+    ChatMessageComponent
   ],
   imports: [
     CommonModule,
@@ -31,8 +33,8 @@ const Material = [
     ...Material
   ],
   exports: [
-    ContactAdminComponent
+    PublicChatComponent
   ]
 })
 
-export class ContactAdminModule { }
+export class PublicChatModule { }
