@@ -1,0 +1,9 @@
+<div class="news-container">
+  <app-news-grid *ngIf="true; else loading"
+                  [news]="news">
+  </app-news-grid>
+</div>
+
+<ng-template #loading>
+  <app-spinner></app-spinner>
+</ng-template>

@@ -1,0 +1,27 @@
+<app-page-header title="NEWS"
+                 subTitle="GET.NEWS">
+</app-page-header>
+<app-section input="#f5f7fc">
+  <div class="row">
+    <div class="col-lg-12" id="news-content">  <!-- CONTENT -->
+      <app-news-content [news]="last$ | async"></app-news-content>
+    </div>
+  </div>
+</app-section>
+<app-section title="LIKED.ARTICLES"
+             description="LIKED.WHY">  <!-- MOST VIEWED -->
+  <div class="row">
+    <div class="col-lg-12">
+      <app-news-viewed [news]="viewed$ | async"></app-news-viewed>
+    </div>
+  </div>
+</app-section>
+<app-section input="#f5f7fc"
+             title="LIKED.ARTICLES"
+             description="LIKED.WHY">  <!-- NEWS PREVIEW -->
+  <div class="row">
+    <div class="col-lg-12">
+      <app-news-preview [news]="news$ | async"></app-news-preview>
+    </div>
+  </div>
+</app-section>

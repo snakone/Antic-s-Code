@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class ContentMakerComponent {
 
   @Input() template?: string;
+  @Input() args?: string;
 
   constructor() { }
 

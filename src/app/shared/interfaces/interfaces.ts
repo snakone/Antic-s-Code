@@ -43,6 +43,18 @@ export interface Category extends Content {
   updated?: string;
 }
 
+export interface News {
+  title: string;
+  image: string;
+  message: string;
+  preview?: string;
+  date?: string;
+  category?: string;
+  views?: number;
+  slug?: string;
+  links?: Link[];
+}
+
 export interface ArticleResponse extends ServerResponse {
   article?: Article;
   articles?: Article[];
@@ -65,6 +77,14 @@ export interface CountResponse extends ServerResponse {
 
 export interface CategoryCountResponse extends ServerResponse {
   count?: object;
+}
+
+export interface NewsResponse extends ServerResponse {
+  news?: News[];
+  viewed?: News[];
+  last?: News[];
+  notice?: News;
+  page?: number;
 }
 
 // tslint:disable-next-line:no-empty-interface

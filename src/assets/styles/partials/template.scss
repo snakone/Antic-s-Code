@@ -257,4 +257,20 @@
     h2 { font-size: 35px }
     h3 { font-size: 25px }
   }
+
+  // NEWS
+  &.notice {
+    p {
+      overflow: hidden;
+      margin-bottom: .333rem;
+      font-size: 1rem !important;
+      color: var(--p-color);
+
+      @media(max-width: 820px) {
+        margin-bottom: 1.666rem;
+      }
+
+      & span { opacity: .8 }
+    }
+  }
 }

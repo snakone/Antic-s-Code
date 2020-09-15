@@ -486,6 +486,7 @@
       "NAME": "Etiquetas",
       "TYPESCRIPT": "Typescript"
   },
+  "NEWS": "Noticias",
   "TAKE.LOOK": "Echa un vistazo a nuestras categorias",
   "TASK.DONE": "Tareas realizadas",
   "TECH.SKILLS": "<span>Cualidades</span> Técnicas",
@@ -558,5 +559,7 @@
   "YOUTUBE": "Youtube",
   "GUEST": "Invitado",
   "DELETE.CHAT.MESSAGE": "¿Quieres eliminar el mensaje <span class='bold'>{{message}}</span>?",
-  "MESSAGE.DELETED": "Mensaje eliminado"
+  "MESSAGE.DELETED": "Mensaje eliminado",
+  "GET.NEWS": "Infórmate de las novedades",
+  "READ.MORE": "Leer más..."
 }

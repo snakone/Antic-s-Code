@@ -558,5 +558,8 @@
   "YOUTUBE": "Youtube",
   "GUEST": "Guest",
   "DELETE.CHAT.MESSAGE": "Do You want to delete the message <span class='bold'>{{message}}</span>?",
-  "MESSAGE.DELETED": "Message deleted"
+  "MESSAGE.DELETED": "Message deleted",
+  "NEWS": "News",
+  "GET.NEWS": "Find out about the news",
+  "READ.MORE": "Read more..."
 }

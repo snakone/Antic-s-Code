@@ -1,0 +1,33 @@
+<div class="row flex" *ngIf="news.length > 0">
+  <div class="col-lg-6"
+      *ngFor="let n of news">
+    <div class="fig-caption-card-image">
+      <figure [routerLink]="'/news/' + n.slug">
+        <img [src]="n.image" [alt]="n.title" loading="lazy"/>
+        <figcaption class="overlay-bg flex-box">
+            <div class="fig-caption-card-title">
+              <p>{{n.views}}
+                <mat-icon>visibility</mat-icon>
+                <img [src]="(n.category | logo) | image: 'logos'"
+                     [alt]="n.category"
+                     loading="lazy"/>
+              </p>
+              <h3>{{n.title}}</h3>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+  </div>
+</div>
+<div class="row flex" *ngIf="news.length === 0">
+  <div class="col-lg-6"
+       *ngFor="let i of [1,2,3,4]">
+       <div class="fig-caption-card-image">
+        <figure class="fig-caption-skeleton-card">
+          <img src="assets/img/skeleton.png" alt="Skeleton" loading="lazy"/>
+          <span></span>
+         </figure>
+       </div>
+  </div>
+</div>
+
