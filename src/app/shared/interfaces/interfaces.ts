@@ -87,6 +87,14 @@ export interface NewsResponse extends ServerResponse {
   page?: number;
 }
 
+export interface ArticlesDataResponse extends ServerResponse {
+  articlesCount?: number;
+  lastArticles?: Article[];
+  categoryCount?: object;
+  likedArticles?: Article[];
+  viewedArticles?: Article[];
+}
+
 // tslint:disable-next-line:no-empty-interface
 export interface SWResponse extends ServerResponse {}
 
@@ -371,7 +379,8 @@ export interface ChatMessage {
   message: string;
   own?: boolean;
   avatar?: string;
-  date?: string;
+  created?: string;
+  date?: Date;
 }
 
 export interface ChatResponse extends ServerResponse {

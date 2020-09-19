@@ -41,7 +41,7 @@ export const getFull = createSelector(
   getNewsState, fromNews.getFull
 );
 
-export const getAllLoaded = createSelector(
-  getNewsState, fromNews.getAllLoaded
+export const dataLoaded = createSelector(
+  getNewsState, fromNews.dataLoaded
 );
 

@@ -8,20 +8,6 @@
     </div>
   </div>
 </app-section>
-<app-section title="LIKED.ARTICLES"
-             description="LIKED.WHY">  <!-- MOST VIEWED -->
-  <div class="row">
-    <div class="col-lg-12">
-      <app-news-viewed [news]="viewed$ | async"></app-news-viewed>
-    </div>
-  </div>
-</app-section>
-<app-section input="#f5f7fc"
-             title="LIKED.ARTICLES"
-             description="LIKED.WHY">  <!-- NEWS PREVIEW -->
-  <div class="row">
-    <div class="col-lg-12">
-      <app-news-preview [news]="news$ | async"></app-news-preview>
-    </div>
-  </div>
-</app-section>
+<app-news-viewed [news]="viewed$ | async"></app-news-viewed>  <!-- MOST VIEWED -->
+<app-news-preview [news]="news$ | async"></app-news-preview>  <!-- PREVIEW -->
+

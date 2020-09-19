@@ -264,7 +264,7 @@
                   "MESSAGE": "Grid, responsive, mobile first, classes, flex-box, interface design."
               },
               "CSS": {
-                  "AREA": "Web-page design",
+                  "AREA": "Web-page Design",
                   "MESSAGE": "Cascade, inheritance, box-model, flex-box, layouts, interfaces, SCSS."
               },
               "EXPRESS": {
@@ -272,15 +272,15 @@
                   "MESSAGE": "Creation of servers, REST API, controllers, middlewares, JWT."
               },
               "GIT": {
-                  "AREA": "Teamwork",
+                  "AREA": "Team Work",
                   "MESSAGE": "Corporate environment to work in various development environments."
               },
               "HEROKU": {
-                  "AREA": "Server hosting",
+                  "AREA": "Server Hosting",
                   "MESSAGE": "Deployment of applications to the cloud, administration, monitoring."
               },
               "HTML": {
-                  "AREA": "Creation of web pages",
+                  "AREA": "Creation of Web Pages",
                   "MESSAGE": "Layout, structure, indentation, readable, standards, accessibility."
               },
               "IONIC": {
@@ -296,11 +296,11 @@
                   "MESSAGE": "Clean, Ecmascript, logical, reactive, readable, async-wait, operations."
               },
               "MONGO": {
-                  "AREA": "Non-relational database",
+                  "AREA": "Non-relational Database",
                   "MESSAGE": "Design and manage non-relational databases based on JSON."
               },
               "NODE": {
-                  "AREA": "Javascript web server",
+                  "AREA": "Javascript Web Server",
                   "MESSAGE": "Environment, use of npm packages, dependencies, updates, libraries."
               },
               "PHP": {
@@ -308,11 +308,11 @@
                   "MESSAGE": "Connections, form submission, processing and displaying data."
               },
               "RXJS": {
-                  "AREA": "Reactive programming",
+                  "AREA": "Reactive Programming",
                   "MESSAGE": "Observables, data flow, pipes, operators, flow management."
               },
               "SQL": {
-                  "AREA": "Relational database",
+                  "AREA": "Relational Database",
                   "MESSAGE": "Administration and database design, entity-relationship model."
               },
               "TS": {
@@ -320,31 +320,31 @@
                   "MESSAGE": "Classes, interfaces, typing, readable, autocomplete, avoid errors."
               },
               "VSC": {
-                  "AREA": "Work environment",
+                  "AREA": "Work Environment",
                   "MESSAGE": "Extensions, emmet, keyboard shortcuts, integrated terminal."
               },
               "WORDPRESS": {
-                  "AREA": "Content manager",
+                  "AREA": "Content Manager",
                   "MESSAGE": "Installation, administration, editing, design, writing content."
               }
           },
           "SOFT": {
-              "CLIENT": "Customer orientation",
+              "CLIENT": "Customer Orientation",
               "COMMUNICATION": "Communication",
               "COMPROMISE": "Commitment",
-              "CONCEPT": "Conceptual thinking",
+              "CONCEPT": "Conceptual Thinking",
               "COOPERATION": "Cooperation",
               "CREATIVE": "Creativity",
-              "EASY": "Easy learning",
+              "EASY": "Easy Learning",
               "EMPATHY": "Empathy",
               "FLEX": "Flexibility",
               "HOPE": "Enthusiasm",
               "KNOWLEDGE": "Knowledge",
-              "LOOK": "Good presence",
+              "LOOK": "Good Presence",
               "NETWORK": "Networking",
               "ORDER": "Order and Quality",
               "PLAN": "Planning",
-              "SPIRIT": "Overcoming spirit"
+              "SPIRIT": "Overcoming Spirit"
           }
       },
       "TIME": {
@@ -560,6 +560,10 @@
   "DELETE.CHAT.MESSAGE": "Do You want to delete the message <span class='bold'>{{message}}</span>?",
   "MESSAGE.DELETED": "Message deleted",
   "NEWS": "News",
-  "GET.NEWS": "Find out about the news",
-  "READ.MORE": "Read more..."
+  "GET.NEWS": "Find out about the News",
+  "READ.MORE": "Read more...",
+  "POPULAR.NEWS": "The Most Popular News",
+  "VIEWED.NEWS": "Find out before anyone else",
+  "ALL.NEWS": "All the News",
+  "PREVIEW.NEWS": "Don't miss out Anything"
 }

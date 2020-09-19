@@ -1,5 +1,5 @@
-<div class="chat-message animated fadeIn"
-      *ngFor="let m of chat; let i = index"
+<div class="chat-message"
+      *ngFor="let m of (chat$ | async); let i = index"
       [ngClass]="{'reverse': !m.own}">
   <div class="message-avatar">
     <img [src]="m.avatar || 'assets/img/profile/no-photo.jpg'"/>
@@ -11,7 +11,7 @@
     <p>{{m.user}}</p>
     <span>{{m.message}}</span>
     <div class="date">
-      <span>{{m.date}}</span>
+      <span>{{m.created}}</span>
     </div>
   </div>
 </div>

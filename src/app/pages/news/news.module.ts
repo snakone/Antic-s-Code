@@ -10,12 +10,13 @@ import { SpinnerModule } from '@shared/components/snippets/spinner/spinner.modul
 import { GridModule } from '@shared/components/layout/grid/grid.module';
 import { NewsAccessModule } from '@store/news/data-access/news-access.module';
 import { ComponentsModule } from '@app/shared/components/components.module';
+import { NewsGridModule } from '@layout/grid/news-grid/news-grid.module';
+import { MatIconModule } from '@angular/material/icon';
 
 import { NewsComponent } from './news.component';
 import { NewsContentComponent } from './components/news-content/news-content.component';
 import { NewsViewedComponent } from './components/news-viewed/news-viewed.component';
 
-import { MatIconModule } from '@angular/material/icon';
 import { NewsPreviewComponent } from './components/news-preview/news-preview.component';
 
 const Material = [
@@ -40,6 +41,7 @@ const Material = [
     GridModule,
     NewsAccessModule,
     ComponentsModule,
+    NewsGridModule,
     ...Material
   ]
 })

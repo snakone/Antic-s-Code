@@ -43,8 +43,7 @@ export class ChatService {
     const user = this.userSrv.getUser();
     if (!chatUser) {
       this.userSrv.setChatUser(user?.name ||
-                  `${this.translate.instant('GUEST')}
-                   ${Math.floor(Math.random() * 1000)}`);
+                  `${this.translate.instant('GUEST')} ${Math.floor(Math.random() * 1000)}`);
     }
 
     const payload: ChatMessage = {

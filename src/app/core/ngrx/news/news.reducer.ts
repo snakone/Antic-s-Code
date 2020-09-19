@@ -13,7 +13,6 @@ export interface NewsState {
   bySlugLoaded: boolean;
   error: string;
   full: boolean;
-  allLoaded: boolean;
 }
 
 export const inititalState: NewsState = {
@@ -26,8 +25,7 @@ export const inititalState: NewsState = {
   bySlug: null,
   bySlugLoaded: false,
   error: null,
-  full: false,
-  allLoaded: false
+  full: false
 };
 
 const featureReducer = createReducer(
@@ -42,8 +40,7 @@ const featureReducer = createReducer(
       error: null,
       news: [...state.news, ...news],
       newsLoaded: true,
-      full: completed(news),
-      allLoaded: checkLoaded(state)
+      full: completed(news)
     }
   )),
   on(NewsActions.getFailure, (state, { error }) => (
@@ -60,8 +57,7 @@ const featureReducer = createReducer(
       last: res.last,
       lastLoaded: true,
       viewed: res.viewed,
-      viewedLoaded: true,
-      allLoaded: checkLoaded(state)
+      viewedLoaded: true
     }
   )),
   on(NewsActions.getLastAndViewedFailure, (state, { error }) => (
@@ -96,7 +92,6 @@ export const getViewed = (state: NewsState) => state.viewed;
 export const getViewedLoaded = (state: NewsState) => state.viewedLoaded;
 export const getFull = (state: NewsState) => state.full;
 export const getSlug = (state: NewsState) => state.bySlug;
-export const getAllLoaded = (state: NewsState) => state.allLoaded;
 
 export function reducer(state: NewsState | undefined, action: Action) {
   return featureReducer(state, action);
@@ -106,7 +101,9 @@ function completed(news: News[]): boolean {
   return news.length === 0 ? true : false;
 }
 
-function checkLoaded(state: NewsState | undefined): boolean {
-  return state.newsLoaded && state.lastLoaded && state.viewedLoaded;
-}
+export const dataLoaded = (state: NewsState | undefined): boolean => {
+  return state.lastLoaded && state.viewedLoaded && state.newsLoaded;
+};
+
+
 

@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import * as ArticleActions from './article.actions';
-import { map, concatMap, catchError } from 'rxjs/operators';
+import * as NewsActions from '../news/news.actions';
+import { map, concatMap, catchError, tap } from 'rxjs/operators';
 import { ArticleService } from '@core/services/article/article.service';
 
 @Injectable()
@@ -27,16 +28,16 @@ export class ArticleEffects {
     ))))
   );
 
-  // GET ARTICLES COUNT
-  loadArticlesCountEffect$ = createEffect(() => this.actions
+    // GET ARTICLES DATA
+  getArticlesDataEffect$ = createEffect(() => this.actions
     .pipe(
-      ofType(ArticleActions.getCount),
+      ofType(ArticleActions.getData),
       concatMap(() =>
-      this.articleSrv.getCount()
+      this.articleSrv.getData()
         .pipe(
-          map(count => ArticleActions.getCountSuccess({ count })),
+          map(res => ArticleActions.getDataSuccess({ res })),
           catchError(error =>
-              of(ArticleActions.getCountFailure({ error: error.message }))
+              of(ArticleActions.getDataFailure({ error: error.message }))
     ))))
   );
 
@@ -66,44 +67,6 @@ export class ArticleEffects {
     ))))
   );
 
-  // GET LAST ARTICLES
-  loadLastArticlesEffect$ = createEffect(() => this.actions
-    .pipe(
-      ofType(ArticleActions.getLast),
-      concatMap(() =>
-        this.articleSrv.getLast()
-          .pipe(
-            map(articles => ArticleActions.getLastSuccess({ articles })),
-            catchError(error =>
-              of(ArticleActions.getLastFailure({ error: error.message }))
-    ))))
-  );
-
-  // GET MOST LIKED ARTICLES
-  loadMostLikedEffect$ = createEffect(() => this.actions
-    .pipe(
-      ofType(ArticleActions.getMostLiked),
-      concatMap(() =>
-        this.articleSrv.getMostLiked()
-          .pipe(
-            map(articles => ArticleActions.getMostLikedSuccess({ articles })),
-            catchError(error =>
-              of(ArticleActions.getMostLikedFailure({ error: error.message }))
-    ))))
-  );
-
-  // GET MOST VIEWED ARTICLES
-  loadMostViewedEffect$ = createEffect(() => this.actions
-    .pipe(
-      ofType(ArticleActions.getMostViewed),
-      concatMap(() =>
-        this.articleSrv.getMostViewed()
-          .pipe(
-            map(articles => ArticleActions.getMostViewedSuccess({ articles })),
-            catchError(error =>
-              of(ArticleActions.getMostViewedFailure({ error: error.message }))
-    ))))
-  );
 
   // GET ARTICLES BY CATEGORY
   loadArticlesByCategoryEffect$ = createEffect(() => this.actions
@@ -128,19 +91,6 @@ export class ArticleEffects {
             map(articles => ArticleActions.getByTagsSuccess({ articles })),
             catchError(error =>
               of(ArticleActions.getByTagsFailure({ error: error.message }))
-    ))))
-  );
-
-  // GET ARTICLES BY CATEGORY COUNT
-  loadArticlesByCategoryCountEffect$ = createEffect(() => this.actions
-    .pipe(
-      ofType(ArticleActions.getByCategoryCount),
-      concatMap(() =>
-        this.articleSrv.getByCategoryCount()
-          .pipe(
-            map(count => ArticleActions.getByCategoryCountSuccess({ count })),
-            catchError(error =>
-              of(ArticleActions.getByCategoryCountFailure({ error: error.message }))
     ))))
   );
 

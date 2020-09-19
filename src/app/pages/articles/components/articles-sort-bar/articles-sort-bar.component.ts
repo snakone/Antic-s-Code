@@ -10,37 +10,21 @@ import { ArticlesFacade } from '@store/articles/article.facade';
   styleUrls: ['./articles-sort-bar.component.scss']
 })
 
-export class ArticlesSortBarComponent implements OnInit, OnDestroy {
+export class ArticlesSortBarComponent implements OnInit {
 
   @Output() grid = new EventEmitter<boolean>();
   @Input() active = false;
   count$: Observable<number>;
-  private unsubscribe$ = new Subject<void>();
 
   constructor(private articleFacade: ArticlesFacade) { }
 
   ngOnInit() {
-    this.checkData();
     this.count$ = this.articleFacade.count$;
-  }
-
-  private checkData(): void {
-    this.articleFacade.countLoaded$
-     .pipe(
-       filter(res => !res),
-       takeUntil(this.unsubscribe$)
-      )
-      .subscribe(_ => this.articleFacade.getCount());
   }
 
   public sort(): void {
     this.active = !this.active;
     this.grid.emit(this.active);
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
   }
 
 }

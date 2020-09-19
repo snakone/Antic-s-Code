@@ -43,7 +43,7 @@ const featureReducer = createReducer(
     {
       ...state,
       error: null,
-      messages: [message, ...state.messages],
+      messages: [...state.messages, message],
       loaded: true
     }
   )),

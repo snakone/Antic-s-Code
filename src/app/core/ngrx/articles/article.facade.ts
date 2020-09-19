@@ -13,6 +13,7 @@ export class ArticlesFacade {
 
   articles$ = this.store.select(fromArticles.get);
   loaded$ = this.store.select(fromArticles.getLoaded);
+  dataLoaded$ = this.store.select(fromArticles.getDataLoaded);
   getFull$ = this.store.select(fromArticles.getFull);
   byUser$ = this.store.select(fromArticles.getByUser);
   byUserLoaded$ = this.store.select(fromArticles.getByUserLoaded);
@@ -20,15 +21,11 @@ export class ArticlesFacade {
   byCategory$ = this.store.select(fromArticles.getByCategory);
   byCategoryLoaded$ = this.store.select(fromArticles.getByCategoryLoaded);
   byCategoryCount$ = this.store.select(fromArticles.getByCategoryCount);
-  byCategoryCountLoaded$ = this.store.select(fromArticles.getCategoryCountLoaded);
   byTags$ = this.store.select(fromArticles.getByTags);
   byTagsLoaded$ = this.store.select(fromArticles.getByTagsLoaded);
   count$ = this.store.select(fromArticles.getCount);
-  countLoaded$ = this.store.select(fromArticles.getCountLoaded);
   last$ = this.store.select(fromArticles.getLast);
-  lastCountLoaded$ = this.store.select(fromArticles.getLastAndCountLoaded);
   mostLiked$ = this.store.select(fromArticles.getMostLiked);
-  mostLikedLoaded$ = this.store.select(fromArticles.getMostLikedLoaded);
   mostViewed$ = this.store.select(fromArticles.getMostViewed);
   mostViewedLoaded$ = this.store.select(fromArticles.getMostViewedLoaded);
 
@@ -36,6 +33,10 @@ export class ArticlesFacade {
 
   public get(): void {
     this.store.dispatch(ArticleActions.get());
+  }
+
+  public getData(): void {
+    this.store.dispatch(ArticleActions.getData());
   }
 
   public getBySlug(slug: string): void {
@@ -52,10 +53,6 @@ export class ArticlesFacade {
 
   public getByCategory(category: string): void {
     this.store.dispatch(ArticleActions.getByCategory({category}));
-  }
-
-  public getByCategoryCount(): void {
-    this.store.dispatch(ArticleActions.getByCategoryCount());
   }
 
   public reset(): void {
@@ -76,22 +73,6 @@ export class ArticlesFacade {
 
   public resetByTags(): void {
     this.store.dispatch(ArticleActions.resetByTags());
-  }
-
-  public getCount(): void {
-    this.store.dispatch(ArticleActions.getCount());
-  }
-
-  public getLast(): void {
-    this.store.dispatch(ArticleActions.getLast());
-  }
-
-  public getLiked(): void {
-    this.store.dispatch(ArticleActions.getMostLiked());
-  }
-
-  public getViewed(): void {
-    this.store.dispatch(ArticleActions.getMostViewed());
   }
 
 }

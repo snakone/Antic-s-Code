@@ -10,22 +10,16 @@ import { NewsPartialState } from '../ngrx.config';
 export class NewsFacade {
 
   news$ = this.store.select(fromNews.getNews);
-  loaded$ = this.store.select(fromNews.getLoaded);
   bySlug$ = this.store.select(fromNews.getBySlug);
   getFull$ = this.store.select(fromNews.getFull);
   last$ = this.store.select(fromNews.getLast);
-  lastLoaded$ = this.store.select(fromNews.getLastLoaded);
   viewed$ = this.store.select(fromNews.getViewed);
-  viewedLoaded$ = this.store.select(fromNews.getViewedLoaded);
-  allLoaded$ = this.store.select(fromNews.getAllLoaded);
+  dataLoaded$ = this.store.select(fromNews.dataLoaded);
 
   constructor(private store: Store<NewsPartialState>) { }
 
   public get(): void {
     this.store.dispatch(NewsActions.get());
-  }
-
-  public getLastAndViewed(): void {
     this.store.dispatch(NewsActions.getLastAndViewed());
   }
 
@@ -33,7 +27,7 @@ export class NewsFacade {
     this.store.dispatch(NewsActions.getBySlug({slug}));
   }
 
-    public resetBySlug(): void {
+  public resetBySlug(): void {
     this.store.dispatch(NewsActions.resetSlug());
   }
 
