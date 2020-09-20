@@ -88,8 +88,9 @@ mat-option.all {
   max-width: 993px;
 
   & .content-box-body {
-    overflow: auto;
-    @media(max-width: 700px) { height: 80vh !important }
+    overflow-y: auto;
+    max-height: 67vh;
+    @media(max-width: 700px) { height: 67vh !important }
   }
 }
 

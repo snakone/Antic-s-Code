@@ -1,5 +1,5 @@
 <div class="news-container">
-  <app-news-grid *ngIf="true; else loading"
+  <app-news-grid *ngIf="news.length > 0; else loading"
                   [news]="news">
   </app-news-grid>
 </div>

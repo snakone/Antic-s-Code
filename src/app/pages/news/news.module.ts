@@ -11,6 +11,7 @@ import { GridModule } from '@shared/components/layout/grid/grid.module';
 import { NewsAccessModule } from '@store/news/data-access/news-access.module';
 import { ComponentsModule } from '@app/shared/components/components.module';
 import { NewsGridModule } from '@layout/grid/news-grid/news-grid.module';
+import { NewsLayoutModule } from '@layout/news-layout/news-layout.module';
 import { MatIconModule } from '@angular/material/icon';
 
 import { NewsComponent } from './news.component';
@@ -40,8 +41,8 @@ const Material = [
     SpinnerModule,
     GridModule,
     NewsAccessModule,
-    ComponentsModule,
     NewsGridModule,
+    NewsLayoutModule,
     ...Material
   ]
 })

@@ -27,7 +27,7 @@ mat-form-field {
 .select { top: -1px }
 
 button {
-  margin: 0 0 0 auto;
+  margin: 0 0 .4rem auto;
   width: 48%;
   @media(max-width: 700px) { width: 100% }
 }
