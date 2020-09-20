@@ -10,10 +10,9 @@
                           [article]="article"
                           [single]="true">
             <hr class="mobile" *ngIf="article.index">
-            <app-index-box *onlyMobile
-                           [index]="article.index">
-            </app-index-box>
-            <hr class="mobile" *ngIf="article.index">
+            <div class="index" *onlyMobile>
+              <app-index-box [index]="article.index"></app-index-box>
+            </div>
             <app-content-maker [template]="article.message"></app-content-maker>
         </app-article-card>
 

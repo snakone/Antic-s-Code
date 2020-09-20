@@ -11,7 +11,6 @@ import { BoxesModule } from '@layout/boxes/boxes.module';
 import { PageHeaderModule } from '@layout/page-header/page-header.module';
 import { SectionModule } from '@layout/section/section.module';
 import { ArticleLayoutModule } from '@layout/article-layout/article-layout.module';
-import { InteractionAccessModule } from '@store/interactions/data-access/interaction-access.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,6 @@ import { InteractionAccessModule } from '@store/interactions/data-access/interac
   ],
   imports: [
     CommonModule,
-    InteractionAccessModule,
     SingleArticleRouting,
     ComponentsModule,
     SharedModule,

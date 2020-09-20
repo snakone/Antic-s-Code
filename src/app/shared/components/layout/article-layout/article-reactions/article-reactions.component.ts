@@ -2,13 +2,12 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 
 import {  URI } from '@app/app.config';
 import { Subject } from 'rxjs';
-import { takeUntil, filter } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 
 import { CrafterService } from '@core/services/crafter/crafter.service';
 import { UserService } from '@core/services/user/user.service';
-import { InteractionService } from '@core/services/interaction/interaction.service';
+import { IntersService } from '@core/services/inters/inters.service';
 import { PushService } from '@core/services/push/push.service';
-import { InterFacade } from '@store/interactions/interaction.facade';
 
 import { NoAccountComponent } from '../../dialogs/no-account/no-account.component';
 
@@ -38,23 +37,13 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
   constructor(
     private crafter: CrafterService,
     private userSrv: UserService,
-    private interFacade: InterFacade,
-    private intSrv: InteractionService,
+    private intersSrv: IntersService,
     private sw: PushService
   ) { }
 
   ngOnInit() {
     this.user = this.userSrv.getUser();
-    this.getIntByUser();
-  }
-
-  private getIntByUser(): void {
-    this.interFacade.byUser$
-      .pipe(
-        takeUntil(this.unsubscribe$),
-        filter(res => res && !!res.length)
-      )
-      .subscribe((res: Interaction[]) => this.markInteraction(res));
+    this.liked = this.article.inters.liked;
   }
 
   public doLike(value: number): void {
@@ -73,7 +62,7 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
       value
     };
 
-    this.intSrv.make(int)
+    this.intersSrv.make(int)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(_ => {
           this.crafter.toaster('SUCCESS', 'THANKS.MUCH', 'info');
@@ -86,14 +75,6 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
           }
       });
   }
-
-  private markInteraction(ints: Interaction[]): void {
-    const cb = (int: Interaction) => int.content === this.article._id &&
-                                     int.type === 'like' &&
-                                     int.value === 1;
-    this.liked = ints.some(cb);
-  }
-
 
   setNotification(payload: NotificationPayload): NotificationPayload {
     payload.body = payload.body.concat(`.\n${this.article.title}`);

@@ -21,6 +21,7 @@ export class ArticlesFacade {
   byCategory$ = this.store.select(fromArticles.getByCategory);
   byCategoryLoaded$ = this.store.select(fromArticles.getByCategoryLoaded);
   byCategoryCount$ = this.store.select(fromArticles.getByCategoryCount);
+  byCategoryCountLoaded$ = this.store.select(fromArticles.getCategoryCountLoaded);
   byTags$ = this.store.select(fromArticles.getByTags);
   byTagsLoaded$ = this.store.select(fromArticles.getByTagsLoaded);
   count$ = this.store.select(fromArticles.getCount);

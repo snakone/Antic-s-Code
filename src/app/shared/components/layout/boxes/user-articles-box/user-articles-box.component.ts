@@ -28,7 +28,7 @@ export class UserArticlesBoxComponent implements OnInit, OnDestroy {
   }
 
   private checkData(): void {
-    this.articlesFacade.byTagsLoaded$
+    this.articlesFacade.byUserLoaded$
      .pipe(
        filter(res => !res && !!this.user?._id),
        takeUntil(this.unsubscribe$)
@@ -49,7 +49,6 @@ export class UserArticlesBoxComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
-    this.articlesFacade.resetByUser();
   }
 
 }

@@ -21,7 +21,7 @@ export class StarFilterComponent implements OnInit {
     this.list = this.resetList(STAR_LIST);
   }
 
-  public starChanged(e:MatCheckboxChange): void {
+  public starChanged(e: MatCheckboxChange): void {
     this.changed.emit(e);
   }
 

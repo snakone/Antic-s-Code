@@ -32,6 +32,7 @@ export interface Article extends Content {
   summary?: string;
   status?: string;
   user?: string;
+  inters?: Inter;
 }
 
 export interface Category extends Content {
@@ -53,6 +54,11 @@ export interface News {
   views?: number;
   slug?: string;
   links?: Link[];
+}
+
+interface Inter {
+  liked: boolean;
+  stars: number;
 }
 
 export interface ArticleResponse extends ServerResponse {

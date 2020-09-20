@@ -2,11 +2,9 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 
 import { ArticleService } from '@core/services/article/article.service';
 import { ArticlesFacade } from '@store/articles/article.facade';
-import { UsersFacade } from '@store/users/users.facade';
-import { InterFacade } from '@store/interactions/interaction.facade';
 
 import { Subject, fromEvent, Observable } from 'rxjs';
-import { takeUntil, debounceTime, switchMap, filter, takeWhile } from 'rxjs/operators';
+import { takeUntil, debounceTime, switchMap, takeWhile } from 'rxjs/operators';
 import { Article } from '@shared/interfaces/interfaces';
 
 @Component({
@@ -24,35 +22,13 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
 
   constructor(
     private articleSrv: ArticleService,
-    private userFacade: UsersFacade,
     private articleFacade: ArticlesFacade,
-    private interactionFacade: InterFacade
   ) { }
 
   ngOnInit() {
-    this.checkData();
     this.hasEnded();
-    this.getInteraction();
     this.section = document.getElementById('articles-section');
     this.articles$ = this.articleFacade.articles$;
-  }
-
-  private checkData(): void {
-    this.articleFacade.loaded$
-     .pipe(
-       filter(res => !res),
-       takeUntil(this.unsubscribe$)
-      )
-     .subscribe(_ => this.articleFacade.get());
-  }
-
-  private getInteraction(): void {
-    this.userFacade.user$
-     .pipe(
-       filter(res => !!res),
-       takeUntil(this.unsubscribe$)
-      )
-     .subscribe(_ => this.interactionFacade.getByUser());
   }
 
   private hasEnded(): void {
@@ -67,7 +43,7 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
             takeUntil(this.unsubscribe$)
           )
         )
-      )).subscribe(e => this.makeScroll(e));
+    )).subscribe(e => this.makeScroll(e));
   }
 
   private makeScroll(e: any): void {

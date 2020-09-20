@@ -24,5 +24,4 @@ export class CategoryGridComponent implements OnInit {
     this.count$ = this.articlesFacade.byCategoryCount$;
   }
 
-
 }

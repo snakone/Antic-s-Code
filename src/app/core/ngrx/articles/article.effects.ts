@@ -28,7 +28,7 @@ export class ArticleEffects {
     ))))
   );
 
-    // GET ARTICLES DATA
+  // GET ARTICLES DATA
   getArticlesDataEffect$ = createEffect(() => this.actions
     .pipe(
       ofType(ArticleActions.getData),
@@ -81,7 +81,7 @@ export class ArticleEffects {
     ))))
   );
 
-  // GET ARTICLES BY CATEGORY
+  // GET ARTICLES BY TAGS
   loadArticlesByTagsEffect$ = createEffect(() => this.actions
     .pipe(
       ofType(ArticleActions.getByTags),

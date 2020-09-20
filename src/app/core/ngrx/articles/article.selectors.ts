@@ -77,4 +77,8 @@ export const getMostViewedLoaded = createSelector(
   getArticlesState, fromArticles.getMostViewedLoaded
 );
 
+export const getCategoryCountLoaded = createSelector(
+  getArticlesState, fromArticles.getCategoryCountLoaded
+);
+
 

@@ -33,8 +33,8 @@ export const getViewed = createSelector(
   getNewsState, fromNews.getViewed
 );
 
-export const getViewedLoaded = createSelector(
-  getNewsState, fromNews.getViewedLoaded
+export const getViewedAndLastLoaded = createSelector(
+  getNewsState, fromNews.getViewedAndLastLoaded
 );
 
 export const getFull = createSelector(
