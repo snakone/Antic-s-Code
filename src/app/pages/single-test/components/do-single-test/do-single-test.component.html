@@ -1,0 +1,32 @@
+<ng-container *ngIf="(entry$ | async) as entry; else noEntry">
+  <app-content-box [title]="entry.title" icon="fact_check">
+    <div class="category">
+      <img [alt]="entry.category"
+           [src]="(entry.category | logo) | image:'logos'">
+      <div>
+        <p>
+          <span>{{entry.category}}</span>
+          <br> {{'LEVEL.NAME' | translate}}: {{entry.level | translate}}
+        </p>
+      </div>
+    </div>
+    <p [innerHTML]="entry.message"></p>
+
+    <ng-container *ngIf="(result$ | async) as result; else noResult">
+      <app-test-result [request]="result" [entry]="entry"></app-test-result>
+    </ng-container>
+
+    <ng-template #noResult>
+      <app-test-stepper [entry]="entry"></app-test-stepper>
+    </ng-template>
+  </app-content-box>
+</ng-container>
+
+<ng-template #noEntry>
+  <app-content-box title="Entry">
+    <app-spinner></app-spinner>
+  </app-content-box>
+</ng-template>
+
+
+

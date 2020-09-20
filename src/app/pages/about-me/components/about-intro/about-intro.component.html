@@ -1,11 +1,11 @@
+<div class="about-me">
+  <h3>Sergio <span>Martínez</span></h3> <!-- INTRO -->
+  <p>Front End Developer</p>
+</div>
+
 <div class="row">
   <div class="col-lg-6 col-md-6 intro">
-    <p>Me llamo Sergio Martínez y soy el <strong>creador</strong> de este sitio. Mi idea era tener un espacio
-    propio donde compartir mi conocimiento sobre programación haciendo uso de las
-    tecnologias que sé utilizar.<br> Acompáñame para conocer un poco mejor
-    a la persona que hay detrás de todo esto. Cabe destacar que el sistema está construido
-    totalmente <strong>desde cero</strong>, sin utilizar librerías de gestión de contenido u otro
-    software parecido.</p>
+    <p [innerHTML]="'ME.INTRO' | translate"></p>
   </div>
   <div class="col-lg-6 col-md-6 image">
     <img src="assets/img/frontend.jpg"/>

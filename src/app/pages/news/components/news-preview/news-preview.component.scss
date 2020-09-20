@@ -1,0 +1,131 @@
+$width-image: 355px;
+
+.row { margin-top: -1rem }
+
+.news-card {
+  background: var(--light-color);
+	border-radius: 10px;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+	display: flex;
+	max-width: 100%;
+	margin: 1.666rem auto;
+	overflow: hidden;
+  width: 100%;
+  position: relative;
+  max-height: 257px;
+
+  & img:not(.logo) {
+    display: block;
+    max-width: $width-image;
+    width: 100%;
+  }
+
+  &-content {
+    padding: 1.666rem 1.666rem 1.666rem 1.9rem;
+    width: 100%;
+    position: relative;
+    & h4 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      position: relative;
+      @media(max-width: 550px) { font-size: 1.1rem }
+
+      &:after {
+        content: "";
+        position: absolute;
+        height: 4px;
+        width: 2rem;
+        left: 2px;
+        bottom: -4px;
+        background: var(--primary-color);
+        border-radius: 4px;
+      }
+    }
+
+    & span {
+      position: absolute;
+      right: 1.5rem;
+      bottom: .666rem;
+      font-size: .9rem;
+      opacity: .8;
+      color: var(--tag-color);
+    }
+  }
+
+  &-category {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: $width-image;
+    z-index: 4;
+    border-right: 1px solid var(--new-color-border);
+
+    & span {
+      display: flex;
+      align-items: center;
+      color: var(--primary-color);
+      font-size: .9rem;
+      right: 1.2rem;
+      bottom: 5px;
+      position: absolute;
+      font-weight: bold;
+      z-index: 1;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 40px;
+      background: var(--new-color);
+      opacity: .9;
+      z-index: 0;
+      border-bottom-left-radius: 4px;
+
+    }
+
+    & .logo {
+      border-radius: 25%;
+      display: inline-block;
+      padding: 4px;
+      width: 22px;
+      position: relative;
+      top: 0;
+      left: 5px;
+      margin-right: 1rem;
+    }
+  }
+
+  &:hover {
+    backdrop-filter: brightness(125%);
+    cursor: pointer;
+
+    & .news-card-content h4 {
+      color: var(--primary-color);
+      &:after { background: var(--dark-color); }
+    }
+  }
+
+}
+
+@media(max-width: 855px) {
+  .news-card {
+    flex-direction: column;
+    max-height: inherit;
+    & img:not(.logo) { max-width: 100% }
+
+    &-content { width: auto }
+
+    &-category {
+      position: relative;
+      width: 100%;
+    }
+  }
+}

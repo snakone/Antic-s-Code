@@ -1,10 +1,17 @@
+<div class="about-me">
+  <h3 [innerHTML]="'ME.HISTORY' | translate"></h3> <!-- TIME LINE -->
+  <div class="skip">
+    <p>{{'CRONO' | translate}}</p>
+    <p class="skip-text" (click)="scroll('skip-timeline')">{{'SKIP' | translate}}</p>
+  </div>
+</div>
 <div class="timeline">
   <div *ngFor="let t of TL"
         [class]="'container ' + t.side">
     <div class="content" [attr.data-aos]="t.fade">
       <h2>{{t.year}}</h2>
-      <p [innerHTML]="t.message"></p>
+      <p [innerHTML]="t.message | translate"></p>
     </div>
   </div>
-  <div id="skip-timeline"></div>
+  <div id="skip-timeline" class="skip-line"></div>
 </div>

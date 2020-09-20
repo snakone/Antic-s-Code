@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { AppState } from './app.config';
-import { Store } from '@ngrx/store';
-
-import * as UserActions from '@core/ngrx/actions/user.actions';
-import { StorageService } from '@core/storage/storage.service';
-import { LanguageSnackComponent } from '@layout/snackbars/language-snack/language-snack.component';
-import { MaintenanceComponent } from '@layout/dialogs/maintenance/maintenance.component';
-import { CrafterService } from '@core/services/crafter/crafter.service';
-import { ThemeService } from '@core/services/theme/theme.service';
-import { PushService } from '@core/services/push/push.service';
 import { environment } from '@env/environment';
+
+import { StorageService } from '@core/storage/storage.service';
+import { CrafterService } from '@core/services/crafter/crafter.service';
+import { PushService } from '@core/services/push/push.service';
+import { SocketService } from '@core/sockets/services/socket.service';
+import { UsersFacade } from '@store/users/users.facade';
+import { ThemeService } from '@core/services/theme/theme.service';
+
+import { LanguageSnackComponent } from '@layout/snackbars/language-snack/language-snack.component';
 
 @Component({
   selector: 'app-root',
@@ -25,27 +24,25 @@ export class AppComponent implements OnInit {
     private ls: StorageService,
     private crafter: CrafterService,
     private theme: ThemeService,
-    private store: Store<AppState>,
-    private sw: PushService
+    private sw: PushService,
+    private usersFacade: UsersFacade,
+    public socket: SocketService
   ) { }
 
   ngOnInit() {
     this.checkUserToken();
     this.setTheme();
-    window.onload = () => {
-      this.onLoad();
-    }
+    window.onload = () => this.onLoad();
   }
 
   private checkUserToken(): void {
-    if (this.ls.get('token')) {
-      this.store.dispatch(UserActions.verifyToken());
-    }
+    if (this.ls.get('token')) { this.usersFacade.verifyToken(); }
   }
 
   private openLanguageSnack(): void {
     const lang = this.ls.get('lang') !== 'es';
     const user = this.ls.get('user_lang');
+
     if (lang || user) { return; }
     setTimeout(() => {
       this.crafter.snack(LanguageSnackComponent, -1);
@@ -59,20 +56,18 @@ export class AppComponent implements OnInit {
   private onLoad(): void {
     const app = document.getElementById('app');
     app.classList.remove('hide');
+
     this.loaded = true;
     this.sw.updateSW();
     this.openLanguageSnack();
-
-    if (environment.maintenance) {
-      this.sorryMaintenance();
-    }
+    if (environment.maintenance) { this.showMaintenance(); }
   }
 
-  private sorryMaintenance(): void {
+  private showMaintenance(): void {
     setTimeout(() => {
-      this.crafter.dialog(
-        MaintenanceComponent, { cause: 'Refactorizando'}
-      );
+      this.crafter.modal('MODALS.MAINTENANCE.TITLE',
+                         'MODALS.MAINTENANCE.MESSAGE',
+                         'info');
     }, 4000);
   }
 

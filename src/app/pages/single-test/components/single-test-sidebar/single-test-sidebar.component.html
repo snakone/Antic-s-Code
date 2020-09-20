@@ -1,0 +1,11 @@
+<ng-container *ngIf="test; else noTest">
+  <app-content-box title="Sidebar" icon="person">
+    Sidebar
+  </app-content-box>
+</ng-container>
+
+<ng-template #noTest>
+  <app-content-box title="Sidebar" icon="person">
+    NO TEST
+  </app-content-box>
+</ng-template>

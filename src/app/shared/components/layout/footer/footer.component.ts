@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { FOOTER_LIST } from '@shared/shared.data';
-import { LoginComponent } from '../../login/login.component';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+
 import { CrafterService } from '@core/services/crafter/crafter.service';
 import { UserService } from '@core/services/user/user.service';
-import { MatDialogRef } from '@angular/material/dialog';
-import { AlreadyLoggedComponent } from '../dialogs/already-logged/already-logged.component';
+import { FOOTER_LIST } from '@shared/data/footer';
+
+import { LoginComponent } from '../../login/login.component';
+import { MessageModalComponent } from '../dialogs/message-modal/message-modal.component';
 
 @Component({
   selector: 'app-footer',
@@ -25,14 +27,16 @@ export class FooterComponent {
 
   public manage(value: string):
     MatDialogRef<LoginComponent> |
-    MatDialogRef<AlreadyLoggedComponent> {
+    MatDialogRef<MessageModalComponent> {
       if (value === 'register') {
         return !this.userSrv.getUser() ?
-        this.crafter.dialog(LoginComponent, {register: true}) :
-        this.crafter.dialog(AlreadyLoggedComponent);
+        this.crafter.dialog(LoginComponent, {register: true}, 'Login') :
+        this.crafter.modal('ERRORS.REGISTER.TITLE',
+                           'ERRORS.REGISTER.MESSAGE',
+                           'info');
   }
 
-    this.router.navigateByUrl(`/${value}`);
+      this.router.navigateByUrl(`/${value}`);
   }
 
 }

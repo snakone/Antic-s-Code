@@ -1,0 +1,27 @@
+p {
+  margin-top: 0 !important;
+  margin-bottom: 2rem;
+  color: var(--p-color) !important;
+}
+
+.category {
+  margin-top: .5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+   & img {
+     width: 50px;
+     margin: 0 1rem 2rem -.3rem;
+   }
+
+   & p {
+
+    & span {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+   }
+}
+
+br { margin-top: 3px }

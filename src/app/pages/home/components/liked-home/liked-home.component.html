@@ -1,5 +1,5 @@
-<app-section [title]="'liked.articles' | translate"
-             [description]="'liked.why' | translate">
+<app-section title="LIKED.ARTICLES"
+             description="LIKED.WHY">
           <ng-container *ngIf="(articles$ | async) as articles">
             <app-liked-home-grid [articles]="articles">
             </app-liked-home-grid>

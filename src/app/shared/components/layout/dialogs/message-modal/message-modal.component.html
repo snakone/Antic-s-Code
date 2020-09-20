@@ -1,0 +1,11 @@
+<mat-dialog-content class="antics-dialog">
+  <h4>
+    <mat-icon [style.color]="color">{{data.icon}}</mat-icon>
+    {{data.title | translate}}
+  </h4>
+  <p>{{data.message | translate}}</p>
+  <button mat-button
+          class="btn-pink"
+          (click)="close()">{{'ACCEPT' | translate}}
+  </button>
+</mat-dialog-content>

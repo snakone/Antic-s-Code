@@ -28,35 +28,88 @@ ul {
 
   & li {
     display: inline;
-    padding-right: 2rem;
+    padding-right: 1.8rem;
+    &:first-child { margin-top: 0 }
   }
 }
 
-.intro {
+form {
+  margin-top: 1rem;
   padding-top: .5rem;
+  @media(max-width: 992px) { margin-top: 2rem }
 }
 
-.input {
-  margin: 2rem auto 0 auto;
+mat-form-field {
+  max-width: 100%;
+  width: 100%;
+}
 
-  & button { width: 100% }
+textarea {
+  resize: none !important;
+  height: 85px;
+}
+
+.intro {
+  @media(min-width: 550px) {
+    padding-top: .5rem;
+    & p { padding-right: 1rem }
+  }
+}
+
+button {
+  width: 100%;
+  margin: 1rem auto 0 auto;
+  @media(max-width: 992px) and (min-width: 550px) {
+    width: 50%;
+    margin: 1rem 0 0 auto;
+    display: block;
+  }
 }
 
 h4 {
   font-size: 1.2rem;
   margin-top: 1.2rem;
+  color: var(--new-color);
  }
 
 .social {
-  @media(min-width: 992px) {
-    margin-left: 12%;
-  }
-
+  margin-top: 2rem;
   & i {
     font-size: 2rem;
     margin-left: .83332rem;
+  }
+
+  @media(max-width: 550px) {
+    ul {
+      display: flex;
+      justify-content: flex-start;
+
+      & li {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+      }
+    }
+
+    & i {
+      margin-left: .3rem;
+      margin-bottom: .3rem;
+    }
   }
 }
 
 .fa-github-square { color: black }
 .fa-linkedin { color: var(--react-color) }
+
+.fa-twitter {
+  color: #0176a2;
+  position: relative;
+  top: 1px;
+}
+
+.fa-youtube-play {
+  color: var(--angular-color);
+  position: relative;
+  top: 1px;
+}
+

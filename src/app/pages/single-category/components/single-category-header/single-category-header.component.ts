@@ -10,6 +10,7 @@ import { Category } from '@shared/interfaces/interfaces';
 export class SingleCategoryHeaderComponent {
 
   @Input() category: Category;
+  bgTop = ['Angular', 'Nodejs', 'Javascript', 'Deno'];
 
   constructor() { }
 

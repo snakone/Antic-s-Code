@@ -1,20 +1,22 @@
 <div class="animated fadeIn">
   <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
-    <mat-form-field color="accent">  <!-- EMAIL -->
+    <mat-form-field color="accent" appearance="outline">  <!-- EMAIL -->
+      <mat-label>{{'EMAIL' | translate}}</mat-label>
       <input matInput
-             [placeholder]="'email' | translate"
-             formControlName="email">
+             formControlName="email"
+             autocomplete="off">
     </mat-form-field>
-    <mat-form-field color="accent">  <!-- PASSWORD -->
+    <mat-form-field color="accent" appearance="outline">  <!-- PASSWORD -->
+      <mat-label>{{'PASSWORD' | translate}}</mat-label>
       <input matInput
-              [placeholder]="'password' | translate"
-              formControlName="password"
-              type="password">
+             formControlName="password"
+             type="password"
+             autocomplete="off">
     </mat-form-field>
 
     <mat-checkbox [(ngModel)]="remember"
                   [ngModelOptions]="{standalone: true}">
-                  {{'remember' | translate}}
+                  {{'REMEMBER' | translate}}
     </mat-checkbox>
 
     <button type="submit"
@@ -22,14 +24,14 @@
             aria-label="Sign In"
             [disabled]="signInForm.invalid"
             mat-button>
-      {{'sign.in' | translate}}
+      {{'SIGN.IN' | translate}}
     </button>
 
     <app-google-in></app-google-in>
 
-    <p>{{'no.account' | translate}}
+    <p>{{'NO.ACCOUNT' | translate}}
       <span class="bold" (click)="signUp()">
-        {{'register.now' | translate}}
+        {{'REGISTER.NOW' | translate}}
       </span>
     </p>
   </form>

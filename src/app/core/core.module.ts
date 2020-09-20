@@ -21,18 +21,25 @@ import { DISQUS_SHORTNAME } from 'ngx-disqus';
 
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { ArticleEffects } from './ngrx/effects/article.effects';
-import { CategoryEffects } from './ngrx/effects/category.effects';
-import { UserEffects } from './ngrx/effects/user.effects';
-import { SearchEffects } from './ngrx/effects/search.effects';
-import { InteractionEffects } from './ngrx/effects/interaction.effects';
-import { reducers } from './ngrx/reducers/reducers.index';
+import { ArticleEffects } from './ngrx/articles/article.effects';
+import { UserEffects } from './ngrx/users/user.effects';
+import { SearchEffects } from './ngrx/search/search.effects';
+import { reducers } from './ngrx/ngrx.index';
 
 import { ToastrModule } from 'ngx-toastr';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { NgMarkdownModule } from './markdown/markdown.module';
 import { DeviceDetectorModule } from 'ngx-device-detector';
+import { SocketsModule } from './sockets/sockets.module';
+
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+
+const Material = [
+  MatSnackBarModule,
+  MatBottomSheetModule
+];
 
 @NgModule({
   imports: [
@@ -40,16 +47,15 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
     StorageModule,
     LoadingBarModule,
     NgMarkdownModule,
+    SocketsModule,
     LoadingBarHttpClientModule,
     DeviceDetectorModule.forRoot(),
     NgxWebstorageModule.forRoot(CORE_MODULE_CONSTANTS.WEBSTORAGE_CONFIG),
     StoreModule.forFeature('AppState', reducers),
     EffectsModule.forRoot([
       ArticleEffects,
-      CategoryEffects,
       UserEffects,
-      SearchEffects,
-      InteractionEffects
+      SearchEffects
     ]),
     LanguageModule.forRoot(),
     TranslateModule.forRoot({
@@ -59,7 +65,8 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
         deps: [HttpClient]
       }
     }),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ...Material
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

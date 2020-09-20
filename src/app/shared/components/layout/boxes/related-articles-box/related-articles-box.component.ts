@@ -1,14 +1,12 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { ArticlesFacade } from '@store/articles/article.facade';
+import { SearchFacade } from '@store/search/search.facade';
+
 import { Category, Article } from '@shared/interfaces/interfaces';
 import { takeUntil, filter } from 'rxjs/operators';
 import { Subject, Observable } from 'rxjs';
-import { Store } from '@ngrx/store';
-import { AppState } from '@app/app.config';
-import { Router } from '@angular/router';
-
-import * as SearchActions from '@core/ngrx/actions/search.actions';
-import * as fromArticles from '@core/ngrx/selectors/article.selectors';
-import * as ArticleActions from '@core/ngrx/actions/article.actions';
 
 @Component({
   selector: 'app-related-articles-box',
@@ -23,44 +21,34 @@ export class RelatedArticlesBoxComponent implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject<void>();
 
   constructor(
-    private store: Store<AppState>,
+    private articleFacade: ArticlesFacade,
+    private searchFacade: SearchFacade,
     private router: Router
   ) { }
 
   ngOnInit() {
     this.checkData();
-    this.articles$ = this.store.select(fromArticles.getByCategory);
+    this.articles$ = this.articleFacade.byCategory$;
   }
 
   private checkData(): void {
-    this.store.select(fromArticles.getByCategoryLoaded)
+    this.articleFacade.byCategoryLoaded$
      .pipe(
-       filter(res => !res),
+       filter(res => !res && !!this.category),
        takeUntil(this.unsubscribe$)
       )
-      .subscribe(_ => {
-         this.store.dispatch(
-           ArticleActions.getByCategory(
-             {category: this.category.category}
-          )
-        );
-    });
+      .subscribe(_ => this.articleFacade.getByCategory(this.category.category));
   }
 
   public seeMore(): void {
-    this.store.dispatch(SearchActions
-      .searchContent({
-        request: {
-          value: this.category.category
-        }
-      }));
+    this.searchFacade.search({value: this.category.category});
     this.router.navigateByUrl('/search');
   }
 
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
-    this.store.dispatch(ArticleActions.resetByCategory());
+    this.articleFacade.resetByCategory();
   }
 
 }

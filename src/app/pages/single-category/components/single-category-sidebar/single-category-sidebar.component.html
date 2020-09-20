@@ -1,18 +1,16 @@
-<div *onlyDesktop>
-  <app-single-category-info-box [category]="category">
-  </app-single-category-info-box>
-  <button mat-button
-          class="btn-pink"
-          aria-label="Name">{{'favorite' | translate}}
-  </button>
-</div>
-<app-articles-sidebar></app-articles-sidebar>
+<app-single-category-info-box *onlyDesktop
+                              [category]="category">
+</app-single-category-info-box>
 
 <app-sticky-box selector="category-section"
                 [empty]="true"
                 *ngIf="category">
-  <app-related-articles-box [category]="category"></app-related-articles-box>
+  <app-related-articles-box [category]="category">
+  </app-related-articles-box>
 </app-sticky-box>
+
+
+
 
 
 

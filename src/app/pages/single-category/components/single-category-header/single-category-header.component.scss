@@ -10,19 +10,6 @@
   }
 }
 
-.col-lg-8 {
-  max-width: 100%;
-  @media(max-width: 992px) {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  @media(max-width: 550px) {
-   padding-right: 0;
-   padding-left: 0;
-  }
-}
-
 .header-bg {
   position: absolute;
   height: calc(var(--category-header-height) + var(--navbar-height));
@@ -41,6 +28,7 @@
 .bg-top {
   background-position: top !important;
   background-size: 100% 150% !important;
+  @media(max-width: 550px) { background-size: cover !important }
 }
 
 .category {

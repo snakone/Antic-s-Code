@@ -1,11 +1,9 @@
-<div class="links">
-  <ng-container *ngIf="links?.length > 0">
-    <app-content-box [title]="'related.links' | translate">
-      <ul>
-        <li *ngFor="let l of links">
-          <a [href]="l.url" target="NEW">{{l.name}}</a>
-        </li>
-      </ul>
-    </app-content-box>
-  </ng-container>
-</div>
+<ng-container *ngIf="links?.length > 0">
+  <h2>{{'RELATED.LINKS' | translate}}</h2>
+    <ul>
+      <li *ngFor="let l of links">
+        <a [href]="l.url" target="NEW">{{l.name}}</a>
+      </li>
+    </ul>
+</ng-container>
+

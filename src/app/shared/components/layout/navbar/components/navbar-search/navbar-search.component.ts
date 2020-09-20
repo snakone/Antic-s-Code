@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { MAIN_CATEGORIES } from '@shared/shared.data';
-import { Store } from '@ngrx/store';
-import { AppState } from '@app/app.config';
 import { Router } from '@angular/router';
-import * as SearchActions from '@core/ngrx/actions/search.actions';
+
+import { SearchFacade } from '@store/search/search.facade';
+import { MAIN_CATEGORIES } from '@shared/data/categories';
 
 @Component({
   selector: 'app-navbar-search',
@@ -18,17 +17,14 @@ export class NavBarSearchComponent {
   value: string;
 
   constructor(
-    private store: Store<AppState>,
+    private searchFacade: SearchFacade,
     private router: Router
   ) { }
 
   public focusOut(): void {
     this.focused = false;
     if (!this.value) { return; }
-    this.store.dispatch(SearchActions
-      .searchContent(
-        { request: { value: this.value } }
-    ));
+    this.searchFacade.search({value: this.value});
     this.router.navigateByUrl('/search');
   }
 

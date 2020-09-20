@@ -1,0 +1,28 @@
+<app-section input="#f5f7fc"
+             title="ALL.NEWS"
+             description="PREVIEW.NEWS">  <!-- NEWS PREVIEW -->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="news-card"
+            *ngFor="let n of news">
+            <img [src]="n.image" alt="News Image"/>
+            <div class="news-card-category">
+              <span>
+                <img [src]="(n.category | logo) | image: 'logos'"
+                    [alt]="n.category"
+                    loading="lazy"
+                    class="logo"/>
+                {{n.category}}
+              </span>
+            </div>
+            <div class="news-card-content">
+              <h4>{{n.title}}</h4>
+              <app-content-maker [template]="n.preview"
+                                  args="notice">
+              </app-content-maker>
+              <span>{{'READ.MORE' | translate}}</span>
+            </div>
+      </div>
+    </div>
+  </div>
+</app-section>

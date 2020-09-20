@@ -11,9 +11,9 @@ li {
   align-items: center;
   outline: none;
   cursor: pointer;
+
   &:last-child { margin-bottom: 0 }
   & mat-icon { margin-right: 10px }
-  &:hover span { color: var(--primary-color) }
 
   & img {
     border-radius: 25%;
@@ -23,6 +23,8 @@ li {
     width: 24px;
   }
 
-  &:hover img { filter: brightness(1.1) }
-
+  &:hover {
+    & span { color: var(--primary-color) }
+    & img { filter: brightness(1.1) }
+  }
 }

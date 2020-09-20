@@ -2,11 +2,14 @@
   &-content {
     background: var(--light-color);
     margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   }
 
   & figure {
     margin: 0;
     position: relative;
+    outline: none;
 
     & img {
       width: 100%;
@@ -15,6 +18,9 @@
       outline: none;
       -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
+      border-bottom: 1px solid var(--new-color-border);
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
 
       &:hover {
         cursor: pointer;
@@ -24,19 +30,17 @@
   }
 
   &-info {
-    border: 1px solid var(--section-border-color);
     width: 100%;
     position: relative;
-    left: -1px;
 
     &-content {
-      padding: 1.6rem 1.33333rem 1.06667rem;
+      padding: 1.5rem 1.33333rem 1.06667rem;
 
-      & h4 {
+      & h1 {
         font-weight: 700;
         line-height: 1.2;
         outline: none;
-        color: var(--title-color);
+        color: var(--new-color);
         margin: 0;
         font-size: 1.2rem;
         @media(max-width: 650px) and (min-width: 620px) { font-size: 1rem }
@@ -92,7 +96,7 @@
   }
 
   &-bottom {
-    border-top: 1px solid var(--section-border-color);
+    background-color: var(--new-color);
     display: flex;
     -ms-flex-align: center;
     align-items: center;
@@ -101,6 +105,8 @@
     -ms-flex-pack: justify;
     justify-content: space-between;
     padding: 1rem 1.233rem;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     @media(max-width: 550px) { padding: .8rem 1.233rem; }
 
     &-left img {
@@ -108,6 +114,8 @@
       display: inline-block;
       width: 24px;
     }
+
+    & span { color: var(--light-color) }
 
     &-right  {
       & ul {
@@ -126,7 +134,7 @@
         align-items: center;
         list-style: none;
         margin-left: 1.2rem;
-        color: var(--tag-color);
+        color: var(--light-color);
         cursor: pointer;
 
         & span {
@@ -136,7 +144,7 @@
 
         & mat-icon {
           font-size: 1.3rem;
-          color: #5c5f72;
+          color: var(--light-color);
           display: inline-block;
           margin-right: 3px;
           margin-top: 6px;
@@ -172,13 +180,19 @@
         width: 100%;
         height: 100%;
         object-fit: none;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 10px;
       }
      }
     & .card-info {
       flex: 2;
      }
+
+    & .card-bottom {
+      border-bottom-left-radius: 0;
+    }
   }
 }
 
-.title h4 { font-size: 1.1rem }
+.title h1 { font-size: 1.1rem }
 

@@ -1,2 +1,2 @@
 User-Agent: *
-Allow: ./index.html
+Allow: /index.html

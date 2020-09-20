@@ -1,9 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Store } from '@ngrx/store';
-import { AppState } from '@app/app.config';
-import * as fromSearch from '@core/ngrx/selectors/search.selectors';
-import * as SearchActions from '@core/ngrx/actions/search.actions';
+
+import { SearchFacade } from '@store/search/search.facade';
 
 @Component({
   selector: 'app-search-sort-bar',
@@ -17,10 +15,10 @@ export class SearchSortBarComponent implements OnInit {
   count$: Observable<number>;
   active = true;
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private searchFacade: SearchFacade) { }
 
   ngOnInit() {
-    this.count$ = this.store.select(fromSearch.getCount);
+    this.count$ = this.searchFacade.count$;
   }
 
   sort(): void {
@@ -29,9 +27,7 @@ export class SearchSortBarComponent implements OnInit {
   }
 
   reset(): void {
-    this.store.dispatch(
-      SearchActions.searchContent({request: {value: ''} })
-    );
+    this.searchFacade.reset();
   }
 
 }

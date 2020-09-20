@@ -39,7 +39,6 @@
     & img {
       border-radius: 25%;
       display: inline-block;
-      padding: 4px;
       margin-right: 1rem;
       margin-bottom: 1.5rem;
       width: 24px;
@@ -59,7 +58,7 @@
 
     & .views {
       font-size: 1.3rem;
-      color: #5c5f72;
+      color: var(--p-color);
       display: inline-block;
       margin-right: 3px;
       margin-top: 6px;
@@ -111,8 +110,6 @@
   }
 
   .article-info {
-    margin-left: .3rem;
-
     & span {
       margin-right: 1.5rem;
     }
@@ -120,3 +117,12 @@
 }
 
 p { margin: 0 }
+
+.user-articles {
+  position: relative;
+
+  & span {
+    position: absolute;
+    top: -5rem;
+  }
+}

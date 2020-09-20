@@ -1,40 +1,41 @@
 <div class="sign-up-wrapper animated fadeIn">
   <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-    <mat-form-field color="accent">  <!-- NAME -->
+    <mat-form-field color="accent" appearance="outline">  <!-- NAME -->
+      <mat-label>{{'NAME' | translate}}</mat-label>
       <input matInput
-             [placeholder]="'name' | translate"
-             formControlName="name">
-      <mat-hint align="end">3-20 {{'chars' | translate}}</mat-hint>
+             formControlName="name"
+             autocomplete="off">
     </mat-form-field>
-    <mat-form-field color="accent">  <!-- EMAIL -->
+    <mat-form-field color="accent" appearance="outline">  <!-- EMAIL -->
+      <mat-label>{{'EMAIL' | translate}}</mat-label>
       <input matInput
-             [placeholder]="'email' | translate"
-             formControlName="email">
-      <mat-hint align="end">5-35 {{'chars' | translate}}</mat-hint>
+             formControlName="email"
+             autocomplete="off">
     </mat-form-field>
-    <mat-form-field color="accent">  <!-- PASSWORD -->
+    <mat-form-field color="accent" appearance="outline">  <!-- PASSWORD -->
+      <mat-label>{{'PASSWORD' | translate}}</mat-label>
       <input matInput
-             [placeholder]="'password' | translate"
              formControlName="password"
              type="password"
-             [ngClass]="{'valid': !matchError}">
-      <mat-hint align="end">5-25 {{'chars' | translate}}</mat-hint>
+             [ngClass]="{'valid': !matchError}"
+             autocomplete="off">
     </mat-form-field>
-    <mat-form-field color="accent">  <!-- REPEAT -->
+    <mat-form-field color="accent" appearance="outline">  <!-- REPEAT -->
+      <mat-label>{{'REPEAT.PASSWORD' | translate}}</mat-label>
       <input matInput
-             [placeholder]="'repeat.password' | translate"
              formControlName="password2"
              type="password"
-             [ngClass]="matchError === true ? 'invalid' : 'valid'">
+             [ngClass]="matchError === true ? 'invalid' : 'valid'"
+             autocomplete="off">
     </mat-form-field>
 
     <div class="check">
       <mat-checkbox [(ngModel)]="conditions"
                     [ngModelOptions]="{standalone: true}">
-            {{'i.accept' | translate}}
+            {{'I.ACCEPT' | translate}}
       </mat-checkbox>
       <span (click)="openConditions()"
-            class="bold"> {{'terms.use' | translate}}
+            class="bold"> {{'TERMS.USE' | translate}}
       </span>
     </div>
 
@@ -43,7 +44,7 @@
             aria-label="Register"
             [disabled]="signUpForm.invalid || !conditions"
             mat-button>
-      {{'register' | translate}}
+      {{'REGISTER' | translate}}
     </button>
   </form>
 </div>

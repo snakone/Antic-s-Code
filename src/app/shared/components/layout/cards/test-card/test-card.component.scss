@@ -1,0 +1,157 @@
+.course {
+  background: var(--light-color);
+	border-radius: 10px;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+	display: flex;
+	max-width: 100%;
+	margin: 1.666rem auto;
+	overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.course h6 {
+	opacity: .8;
+  margin: 0;
+  font-size: .9rem;
+	letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.course img {
+  width: 20px;
+  position: relative;
+  left: -8px;
+  top: 2px;
+}
+
+.course h2 {
+	letter-spacing: 1px;
+	margin: 12px 0;
+}
+
+.course p {
+  margin: 0;
+  color: black;
+  @media(max-width: 350px) { font-size: .8rem !important }
+}
+
+.course-info h6 {
+  margin-bottom: 12px;
+}
+
+.course-preview {
+  // #2A265F
+	background-color: var(--new-color);
+	color: #fff;
+	padding: 30px;
+  width: 190px;
+  min-height: 144px;
+}
+
+.course-preview a {
+  color: #fff;
+  position: absolute;
+  bottom: 33px;
+	display: inline-block;
+	font-size: 12px;
+	opacity: 0.6;
+  text-decoration: none;
+  cursor: pointer;
+
+  & i {
+    position: relative;
+    left: 3px;
+    top: 1px;
+    transition: all .1s ease-in;
+  }
+
+  &:hover {
+    & i {
+      color: var(--primary-color);
+      transform: translateX(3px);
+    }
+  }
+}
+
+.course-info {
+	padding: 30px;
+	position: relative;
+  width: 100%;
+
+  & p {
+    opacity: .8;
+    position: relative;
+  }
+
+  & mat-icon {
+    color: var(--success-color);
+    position: absolute;
+    top: -2px;
+    margin-left: .8rem;
+  }
+}
+
+.progress-container {
+  position: absolute;
+  bottom: 13px;
+	width: 270px;
+}
+
+.progress {
+	background-color: #ddd;
+	border-radius: 3px;
+	height: 7px;
+  width: 100%;
+  position: relative;
+
+  &-bar {
+    border-radius: 3px;
+    background-color: var(--secondary-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 7px;
+  }
+}
+
+.progress-text {
+	font-size: .8rem !important;
+	opacity: 0.7;
+  letter-spacing: 1px;
+}
+
+.btn {
+	background-color: var(--primary-color);
+	border: 0;
+	border-radius: 8px;
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+	color: #fff;
+	font-size: 16px;
+	position: absolute;
+	bottom: 30px;
+	right: 30px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  outline: none;
+}
+
+@media(max-width: 700px) {
+  .progress-container {
+    width: 60%;
+  }
+}
+
+@media(max-width: 550px) {
+  .course-preview, .course-info {
+    padding: 20px;
+  }
+
+  .course-preview img { left: -6px }
+  .course h6 { font-size: .8rem }
+  .course-preview h6 { left: 2px; top: -2px }
+  .btn { display: none }
+  .course-preview a { bottom: 27px }
+  .progress-container { bottom: 10px }
+}

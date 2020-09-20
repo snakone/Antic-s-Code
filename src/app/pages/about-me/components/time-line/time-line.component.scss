@@ -4,11 +4,23 @@
 
 .timeline {
   position: relative;
-  margin: 2rem auto 5rem;
+  margin: 2rem auto 6rem;
+  @media(max-width: 550px) { margin-bottom: 5rem }
 
   & h2 {
     font-size: 1.5rem;
     margin-top: 0;
+  }
+}
+
+.skip {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  &-text {
+    color: var(--tag-color);
+    cursor: pointer;
   }
 }
 
@@ -35,6 +47,7 @@
 /* The circles on the timeline */
 .container::after {
   content: '';
+  display: flex;
   position: absolute;
   width: 25px;
   height: 25px;
@@ -132,4 +145,9 @@
   .content {
     padding: 20px 20px;
   }
+}
+
+.skip-line {
+  position: absolute;
+  margin-top: -1.2rem;
 }

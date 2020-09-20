@@ -25,7 +25,7 @@
 
 .btn-blue {
   @include button-animated(
-    var(--title-color),
+    var(--new-color),
     #2a2f50,
     #585b6b
   );
@@ -45,4 +45,16 @@
     #8d060f,
     #f14223
   )
+}
+
+.btn-normal-danger {
+  @include button-color(#860e0e);
+}
+
+.btn-normal-grey {
+  @include button-color(#3b3b3b);
+}
+
+.btn-normal-blue {
+  @include button-color(var(--new-color));
 }

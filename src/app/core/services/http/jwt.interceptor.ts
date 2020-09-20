@@ -1,12 +1,3 @@
-import { Injectable } from '@angular/core';
-import { AppState } from '@app/app.config';
-import { Store } from '@ngrx/store';
-import * as UserActions from '@core/ngrx/actions/user.actions';
-import { Observable, throwError } from 'rxjs';
-import { tap } from 'rxjs/operators';
-import { StorageService } from '../../storage/storage.service';
-import { ErrorService } from '../error/error.service';
-
 import {
   HttpRequest,
   HttpHandler,
@@ -15,12 +6,19 @@ import {
   HttpErrorResponse,
 } from '@angular/common/http';
 
+import { Injectable } from '@angular/core';
+import { Observable, throwError } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { StorageService } from '../../storage/storage.service';
+import { ErrorService } from '../error/error.service';
+import { UsersFacade } from '../../ngrx/users/users.facade';
+
 @Injectable({providedIn: 'root'})
 
 export class JwtInterceptor implements HttpInterceptor {
 
   constructor(
-    private store: Store<AppState>,
+    private userFacade: UsersFacade,
     private ls: StorageService,
     private errorSrv: ErrorService
   ) { }
@@ -35,7 +33,7 @@ export class JwtInterceptor implements HttpInterceptor {
         if (error.status === 401) {
           const id = this.ls.get('user');
           if (!id) { return throwError(error); }
-          this.store.dispatch(UserActions.refreshToken({id}));
+          this.userFacade.refreshToken(id);
       } else { return throwError(error); }
     })));
   }

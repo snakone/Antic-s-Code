@@ -1,13 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subject, Observable } from 'rxjs';
-import { User } from '@shared/interfaces/interfaces';
-import { AppState } from '@app/app.config';
-import { Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
-import { takeUntil } from 'rxjs/operators';
 
-import * as fromUsers from '@core/ngrx/selectors/user.selectors';
-import * as UserActions from '@core/ngrx/actions/user.actions';
+import { Subject, Observable } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { User } from '@shared/interfaces/interfaces';
+
+import { UsersFacade } from '@store/users/users.facade';
 
 @Component({
   selector: 'app-public-profile',
@@ -21,29 +19,25 @@ export class PublicProfileComponent implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject<void>();
 
   constructor(
-    private store: Store<AppState>,
+    private userFacade: UsersFacade,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.user$ = this.store.select(fromUsers.getByName);
+    this.user$ = this.userFacade.byName$;
     this.getUserByName();
   }
 
   private getUserByName(): void {
     this.route.params
      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(params => {
-        this.store.dispatch(
-          UserActions.getByName({ name: params.name })
-        );
-    });
+      .subscribe(params => this.userFacade.getByName(params.name));
   }
 
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
-    this.store.dispatch(UserActions.resetUserName());
+    this.userFacade.resetByName();
   }
 
 }

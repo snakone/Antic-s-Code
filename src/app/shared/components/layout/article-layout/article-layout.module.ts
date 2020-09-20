@@ -9,6 +9,12 @@ import { ArticleReactionsComponent } from './article-reactions/article-reactions
 import { ArticleCardSkeletonComponent } from './article-card-skeleton/article-card-skeleton.component';
 import { SnippetsModule } from '../../snippets/snippets.module';
 
+import { MatIconModule } from '@angular/material/icon';
+
+const Material = [
+  MatIconModule
+];
+
 @NgModule({
   declarations: [
     ArticleCardComponent,
@@ -20,7 +26,8 @@ import { SnippetsModule } from '../../snippets/snippets.module';
     CommonModule,
     SharedModule,
     RouterModule,
-    SnippetsModule
+    SnippetsModule,
+    ...Material
   ],
   exports: [
     ArticleCardComponent,

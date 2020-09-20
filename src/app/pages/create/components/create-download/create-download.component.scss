@@ -1,15 +1,19 @@
 * { box-sizing: border-box }
 
 .row {
-  margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
- }
+}
+
+h3 { margin-top: 0 }
+
+.m-top {
+  margin-top: 4rem;
+  @media(max-width: 991px) { margin-top: 3rem }
+}
 
 .col-lg-6 {
   max-width: 576px;
-
   @media(max-width: 550px) {
     padding-right: 15px;
     padding-left: 15px;
@@ -25,58 +29,31 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
-  padding-right: 0 !important;
+  padding-right: 3rem;
 
   @media(max-width: 991px) {
-    justify-content: center;
-  }
-
-  @media(max-width: 550px) {
-    flex-direction: column;
-    align-items: center;
-    margin-top: 1.666rem;
-    padding-right: 15px !important;
-
-
-    & button {
-      margin: .3rem auto !important;
-
-    }
+    justify-content: flex-start;
   }
 
   & button {
-    width: 9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    padding: 0 1.5rem 0 3rem;
-    margin: 1.4rem .666rem;
+    padding: .3rem .6rem;
+    margin: 1.4rem .666rem 1.4rem 0;
     border: 1px solid rgba(0, 0, 0, .3);
     font-weight: bold;
     cursor: pointer;
 
     & img {
-      position: absolute;
-      left: 10px;
-      top: 6px;
       width: 25px;
+      display: block;
     }
 
     & .default {
       text-decoration: none !important;
       color: initial !important;
-    }
-
-    &.windows {
-      background: #085bb9;
-      color: white;
-    }
-
-    &.mac {
-      background: #49464675;
-      color: white;
-    }
-
-    &.linux {
-      background: #eed8158a;
     }
 
     &:hover img {

@@ -410,6 +410,23 @@
     width: 8.33333333%;
   }
 }
+
+
+
+@media(max-width: 992px) {
+  .col-lg-8, .col-lg-4 {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media(max-width: 550px) {
+  .col-lg-12, .col-lg-8, .col-lg-6, .col-lg-4, .col-sm-6 {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
 .media {
   margin-top: 15px;
 }
@@ -492,13 +509,13 @@
 .container:before,
 .row:after,
 .row:before {
-  display: table;
   content: " ";
 }
 .clearfix:after,
 .container-fluid:after,
 .container:after,
 .row:after {
+  display: table;
   clear: both;
 }
 .center-block {

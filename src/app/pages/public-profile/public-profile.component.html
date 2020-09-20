@@ -1,6 +1,6 @@
 <ng-container *ngIf="(user$ | async) as user; else noUser">
   <app-page-header [title]="user.name"
-                   [subTitle]="'public.profile' | translate">
+                   [subTitle]="'PUBLIC.PROFILE' | translate">
   </app-page-header>
   <app-section input="#f5f7fc">
     <div class="row">
@@ -10,27 +10,27 @@
         <app-user-articles-box [user]="user"></app-user-articles-box>
       </div>
       <div class="col-lg-4 col-md-4">   <!-- SIDEBAR -->
-        <app-content-box [title]="'loved.lang' | translate">
-          <button mat-button class="btn-orange" aria-label="Favorite Language">
-            {{user.profile?.language || 'not.defined' | translate}}
-          </button>
-        </app-content-box>
-        <app-articles-sidebar></app-articles-sidebar>
+        <app-articles-sidebar [block]="true"
+                              *onlyDesktop>
+        </app-articles-sidebar>
       </div>
     </div>
   </app-section>
 </ng-container>
 
 <ng-template #noUser>
-  <app-page-header title="Usuario">
+  <app-page-header title="USER"
+                   [subTitle]="'PUBLIC.PROFILE' | translate">
   </app-page-header>
   <app-section input="#f5f7fc">
     <div class="row">
       <div class="col-lg-8 col-md-8">
-        <!-- To do -->
+        <app-profile-info-box></app-profile-info-box>
       </div>
       <div class="col-lg-4 col-md-4">
-        <!-- To do -->
+        <app-articles-sidebar [block]="true"
+                              *onlyDesktop>
+        </app-articles-sidebar>
       </div>
     </div>
   </app-section>

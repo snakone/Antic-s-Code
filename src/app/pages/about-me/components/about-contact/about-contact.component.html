@@ -1,38 +1,51 @@
+<div class="about-me">
+  <h3 id="contact-title" [innerHTML]="'IN.TOUCH' | translate"></h3> <!-- CONTACT -->
+  <p>{{'LETS.TALK' | translate}}</p>
+</div>
 <div class="row">
   <div class="col-lg-6 col-md-6 intro">
-    <p>¿Te gusta lo que ves? ¿Crees que puedo serte útil en algún proyecto? He creado este sitio con pasión
-    y es sólo un ejemplo de lo que puedo hacer. Aunque mi especialidad es
-    <span class="angular">Angular</span>/<span class="ionic">Ionic</span>,
-    estoy abierto a todo tipo de tecnologías relacionadas con el desarrollo web moderno.<br>
-    Si estás interesado, puedes enviarme un mensaje y contarme tu historia y por qué quieres que esté en ella,
-    seguramente llegaremos a un acuerdo.<br></p>
-  </div>
-  <div class="col-lg-6 col-md-6">
+    <p [innerHTML]="'ME.LIKE' | translate"></p>
     <div class="social">
-      <h4>Redes Sociales</h4>
+      <h4>{{'SOCIAL.MEDIA' | translate}}</h4>
       <ul>
-        <li>
-          <a href="https://www.linkedin.com/in/sergio-martinez-9b933a13a/" target="NEW">
-            Linkedin
+        <li *ngFor="let s of mySocial">
+          <a [href]="s.link" target="NEW">
+            {{s.name}}
           </a>
-          <a class="default" href="https://www.linkedin.com/in/sergio-martinez-9b933a13a/" target="NEW">
-            <i class="fa fa-linkedin"></i>
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/snakone" target="NEW">
-            Github
-          </a>
-          <a class="default" href="https://github.com/snakone" target="NEW">
-            <i class="fa fa-github-square"></i>
+          <a class="default" [href]="s.link" target="NEW">
+            <i [class]="s.icon"></i>
           </a>
         </li>
       </ul>
-      <div class="input">
-        <a href="mailto:sergio.martinez87.web@gmail.com">
-            <button mat-button class="btn-pink">Enviar Mensaje</button>
-        </a>
-      </div>
     </div>
+  </div>
+  <div class="col-lg-6 col-md-6">
+    <form [formGroup]="contactForm" #f="ngForm">
+      <mat-form-field color="accent" appearance="outline">  <!-- NAME -->
+        <mat-label>{{'NAME' | translate}}</mat-label>
+        <input matInput
+               formControlName="name"
+               autocomplete="off">
+      </mat-form-field>
+      <mat-form-field color="accent" appearance="outline">  <!-- EMAIL -->
+        <mat-label>{{'EMAIL' | translate}}</mat-label>
+        <input matInput
+               formControlName="email"
+               autocomplete="off">
+      </mat-form-field>
+      <mat-form-field color="accent" appearance="outline">  <!-- MESSAGE -->
+        <mat-label>{{'MESSAGE' | translate}}</mat-label>
+        <textarea matInput
+                  formControlName="text"
+                  autocomplete="off">
+        </textarea>
+      </mat-form-field>
+      <button mat-button
+              [disabled]="contactForm.invalid"
+              class="btn-pink"
+              (click)="onSubmit()"
+              type="submit">{{'SEND.MESSAGE' | translate}}
+      </button>
+    </form>
   </div>
 </div>

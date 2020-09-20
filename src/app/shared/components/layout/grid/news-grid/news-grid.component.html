@@ -1,0 +1,10 @@
+<div class="news-grid">
+  <div [ngClass]="{'first': f}"
+       class="news-grid-card-wrapper"
+       [style.background-image]="'url('+ n.image +')' | sanitizer: 'style'"
+       *ngFor="let n of news; let f = first">
+    <app-news-grid-card [first]="f"
+                        [new]="n"
+    ></app-news-grid-card>
+</div>
+</div>

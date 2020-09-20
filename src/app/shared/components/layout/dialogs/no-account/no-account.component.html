@@ -1,23 +1,33 @@
-<mat-dialog-content>
+<mat-dialog-content class="antics-dialog">
   <div *ngIf="data.type === 'like'">
-    <h3>Crea una cuenta para interactuar</h3>
-    <p>Los likes ayudan a que {{data.author}} escriba más artículos.</p>
+    <h4>
+      <mat-icon [style.color]="'blue'">info</mat-icon>
+      {{'CREATE.ACCOUNT' | translate}}
+    </h4>
+    <p [innerHTML]="'DATA.HELPS.LIKES' |
+                     translate: {author: data.author}">
+    </p>
   </div>
 
   <div *ngIf="data.type === 'star'">
-    <h3>Crea una cuenta para interactuar</h3>
-    <p>Las estrellas ayudan a que {{data.author}} sea más respetado/a.</p>
+    <h4>
+      <mat-icon [style.color]="'blue'">info</mat-icon>
+      {{'CREATE.ACCOUNT' | translate}}
+    </h4>
+    <p [innerHTML]="'DATA.HELPS.STARS' |
+                     translate: {author: data.author}">
+    </p>
   </div>
 
   <button mat-button
           class="btn-pink"
           (click)="openLogin(true)">
-    Regístrate
+    {{'REGISTER' | translate}}
   </button>
 
-  <p class="already">{{'with.account' | translate}}
+  <p class="already">{{'WITH.ACCOUNT' | translate}}
     <span class="bold" (click)="openLogin(false)">
-      {{'sign.in' | translate}}
+      {{'SIGN.IN' | translate}}
     </span>
   </p>
 </mat-dialog-content>

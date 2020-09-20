@@ -1,0 +1,12 @@
+<div class="news-card"
+     [ngClass]="{'first': first}">
+  <div class="news-card-info">
+    <span>{{new.title}}</span>
+    <p>
+      <img [src]="(new.category | logo) | image: 'logos'"
+           [alt]="new.category"
+           loading="lazy"/>
+          {{new.category}}
+    </p>
+  </div>
+</div>

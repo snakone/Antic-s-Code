@@ -1,12 +1,13 @@
 <div class="anchor" id="cat-faq"></div>
+
 <div class="faq" *ngIf="category?.faq.length > 0">
-  <h2>Preguntas y Respuestas</h2>
+  <h2>{{'FAQ' | translate}}</h2>
   <mat-accordion>
     <mat-expansion-panel class="mat-elevation-z0"
-                          *ngFor="let f of category.faq; let i = index"
-                          [expanded]="i === 0"
-                          (afterExpand)="resize()"
-                          (afterCollapse)="resize()">
+                         *ngFor="let f of category.faq; let i = index"
+                         [expanded]="i === 0"
+                         (afterExpand)="resize()"
+                         (afterCollapse)="resize()">
       <mat-expansion-panel-header>
         <mat-panel-description>
           {{f.question}}

@@ -1,11 +1,12 @@
 .content {
   &-box {
-    border: 1px solid var(--section-border-color);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
     background: var(--light-color);
     margin-bottom: 2rem;
+  	border-radius: 10px;
     &-no-border {
-      border: none;
       background: none;
+      box-shadow: none;
 
       & .content-box-body {
         padding-top: 0 !important;
@@ -19,20 +20,26 @@
       }
     }
 
+    &-no-margin { margin-bottom: 0 }
+
     &-header {
       padding: 1.1666rem 2rem;
-      border-bottom: 1px solid var(--section-border-color);
-      @media(max-width: 450px) { padding: 1rem 1.5rem }
+      background-color: var(--new-color);
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      @media(max-width: 550px) { padding: 1rem 1.2rem }
+      &-modal { border-top-right-radius: 0 }
 
     & h4 {
       margin-bottom: 0;
       margin-top: 0;
       font-weight: 700;
       line-height: 1.2;
-      color: var(--title-color);
+      color: var(--light-color);
 
       & mat-icon {
         margin-right: var(--small-padding);
+        color: var(--light-color);
         position: relative;
         top: 2px;
       }
@@ -40,17 +47,12 @@
     }
 
     &-title {
-      -webkit-box-pack: justify;
-      -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
       justify-content: space-between;
-      -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
       flex-wrap: wrap;
     }
 
     &-body {
-      padding: 1.5rem 2rem;
+      padding: 1.5rem 1.8rem;
       @media(max-width: 550px) { padding: 1.2rem }
     }
   }

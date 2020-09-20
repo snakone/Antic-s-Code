@@ -1,20 +1,43 @@
+<div class="create">
+  <h3>{{'DOWNLOAD' | translate}} Antic's Code <span>Desktop</span></h3>
+  <p>{{'CREATE.ANYTHING' | translate}}</p>
+</div>
 <div class="row">
   <div class="col-lg-6 col-md-6">
     <p>
-      ¿Te resulta interesante? ¿Quieres unirte a una comunidad de programadores?
-      ¡Descarga Antic's Code ya! Es totalmente gratuito.
-      Necesitarás una cuenta de Antic's Code para poder entrar.
+      {{'DESKTOP.INTRO' | translate}}
     </p>
-    <p>Versión actual: <strong>{{version}}</strong></p>
+    <p>{{'VERSION' | translate}} <strong>{{ desktopVersion }}</strong></p>
   </div>
-  <div class="col-lg-6 col-md-6 download">
-    <button *ngFor="let b of buttons"
-             [class]="b.class + ' mat-button'"
-             mat-button>
-          <a [href]="b.link" target="NEW" class="default">
-            <img [src]="b.icon | image:'buttons'" [alt]="b.platform"/>
-            {{b.platform}}
-          </a>
-    </button>
+  <div class="col-lg-6 col-md-6">
+    <div class="download">
+      <button *ngFor="let d of desktopButtons"
+              mat-button>
+            <a [href]="d.link" target="NEW" class="default">
+              <img [src]="d.icon | image:'buttons'" [alt]="d.platform"/>
+            </a>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="create">
+  <h3 class="m-top">{{'AND.NOW' | translate}} Antic's <span>Mobile</span></h3>
+  <p>{{'CREATE.ANYWHERE' | translate}}</p>
+</div>
+<div class="row">
+  <div class="col-lg-6 col-md-6">
+    <p [innerHTML]="'MOBILE.INTRO' | translate"></p>
+    <p>{{'VERSION' | translate}} <strong>{{ mobileVersion }}</strong></p>
+  </div>
+  <div class="col-lg-6 col-md-6">
+    <div class="download">
+      <button *ngFor="let m of mobileButtons"
+              mat-button>
+            <a [href]="m.link" target="NEW" class="default">
+              <img [src]="m.icon | image:'buttons'" [alt]="m.platform"/>
+            </a>
+      </button>
+    </div>
   </div>
 </div>

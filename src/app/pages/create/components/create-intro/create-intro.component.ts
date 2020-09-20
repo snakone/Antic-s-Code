@@ -1,4 +1,5 @@
 import { Component, } from '@angular/core';
+import { CREATE_STEPS } from '@shared/data/download';
 
 @Component({
   selector: 'app-create-intro',
@@ -7,6 +8,8 @@ import { Component, } from '@angular/core';
 })
 
 export class CreateIntroComponent {
+
+  steps = CREATE_STEPS;
 
   constructor() { }
 

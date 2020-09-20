@@ -3,6 +3,7 @@
     position: relative;
     margin-top: .5rem;
     margin-bottom: 1.3rem;
+    & p { margin-top: .3rem }
   }
 
   &-data {
@@ -32,7 +33,7 @@
     & ul {
       list-style: none;
       margin: 0;
-      margin-top: .6rem;
+      margin-top: 0;
       text-align: right;
       margin-right: .3rem;
      }
@@ -49,6 +50,20 @@
         margin-left: .9rem;
        }
      }
+
+     & .total {
+       margin-top: 1.5rem;
+       & mat-icon {
+         margin-left: 1rem;
+         &.likes { color: var(--primary-color) }
+         &.views { color: var(--p-color) }
+        }
+
+      @media(max-width: 550px) {
+        margin-top: .88rem;
+        & mat-icon { font-size: 23px }
+      }
+     }
   }
 
   &-bio { margin-bottom: 1rem }
@@ -62,4 +77,31 @@
 .not {
   color: var(--p-color) !important;
   font-weight: bold;
+}
+
+.skeleton {
+  & h3 {
+    width: 8rem;
+    background: var(--skeleton-color);
+    margin-top: 2rem;
+    margin-bottom: 0;
+    outline: none;
+    height: 2rem;
+    @media(max-width: 650px) { height: 1.66rem }
+    @media(max-width: 500px) { width: 90% }
+  }
+
+  & button {
+    width: 12rem;
+    margin-top: 1rem;
+    background: var(--skeleton-color-tint);
+    color: var(--skeleton-color-tint);
+  }
+
+  & p {
+    background: var(--skeleton-color-tint);
+    height: 1.3rem;
+    width: 10rem;
+    margin-top: 1.3rem;
+  }
 }

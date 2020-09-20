@@ -1,0 +1,81 @@
+.col-lg-6 {
+  box-sizing: border-box;
+
+  @media(max-width: 702px) {
+    width: 100%;
+    max-width: 100%;
+  }
+ }
+
+ img {
+   vertical-align: middle;
+   border-style: none;
+   width: 100%;
+ }
+
+ .flex-box {
+   align-items: flex-start;
+   justify-content: flex-start;
+ }
+
+ figure { margin: 0 0 1rem }
+ .overlay-bg:hover mat-icon { color: var(--tertiary-color) }
+
+ .fig-caption-card-title {
+   text-align: right;
+
+   & h3 {
+     position: absolute;
+     bottom: 1.5rem;
+     right: 1.5rem;
+     padding-left: 6.9rem;
+   }
+
+   & mat-icon {
+     top: 4.6px;
+     margin-right: .8rem;
+     left: 0;
+   }
+ }
+
+ p {
+   position: absolute;
+   top: 1rem;
+   right: 1.5rem;
+
+   & img {
+     border-radius: 25%;
+     display: inline-block;
+     padding: 4px;
+     width: 22px;
+     position: relative;
+     top: -2px;
+     left: 5px;
+   }
+ }
+
+ .fig-caption-skeleton-card span {
+   top: inherit;
+   left: inherit;
+   bottom: 1.6rem;
+   right: 1.6rem;
+ }
+
+ @media(max-width: 906px) {
+   .fig-caption-card-title h3 {
+     padding-left: 4rem;
+     font-size: 1rem;
+   }
+ }
+
+ @media(max-width: 550px) {
+   .row {
+     margin-right: 0;
+     margin-left: 0;
+   }
+
+   .fig-caption-card-title h3 {
+     padding-left: 3rem;
+   }
+ }
+

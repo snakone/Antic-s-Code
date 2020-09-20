@@ -1,27 +1,31 @@
-<mat-dialog-content>
-  <h3 mat-dialog-title>{{'delete.acc' | translate}}</h3>
+<mat-dialog-content class="antics-dialog">
+  <h4>
+    <mat-icon [style.color]="'red'">error</mat-icon>
+    {{'DELETE.ACC' | translate}}
+  </h4>
   <p>
     <span class="bold black">{{(user$ | async)?.name}}</span>,
-    <span [innerHTML]="'delete.account.p' | translate"></span>
+    <span [innerHTML]="'DELETE.ACCOUNT.P' | translate"></span>
   </p>
-  <p class="bold black">"{{'delete.sentence' | translate}}"</p>
-  <form [formGroup]="deleteAccountForm" (ngSubmit)="onSubmit()">
-    <mat-form-field color="accent">
-        <input matInput
-              [placeholder]="'put.sentence' | translate"
-              formControlName="delete">
+  <p class="bold black">"{{'DELETE.SENTENCE' | translate}}"</p>
+  <form [formGroup]="deleteForm" (ngSubmit)="onSubmit()">
+    <mat-form-field color="accent" appearance="outline">
+      <mat-label>{{'PUT.SENTENCE' | translate}}</mat-label>
+      <input matInput
+             formControlName="delete"
+             autocomplete="off">
     </mat-form-field>
 
     <mat-dialog-actions align="end">
       <button mat-button
               aria-label="Cancel"
-              mat-dialog-close>{{'cancel' | translate}}</button>
+              mat-dialog-close>{{'CANCEL' | translate}}</button>
       <button mat-button
               type="submit"
               class="btn-danger"
               aria-label="Accept"
-              [disabled]="deleteAccountForm.invalid">
-              {{'accept' | translate}}
+              [disabled]="deleteForm.invalid">
+              {{'ACCEPT' | translate}}
       </button>
     </mat-dialog-actions>
   </form>

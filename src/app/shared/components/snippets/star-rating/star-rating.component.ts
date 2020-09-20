@@ -1,14 +1,17 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { Article, User, Interaction, NotificationPayload } from '@shared/interfaces/interfaces';
+import { URI } from '@app/app.config';
+
+import { UserService } from '@core/services/user/user.service';
+import { CrafterService } from '@core/services/crafter/crafter.service';
+import { IntersService } from '@core/services/inters/inters.service';
+import { PushService } from '@core/services/push/push.service';
+
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { STAR_PUSH } from '@shared/data/notifications';
+import { Article, User, Interaction, NotificationPayload } from '@shared/interfaces/interfaces';
+
 import { NoAccountComponent } from '@layout/dialogs/no-account/no-account.component';
-import { UserService } from '@app/core/services/user/user.service';
-import { CrafterService } from '@core/services/crafter/crafter.service';
-import { InteractionService } from '@core/services/interaction/interaction.service';
-import { URI } from '@app/app.config';
-import { STAR_PUSH } from '@shared/shared.data';
-import { PushService } from '@core/services/push/push.service';
 
 @Component({
   selector: 'app-star-rating',
@@ -26,7 +29,7 @@ export class StarRatingComponent implements OnInit, OnDestroy {
   constructor(
     private userSrv: UserService,
     private crafter: CrafterService,
-    private intSrv: InteractionService,
+    private intersSrv: IntersService,
     private sw: PushService
   ) { }
 
@@ -50,13 +53,13 @@ export class StarRatingComponent implements OnInit, OnDestroy {
         value: star
       };
 
-      this.intSrv.make(int)
+      this.intersSrv.make(int)
         .pipe(takeUntil(this.unsubscribe$))
         .subscribe(_ => {
-            this.crafter.toaster('success', 'thanks.much', 'info');
+            this.crafter.toaster('SUCCESS', 'THANKS.MUCH', 'info');
             this.sw.sendNotification(
               this.setNotification(Object.assign({}, STAR_PUSH))
-            ).subscribe();
+            ).toPromise().then();
         });
     }
   }

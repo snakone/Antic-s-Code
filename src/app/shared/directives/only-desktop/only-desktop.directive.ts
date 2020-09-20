@@ -3,7 +3,9 @@ import {
   ViewContainerRef,
   AfterViewInit,
   OnDestroy,
-  TemplateRef
+  TemplateRef,
+  Output,
+  EventEmitter
 } from '@angular/core';
 
 import { fromEvent, Subject } from 'rxjs';
@@ -15,6 +17,7 @@ import { debounceTime, takeUntil, map, distinctUntilChanged } from 'rxjs/operato
 export class OnlyDesktopDirective implements AfterViewInit, OnDestroy {
 
   private unsubscribe$ = new Subject<void>();
+  @Output() orientation = new EventEmitter<string>();
 
   constructor(
     private viewRef: ViewContainerRef,
@@ -40,12 +43,13 @@ export class OnlyDesktopDirective implements AfterViewInit, OnDestroy {
   private showOrHide(desktop: boolean): void {
     this.viewRef.clear();
     if (desktop) {
+      this.orientation.emit('desktop');
       this.viewRef.createEmbeddedView(this.templateRef);
     }
   }
 
   private checkWidth(e: Window): boolean {
-    return e.innerWidth > 993 ? true : false
+    return e.innerWidth > 993 ? true : false;
   }
 
   ngOnDestroy(): void {

@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from '@app/shared/shared.module';
-import { LayoutModule } from '@app/shared/components/layout/layout.module';
+import { SharedModule } from '@shared/shared.module';
 
 import { ContactHomeComponent } from './contact-home.component';
 import { ContactHomeInputComponent } from './components/contact-home-input/contact-home-input.component';
+
+import { MatIconModule } from '@angular/material/icon';
+import { SectionModule } from '@layout/section/section.module';
+
+const Material = [
+  MatIconModule
+];
 
 @NgModule({
   declarations: [
@@ -14,7 +20,8 @@ import { ContactHomeInputComponent } from './components/contact-home-input/conta
   imports: [
     CommonModule,
     SharedModule,
-    LayoutModule
+    SectionModule,
+    ...Material
   ],
   exports: [
     ContactHomeComponent

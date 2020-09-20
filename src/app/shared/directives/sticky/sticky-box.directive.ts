@@ -19,6 +19,7 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
   @Input() empty: boolean;  // No Content Above the Box?
   private unsubscribe$ = new Subject<void>();
   height: number;
+  element = this.el.nativeElement;
 
   constructor(
     private el: ElementRef,
@@ -44,38 +45,36 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
   }
 
   private makeSticky(): void {
-    const el = this.el.nativeElement;
-    let height = el.offsetHeight;
-    if (!el || height === 0) { return; }
+    let height = this.element.offsetHeight;
+    if (!this.element || height === 0) { return; }
 
     const width = window.document.body.clientWidth;
-
     if (width < 985) {  // 992px - Scrollbar 8px
-      this.setAutoHeight(el);
+      this.setAutoHeight(this.element);
       return;
     }
 
     let div: number;
     let padding = 214;  // If Content Above the Box
 
-    if (this.empty) { height = 32; padding = 0; }  // 32 = 2rem
+    if (this.empty) { height = 32; } padding = 0;  // 32 = 2rem
     if (!this.height) { this.height = height; }
 
     const section = document.getElementById(this.selector);
-    section ? div = section.getBoundingClientRect().height - el.offsetTop : div = 1;
+    section ? div = section.getBoundingClientRect().height - this.element.offsetTop : div = 1;
 
     if (div === 1) { // No Selector or NOT loaded yet
-      this.setAutoHeight(el);
+      this.setAutoHeight(this.element);
       window.dispatchEvent(new Event('resize'));
     }
 
     if (div - this.height + padding <= 799) {  // Not enough Content
-      this.setAutoHeight(el);
+      this.setAutoHeight(this.element);
       return;
      }
 
     try {
-      this.setElementHeight(div, this.height, padding, el);
+      this.setElementHeight(div, this.height, padding, this.element);
     } catch (err) { console.log(err); }
   }
 
@@ -88,9 +87,8 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    const el = this.el.nativeElement;
-    this.renderer.setStyle(el, 'height', `auto`);
-    this.renderer.removeClass(el, 'display');
+    this.renderer.setStyle(this.element, 'height', `auto`);
+    this.renderer.removeClass(this.element, 'display');
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }

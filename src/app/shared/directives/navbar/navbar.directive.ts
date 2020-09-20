@@ -17,6 +17,7 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
 export class NavbarDirective implements AfterViewInit, OnDestroy {
 
   private unsubscribe$ = new Subject<void>();
+  displayed = false;
 
   constructor(
     private el: ElementRef,
@@ -40,11 +41,16 @@ export class NavbarDirective implements AfterViewInit, OnDestroy {
   }
 
   private onScroll(): void {
-    const scroll = document.scrollingElement.scrollTop;
-    scroll >= 10 || this.dialog.openDialogs.length > 0 ||
-                    this.sheet._openedBottomSheetRef ?
-    this.renderer.addClass(this.el.nativeElement, 'sticky') :
-    this.renderer.removeClass(this.el.nativeElement, 'sticky');
+    try {
+      const scroll = document.scrollingElement.scrollTop;
+      if (scroll >= 10 && this.displayed) return;
+      scroll >= 10 || this.dialog.openDialogs.length > 0 ||
+                      this.sheet._openedBottomSheetRef ?
+      (this.renderer.addClass(this.el.nativeElement, 'sticky'), this.displayed = true) :
+      (this.renderer.removeClass(this.el.nativeElement, 'sticky'), this.displayed = false);
+    } catch(err) {
+      console.log(err);
+    }
   }
 
   ngOnDestroy(): void {

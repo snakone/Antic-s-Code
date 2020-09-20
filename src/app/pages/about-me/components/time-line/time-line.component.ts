@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as AOS from 'aos';
-import { AOS_SETTINGS, TIME_LINE } from '@shared/shared.data';
+import { AOS_SETTINGS } from '@shared/data/app';
+import { TIME_LINE } from '@shared/data/me';
 
 @Component({
   selector: 'app-time-line',
@@ -16,6 +17,11 @@ export class TimeLineComponent implements OnInit {
 
   ngOnInit() {
     AOS.init(AOS_SETTINGS);
+  }
+
+  public scroll(box: string): void {
+    const el = document.getElementById(box);
+    if (el) { el.scrollIntoView({ behavior: 'auto', block: 'start' }); }
   }
 
 }

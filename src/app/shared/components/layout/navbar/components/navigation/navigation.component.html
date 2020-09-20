@@ -13,7 +13,7 @@
                 [matMenuTriggerFor]="menu"
                 aria-label="Menu"
                 (click)="collapse = !collapse">  <!-- MENU BUTTON -->
-            {{'menu' | translate}}
+                  {{'MENU' | translate}}
           <span [ngClass]="{'collapsed' : collapse}"
                 class="navbar-menu-dropdown">&#x25BC;
           </span>
@@ -34,7 +34,7 @@
       <li routerLink="/create" class="create">  <!-- MENU LIST -->
         <button class="hvr-underline-from-left"
                 mat-button>
-                <span>{{'create' | translate}}</span>
+                <span>{{'CREATE' | translate}}</span>
         </button>
       </li>
     </ul>

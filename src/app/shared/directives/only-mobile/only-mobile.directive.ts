@@ -3,7 +3,9 @@ import {
   ViewContainerRef,
   AfterViewInit,
   OnDestroy,
-  TemplateRef
+  TemplateRef,
+  Output,
+  EventEmitter
 } from '@angular/core';
 
 import { fromEvent, Subject } from 'rxjs';
@@ -15,6 +17,7 @@ import { debounceTime, takeUntil, map, distinctUntilChanged } from 'rxjs/operato
 export class OnlyMobileDirective implements AfterViewInit, OnDestroy {
 
   private unsubscribe$ = new Subject<void>();
+  @Output() orientation = new EventEmitter<string>();
 
   constructor(
     private viewRef: ViewContainerRef,
@@ -40,12 +43,13 @@ export class OnlyMobileDirective implements AfterViewInit, OnDestroy {
   private showOrHide(mobile: boolean): void {
     this.viewRef.clear();
     if (mobile) {
+      this.orientation.emit('mobile');
       this.viewRef.createEmbeddedView(this.templateRef);
     }
   }
 
   private checkWidth(e: Window): boolean {
-    return e.innerWidth < 993 ? true : false
+    return e.innerWidth < 993 ? true : false;
   }
 
   ngOnDestroy(): void {

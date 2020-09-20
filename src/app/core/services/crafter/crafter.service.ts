@@ -6,6 +6,8 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ComponentType } from '@angular/cdk/overlay';
 import { TranslateService } from '@ngx-translate/core';
 import { DialogData, SheetData } from '@shared/interfaces/interfaces';
+import { MessageModalComponent } from '@layout/dialogs/message-modal/message-modal.component';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({providedIn: 'root'})
 
@@ -49,9 +51,55 @@ export class CrafterService {
 
   public dialog<T>(
     component: ComponentType<T>,
-    data?: DialogData
+    data?: any,
+    id?: string,
+    css?: string
   ): MatDialogRef<T> {
-    return this.matDialog.open(component, {data});
+    return this.matDialog.open(component, {data, id: id || '', panelClass: css});
+  }
+
+  public modal(
+    title: string,
+    message: string,
+    icon: string = 'error'
+  ): MatDialogRef<MessageModalComponent> | undefined {
+    if (this.matDialog.openDialogs.length > 0 &&
+        this.matDialog.openDialogs[0].id !== 'Login') {
+      return;
+    }
+    return this.matDialog.open(MessageModalComponent, {
+      data: {
+        title,
+        message,
+        icon
+      }
+    });
+  }
+
+  public handleError(err: HttpErrorResponse): void {
+    switch (err.status) {
+      case 0: this.modal('ERRORS.WEB.TITLE',
+                         'ERRORS.WEB.MESSAGE');
+              break;
+      case 400: case 406:
+                this.modal('ERRORS.REQUEST.TITLE',
+                           'ERRORS.REQUEST.MESSAGE',
+                           'help');
+                break;
+      case 401: this.modal('ERRORS.TOKEN.TITLE',
+                           'ERRORS.TOKEN.MESSAGE',
+                           'info');
+                break;
+      case 403: this.modal('ERRORS.ACCESS.TITLE',
+                           'ERRORS.ACCESS.MESSAGE');
+                break;
+      case 409: case 500:
+                this.modal('ERRORS.SERVER.TITLE',
+                           'ERRORS.SERVER.MESSAGE');
+                break;
+      default: this.modal('ERRORS.UNKNOWN.TITLE',
+                          'ERRORS.UNKNOWN.MESSAGE');
+    }
   }
 
   private translate(text: string): string {

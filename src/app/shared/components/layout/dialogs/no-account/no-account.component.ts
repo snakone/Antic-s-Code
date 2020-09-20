@@ -1,8 +1,9 @@
 import { Component, Inject } from '@angular/core';
-import { LoginComponent } from '@shared/components/login/login.component';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DialogData } from '@shared/interfaces/interfaces';
 import { CrafterService } from '@core/services/crafter/crafter.service';
+
+import { LoginComponent } from '@shared/components/login/login.component';
+import { DialogData } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-no-account',
@@ -23,7 +24,7 @@ export class NoAccountComponent {
   public openLogin(register: boolean): void {
     this.dialogRef.close();
     // Navigate to Register TAP
-    this.crafter.dialog(LoginComponent, {register});
+    this.crafter.dialog(LoginComponent, {register}, 'Login');
   }
 
 }

@@ -1,47 +1,12 @@
 * { box-sizing: border-box }
 
-.create-intro {
-  width: 100%;
-  & h3 {
-    font-size: 1.9rem;
-    margin-top: 5rem;
-    margin-bottom: .2333rem;
-    line-height: 2.2rem;
-    &:first-child {margin-top: 0 !important }
-    &:last-of-type {
-      @media(max-width: 550px) {
-        margin-top: 2.3rem !important;
-      }
-    }
-    & span {
-      color: var(--primary-color);
-      font-size: inherit !important;
-    }
-
-    @media(max-width: 550px) {
-      margin-top: 2.5rem !important;
-      font-size: 1.7rem;
-    }
-  }
-
-  & p {
-    font-size: 1.2rem;
-    @media(max-width: 550px) {
-      font-size: 1rem !important;
-    }
-  }
-}
+.create-intro { width: 100% }
 
 .col-lg-12 {
   max-width: 100%;
   @media(max-width: 992px) {
     width: 100%;
     max-width: 100%;
-  }
-
-  @media(max-width: 550px) {
-   padding-right: 0;
-   padding-left: 0;
   }
 }
 

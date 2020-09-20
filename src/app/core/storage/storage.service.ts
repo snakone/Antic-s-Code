@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { STORAGE_CONSTANTS, Storage } from './storage.config';
 import { LocalStorage } from 'ngx-webstorage';
+import { UserResponse } from '@shared/interfaces/interfaces';
 
 @Injectable({providedIn: 'root'})
 
@@ -34,6 +35,18 @@ export class StorageService {
 
   public reset(): void {
     this.storage = new Storage();
+  }
+
+  public userLogIn(data: UserResponse, remember: boolean): void {
+    this.setKey('token', data.token);
+    this.setKey('user', data.user._id);
+    this.setKey('remember', remember);
+  }
+
+  public userLogOut(): void {
+    this.setKey('token', null);
+    this.setKey('welcome', false);
+    this.setKey('chat', true);
   }
 
 }

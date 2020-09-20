@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatMenu } from '@angular/material/menu';
-import { MENU, HOME_MENU } from '@shared/shared.data';
+import { MENU, HOME_MENU } from '@shared/data/menu';
 
 @Component({
   selector: 'app-navigation',

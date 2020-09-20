@@ -1,15 +1,9 @@
-h3 {
-  font-size: 1.8rem;
-  padding-top: 1rem;
-  margin-bottom: 1rem;
-}
-
 p { margin-bottom: 1rem }
 
-mat-dialog-content {
- max-width: 50vw !important;
- @media(max-width: 650px) { max-width: 90vw !important;}
+mat-dialog-actions {
+  margin-bottom: 0 !important;
+  padding: 0;
 }
 
-mat-dialog-actions { margin-bottom: 0 !important }
 form, mat-form-field { width: 100% }
+.black { margin-bottom: 2rem }

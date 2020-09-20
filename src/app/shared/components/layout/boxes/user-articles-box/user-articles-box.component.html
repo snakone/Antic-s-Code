@@ -1,33 +1,52 @@
-<app-content-box [title]="'Artículos de ' + user?.name">
-  <div *ngIf="(articles$ | async) as articles">
-    <div class="article-item" *ngFor="let a of articles">
+<div class="user-articles">
+  <span id="user-articles"></span>
+</div>
+<app-content-box [title]="'ARTICLES.OF' | translate: {
+                                            name: user?.name ?
+                                                  user.name :
+                                                  ('USER' | translate)
+                                          }"
+                 icon="grading">
+  <ng-container *ngIf="(articles$ | async) as articles">
+    <div class="article-item" *ngFor="let a of articles |
+                                               paginate: { itemsPerPage: itemsPerPage,
+                                                           currentPage: page,
+                                                           id: 'user-articles' }">
       <img [src]="(a.category | logo) | image:'logos'"
-             [alt]="a.category" loading="lazy"
-             [matTooltip]="a.category"
-              matTooltipPosition="above"/>
+           [alt]="a.category" loading="lazy"
+           [matTooltip]="a.category"
+           matTooltipPosition="above"/>
 
       <h5 [routerLink]="'/article/' + a.slug">{{a.title}}</h5>
 
       <div class="article-info">
         <mat-icon class="views"
-                  [matTooltip]="'views' | translate"
+                  [matTooltip]="'VIEWS' | translate"
                   matTooltipPosition="above">
                   visibility
         </mat-icon>
         <span>{{a.views}}</span>
 
         <mat-icon class="bold"
-                  [matTooltip]="'likes' | translate"
+                  [matTooltip]="'LIKES' | translate"
                   matTooltipPosition="above">favorite_border
         </mat-icon>
         <span>{{a.likes}}</span>
       </div>
     </div>
     <div *ngIf="articles.length === 0">
-      <p>
-        <strong>{{user?.name}}</strong>
-        aún no ha escrito ningún artículo.
-      </p>
+      <p>{{'NO.WRITE.YET' | translate}}</p>
     </div>
-  </div>
+  </ng-container>
 </app-content-box>
+
+<div class="row-pagination"
+    *ngIf="(articles$ | async)?.length > itemsPerPage">
+  <pagination-controls (pageChange)="changeFrom($event)"
+                        class="pagination"
+                        previousLabel=""
+                        nextLabel=""
+                        id="user-articles">
+  </pagination-controls>
+</div>
+

@@ -40,8 +40,29 @@ mat-option.all {
   margin: 0 !important;
 }
 
-.mat-form-field-appearance-outline .mat-form-field-flex {
+.search-users.mat-form-field-appearance-outline .mat-form-field-flex {
   padding: 0 .75em 0 1.2em !important;
+}
+
+.expansion .mat-expansion-panel-body {
+  padding: 1.5rem 2rem !important;
+  @media(max-width: 550px) { padding: 1.2rem !important }
+}
+
+.faq .mat-expansion-panel-body {
+  padding: 0 1rem 0 8px !important;
+  & p {
+    color: var(--p-color)!important;
+    margin: 5px auto;
+    line-height: 1.5rem;
+  }
+}
+
+.mat-form-field-label-wrapper {
+  left: 1px !important;
+  @media(max-width: 550px) {
+    left: 3px !important;
+  }
 }
 
 .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
@@ -52,4 +73,98 @@ mat-option.all {
   width: auto !important;
   max-width: 93vw !important;
 }
+
+.mat-expansion-panel:not(.mat-expanded)
+.mat-expansion-panel-header:hover:not([aria-disabled=true]) {
+  background: transparent !important;
+}
+
+.mat-checkbox-inner-container { top: 2px }
+.p-left .mat-option-text { padding-left: .4rem }
+
+.edit-dialog .mat-dialog-container {
+  padding: 0 !important;
+  border-radius: 10px;
+  max-width: 993px;
+
+  & .content-box-body {
+    overflow: auto;
+    @media(max-width: 700px) { height: 80vh !important }
+  }
+}
+
+.mat-step-header .mat-step-icon-selected {
+  background-color: var(--primary-color) !important;
+}
+
+.mat-step-header .mat-step-icon-state-done {
+  background-color: var(--tertiary-color) !important;
+}
+
+.mat-horizontal-stepper-header-container {
+  justify-content: center;
+}
+
+.mat-stepper-label-position-bottom .mat-horizontal-stepper-header {
+  padding: 24px 6px !important;
+  &:first-child { margin-left: -6px !important }
+  &:last-child { margin-right: -6px !important }
+}
+
+.mat-vertical-stepper-header {
+  padding: 24px 4px !important;
+}
+
+.mat-vertical-content {
+  padding: 2px 0px 20px 26px !important;
+}
+
+.mat-horizontal-content-container {
+  padding: .5rem .6rem 0 !important;
+}
+
+.mat-vertical-content-container {
+  margin-left: 14.5px !important;
+}
+
+.mobile .mat-step-label {
+  white-space: normal !important;
+  font-size: .85rem;
+  line-height: 1rem;
+  font-weight: bold;
+}
+
+.mat-stepper-vertical-line::before {
+  left: .5px !important;
+}
+
+.mat-vertical-stepper-header .mat-step-icon {
+  margin-right: 1rem !important;
+}
+
+.antics-dialog {
+  position: relative;
+  overflow: hidden !important;
+  padding: 0 .5rem !important;
+  margin: 0 !important;
+  max-width: 50vh;
+
+  & h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    & mat-icon {
+      margin-right: 1rem;
+      position: relative;
+      top: -3px;
+      left: -5px;
+      font-size: 2rem;
+    }
+  }
+}
+
 

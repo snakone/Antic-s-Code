@@ -23,6 +23,12 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "aot": true,
+            "allowedCommonJsDependencies": [
+              "hammerjs",
+              "socket.io-client",
+              "debug",
+              "socket.io-parser"
+            ],
             "assets": [
               "src/assets",
               "src/manifest.webmanifest",
@@ -49,8 +55,7 @@
               "node_modules/prismjs/components/prism-git.min.js",
               "node_modules/prismjs/components/prism-go.min.js",
               "node_modules/prismjs/components/prism-python.min.js"
-            ],
-            "es5BrowserSupport": true
+            ]
           },
           "configurations": {
             "testing": {

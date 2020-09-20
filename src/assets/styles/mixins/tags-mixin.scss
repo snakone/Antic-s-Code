@@ -34,9 +34,6 @@
   border-radius: 2px;
   display: inline-block;
   font-size: .9rem;
-  @media(max-width: 550px) {
-    font-size: .8rem !important;
-  }
 
   @media(max-width: 350px) {
     font-size: .7rem !important;

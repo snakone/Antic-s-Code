@@ -1,16 +1,23 @@
-<app-page-header [title]="'create.article' | translate"
-                 [subTitle]="'start.here' | translate">
+<app-page-header title="CREATE.ARTICLE"
+                 subTitle="START.HERE">
 </app-page-header>
 <app-section input="#f5f7fc">
   <div class="row">
-    <div class="col-lg-12 col-md-12 create-intro">
-      <h3>Antic's Code <span>Desktop</span></h3>
-      <p class="sub-title">Creación de Artículos</p>
+    <div class="col-lg-12 col-md-12">
       <app-create-intro></app-create-intro>
-      <h3>Lo principal es tu <span>Contenido</span></h3>
-      <p class="sub-title">Una aplicación para administrar tu contenido</p>
+    </div>
+  </div>
+</app-section>
+<app-section>
+  <div class="row">
+    <div class="col-lg-12 col-md-12">
       <app-create-carousel></app-create-carousel>
-      <h3>Descargar Antic's Code <span>Desktop</span></h3>
+    </div>
+  </div>
+</app-section>
+<app-section input="#f5f7fc">
+  <div class="row">
+    <div class="col-lg-12 col-md-12">
       <app-create-download></app-create-download>
     </div>
   </div>

@@ -1,22 +1,19 @@
 import { InjectionToken } from '@angular/core';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 
-import * as fromArticles from '@core/ngrx/reducers/article.reducer';
-import * as fromCategories from '@core/ngrx/reducers/category.reducer';
-import * as fromUsers from '@core/ngrx/reducers/user.reducer';
-import * as fromSearch from '@core/ngrx/reducers/search.reducer';
-import * as fromInteractions from '@core/ngrx/reducers/interaction.reducer';
+import * as fromArticles from '@store/articles/article.reducer';
+import * as fromUsers from '@store/users/user.reducer';
+import * as fromSearch from '@store/search/search.reducer';
 
 export const URI = 'https://anticscode.netlify.com';
-const APP_VERSION = '0.9.0';
-export const DESKTOP_VERSION = '0.5.1';
+const APP_VERSION = '0.9.5';
+export const DESKTOP_VERSION = '0.5.3';
+export const MOBILE_VERSION = '0.1.2';
 
 export interface AppState {
   articles: fromArticles.ArticleState;
-  categories: fromCategories.CategoryState;
-  user: fromUsers.UserState;
+  users: fromUsers.UserState;
   search: fromSearch.SearchState;
-  interaction: fromInteractions.InteractionState
 }
 
 export interface AppConfig {

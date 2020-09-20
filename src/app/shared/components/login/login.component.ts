@@ -21,7 +21,7 @@ export class LoginComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     setTimeout(() => {
-      if (this.data.register) { this.isReg = true; }
+      if (this.data?.register) { this.isReg = true; }
     }, 100);
   }
 }

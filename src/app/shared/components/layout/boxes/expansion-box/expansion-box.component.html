@@ -1,0 +1,13 @@
+<mat-accordion class="expansion">
+  <mat-expansion-panel class="mat-elevation-z0">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h4 class="flex-box">
+          <mat-icon>{{icon}}</mat-icon>
+          <span class="title">{{title | translate}}</span>
+        </h4>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <ng-content></ng-content>
+  </mat-expansion-panel>
+</mat-accordion>

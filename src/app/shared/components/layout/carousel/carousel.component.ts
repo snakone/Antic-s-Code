@@ -18,7 +18,7 @@ export class CarouselComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       window.dispatchEvent(new Event('resize'));  // Temporally fix
-    }, 1000);
+    }, 2000);
   }
 
   public navigate(value: number): void {

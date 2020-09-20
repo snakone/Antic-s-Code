@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { HomeRouting } from './home.routing';
 import { HomeComponent } from './home.component';
-import { LayoutModule } from '@app/shared/components/layout/layout.module';
-import { SharedModule } from '@app/shared/shared.module';
+import { SharedModule } from '@shared/shared.module';
 
 import { ArticlesHomeComponent } from './components/articles-home/articles-home.component';
 import { CategoryHomeComponent } from './components/category-home/category-home.component';
@@ -14,20 +13,30 @@ import {
   ContactHomeModule
 } from './home.index';
 
+import { GridModule } from '@layout/grid/grid.module';
+import { SectionModule } from '@layout/section/section.module';
+import { NewsHomeComponent } from './components/news-home/news-home.component';
+import { CommonModule } from '@angular/common';
+import { NewsAccessModule } from '@core/ngrx/news/data-access/news-access.module';
+
 @NgModule({
   declarations: [
     HomeComponent,
     ArticlesHomeComponent,
-    CategoryHomeComponent
+    CategoryHomeComponent,
+    NewsHomeComponent,
   ],
   imports: [
-    LayoutModule,
+    CommonModule,
     HomeRouting,
     HeaderHomeModule,
     LikedHomeModule,
     TestimonialHomeModule,
     ContactHomeModule,
-    SharedModule
+    SharedModule,
+    GridModule,
+    SectionModule,
+    NewsAccessModule
   ]
 })
 

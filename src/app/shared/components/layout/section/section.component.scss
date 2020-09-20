@@ -28,7 +28,7 @@
         margin: -3px 0 .86667rem;
         font-size: 1.9rem;
         font-weight: 700;
-        color: var(--title-color);
+        color: var(--new-color);
     }
 
     & p {
@@ -52,6 +52,11 @@
   .section-title h2 { font-size: 1.6rem }
   .section-title { margin-bottom: 1.2rem }
   .section-title p { font-size: 1rem }
+
+  .col-lg-12 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
 @media(max-width: 450px) {
@@ -79,7 +84,7 @@
   padding: 5rem 0 5.33337rem;
   position: relative;
   text-align: center;
-  background-image: url('assets/img/sb-shape.svg');
+  background-image: url('../../../../../assets/img/sb-shape.svg');
   background-repeat: no-repeat;
   -webkit-background-size: cover;
   background-size: cover;
