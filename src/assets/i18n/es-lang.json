@@ -185,6 +185,10 @@
       "WEB": {
           "MESSAGE": "Parece ser que hay un error de red. Comprueba que tienes acceso a Internet y prueba otra vez. Si el problema persiste ponte en contacto con nosotros.",
           "TITLE": "Error de red"
+      },
+      "USER_ALREADY": {
+        "MESSAGE": "Lo sentimos, este email ya está registrado. Por favor prueba con otro.",
+        "TITLE": "Usuario registrado"
       }
   },
   "EXAMPLES": "Ejemplos",

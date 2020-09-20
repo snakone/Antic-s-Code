@@ -93,8 +93,10 @@ export class CrafterService {
       case 403: this.modal('ERRORS.ACCESS.TITLE',
                            'ERRORS.ACCESS.MESSAGE');
                 break;
-      case 409: case 500:
-                this.modal('ERRORS.SERVER.TITLE',
+      case 409: this.modal('ERRORS.USER_ALREADY.TITLE',
+                           'ERRORS.USER_ALREADY.MESSAGE');
+                break;
+      case 500: this.modal('ERRORS.SERVER.TITLE',
                            'ERRORS.SERVER.MESSAGE');
                 break;
       default: this.modal('ERRORS.UNKNOWN.TITLE',

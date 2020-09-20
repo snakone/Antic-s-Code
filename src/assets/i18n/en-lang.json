@@ -185,6 +185,10 @@
       "WEB": {
           "MESSAGE": "There seems to be a network error. Check that you have Internet access and try again. If the problem persists, contact us.",
           "TITLE": "Network Error"
+      },
+      "USER_ALREADY": {
+        "MESSAGE": "We are sorry, this email is already in use. Please use another one.",
+        "TITLE": "User registered"
       }
   },
   "EXAMPLES": "Examples",

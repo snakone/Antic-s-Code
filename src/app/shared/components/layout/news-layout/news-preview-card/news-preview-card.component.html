@@ -1,0 +1,19 @@
+<div class="news-card">
+  <img [src]="notice.image" alt="News Image"/>
+  <div class="news-card-category">
+    <span>
+      <img [src]="(notice.category | logo) | image: 'logos'"
+            [alt]="notice.category"
+            loading="lazy"
+            class="logo"/>
+      {{notice.category}}
+    </span>
+  </div>
+  <div class="news-card-content">
+    <h4>{{notice.title}}</h4>
+    <app-content-maker [template]="notice.preview"
+                        args="notice">
+    </app-content-maker>
+    <span>{{'READ.MORE' | translate}}</span>
+  </div>
+</div>
