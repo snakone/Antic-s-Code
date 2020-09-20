@@ -21,7 +21,7 @@ $width-image: 355px;
   }
 
   &-content {
-    padding: 1.666rem;
+    padding: 1.666rem 1.666rem 1.666rem 1.9rem;
     width: 100%;
     position: relative;
     & h4 {
@@ -62,7 +62,7 @@ $width-image: 355px;
     left: 0;
     height: 100%;
     width: $width-image;
-    z-index: 5;
+    z-index: 4;
     border-right: 1px solid var(--new-color-border);
 
     & span {
@@ -74,6 +74,7 @@ $width-image: 355px;
       bottom: 5px;
       position: absolute;
       font-weight: bold;
+      z-index: 1;
     }
 
     &:after {
@@ -85,7 +86,7 @@ $width-image: 355px;
       height: 40px;
       background: var(--new-color);
       opacity: .9;
-      z-index: -1;
+      z-index: 0;
       border-bottom-left-radius: 4px;
 
     }

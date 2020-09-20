@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { News } from '@shared/interfaces/interfaces';
 
 @Component({
@@ -6,13 +6,10 @@ import { News } from '@shared/interfaces/interfaces';
   templateUrl: './news-grid.component.html',
   styleUrls: ['./news-grid.component.scss']
 })
-export class NewsGridComponent implements OnInit {
+export class NewsGridComponent {
 
   @Input() news: News[];
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

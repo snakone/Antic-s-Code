@@ -1,0 +1,6 @@
+<div class="stars-group">
+  <span [ngClass]="{'match': s <= stars}"
+        *ngFor="let s of [1,2,3,4,5]">
+    <mat-icon>star</mat-icon>
+  </span>
+</div>

@@ -20,7 +20,7 @@ export class MostViewedBoxComponent implements OnInit, OnDestroy {
   constructor(private articleFacade: ArticlesFacade) { }
 
   ngOnInit() {
-    // this.checkData();
+    this.checkData();
     this.articles$ = this.articleFacade.mostViewed$;
   }
 

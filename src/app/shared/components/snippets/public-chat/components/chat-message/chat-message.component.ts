@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Component, Input, EventEmitter, Output } from '@angular/core';
-import { ChatFacade } from '@app/core/ngrx/chat/chat.facace';
+import { ChatFacade } from '@store/chat/chat.facace';
 import { ChatMessage, User } from '@shared/interfaces/interfaces';
 
 import { Observable } from 'rxjs';

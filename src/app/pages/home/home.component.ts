@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NewsFacade } from '@store/news/news.facade';
 import { ArticlesFacade } from '@store/articles/article.facade';
-import { combineLatest, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 
 @Component({
@@ -14,28 +14,21 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private unsubscribe$ = new Subject<void>();
 
-  constructor(
-    private articlesFacade: ArticlesFacade,
-    private newsFacade: NewsFacade
-  ) { }
+  constructor(private articlesFacade: ArticlesFacade) { }
 
   ngOnInit() {
     this.checkData();
   }
 
   private checkData(): void {
-    combineLatest([
-      this.articlesFacade.dataLoaded$,
-      this.newsFacade.dataLoaded$
-    ])
+    this.articlesFacade.dataLoaded$
      .pipe(
-       filter(([a, n]) => !a || !n),
+       filter(res => !res),
        takeUntil(this.unsubscribe$)
       )
-     .subscribe(([a, n]) => {
-       if (!a) { this.articlesFacade.getData(); }
-       else if (!n) { this.newsFacade.get(); }
-     });
+     .subscribe(_ => {
+       this.articlesFacade.getData();
+    });
   }
 
   ngOnDestroy(): void {

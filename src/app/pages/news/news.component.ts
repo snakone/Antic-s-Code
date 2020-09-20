@@ -1,11 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NewsFacade } from '@core/ngrx/news/news.facade';
+import { NewsFacade } from '@store/news/news.facade';
 import { NewsService } from '@core/services/news/news.service';
 import { News } from '@shared/interfaces/interfaces';
-import { DUMMY_NEWS } from '@shared/data/app';
 
 import { Observable, Subject } from 'rxjs';
-import { filter, takeUntil, tap } from 'rxjs/operators';
+import { filter, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-news',
@@ -37,12 +36,14 @@ export class NewsComponent implements OnInit, OnDestroy {
   }
 
   private checkData(): void {
-    this.newsFacade.dataLoaded$
+    this.newsFacade.viewedAndLastLoaded$
      .pipe(
        filter(res => !res),
        takeUntil(this.unsubscribe$)
       )
-     .subscribe(_ => this.newsFacade.get());
+     .subscribe(_ => {
+       this.newsFacade.getData();
+    });
   }
 
   ngOnDestroy(): void {

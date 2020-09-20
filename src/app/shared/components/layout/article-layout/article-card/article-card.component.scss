@@ -34,7 +34,7 @@
       padding: 1.8rem 2rem;
       position: relative;
       background: var(--light-color);
-      @media(max-width: 700px) { padding: 1.5rem 1rem; }
+      @media(max-width: 700px) { padding: 1.5rem; }
       border-bottom-left-radius: 10px;
       border-bottom-right-radius: 10px;
 
@@ -78,10 +78,10 @@
       }
 
       &-tags {
-        margin-top: 1.3rem;
+        margin-top: .6rem;
         margin-bottom: 1.2rem;
         @media(max-width: 700px) {
-          margin-top: .1rem;
+          margin-top: .5rem;
           margin-bottom: 0;
         }
 
@@ -117,6 +117,9 @@
     padding-bottom: 2rem !important;
     background: none;
     & ul { margin-top: .7rem !important }
+    &-tags {
+      @media(min-width: 701px) { margin-bottom: -1rem }
+    }
   }
  }
 

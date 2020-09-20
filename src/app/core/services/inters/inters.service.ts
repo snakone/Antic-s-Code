@@ -3,11 +3,11 @@ import { HttpService } from '../http/http.service';
 import { Interaction, InteractionResponse } from '@shared/interfaces/interfaces';
 import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
-import { filter, map } from 'rxjs/operators';
+import { filter } from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
 
-export class InteractionService {
+export class IntersService {
 
   readonly API_INTERACTION = environment.api + 'interaction';
 
@@ -20,15 +20,6 @@ export class InteractionService {
       .post<InteractionResponse>(this.API_INTERACTION, interaction)
       .pipe(
         filter(res => res && !!res.ok)
-      );
-  }
-
-  public getByUser(): Observable<Interaction[]> {
-    return this.http
-      .get<InteractionResponse>(this.API_INTERACTION)
-      .pipe(
-        filter(res => res && !!res.ok),
-        map(_ => _.interaction)
       );
   }
 

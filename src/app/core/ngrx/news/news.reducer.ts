@@ -105,5 +105,9 @@ export const dataLoaded = (state: NewsState | undefined): boolean => {
   return state.lastLoaded && state.viewedLoaded && state.newsLoaded;
 };
 
+export const getViewedAndLastLoaded = (state: NewsState | undefined): boolean => {
+  return state.lastLoaded && state.viewedLoaded;
+};
+
 
 

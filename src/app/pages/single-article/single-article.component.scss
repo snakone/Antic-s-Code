@@ -1,7 +1,12 @@
 * { box-sizing: border-box }
 
 hr {
-  @media(max-width: 993px) { margin-bottom: 2rem }
+  margin-top: 3rem;
+  margin-bottom: 1.8rem;
+}
+
+.index {
+  margin-bottom: -2rem;
 }
 
 
