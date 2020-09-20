@@ -70,65 +70,28 @@ const featureReducer = createReducer(
   on(ArticleActions.getFailure, (state, { error }) => (
     { ...state, articlesLoaded: false, error }
   )),
-  // GET ARTICLES COUNT
-  on(ArticleActions.getCount, state => (
-    { ...state, countLoaded: false, error: null }
+  // GET ARTICLES DATA
+  on(ArticleActions.getData, state => (
+    { ...state, error: null }
   )),
-  on(ArticleActions.getCountSuccess, (state, { count }) => (
+  on(ArticleActions.getDataSuccess, (state, { res }) => (
     {
       ...state,
-      countLoaded: true,
-      count,
-      error: null
-    }
-  )),
-  on(ArticleActions.getCountFailure, (state, { error }) => (
-    { ...state, countLoaded: false, error }
-  )),
-  // GET LAST ARTICLES
-  on(ArticleActions.getLast, state => (
-    { ...state, lastLoaded: false, error: null }
-  )),
-  on(ArticleActions.getLastSuccess, (state, { articles }) => (
-    {
-      ...state,
+      last: res.lastArticles,
       lastLoaded: true,
-      last: articles,
+      liked: res.likedArticles,
+      likedLoaded: true,
+      viewed: res.viewedArticles,
+      viewedLoaded: true,
+      count: res.articlesCount,
+      countLoaded: true,
+      categoryCount: res.categoryCount,
+      categoryCountLoaded: true,
       error: null
     }
   )),
-  on(ArticleActions.getLastFailure, state => (
-    { ...state, lastLoaded: false, error: null }
-  )),
-  // GET MOST LIKED ARTICLES
-  on(ArticleActions.getMostLiked, state => (
-    { ...state, likedLoaded: false, error: null }
-  )),
-  on(ArticleActions.getMostLikedSuccess, (state, { articles }) => (
-    {
-      ...state,
-      likedLoaded: true,
-      liked: articles,
-      error: null,
-    }
-  )),
-  on(ArticleActions.getMostLikedFailure, (state, { error }) => (
-    { ...state, likedLoaded: false, error }
-  )),
-  // GET MOST VIEWED ARTICLES
-  on(ArticleActions.getMostViewed, state => (
-    { ...state, viewedLoaded: false, error: null }
-  )),
-  on(ArticleActions.getMostViewedSuccess, (state, { articles }) => (
-    {
-      ...state,
-      viewedLoaded: true,
-      viewed: articles,
-      error: null,
-    }
-  )),
-  on(ArticleActions.getMostViewedFailure, (state, { error }) => (
-    { ...state, viewedLoaded: false, error }
+  on(ArticleActions.getFailure, (state, { error }) => (
+    { ...state, articlesLoaded: false, error }
   )),
   // ARTICLE BY SLUG
   on(ArticleActions.getBySlug, (state) => (
@@ -190,21 +153,6 @@ const featureReducer = createReducer(
   on(ArticleActions.getByTagsFailure, (state, { error }) => (
     { ...state, byTagsLoaded: false, error }
   )),
-  // ARTICLES BY CATEGORY COUNT
-  on(ArticleActions.getByCategoryCount, state => (
-    { ...state, categoryCountLoaded: false, error: null }
-  )),
-  on(ArticleActions.getByCategoryCountSuccess, (state, { count }) => (
-    {
-      ...state,
-      categoryCountLoaded: true,
-      categoryCount: count,
-      error: null,
-    }
-  )),
-  on(ArticleActions.getByCategoryCountFailure, (state, { error }) => (
-    { ...state, categoryCountLoaded: false, error }
-  )),
   // RESET
   on(ArticleActions.reset, (state) => (
     {
@@ -253,9 +201,12 @@ export const getCountLoaded = (state: ArticleState) => state.countLoaded;
 export const getCategoryCount = (state: ArticleState) => state.categoryCount;
 export const getCategoryCountLoaded = (state: ArticleState) => state.categoryCountLoaded;
 
-export const getLastAndCountLoaded = (state: ArticleState) => {
+export const getDataLoaded = (state: ArticleState | undefined): boolean => {
   return state.lastLoaded &&
-         state.countLoaded ? true : false;
+         state.countLoaded &&
+         state.viewedLoaded &&
+         state.likedLoaded &&
+         state.categoryCountLoaded;
 };
 
 function completed(articles: Article[]): boolean {

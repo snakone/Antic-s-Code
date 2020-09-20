@@ -4,8 +4,7 @@ import {
   MarkdownModule,
   MarkedOptions,
   MarkdownModuleConfig,
-  MarkedRenderer }
-from 'ngx-markdown';
+  MarkedRenderer } from 'ngx-markdown';
 
 const options: MarkdownModuleConfig = {
   markedOptions: {

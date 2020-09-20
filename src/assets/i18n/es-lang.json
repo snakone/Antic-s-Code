@@ -256,7 +256,7 @@
       "SKILLS": {
           "HARD": {
               "ANGULAR": {
-                  "AREA": "Framework web",
+                  "AREA": "Framework Web",
                   "MESSAGE": "Creación de aplicaciones web de todo tipo, modular, legible, reutilizable."
               },
               "BOOTSTRAP": {
@@ -264,7 +264,7 @@
                   "MESSAGE": "Grid, responsive, mobile first, clases, flex-box, diseño de interfaces."
               },
               "CSS": {
-                  "AREA": "Diseño páginas web",
+                  "AREA": "Diseño Páginas Web",
                   "MESSAGE": "Cascada, herencia, box-model, flex-box, grid, layouts, interfaces, SCSS."
               },
               "EXPRESS": {
@@ -272,15 +272,15 @@
                   "MESSAGE": "Creación de servidores, API REST, controladores, middlewares, JWT."
               },
               "GIT": {
-                  "AREA": "Trabajo en equipo",
+                  "AREA": "Trabajo en Equipo",
                   "MESSAGE": "Entorno corporativo para trabajar en diversos entornos de desarrollo."
               },
               "HEROKU": {
-                  "AREA": "Alojamiento servidores",
+                  "AREA": "Alojamiento Servidores",
                   "MESSAGE": "Despliegue de aplicaciones a la nube, administración, seguimiento."
               },
               "HTML": {
-                  "AREA": "Creación páginas web",
+                  "AREA": "Creación Páginas Web",
                   "MESSAGE": "Maquetación, estructura, identación, legible, estándares, accesibilidad."
               },
               "IONIC": {
@@ -296,11 +296,11 @@
                   "MESSAGE": "Limpio, Ecmascript, lógica, reactivo, legible, async-wait, operaciones."
               },
               "MONGO": {
-                  "AREA": "Base de datos no relacional",
+                  "AREA": "Base de Datos no Relacional",
                   "MESSAGE": "Diseñar y administrar bases de datos no relacionales basadas en documentos JSON."
               },
               "NODE": {
-                  "AREA": "Servidor web con Javascript",
+                  "AREA": "Servidor Web con Javascript",
                   "MESSAGE": "Entorno, uso de paquetes de npm, dependencias, actualizaciones, librerías."
               },
               "PHP": {
@@ -308,11 +308,11 @@
                   "MESSAGE": "Conexiones, envío de formularios, obtener, procesar y mostrar datos."
               },
               "RXJS": {
-                  "AREA": "Programación reactiva",
+                  "AREA": "Programación Reactiva",
                   "MESSAGE": "Observables, flujo de datos, pipes, operadores, manejo del flujo."
               },
               "SQL": {
-                  "AREA": "Base de datos relacional",
+                  "AREA": "Base de Datos Relacional",
                   "MESSAGE": "Administración y diseño de base de datos, modelo entidad-relación."
               },
               "TS": {
@@ -320,31 +320,31 @@
                   "MESSAGE": "Clases, interfaces, tipado, legible, autocompletado, evitar errores."
               },
               "VSC": {
-                  "AREA": "Entorno de trabajo",
+                  "AREA": "Entorno de Trabajo",
                   "MESSAGE": "Extensiones, prettier, emmet, atajos de teclado, terminal integrado."
               },
               "WORDPRESS": {
-                  "AREA": "Gestor de contenido",
+                  "AREA": "Gestor de Contenido",
                   "MESSAGE": "Instalación, administración, edición, diseño, escribir contenido."
               }
           },
           "SOFT": {
-              "CLIENT": "Orientación al cliente",
+              "CLIENT": "Orientación al Cliente",
               "COMMUNICATION": "Comunicación",
               "COMPROMISE": "Compromiso",
-              "CONCEPT": "Pensamiento conceptual",
+              "CONCEPT": "Pensamiento Conceptual",
               "COOPERATION": "Cooperación",
               "CREATIVE": "Creatividad",
-              "EASY": "Fácil aprendizaje",
+              "EASY": "Fácil Aprendizaje",
               "EMPATHY": "Empatía",
               "FLEX": "Flexibilidad",
               "HOPE": "Entusiasmo",
               "KNOWLEDGE": "Conocimiento",
-              "LOOK": "Buena presencia",
+              "LOOK": "Buena Presencia",
               "NETWORK": "Networking",
               "ORDER": "Orden y Calidad",
               "PLAN": "Planificación",
-              "SPIRIT": "Espíritu superación"
+              "SPIRIT": "Espíritu Superación"
           }
       },
       "TIME": {
@@ -486,6 +486,7 @@
       "NAME": "Etiquetas",
       "TYPESCRIPT": "Typescript"
   },
+  "NEWS": "Noticias",
   "TAKE.LOOK": "Echa un vistazo a nuestras categorias",
   "TASK.DONE": "Tareas realizadas",
   "TECH.SKILLS": "<span>Cualidades</span> Técnicas",
@@ -557,6 +558,12 @@
   "YOUR.PROFILE": "Mi Perfil",
   "YOUTUBE": "Youtube",
   "GUEST": "Invitado",
-  "DELETE.CHAT.MESSAGE": "¿Quieres eliminar el mensaje <span class='bold'>{{message}}</span>?",
-  "MESSAGE.DELETED": "Mensaje eliminado"
+  "DELETE.CHAT.MESSAGE": "¿Quieres eliminar el mensaje \"<span class='bold'>{{message}}</span>\"?",
+  "MESSAGE.DELETED": "Mensaje eliminado",
+  "GET.NEWS": "Infórmate de las Novedades",
+  "READ.MORE": "Leer más...",
+  "POPULAR.NEWS": "Las Noticias más Populares",
+  "VIEWED.NEWS": "Entérate antes que nadie",
+  "ALL.NEWS": "Todas las Noticias",
+  "PREVIEW.NEWS": "No te pierdas Nada"
 }

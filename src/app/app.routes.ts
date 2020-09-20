@@ -127,5 +127,11 @@ export const ROUTES: Routes = [
       import('./pages/single-test/single-test.module')
        .then(mod => mod.SingleTestModule), data: { name: 'Single Test' },
     canActivate: [TestGuard]
-  }
+  },
+  {
+    path: 'news',
+    loadChildren: () =>
+      import('./pages/news/news.module')
+       .then(mod => mod.NewsModule), data: { name: 'News' }
+  },
 ];

@@ -42,7 +42,6 @@ const Material = [
     NgxPaginationModule,
     PageHeaderModule,
     SectionModule,
-    SharedModule,
     ContentBoxModule,
     StickyBoxModule,
     CardsModule,

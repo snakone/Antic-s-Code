@@ -11,31 +11,32 @@ import { TagRequest } from '@shared/interfaces/interfaces';
 
 export class ArticlesFacade {
 
-  public articles$ = this.store.select(fromArticles.get);
-  public loaded$ = this.store.select(fromArticles.getLoaded);
-  public getFull$ = this.store.select(fromArticles.getFull);
-  public byUser$ = this.store.select(fromArticles.getByUser);
-  public byUserLoaded$ = this.store.select(fromArticles.getByUserLoaded);
-  public bySlug$ = this.store.select(fromArticles.getBySlug);
-  public byCategory$ = this.store.select(fromArticles.getByCategory);
-  public byCategoryLoaded$ = this.store.select(fromArticles.getByCategoryLoaded);
-  public byCategoryCount$ = this.store.select(fromArticles.getByCategoryCount);
-  public byCategoryCountLoaded$ = this.store.select(fromArticles.getCategoryCountLoaded);
-  public byTags$ = this.store.select(fromArticles.getByTags);
-  public byTagsLoaded$ = this.store.select(fromArticles.getByTagsLoaded);
-  public count$ = this.store.select(fromArticles.getCount);
-  public countLoaded$ = this.store.select(fromArticles.getCountLoaded);
-  public last$ = this.store.select(fromArticles.getLast);
-  public lastCountLoaded$ = this.store.select(fromArticles.getLastAndCountLoaded);
-  public mostLiked$ = this.store.select(fromArticles.getMostLiked);
-  public mostLikedLoaded$ = this.store.select(fromArticles.getMostLikedLoaded);
-  public mostViewed$ = this.store.select(fromArticles.getMostViewed);
-  public mostViewedLoaded$ = this.store.select(fromArticles.getMostViewedLoaded);
+  articles$ = this.store.select(fromArticles.get);
+  loaded$ = this.store.select(fromArticles.getLoaded);
+  dataLoaded$ = this.store.select(fromArticles.getDataLoaded);
+  getFull$ = this.store.select(fromArticles.getFull);
+  byUser$ = this.store.select(fromArticles.getByUser);
+  byUserLoaded$ = this.store.select(fromArticles.getByUserLoaded);
+  bySlug$ = this.store.select(fromArticles.getBySlug);
+  byCategory$ = this.store.select(fromArticles.getByCategory);
+  byCategoryLoaded$ = this.store.select(fromArticles.getByCategoryLoaded);
+  byCategoryCount$ = this.store.select(fromArticles.getByCategoryCount);
+  byTags$ = this.store.select(fromArticles.getByTags);
+  byTagsLoaded$ = this.store.select(fromArticles.getByTagsLoaded);
+  count$ = this.store.select(fromArticles.getCount);
+  last$ = this.store.select(fromArticles.getLast);
+  mostLiked$ = this.store.select(fromArticles.getMostLiked);
+  mostViewed$ = this.store.select(fromArticles.getMostViewed);
+  mostViewedLoaded$ = this.store.select(fromArticles.getMostViewedLoaded);
 
   constructor(private store: Store<AppState>) { }
 
   public get(): void {
     this.store.dispatch(ArticleActions.get());
+  }
+
+  public getData(): void {
+    this.store.dispatch(ArticleActions.getData());
   }
 
   public getBySlug(slug: string): void {
@@ -52,10 +53,6 @@ export class ArticlesFacade {
 
   public getByCategory(category: string): void {
     this.store.dispatch(ArticleActions.getByCategory({category}));
-  }
-
-  public getByCategoryCount(): void {
-    this.store.dispatch(ArticleActions.getByCategoryCount());
   }
 
   public reset(): void {
@@ -76,22 +73,6 @@ export class ArticlesFacade {
 
   public resetByTags(): void {
     this.store.dispatch(ArticleActions.resetByTags());
-  }
-
-  public getCount(): void {
-    this.store.dispatch(ArticleActions.getCount());
-  }
-
-  public getLast(): void {
-    this.store.dispatch(ArticleActions.getLast());
-  }
-
-  public getLiked(): void {
-    this.store.dispatch(ArticleActions.getMostLiked());
-  }
-
-  public getViewed(): void {
-    this.store.dispatch(ArticleActions.getMostViewed());
   }
 
 }

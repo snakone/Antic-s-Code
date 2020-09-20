@@ -12,30 +12,14 @@ import { Article } from '@shared/interfaces/interfaces';
   styleUrls: ['./liked-home.component.scss']
 })
 
-export class LikedHomeComponent implements OnInit, OnDestroy {
+export class LikedHomeComponent implements OnInit {
 
   articles$: Observable<Article[]>;
-  private unsubscribe$ = new Subject<void>();
 
   constructor(private articleFacade: ArticlesFacade) { }
 
   ngOnInit() {
-    this.checkData();
     this.articles$ = this.articleFacade.mostLiked$;
-  }
-
-  private checkData(): void {
-    this.articleFacade.mostLikedLoaded$
-     .pipe(
-       filter(res => !res),
-       takeUntil(this.unsubscribe$)
-      )
-     .subscribe(_ => this.articleFacade.getLiked());
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
   }
 
 }

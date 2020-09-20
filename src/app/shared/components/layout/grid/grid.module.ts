@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { ArticlesGridModule } from '@layout/grid/articles-grid/articles-grid.module';
+import { NewsGridModule } from '@layout/grid/news-grid/news-grid.module';
 import { CategoryGridComponent } from '@layout/grid/category-grid/category-grid.component';
 import { PipesModule } from '@shared/pipes/pipes.module';
 import { TranslateModule } from '@ngx-translate/core';
@@ -19,6 +20,7 @@ const Material = [
   imports: [
     CommonModule,
     ArticlesGridModule,
+    NewsGridModule,
     PipesModule,
     RouterModule,
     TranslateModule,
@@ -26,7 +28,8 @@ const Material = [
   ],
   exports: [
     CategoryGridComponent,
-    ArticlesGridModule
+    ArticlesGridModule,
+    NewsGridModule
   ]
 })
 

@@ -4,7 +4,7 @@ import {
   EventEmitter,
   Output,
   Input,
-  ChangeDetectionStrategy, OnDestroy
+  OnDestroy
 } from '@angular/core';
 
 import { ChatFacade } from '@store/chat/chat.facace';
@@ -18,22 +18,20 @@ import { of, Subject } from 'rxjs';
 @Component({
   selector: 'app-chat-box',
   templateUrl: './chat-box.component.html',
-  styleUrls: ['./chat-box.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./chat-box.component.scss']
 })
 
 export class ChatBoxComponent implements OnInit, OnDestroy {
 
-  @Input() chat: ChatMessage[];
   @Input() isOn: boolean;
   @Output() close = new EventEmitter<boolean>();
 
   private unsubscribe$ = new Subject<void>();
-  msg = '';
   textarea: HTMLElement;
   content: HTMLElement;
   limit = 100;
   user: User;
+  message = '';
 
   constructor(
     private chatFacade: ChatFacade,
@@ -45,27 +43,20 @@ export class ChatBoxComponent implements OnInit, OnDestroy {
     this.textarea = document.getElementById('chat-textarea');
     this.content = document.getElementById('chat-content');
     this.scrollChat();
-    this.user = this.userSrv.getUser();
   }
 
-  public closeChat(): void {
-    this.close.emit(true);
-  }
-
-  public keyDownFunction(event: KeyboardEvent): void {
-    // tslint:disable-next-line: deprecation
-    if (event.keyCode === 13 && !event.shiftKey) {
-      event.preventDefault();
-      if (!this.msg || this.msg.length > this.limit) { return; }
-      this.sendMessage();
-    }
+  public keyDownFunction(): void {
+    if (!this.message ||
+         this.message.length > this.limit ||
+         this.message.length === 0) { return; }
+    this.sendMessage();
   }
 
   public sendMessage(): void {
-    this.chatFacade.send(this.msg);
-    this.msg = '';
-    this.textarea.focus();
+    this.chatFacade.send(this.message);
+    this.message = '';
     this.scrollChat();
+    this.textarea.focus();
   }
 
   public deleteMessage(msg: ChatMessage): void {
@@ -75,21 +66,25 @@ export class ChatBoxComponent implements OnInit, OnDestroy {
     };
 
     this.crafter.dialog(ConfirmationComponent, data)
-    .afterClosed()
-    .pipe(
-      takeUntil(this.unsubscribe$),
-      filter(res => res && !!res),
-      switchMap(_ => of(this.chatFacade.deleteMessageById(msg._id)))
-    )
-    .subscribe(_ => {
-      this.crafter.toaster('SUCCESS', 'MESSAGE.DELETED', 'info');
-    });
+      .afterClosed()
+      .pipe(
+        takeUntil(this.unsubscribe$),
+        filter(res => res && !!res),
+        switchMap(_ => of(this.chatFacade.deleteMessageById(msg._id)))
+      )
+      .subscribe(_ => {
+        this.crafter.toaster('SUCCESS', 'MESSAGE.DELETED', 'info');
+      });
   }
 
   private scrollChat(): void {
     setTimeout(() => {
       this.content.scrollTop = this.content.scrollHeight;
-    }, 500);
+    }, 300);
+  }
+
+  public closeChat(): void {
+    this.close.emit(true);
   }
 
   ngOnDestroy(): void {

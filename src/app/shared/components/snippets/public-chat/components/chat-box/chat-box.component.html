@@ -15,8 +15,7 @@
 
  <!-- CHAT MESSAGES -->
   <div class="chat-content" id="chat-content">
-    <app-chat-message [chat]="chat"
-                      [user]="user"
+    <app-chat-message [user]="userSrv.getUser()"
                       (deleted)="deleteMessage($event)">
     </app-chat-message>
   </div>
@@ -24,16 +23,17 @@
  <!-- INPUT TEXT -->
   <div class="chat-text">
     <textarea rows="1"
-              [(ngModel)]="msg"
               autofocus
+              [(ngModel)]="message"
+              name="message"
               id="chat-textarea"
-              (keydown)="keyDownFunction($event)"
+              (keyup.enter)="keyDownFunction()"
               wrap="hard"
-              [maxlength]="limit">
+              maxlength="100">
     </textarea>
     <button mat-button
             (click)="sendMessage()"
-            [disabled]="!msg || msg.length > limit">
+            [disabled]="!message || message.length > limit">
       <mat-icon class="chat">send</mat-icon>
     </button>
   </div>

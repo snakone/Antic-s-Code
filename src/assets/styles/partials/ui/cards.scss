@@ -1,0 +1,81 @@
+.fig-caption-card {
+  &-image {
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+
+    & figure {
+        position: relative;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        overflow: hidden;
+        margin-bottom: 0;
+    }
+  }
+
+  &-title {
+    padding: 1.1rem 1.6rem;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+    cursor: pointer;
+
+    & h3 {
+      color: var(--light-color);
+      margin: 0 0 .16667rem;
+      font-size: 1.33rem;
+      @media(max-width: 905px) and (min-width: 801px) { font-size: 1.1rem }
+      @media(max-width: 800px) { font-size: 1rem }
+    }
+
+    & p {
+      margin: 0;
+      color: var(--light-color);
+      line-height: 1.8rem;
+      @media(max-width: 700px) and (min-width: 620px) { font-size: .9rem }
+    }
+
+    & mat-icon {
+      color: var(--primary-color);
+      font-size: 1.2rem;
+      position: relative;
+      top: 3.6px;
+      left: 4px;
+    }
+
+    @media(max-width: 800px) { padding: 1.1rem 1.5rem }
+    @media(max-width: 700px) and (min-width: 620px) { padding: 1.1rem 1.1rem }
+    @media(max-width: 415px) { padding: 1rem 1.1rem }
+  }
+}
+
+.fig-caption-skeleton-card {
+  position: relative;
+  margin: 0;
+  outline: none;
+  margin-bottom: 2rem;
+
+  & img {
+    width: 100%;
+    vertical-align: middle;
+    border-style: none;
+    margin-top: 1px;  // Border of SideBar
+  }
+
+  & p {
+    background: var(--skeleton-color-tint);
+    height: 4.3rem;
+  }
+
+  & span {
+    position: absolute;
+    top: 1.6rem;
+    left: 1.6rem;
+    width: 45%;
+    background: var(--light-color);
+    height: 1.8rem;
+    line-height: 1.8rem;
+    border-radius: 2px;
+  }
+}

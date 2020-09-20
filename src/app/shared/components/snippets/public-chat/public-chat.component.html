@@ -12,8 +12,7 @@
   </i>
   <app-chat-box *ngIf="class === 'opened'"
                 (close)="class = 'closed'"
-                [isOn]="socket.isOn"
-                [chat]="(messages | async).reverse()">
+                [isOn]="socket.isOn">
   </app-chat-box>
 </div>
 

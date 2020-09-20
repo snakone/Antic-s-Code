@@ -4,9 +4,8 @@ import { UserService } from '@core/services/user/user.service';
 import { StorageService } from '@core/storage/storage.service';
 import { ChatFacade } from '@store/chat/chat.facace';
 
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
-import { ChatMessage } from '@shared/interfaces/interfaces';
 import { SocketService } from '@core/sockets/services/socket.service';
 
 @Component({
@@ -18,19 +17,17 @@ import { SocketService } from '@core/sockets/services/socket.service';
 export class PublicChatComponent implements OnInit, OnDestroy {
 
   class: string;
-  messages: Observable<ChatMessage[]>;
   private unsubscribe$ = new Subject<void>();
 
   constructor(
     public user: UserService,
     public ls: StorageService,
-    private chatFacade: ChatFacade,
-    public socket: SocketService
+    public socket: SocketService,
+    private chatFacade: ChatFacade
   ) { }
 
   ngOnInit(): void {
     this.checkData();
-    this.messages = this.chatFacade.messages$;
   }
 
   private checkData(): void {

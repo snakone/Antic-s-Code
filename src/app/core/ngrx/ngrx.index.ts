@@ -5,7 +5,8 @@ import {
   CategoriesPartialState,
   IntersPartialState,
   ChatPartialState,
-  TestPartialState
+  TestPartialState,
+  NewsPartialState
 } from './ngrx.config';
 
 import * as fromArticles from './articles/article.reducer';
@@ -16,6 +17,7 @@ import * as fromInters from './interactions/interaction.reducer';
 import * as fromSearch from './search/search.reducer';
 import * as fromChat from './chat/chat.reducer';
 import * as fromTest from './test/test.reducer';
+import * as fromNews from './news/news.reducer';
 
 export const reducers: ActionReducerMap<AppState> = {
   articles: fromArticles.reducer,
@@ -43,6 +45,11 @@ export const testReducers:
     test: fromTest.reducer
 };
 
+export const newsReducers:
+  ActionReducerMap<NewsPartialState> = {
+    news: fromNews.reducer
+};
+
 export const getAppState = createFeatureSelector<AppState>('AppState');
 
 export const getCategoriesPartialState =
@@ -56,3 +63,6 @@ export const getChatPartialState =
 
 export const getTestPartialState =
   createFeatureSelector<TestPartialState>('TestState');
+
+export const getNewsPartialState =
+  createFeatureSelector<NewsPartialState>('NewsState');

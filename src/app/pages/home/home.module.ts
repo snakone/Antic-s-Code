@@ -15,14 +15,19 @@ import {
 
 import { GridModule } from '@layout/grid/grid.module';
 import { SectionModule } from '@layout/section/section.module';
+import { NewsHomeComponent } from './components/news-home/news-home.component';
+import { CommonModule } from '@angular/common';
+import { NewsAccessModule } from '@core/ngrx/news/data-access/news-access.module';
 
 @NgModule({
   declarations: [
     HomeComponent,
     ArticlesHomeComponent,
     CategoryHomeComponent,
+    NewsHomeComponent,
   ],
   imports: [
+    CommonModule,
     HomeRouting,
     HeaderHomeModule,
     LikedHomeModule,
@@ -30,7 +35,8 @@ import { SectionModule } from '@layout/section/section.module';
     ContactHomeModule,
     SharedModule,
     GridModule,
-    SectionModule
+    SectionModule,
+    NewsAccessModule
   ]
 })
 

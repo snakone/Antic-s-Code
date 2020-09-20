@@ -1,4 +1,4 @@
-import { Config } from '../interfaces/interfaces';
+import { Config, News } from '../interfaces/interfaces';
 import { AosOptions } from 'aos';
 
 export const LANGUAGES: Config[] = [
@@ -35,7 +35,8 @@ export const PAGE_BG = {
   users: 'assets/img/page_bg/users.mp4',
   works: 'assets/img/page_bg/works.mp4',
   tests: 'assets/img/page_bg/tests.mp4',
-  test: 'assets/img/page_bg/test.mp4'
+  test: 'assets/img/page_bg/test.mp4',
+  news: 'assets/img/page_bg/news.mp4'
 };
 
 export const CONDITIONS: string[] = [
@@ -64,4 +65,49 @@ export const AOS_SETTINGS: AosOptions = {
   mirror: false,
   anchorPlacement: 'top-bottom',
 };
+
+export const DUMMY_NEWS: News[] = [
+  {
+    title: 'Bitcoin hardware devices need to improve to handle complex transactions',
+    image: 'https://s3.cointelegraph.com/storage/uploads/view/340981d2f00f5cf6d6eeaf5671378430.jpg',
+    views: 2,
+    category: 'Javascript',
+    message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate autem impedit molestias quos fuga unde similique aliquid, suscipit adipisci repellat, dolor ab sapiente maxime sequi ea, facilis tenetur nostrum architecto sed velit quasi consequuntur. Perspiciatis quasi praesentium eius quo ex architecto distinctio numquam. Dolores iste, ad culpa aperiam expedita quo.'
+  },
+  {
+    title: 'Bitcoin hardware devices need to improve to handle complex transactions',
+    image: 'https://s3.cointelegraph.com/storage/uploads/view/340981d2f00f5cf6d6eeaf5671378430.jpg',
+    views: 13,
+    category: 'Git',
+    message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate autem impedit molestias quos fuga unde similique aliquid, suscipit adipisci repellat, dolor ab sapiente maxime sequi ea, facilis tenetur nostrum architecto sed velit quasi consequuntur. Perspiciatis quasi praesentium eius quo ex architecto distinctio numquam. Dolores iste, ad culpa aperiam expedita quo.'
+  },
+  {
+    title: 'Bitcoin hardware devices need to improve to handle complex transactions',
+    image: 'https://s3.cointelegraph.com/storage/uploads/view/340981d2f00f5cf6d6eeaf5671378430.jpg',
+    views: 23,
+    category: 'GO',
+    message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate autem impedit molestias quos fuga unde similique aliquid, suscipit adipisci repellat, dolor ab sapiente maxime sequi ea, facilis tenetur nostrum architecto sed velit quasi consequuntur. Perspiciatis quasi praesentium eius quo ex architecto distinctio numquam. Dolores iste, ad culpa aperiam expedita quo.'
+  },
+  {
+    title: 'Bitcoin hardware devices need to improve to handle complex transactions',
+    image: 'https://s3.cointelegraph.com/storage/uploads/view/340981d2f00f5cf6d6eeaf5671378430.jpg',
+    views: 11,
+    category: 'CSS',
+    message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate autem impedit molestias quos fuga unde similique aliquid, suscipit adipisci repellat, dolor ab sapiente maxime sequi ea, facilis tenetur nostrum architecto sed velit quasi consequuntur. Perspiciatis quasi praesentium eius quo ex architecto distinctio numquam. Dolores iste, ad culpa aperiam expedita quo.'
+  },
+  {
+    title: 'Bitcoin hardware devices need to improve to handle complex transactions',
+    image: 'https://s3.cointelegraph.com/storage/uploads/view/340981d2f00f5cf6d6eeaf5671378430.jpg',
+    views: 11,
+    category: 'Node',
+    message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate autem impedit molestias quos fuga unde similique aliquid, suscipit adipisci repellat, dolor ab sapiente maxime sequi ea, facilis tenetur nostrum architecto sed velit quasi consequuntur. Perspiciatis quasi praesentium eius quo ex architecto distinctio numquam. Dolores iste, ad culpa aperiam expedita quo.'
+  },
+  {
+    title: 'Bitcoin hardware devices need to improve to handle complex transactions',
+    image: 'https://s3.cointelegraph.com/storage/uploads/view/340981d2f00f5cf6d6eeaf5671378430.jpg',
+    views: 11,
+    category: 'Angular',
+    message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate autem impedit molestias quos fuga unde similique aliquid, suscipit adipisci repellat, dolor ab sapiente maxime sequi ea, facilis tenetur nostrum architecto sed velit quasi consequuntur. Perspiciatis quasi praesentium eius quo ex architecto distinctio numquam. Dolores iste, ad culpa aperiam expedita quo.'
+  }
+];
 
