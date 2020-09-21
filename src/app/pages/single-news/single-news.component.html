@@ -1,0 +1,31 @@
+<ng-container *ngIf="(notice$ | async) as notice; then noNews">
+  <app-page-header [title]="notice.title"
+                  subTitle="NEWS">
+  </app-page-header>
+  <app-section input="#f5f7fc">
+    <div class="row">
+      <div class="col-lg-8 col-md-8">  <!-- CONTENT -->
+        <app-single-news-content [notice]="notice"></app-single-news-content>
+      </div>
+      <div class="col-lg-4 col-md-4">  <!-- SIDEBAR -->
+        <app-single-news-sidebar [notice]="notice"></app-single-news-sidebar>
+      </div>
+    </div>
+  </app-section>
+</ng-container>
+
+<ng-template #noNews>
+  <app-page-header title="LOADING.NEWS"
+                   subTitle="NEWS">
+  </app-page-header>
+  <app-section input="#f5f7fc">
+    <div class="row">
+      <div class="col-lg-8 col-md-8">
+        <app-spinner></app-spinner>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        SIDEBAR
+      </div>
+    </div>
+  </app-section>
+</ng-template>

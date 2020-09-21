@@ -14,7 +14,7 @@ export class NewsService {
 
   constructor(private http: HttpService) { }
 
-  public getNews(): Observable<News[]> {
+  public get(): Observable<News[]> {
     this.page++;
     return this.http
       .get<NewsResponse>(this.API_NEWS + '?page=' + this.page)
@@ -24,9 +24,9 @@ export class NewsService {
       );
   }
 
-  public getLastAndViewed(): Observable<NewsResponse> {
+  public getData(): Observable<NewsResponse> {
     return this.http
-      .get<NewsResponse>(this.API_NEWS + 'notice/data')
+      .get<NewsResponse>(environment.api + 'news-data')
       .pipe(
         filter(res => res && !!res.ok)
       );

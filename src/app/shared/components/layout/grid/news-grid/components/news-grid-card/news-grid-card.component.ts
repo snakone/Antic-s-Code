@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { News } from '@app/shared/interfaces/interfaces';
+import { Component, Input } from '@angular/core';
+import { News } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-news-grid-card',
@@ -7,14 +7,11 @@ import { News } from '@app/shared/interfaces/interfaces';
   styleUrls: ['./news-grid-card.component.scss']
 })
 
-export class NewsGridCardComponent implements OnInit {
+export class NewsGridCardComponent {
 
   @Input() first: boolean;
-  @Input() new: News;
+  @Input() notice: News;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

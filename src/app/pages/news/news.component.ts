@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NewsFacade } from '@store/news/news.facade';
-import { NewsService } from '@core/services/news/news.service';
 import { News } from '@shared/interfaces/interfaces';
 
 import { Observable, Subject } from 'rxjs';
@@ -19,10 +18,7 @@ export class NewsComponent implements OnInit, OnDestroy {
   viewed$: Observable<News[]>;
   private unsubscribe$ = new Subject<void>();
 
-  constructor(
-    private newsSrv: NewsService,
-    private newsFacade: NewsFacade
-  ) { }
+  constructor(private newsFacade: NewsFacade) { }
 
   ngOnInit() {
     this.createObs();
@@ -49,7 +45,6 @@ export class NewsComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
-    this.newsSrv.resetPage();
   }
 
 }

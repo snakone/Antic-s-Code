@@ -24,12 +24,19 @@ $width-image: 355px;
     padding: 1.666rem 1.666rem 1.666rem 1.9rem;
     width: 100%;
     position: relative;
+
+    @media(max-width: 550px) {
+      font-size: 1.1rem;
+      padding: 1.5rem;
+      & h4 { font-size: 1.1rem }
+    }
+
     & h4 {
       margin-top: 0;
       margin-bottom: 1rem;
       font-size: 1.3rem;
       position: relative;
-      @media(max-width: 550px) { font-size: 1.1rem }
+      outline: none;
 
       &:after {
         content: "";
@@ -50,6 +57,7 @@ $width-image: 355px;
       font-size: .9rem;
       opacity: .8;
       color: var(--tag-color);
+      outline: none;
     }
   }
 
@@ -64,6 +72,7 @@ $width-image: 355px;
     width: $width-image;
     z-index: 4;
     border-right: 1px solid var(--new-color-border);
+    outline: none;
 
     & span {
       display: flex;

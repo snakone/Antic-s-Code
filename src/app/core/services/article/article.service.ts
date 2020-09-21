@@ -33,7 +33,7 @@ export class ArticleService {
 
   public getData(): Observable<ArticlesDataResponse> {
     return this.http
-      .get<ArticlesDataResponse>(this.API_ARTICLES + 'data')
+      .get<ArticlesDataResponse>(environment.api + 'articles-data')
       .pipe(
         filter(res => res && !!res.ok)
       );

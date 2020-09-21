@@ -1,6 +1,8 @@
 <div class="news-card">
-  <img [src]="notice.image" alt="News Image"/>
-  <div class="news-card-category">
+  <img [src]="notice.image"
+       alt="News Image"/>
+  <div class="news-card-category"
+       [routerLink]="'/news/' + notice.slug">
     <span>
       <img [src]="(notice.category | logo) | image: 'logos'"
             [alt]="notice.category"
@@ -10,10 +12,10 @@
     </span>
   </div>
   <div class="news-card-content">
-    <h4>{{notice.title}}</h4>
+    <h4 [routerLink]="'/news/' + notice.slug">{{notice.title}}</h4>
     <app-content-maker [template]="notice.preview"
                         args="notice">
     </app-content-maker>
-    <span>{{'READ.MORE' | translate}}</span>
+    <span [routerLink]="'/news/' + notice.slug">{{'READ.MORE' | translate}}</span>
   </div>
 </div>

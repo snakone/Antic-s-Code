@@ -7,7 +7,6 @@ export const LANGUAGES: Config[] = [
   { name: 'Català', selector: 'cat', translate: 'LANG.CAT' }
 ];
 
-
 export const THEMES: Config[] = [
   { name: 'Default', selector: 'default', translate: 'THEME.DEFAULT' },
   { name: 'Deep Blue', selector: 'deepblue', translate: 'THEME.DEEPBLUE' },

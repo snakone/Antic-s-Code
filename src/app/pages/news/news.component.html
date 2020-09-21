@@ -1,13 +1,8 @@
 <app-page-header title="NEWS"
                  subTitle="GET.NEWS">
 </app-page-header>
-<app-section input="#f5f7fc">
-  <div class="row">
-    <div class="col-lg-12">  <!-- CONTENT -->
-      <app-news-content [news]="last$ | async"></app-news-content>
-    </div>
-  </div>
-</app-section>
+
+<app-news-content [news]="last$ | async"></app-news-content>  <!-- CONTENT -->
 <app-news-viewed [news]="viewed$ | async"></app-news-viewed>  <!-- MOST VIEWED -->
 <app-news-preview [news]="news$ | async"></app-news-preview>  <!-- PREVIEW -->
 

@@ -3,6 +3,7 @@ import { NewsFacade } from '@store/news/news.facade';
 import { News } from '@shared/interfaces/interfaces';
 import { fromEvent, Subject } from 'rxjs';
 import { debounceTime, filter, switchMap, takeUntil, takeWhile } from 'rxjs/operators';
+import { NewsService } from '@core/services/news/news.service';
 
 @Component({
   selector: 'app-news-preview',
@@ -16,12 +17,15 @@ export class NewsPreviewComponent implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject<void>();
   section: HTMLElement;
 
-  constructor(private newsFacade: NewsFacade) { }
+  constructor(
+    private newsFacade: NewsFacade,
+    private newsSrv: NewsService
+  ) { }
 
   ngOnInit(): void {
+    this.section = document.getElementById('news-content');
     this.checkData();
     this.hasEnded();
-    this.section = document.getElementById('news-content');
   }
 
   private checkData(): void {
@@ -71,6 +75,7 @@ export class NewsPreviewComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+    this.newsSrv.resetPage();
   }
 
 }
