@@ -3,13 +3,13 @@ import { URI } from '@app/app.config';
 
 import { UserService } from '@core/services/user/user.service';
 import { CrafterService } from '@core/services/crafter/crafter.service';
-import { IntersService } from '@core/services/inters/inters.service';
 import { PushService } from '@core/services/push/push.service';
+import { ReactionService } from '@core/services/reaction/reaction.service';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { STAR_PUSH } from '@shared/data/notifications';
-import { Article, User, Interaction, NotificationPayload } from '@shared/interfaces/interfaces';
+import { Article, User, Reaction, NotificationPayload } from '@shared/interfaces/interfaces';
 
 import { NoAccountComponent } from '@layout/dialogs/no-account/no-account.component';
 
@@ -29,7 +29,7 @@ export class StarRatingComponent implements OnInit, OnDestroy {
   constructor(
     private userSrv: UserService,
     private crafter: CrafterService,
-    private intersSrv: IntersService,
+    private reactionSrv: ReactionService,
     private sw: PushService
   ) { }
 
@@ -46,14 +46,14 @@ export class StarRatingComponent implements OnInit, OnDestroy {
       return;
     }
     if (star) {
-      const int: Interaction = {
-        content: this.article._id,
+      const react: Reaction = {
+        source: this.article._id,
         user: this.user._id,
         type: 'star',
         value: star
       };
 
-      this.intersSrv.make(int)
+      this.reactionSrv.make(react)
         .pipe(takeUntil(this.unsubscribe$))
         .subscribe(_ => {
             this.crafter.toaster('SUCCESS', 'THANKS.MUCH', 'info');

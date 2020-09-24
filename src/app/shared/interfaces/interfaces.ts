@@ -32,7 +32,7 @@ export interface Article extends Content {
   summary?: string;
   status?: string;
   user?: string;
-  inters?: Inter;
+  reactions?: UserReaction;
 }
 
 export interface Category extends Content {
@@ -56,7 +56,7 @@ export interface News {
   links?: Link[];
 }
 
-interface Inter {
+interface UserReaction {
   liked: boolean;
   stars: number;
 }
@@ -127,15 +127,15 @@ interface UserProfile {
   language?: string;
 }
 
-export interface Interaction {
-  content: string;
+export interface Reaction {
+  source: string;
   user: string;
   type: string;
   value: number;
 }
 
-export interface InteractionResponse extends ServerResponse {
-  interaction: Interaction[];
+export interface ReactionResponse extends ServerResponse {
+  reactions: Reaction[];
 }
 
 export interface Role extends Translation {

@@ -1,6 +1,6 @@
-<ng-container *ngIf="(notice$ | async) as notice; then noNews">
+<ng-container *ngIf="(notice$ | async) as notice; else noNews">
   <app-page-header [title]="notice.title"
-                  subTitle="NEWS">
+                   subTitle="NEWS">
   </app-page-header>
   <app-section input="#f5f7fc">
     <div class="row">

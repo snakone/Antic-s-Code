@@ -6,19 +6,18 @@ import { takeUntil } from 'rxjs/operators';
 
 import { CrafterService } from '@core/services/crafter/crafter.service';
 import { UserService } from '@core/services/user/user.service';
-import { IntersService } from '@core/services/inters/inters.service';
 import { PushService } from '@core/services/push/push.service';
+import { ReactionService } from '@core/services/reaction/reaction.service';
+import { LIKE_PUSH } from '@shared/data/notifications';
 
 import { NoAccountComponent } from '../../dialogs/no-account/no-account.component';
 
 import {
   User,
   Article,
-  Interaction,
+  Reaction,
   NotificationPayload
  } from '@shared/interfaces/interfaces';
-
-import { LIKE_PUSH } from '@shared/data/notifications';
 
 @Component({
   selector: 'app-article-reactions',
@@ -37,13 +36,13 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
   constructor(
     private crafter: CrafterService,
     private userSrv: UserService,
-    private intersSrv: IntersService,
+    private reactionSrv: ReactionService,
     private sw: PushService
   ) { }
 
   ngOnInit() {
     this.user = this.userSrv.getUser();
-    this.liked = this.article.inters.liked;
+    this.liked = this.article.reactions.liked;
   }
 
   public doLike(value: number): void {
@@ -55,14 +54,14 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
       return;
     }
 
-    const int: Interaction = {
-      content: this.article._id,
+    const react: Reaction = {
+      source: this.article._id,
       user: this.user._id,
       type: 'like',
       value
     };
 
-    this.intersSrv.make(int)
+    this.reactionSrv.make(react)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(_ => {
           this.crafter.toaster('SUCCESS', 'THANKS.MUCH', 'info');

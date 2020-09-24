@@ -15,6 +15,7 @@
       border-radius: 3px;
       overflow: hidden;
       margin: 0 0 1rem;
+      outline: none;
   }
 
     &-content {
@@ -88,6 +89,7 @@ img {
 
 @media(min-width: 800px) {
   .col-lg-4 { max-width: 359px }
+  .is-category .col-lg-4 { max-width: 300px }
 }
 
 @media(max-width: 820px) and (min-width: 803px) {

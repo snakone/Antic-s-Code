@@ -1,9 +1,7 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
-import { Subject, Observable } from 'rxjs';
-import { takeUntil, filter } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { ArticlesFacade } from '@store/articles/article.facade';
-
 import { MAIN_CATEGORIES } from '@shared/data/categories';
 
 @Component({

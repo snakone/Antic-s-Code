@@ -1,4 +1,4 @@
-<ng-container *ngIf="(articles$ | async) as articles">
+<ng-container *ngIf="articles">
   <div *ngIf="!grid">  <!-- ARTICLES LIST -->
     <app-article-card shadow="true"
                       *ngFor="let a of articles"

@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { NewsFacade } from '@store/news/news.facade';
 import { News } from '@shared/interfaces/interfaces';
 import { fromEvent, Subject } from 'rxjs';
@@ -8,7 +8,8 @@ import { NewsService } from '@core/services/news/news.service';
 @Component({
   selector: 'app-news-preview',
   templateUrl: './news-preview.component.html',
-  styleUrls: ['./news-preview.component.scss']
+  styleUrls: ['./news-preview.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class NewsPreviewComponent implements OnInit, OnDestroy {
@@ -43,10 +44,11 @@ export class NewsPreviewComponent implements OnInit, OnDestroy {
     this.newsFacade.getFull$
     .pipe(
       takeUntil(this.unsubscribe$),
-      switchMap(_ => (
+      switchMap((full: boolean) => (
         fromEvent(window, 'scroll')
           .pipe(
-            takeWhile(() => !_),
+            filter(_ => !!this.news.length),
+            takeWhile(() => !full),
             debounceTime(300),
             takeUntil(this.unsubscribe$)
           )

@@ -1,9 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { ArticlesFacade } from '@store/articles/article.facade';
-import { Observable, Subject } from 'rxjs';
-import { takeUntil, filter } from 'rxjs/operators';
-
+import { Observable } from 'rxjs';
 import { Article } from '@shared/interfaces/interfaces';
 
 @Component({

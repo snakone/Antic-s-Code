@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NewsFacade } from '@app/core/ngrx/news/news.facade';
-import { News } from '@app/shared/interfaces/interfaces';
+import { NewsFacade } from '@core/ngrx/news/news.facade';
+import { News } from '@shared/interfaces/interfaces';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 

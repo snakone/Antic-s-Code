@@ -14,7 +14,10 @@
   "ALRIGHT.YOU.MADE": "¡Has <strong>aprobado</strong> por los pelos! Está bien, enhorabuena.",
   "AND.NOW": "Ahora también",
   "ANDROID.NATIVE": "Android Nativo",
+  "PHP.HYPER": "PHP Hypertexto",
   "ANTICS.INTRO": "Presentamos Antic's Code Desktop un programa de <strong>escritorio</strong> con el cual serás capaz de crear contenido para este mismo portal. Es más fácil de lo que crees, para ello sigue estos sencillos pasos:",
+  "ANTICS.CREATE": "Aprovecha esta oportunidad y únete a una emergente comunidad de desarrolladores. <strong>Crea</strong>, <strong>Comparte</strong>, <strong>Aprende</strong> y <strong>Conoce</strong> a nuevas personas interesadas en la profesión que más crece del mundo.",
+  "ANTICS.APP": "Esta aplicación se creó especialmente para escribir artículos, así que tu experiencia mientras escribes será genial y satisfactoria.",
   "APPLY": "Aplicar",
   "ARTICLE": "Artículo",
   "ARTICLE.CREATE": "Creación de Artículos",
@@ -135,13 +138,15 @@
   "DISCOVER.WORKS": "Descubre como usar Antic's",
   "DO.TEST": "Test de nuestras categorías",
   "DOWNLOAD": "Descargar",
+  "DOWNLOADS": "Descargas",
   "DOWNLOAD.APP": "Descarga la App",
   "DOWNLOAD.STEPS": {
-      "FIVE": "Al aprobarse, tu Artículo está listo!",
+      "SIX": "Al aprobarse, tu Artículo está listo!",
       "FOUR": "Sigue las instrucciones",
       "ONE": "Descarga la aplicación.",
       "THREE": "Entra en la sección de <strong>Crear</strong>.",
-      "TWO": "Ingresa con tu cuenta de Antic's Code."
+      "TWO": "Ingresa con tu cuenta de Antic's Code.",
+      "FIVE": "Tómate tu tiempo para escribir algo increíble."
   },
   "EDIT.PROFILE": "Editar Perfil",
   "EDIT.YOUR.PROFILE": "Edita tu Perfil",
@@ -386,7 +391,7 @@
   "META.CLIENT": "Metas y Beneficios para clientes",
   "MISS.YOU": "Te extrañaremos",
   "MOBILE.DEV": "Mobile",
-  "MOBILE.INTRO": "¿Quieres crear contenido desde cualquier lugar? Ahora con Antic's Code <strong>Mobile</strong> es posible. Descarga la aplicación, podrás crear y editar tu contenido en cualquier sitio. ¿A qué esperas?",
+  "MOBILE.INTRO": "¿Quieres crear contenido desde cualquier lugar? Ahora con Antic's Code <strong>Mobile</strong> es posible. Descarga la aplicación, podrás crear y editar tu contenido en cualquier sitio.",
   "MODALS": {
       "MAINTENANCE": {
           "MESSAGE": "Estamos trabajando en mejorar la página y es probable que algunas partes no funcionen correctamente. Disculpa las molestias, seguimos desarrollando para que todo vuelva a la normalidad lo antes posible. Gracias por tu compresión.",

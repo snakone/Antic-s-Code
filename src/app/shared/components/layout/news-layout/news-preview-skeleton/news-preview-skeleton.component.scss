@@ -103,6 +103,7 @@ $width-image: 355px;
 @media(max-width: 550px) {
   .news-card.skeleton {
     & .content {
+      padding: 1.5rem 1rem;
       & h4 { width: 15rem }
     }
   }
