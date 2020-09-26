@@ -4,7 +4,7 @@ import {
   OnDestroy,
   Input,
   EventEmitter,
-  Output
+  Output, ChangeDetectionStrategy
 } from '@angular/core';
 
 import { Subject, Observable } from 'rxjs';
@@ -17,18 +17,18 @@ import { Article } from '@shared/interfaces/interfaces';
 @Component({
   selector: 'app-search-result',
   templateUrl: './search-result.component.html',
-  styleUrls: ['./search-result.component.scss']
+  styleUrls: ['./search-result.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class SearchResultComponent implements OnInit, OnDestroy {
 
+  @Input() articles: Article[];
   @Input() grid: boolean;  // Display GRID
   @Output() count = new EventEmitter<number>();
   page = 1;
   itemsPerPage = 4;
-
   private unsubscribe$ = new Subject<void>();
-  articles$: Observable<Article[]>;
 
   constructor(
     private searchFacade: SearchFacade,
@@ -36,7 +36,6 @@ export class SearchResultComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.articles$ = this.searchFacade.result$;
     this.checkData();
     this.getCurrentPage();
   }

@@ -78,6 +78,12 @@ export const MAIN_CATEGORIES: List[] = [
     icon: 'deno-logo.png',
     category: 'Deno',
     class: 'even.jpg'
+  },
+  {
+    name: 'PHP.HYPER',
+    icon: 'php-logo.png',
+    category: 'PHP',
+    class: 'odd.jpg'
   }
 ];
 

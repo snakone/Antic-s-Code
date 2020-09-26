@@ -13,10 +13,15 @@
     justify-content: center;
     font-size: .888rem;
     opacity: .5;
+    filter: grayscale(.8);
     margin-right: .3rem;
     transition: all .5s ease-in;
-    &.match { opacity: 1 }
     &:hover { filter: brightness(1.5) }
+
+    &.match {
+      opacity: 1;
+      filter: grayscale(0);
+    }
 
     & mat-icon {
       font-size: 1.6rem;

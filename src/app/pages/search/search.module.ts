@@ -49,11 +49,11 @@ const Material = [
     SharedModule,
     PaginationModule,
     GridModule,
-    ...Material,
     SnippetsModule,
     PageHeaderModule,
     SectionModule,
-    ContentBoxModule
+    ContentBoxModule,
+    ...Material,
   ]
 })
 

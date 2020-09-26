@@ -18,7 +18,7 @@ export class NewsEffects {
   getNewsEffect$ = createEffect(() => this.actions
     .pipe(
       ofType(NewsActions.get),
-      concatMap(() => this.newsSrv.getNews()
+      concatMap(() => this.newsSrv.get()
         .pipe(
           map(news => NewsActions.getSuccess({news})),
           catchError(error =>
@@ -26,11 +26,11 @@ export class NewsEffects {
     ))))
   );
 
-  // GET NEWS
+  // GET LAST AND VIEWED
     getLastAndViewedEffect$ = createEffect(() => this.actions
     .pipe(
       ofType(NewsActions.getLastAndViewed),
-      concatMap(() => this.newsSrv.getLastAndViewed()
+      concatMap(() => this.newsSrv.getData()
         .pipe(
           map(res => NewsActions.getLastAndViewedSuccess({res})),
           catchError(error =>

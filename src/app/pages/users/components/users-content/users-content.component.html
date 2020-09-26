@@ -29,7 +29,7 @@
 </app-content-box>
 
 <div class="row">
-  <div class="col-lg-12" *ngIf="filteredUsers?.length > 0; else skeleton">
+  <div class="col-lg-12" *ngIf="filteredUsers?.length > 0; else noUsers">
     <app-user-card *ngFor="let user of filteredUsers |
                                         paginate: {
                                           itemsPerPage: itemsPerPage,
@@ -41,10 +41,8 @@
     </app-user-card>
   </div>
 
-  <ng-template #skeleton>
-    <app-user-card [skeleton]="true"
-                    *ngFor="let c of [1,2,3,4,5]">
-    </app-user-card>
+  <ng-template #noUsers>
+    <app-user-card *ngFor="let c of [1,2,3,4,5]"></app-user-card>
   </ng-template>
 </div>
 

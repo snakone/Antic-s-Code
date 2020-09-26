@@ -6,10 +6,24 @@
 }
 
 h3 { margin-top: 0 }
+.m-top { margin-top: 3rem}
+p { padding-right: 3rem }
 
-.m-top {
-  margin-top: 4rem;
-  @media(max-width: 991px) { margin-top: 3rem }
+.mobileRight {
+  @media(min-width: 992px) {
+    text-align: right;
+    & .m-top { margin-top: 0 }
+
+    & p {
+      padding-right: 0;
+      padding-left: 3rem;
+    }
+
+    & .download {
+      justify-content: flex-end;
+      & button { margin: .8rem 0 1.4rem .666rem }
+    }
+  }
 }
 
 .col-lg-6 {
@@ -27,13 +41,6 @@ h3 { margin-top: 0 }
 
 .download {
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding-right: 3rem;
-
-  @media(max-width: 991px) {
-    justify-content: flex-start;
-  }
 
   & button {
     display: flex;
@@ -41,7 +48,7 @@ h3 { margin-top: 0 }
     align-items: center;
     position: relative;
     padding: .3rem .6rem;
-    margin: 1.4rem .666rem 1.4rem 0;
+    margin: .8rem .666rem 1.4rem 0;
     border: 1px solid rgba(0, 0, 0, .3);
     font-weight: bold;
     cursor: pointer;

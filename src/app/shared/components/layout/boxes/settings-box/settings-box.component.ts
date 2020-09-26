@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { StorageService } from '@core/storage/storage.service';
@@ -14,7 +14,8 @@ import { SHOW_HIDE } from '@shared/data/user';
 @Component({
   selector: 'app-settings-box',
   templateUrl: './settings-box.component.html',
-  styleUrls: ['./settings-box.component.scss']
+  styleUrls: ['./settings-box.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class SettingsBoxComponent implements OnInit {

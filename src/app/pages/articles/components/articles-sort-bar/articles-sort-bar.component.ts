@@ -1,7 +1,6 @@
-import { Component, OnInit, Output, EventEmitter, OnDestroy, Input } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Observable } from 'rxjs';
 
-import { takeUntil, filter } from 'rxjs/operators';
 import { ArticlesFacade } from '@store/articles/article.facade';
 
 @Component({

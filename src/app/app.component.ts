@@ -35,6 +35,16 @@ export class AppComponent implements OnInit {
     window.onload = () => this.onLoad();
   }
 
+  private onLoad(): void {
+    const app = document.getElementById('app');
+    app.classList.remove('hide');
+
+    this.loaded = true;
+    this.sw.updateSW();
+    this.openLanguageSnack();
+    if (environment.maintenance) { this.showMaintenance(); }
+  }
+
   private checkUserToken(): void {
     if (this.ls.get('token')) { this.usersFacade.verifyToken(); }
   }
@@ -51,16 +61,6 @@ export class AppComponent implements OnInit {
 
   private setTheme(): void {
     this.theme.set(this.ls.get('theme'));
-  }
-
-  private onLoad(): void {
-    const app = document.getElementById('app');
-    app.classList.remove('hide');
-
-    this.loaded = true;
-    this.sw.updateSW();
-    this.openLanguageSnack();
-    if (environment.maintenance) { this.showMaintenance(); }
   }
 
   private showMaintenance(): void {

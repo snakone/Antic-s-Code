@@ -1,12 +1,13 @@
 <div class="news-card"
-     [ngClass]="{'first': first}">
+     [ngClass]="{'first': first}"
+     [routerLink]="'/news/' + notice.slug">
   <div class="news-card-info">
-    <span>{{new.title}}</span>
+    <span>{{notice.title}}</span>
     <p>
-      <img [src]="(new.category | logo) | image: 'logos'"
-           [alt]="new.category"
+      <img [src]="(notice.category | logo) | image: 'logos'"
+           [alt]="notice.category"
            loading="lazy"/>
-          {{new.category}}
+          {{notice.category}}
     </p>
   </div>
 </div>

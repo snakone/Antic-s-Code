@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { filter, takeUntil } from 'rxjs/operators';
@@ -10,7 +10,8 @@ import { Article } from '@shared/interfaces/interfaces';
 @Component({
   selector: 'app-related-tags-box',
   templateUrl: './related-tags-box.component.html',
-  styleUrls: ['./related-tags-box.component.scss']
+  styleUrls: ['./related-tags-box.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class RelatedTagsBoxComponent implements OnInit, OnDestroy {

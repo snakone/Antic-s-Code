@@ -1,6 +1,6 @@
 <div class="card-content"
     [ngClass]="{'first': first}"
-    *ngIf="!skeleton">
+    *ngIf="user">
   <div class="user-card">
       <div class="user-card-flex">
         <img [src]="user.profile?.avatar || 'assets/img/profile/no-photo.jpg'"
@@ -34,7 +34,7 @@
   </div>
 </div>
 
-<div *ngIf="skeleton" class="skeleton">
+<div *ngIf="!user" class="skeleton">
   <h4></h4>
   <div class="info">
     <h3></h3>
