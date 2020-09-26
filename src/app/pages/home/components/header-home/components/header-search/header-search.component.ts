@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -11,7 +11,8 @@ import { TAGS } from '@shared/data/article';
 @Component({
   selector: 'app-header-search',
   templateUrl: './header-search.component.html',
-  styleUrls: ['./header-search.component.scss']
+  styleUrls: ['./header-search.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class HeaderSearchComponent implements OnInit {

@@ -13,22 +13,25 @@
                              [active]="true">
       </app-articles-sort-bar>
     </div>
-    <div *ngIf="!grid">
-      <div class="col-lg-8 col-md-8" >
-        <app-articles-content></app-articles-content>
+    <ng-container *ngIf="(articles$ | async) as articles">
+      <div *ngIf="!grid">
+        <div class="col-lg-8 col-md-8" >
+          <app-articles-content [articles]="articles"></app-articles-content>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <app-articles-sort-bar (grid)="grid = $event" *onlyDesktop>
+          </app-articles-sort-bar>
+          <app-articles-sidebar [block]="true"
+                                [viewed]="true">
+          </app-articles-sidebar>
+        </div>
       </div>
-      <div class="col-lg-4 col-md-4">
-        <app-articles-sort-bar (grid)="grid = $event" *onlyDesktop>
-        </app-articles-sort-bar>
-        <app-articles-sidebar [block]="true"
-                              [viewed]="true"
-                              [sidebar]="true">
-        </app-articles-sidebar>
+      <div *ngIf="grid" class="col-lg-12">
+        <app-articles-content [grid]="grid"
+                              [articles]="articles">
+        </app-articles-content>
+        <app-articles-sidebar [viewed]="true"></app-articles-sidebar>
       </div>
-    </div>
-    <div *ngIf="grid" class="col-lg-12">
-      <app-articles-content [grid]="grid"></app-articles-content>
-      <app-articles-sidebar [viewed]="true"></app-articles-sidebar>
-    </div>
+    </ng-container>
   </div>
 </app-section>

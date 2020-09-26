@@ -5,10 +5,9 @@ import { environment } from '@env/environment';
 
 import {
   ArticleResponse,
-  CountResponse,
-  CategoryCountResponse,
   Article,
   TagRequest,
+  ArticlesDataResponse
 } from '@shared/interfaces/interfaces';
 
 import { filter, map } from 'rxjs/operators';
@@ -32,39 +31,11 @@ export class ArticleService {
       );
   }
 
-  public getLast(): Observable<Article[]> {
+  public getData(): Observable<ArticlesDataResponse> {
     return this.http
-      .get<ArticleResponse>(this.API_ARTICLES + 'last')
+      .get<ArticlesDataResponse>(environment.api + 'articles-data')
       .pipe(
-        filter(res => res && !!res.ok),
-        map(_ => _.articles)
-      );
-  }
-
-  public getCount(): Observable<number> {
-    return this.http
-      .get<CountResponse>(this.API_ARTICLES + 'count')
-      .pipe(
-        filter(res => res && !!res.ok),
-        map(_ => _.count)
-      );
-  }
-
-  public getMostLiked(): Observable<Article[]> {
-    return this.http
-      .get<ArticleResponse>(this.API_ARTICLES + 'liked')
-      .pipe(
-        filter(res => res && !!res.ok),
-        map(_ => _.articles)
-      );
-  }
-
-  public getMostViewed(): Observable<Article[]> {
-    return this.http
-      .get<ArticleResponse>(this.API_ARTICLES + 'viewed')
-      .pipe(
-        filter(res => res && !!res.ok),
-        map(_ => _.articles)
+        filter(res => res && !!res.ok)
       );
   }
 
@@ -101,15 +72,6 @@ export class ArticleService {
       .pipe(
         filter(res => res && !!res.ok),
         map(_ => _.articles)
-      );
-  }
-
-  public getByCategoryCount(): Observable<object> {
-    return this.http
-      .get<CategoryCountResponse>(this.API_ARTICLES + 'categories/count')
-      .pipe(
-        filter(res => res && !!res.ok),
-        map(_ => _.count)
       );
   }
 

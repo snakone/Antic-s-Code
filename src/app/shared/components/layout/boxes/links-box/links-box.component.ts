@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Link } from '@app/shared/interfaces/interfaces';
+import { Link } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-links-box',

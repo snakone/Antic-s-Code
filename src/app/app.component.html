@@ -1,12 +1,13 @@
 <ngx-loading-bar [includeSpinner]="false"
-                 height="3px">
+                 height="4px"
+                 ref="http">
 </ngx-loading-bar>
 
 <div id="app" class="hide">
   <app-navbar></app-navbar>
   <main class="outlet">
     <router-outlet #outlet></router-outlet>
-    <app-contact-admin></app-contact-admin>
+    <app-public-chat></app-public-chat>
     <app-go-top></app-go-top>
   </main>
   <app-footer></app-footer>

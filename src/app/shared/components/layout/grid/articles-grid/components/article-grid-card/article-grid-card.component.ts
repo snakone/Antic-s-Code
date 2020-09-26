@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Article } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-article-grid-card',
   templateUrl: './article-grid-card.component.html',
-  styleUrls: ['./article-grid-card.component.scss']
+  styleUrls: ['./article-grid-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class ArticleGridCardComponent {

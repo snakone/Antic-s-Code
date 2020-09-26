@@ -2,24 +2,22 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 
 import {  URI } from '@app/app.config';
 import { Subject } from 'rxjs';
-import { takeUntil, filter } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 
 import { CrafterService } from '@core/services/crafter/crafter.service';
 import { UserService } from '@core/services/user/user.service';
-import { InteractionService } from '@core/services/interaction/interaction.service';
 import { PushService } from '@core/services/push/push.service';
-import { InterFacade } from '@store/interactions/interaction.facade';
+import { ReactionService } from '@core/services/reaction/reaction.service';
+import { LIKE_PUSH } from '@shared/data/notifications';
 
 import { NoAccountComponent } from '../../dialogs/no-account/no-account.component';
 
 import {
   User,
   Article,
-  Interaction,
+  Reaction,
   NotificationPayload
  } from '@shared/interfaces/interfaces';
-
-import { LIKE_PUSH } from '@shared/data/notifications';
 
 @Component({
   selector: 'app-article-reactions',
@@ -38,23 +36,13 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
   constructor(
     private crafter: CrafterService,
     private userSrv: UserService,
-    private interFacade: InterFacade,
-    private intSrv: InteractionService,
+    private reactionSrv: ReactionService,
     private sw: PushService
   ) { }
 
   ngOnInit() {
     this.user = this.userSrv.getUser();
-    this.getIntByUser();
-  }
-
-  private getIntByUser(): void {
-    this.interFacade.byUser$
-      .pipe(
-        takeUntil(this.unsubscribe$),
-        filter(res => res && !!res.length)
-      )
-      .subscribe((res: Interaction[]) => this.markInteraction(res));
+    this.liked = this.article.reactions.liked;
   }
 
   public doLike(value: number): void {
@@ -66,14 +54,14 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
       return;
     }
 
-    const int: Interaction = {
-      content: this.article._id,
+    const react: Reaction = {
+      source: this.article._id,
       user: this.user._id,
       type: 'like',
       value
     };
 
-    this.intSrv.make(int)
+    this.reactionSrv.make(react)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(_ => {
           this.crafter.toaster('SUCCESS', 'THANKS.MUCH', 'info');
@@ -82,18 +70,10 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
           if (value === 1) {
             this.sw.sendNotification(
               this.setNotification(Object.assign({}, LIKE_PUSH))
-            ).subscribe();
+            ).toPromise().then();
           }
       });
   }
-
-  private markInteraction(ints: Interaction[]): void {
-    const cb = (int: Interaction) => int.content === this.article._id &&
-                                     int.type === 'like' &&
-                                     int.value === 1;
-    this.liked = ints.some(cb);
-  }
-
 
   setNotification(payload: NotificationPayload): NotificationPayload {
     payload.body = payload.body.concat(`.\n${this.article.title}`);

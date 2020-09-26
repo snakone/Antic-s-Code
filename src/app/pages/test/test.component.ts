@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { Test, TestEntry } from '@shared/interfaces/interfaces';
+import { Test } from '@shared/interfaces/interfaces';
 import { TestFacade } from '@store/test/test.facade';
-import { filter, takeUntil, tap } from 'rxjs/operators';
+import { filter, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-test',

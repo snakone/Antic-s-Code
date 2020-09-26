@@ -1,9 +1,7 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
-import { Subject, Observable } from 'rxjs';
-import { takeUntil, filter } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { ArticlesFacade } from '@store/articles/article.facade';
-
 import { MAIN_CATEGORIES } from '@shared/data/categories';
 
 @Component({
@@ -12,32 +10,16 @@ import { MAIN_CATEGORIES } from '@shared/data/categories';
   styleUrls: ['./category-grid.component.scss']
 })
 
-export class CategoryGridComponent implements OnInit, OnDestroy {
+export class CategoryGridComponent implements OnInit {
 
   @Input() isHome = false;
   categories = MAIN_CATEGORIES;
   count$: Observable<object>;
-  private unsubscribe$ = new Subject<void>();
 
   constructor(private articlesFacade: ArticlesFacade) { }
 
   ngOnInit() {
-    this.checkData();
     this.count$ = this.articlesFacade.byCategoryCount$;
-  }
-
-  private checkData(): void {
-    this.articlesFacade.byCategoryCountLoaded$
-     .pipe(
-       takeUntil(this.unsubscribe$),
-       filter(res => !res)
-      )
-     .subscribe(_ => this.articlesFacade.getByCategoryCount());
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
   }
 
 }

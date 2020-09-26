@@ -1,0 +1,18 @@
+<app-section input="#f5f7fc"
+             title="ALL.NEWS"
+             description="PREVIEW.NEWS">  <!-- NEWS PREVIEW -->
+  <div class="row">
+    <div class="col-lg-12" id="news-content">
+      <ng-container *ngIf="news.length > 0; else noNews">
+        <app-news-preview-card *ngFor="let n of news"
+                               [notice]="n">
+        </app-news-preview-card>
+      </ng-container>
+      <ng-template #noNews>
+        <app-news-preview-skeleton *ngFor="let i of [1,2,3,4]">
+        </app-news-preview-skeleton>
+      </ng-template>
+    </div>
+  </div>
+</app-section>
+

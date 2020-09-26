@@ -88,8 +88,9 @@ mat-option.all {
   max-width: 993px;
 
   & .content-box-body {
-    overflow: auto;
-    @media(max-width: 700px) { height: 80vh !important }
+    overflow-y: auto;
+    max-height: 67vh;
+    @media(max-width: 700px) { height: 67vh !important }
   }
 }
 
@@ -140,6 +141,31 @@ mat-option.all {
 
 .mat-vertical-stepper-header .mat-step-icon {
   margin-right: 1rem !important;
+}
+
+.antics-dialog {
+  position: relative;
+  overflow: hidden !important;
+  padding: 0 .5rem !important;
+  margin: 0 !important;
+  max-width: 50vh;
+
+  & h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    & mat-icon {
+      margin-right: 1rem;
+      position: relative;
+      top: -3px;
+      left: -5px;
+      font-size: 2rem;
+    }
+  }
 }
 
 

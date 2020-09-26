@@ -1,12 +1,8 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Subject, fromEvent } from 'rxjs';
+import { takeUntil, debounceTime, switchMap, takeWhile, filter } from 'rxjs/operators';
 
-import { ArticleService } from '@core/services/article/article.service';
 import { ArticlesFacade } from '@store/articles/article.facade';
-import { UsersFacade } from '@store/users/users.facade';
-import { InterFacade } from '@store/interactions/interaction.facade';
-
-import { Subject, fromEvent, Observable } from 'rxjs';
-import { takeUntil, debounceTime, switchMap, filter, takeWhile } from 'rxjs/operators';
 import { Article } from '@shared/interfaces/interfaces';
 
 @Component({
@@ -17,57 +13,32 @@ import { Article } from '@shared/interfaces/interfaces';
 
 export class ArticlesContentComponent implements OnInit, OnDestroy {
 
+  @Input() articles: Article[];
   @Input() grid: boolean;  // Display GRID
-  articles$: Observable<Article[]>;
   private unsubscribe$ = new Subject<void>();
   section: HTMLElement;
 
-  constructor(
-    private articleSrv: ArticleService,
-    private userFacade: UsersFacade,
-    private articleFacade: ArticlesFacade,
-    private interactionFacade: InterFacade
-  ) { }
+  constructor(private articleFacade: ArticlesFacade) { }
 
   ngOnInit() {
-    this.checkData();
     this.hasEnded();
-    this.getInteraction();
     this.section = document.getElementById('articles-section');
-    this.articles$ = this.articleFacade.articles$;
-  }
-
-  private checkData(): void {
-    this.articleFacade.loaded$
-     .pipe(
-       filter(res => !res),
-       takeUntil(this.unsubscribe$)
-      )
-     .subscribe(_ => this.articleFacade.get());
-  }
-
-  private getInteraction(): void {
-    this.userFacade.user$
-     .pipe(
-       filter(res => !!res),
-       takeUntil(this.unsubscribe$)
-      )
-     .subscribe(_ => this.interactionFacade.getByUser());
   }
 
   private hasEnded(): void {
     this.articleFacade.getFull$
     .pipe(
       takeUntil(this.unsubscribe$),
-      switchMap(_ => (
+      switchMap((full: boolean) => (
         fromEvent(window, 'scroll')
           .pipe(
-            takeWhile(() => !_),
+            filter(_ => !!this.articles.length),
+            takeWhile(() => !full),
             debounceTime(300),
             takeUntil(this.unsubscribe$)
           )
         )
-      )).subscribe(e => this.makeScroll(e));
+    )).subscribe(e => this.makeScroll(e));
   }
 
   private makeScroll(e: any): void {
@@ -92,8 +63,6 @@ export class ArticlesContentComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
-    this.articleSrv.resetPage();
-    this.articleFacade.reset();
   }
 
 }

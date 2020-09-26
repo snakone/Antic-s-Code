@@ -1,11 +1,12 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { debounceTime, takeUntil, filter } from 'rxjs/operators';
 import { fromEvent, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-sticky-box',
   templateUrl: './sticky-box.component.html',
-  styleUrls: ['./sticky-box.component.scss']
+  styleUrls: ['./sticky-box.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class StickyBoxComponent implements OnInit, OnDestroy {
@@ -46,7 +47,7 @@ export class StickyBoxComponent implements OnInit, OnDestroy {
       const height = window.document.body.clientHeight;
       const scroll = window.scrollY;
       this.display = !((scroll / height) * 100 > 84);  // 84% SCROLL
-    } catch(err) {
+    } catch (err) {
       console.log(err);
     }
   }

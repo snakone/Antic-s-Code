@@ -11,7 +11,7 @@ interface Content {
   index?: Index[];
 }
 
-interface ServerResponse {
+export interface ServerResponse {
   ok: boolean;
   message?: string;
   err?: any;
@@ -32,6 +32,7 @@ export interface Article extends Content {
   summary?: string;
   status?: string;
   user?: string;
+  reactions?: UserReaction;
 }
 
 export interface Category extends Content {
@@ -41,6 +42,23 @@ export interface Category extends Content {
   icon?: string;
   faq?: FAQ[];
   updated?: string;
+}
+
+export interface News {
+  title: string;
+  image: string;
+  message: string;
+  preview?: string;
+  date?: string;
+  category?: string;
+  views?: number;
+  slug?: string;
+  links?: Link[];
+}
+
+interface UserReaction {
+  liked: boolean;
+  stars: number;
 }
 
 export interface ArticleResponse extends ServerResponse {
@@ -65,6 +83,22 @@ export interface CountResponse extends ServerResponse {
 
 export interface CategoryCountResponse extends ServerResponse {
   count?: object;
+}
+
+export interface NewsResponse extends ServerResponse {
+  news?: News[];
+  viewed?: News[];
+  last?: News[];
+  notice?: News;
+  page?: number;
+}
+
+export interface ArticlesDataResponse extends ServerResponse {
+  articlesCount?: number;
+  lastArticles?: Article[];
+  categoryCount?: object;
+  likedArticles?: Article[];
+  viewedArticles?: Article[];
 }
 
 // tslint:disable-next-line:no-empty-interface
@@ -93,15 +127,15 @@ interface UserProfile {
   language?: string;
 }
 
-export interface Interaction {
-  content: string;
+export interface Reaction {
+  source: string;
   user: string;
   type: string;
   value: number;
 }
 
-export interface InteractionResponse extends ServerResponse {
-  interaction: Interaction[];
+export interface ReactionResponse extends ServerResponse {
+  reactions: Reaction[];
 }
 
 export interface Role extends Translation {
@@ -113,6 +147,11 @@ export interface DialogData {
   author?: string;
   type?: string;
   cause?: string;
+}
+
+export interface ConfirmationData {
+  message: string;
+  args?: any;
 }
 
 export interface SheetData {
@@ -341,11 +380,13 @@ export interface MostActiveResponse extends ServerResponse {
 }
 
 export interface ChatMessage {
+  _id?: string;
   user: string;
   message: string;
   own?: boolean;
   avatar?: string;
-  date?: string;
+  created?: string;
+  date?: Date;
 }
 
 export interface ChatResponse extends ServerResponse {

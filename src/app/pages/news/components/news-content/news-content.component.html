@@ -1,0 +1,15 @@
+<app-section input="#f5f7fc">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="news-container">
+        <app-news-grid *ngIf="news.length > 0; else loading"
+                        [news]="news">
+        </app-news-grid>
+      </div>
+
+      <ng-template #loading>
+        <app-spinner></app-spinner>
+      </ng-template>
+    </div>
+  </div>
+</app-section>

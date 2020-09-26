@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { StarRatingComponent } from './star-rating/star-rating.component';
 import { StarFilterComponent } from './star-filter/star-filter.component';
+import { StarShowComponent } from './star-show/star-show.component';
 
 const Material = [
   MatCheckboxModule,
@@ -21,11 +22,13 @@ const Material = [
   ],
   declarations: [
     StarRatingComponent,
-    StarFilterComponent
+    StarFilterComponent,
+    StarShowComponent
   ],
   exports: [
     StarRatingComponent,
-    StarFilterComponent
+    StarFilterComponent,
+    StarShowComponent
   ]
 })
 

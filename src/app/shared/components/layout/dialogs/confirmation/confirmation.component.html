@@ -1,0 +1,18 @@
+<mat-dialog-content class="antics-dialog">
+  <h4>
+    <mat-icon [style.color]="'red'">error</mat-icon>
+    {{'YOU.SURE' | translate}}
+  </h4>
+  <p [innerHTML]="data.message | translate: {message: data.args}"></p>
+  <mat-dialog-actions align="end">
+    <button mat-button
+            aria-label="Cancel"
+            mat-dialog-close>{{'CANCEL' | translate}}</button>
+    <button mat-button
+            (click)="close()"
+            class="btn-pink"
+            aria-label="Accept">
+            {{'YES' | translate}}
+    </button>
+  </mat-dialog-actions>
+</mat-dialog-content>

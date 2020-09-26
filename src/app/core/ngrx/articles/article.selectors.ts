@@ -33,24 +33,12 @@ export const getLast = createSelector(
   getArticlesState, fromArticles.getLast
 );
 
-export const getLastAndCountLoaded = createSelector(
-  getArticlesState, fromArticles.getLastAndCountLoaded
-);
-
 export const getMostLiked = createSelector(
   getArticlesState, fromArticles.getMostLiked
 );
 
-export const getMostLikedLoaded = createSelector(
-  getArticlesState, fromArticles.getMostLikedLoaded
-);
-
 export const getMostViewed = createSelector(
   getArticlesState, fromArticles.getMostViewed
-);
-
-export const getMostViewedLoaded = createSelector(
-  getArticlesState, fromArticles.getMostViewedLoaded
 );
 
 export const getFull = createSelector(
@@ -59,10 +47,6 @@ export const getFull = createSelector(
 
 export const getCount = createSelector(
   getArticlesState, fromArticles.getCount
-);
-
-export const getCountLoaded = createSelector(
-  getArticlesState, fromArticles.getCountLoaded
 );
 
 export const getByCategory = createSelector(
@@ -83,6 +67,14 @@ export const getByTagsLoaded = createSelector(
 
 export const getByCategoryCount = createSelector(
   getArticlesState, fromArticles.getCategoryCount
+);
+
+export const getDataLoaded = createSelector(
+  getArticlesState, fromArticles.getDataLoaded
+);
+
+export const getMostViewedLoaded = createSelector(
+  getArticlesState, fromArticles.getMostViewedLoaded
 );
 
 export const getCategoryCountLoaded = createSelector(

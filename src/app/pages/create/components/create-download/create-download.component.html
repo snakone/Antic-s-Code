@@ -1,36 +1,31 @@
-<div class="create">
-  <h3>{{'DOWNLOAD' | translate}} Antic's Code <span>Desktop</span></h3>
-  <p>{{'CREATE.ANYTHING' | translate}}</p>
-</div>
 <div class="row">
   <div class="col-lg-6 col-md-6">
+    <div class="create">
+      <h3>Antic's Code <span>Desktop</span></h3>
+      <p>{{'CREATE.ANYTHING' | translate}}</p>
+    </div>
     <p>
       {{'DESKTOP.INTRO' | translate}}
     </p>
-    <p>{{'VERSION' | translate}} <strong>{{ desktopVersion }}</strong></p>
-  </div>
-  <div class="col-lg-6 col-md-6">
+    <p>{{'VERSION' | translate}}
+      <strong>{{ desktopVersion }}</strong>
+    </p>
     <div class="download">
       <button *ngFor="let d of desktopButtons"
-              mat-button>
+               mat-button>
             <a [href]="d.link" target="NEW" class="default">
               <img [src]="d.icon | image:'buttons'" [alt]="d.platform"/>
             </a>
       </button>
     </div>
   </div>
-</div>
-
-<div class="create">
-  <h3 class="m-top">{{'AND.NOW' | translate}} Antic's <span>Mobile</span></h3>
-  <p>{{'CREATE.ANYWHERE' | translate}}</p>
-</div>
-<div class="row">
-  <div class="col-lg-6 col-md-6">
+  <div class="col-lg-6 col-md-6 mobileRight">
+    <div class="create">
+      <h3 class="m-top">Antic's Code <span>Mobile</span></h3>
+      <p>{{'CREATE.ANYWHERE' | translate}}</p>
+    </div>
     <p [innerHTML]="'MOBILE.INTRO' | translate"></p>
     <p>{{'VERSION' | translate}} <strong>{{ mobileVersion }}</strong></p>
-  </div>
-  <div class="col-lg-6 col-md-6">
     <div class="download">
       <button *ngFor="let m of mobileButtons"
               mat-button>
@@ -41,3 +36,4 @@
     </div>
   </div>
 </div>
+

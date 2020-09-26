@@ -1,0 +1,8 @@
+<app-page-header title="NEWS"
+                 subTitle="GET.NEWS">
+</app-page-header>
+
+<app-news-content [news]="last$ | async"></app-news-content>  <!-- CONTENT -->
+<app-news-viewed [news]="viewed$ | async"></app-news-viewed>  <!-- MOST VIEWED -->
+<app-news-preview [news]="news$ | async"></app-news-preview>  <!-- PREVIEW -->
+

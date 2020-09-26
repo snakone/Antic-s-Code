@@ -1,0 +1,22 @@
+<div class="animated fadeInLeft fab-button"
+     PublicChat
+     [class]="class"
+     id="fab-admin"
+     *ngIf="ls.storage?.chat">
+  <i class="fa fa-commenting-o"
+     aria-hidden="true"
+     matBadge="+"
+     matBadgeColor="accent"
+     matBadgeSize="small"
+    (click)="class = 'opened'">
+  </i>
+  <app-chat-box *ngIf="class === 'opened'"
+                (close)="class = 'closed'"
+                [isOn]="socket.isOn">
+  </app-chat-box>
+</div>
+
+<div class="backdrop"
+     *ngIf="class === 'opened'"
+     (click)="class = 'closed'">
+</div>

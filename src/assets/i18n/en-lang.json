@@ -2,6 +2,7 @@
   "ABOUT.ME": "About Me",
   "ACCEPT": "Accept",
   "ACTIONS": "Actions",
+  "ADD.CONTACT": "Add Contact",
   "ADMIN": "Admin",
   "ADVANCED": "Advanced",
   "ADVANTAGES": "Advantages",
@@ -13,7 +14,10 @@
   "ALRIGHT.YOU.MADE": "You made it! Not bad, on time.",
   "AND.NOW": "And now",
   "ANDROID.NATIVE": "Native Android",
-  "ANTICS.INTRO": "We introduce Antic's Code Desktop a <strong>desktop</strong> program with which you will be able to create content for this same portal. It is easier than you think, for this follow these simple steps:",
+  "PHP.HYPER": "PHP Hypertext",
+  "ANTICS.INTRO": "We introduce Antic's Code Desktop a program with which you will be able to create content for this same portal. It is easier than you think, for this follow these simple steps:",
+  "ANTICS.CREATE": "Take advantage of this opportunity and join an emerging community of developer. <strong>Create</strong>, <strong>Share</strong>, <strong>Learn</strong> and <strong>Meet</strong> new people interested in the fastest growing profession in the world.",
+  "ANTICS.APP": "This application was made specially to write articles, so your experience while writing and sharing will be great and satisfactory.",
   "APPLY": "Apply",
   "ARTICLE": "Article",
   "ARTICLE.CREATE": "Article Creation",
@@ -69,7 +73,8 @@
           "JS": "Scripting Language",
           "MONGO": "NOSQL Database",
           "NODE": "Javascript on the Server side",
-          "PYTHON": "The Free Language"
+          "PYTHON": "The Free Language",
+          "PHP": "The Flexible Language"
       }
   },
   "CHARS": "Characters",
@@ -134,13 +139,15 @@
   "DISCOVER.WORKS": "Discover how to use Antic's",
   "DO.TEST": "Test about our categories",
   "DOWNLOAD": "Download",
+  "DOWNLOADS": "Downloads",
   "DOWNLOAD.APP": "Download the App",
   "DOWNLOAD.STEPS": {
-      "FIVE": "Once approved, your Article is ready!",
+      "SIX": "Once approved, your Article is ready!",
       "FOUR": "Follow the instructions",
       "ONE": "Download the application.",
       "THREE": "Enter into the <strong>Create</strong> section.",
-      "TWO": "Login with your Antic's Code account"
+      "TWO": "Login with your Antic's Code account",
+      "FIVE": "Take your time to write something amazing."
   },
   "EDIT.PROFILE": "Edit Profile",
   "EDIT.YOUR.PROFILE": "Edit your Profile",
@@ -184,6 +191,10 @@
       "WEB": {
           "MESSAGE": "There seems to be a network error. Check that you have Internet access and try again. If the problem persists, contact us.",
           "TITLE": "Network Error"
+      },
+      "USER_ALREADY": {
+        "MESSAGE": "We are sorry, this email is already in use. Please use another one.",
+        "TITLE": "User registered"
       }
   },
   "EXAMPLES": "Examples",
@@ -204,6 +215,7 @@
   "GET.SUPPORT": "Get Support",
   "GIT.SYSTEM": "Git System",
   "GITHUB.PAGE": "Your Github Profile",
+  "GIVE.LIKE": "Give a Like",
   "GOOD.SCORE": "Congratulations! You <strong>approved</strong> with a good score. Keep it doing!",
   "GOODBYE": "Farewell",
   "GREAT.SCORE": "Woah! This is good enough for you, isn't it? You <strong>approved</string> with a great score. Awesome!",
@@ -262,7 +274,7 @@
                   "MESSAGE": "Grid, responsive, mobile first, classes, flex-box, interface design."
               },
               "CSS": {
-                  "AREA": "Web-page design",
+                  "AREA": "Web-page Design",
                   "MESSAGE": "Cascade, inheritance, box-model, flex-box, layouts, interfaces, SCSS."
               },
               "EXPRESS": {
@@ -270,15 +282,15 @@
                   "MESSAGE": "Creation of servers, REST API, controllers, middlewares, JWT."
               },
               "GIT": {
-                  "AREA": "Teamwork",
+                  "AREA": "Team Work",
                   "MESSAGE": "Corporate environment to work in various development environments."
               },
               "HEROKU": {
-                  "AREA": "Server hosting",
+                  "AREA": "Server Hosting",
                   "MESSAGE": "Deployment of applications to the cloud, administration, monitoring."
               },
               "HTML": {
-                  "AREA": "Creation of web pages",
+                  "AREA": "Creation of Web Pages",
                   "MESSAGE": "Layout, structure, indentation, readable, standards, accessibility."
               },
               "IONIC": {
@@ -294,11 +306,11 @@
                   "MESSAGE": "Clean, Ecmascript, logical, reactive, readable, async-wait, operations."
               },
               "MONGO": {
-                  "AREA": "Non-relational database",
+                  "AREA": "Non-relational Database",
                   "MESSAGE": "Design and manage non-relational databases based on JSON."
               },
               "NODE": {
-                  "AREA": "Javascript web server",
+                  "AREA": "Javascript Web Server",
                   "MESSAGE": "Environment, use of npm packages, dependencies, updates, libraries."
               },
               "PHP": {
@@ -306,11 +318,11 @@
                   "MESSAGE": "Connections, form submission, processing and displaying data."
               },
               "RXJS": {
-                  "AREA": "Reactive programming",
+                  "AREA": "Reactive Programming",
                   "MESSAGE": "Observables, data flow, pipes, operators, flow management."
               },
               "SQL": {
-                  "AREA": "Relational database",
+                  "AREA": "Relational Database",
                   "MESSAGE": "Administration and database design, entity-relationship model."
               },
               "TS": {
@@ -318,31 +330,31 @@
                   "MESSAGE": "Classes, interfaces, typing, readable, autocomplete, avoid errors."
               },
               "VSC": {
-                  "AREA": "Work environment",
+                  "AREA": "Work Environment",
                   "MESSAGE": "Extensions, emmet, keyboard shortcuts, integrated terminal."
               },
               "WORDPRESS": {
-                  "AREA": "Content manager",
+                  "AREA": "Content Manager",
                   "MESSAGE": "Installation, administration, editing, design, writing content."
               }
           },
           "SOFT": {
-              "CLIENT": "Customer orientation",
+              "CLIENT": "Customer Orientation",
               "COMMUNICATION": "Communication",
               "COMPROMISE": "Commitment",
-              "CONCEPT": "Conceptual thinking",
+              "CONCEPT": "Conceptual Thinking",
               "COOPERATION": "Cooperation",
               "CREATIVE": "Creativity",
-              "EASY": "Easy learning",
+              "EASY": "Easy Learning",
               "EMPATHY": "Empathy",
               "FLEX": "Flexibility",
               "HOPE": "Enthusiasm",
               "KNOWLEDGE": "Knowledge",
-              "LOOK": "Good presence",
+              "LOOK": "Good Presence",
               "NETWORK": "Networking",
               "ORDER": "Order and Quality",
               "PLAN": "Planning",
-              "SPIRIT": "Overcoming spirit"
+              "SPIRIT": "Overcoming Spirit"
           }
       },
       "TIME": {
@@ -380,7 +392,7 @@
   "META.CLIENT": "Goals and Benefits for clients",
   "MISS.YOU": "We'll miss You",
   "MOBILE.DEV": "Mobile Developer",
-  "MOBILE.INTRO": "Do you want to create content from anywhere? Now with Antic's Code <strong>Mobile</strong> it is possible. Download the application, you can create and edit your content on any place. What are you waiting for?",
+  "MOBILE.INTRO": "Do you want to create content from anywhere? Now with Antic's Code <strong>Mobile</strong> it is possible. Download the application, you can create and edit your content on any place.",
   "MODALS": {
       "MAINTENANCE": {
           "MESSAGE": "We are working on improving the page and some parts may not work properly. Sorry for the inconvenience, we continue to develop so that everything returns to normal as soon as possible. Thanks for your understanding.",
@@ -424,6 +436,11 @@
   "PUT.SENTENCE": "Write the sentence here again...",
   "QUESTIONS": "questions",
   "RANK": "Rank",
+  "CREATE.ACCOUNT": "Create an account to interact",
+  "DATA.HELPS": {
+    "STARS": "Giving a Star helps <span class='bold'>{{author}}</span> to be more respected.",
+    "LIKES": "Giving a Like helps <span class='bold'>{{author}}</span> to write more articles."
+  },
   "REGISTER": "Register",
   "REGISTER.NOW": "Register now!",
   "RELATED.ARTICLES": "Related Articles",
@@ -548,5 +565,16 @@
   "YOU.GUESS": "You guess right",
   "YOU.SURE": "Are You sure?",
   "YOUR.PROFILE": "My Profile",
-  "YOUTUBE": "Youtube"
+  "YOUTUBE": "Youtube",
+  "GUEST": "Guest",
+  "DELETE.CHAT.MESSAGE": "Do You want to delete the message <span class='bold'>{{message}}</span>?",
+  "MESSAGE.DELETED": "Message deleted",
+  "NEWS": "News",
+  "GET.NEWS": "Find out about the News",
+  "READ.MORE": "Read more...",
+  "POPULAR.NEWS": "The Most Popular News",
+  "VIEWED.NEWS": "Find out before anyone else",
+  "ALL.NEWS": "All the News",
+  "PREVIEW.NEWS": "Don't miss out Anything",
+  "LOADING.NEWS": "Loading the Notice..."
 }

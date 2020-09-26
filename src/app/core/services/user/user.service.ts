@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 import { StorageService } from '@core/storage/storage.service';
 import { map, filter, tap } from 'rxjs/operators';
 import { PushService } from '../push/push.service';
-import { UsersFacade } from '@app/core/ngrx/users/users.facade';
+import { UsersFacade } from '@store/users/users.facade';
 
 @Injectable({providedIn: 'root'})
 
@@ -133,22 +133,18 @@ export class UserService {
     this.chatUser = name;
   }
 
-  public login(
+  public logIn(
     data: UserResponse,
     remember: boolean = false
   ): void {
+      this.ls.userLogIn(data, remember);
       this.userFacade.set(data.user);
       this.setUser(data.user);
-      this.ls.setKey('token', data.token);
-      this.ls.setKey('user', data.user._id);
-      this.ls.setKey('remember', remember);
       this.sw.showPrompt();
   }
 
-  public logout(): void {
-    this.ls.setKey('token', null);
-    this.ls.setKey('welcome', false);
-    this.ls.setKey('chat', true);
+  public logOut(): void {
+    this.ls.userLogOut();
     this.userFacade.logOut();
     this.user = null;
     this.chatUser = null;

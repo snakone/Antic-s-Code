@@ -4,7 +4,7 @@ import { ChatMessage } from '@shared/interfaces/interfaces';
 // SEND MESSAGE
 export const send =
   createAction('[Chat API] Send Message',
-  props<{ request: string }>());
+  props<{ message: string }>());
 
 export const sendSuccess =
   createAction('[Chat API] Send Message Success',
@@ -14,28 +14,41 @@ export const sendFailure =
   createAction('[Chat API] Send Message Failure',
   props<{ error: string }>());
 
+// LISTEN MESSAGES
+export const listenMessages =
+  createAction('[Chat API] Listen Messages');
+
+export const listenMessagesSuccess =
+  createAction('[Chat API] Listen Messages Success',
+  props<{ message: ChatMessage }>());
+
+export const listenMessagesFailure =
+  createAction('[Chat API] Listen Messages Failure',
+  props<{ error: string }>());
+
 // GET MESSAGES
 export const getMessages =
   createAction('[Chat API] Get Messages');
 
 export const getMessagesSuccess =
   createAction('[Chat API] Get Messages Success',
-  props<{ message: ChatMessage }>());
+  props<{ messages: ChatMessage[] }>());
 
 export const getMessagesFailure =
   createAction('[Chat API] Get Messages Failure',
   props<{ error: string }>());
 
-// GET FIRST
-export const getFirst =
-  createAction('[Chat API] Get First');
+// DELETE MESSAGE BY ID
+export const deleteById =
+  createAction('[Chat API] Delete Message By ID',
+  props<{ id: string }>());
 
-export const getFirstSuccess =
-  createAction('[Chat API] Get First Success',
-  props<{ messages: ChatMessage[] }>());
+export const deleteByIdSuccess =
+  createAction('[Chat API] Delete Message By ID Success',
+  props<{ id: string }>());
 
-export const getFirstFailure =
-  createAction('[Chat API] Get First Failure',
+export const deleteByIdFailure =
+  createAction('[Chat API] Delete Message By ID Failure',
   props<{ error: string }>());
 
 // RESET CHAT

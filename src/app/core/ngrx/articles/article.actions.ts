@@ -1,5 +1,5 @@
 import { props, createAction } from '@ngrx/store';
-import { Article, TagRequest } from '@shared/interfaces/interfaces';
+import { Article, TagRequest, ArticlesDataResponse } from '@shared/interfaces/interfaces';
 
 // GET ARTICLES
 export const get =
@@ -13,52 +13,16 @@ export const getFailure =
   createAction('[Articles API] Get Articles Failure',
   props<{ error: string }>());
 
-// GET LAST ARTICLES
-export const getLast =
-  createAction('[Articles API] Get Last Articles');
+// GET ARTICLES DATA
+export const getData =
+  createAction('[Articles API] Get Articles Data');
 
-export const getLastSuccess =
-  createAction('[Articles API] Get Last Articles Success',
-  props<{ articles: Article[] }>());
+export const getDataSuccess =
+  createAction('[Articles API] Get Articles Data Success',
+  props<{ res: ArticlesDataResponse }>());
 
-export const getLastFailure =
-  createAction('[Articles API] Get Last Articles Failure',
-  props<{ error: string }>());
-
-// GET MOST LIKED ARTICLES
-export const getMostLiked =
-  createAction('[Articles API] Get Most Liked Articles');
-
-export const getMostLikedSuccess =
-  createAction('[Articles API] Get Most Liked Articles Success',
-  props<{ articles: Article[] }>());
-
-export const getMostLikedFailure =
-  createAction('[Articles API] Get Most Liked Articles Failure',
-  props<{ error: string }>());
-
-// GET MOST VIEWED ARTICLES
-export const getMostViewed =
-  createAction('[Articles API] Get Most Viewed Articles');
-
-export const getMostViewedSuccess =
-  createAction('[Articles API] Get Most Liked Viewed Success',
-  props<{ articles: Article[] }>());
-
-export const getMostViewedFailure =
-  createAction('[Articles API] Get Most Liked Viewed Failure',
-  props<{ error: string }>());
-
-// GET ARTICLES COUNT
-export const getCount =
-  createAction('[Articles API] Get Articles Count');
-
-export const getCountSuccess =
-  createAction('[Articles API] Get Articles Count Success',
-  props<{ count: number }>());
-
-export const getCountFailure =
-  createAction('[Articles API] Get Articles Count Failure',
+export const getDataFailure =
+  createAction('[Articles API] Get Articles Data Failure',
   props<{ error: string }>());
 
 // GET ARTICLE BY SLUG
@@ -111,18 +75,6 @@ export const getByTagsSuccess =
 
 export const getByTagsFailure =
   createAction('[Articles API] Get Articles by Tags Failure',
-  props<{ error: string }>());
-
-// GET ARTICLES BY CATEGORY COUNT
-export const getByCategoryCount =
-  createAction('[Articles API] Get Articles by Category Count');
-
-export const getByCategoryCountSuccess =
-  createAction('[Articles API] Get Articles by Category Count Success',
-  props<{ count: object }>());
-
-export const getByCategoryCountFailure =
-  createAction('[Articles API] Get Articles by Category Count Failure',
   props<{ error: string }>());
 
 // RESET ARTICLES

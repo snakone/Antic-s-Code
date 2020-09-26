@@ -41,7 +41,9 @@ export class PageHeaderComponent implements OnInit {
       case 'Search': return this.bgs.search;
       case 'Support': return this.bgs.support;
       case 'Users': return this.bgs.users;
-      case 'Test': return this.bgs.test;
+      case 'Test': return this.bgs.tests;
+      case 'Single Test': return this.bgs.test;
+      case 'News': return this.bgs.news;
       default: return '';
     }
   }

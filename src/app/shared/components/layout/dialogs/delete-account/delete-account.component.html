@@ -1,5 +1,8 @@
-<mat-dialog-content>
-  <h4>{{'DELETE.ACC' | translate}}</h4>
+<mat-dialog-content class="antics-dialog">
+  <h4>
+    <mat-icon [style.color]="'red'">error</mat-icon>
+    {{'DELETE.ACC' | translate}}
+  </h4>
   <p>
     <span class="bold black">{{(user$ | async)?.name}}</span>,
     <span [innerHTML]="'DELETE.ACCOUNT.P' | translate"></span>

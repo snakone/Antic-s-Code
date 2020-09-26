@@ -13,7 +13,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { PageHeaderModule } from '@layout/page-header/page-header.module';
 import { SectionModule } from '@layout/section/section.module';
 import { CarouselModule } from '@layout/carousel/carousel.module';
-import { CustomSvgComponent } from './components/custom-svg/custom-svg.component';
 
 const Material = [
   MatButtonModule
@@ -24,17 +23,16 @@ const Material = [
     CreateComponent,
     CreateIntroComponent,
     CreateCarouselComponent,
-    CreateDownloadComponent,
-    CustomSvgComponent
+    CreateDownloadComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     CreateRouting,
-    ...Material,
     PageHeaderModule,
     SectionModule,
-    CarouselModule
+    CarouselModule,
+    ...Material
   ]
 })
 

@@ -4,8 +4,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 export class DigitsPipe implements PipeTransform {
   transform(value: number): number | string {
-    if (value >= 100) return value;
-    if (value >= 10) return '0' + value;
+    if (value >= 100) { return value; }
+    if (value >= 10) { return '0' + value; }
     return '00' + value;
   }
 }

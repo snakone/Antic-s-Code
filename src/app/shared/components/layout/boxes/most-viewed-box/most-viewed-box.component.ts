@@ -30,7 +30,7 @@ export class MostViewedBoxComponent implements OnInit, OnDestroy {
        filter(res => !res),
        takeUntil(this.unsubscribe$)
       )
-      .subscribe(_ => this.articleFacade.getViewed());
+      .subscribe(_ => this.articleFacade.getData());
   }
 
   ngOnDestroy(): void {

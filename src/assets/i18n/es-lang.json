@@ -2,6 +2,7 @@
   "ABOUT.ME": "Sobre mí",
   "ACCEPT": "Aceptar",
   "ACTIONS": "Acciones",
+  "ADD.CONTACT": "Añadir Contacto",
   "ADMIN": "Admin",
   "ADVANCED": "Avanzado",
   "ADVANTAGES": "Ventajas",
@@ -13,7 +14,10 @@
   "ALRIGHT.YOU.MADE": "¡Has <strong>aprobado</strong> por los pelos! Está bien, enhorabuena.",
   "AND.NOW": "Ahora también",
   "ANDROID.NATIVE": "Android Nativo",
+  "PHP.HYPER": "PHP Hypertexto",
   "ANTICS.INTRO": "Presentamos Antic's Code Desktop un programa de <strong>escritorio</strong> con el cual serás capaz de crear contenido para este mismo portal. Es más fácil de lo que crees, para ello sigue estos sencillos pasos:",
+  "ANTICS.CREATE": "Aprovecha esta oportunidad y únete a una emergente comunidad de desarrolladores. <strong>Crea</strong>, <strong>Comparte</strong>, <strong>Aprende</strong> y <strong>Conoce</strong> a nuevas personas interesadas en la profesión que más crece del mundo.",
+  "ANTICS.APP": "Esta aplicación se creó especialmente para escribir artículos, así que tu experiencia mientras escribes será genial y satisfactoria.",
   "APPLY": "Aplicar",
   "ARTICLE": "Artículo",
   "ARTICLE.CREATE": "Creación de Artículos",
@@ -134,13 +138,15 @@
   "DISCOVER.WORKS": "Descubre como usar Antic's",
   "DO.TEST": "Test de nuestras categorías",
   "DOWNLOAD": "Descargar",
+  "DOWNLOADS": "Descargas",
   "DOWNLOAD.APP": "Descarga la App",
   "DOWNLOAD.STEPS": {
-      "FIVE": "Al aprobarse, tu Artículo está listo!",
+      "SIX": "Al aprobarse, tu Artículo está listo!",
       "FOUR": "Sigue las instrucciones",
       "ONE": "Descarga la aplicación.",
       "THREE": "Entra en la sección de <strong>Crear</strong>.",
-      "TWO": "Ingresa con tu cuenta de Antic's Code."
+      "TWO": "Ingresa con tu cuenta de Antic's Code.",
+      "FIVE": "Tómate tu tiempo para escribir algo increíble."
   },
   "EDIT.PROFILE": "Editar Perfil",
   "EDIT.YOUR.PROFILE": "Edita tu Perfil",
@@ -184,6 +190,10 @@
       "WEB": {
           "MESSAGE": "Parece ser que hay un error de red. Comprueba que tienes acceso a Internet y prueba otra vez. Si el problema persiste ponte en contacto con nosotros.",
           "TITLE": "Error de red"
+      },
+      "USER_ALREADY": {
+        "MESSAGE": "Lo sentimos, este email ya está registrado. Por favor prueba con otro.",
+        "TITLE": "Usuario registrado"
       }
   },
   "EXAMPLES": "Ejemplos",
@@ -204,6 +214,7 @@
   "GET.SUPPORT": "Obtén Soporte",
   "GIT.SYSTEM": "Sistema Git",
   "GITHUB.PAGE": "Tu perfil en Github",
+  "GIVE.LIKE": "Dar Like",
   "GOOD.SCORE": "¡Felicidades! Has <strong>aprobado</strong> con una buena puntuación. Sigue así.",
   "GOODBYE": "Hasta siempre",
   "GREAT.SCORE": "¡Woah! ¿Esto se te da bastante bien no? Has <strong>aprobado</strong> con una gran puntuación. ¡Genial!",
@@ -254,7 +265,7 @@
       "SKILLS": {
           "HARD": {
               "ANGULAR": {
-                  "AREA": "Framework web",
+                  "AREA": "Framework Web",
                   "MESSAGE": "Creación de aplicaciones web de todo tipo, modular, legible, reutilizable."
               },
               "BOOTSTRAP": {
@@ -262,7 +273,7 @@
                   "MESSAGE": "Grid, responsive, mobile first, clases, flex-box, diseño de interfaces."
               },
               "CSS": {
-                  "AREA": "Diseño páginas web",
+                  "AREA": "Diseño Páginas Web",
                   "MESSAGE": "Cascada, herencia, box-model, flex-box, grid, layouts, interfaces, SCSS."
               },
               "EXPRESS": {
@@ -270,15 +281,15 @@
                   "MESSAGE": "Creación de servidores, API REST, controladores, middlewares, JWT."
               },
               "GIT": {
-                  "AREA": "Trabajo en equipo",
+                  "AREA": "Trabajo en Equipo",
                   "MESSAGE": "Entorno corporativo para trabajar en diversos entornos de desarrollo."
               },
               "HEROKU": {
-                  "AREA": "Alojamiento servidores",
+                  "AREA": "Alojamiento Servidores",
                   "MESSAGE": "Despliegue de aplicaciones a la nube, administración, seguimiento."
               },
               "HTML": {
-                  "AREA": "Creación páginas web",
+                  "AREA": "Creación Páginas Web",
                   "MESSAGE": "Maquetación, estructura, identación, legible, estándares, accesibilidad."
               },
               "IONIC": {
@@ -294,11 +305,11 @@
                   "MESSAGE": "Limpio, Ecmascript, lógica, reactivo, legible, async-wait, operaciones."
               },
               "MONGO": {
-                  "AREA": "Base de datos no relacional",
+                  "AREA": "Base de Datos no Relacional",
                   "MESSAGE": "Diseñar y administrar bases de datos no relacionales basadas en documentos JSON."
               },
               "NODE": {
-                  "AREA": "Servidor web con Javascript",
+                  "AREA": "Servidor Web con Javascript",
                   "MESSAGE": "Entorno, uso de paquetes de npm, dependencias, actualizaciones, librerías."
               },
               "PHP": {
@@ -306,11 +317,11 @@
                   "MESSAGE": "Conexiones, envío de formularios, obtener, procesar y mostrar datos."
               },
               "RXJS": {
-                  "AREA": "Programación reactiva",
+                  "AREA": "Programación Reactiva",
                   "MESSAGE": "Observables, flujo de datos, pipes, operadores, manejo del flujo."
               },
               "SQL": {
-                  "AREA": "Base de datos relacional",
+                  "AREA": "Base de Datos Relacional",
                   "MESSAGE": "Administración y diseño de base de datos, modelo entidad-relación."
               },
               "TS": {
@@ -318,31 +329,31 @@
                   "MESSAGE": "Clases, interfaces, tipado, legible, autocompletado, evitar errores."
               },
               "VSC": {
-                  "AREA": "Entorno de trabajo",
+                  "AREA": "Entorno de Trabajo",
                   "MESSAGE": "Extensiones, prettier, emmet, atajos de teclado, terminal integrado."
               },
               "WORDPRESS": {
-                  "AREA": "Gestor de contenido",
+                  "AREA": "Gestor de Contenido",
                   "MESSAGE": "Instalación, administración, edición, diseño, escribir contenido."
               }
           },
           "SOFT": {
-              "CLIENT": "Orientación al cliente",
+              "CLIENT": "Orientación al Cliente",
               "COMMUNICATION": "Comunicación",
               "COMPROMISE": "Compromiso",
-              "CONCEPT": "Pensamiento conceptual",
+              "CONCEPT": "Pensamiento Conceptual",
               "COOPERATION": "Cooperación",
               "CREATIVE": "Creatividad",
-              "EASY": "Fácil aprendizaje",
+              "EASY": "Fácil Aprendizaje",
               "EMPATHY": "Empatía",
               "FLEX": "Flexibilidad",
               "HOPE": "Entusiasmo",
               "KNOWLEDGE": "Conocimiento",
-              "LOOK": "Buena presencia",
+              "LOOK": "Buena Presencia",
               "NETWORK": "Networking",
               "ORDER": "Orden y Calidad",
               "PLAN": "Planificación",
-              "SPIRIT": "Espíritu superación"
+              "SPIRIT": "Espíritu Superación"
           }
       },
       "TIME": {
@@ -380,7 +391,7 @@
   "META.CLIENT": "Metas y Beneficios para clientes",
   "MISS.YOU": "Te extrañaremos",
   "MOBILE.DEV": "Mobile",
-  "MOBILE.INTRO": "¿Quieres crear contenido desde cualquier lugar? Ahora con Antic's Code <strong>Mobile</strong> es posible. Descarga la aplicación, podrás crear y editar tu contenido en cualquier sitio. ¿A qué esperas?",
+  "MOBILE.INTRO": "¿Quieres crear contenido desde cualquier lugar? Ahora con Antic's Code <strong>Mobile</strong> es posible. Descarga la aplicación, podrás crear y editar tu contenido en cualquier sitio.",
   "MODALS": {
       "MAINTENANCE": {
           "MESSAGE": "Estamos trabajando en mejorar la página y es probable que algunas partes no funcionen correctamente. Disculpa las molestias, seguimos desarrollando para que todo vuelva a la normalidad lo antes posible. Gracias por tu compresión.",
@@ -424,6 +435,11 @@
   "PUT.SENTENCE": "Vuelve a escribir la frase aquí...",
   "QUESTIONS": "preguntas",
   "RANK": "Puesto",
+  "CREATE.ACCOUNT": "Crea una cuenta para interactuar",
+  "DATA.HELPS": {
+    "STARS": "Las Estrellas ayudan a que <span class='bold'>{{author}}</span> sea más respetado/a.",
+    "LIKES": "Los Likes ayudan a que <span class='bold'>{{author}}</span> escriba más artículos."
+  },
   "REGISTER": "Registrarse",
   "REGISTER.NOW": "¡Regístrate!",
   "RELATED.ARTICLES": "Artículos Relacionados",
@@ -479,6 +495,7 @@
       "NAME": "Etiquetas",
       "TYPESCRIPT": "Typescript"
   },
+  "NEWS": "Noticias",
   "TAKE.LOOK": "Echa un vistazo a nuestras categorias",
   "TASK.DONE": "Tareas realizadas",
   "TECH.SKILLS": "<span>Cualidades</span> Técnicas",
@@ -496,7 +513,7 @@
   "TEST.INTRO": "Prueba tus habilidades con estos <strong>test</strong> sobre nuestras categorías. Puedes comprobar el resultado después de hacer el test o en tu perfil. Otras personas sabrán de qué estás hecho.",
   "TEST.OF": "Test sobre {{name}}",
   "TEST.PAGE": "Prueba tus habilidades",
-  "TEST.RESULT": "Test Result",
+  "TEST.RESULT": "Resultado del Test",
   "TESTIMONIALS": {
       "ONE": "Un lugar fantástico, para llevar las buenas prácticas. Antic's Code me ayuda a estar actualizado en la industria de la tecnología.",
       "THREE": "Conozco pocos lugares en donde pueda compartir información con facilidad, y Antic's Code es uno de los mejores.",
@@ -548,5 +565,15 @@
   "YOU.GUESS": "Has acertado",
   "YOU.SURE": "¿Estás seguro?",
   "YOUR.PROFILE": "Mi Perfil",
-  "YOUTUBE": "Youtube"
+  "YOUTUBE": "Youtube",
+  "GUEST": "Invitado",
+  "DELETE.CHAT.MESSAGE": "¿Quieres eliminar el mensaje \"<span class='bold'>{{message}}</span>\"?",
+  "MESSAGE.DELETED": "Mensaje eliminado",
+  "GET.NEWS": "Infórmate de las Novedades",
+  "READ.MORE": "Leer más...",
+  "POPULAR.NEWS": "Las Noticias más Populares",
+  "VIEWED.NEWS": "Entérate antes que nadie",
+  "ALL.NEWS": "Todas las Noticias",
+  "PREVIEW.NEWS": "No te pierdas Nada",
+  "LOADING.NEWS": "Cargando la Noticia..."
 }

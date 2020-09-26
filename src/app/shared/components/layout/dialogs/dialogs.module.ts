@@ -15,6 +15,7 @@ import { DeleteAccountComponent } from './delete-account/delete-account.componen
 import { NoAccountComponent } from './no-account/no-account.component';
 import { MessageModalComponent } from './message-modal/message-modal.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 const Material = [
   MatDialogModule,
@@ -30,7 +31,8 @@ const Material = [
     DeleteAccountComponent,
     NoAccountComponent,
     MessageModalComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    ConfirmationComponent
   ],
   imports: [
     CommonModule,

@@ -3,13 +3,14 @@
   <p>{{'ARTICLE.CREATE' | translate}}</p>
 </div>
 <div class="row">
-  <div class="col-lg-6 col-md-6 intro">
+  <div class="col-lg-7 col-md-6 intro">
     <p [innerHTML]="'ANTICS.INTRO' | translate"></p>
+    <p [innerHTML]="'ANTICS.CREATE' | translate"></p>
+    <p>{{'ANTICS.APP' | translate}}</p>
+  </div>
+  <div class="col-lg-5 col-md-6 right">
     <ul class="check">
       <li *ngFor="let s of steps" [innerHTML]="s | translate"></li>
     </ul>
-  </div>
-  <div class="col-lg-6 col-md-6 image">
-    <app-custom-svg></app-custom-svg>
   </div>
 </div>

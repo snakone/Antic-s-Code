@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 
 import { UserService } from '@core/services/user/user.service';
@@ -12,7 +12,8 @@ import { MessageRequest } from '@shared/interfaces/interfaces';
 @Component({
   selector: 'app-about-contact',
   templateUrl: './about-contact.component.html',
-  styleUrls: ['./about-contact.component.scss']
+  styleUrls: ['./about-contact.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class AboutContactComponent implements OnInit, OnDestroy {
