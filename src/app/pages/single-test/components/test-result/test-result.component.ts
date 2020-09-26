@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { TestRequestResult, TestEntry, TestQuestion } from '@shared/interfaces/interfaces';
-import { TestFacade } from '@core/ngrx/test/test.facade';
+import { TestResult, TestQuestion } from '@shared/interfaces/interfaces';
+import { TestFacade } from '@store/test/test.facade';
 
 @Component({
   selector: 'app-test-result',
@@ -10,8 +10,7 @@ import { TestFacade } from '@core/ngrx/test/test.facade';
 
 export class TestResultComponent implements OnInit, OnDestroy {
 
-  @Input() request: TestRequestResult;
-  @Input() entry: TestEntry;
+  @Input() entry: TestResult;
 
   badQuestions: TestQuestion[];
   sentence: string;
@@ -25,11 +24,11 @@ export class TestResultComponent implements OnInit, OnDestroy {
 
   private calcBadQuestions(): void {
     this.badQuestions = this.entry.questions
-                        .filter((q, i) => !this.request.result[i].same);
+                        .filter((_, i) => !this.entry.request[i]);
   }
 
   private makeSentence(): string {
-    switch (this.request.correct) {
+    switch (this.entry.result.correct) {
       case 1: case 2: case 3:
         return 'BAD.SCORE';
       case 4:

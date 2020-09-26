@@ -2,7 +2,7 @@
   <h4>{{'TEST.RESULT' | translate}}</h4>
 
   <p>{{'YOU.GUESS' | translate}}
-    <strong>{{request.correct}}</strong> {{'OF' | translate}}
+    <strong>{{entry.result.correct}}</strong> {{'OF' | translate}}
     <strong>{{entry.questions.length}}</strong> {{'QUESTIONS' | translate}}
   </p>
   <p *ngIf="sentence"

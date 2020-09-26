@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 
-import {  URI } from '@app/app.config';
+import { URI } from '@app/app.config';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -29,7 +29,6 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
 
   @Input() article: Article;
   @Input() single: boolean;
-  liked: boolean;
   private unsubscribe$ = new Subject<void>();
   user: User;
 
@@ -42,7 +41,6 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.user = this.userSrv.getUser();
-    this.liked = this.article.reactions.liked;
   }
 
   public doLike(value: number): void {
@@ -65,7 +63,7 @@ export class ArticleReactionsComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(_ => {
           this.crafter.toaster('SUCCESS', 'THANKS.MUCH', 'info');
-          this.liked = !this.liked;
+          this.article.good = !this.article.good;
 
           if (value === 1) {
             this.sw.sendNotification(

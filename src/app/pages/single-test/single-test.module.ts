@@ -22,7 +22,7 @@ import { SingleTestSidebarComponent } from './components/single-test-sidebar/sin
 import { DoSingleTestComponent } from './components/do-single-test/do-single-test.component';
 import { TestStepperComponent } from './components/test-stepper/test-stepper.component';
 import { TestResultComponent } from './components/test-result/test-result.component';
-import { EntryGuard } from '@app/core/guards/entry.guard';
+import { DirectivesModule } from '@shared/directives/directives.module';
 
 const globalRippleConfig: RippleGlobalOptions = {
   disabled: true,
@@ -59,11 +59,11 @@ const Material = [
     SharedModule,
     SpinnerModule,
     CardsModule,
+    DirectivesModule,
     ...Material
   ],
   providers: [
-    { provide: MAT_RIPPLE_GLOBAL_OPTIONS, useValue: globalRippleConfig },
-    EntryGuard
+    { provide: MAT_RIPPLE_GLOBAL_OPTIONS, useValue: globalRippleConfig }
   ]
 })
 

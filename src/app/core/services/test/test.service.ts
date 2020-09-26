@@ -5,12 +5,9 @@ import {
   Test,
   TestResponse,
   TestRequest,
-  TestResultResponse,
-  TestRequestResult,
-  EntryResponse,
   TestEntry,
-  TestRawResponse,
-  TestRawResult
+  TestEntryResponse,
+  TestResult
 } from '@shared/interfaces/interfaces';
 
 import { Observable } from 'rxjs';
@@ -43,27 +40,18 @@ export class TestService {
       );
   }
 
-  public getEntriesByUser(): Observable<TestEntry[]> {
+  public getEntryByUid(uid: string): Observable<TestEntry> {
     return this.http
-      .get<EntryResponse>(this.API_TEST + 'user/entry')
+      .get<TestEntryResponse>(this.API_TEST + 'entries/' + uid)
       .pipe(
         filter(res => res && !!res.ok),
-        map(_ => _.entries)
+        map(_ => _.entry)
       );
   }
 
-  public saveTestRequest(entry: TestRequest): Observable<TestRequestResult> {
+  public saveTestRequest(request: TestRequest): Observable<TestResult> {
     return this.http
-      .post<TestResultResponse>(this.API_TEST + 'entries/', entry)
-      .pipe(
-        filter(res => res && !!res.ok),
-        map(_ => _.result)
-      );
-  }
-
-  public getResultByEntry(uid: string): Observable<TestRawResult> {
-    return this.http
-      .get<TestRawResponse>(this.API_TEST + 'entries/' + uid)
+      .post<TestEntryResponse>(this.API_TEST + 'results/', request)
       .pipe(
         filter(res => res && !!res.ok),
         map(_ => _.result)

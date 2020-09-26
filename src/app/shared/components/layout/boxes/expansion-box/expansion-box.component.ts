@@ -1,18 +1,17 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-expansion-box',
   templateUrl: './expansion-box.component.html',
-  styleUrls: ['./expansion-box.component.scss']
+  styleUrls: ['./expansion-box.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class ExpansionBoxComponent implements OnInit {
+export class ExpansionBoxComponent {
 
   @Input() title: string;
   @Input() icon: string;
 
   constructor() { }
-
-  ngOnInit(): void { }
 
 }

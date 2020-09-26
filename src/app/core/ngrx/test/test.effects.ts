@@ -40,16 +40,16 @@ export class TestEffects {
     ))))
   );
 
-    // GET ENTRIES BY USER
-  getEntriesByUserEffect$ = createEffect(() => this.actions
+  // GET ENTRY BY UID
+  getEntryByUidEffect$ = createEffect(() => this.actions
     .pipe(
-      ofType(TestActions.getEntriesByUser),
-      concatMap(() =>
-      this.testSrv.getEntriesByUser()
+      ofType(TestActions.getEntryByUid),
+      concatMap(action =>
+      this.testSrv.getEntryByUid(action.uid)
         .pipe(
-          map(entries => TestActions.getEntriesByUserSuccess({ entries })),
+          map(entry => TestActions.getEntryByUidSuccess({ entry })),
           catchError(error =>
-              of(TestActions.getEntriesByUserFailure({ error: error.message }))
+              of(TestActions.getEntryByUidFailure({ error: error.message }))
     ))))
   );
 
@@ -66,9 +66,4 @@ export class TestEffects {
     ))))
   );
 
-  customEffect$ = createEffect(() => this.actions
-    .pipe(
-      ofType(TestActions.saveRequestSuccess),
-      map(() => TestActions.getEntriesByUser())
-    ));
 }

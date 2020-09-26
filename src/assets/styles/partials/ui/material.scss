@@ -114,6 +114,7 @@ mat-option.all {
 
 .mat-vertical-stepper-header {
   padding: 24px 4px !important;
+  height: 17px !important;
 }
 
 .mat-vertical-content {
@@ -168,4 +169,11 @@ mat-option.all {
   }
 }
 
+.mat-select-value,
+.mat-form-field-label,
+.mat-step-label { overflow: visible !important }
+.mat-step-label { white-space: break-spaces !important }
 
+.mat-step-header .mat-step-label.mat-step-label-active {
+  font-weight: bold;
+}

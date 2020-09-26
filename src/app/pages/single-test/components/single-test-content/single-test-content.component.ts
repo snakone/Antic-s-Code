@@ -10,7 +10,6 @@ import { TestFacade } from '@store/test/test.facade';
 export class SingleTestContentComponent {
 
   test$ = this.testFacade.byCategory$;
-  entriesByUser$ = this.testFacade.entriesByUser$;
 
   constructor(private testFacade: TestFacade) { }
 

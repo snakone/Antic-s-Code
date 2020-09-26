@@ -1,4 +1,4 @@
-<div class="course">
+<div class="course" [ngClass]="{'last': last}">
   <div class="course-preview">  <!-- LEFT SIDE -->
     <div style="display: flex">
       <img [src]="(test.category | logo) | image: 'logos'"
@@ -19,24 +19,25 @@
   </div>
   <div class="course-info">   <!-- RIGHT SIDE -->
     <h6>{{'TEST.AVAILABLE' | translate}}</h6>
-    <div *ngIf="test.entries?.length; else noEntry">
-      <p *ngFor="let e of test.entries | slice:0:3">
+    <div *ngIf="test.entries?.length; else noTest">
+      <p *ngFor="let e of test.entries | slice:0:3"
+          [routerLink]="'./' + e.category + '/' + e.uid">
         {{e.title}}
-        <mat-icon *ngIf="completed(e)">check</mat-icon>
+        <mat-icon *ngIf="e.done">check</mat-icon>
       </p>
     </div>
-    <ng-template #noEntry>
-      <p>{{'NO.ENTRY.YET' | translate}}</p>
+    <ng-template #noTest>
+      <p class="no-test">{{'NO.TEST.YET' | translate}}</p>
     </ng-template>
     <div class="progress-container">   <!-- PROGRESS -->
       <div class="progress">
         <div class="progress-bar"
-             [style.width]="calculateWidth()">
+             [style.width]="width()">
         </div>
       </div>
       <span class="progress-text">
-        {{entryUserByCategory?.length || 0}}/{{test.entries?.length || 0}}
-        {{'TEST.DONE' | translate}}
+        {{done || 0}}/{{test.entries?.length || 0}}
+        {{'COMPLETED' | translate}}
       </span>
     </div>
     <button mat-button

@@ -1,0 +1,8 @@
+<mat-dialog-content class="antics-dialog">
+  <ng-container *ngIf="(result$ | async) as result; else noResult">
+    {{result | json}}
+  </ng-container>
+  <ng-template #noResult>
+    <app-spinner></app-spinner>
+  </ng-template>
+</mat-dialog-content>

@@ -19,7 +19,7 @@ export class UserArticlesBoxComponent implements OnInit, OnDestroy {
   articles$: Observable<Article[]>;
   private unsubscribe$ = new Subject<void>();
   page = 1;
-  itemsPerPage = 5;
+  itemsPerPage = 6;
 
   constructor(private articlesFacade: ArticlesFacade) { }
 

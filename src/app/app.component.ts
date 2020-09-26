@@ -51,9 +51,9 @@ export class AppComponent implements OnInit {
 
   private openLanguageSnack(): void {
     const lang = this.ls.get('lang') !== 'es';
-    const user = this.ls.get('user_lang');
+    const skip = this.ls.get('skip_lang');
 
-    if (lang || user) { return; }
+    if (lang || skip) { return; }
     setTimeout(() => {
       this.crafter.snack(LanguageSnackComponent, -1);
     }, 8000);
