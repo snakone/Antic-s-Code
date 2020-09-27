@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+
 interface Content {
   _id?: string;
   title?: string;
@@ -258,6 +260,11 @@ export interface TestRequest {
 export interface TestAnswerResult {
   correct?: number;
   result?: boolean[];
+}
+
+export interface TestResultDialog {
+  result$: Observable<TestResult>;
+  entry$: Observable<TestEntry>;
 }
 
 export interface List {

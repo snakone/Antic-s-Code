@@ -46,7 +46,10 @@ export class DoSingleTestComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       this.crafter.dialog(
         TestResultComponent,
-        this.result$,
+        {
+          result: this.result$,
+          entry: this.entry$
+        },
         'test-result'
       );
     }, 2000);

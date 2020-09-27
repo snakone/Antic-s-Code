@@ -35,6 +35,10 @@ export class TestFacade {
     this.store.dispatch(TestActions.getEntryByUid({uid}));
   }
 
+  public getResultByUid(uid: string): void {
+    this.store.dispatch(TestActions.getResultByUid({uid}));
+  }
+
   public reset(): void {
     this.store.dispatch(TestActions.reset());
   }

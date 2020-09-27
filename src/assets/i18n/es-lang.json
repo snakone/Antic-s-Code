@@ -388,6 +388,7 @@
   },
   "MENU": "Menú",
   "RESULTS": "Resultados",
+  "RESULT.INTRO": "A continuación puedes ver el <strong>resultado</strong> del test que has hecho. Estos datos son meramente informativos así que no te lo tomes muy enserio.",
   "VISUAL": "Visualización",
   "MESSAGE": "Mensaje",
   "MESSAGE.SEND": "Mensaje enviado",

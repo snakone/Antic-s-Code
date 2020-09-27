@@ -3,13 +3,9 @@
     <div class="category">
       <img [alt]="entry.category"
            [src]="(entry.category | logo) | image:'logos'">
-      <div>
-        <p>
-          <span>{{entry.category}}</span>
-          <br>
-          <strong>{{'LEVEL.NAME' | translate}}:</strong>
-          {{entry.level | translate}}
-        </p>
+      <div class="right">
+        <span>{{entry.category}}</span>
+        <app-level-bar [level]="entry.level"></app-level-bar>
       </div>
     </div>
     <p class="info" [innerHTML]="entry.message"></p>

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TestResultComponent } from './test-result.component';
+import { LevelBarComponent } from './level-bar.component';
 
-describe('TestResultComponent', () => {
-  let component: TestResultComponent;
-  let fixture: ComponentFixture<TestResultComponent>;
+describe('LevelBarComponent', () => {
+  let component: LevelBarComponent;
+  let fixture: ComponentFixture<LevelBarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestResultComponent ]
+      declarations: [ LevelBarComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TestResultComponent);
+    fixture = TestBed.createComponent(LevelBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

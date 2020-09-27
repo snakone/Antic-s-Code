@@ -6,10 +6,11 @@
       {{entry.title}}
       <mat-icon *ngIf="entry.done">check</mat-icon>
     </h5>
+    <app-level-bar [level]="entry.level"></app-level-bar>
     <p [innerHTML]="entry.message"></p>
     <div class="entry-data">
       <button mat-button
-              class="btn-light"
+              class="btn-disabled"
               (click)="checkResult(entry)"
               [disabled]="!entry.done">
               {{'RESULTS' | translate}}

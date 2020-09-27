@@ -1,24 +1,29 @@
-p {
-  margin-top: -.5rem;
-  margin-bottom: 1.8rem;
-  color: var(--p-color) !important;
-  & span {
-    font-weight: bold;
-    font-size: 1.1rem;
-  }
-}
-
 .category {
-  margin-top: .5rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 
    & img {
      width: 50px;
-     margin: 0 1rem 2rem -.3rem;
+     position: relative;
+     top: -4px;
    }
 }
 
-.info { margin-top: -.2rem !important }
-br { margin-top: 3px }
+span {
+  color: var(--p-color) !important;
+  font-weight: bold;
+  font-size: 1.1rem;
+  position: relative;
+  top: 1px;
+}
+
+.right {
+  width: 100%;
+  margin-left: 1.666rem;
+}
+
+.info {
+  margin-top: 1rem;
+  margin-bottom: 1.3rem;
+}

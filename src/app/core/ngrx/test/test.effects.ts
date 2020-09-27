@@ -53,6 +53,19 @@ export class TestEffects {
     ))))
   );
 
+  // GET ENTRY BY UID
+  getResultByUidEffect$ = createEffect(() => this.actions
+    .pipe(
+      ofType(TestActions.getResultByUid),
+      concatMap(action =>
+      this.testSrv.getResultByUid(action.uid)
+        .pipe(
+          map(result => TestActions.getResultByUidSuccess({ result })),
+          catchError(error =>
+              of(TestActions.getResultByUidFailure({ error: error.message }))
+    ))))
+  );
+
   // SAVE TEST RESULT
   saveTestResultEffect$ = createEffect(() => this.actions
   .pipe(

@@ -32,11 +32,24 @@ export const getEntryByUid =
   props<{ uid: string }>());
 
 export const getEntryByUidSuccess =
-  createAction('[Test API]Get Entry by UID Success',
+  createAction('[Test API] Get Entry by UID Success',
   props<{ entry: TestEntry }>());
 
 export const getEntryByUidFailure =
   createAction('[Test API] Get Entry by UID Failure',
+  props<{ error: string }>());
+
+// GET RESULT BY UID
+export const getResultByUid =
+  createAction('[Test API] Get Result by UID',
+  props<{ uid: string }>());
+
+export const getResultByUidSuccess =
+  createAction('[Test API] Get Result by UID Success',
+  props<{ result: TestResult }>());
+
+export const getResultByUidFailure =
+  createAction('[Test API] Get Result by UID Failure',
   props<{ error: string }>());
 
 // SAVE TEST REQUEST

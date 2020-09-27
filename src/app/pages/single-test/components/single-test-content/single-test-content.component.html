@@ -1,6 +1,7 @@
 <ng-container *ngIf="(test$ | async) as test">
   <app-entry-card *ngFor="let entry of test.entries"
                   [entry]="entry"
+                  (check)="checkResult($event)"
   ></app-entry-card>
 </ng-container>
 

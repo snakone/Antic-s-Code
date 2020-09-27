@@ -71,6 +71,20 @@ const featureReducer = createReducer(
   on(TestActions.getEntryByUidFailure, (state, { error }) => (
     { ...state, entryLoaded: false, error }
   )),
+  // GET RESULT BY UID
+  on(TestActions.getResultByUid, (state) => (
+    { ...state, result: null, error: null }
+  )),
+  on(TestActions.getResultByUidSuccess, (state, { result }) => (
+    {
+      ...state,
+      error: null,
+      result
+    }
+  )),
+  on(TestActions.getResultByUidFailure, (state, { error }) => (
+    { ...state, result: null, error }
+  )),
   // SAVE TEST REQUEST
   on(TestActions.saveRequest, (state) => (
     { ...state, resultLoaded: false, error: null, result: null }

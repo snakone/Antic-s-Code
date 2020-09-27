@@ -49,6 +49,15 @@ export class TestService {
       );
   }
 
+  public getResultByUid(uid: string): Observable<TestResult> {
+    return this.http
+      .get<TestEntryResponse>(this.API_TEST + 'results/' + uid)
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.result)
+      );
+  }
+
   public saveTestRequest(request: TestRequest): Observable<TestResult> {
     return this.http
       .post<TestEntryResponse>(this.API_TEST + 'results/', request)

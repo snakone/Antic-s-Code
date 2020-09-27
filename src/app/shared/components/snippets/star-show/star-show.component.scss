@@ -1,8 +1,7 @@
 .stars-group {
   position: relative;
-  margin-top: .8rem;
-
-  @media(max-width: 700px) { margin-top: 0 }
+  margin-top: .6rem;
+  @media(max-width: 700px) { margin-top: .1rem }
 
   & span {
     width: 1.33333rem;

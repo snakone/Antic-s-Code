@@ -179,5 +179,10 @@
       }
     }
   },
-  "defaultProject": "antics-code"
+  "defaultProject": "antics-code",
+  "schematics": {
+    "@schematics/angular:component": {
+      "changeDetection": "OnPush"
+    }
+  }
 }
