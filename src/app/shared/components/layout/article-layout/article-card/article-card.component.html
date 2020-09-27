@@ -26,12 +26,12 @@
         </li>
       </ul>
       <app-star-show [stars]="article.stars"></app-star-show>
+      <app-level-bar class="levels" [level]="article.level"></app-level-bar>
       <div class="article-card-body-tags">  <!-- ARTICLE TAGS -->
         <span class="category-tag"
               *ngFor="let t of article.tags">{{t | translate}}
         </span>
       </div>
-
       <app-article-reactions [article]="article"
                              [single]="single">
       </app-article-reactions>

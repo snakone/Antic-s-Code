@@ -5,9 +5,10 @@
 </app-content-box>
 
 <div class="category-list" *ngIf="tests; else loading">
-  <app-test-card *ngFor="let t of tests"
+  <app-test-card *ngFor="let t of tests; let last = last"
                  [test]="t"
-                 [entriesByUser]="entriesByUser">
+                 [last]="last"
+                 [done]="done(t.entries)">
   </app-test-card>
 </div>
 

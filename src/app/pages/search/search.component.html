@@ -4,7 +4,8 @@
 <app-section input="#f5f7fc">
   <div class="row">
     <div class="col-lg-12" id="search-section">  <!-- HEADER -->
-      <app-search-sort-bar (grid)="grid = $event">
+      <app-search-sort-bar (grid)="grid = $event"
+                           [active]="grid">
       </app-search-sort-bar>
     </div>
     <div class="col-lg-4 col-md-4">  <!-- SIDEBAR -->

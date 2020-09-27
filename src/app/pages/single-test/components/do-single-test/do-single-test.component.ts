@@ -1,5 +1,12 @@
-import { Component, OnDestroy } from '@angular/core';
-import { TestFacade } from '@core/ngrx/test/test.facade';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CrafterService } from '@core/services/crafter/crafter.service';
+import { TestFacade } from '@store/test/test.facade';
+import { Observable, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
+import { TestEntry, TestResult, TestRequest } from '@shared/interfaces/interfaces';
+import { TestResultComponent } from '@layout/dialogs/test-result/test-result.component';
 
 @Component({
   selector: 'app-do-single-test',
@@ -7,11 +14,52 @@ import { TestFacade } from '@core/ngrx/test/test.facade';
   styleUrls: ['./do-single-test.component.scss']
 })
 
-export class DoSingleTestComponent {
+export class DoSingleTestComponent implements OnInit, OnDestroy {
 
-  entry$ = this.testFacade.entry$;
-  result$ = this.testFacade.result$;
+  entry$: Observable<TestEntry>;
+  result$: Observable<TestResult>;
+  private unsubscribe$ = new Subject<void>();
 
-  constructor(private testFacade: TestFacade) { }
+  constructor(
+    private testFacade: TestFacade,
+    private route: ActivatedRoute,
+    private router: Router,
+    private crafter: CrafterService
+  ) { }
+
+  ngOnInit() {
+    this.getEntryByUid();
+    this.entry$ = this.testFacade.entry$;
+    this.result$ = this.testFacade.result$;
+  }
+
+  private getEntryByUid(): void {
+    this.route.params
+    .pipe(takeUntil(this.unsubscribe$))
+     .subscribe(params => this.testFacade.getEntryByUid(params.uid));
+  }
+
+  public onCompleted(request: TestRequest): void {
+    this.testFacade.saveRequest(request);
+    this.router.navigate(['/test']);
+
+    setTimeout(() => {
+      this.crafter.dialog(
+        TestResultComponent,
+        {
+          result: this.result$,
+          entry: this.entry$
+        },
+        'test-result'
+      );
+    }, 2000);
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+    this.testFacade.reset();
+    this.testFacade.resetEntry();
+  }
 
 }

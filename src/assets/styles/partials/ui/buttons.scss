@@ -2,7 +2,8 @@
   @include button-animated(
     var(--primary-color),
     var(--tertiary-color),
-    var(--secondary-color)
+    var(--secondary-color),
+    var(--button-color)
   );
 }
 
@@ -10,7 +11,8 @@
   @include button-animated(
     var(--secondary-color),
     var(--primary-color),
-    var(--tertiary-color)
+    var(--tertiary-color),
+    var(--button-color)
 
   );
 }
@@ -19,7 +21,8 @@
   @include button-animated(
     var(--tertiary-color),
     var(--secondary-color),
-    var(--primary-color)
+    var(--primary-color),
+    var(--button-color)
   );
 }
 
@@ -27,7 +30,17 @@
   @include button-animated(
     var(--new-color),
     #2a2f50,
-    #585b6b
+    #585b6b,
+    var(--button-color)
+  );
+}
+
+.btn-light {
+  @include button-animated(
+    #4d9aff,
+    #bbc4ff,
+    #95a5ff,
+    var(--dark-color)
   );
 }
 
@@ -35,7 +48,17 @@
   @include button-animated(
     #070505,
     #3a393a,
-    #240d24
+    #240d24,
+    var(--button-color)
+  )
+}
+
+.btn-disabled {
+  @include button-animated(
+    rgba(125, 125, 125, .7),
+    rgba(80, 80, 80, .7),
+    rgba(60, 60, 60, .7),
+    var(--button-color)
   )
 }
 
@@ -43,7 +66,8 @@
   @include button-animated(
     var(--angular-color),
     #8d060f,
-    #f14223
+    #f14223,
+    var(--button-color)
   )
 }
 

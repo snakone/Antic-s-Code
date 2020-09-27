@@ -13,7 +13,6 @@ import { filter, takeUntil } from 'rxjs/operators';
 export class TestComponent implements OnInit, OnDestroy {
 
   tests$: Observable<Test[]>;
-  entriesByUser$ = this.testFacade.entriesByUser$;
   private unsubscribe$ = new Subject<void>();
 
   constructor(private testFacade: TestFacade) { }
@@ -21,7 +20,6 @@ export class TestComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.tests$ = this.testFacade.tests$;
     this.checkData();
-    this.checkEntries();
   }
 
   private checkData(): void {
@@ -31,15 +29,6 @@ export class TestComponent implements OnInit, OnDestroy {
        takeUntil(this.unsubscribe$)
       )
      .subscribe(_ => this.testFacade.get());
-  }
-
-  private checkEntries(): void {
-    this.testFacade.entriesByUserLoaded$
-     .pipe(
-       filter(res => !res),
-       takeUntil(this.unsubscribe$)
-      )
-     .subscribe(_ => this.testFacade.getEntriesByUser());
   }
 
   ngOnDestroy(): void {

@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { SearchFacade } from '@store/search/search.facade';
+import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-search-sort-bar',
@@ -11,9 +12,9 @@ import { SearchFacade } from '@store/search/search.facade';
 
 export class SearchSortBarComponent implements OnInit {
 
+  @Input() active = true;
   @Output() grid = new EventEmitter<boolean>();
   count$: Observable<number>;
-  active = true;
 
   constructor(private searchFacade: SearchFacade) { }
 
@@ -21,12 +22,12 @@ export class SearchSortBarComponent implements OnInit {
     this.count$ = this.searchFacade.count$;
   }
 
-  sort(): void {
+  public sort(): void {
     this.active = !this.active;
     this.grid.emit(this.active);
   }
 
-  reset(): void {
+  public reset(): void {
     this.searchFacade.reset();
   }
 

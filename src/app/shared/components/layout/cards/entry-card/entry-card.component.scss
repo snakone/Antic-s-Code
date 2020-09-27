@@ -1,5 +1,6 @@
 .title {
   margin-top: 0 !important;
+  margin-bottom: .8rem;
   font-weight: bold;
   font-size: 1.2rem;
   position: relative;
@@ -8,10 +9,13 @@
     color: var(--success-color);
     position: absolute;
     margin-left: .8rem;
+    top: 3px;
   }
 }
 
-button { margin-left: auto }
+button {
+  &:last-child { margin-left: 1rem }
+}
 
 .entry {
   background: var(--light-color);
@@ -25,29 +29,16 @@ button { margin-left: auto }
 
   &-content {
     padding: 1.5rem 2rem;
-  }
-
-  &-data {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-top: 2rem;
-
-    & p {
-      margin: 0 2.2rem 0 0;
-
-      & span {
-        &:first-child { font-weight: bold }
-      }
-
-      &:not(:first-child) { margin-top: .4rem }
-    }
+    @media(max-width: 550px) { padding: 1.5rem }
 
     & img {
       width: 24px;
       position: relative;
       top: 6px;
-      left: 2px
+      left: -5px;
+      margin-right: .2rem;
     }
   }
+
+  &-data { margin-top: 1.8rem }
 }

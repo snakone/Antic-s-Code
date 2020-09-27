@@ -18,21 +18,6 @@
            matTooltipPosition="above"/>
 
       <h5 [routerLink]="'/article/' + a.slug">{{a.title}}</h5>
-
-      <div class="article-info">
-        <mat-icon class="views"
-                  [matTooltip]="'VIEWS' | translate"
-                  matTooltipPosition="above">
-                  visibility
-        </mat-icon>
-        <span>{{a.views}}</span>
-
-        <mat-icon class="bold"
-                  [matTooltip]="'LIKES' | translate"
-                  matTooltipPosition="above">favorite_border
-        </mat-icon>
-        <span>{{a.likes}}</span>
-      </div>
     </div>
     <div *ngIf="articles.length === 0">
       <p>{{'NO.WRITE.YET' | translate}}</p>

@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+
 interface Content {
   _id?: string;
   title?: string;
@@ -32,7 +34,7 @@ export interface Article extends Content {
   summary?: string;
   status?: string;
   user?: string;
-  reactions?: UserReaction;
+  good?: boolean;
 }
 
 export interface Category extends Content {
@@ -205,11 +207,23 @@ export interface TestEntry {
   category?: string;
   level?: string;
   message?: string;
+  questions?: TestQuestion[];
+  done?: boolean;
+}
+
+export interface TestResult {
+  uid?: string;
+  title?: string;
+  category?: string;
+  level?: string;
+  message?: string;
   questions: TestQuestion[];
+  request?: string[];
+  result?: TestAnswerResult;
 }
 
 export interface TestQuestion {
-  id?: string;
+  uid?: string;
   category?: string;
   question?: string;
   answers?: TestAnswer[];
@@ -227,16 +241,10 @@ export interface TestResponse extends ServerResponse {
   test?: Test;
 }
 
-export interface EntryResponse extends ServerResponse {
+export interface TestEntryResponse extends ServerResponse {
   entries?: TestEntry[];
-}
-
-export interface TestResultResponse extends ServerResponse {
-  result?: TestRequestResult;
-}
-
-export interface TestRawResponse extends ServerResponse {
-  result?: TestRawResult;
+  entry?: TestEntry;
+  result?: TestResult;
 }
 
 export interface TestRequest {
@@ -245,18 +253,18 @@ export interface TestRequest {
   category?: string;
   user?: string;
   level?: string;
-  request?: { key: string }[];
+  request?: string[];
   created?: string;
 }
 
-export interface TestRequestResult {
+export interface TestAnswerResult {
   correct?: number;
-  result?: { same?: boolean }[];
+  result?: boolean[];
 }
 
-export interface TestRawResult {
-  uid?: string;
-  result?: { key: string }[];
+export interface TestResultDialog {
+  result$: Observable<TestResult>;
+  entry$: Observable<TestEntry>;
 }
 
 export interface List {

@@ -1,8 +1,7 @@
 .stars-group {
   position: relative;
-  margin-top: .8rem;
-
-  @media(max-width: 700px) { margin-top: 0 }
+  margin-top: .6rem;
+  @media(max-width: 700px) { margin-top: .1rem }
 
   & span {
     width: 1.33333rem;
@@ -16,7 +15,7 @@
     filter: grayscale(.8);
     margin-right: .3rem;
     transition: all .5s ease-in;
-    &:hover { filter: brightness(1.5) }
+    cursor: pointer;
 
     &.match {
       opacity: 1;

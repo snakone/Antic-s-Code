@@ -1,5 +1,5 @@
-import { Component, Input, ChangeDetectionStrategy, OnChanges } from '@angular/core';
-import { Test, TestEntry } from '@shared/interfaces/interfaces';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Test } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-test-card',
@@ -8,34 +8,18 @@ import { Test, TestEntry } from '@shared/interfaces/interfaces';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class TestCardComponent implements OnChanges {
+export class TestCardComponent {
 
   @Input() test: Test;
-  @Input() entriesByUser: TestEntry[];
-  entryUserByCategory: TestEntry[];
+  @Input() done: number;
+  @Input() last: boolean;
 
   constructor() { }
 
-  ngOnChanges() {
-    this.getCompletedEntries();
-  }
-
-  public completed(entry: TestEntry): boolean {
-    if (!entry || !this.entriesByUser) { return false; }
-    return this.entriesByUser.some(e => e.uid === entry.uid);
-  }
-
-  getCompletedEntries(): void {
-    if (!this.test || !this.entriesByUser) { return; }
-    this.entryUserByCategory = this.entriesByUser
-                                .filter(e => e.category === this.test.category);
-  }
-
-  public calculateWidth(): string {
-    if (!this.test || !this.entryUserByCategory) { return; }
+  public width(): string {
     return Math.round(
-      (this.entryUserByCategory.length /
-       this.test.entries?.length) || 0) * 100 + '%';
+      (this.done / this.test.entries?.length || 0) || 0
+    ) * 100 + '%';
   }
 
 }

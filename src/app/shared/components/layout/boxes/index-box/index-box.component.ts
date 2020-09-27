@@ -36,7 +36,7 @@ export class IndexBoxComponent implements AfterContentInit {
           inter.observe(el);
         });
       } catch (err) { console.log(err); }
-    }, 2500);
+    }, 2500);  // wait anchors to load
 
   }
 

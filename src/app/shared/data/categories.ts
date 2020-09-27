@@ -74,13 +74,13 @@ export const MAIN_CATEGORIES: List[] = [
     class: 'odd.jpg'
   },
   {
-    name: 'Server Typescript',
+    name: 'DENO.SERVER',
     icon: 'deno-logo.png',
     category: 'Deno',
     class: 'even.jpg'
   },
   {
-    name: 'PHP.HYPER',
+    name: 'PHP',
     icon: 'php-logo.png',
     category: 'PHP',
     class: 'odd.jpg'
