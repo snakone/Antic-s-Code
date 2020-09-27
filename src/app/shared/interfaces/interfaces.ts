@@ -11,6 +11,14 @@ interface Content {
   stars?: number;
   links?: Link[];
   index?: Index[];
+  name?: string;
+  author?: string;
+  message?: string;
+  github?: boolean;
+  githubLink?: string;
+  userLiked?: boolean;
+  user?: string;
+  slug?: string;
 }
 
 export interface ServerResponse {
@@ -24,24 +32,16 @@ interface Translation {
 }
 
 export interface Article extends Content {
-  message?: string;
-  author?: string;
   created?: string;
   published?: string;
-  slug?: string;
   level?: string;
   views?: number;
   summary?: string;
   status?: string;
-  user?: string;
-  good?: boolean;
 }
 
 export interface Category extends Content {
-  message?: string;
-  name?: string;
   info?: CategoryInfo;
-  icon?: string;
   faq?: FAQ[];
   updated?: string;
 }
@@ -134,6 +134,7 @@ export interface Reaction {
   user: string;
   type: string;
   value: number;
+  target?: string;
 }
 
 export interface ReactionResponse extends ServerResponse {

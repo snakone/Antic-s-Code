@@ -1,5 +1,7 @@
 <ng-container *ngIf="(category$ | async) as category; else noCategory">
-  <app-single-category-header [category]="category"></app-single-category-header>
+  <app-single-content-header [content]="category"
+                             type="category">
+  </app-single-content-header>
   <app-section input="#f5f7fc">
       <div class="row">
           <div class="col-lg-8 col-md-8" id="category-section">

@@ -32,7 +32,9 @@
   "BADGE": {
       "HOT": "Popular",
       "NEW": "Nuevo",
-      "PRO": "Destacado"
+      "PRO": "Destacado",
+      "CLASSIC": "Clásico",
+      "LOVED": "Amado"
   },
   "BEST.SCORE": "Mejor puntuación",
   "BIO.NOT.DEFINED": "No definido. Escribe algo sobre tí.",
@@ -413,6 +415,7 @@
   "NO.TEST.YET": "No hay Test de esta Categoría",
   "NO.ENTRY.YET": "No hay Entradas de esta Categoría",
   "NO.RESULTS": "No se han encontrado resultados",
+  "WRITE.BY": "Escrito por",
   "NO.UPDATED": "Sin actualizar",
   "NO.WRITE.YET": "Aún no he escrito ningún artículo. ¡Estoy en ello!",
   "NOT.DEFINED": "Sin definir",

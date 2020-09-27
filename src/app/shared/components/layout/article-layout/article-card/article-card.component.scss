@@ -34,15 +34,16 @@
       padding: 1.8rem 2rem;
       position: relative;
       background: var(--light-color);
-      @media(max-width: 700px) { padding: 1.5rem; }
       border-bottom-left-radius: 10px;
       border-bottom-right-radius: 10px;
+      @media(max-width: 700px) { padding: 1.5rem }
 
       & ul {
         padding-left: 0;
         list-style: none;
         margin-bottom: .5rem;
         margin-top: 0;
+        display: inline-block;
       }
 
       & li {
@@ -60,7 +61,7 @@
       }
 
       & h3 {
-        margin-bottom: 1rem;
+        margin-bottom: .6rem;
         margin-top: 0;
         outline: none;
         font-size: 1.66rem;
@@ -69,6 +70,7 @@
         @media(max-width: 650px) {
           font-size: 1.33rem;
           line-height: 1.7rem;
+          margin-bottom: .4rem;
         }
 
         &:hover {
@@ -78,13 +80,7 @@
       }
 
       &-tags {
-        margin-top: -.2rem;
-        margin-bottom: 1.2rem;
-        @media(max-width: 700px) {
-          margin-top: .2rem;
-          margin-bottom: 0;
-        }
-
+        margin-top: .6rem;
         @media (max-width: 550px) {
           .category-tag {
             font-size: 0.8rem !important;
@@ -106,11 +102,6 @@
   top: -8px;
 }
 
-.basic-flex {
-  display: flex;
-  @media(max-width: 700px) { display: inline-block }
-}
-
 .author { color: var(--tag-color) }
 
 .single {
@@ -124,7 +115,7 @@
   }
 
   .article-card-body {
-    padding: 1.8rem 0 !important;
+    padding: 0 0 1.8rem 0 !important;
     padding-bottom: 2rem !important;
     background: none;
     & ul { margin-top: .7rem !important }

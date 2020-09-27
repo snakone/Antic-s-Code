@@ -50,6 +50,11 @@ a:not(.default) {
   }
 }
 
+a.default {
+  outline: none;
+  text-decoration: none;
+}
+
 ul.none {
   margin-left: 0;
   padding-left: 0;

@@ -3,7 +3,7 @@ import { of } from 'rxjs';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import * as ArticleActions from './article.actions';
 import * as NewsActions from '../news/news.actions';
-import { map, concatMap, catchError, tap } from 'rxjs/operators';
+import { map, concatMap, catchError, tap, mapTo } from 'rxjs/operators';
 import { ArticleService } from '@core/services/article/article.service';
 
 @Injectable()
@@ -84,9 +84,12 @@ export class ArticleEffects {
   // GET ARTICLES BY TAGS
   loadArticlesByTagsEffect$ = createEffect(() => this.actions
     .pipe(
-      ofType(ArticleActions.getByTags),
+      ofType(ArticleActions.getBySlugSuccess),
       concatMap((action) =>
-        this.articleSrv.getByTags(action.request)
+        this.articleSrv.getByTags({
+          id: action.article._id,
+          tags: action.article.tags
+        })
           .pipe(
             map(articles => ArticleActions.getByTagsSuccess({ articles })),
             catchError(error =>

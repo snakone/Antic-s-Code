@@ -139,9 +139,6 @@ const featureReducer = createReducer(
     { ...state, byCategoryLoaded: false, error }
   )),
   // ARTICLES BY TAGS
-  on(ArticleActions.getByTags, state => (
-    { ...state, byTagsLoaded: false, error: null }
-  )),
   on(ArticleActions.getByTagsSuccess, (state, { articles }) => (
     {
       ...state,
@@ -164,16 +161,20 @@ const featureReducer = createReducer(
     }
   )),
   on(ArticleActions.resetSlug, (state) => (
-    { ...state, bySlugLoaded: false, error: null, slug: null }
+    {
+      ...state,
+      bySlugLoaded: false,
+      error: null,
+      slug: null,
+      byTagsLoaded: false,
+      byTags: null
+    }
   )),
   on(ArticleActions.resetByUser, (state) => (
     { ...state, byUserLoaded: false, error: null, byUser: null }
   )),
   on(ArticleActions.resetByCategory, (state) => (
     { ...state, byCategoryLoaded: false, error: null, byCategory: null }
-  )),
-  on(ArticleActions.resetByTags, (state) => (
-    { ...state, byTagsLoaded: false, error: null, byTags: null }
   ))
 );
 

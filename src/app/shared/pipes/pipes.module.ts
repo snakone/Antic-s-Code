@@ -7,6 +7,7 @@ import { SanitizerPipe } from './sanitizer/sanitizer.pipe';
 import { DigitsPipe } from './digits/digits.pipe';
 import { LogoPipe } from './logo/logo.pipe';
 import { LevelPipe } from './level/level.pipe';
+import { BadgePipe } from './badge/badge.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LevelPipe } from './level/level.pipe';
     SanitizerPipe,
     DigitsPipe,
     LogoPipe,
-    LevelPipe
+    LevelPipe,
+    BadgePipe
   ],
   exports: [
     ImagePipe,
@@ -25,7 +27,8 @@ import { LevelPipe } from './level/level.pipe';
     SanitizerPipe,
     DigitsPipe,
     LogoPipe,
-    LevelPipe
+    LevelPipe,
+    BadgePipe
   ]
 })
 

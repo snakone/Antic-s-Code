@@ -32,7 +32,9 @@
   "BADGE": {
       "HOT": "Hot",
       "NEW": "New",
-      "PRO": "Prominent"
+      "PRO": "Prominent",
+      "CLASSIC": "Classic",
+      "LOVED": "Loved"
   },
   "BEST.SCORE": "Best Scores",
   "BIO.NOT.DEFINED": "Not Defined. Write something about You",
@@ -412,6 +414,7 @@
   "RESULTS": "Results",
   "NO.RESULTS": "No results found",
   "NO.UPDATED": "Not updated",
+  "WRITE.BY": "Written by",
   "NO.WRITE.YET": "I ain't write anything yet. I'm on it!",
   "NOT.DEFINED": "Not Defined",
   "NOW.WORKING": "(Currently exercising)",
@@ -490,7 +493,7 @@
       "CONFIG": "Config",
       "CONSOLE": "Console",
       "DATABASE": "Database",
-      "DESIGN": "Desgin",
+      "DESIGN": "Design",
       "DEVELOP": "Develop",
       "FRONTEND": "Frontend",
       "GIT": "Git",

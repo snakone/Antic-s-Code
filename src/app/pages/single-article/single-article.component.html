@@ -1,7 +1,7 @@
 <ng-container *ngIf="(article$ | async) as article; else noArticle">
-  <app-page-header [title]="article.title"
-                   subTitle="ARTICLE">
-  </app-page-header>
+  <app-single-content-header [content]="article"
+                              type="article">
+  </app-single-content-header>
   <app-section input="#f5f7fc">
     <div class="row">  <!-- ARTICLE CONTENT -->
       <div class="col-lg-8 col-md-8">
@@ -9,7 +9,6 @@
         <app-article-card id="single-article-section"
                           [article]="article"
                           [single]="true">
-            <hr class="mobile" *ngIf="article.index">
             <div class="index" *onlyMobile>
               <app-index-box [index]="article.index"></app-index-box>
             </div>
@@ -17,7 +16,9 @@
         </app-article-card>
 
         <app-links-box [links]="article.links"></app-links-box>
-        <app-related-tags-box [article]="article"></app-related-tags-box>
+        <app-related-tags-box [article]="article"
+                              [related]="byTags$ | async">
+        </app-related-tags-box>
         <app-star-rating [article]="article"></app-star-rating>
         <app-disqus [identifier]="article.slug"></app-disqus>
       </div>
@@ -31,9 +32,9 @@
 </ng-container>
 
 <ng-template #noArticle>
-  <app-page-header title="ARTICLE"
-                   subTitle="ARTICLE">
-  </app-page-header>
+  <app-single-content-header title="ARTICLE"
+                             subTitle="ARTICLE">
+  </app-single-content-header>
   <app-section input="#f5f7fc">
     <div class="row">
       <div class="col-lg-8 col-md-8">

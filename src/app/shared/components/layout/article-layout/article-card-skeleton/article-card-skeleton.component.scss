@@ -76,5 +76,8 @@
 .single {
   margin-bottom: 0 !important;
   @media(max-width: 550px) { margin-bottom: 1rem !important }
-  .skeleton-body { padding: 1.8rem 0 !important }
+  .skeleton-body {
+    padding: 0 0 1.8rem 0 !important;
+    & ul { margin-top: 0 }
+  }
  }
