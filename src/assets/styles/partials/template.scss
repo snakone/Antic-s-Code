@@ -239,6 +239,7 @@
   .anchor {
     position: absolute;
     margin-top: -2rem;
+    &:first-of-type { margin-top: -6.5rem }
     @media(max-width: 550px) { margin-top: 0 }
   }
 
@@ -273,6 +274,21 @@
       }
 
       & span { opacity: .8 }
+    }
+  }
+}
+
+.single .template {
+  @media(min-width: 993px) {
+    & h2 {
+      &:first-of-type {
+        margin-top: 0;
+        &:before {
+          border-bottom: none;
+          padding-top: 0;
+          margin-bottom: 0;
+        }
+      }
     }
   }
 }

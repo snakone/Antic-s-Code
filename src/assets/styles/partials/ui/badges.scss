@@ -1,30 +1,50 @@
 // BADGES
 .badge-featured {
-  @include badge(#fa8b0c, 0);
+  @include badge(#fa8b0c, 0, #fff);
 }
 
 .badge-popular {
-  @include badge(#fd4868, 0);
+  @include badge(#fd4868, 0, #fff);
 }
 
 .badge-new {
-  @include badge(#4471ee, 0);
+  @include badge(#4471ee, 0, #fff);
+}
+
+.badge-classic {
+  @include badge(#b0faff, 0, #333);
+}
+
+.badge-loved {
+  @include badge(#fd71e6, 0, rgb(24, 20, 20));
 }
 
 .badge-featured-article {
-  @include badge(#074901, 10px);
+  @include badge(#108106, 10px, #fff);
   border: 1px solid #ffffffa4;
   padding: .36667rem .66667rem .52222rem;
 }
 
 .badge-popular-article {
-  @include badge(#ee0000, 10px);
+  @include badge(#ee0000, 10px, #fff);
   border: 1px solid #ffffffa4;
   padding: .36667rem .66667rem .52222rem;
 }
 
 .badge-new-article {
-  @include badge(#214cc2, 10px);
+  @include badge(#214cc2, 10px, #fff);
+  border: 1px solid #ffffffa4;
+  padding: .36667rem .66667rem .52222rem;
+}
+
+.badge-classic-article {
+  @include badge(#b0faff, 10px, #333);
+  border: 1px solid #ffffffa4;
+  padding: .36667rem .66667rem .52222rem;
+}
+
+.badge-loved-article {
+  @include badge(#fd71e6, 10px, rgb(24, 20, 20));
   border: 1px solid #ffffffa4;
   padding: .36667rem .66667rem .52222rem;
 }
@@ -39,6 +59,7 @@
 
 .meta-star {
   @include meta-data(var(--success-color), 2.2rem);
+  & mat-icon { top: 3.8px }
 }
 
 .meta-star-card {
@@ -74,11 +95,9 @@
   &:hover {
     color: var(--primary-color) !important;
     border: 1px solid var(--primary-color) !important;
-   }
-
-   & mat-icon {
-    left: 0;
   }
+
+   & mat-icon { left: 0 }
 }
 
 .verified {

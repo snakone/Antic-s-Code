@@ -1,7 +1,7 @@
-@mixin badge($color, $margin) {
+@mixin badge($color, $margin, $text) {
   line-height: 2.3rem;
   padding: .36667rem .66667rem;
-  color: #fff;
+  color: $text;
   font-size: .8rem;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -47,7 +47,7 @@
     font-size: 1rem;
     position: relative;
     left: 7px;
-    top: 4px;
+    top: 5px;
     padding-right: 2px;
   }
 

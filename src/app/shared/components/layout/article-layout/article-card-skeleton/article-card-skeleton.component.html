@@ -1,10 +1,10 @@
 <div class="skeleton" [ngClass]="{'single': single}">
-  <figure>
+  <figure *ngIf="!single">
     <img src="assets/img/skeleton.png" alt="Skeleton" loading="lazy"/>
   </figure>
   <div class="skeleton-body">
-    <h3 *ngIf="!single"></h3>
-    <ul class="basic-flex">
+    <h3></h3>
+    <ul class="basic-flex" *ngIf="!single">
       <li></li>
       <li></li>
     </ul>
@@ -13,6 +13,10 @@
       <div></div>
       <div></div>
       <div></div>
+      <ng-container *ngIf="single">
+        <div></div>
+        <div></div>
+      </ng-container>
     </div>
   </div>
 </div>

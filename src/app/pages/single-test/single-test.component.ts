@@ -22,7 +22,6 @@ export class SingleTestComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.checkData();
     this.getTestByCategory();
     this.test$ = this.testFacade.byCategory$;
   }
@@ -31,15 +30,6 @@ export class SingleTestComponent implements OnInit, OnDestroy {
     this.route.params
     .pipe(takeUntil(this.unsubscribe$))
      .subscribe(params => this.testFacade.getByCategory(params.category));
-  }
-
-  private checkData(): void {
-    this.testFacade.entriesByUserLoaded$
-     .pipe(
-       filter(res => !res),
-       takeUntil(this.unsubscribe$)
-      )
-     .subscribe(_ => this.testFacade.getEntriesByUser());
   }
 
   ngOnDestroy(): void {

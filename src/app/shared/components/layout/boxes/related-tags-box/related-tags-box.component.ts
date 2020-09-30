@@ -1,9 +1,6 @@
-import { Component, OnInit, Input, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
-import { filter, takeUntil } from 'rxjs/operators';
 
-import { ArticlesFacade } from '@store/articles/article.facade';
 import { SearchFacade } from '@store/search/search.facade';
 import { Article } from '@shared/interfaces/interfaces';
 
@@ -14,43 +11,19 @@ import { Article } from '@shared/interfaces/interfaces';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class RelatedTagsBoxComponent implements OnInit, OnDestroy {
+export class RelatedTagsBoxComponent {
 
   @Input() article: Article;
-  articles$: Observable<Article[]>;
-  private unsubscribe$ = new Subject<void>();
+  @Input() related: Article[];
 
   constructor(
-    private articlesFacade: ArticlesFacade,
     private searchFacade: SearchFacade,
     private router: Router
   ) { }
 
-  ngOnInit() {
-    this.checkData();
-    this.articles$ = this.articlesFacade.byTags$;
-  }
-
-  private checkData(): void {
-    this.articlesFacade.byTagsLoaded$
-     .pipe(
-       filter(res => !res),
-       takeUntil(this.unsubscribe$)
-      )
-      .subscribe(_ => this.articlesFacade.getByTags(
-        { id: this.article._id, tags: this.article.tags }
-      ));
-  }
-
   public seeMore(): void {
     this.searchFacade.search({value: '', tags: this.article.tags});
     this.router.navigateByUrl('/search');
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
-    this.articlesFacade.resetByTags();
   }
 
 }

@@ -16,6 +16,7 @@ import { takeUntil } from 'rxjs/operators';
 export class SingleArticleComponent implements OnInit, OnDestroy {
 
   article$: Observable<Article>;
+  byTags$: Observable<Article[]>;
   private unsubscribe$ = new Subject<void>();
 
   constructor(
@@ -26,6 +27,7 @@ export class SingleArticleComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.getArticleBySlug();
     this.article$ = this.articleFacade.bySlug$;
+    this.byTags$ = this.articleFacade.byTags$;
   }
 
   private getArticleBySlug(): void {

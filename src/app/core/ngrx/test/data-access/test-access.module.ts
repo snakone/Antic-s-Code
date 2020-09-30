@@ -4,7 +4,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { TestEffects } from '../test.effects';
 import { TestFacade } from '../test.facade';
 import { testReducers } from '../../ngrx.index';
-import { EntryGuard } from '@core/guards/entry.guard';
 
 @NgModule({
   imports: [
@@ -14,8 +13,7 @@ import { EntryGuard } from '@core/guards/entry.guard';
     ]),
   ],
   providers: [
-    TestFacade,
-    EntryGuard
+    TestFacade
   ]
 })
 

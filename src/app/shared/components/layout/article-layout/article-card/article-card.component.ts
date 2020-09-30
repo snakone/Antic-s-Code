@@ -13,6 +13,8 @@ export class ArticleCardComponent {
   @Input() shadow: boolean;
   @Input() single: boolean;  // Single or GRID
 
+  noImage = 'assets/img/no-image.png';
+
   constructor() { }
 
 }

@@ -1,18 +1,23 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Test, TestEntry } from '@shared/interfaces/interfaces';
-import { TestFacade } from '@store/test/test.facade';
 
 @Component({
   selector: 'app-test-content',
   templateUrl: './test-content.component.html',
-  styleUrls: ['./test-content.component.scss']
+  styleUrls: ['./test-content.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class TestContentComponent {
 
   @Input() tests: Test[];
-  @Input() entriesByUser: TestEntry[];
 
-  constructor(private testFacade: TestFacade) { }
+  constructor() { }
+
+  public done(entries: TestEntry[]): number {
+    return !!entries?.length ?
+      entries.reduce((acc, curr) =>
+      acc + (curr.done ? 1 : 0), 0) : 0;
+  }
 
 }

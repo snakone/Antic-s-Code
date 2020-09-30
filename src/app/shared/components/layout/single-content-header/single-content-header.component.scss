@@ -12,7 +12,7 @@
 
 .header-bg {
   position: absolute;
-  height: calc(var(--category-header-height) + var(--navbar-height));
+  height: calc(var(--content-header-height) + var(--navbar-height));
   width: 100%;
   min-width: var(--app-min-width);
   top: 0;
@@ -31,9 +31,9 @@
   @media(max-width: 550px) { background-size: cover !important }
 }
 
-.category {
+.content {
   &-header {
-    margin-bottom: calc(var(--category-header-height) + var(--navbar-height));
+    margin-bottom: calc(var(--content-header-height) + var(--navbar-height));
 
     &-content {
       height: 100%;
@@ -62,7 +62,7 @@
         -webkit-align-items: flex-end;
         -ms-flex-align: end;
         align-items: flex-end;
-        height: 198.23px;
+        height: 204.23px;
 
         @media (max-width: 991px) {
           justify-content: start;

@@ -48,10 +48,6 @@ export class ArticlesFacade {
     this.store.dispatch(ArticleActions.getByUser({id}));
   }
 
-  public getByTags(request: TagRequest): void {
-    this.store.dispatch(ArticleActions.getByTags({request}));
-  }
-
   public getByCategory(category: string): void {
     this.store.dispatch(ArticleActions.getByCategory({category}));
   }
@@ -70,10 +66,6 @@ export class ArticlesFacade {
 
   public resetByCategory(): void {
     this.store.dispatch(ArticleActions.resetByCategory());
-  }
-
-  public resetByTags(): void {
-    this.store.dispatch(ArticleActions.resetByTags());
   }
 
 }

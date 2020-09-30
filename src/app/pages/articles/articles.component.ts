@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { StorageService } from '@core/storage/storage.service';
 import { ArticleService } from '@core/services/article/article.service';
 import { Article } from '@shared/interfaces/interfaces';
 import { ArticlesFacade } from '@store/articles/article.facade';
@@ -13,19 +14,21 @@ import { filter, takeUntil } from 'rxjs/operators';
 
 export class ArticlesComponent implements OnInit, OnDestroy {
 
-  grid: false;
+  grid: boolean;
   private unsubscribe$ = new Subject<void>();
   articles$: Observable<Article[]>;
   count$: Observable<number>;
 
   constructor(
     private articleSrv: ArticleService,
-    private articleFacade: ArticlesFacade
+    private articleFacade: ArticlesFacade,
+    private ls: StorageService
   ) { }
 
   ngOnInit() {
     this.checkData();
     this.articles$ = this.articleFacade.articles$;
+    this.grid = this.ls.get('visual');
   }
 
   private checkData(): void {

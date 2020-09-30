@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Subject } from 'rxjs';
-import { takeUntil, filter } from 'rxjs/operators';
+import { takeUntil, filter, distinctUntilChanged } from 'rxjs/operators';
 import { PaginationService } from 'ngx-pagination';
 
 import { USER_ROLS } from '@shared/data/user';
@@ -20,7 +20,7 @@ export class UsersContentComponent implements OnInit, OnDestroy {
   users: User[] = [];
   filteredUsers: User[] = [];
   page = 1;
-  itemsPerPage = 10;
+  itemsPerPage = 5;
   value = '';
   userRols = USER_ROLS;
 
@@ -59,8 +59,7 @@ export class UsersContentComponent implements OnInit, OnDestroy {
       this.doResize();
       return;
     }
-    this.filteredUsers = this.users
-    .filter(user => user.account === rol);
+    this.filteredUsers = this.users.filter(user => user.account === rol);
     this.doResize();
   }
 

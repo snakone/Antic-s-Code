@@ -10,7 +10,7 @@ import { MAIN_CATEGORIES } from '@shared/data/categories';
 
 export class ArticlesCategoryListBoxComponent {
 
-  categories = MAIN_CATEGORIES;
+  categories = [...MAIN_CATEGORIES.slice(0, 6)];
 
   constructor() { }
 }

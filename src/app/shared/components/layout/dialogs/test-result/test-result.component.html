@@ -1,0 +1,16 @@
+<mat-dialog-content class="antics-dialog">
+  <ng-container *ngIf="(data.result$ | async) as result; else noResult">
+    <h3>{{result.title}}</h3>
+    <p [innerHTML]="'RESULT.INTRO' | translate"></p>
+    {{makeSentence(result) | translate}}
+    <br>
+
+    {{result | json}}
+  </ng-container>
+  <ng-container *ngIf="(data.entry$ | async) as entry">
+    {{entry | json}}
+  </ng-container>
+  <ng-template #noResult>
+    <app-spinner></app-spinner>
+  </ng-template>
+</mat-dialog-content>

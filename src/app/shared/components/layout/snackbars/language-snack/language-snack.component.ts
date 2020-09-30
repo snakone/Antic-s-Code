@@ -23,7 +23,7 @@ export class LanguageSnackComponent {
   }
 
   public setLanguage(value?: string): void {
-    this.ls.setKey('user_lang', true);
+    this.ls.setKey('skip_lang', true);
     if (value) {
       this.lang.change(value);
       this.ls.setKey('lang', value);

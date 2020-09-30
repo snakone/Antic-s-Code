@@ -12,8 +12,9 @@
         padding-top: 0 !important;
         padding-right: 0 !important;
         padding-bottom: 0 !important;
+        padding-left: 2rem !important;
         @media(max-width: 992px) {
-          padding-top: .8rem !important;
+          padding-top: .4rem !important;
           padding-left: 1rem !important;
           padding-bottom: .8rem !important;
         }
@@ -23,7 +24,7 @@
     &-no-margin { margin-bottom: 0 }
 
     &-header {
-      padding: 1.1666rem 2rem;
+      padding: 1rem 2rem;
       background-color: var(--new-color);
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;

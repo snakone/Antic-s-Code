@@ -24,14 +24,15 @@ export const STORAGE_CONSTANTS: StorageConfig = {
 
 export class Storage {
   lang = APP_CONSTANTS.DEFAULT_LANGUAGE;
-  token = null;
-  user = null;
   remember = STORAGE_CONSTANTS.REMEMBER;
-  // tslint:disable-next-line:variable-name
-  user_lang = false;
   theme = STORAGE_CONSTANTS.THEME;
   welcome = STORAGE_CONSTANTS.WELCOME;
   chat = STORAGE_CONSTANTS.CHAT;
+  token = null;
+  user = null;
+  // tslint:disable-next-line:variable-name
+  skip_lang = false;
+  visual = false;
 }
 
 export let STORAGE_CONFIG = new InjectionToken<StorageConfig>('storage.config');

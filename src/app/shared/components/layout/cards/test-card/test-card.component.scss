@@ -8,6 +8,8 @@
 	overflow: hidden;
   width: 100%;
   position: relative;
+
+  &.last { margin-bottom: 2.66rem }
 }
 
 .course h6 {
@@ -23,18 +25,11 @@
   width: 20px;
   position: relative;
   left: -8px;
-  top: 2px;
 }
 
 .course h2 {
 	letter-spacing: 1px;
 	margin: 12px 0;
-}
-
-.course p {
-  margin: 0;
-  color: black;
-  @media(max-width: 350px) { font-size: .8rem !important }
 }
 
 .course-info h6 {
@@ -55,7 +50,7 @@
   position: absolute;
   bottom: 33px;
 	display: inline-block;
-	font-size: 12px;
+	font-size: .9rem;
 	opacity: 0.6;
   text-decoration: none;
   cursor: pointer;
@@ -83,6 +78,15 @@
   & p {
     opacity: .8;
     position: relative;
+    line-height: 1.4;
+    margin: 0;
+    color: black;
+    @media(max-width: 350px) { font-size: .8rem !important }
+    &:not(.no-test) {
+      cursor: pointer;
+      outline: none;
+      &:hover { color: var(--primary-color) }
+    }
   }
 
   & mat-icon {
@@ -90,6 +94,12 @@
     position: absolute;
     top: -2px;
     margin-left: .8rem;
+
+    @media(max-width: 550px) {
+      font-size: 1.2rem;
+      top: 1px;
+      margin-left: .6rem;
+    }
   }
 }
 
@@ -130,8 +140,8 @@
 	color: #fff;
 	font-size: 16px;
 	position: absolute;
-	bottom: 30px;
-	right: 30px;
+	bottom: 25px;
+	right: 25px;
   letter-spacing: 1px;
   cursor: pointer;
   outline: none;
@@ -139,19 +149,16 @@
 
 @media(max-width: 700px) {
   .progress-container {
-    width: 60%;
+    width: 80%;
   }
 }
 
 @media(max-width: 550px) {
-  .course-preview, .course-info {
-    padding: 20px;
-  }
-
+  .course-preview, .course-info { padding: 20px }
   .course-preview img { left: -6px }
   .course h6 { font-size: .8rem }
-  .course-preview h6 { left: 2px; top: -2px }
+  .course-preview h6 { left: 2px }
   .btn { display: none }
-  .course-preview a { bottom: 27px }
-  .progress-container { bottom: 10px }
+  .course-preview a { bottom: 27px; font-size: 12px; }
+  .progress-container { bottom: 9px }
 }

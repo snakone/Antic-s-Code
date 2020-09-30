@@ -3,7 +3,8 @@
     -webkit-border-radius: 3px;
     border-radius: 3px;
     overflow: hidden;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    @media(max-width: 550px) { margin-bottom: 1rem }
 
     & figure {
         position: relative;

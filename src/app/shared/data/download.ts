@@ -1,10 +1,10 @@
 import { DownloadButton } from '../interfaces/interfaces';
 
 const DOWNLOAD_URI: any = {
-  windows: 'https://mega.nz/file/M5h1RDiC#AHlXr1bjUrxJInW1ZKwtDbNGp-F--vRoqHjN0QZwOJo',
-  mac: 'https://mega.nz/file/JopxlLJI#wq6Ny2HCoAcXvKe8udOYxEeiuj5lW-ZZDucKW9tmDM8',
-  linux: 'https://mega.nz/file/44gH2bxA#5VEO5mcyqO7Ru3Mqjrq3mAAF7tx3plcE3kO27bYhFR0',
-  android: 'https://mega.nz/file/Bp5HARzT#E01oeW744ZaF3cgik1NsrEuQAcovrNMXJZLGKaH2-qs',
+  windows: 'https://mega.nz/file/pkQ1zSDJ#eJk8D757ywpdntiY2db-vcSunpRPKIgKhJQnjxDLhTE',
+  mac: 'https://mega.nz/file/UhZXBKhB#6d9hjOYuAaYeUA-d4DEtU_1kYS-Sk6i1z0l-zERFcFE',
+  linux: 'https://mega.nz/file/FhRXwQSb#ohQIKfrylf5i-20wJwt-ric5vSxOUKRE46IYZfo1Qjo',
+  android: 'https://mega.nz/file/F0IjGQZQ#sRfmt_vm1O0WisYvaZCWfZmpUjFbfTPeM4mWrcdaUfU',
   ios: ''
 };
 

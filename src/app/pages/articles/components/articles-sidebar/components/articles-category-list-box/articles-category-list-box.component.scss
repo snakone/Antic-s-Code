@@ -5,15 +5,28 @@ ul {
 }
 
 li {
-  margin-bottom: .66rem;
+  margin-bottom: .666rem;
   position: relative;
   display: flex;
   align-items: center;
   outline: none;
   cursor: pointer;
+  height: 32.5px;
 
-  &:last-child { margin-bottom: 0 }
-  & mat-icon { margin-right: 10px }
+  & mat-icon {
+    color: var(--p-color);
+    display: inline;
+    margin-right: 1.1rem;
+    position: relative;
+    top: 2px;
+    left: -2px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+    margin-left: .5rem;
+    color: var(--p-color);
+  }
 
   & img {
     border-radius: 25%;

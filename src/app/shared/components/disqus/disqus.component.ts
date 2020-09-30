@@ -15,7 +15,7 @@ export class DisqusComponent {
   constructor(public ls: StorageService) { }
 
   public getLanguage(): string {
-    switch(this.ls.get('lang')) {
+    switch (this.ls.get('lang')) {
       case 'es': return 'es_ES';
       default: return '';
     }
