@@ -2,19 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SingleNewsRouting } from './single-news.routing';
-
-import { SingleNewsComponent } from './single-news.component';
-import { SingleNewsSidebarComponent } from './components/single-news-sidebar/single-news-sidebar.component';
-import { SingleNewsContentComponent } from './components/single-news-content/single-news-content.component';
 import { PageHeaderModule } from '@layout/page-header/page-header.module';
 import { SectionModule } from '@layout/section/section.module';
 import { SpinnerModule } from '@snippets/spinner/spinner.module';
+import { SingleNewsSidebarModule } from './components/single-news-sidebar/single-news-sidebar.module';
+import { PipesModule } from '@shared/pipes/pipes.module';
+import { ComponentsModule } from '@shared/components/components.module';
+import { TranslateModule } from '@ngx-translate/core';
 
+import { SingleNewsComponent } from './single-news.component';
+import { SingleNewsContentComponent } from './components/single-news-content/single-news-content.component';
 
 @NgModule({
   declarations: [
     SingleNewsComponent,
-    SingleNewsSidebarComponent,
     SingleNewsContentComponent
   ],
   imports: [
@@ -22,7 +23,11 @@ import { SpinnerModule } from '@snippets/spinner/spinner.module';
     SingleNewsRouting,
     PageHeaderModule,
     SectionModule,
-    SpinnerModule
+    SpinnerModule,
+    PipesModule,
+    TranslateModule,
+    SingleNewsSidebarModule,
+    ComponentsModule
   ]
 })
 

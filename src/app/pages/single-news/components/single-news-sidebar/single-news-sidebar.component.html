@@ -1,1 +1,15 @@
-<p>single-news-sidebar works!</p>
+<app-sticky-box selector="news-section">
+  <app-content-box [border]="true" [news]="true">
+    <ng-container *ngIf="(byCategory$ | async) as news; else noNews">
+      <app-related-news-card *ngFor="let n of news; let last = last"
+                             [notice]="n"
+                             [last]="last">
+      </app-related-news-card>
+    </ng-container>
+    <ng-template #noNews>
+      <app-related-news-card *ngFor="let i of [1,2,3,4]; let last = last"
+                              [last]="last">
+      </app-related-news-card>
+    </ng-template>
+  </app-content-box>
+</app-sticky-box>

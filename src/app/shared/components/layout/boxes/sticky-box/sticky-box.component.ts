@@ -19,7 +19,9 @@ export class StickyBoxComponent implements OnInit, OnDestroy {
   constructor() { }
 
   ngOnInit() {
-    this.subscribeToScroll();
+    setTimeout(() => {
+      this.subscribeToScroll();
+    }, 2000);
   }
 
   private subscribeToScroll(): void {

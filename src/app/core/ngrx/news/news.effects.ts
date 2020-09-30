@@ -51,5 +51,17 @@ export class NewsEffects {
     ))))
   );
 
+  // GET NOTICE BY CATEGORY
+  getNewByCategoryEffect$ = createEffect(() => this.actions
+  .pipe(
+    ofType(NewsActions.getByCategory),
+    concatMap((action) =>
+      this.newsSrv.getByCategory(action.category)
+      .pipe(
+        map(news => NewsActions.getByCategorySuccess({news})),
+        catchError(error =>
+            of(NewsActions.getByCategoryFailure({ error: error.message }))
+    ))))
+  );
 
 }

@@ -11,6 +11,7 @@ import { PAGE_BG } from '@shared/data/app';
 export class PageHeaderComponent implements OnInit {
 
   @Input() title: string;
+  @Input() onNews = false;
   @Input() subTitle: string;
   background: string;
   bgs = PAGE_BG;
@@ -44,6 +45,7 @@ export class PageHeaderComponent implements OnInit {
       case 'Test': return this.bgs.tests;
       case 'Single Test': return this.bgs.test;
       case 'News': return this.bgs.news;
+      case 'Notice': return this.bgs.notice;
       default: return '';
     }
   }

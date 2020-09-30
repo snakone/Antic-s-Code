@@ -68,3 +68,12 @@ p { padding-right: 3rem }
     }
   }
 }
+
+@media(max-width: 992px) {
+  .col-lg-6 { text-align: center }
+  p { padding-right: 0 }
+  .download {
+    justify-content: center;
+    & button { margin: .8rem .4rem 1.4rem .4rem }
+  }
+}

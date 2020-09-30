@@ -24,7 +24,8 @@
       </div>
       <div class="col-lg-4 col-md-4">  <!-- SIDEBAR -->
         <app-index-box *onlyDesktop
-                       [index]="article.index">
+                       [index]="article.index"
+                       [right]="true">
         </app-index-box>
       </div>
     </div>
@@ -42,7 +43,8 @@
         </app-article-card-skeleton>
       </div>
       <div class="col-lg-4 col-md-4">
-        <app-index-box *onlyDesktop>
+        <app-index-box *onlyDesktop
+                        [right]="true">
         </app-index-box>
       </div>
     </div>
