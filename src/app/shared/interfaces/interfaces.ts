@@ -59,6 +59,23 @@ export interface News {
   likes?: number;
 }
 
+export interface Inbox {
+  sender?: string;
+  receiver?: string;
+  messages?: InboxMessage[];
+  created?: string;
+}
+
+export interface InboxMessage {
+  _id?: string;
+  subject?: string;
+  message?: string;
+  sender?: User;
+  receiver?: string;
+  date?: string;
+  read?: boolean;
+}
+
 export interface ArticleResponse extends ServerResponse {
   article?: Article;
   articles?: Article[];
@@ -81,6 +98,10 @@ export interface CountResponse extends ServerResponse {
 
 export interface CategoryCountResponse extends ServerResponse {
   count?: object;
+}
+
+export interface InboxResponse extends ServerResponse {
+  inbox?: InboxMessage[];
 }
 
 export interface NewsResponse extends ServerResponse {

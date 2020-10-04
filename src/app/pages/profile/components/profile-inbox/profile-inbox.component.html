@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-lg-12">
+    <app-content-box title="Inbox"
+                    icon="email"
+                    [border]="true">
+    <div class="inbox">
+      <app-profile-inbox-left [filtered]="inbox$ | async"
+                              [selected]="selected$ | async">
+        </app-profile-inbox-left>
+      <app-profile-inbox-right [mail]="selected$ | async">
+        </app-profile-inbox-right>
+    </div>
+    </app-content-box>
+  </div>
+</div>

@@ -57,7 +57,7 @@ export class StarRatingComponent implements OnInit, OnDestroy {
         .pipe(takeUntil(this.unsubscribe$))
         .subscribe(_ => {
             this.crafter.toaster('SUCCESS', 'THANKS.MUCH', 'info');
-            this.sw.sendNotification(
+            this.sw.send(
               this.setNotification(Object.assign({}, STAR_PUSH))
             ).toPromise().then();
         });

@@ -38,6 +38,18 @@ export const getMostActiveFailure =
   createAction('[Users API] Get Most Active Users Failure',
   props<{ error: string }>());
 
+// GET LAST USER
+export const getLast =
+  createAction('[Users API] Get Last User');
+
+export const getLastSuccess =
+  createAction('[Users API] Get Last User Success',
+  props<{ user: User }>());
+
+export const getLastFailure =
+  createAction('[Users API] Get Last User Failure',
+  props<{ error: string }>());
+
 // SET USER
 export const set =
   createAction('[Users API] Set User',
@@ -50,6 +62,16 @@ export const setSuccess =
 export const setFailure =
   createAction('[Users API] Set User Failure',
   props<{ error: string }>());
+
+// SORT USERS
+export const sort =
+  createAction('[Users API] Sort Users',
+  props<{ rol: string }>());
+
+// SEARCH USERS
+export const search =
+  createAction('[Users API] Search Users',
+  props<{ value: string }>());
 
 // SET USER EMAIL
 export const setEmail =

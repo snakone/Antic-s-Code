@@ -44,11 +44,11 @@ export class PushService {
         serverPublicKey: this.pushKey
       }).then((sub: PushSubscription) => {
         if (sub) {
-          this.saveSubscription(sub)
+          this.save(sub)
             .pipe(
               filter(res => res && !this.ls.get('welcome')),
-              switchMap(_ => this.sendNotification(
-                this.setNotification(Object.assign({}, WELCOME_PUSH))
+              switchMap(_ => this.send(
+                this.set(Object.assign({}, WELCOME_PUSH))
               ))
             )
             .subscribe(_ => this.ls.setKey('welcome', true));
@@ -58,7 +58,7 @@ export class PushService {
     }, 10000);
   }
 
-  public saveSubscription(
+  public save(
     sub: PushSubscription
   ): Observable<SWResponse> {
     return this.http
@@ -70,7 +70,7 @@ export class PushService {
       );
   }
 
-  public sendNotification(
+  public send(
     payload: NotificationPayload
   ): Observable<SWResponse> {
     return this.http
@@ -80,7 +80,7 @@ export class PushService {
       );
   }
 
-  private setNotification(
+  private set(
     payload: NotificationPayload
   ): NotificationPayload {
     payload.user = this.ls.get('user');

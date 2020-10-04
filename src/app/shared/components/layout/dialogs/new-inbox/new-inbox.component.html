@@ -1,0 +1,39 @@
+<mat-dialog-content class="antics-dialog">
+ <h5>{{'NEW.MESSAGE' | translate}}</h5>
+
+ <form [formGroup]="form" (ngSubmit)="submit()">
+  <mat-form-field appearance="outline" color="accent">  <!-- TO -->
+    <mat-label>{{'TO' | translate}}</mat-label>
+    <mat-select formControlName="to"
+                aria-label="Select a User">
+      <mat-option *ngFor="let user of (users$ | async).sort()"
+                  [value]="user._id"
+                  role="option"
+                  class="category">
+        {{user.name | titlecase}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline" color="accent">  <!-- SUBJECT -->
+    <mat-label>{{'SUBJECT' | translate}}</mat-label>
+    <input matInput
+           formControlName="subject"
+           autocomplete="off">
+  </mat-form-field>
+  <mat-form-field appearance="outline" color="accent">  <!-- MESSAGE -->
+    <mat-label>{{'MESSAGE' | translate}}</mat-label>
+    <textarea matInput
+           formControlName="message"
+           autocomplete="off">
+    </textarea>
+  </mat-form-field>
+  <div style="text-align: right">
+    <button mat-button
+            class="btn-pink"
+            aria-label="Search"
+            [disabled]="form.invalid"
+            type="submit">{{'SEND' | translate}}
+    </button>
+  </div>
+ </form>
+</mat-dialog-content>

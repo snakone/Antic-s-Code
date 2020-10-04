@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { URI } from '@app/app.config';
 import { CrafterService } from '@core/services/crafter/crafter.service';
 import { PushService } from '@core/services/push/push.service';
@@ -57,7 +57,7 @@ export class SingleContentHeaderRightComponent implements OnInit {
       .subscribe(_ => {
           this.crafter.toaster('SUCCESS', 'THANKS.MUCH', 'info');
           if (value === 1) {
-            this.sw.sendNotification(
+            this.sw.send(
               this.setNotification(Object.assign({}, LIKE_PUSH))
             ).toPromise().then();
           }

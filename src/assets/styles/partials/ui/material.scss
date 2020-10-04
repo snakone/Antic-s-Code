@@ -79,7 +79,7 @@ mat-option.all {
   background: transparent !important;
 }
 
-.mat-checkbox-inner-container { top: 2px }
+.mat-checkbox-inner-container { top: 1px }
 .p-left .mat-option-text { padding-left: .4rem }
 
 .edit-dialog .mat-dialog-container {
@@ -176,4 +176,13 @@ mat-option.all {
 
 .mat-step-header .mat-step-label.mat-step-label-active {
   font-weight: bold;
+}
+
+.search-inbox.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: var(--border-color) !important;
+}
+
+.search-inbox .mat-input-element {
+  color: white !important;
+  height: 100%;
 }

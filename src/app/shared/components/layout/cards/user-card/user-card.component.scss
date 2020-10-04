@@ -115,13 +115,8 @@
  .skeleton {
     flex-wrap: wrap;
     & h4 {
-      width: 40% !important;
+      width: 50% !important;
       margin-right: 10rem;
-    }
-
-    & .info h3 {
-      margin-left: 0 !important;
-      margin-right: 1rem;
     }
   }
 }
@@ -147,9 +142,9 @@
 
   & h4 {
     background: var(--skeleton-color);
-    width: 12rem;
+    width: 14rem;
     line-height: 2rem;
-    height: 2rem;
+    height: 1.8rem;
     margin-top: .5rem;
     margin-bottom: .5rem;
   }

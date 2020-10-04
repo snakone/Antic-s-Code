@@ -74,7 +74,7 @@ export class GoogleInComponent implements OnInit, OnDestroy {
     this.zone.run(() => this.router.navigateByUrl('/profile'));
 
     if (data.message.indexOf('Created') > -1) {
-      this.sw.sendNotification(
+      this.sw.send(
         this.setNotification(Object.assign({}, NEW_USER_PUSH), data.user.name)
       ).toPromise().then();
     }

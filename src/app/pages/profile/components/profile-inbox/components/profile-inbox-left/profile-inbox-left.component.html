@@ -1,0 +1,45 @@
+<div class="wrapper">
+  <div class="input">
+    <mat-form-field color="accent"
+                    appearance="outline"
+                    class="search-inbox">  <!-- EMAIL -->
+      <mat-label>{{'SEARCH.INBOX' | translate}}</mat-label>
+      <span matSuffix>  <!-- INPUT PREFIX -->
+        <mat-icon aria-hidden="false"
+                  aria-label="Search">
+                  search
+        </mat-icon>
+      </span>
+      <input matInput
+             autocomplete="off"
+             (keyup)="search($event)">
+    </mat-form-field>
+    <div class="actions">
+      <mat-icon class="icon"
+                (click)="new()"
+                [matTooltip]="'NEW.MESSAGE' | translate"
+                matTooltipPosition="above">mail_outline
+      </mat-icon>
+      <mat-icon class="icon reload"
+                (click)="reload()"
+                [matTooltip]="'RELOAD' | translate"
+                matTooltipPosition="above">autorenew
+      </mat-icon>
+    </div>
+  </div>
+  <div class="wrapper-card">
+    <ng-container *ngIf="filtered.length > 0; else noMessages">
+      <app-message-card *ngFor="let m of filtered"
+                        [inbox]="m"
+                        (click)="set(m)"
+                        [selected]="selected">
+      </app-message-card>
+    </ng-container>
+  </div>
+</div>
+
+<ng-template #noMessages>
+  <div class="empty">
+    <h4>{{'NO.MESSAGES' | translate}}</h4>
+  </div>
+</ng-template>

@@ -5,11 +5,14 @@ import { User, MostActive } from '@shared/interfaces/interfaces';
 export interface UserState {
   user: User;
   users: User[];
+  filtered: User[];
   loaded: boolean;
   mostActive: MostActive[];
   mostActiveLoaded: boolean;
   public: User;
   publicLoaded: boolean;
+  last: User;
+  lastLoaded: boolean;
   email: string;
   error: string;
 }
@@ -17,11 +20,14 @@ export interface UserState {
 export const inititalState: UserState = {
   user: null,
   users: [],
+  filtered: [],
   loaded: false,
   mostActive: null,
   mostActiveLoaded: false,
   public: null,
   publicLoaded: false,
+  last: null,
+  lastLoaded: false,
   email: null,
   error: null
 };
@@ -47,7 +53,8 @@ const featureReducer = createReducer(
       ...state,
       loaded: true,
       error: null,
-      users
+      users,
+      filtered: users
     }
   )),
   on(UserActions.getFailure, (state, { error }) => (
@@ -70,19 +77,34 @@ const featureReducer = createReducer(
   )),
   // GET MOST ACTIVE USERS
   on(UserActions.getMostActive, (state) => (
-   { ...state, mostActiveLoaded: false, error: null }
- )),
- on(UserActions.getMostActiveSuccess, (state, { active }) => (
-   {
-     ...state,
-     mostActive: active,
-     mostActiveLoaded: true,
-     error: null
-   }
- )),
- on(UserActions.getMostActiveFailure, (state, { error }) => (
-   { ...state, mostActiveLoaded: false, error }
- )),
+    { ...state, mostActiveLoaded: false, error: null }
+  )),
+  on(UserActions.getMostActiveSuccess, (state, { active }) => (
+    {
+      ...state,
+      mostActive: active,
+      mostActiveLoaded: true,
+      error: null
+    }
+  )),
+  on(UserActions.getMostActiveFailure, (state, { error }) => (
+    { ...state, mostActiveLoaded: false, error }
+  )),
+    // GET LAST USER
+   on(UserActions.getLast, (state) => (
+    { ...state, error: null }
+  )),
+  on(UserActions.getLastSuccess, (state, { user }) => (
+    {
+      ...state,
+      last: user,
+      lastLoaded: true,
+      error: null
+    }
+  )),
+  on(UserActions.getLastFailure, (state, { error }) => (
+    { ...state, lastLoaded: false, error }
+  )),
   // SET USER EMAIL
   on(UserActions.setEmail, (state) => (
     { ...state, error: null }
@@ -92,6 +114,22 @@ const featureReducer = createReducer(
   )),
   on(UserActions.setEmailFailure, (state, { error }) => (
     { ...state, loaded: false, error }
+  )),
+  // FILTER USERS
+  on(UserActions.search, (state, { value }) => (
+    {
+      ...state,
+      filtered: [...[...state.users].filter(u => u.name.match(new RegExp(value, 'i')))],
+      error: null
+    }
+  )),
+  // SORT USERS
+  on(UserActions.sort, (state, { rol }) => (
+    {
+      ...state,
+      filtered: [...[...state.users].filter(u => u.account.match(new RegExp(rol, 'i')))],
+      error: null
+    }
   )),
   // VERIFY TOKEN
   on(UserActions.verifyToken, (state) => (
@@ -133,10 +171,13 @@ export function reducer(state: UserState | undefined, action: Action) {
 }
 
 export const getUser = (state: UserState) => state.user;
-export const getAllUsers = (state: UserState) => state.users;
+export const getUsers = (state: UserState) => state.users;
+export const getUsersLoaded = (state: UserState) => state.loaded;
 export const getMostActive = (state: UserState) => state.mostActive;
 export const getMostActiveLoaded = (state: UserState) => state.mostActiveLoaded;
 export const getUserByName = (state: UserState) => state.public;
 export const getUserByNameLoaded = (state: UserState) => state.publicLoaded;
-export const getAllUsersLoaded = (state: UserState) => state.loaded;
+export const getLastUser = (state: UserState) => state.last;
+export const getLastUserLoaded = (state: UserState) => state.lastLoaded;
 export const getEmail = (state: UserState) => state.email;
+export const getFiltered = (state: UserState) => state.filtered;

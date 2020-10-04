@@ -89,6 +89,15 @@ export class UserService {
       );
   }
 
+  public getLast(): Observable<User> {
+    return this.http
+      .get<UserResponse>(this.API_USERS + '/last')
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.user)
+      );
+  }
+
   public refreshToken(id: string): Observable<UserResponse> {
     return this.http
       .post<UserResponse>(this.API_TOKEN + `/${id}`, null)

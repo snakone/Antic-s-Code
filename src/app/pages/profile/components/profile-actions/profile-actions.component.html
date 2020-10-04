@@ -1,6 +1,10 @@
 <app-content-box title="ACTIONS"
                  icon="check">
   <div class="icons">
+    <mat-icon [matTooltip]="'MY.INBOX' | translate"
+              matTooltipPosition="above"
+              [routerLink]="'/profile/inbox'">email
+    </mat-icon>
     <mat-icon [matTooltip]="'PUBLIC.PROFILE' | translate"
               matTooltipPosition="above"
               [routerLink]="'/profile/' + user.name">assignment_ind

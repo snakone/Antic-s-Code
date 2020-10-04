@@ -9,22 +9,30 @@ import { MatButtonModule } from '@angular/material/button';
 import { BoxesModule } from '@layout/boxes/boxes.module';
 
 import { ProfileContentComponent } from './profile-content.component';
+import { ProfileActionsComponent } from '../profile-actions/profile-actions.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { RouterModule } from '@angular/router';
 
 const Material = [
   MatFormFieldModule,
   MatSelectModule,
   MatInputModule,
-  MatButtonModule
+  MatButtonModule,
+  MatIconModule,
+  MatTooltipModule
 ];
 
 @NgModule({
   declarations: [
-    ProfileContentComponent
+    ProfileContentComponent,
+    ProfileActionsComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     BoxesModule,
+    RouterModule,
     ...Material
   ],
   exports: [ProfileContentComponent]

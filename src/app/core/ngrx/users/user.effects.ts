@@ -66,6 +66,19 @@ export class UserEffects {
     ))))
   );
 
+  // GET ALL USER
+  getLastUserEffect$ = createEffect(() => this.actions
+    .pipe(
+      ofType(UserActions.getLast),
+      concatMap(() =>
+      this.userSrv.getLast()
+      .pipe(
+        map(user => UserActions.getLastSuccess({ user })),
+          catchError(error =>
+              of(UserActions.getLastFailure({ error: error.message }))
+    ))))
+  );
+
   // SET USER EMAIL
   setUserEmailEffect$ = createEffect(() => this.actions
     .pipe(

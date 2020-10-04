@@ -11,10 +11,13 @@ import { User } from '@shared/interfaces/interfaces';
 export class UsersFacade {
 
   public user$ = this.store.select(fromUsers.get);
-  public all$ = this.store.select(fromUsers.getAll);
+  public users$ = this.store.select(fromUsers.getUsers);
+  public filtered$ = this.store.select(fromUsers.getFiltered);
   public byName$ = this.store.select(fromUsers.getByName);
   public email$ = this.store.select(fromUsers.getEmail);
-  public allLoaded$ = this.store.select(fromUsers.getAllLoaded);
+  public last$ = this.store.select(fromUsers.getLast);
+  public lastLoaded$ = this.store.select(fromUsers.getLastLoaded);
+  public usersLoaded$ = this.store.select(fromUsers.getUsersLoaded);
   public mostActive$ = this.store.select(fromUsers.getMostActive);
   public mostActiveLoaded$ = this.store.select(fromUsers.getMostActiveLoaded);
 
@@ -40,12 +43,24 @@ export class UsersFacade {
     this.store.dispatch(UserActions.getMostActive());
   }
 
+  public getLast(): void {
+    this.store.dispatch(UserActions.getLast());
+  }
+
   public set(user: User): void {
     this.store.dispatch(UserActions.set({user}));
   }
 
   public setEmail(email: string): void {
     this.store.dispatch(UserActions.setEmail({email}));
+  }
+
+  public search(value: string): void {
+    this.store.dispatch(UserActions.search({value}));
+  }
+
+  public sort(rol: string): void {
+    this.store.dispatch(UserActions.sort({rol}));
   }
 
   public logOut(): void {

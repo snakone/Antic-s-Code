@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { UsersFacade } from '@store/users/users.facade';
 import { User } from '@shared/interfaces/interfaces';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-profile-content',
@@ -8,10 +10,14 @@ import { User } from '@shared/interfaces/interfaces';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class ProfileContentComponent {
+export class ProfileContentComponent implements OnInit {
 
-  @Input() user: User;
+  user$: Observable<User>;
 
-  constructor() { }
+  constructor(private usersFacade: UsersFacade) { }
+
+  ngOnInit() {
+    this.user$ = this.usersFacade.user$;
+  }
 
 }

@@ -1,6 +1,6 @@
 ul {
   list-style-type: none;
-  padding-left: var(--small-padding);
+  padding-left: 2rem;
   margin: 0 auto;
 
   &.right {
@@ -24,6 +24,8 @@ ul {
     }
   }
 }
+
+
 
 @media(max-width: 992px) {
   li:before {

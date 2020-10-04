@@ -1,0 +1,6 @@
+* { box-sizing: border-box }
+
+.inbox {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}

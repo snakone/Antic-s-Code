@@ -1,5 +1,6 @@
 h3 { margin-top: 0 !important }
 .create, .intro { text-align: center }
+.create { margin-bottom: 2.2rem }
 
 .intro {
   max-width: 720px;
@@ -17,6 +18,7 @@ li {
     font-weight: bold;
     left: -5px;
     position: relative;
+    color: var(--primary-color);
   }
 }
 
@@ -24,5 +26,9 @@ li {
 ul {
   margin-top: 2.5rem;
   list-style: none;
+}
+
+@media(max-width: 550px) {
+  .create { margin-bottom: 1.8rem }
 }
 

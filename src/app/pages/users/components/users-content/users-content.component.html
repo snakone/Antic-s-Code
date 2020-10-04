@@ -1,6 +1,6 @@
 <app-content-box title="USERS.LIST" icon="person">
   <div [innerHTML]="'USERS.INTRO' | translate: {
-                                      count: users ? users.length : 0
+                                      count: (users$ | async).length || 0
                                     }">
   </div>
   <div class="search-user">
@@ -29,29 +29,28 @@
 </app-content-box>
 
 <div class="row">
-  <div class="col-lg-12" *ngIf="filteredUsers?.length > 0; else noUsers">
-    <app-user-card *ngFor="let user of filteredUsers |
-                                        paginate: {
-                                          itemsPerPage: itemsPerPage,
-                                          currentPage: page,
-                                          id: 'users-pagination'
-                                        }; let first = first"
-                    [user]="user"
-                    [first]="first">
-    </app-user-card>
-  </div>
-
-  <ng-template #noUsers>
-    <app-user-card *ngFor="let c of [1,2,3,4,5]"></app-user-card>
-  </ng-template>
+  <ng-container *ngIf="(filtered$ | async) as users; else noUsers">
+    <div class="col-lg-12">
+      <app-user-card *ngFor="let user of users |
+                                          paginate: {
+                                            itemsPerPage: itemsPerPage,
+                                            currentPage: page,
+                                            id: 'users-pagination'
+                                          }; let first = first"
+                      [user]="user"
+                      [first]="first">
+      </app-user-card>
+    </div>
+    <div class="col-lg-12">
+      <app-pagination [margin]="0"
+                      *ngIf="users.length > itemsPerPage"
+                      id="users-pagination"
+                      selector="users-list">
+      </app-pagination>
+    </div>
+  </ng-container>
 </div>
 
-<div class="row">
-  <div class="col-lg-12">
-    <app-pagination [margin]="0"
-                    *ngIf="filteredUsers?.length > itemsPerPage"
-                    id="users-pagination"
-                    selector="users-list">
-    </app-pagination>
-  </div>
-</div>
+<ng-template #noUsers>
+  <app-user-card *ngFor="let c of [1,2,3,4,5]"></app-user-card>
+</ng-template>

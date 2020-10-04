@@ -1,7 +1,7 @@
 .notice {
   &-content {
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
     & .image {
       width: 350px;
       height: 195px;
@@ -48,6 +48,5 @@
     }
   }
 
-  &-message { margin: 2rem 0 3rem 0 }
   & .dot { padding: 0 .4rem }
 }

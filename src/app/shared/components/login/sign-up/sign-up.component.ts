@@ -92,7 +92,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
     this.dialogRef.close();
     this.userSrv.logIn(data);
     this.crafter.toaster(data.user.name, 'WELCOME', 'info');
-    this.sw.sendNotification(
+    this.sw.send(
       this.setNotification(Object.assign({}, NEW_USER_PUSH), data.user.name)
     ).toPromise().then();
     this.router.navigateByUrl('/profile');
