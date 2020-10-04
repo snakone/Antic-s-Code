@@ -10,6 +10,7 @@ import { Index } from '@shared/interfaces/interfaces';
 export class IndexBoxComponent implements AfterContentInit {
 
   @Input() index: Index[];
+  @Input() right: boolean;
   public scrollSpy: string;
 
   constructor() { }

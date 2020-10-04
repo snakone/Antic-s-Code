@@ -17,6 +17,7 @@ export class NewsFacade {
   viewed$ = this.store.select(fromNews.getViewed);
   viewedAndLastLoaded$ = this.store.select(fromNews.getViewedAndLastLoaded);
   dataLoaded$ = this.store.select(fromNews.dataLoaded);
+  byCategory$ = this.store.select(fromNews.getByCategory);
 
   constructor(private store: Store<NewsPartialState>) { }
 
@@ -32,8 +33,16 @@ export class NewsFacade {
     this.store.dispatch(NewsActions.getBySlug({slug}));
   }
 
+  public getByCategory(category: string): void {
+    this.store.dispatch(NewsActions.getByCategory({category}));
+  }
+
   public resetBySlug(): void {
     this.store.dispatch(NewsActions.resetSlug());
+  }
+
+  public resetByCategory(): void {
+    this.store.dispatch(NewsActions.resetCategory());
   }
 
 }

@@ -21,6 +21,14 @@
       }
     }
 
+    &-on-news {
+      & .content-box-body {
+        @media(max-width: 992px) {
+          padding-left: 0 !important;
+        }
+      }
+    }
+
     &-no-margin { margin-bottom: 0 }
 
     &-header {

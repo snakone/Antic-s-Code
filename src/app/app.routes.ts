@@ -138,6 +138,6 @@ export const ROUTES: Routes = [
     path: 'news/:slug',
     loadChildren: () =>
       import('./pages/single-news/single-news.module')
-       .then(mod => mod.SingleNewsModule), data: { name: 'Single News' }
+       .then(mod => mod.SingleNewsModule), data: { name: 'Notice' }
   },
 ];

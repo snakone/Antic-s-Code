@@ -1,1 +1,20 @@
-<p>{{notice | json}}</p>
+<div class="notice">
+  <div class="notice-content">
+    <img [src]="notice.image" class="image" [alt]="notice.slug"/>
+    <div class="data">
+      <img [src]="(notice.category | logo) | image: 'logos'"
+           [alt]="notice.category"
+           class="category"
+           loading="lazy"/>
+           <span>{{notice.category}}</span> <span class="separator">-</span>
+           <span class="data-notice">
+             {{notice.views}} {{'VIEWS' | translate}} <span class="dot">·</span>
+             {{notice.likes}} {{'LIKES' | translate}}
+           </span>
+    </div>
+    <app-content-maker [template]="notice.message"></app-content-maker>
+  </div>
+  <div class="notice-message">
+  </div>
+  <app-disqus [identifier]="notice.slug"></app-disqus>
+</div>

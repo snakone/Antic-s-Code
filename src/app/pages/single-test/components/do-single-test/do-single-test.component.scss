@@ -15,7 +15,7 @@ span {
   font-weight: bold;
   font-size: 1.1rem;
   position: relative;
-  top: 1px;
+  top: 5px;
 }
 
 .right {
@@ -26,4 +26,9 @@ span {
 .info {
   margin-top: 1rem;
   margin-bottom: 1.3rem;
+}
+
+app-level-bar {
+  position: relative;
+  top: -2px;
 }

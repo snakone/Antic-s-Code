@@ -36,7 +36,9 @@
 <ng-container *ngIf="type === 'article'">
   <h1>{{content.title | translate}}</h1>
   <p>{{'WRITE.BY' | translate}}
-    <span class="active">{{content.author | translate}}</span>
+    <span class="active"
+          [routerLink]="'/profile/' + content.author">{{content.author | translate}}
+    </span>
   </p>
 </ng-container>
 

@@ -13,6 +13,7 @@ export class ContentBoxComponent {
   @Input() icon: string;
   @Input() border: boolean;
   @Input() margin = true;
+  @Input() news: boolean; // news sidebar margin
 
   constructor() { }
 

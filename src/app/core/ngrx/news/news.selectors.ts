@@ -45,3 +45,7 @@ export const dataLoaded = createSelector(
   getNewsState, fromNews.dataLoaded
 );
 
+export const getByCategory = createSelector(
+  getNewsState, fromNews.getByCategory
+);
+

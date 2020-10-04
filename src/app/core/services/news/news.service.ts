@@ -41,6 +41,15 @@ export class NewsService {
       );
   }
 
+  public getByCategory(category: string): Observable<News[]> {
+    return this.http
+      .get<NewsResponse>(this.API_NEWS + 'category/' + category)
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.news)
+      );
+  }
+
   public resetPage(): void {
     this.page = 0;
   }

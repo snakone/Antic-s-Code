@@ -11,6 +11,7 @@ export interface NewsState {
   viewedLoaded: boolean;
   bySlug: News;
   bySlugLoaded: boolean;
+  byCategory: News[];
   error: string;
   full: boolean;
 }
@@ -24,6 +25,7 @@ export const inititalState: NewsState = {
   viewedLoaded: false,
   bySlug: null,
   bySlugLoaded: false,
+  byCategory: null,
   error: null,
   full: false
 };
@@ -78,9 +80,27 @@ const featureReducer = createReducer(
   on(NewsActions.getBySlugFailure, (state, { error }) => (
     { ...state, loaded: false, error }
   )),
+  // GET NOTICE BY CATEGORY
+  on(NewsActions.getByCategory, (state) => (
+    { ...state, error: null }
+  )),
+  on(NewsActions.getByCategorySuccess, (state, { news }) => (
+    {
+      ...state,
+      error: null,
+      byCategory: news
+    }
+  )),
+  on(NewsActions.getByCategoryFailure, (state, { error }) => (
+    { ...state, error }
+  )),
   // RESET BY SLUG
   on(NewsActions.resetSlug, (state) => (
     { ...state, bySlug: null, error: null, bySlugLoaded: false }
+  )),
+  // RESET BY CATEGORY
+  on(NewsActions.resetCategory, (state) => (
+    { ...state, byCategory: null }
   ))
 );
 
@@ -92,6 +112,7 @@ export const getViewed = (state: NewsState) => state.viewed;
 export const getViewedLoaded = (state: NewsState) => state.viewedLoaded;
 export const getFull = (state: NewsState) => state.full;
 export const getSlug = (state: NewsState) => state.bySlug;
+export const getByCategory = (state: NewsState) => state.byCategory;
 
 export function reducer(state: NewsState | undefined, action: Action) {
   return featureReducer(state, action);

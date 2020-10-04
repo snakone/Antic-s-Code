@@ -1,10 +1,11 @@
 <ng-container *ngIf="(notice$ | async) as notice; else noNews">
   <app-page-header [title]="notice.title"
-                   subTitle="NEWS">
+                   subTitle="NEWS"
+                   [onNews]="true">
   </app-page-header>
   <app-section input="#f5f7fc">
     <div class="row">
-      <div class="col-lg-8 col-md-8">  <!-- CONTENT -->
+      <div class="col-lg-8 col-md-8" id="news-section">  <!-- CONTENT -->
         <app-single-news-content [notice]="notice"></app-single-news-content>
       </div>
       <div class="col-lg-4 col-md-4">  <!-- SIDEBAR -->
@@ -24,7 +25,7 @@
         <app-spinner></app-spinner>
       </div>
       <div class="col-lg-4 col-md-4">
-        SIDEBAR
+        <app-single-news-sidebar></app-single-news-sidebar>
       </div>
     </div>
   </app-section>

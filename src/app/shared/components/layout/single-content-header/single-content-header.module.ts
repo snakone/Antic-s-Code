@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '@shared/shared.module';
 
+import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
+
 import { SingleContentHeaderLeftComponent } from './components/single-content-header-left/single-content-header-left.component';
 import { SingleContentHeaderRightComponent } from './components/single-content-header-right/single-content-header-right.component';
 import { SingleContentHeaderComponent } from './single-content-header.component';
-
-import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field';
 
 const Material = [
   MatIconModule,
@@ -22,6 +22,7 @@ const Material = [
   imports: [
     CommonModule,
     SharedModule,
+    RouterModule,
     ...Material
   ],
   exports: [

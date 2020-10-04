@@ -56,11 +56,7 @@ export interface News {
   views?: number;
   slug?: string;
   links?: Link[];
-}
-
-interface UserReaction {
-  liked: boolean;
-  stars: number;
+  likes?: number;
 }
 
 export interface ArticleResponse extends ServerResponse {
