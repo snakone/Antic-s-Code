@@ -7,14 +7,14 @@
                 'select': inbox._id === selected?._id }">
     <div class="avatar">
       <img [src]="inbox?.sender?.profile?.avatar || 'assets/img/profile/no-photo.jpg'"
-          #img
+           #img
           (error)="img.src = 'assets/img/profile/no-photo.jpg'; img.alt='No Image'">
     </div>
     <div class="inbox-message">
-      <h6>{{inbox.sender.name}}</h6>
+      <h6>{{inbox.sender.name | titlecase}}</h6>
       <p class="subject">{{inbox.subject}}</p>
       <p class="text">{{inbox.message}}</p>
-      <span class="date">{{inbox.date}}</span>
+      <span class="date">{{inbox.date | shortDate}}</span>
     </div>
   </div>
 </div>

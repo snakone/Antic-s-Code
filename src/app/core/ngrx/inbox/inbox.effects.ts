@@ -18,7 +18,7 @@ export class InboxEffects {
   getInboxEffect$ = createEffect(() => this.actions
     .pipe(
       ofType(InboxActions.get),
-      concatMap(() => this.inboxSrv.getInbox()
+      concatMap(() => this.inboxSrv.get()
         .pipe(
           map(inbox => InboxActions.getSuccess({inbox})),
           catchError(error =>

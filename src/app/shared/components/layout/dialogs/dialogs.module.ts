@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { SpinnerModule } from '../../snippets/spinner/spinner.module';
 import { InboxAccessModule } from '@store/inbox/data-access/inbox-access.module';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 import { DeleteAccountComponent } from './delete-account/delete-account.component';
 import { NoAccountComponent } from './no-account/no-account.component';
@@ -46,6 +47,7 @@ const Material = [
     ContentBoxModule,
     SpinnerModule,
     InboxAccessModule,
+    NgxMatSelectSearchModule,
     ...Material
   ]
 })

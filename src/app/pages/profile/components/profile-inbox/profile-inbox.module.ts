@@ -9,6 +9,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MatIconModule } from '@angular/material/icon';
 import { SpinnerModule } from '@shared/components/snippets/spinner/spinner.module';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { PipesModule } from '@shared/pipes/pipes.module';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { ProfileInboxComponent } from './profile-inbox.component';
@@ -37,6 +38,7 @@ const Material = [
     FormsModule,
     TranslateModule,
     SpinnerModule,
+    PipesModule,
     ...Material
   ]
 })

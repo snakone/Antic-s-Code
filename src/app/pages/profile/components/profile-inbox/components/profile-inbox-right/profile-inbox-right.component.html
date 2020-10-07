@@ -6,7 +6,7 @@
              #img
              (error)="img.src = 'assets/img/profile/no-photo.jpg'; img.alt='No Image'">
           <div class="avatar-data">
-            <span>{{mail.sender.name}}</span>
+            <span>{{mail.sender.name | titlecase}}</span>
             <p>
               <span>{{'TO' | translate}}:</span> {{mail.receiver}}
             </p>

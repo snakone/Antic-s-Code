@@ -22,7 +22,6 @@ export class ProfileInboxComponent implements OnInit, OnDestroy {
     this.checkData();
     this.inbox$ = this.inboxFacade.filtered$;
     this.selected$ = this.inboxFacade.selected$;
-    this.inboxFacade.new$.subscribe(res => console.log(res));
   }
 
   private checkData(): void {
@@ -31,7 +30,7 @@ export class ProfileInboxComponent implements OnInit, OnDestroy {
        filter(res => !res),
        takeUntil(this.unsubscribe$)
       )
-     .subscribe(_ => (this.inboxFacade.get(), this.inboxFacade.getNew()));
+     .subscribe(_ => this.inboxFacade.get());
   }
 
   ngOnDestroy(): void {

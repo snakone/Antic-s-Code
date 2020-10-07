@@ -7,7 +7,7 @@ export const get =
 
 export const getSuccess =
   createAction('[Inbox API] Get Inbox Success',
-  props<{ inbox: InboxMessage[] }>());
+  props<{ inbox: Inbox[] }>());
 
 export const getFailure =
   createAction('[Inbox API] Get Inbox Failure',

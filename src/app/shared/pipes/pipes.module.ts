@@ -8,6 +8,7 @@ import { DigitsPipe } from './digits/digits.pipe';
 import { LogoPipe } from './logo/logo.pipe';
 import { LevelPipe } from './level/level.pipe';
 import { BadgePipe } from './badge/badge.pipe';
+import { ShortDatePipe } from './short-date/short-date.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BadgePipe } from './badge/badge.pipe';
     DigitsPipe,
     LogoPipe,
     LevelPipe,
-    BadgePipe
+    BadgePipe,
+    ShortDatePipe
   ],
   exports: [
     ImagePipe,
@@ -28,7 +30,8 @@ import { BadgePipe } from './badge/badge.pipe';
     DigitsPipe,
     LogoPipe,
     LevelPipe,
-    BadgePipe
+    BadgePipe,
+    ShortDatePipe
   ]
 })
 

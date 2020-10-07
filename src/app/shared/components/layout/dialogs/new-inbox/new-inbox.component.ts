@@ -23,6 +23,7 @@ export class NewInboxComponent implements OnInit, OnDestroy {
   users$: Observable<User[]>;
   private unsubscribe$ = new Subject<void>();
   form: FormGroup;
+  public filterCtrl: FormControl = new FormControl();
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: InboxMessage,
@@ -35,9 +36,23 @@ export class NewInboxComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.users$ = this.usersFacade.users$;
+    this.users$ = this.usersFacade.filtered$;
     this.checkData();
     this.getMessage();
+    this.search();
+  }
+
+  private search(): void {
+    this.filterCtrl.valueChanges
+    .pipe(takeUntil(this.unsubscribe$))
+    .subscribe(e => {
+      if (!e || e === '') {
+        this.users$ = this.usersFacade.users$;
+        return;
+      }
+      this.usersFacade.search(e);
+      this.users$ = this.usersFacade.filtered$;
+    });
   }
 
   private getMessage(): void {
@@ -80,12 +95,9 @@ export class NewInboxComponent implements OnInit, OnDestroy {
       read: false
     };
 
-    console.log(message)
-
     this.inboxFacade.send(message);
     this.crafter.toaster('SUCCESS', 'MESSAGE.SEND', 'info');
-    this.inboxFacade.resetMessage();
-    this.dialogRef.close();
+    this.close();
   }
 
   private checkData(): void {
@@ -95,6 +107,15 @@ export class NewInboxComponent implements OnInit, OnDestroy {
        filter(res => !res)
       )
      .subscribe(_ => this.usersFacade.get());
+  }
+
+  public filter(e: string): void {
+
+  }
+
+  public close(): void {
+    this.inboxFacade.resetMessage();
+    this.dialogRef.close();
   }
 
   ngOnDestroy(): void {

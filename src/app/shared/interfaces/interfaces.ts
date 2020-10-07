@@ -64,6 +64,7 @@ export interface Inbox {
   receiver?: string;
   messages?: InboxMessage[];
   created?: string;
+  last?: InboxMessage[];
 }
 
 export interface InboxMessage {
@@ -101,7 +102,7 @@ export interface CategoryCountResponse extends ServerResponse {
 }
 
 export interface InboxResponse extends ServerResponse {
-  inbox?: InboxMessage[];
+  inbox?: Inbox[];
 }
 
 export interface NewsResponse extends ServerResponse {
