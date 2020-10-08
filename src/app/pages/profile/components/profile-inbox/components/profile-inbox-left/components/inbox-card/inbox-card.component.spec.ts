@@ -1,20 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MessageCardComponent } from './message-card.component';
+import { InboxCardComponent } from './inbox-card.component';
 
-describe('MessageCardComponent', () => {
-  let component: MessageCardComponent;
-  let fixture: ComponentFixture<MessageCardComponent>;
+describe('InboxCardComponent', () => {
+  let component: InboxCardComponent;
+  let fixture: ComponentFixture<InboxCardComponent>;
 
+  // tslint:disable-next-line: deprecation
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MessageCardComponent ]
+      declarations: [ InboxCardComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MessageCardComponent);
+    fixture = TestBed.createComponent(InboxCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

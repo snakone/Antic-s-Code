@@ -1,0 +1,13 @@
+<div class="content-footer">  <!-- FOOTER -->
+  <div class="separator">
+    <span>
+      <mat-checkbox [(ngModel)]="!inbox?.last.read"
+                    (ngModelChange)="emitMark($event)">
+                    {{'MARK.READ' | translate}}
+      </mat-checkbox>
+    </span>
+    <span (click)="emitReply()">
+      <mat-icon>reply</mat-icon> {{'REPLY' | translate}}
+    </span>
+  </div>
+</div>

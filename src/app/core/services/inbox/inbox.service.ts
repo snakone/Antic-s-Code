@@ -12,7 +12,7 @@ export class InboxService {
 
   readonly API_INBOX = environment.api + 'inbox/';
 
-  constructor(private http: HttpService, private userSrv: UserService) { }
+  constructor(private http: HttpService) { }
 
   public send(
     message: InboxMessage
@@ -30,6 +30,16 @@ export class InboxService {
       .pipe(
         filter(res => res && !!res.ok),
         map(res => res.inbox)
+      );
+  }
+
+  public markUnread(
+    id: string, mark: boolean
+  ): Observable<ServerResponse> {
+    return this.http
+      .post<ServerResponse>(this.API_INBOX + 'mark', {id, mark})
+      .pipe(
+        filter(res => res && !!res.ok)
       );
   }
 

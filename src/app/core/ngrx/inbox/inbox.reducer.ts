@@ -1,23 +1,23 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import * as InboxActions from './inbox.actions';
-import { Inbox, InboxMessage } from '@shared/interfaces/interfaces';
+import { Inbox } from '@shared/interfaces/interfaces';
 
 export interface InboxState {
   inbox: Inbox[];
   inboxLoaded: boolean;
-  last: InboxMessage[];
-  filtered: InboxMessage[];
-  selected: InboxMessage;
+  filtered: Inbox[];
+  selected: Inbox;
   message: string;
+  unread: number;
 }
 
 export const inititalState: InboxState = {
   inbox: [],
   inboxLoaded: false,
-  last: [],
   filtered: [],
   selected: null,
-  message: null
+  message: null,
+  unread: 0
 };
 
 const featureReducer = createReducer(
@@ -26,18 +26,16 @@ const featureReducer = createReducer(
   on(InboxActions.get, (state) => (
     { ...state, error: null }
   )),
-  on(InboxActions.getSuccess, (state, { inbox }) => {
-    console.log(inbox.reduce((acc, curr) => curr.last , []))
-    return (
+  on(InboxActions.getSuccess, (state, { inbox }) => (
     {
       ...state,
       error: null,
       inbox,
+      filtered: inbox,
       inboxLoaded: true,
-      filtered: inbox.reduce((acc, curr) => curr.last , []),
-      last: inbox.reduce((acc, curr) => curr.last , [])
+      unread: [...inbox].reduce((acc, curr) => acc + (curr.last.read ? 0 : 1), 0)
     }
-  )}),
+  )),
   on(InboxActions.getFailure, (state, { error }) => (
     { ...state, inboxLoaded: false, error }
   )),
@@ -67,7 +65,7 @@ const featureReducer = createReducer(
   on(InboxActions.markUnread, (state, { id, mark }) => (
     {
       ...state,
-      last: [...state.last].map(i => i._id === id ? (i.read = mark, i) : i),
+      inbox: [...state.inbox].map(i => i.last._id === id ? (i.last.read = mark, i) : i),
       error: null
     }
   )),
@@ -75,7 +73,8 @@ const featureReducer = createReducer(
   on(InboxActions.filter, (state, { value }) => (
     {
       ...state,
-      filtered: [...[...state.last].filter(i => i.subject.match(new RegExp(value, 'i')))],
+      filtered: [...[...state.inbox]
+                  .filter(i => i.last.subject.match(new RegExp(value, 'i')))],
       error: null
     }
   )),
@@ -104,6 +103,7 @@ export const getInboxLoaded = (state: InboxState) => state.inboxLoaded;
 export const getFiltered = (state: InboxState) => state.filtered;
 export const getSelected = (state: InboxState) => state.selected;
 export const getMessage = (state: InboxState) => state.message;
+export const getUnread = (state: InboxState) => state.unread;
 
 export function reducer(state: InboxState | undefined, action: Action) {
   return featureReducer(state, action);

@@ -1,0 +1,5 @@
+<div class="content-message"
+    [ngClass]="{'last': last,
+                'other': user._id !== inbox.receiver._id}">
+  <p>{{inbox.message}}</p>
+</div>

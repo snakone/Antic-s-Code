@@ -28,3 +28,7 @@ export const getSelected = createSelector(
 export const getMessage = createSelector(
   getInboxState, fromInbox.getMessage
 );
+
+export const getUnread = createSelector(
+  getInboxState, fromInbox.getUnread
+);

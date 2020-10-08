@@ -9,51 +9,13 @@
     overflow: auto;
     padding: 0 1.2rem 1.2rem;
   }
-
-  & .input {
-    padding: 1.2rem 1.2rem 0 1.2rem;
-    display: flex;
-    align-items: baseline;
-
-    & .icon {
-      position: relative;
-      top: 1px;
-      cursor: pointer;
-      &.reload {
-        color: var(--success-color);
-        opacity: .7;
-        margin-left: .888rem;
-      }
-    }
-
-    & .actions {
-      margin-left: 1.5rem;
-      display: flex;
-    }
-  }
-}
-
-mat-icon, mat-label { color: rgba(148, 148, 148, 0.8) }
-
-mat-form-field {
-  width: 90%;
-  padding: 0;
-}
-
-mat-icon:not(.icon) {
-  position: relative;
-  top: -3px;
 }
 
 .empty {
-  height: 100%;
-  & h4 {
-    color: var(--light-color);
-    font-size: 1.2rem;
-    margin-top: .666rem;
-    position: relative;
-    left: 5px;
-  }
+  height: 375px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 

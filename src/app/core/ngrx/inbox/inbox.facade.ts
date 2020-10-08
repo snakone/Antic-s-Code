@@ -5,7 +5,7 @@ import * as InboxActions from './inbox.actions';
 import * as fromInbox from './inbox.selectors';
 import { InboxPartialState } from '../ngrx.config';
 
-import { InboxMessage } from '@shared/interfaces/interfaces';
+import { Inbox, InboxMessage } from '@shared/interfaces/interfaces';
 
 @Injectable()
 
@@ -16,6 +16,7 @@ export class InboxFacade {
   filtered$ = this.store.select(fromInbox.getFiltered);
   selected$ = this.store.select(fromInbox.getSelected);
   message$ = this.store.select(fromInbox.getMessage);
+  unread$ = this.store.select(fromInbox.getUnread);
 
   constructor(private store: Store<InboxPartialState>) { }
 
@@ -23,8 +24,8 @@ export class InboxFacade {
     this.store.dispatch(InboxActions.get());
   }
 
-  public set(message: InboxMessage): void {
-    this.store.dispatch(InboxActions.set({message}));
+  public set(inbox: Inbox): void {
+    this.store.dispatch(InboxActions.set({inbox}));
   }
 
   public send(message: InboxMessage): void {

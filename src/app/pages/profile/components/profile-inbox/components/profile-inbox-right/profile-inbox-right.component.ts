@@ -1,10 +1,10 @@
-import { SimpleChanges } from '@angular/core';
-import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnChanges, Input } from '@angular/core';
 import { NewInboxComponent } from '@layout/dialogs/new-inbox/new-inbox.component';
 import { CrafterService } from '@core/services/crafter/crafter.service';
-import { InboxMessage } from '@shared/interfaces/interfaces';
+import { Inbox, User } from '@shared/interfaces/interfaces';
 import { InboxFacade } from '@store/inbox/inbox.facade';
-import { UserService } from '@core/services/user/user.service';
+import { UserService } from '@app/core/services/user/user.service';
 
 @Component({
   selector: 'app-profile-inbox-right',
@@ -14,9 +14,10 @@ import { UserService } from '@core/services/user/user.service';
 
 export class ProfileInboxRightComponent implements OnInit, OnChanges {
 
-  @Input() mail: InboxMessage;
+  @Input() inbox: Inbox;
   show = false;
-  user: string;
+  lastMark: boolean;
+  user: User;
 
   constructor(
     private inboxFacade: InboxFacade,
@@ -24,13 +25,14 @@ export class ProfileInboxRightComponent implements OnInit, OnChanges {
     private userSrv: UserService
   ) { }
 
-  ngOnInit(): void {
-    this.user = this.userSrv.getUser().name;
+  ngOnInit() {
+    this.user = this.userSrv.getUser();
   }
 
   ngOnChanges(e: SimpleChanges) {
-    if (e.mail?.currentValue && !e.mail.currentValue.read) {
-      this.inboxFacade.markUnread(this.mail._id, true);
+    if (e.inbox?.currentValue &&
+       !e.inbox.currentValue.last.read) {
+      this.inboxFacade.markUnread(this.inbox?.last._id, true);
     }
 
     this.show = false;
@@ -40,7 +42,7 @@ export class ProfileInboxRightComponent implements OnInit, OnChanges {
   }
 
   public reply(): void {
-    this.crafter.dialog(NewInboxComponent, this.mail, 'new-inbox');
+    this.crafter.dialog(NewInboxComponent, this.inbox, 'new-inbox');
   }
 
   public new(): void {
@@ -48,7 +50,7 @@ export class ProfileInboxRightComponent implements OnInit, OnChanges {
   }
 
   public mark(e: boolean): void {
-    this.inboxFacade.markUnread(this.mail._id, !e);
+    this.inboxFacade.markUnread(this.inbox.last._id, !e);
   }
 
 }

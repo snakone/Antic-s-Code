@@ -60,11 +60,13 @@ export interface News {
 }
 
 export interface Inbox {
-  sender?: string;
-  receiver?: string;
+  _id?: string;
+  sender?: User;
+  receiver?: User;
+  subject?: string;
   messages?: InboxMessage[];
   created?: string;
-  last?: InboxMessage[];
+  last?: InboxMessage;
 }
 
 export interface InboxMessage {
@@ -72,7 +74,7 @@ export interface InboxMessage {
   subject?: string;
   message?: string;
   sender?: User;
-  receiver?: string;
+  receiver?: User;
   date?: string;
   read?: boolean;
 }

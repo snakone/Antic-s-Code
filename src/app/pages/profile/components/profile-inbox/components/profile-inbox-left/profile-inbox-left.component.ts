@@ -2,7 +2,7 @@ import { Input } from '@angular/core';
 import { Component } from '@angular/core';
 import { CrafterService } from '@core/services/crafter/crafter.service';
 import { InboxFacade } from '@store/inbox/inbox.facade';
-import { InboxMessage } from '@shared/interfaces/interfaces';
+import { Inbox, InboxMessage } from '@shared/interfaces/interfaces';
 import { NewInboxComponent } from '@layout/dialogs/new-inbox/new-inbox.component';
 
 @Component({
@@ -13,7 +13,7 @@ import { NewInboxComponent } from '@layout/dialogs/new-inbox/new-inbox.component
 
 export class ProfileInboxLeftComponent {
 
-  @Input() filtered: InboxMessage[];
+  @Input() filtered: Inbox[];
   @Input() selected: InboxMessage;
 
   constructor(
@@ -21,11 +21,11 @@ export class ProfileInboxLeftComponent {
     private crafter: CrafterService
   ) { }
 
-  public search(e: any): void {
-    this.inboxFacade.filter(e.target.value);
+  public search(e: string): void {
+    this.inboxFacade.filter(e);
   }
 
-  public set(m: InboxMessage): void {
+  public set(m: Inbox): void {
     this.inboxFacade.set(m);
   }
 

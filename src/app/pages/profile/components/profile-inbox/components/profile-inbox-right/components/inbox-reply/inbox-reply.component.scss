@@ -1,0 +1,10 @@
+.content-message {
+  padding: 0 2rem 2rem;
+  box-sizing: border-box;
+
+  & p { margin: 0 }
+  &.last { padding: 0 2rem }
+  &.other { background: grey; }
+}
+
+

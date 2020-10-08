@@ -4,10 +4,10 @@
                     icon="email"
                     [border]="true">
     <div class="inbox">
-      <app-profile-inbox-left [filtered]="inbox$ | async"
+      <app-profile-inbox-left [filtered]="(inbox$ | async)"
                               [selected]="selected$ | async">
         </app-profile-inbox-left>
-      <app-profile-inbox-right [mail]="selected$ | async">
+      <app-profile-inbox-right [inbox]="selected$ | async">
         </app-profile-inbox-right>
     </div>
     </app-content-box>

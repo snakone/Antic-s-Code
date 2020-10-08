@@ -1,69 +1,29 @@
 <div class="wrapper animated fadeIn">
-  <ng-container *ngIf="mail; else noEmail">
-    <div class="content-header">
-      <div class="avatar">
-        <img [src]="mail.sender?.profile?.avatar || 'assets/img/profile/no-photo.jpg'"
-             #img
-             (error)="img.src = 'assets/img/profile/no-photo.jpg'; img.alt='No Image'">
-          <div class="avatar-data">
-            <span>{{mail.sender.name | titlecase}}</span>
-            <p>
-              <span>{{'TO' | translate}}:</span> {{mail.receiver}}
-            </p>
-          </div>
-      </div>
-      <div class="date">
-        {{mail.date}}
-      </div>
-    </div>
-    <div class="content-message" *ngIf="show">
-      <span>{{mail.subject}}</span>
-      <p>{{mail.message}}</p>
-    </div>
+  <ng-container *ngIf="inbox; else noInbox">
+    <app-inbox-header [inbox]="inbox"></app-inbox-header>
+    <ng-container *ngIf="show">  <!-- MESSAGE -->
 
-    <div class="content-footer">
-      <div class="separator">
-        <span>
-          <mat-checkbox [(ngModel)]="!mail.read"
-                        (ngModelChange)="mark($event)">
-                        {{'MARK.READ' | translate}}
-          </mat-checkbox>
-        </span>
-        <span (click)="reply()">
-          <mat-icon>reply</mat-icon> {{'REPLY' | translate}}
-        </span>
+      <div class="wrapper-messages"
+           *ngIf="show">
+           <div class="subject">
+            <h5>{{inbox.subject}}</h5>
+          </div>
+        <app-inbox-reply *ngFor="let m of inbox.messages.reverse(); let last = last"
+                          [inbox]="m"
+                          [last]="last"
+                          [user]="user">
+        </app-inbox-reply>
       </div>
-    </div>
+    </ng-container>
+    <app-inbox-footer [inbox]="inbox"
+                      (marked)="mark($event)"
+                      (reply)="reply()">
+    </app-inbox-footer>
   </ng-container>
 </div>
 
-<ng-template #noEmail>
-  <div class="content-header">
-    <div class="avatar">
-      <img src="https://anticscode.netlify.com/assets/img/logo.png">
-        <div class="avatar-data">
-          <span>Allison</span>
-          <p>
-            <span>{{'TO' | translate}}:</span> {{user}}
-          </p>
-        </div>
-    </div>
-    <div class="date">
-      {{'JUST.NOW' | translate}}
-    </div>
-  </div>
-  <div class="content-message" *ngIf="show">
-    <span>{{'INBOX' | translate}}</span>
-    <p [innerHTML]="'WELCOME.INBOX' | translate"></p>
-    <p [innerHTML]="'USE.INBOX' | translate"></p>
-    <p [innerHTML]="'REFRESH.INBOX' | translate"></p>
-    <p [innerHTML]="'ENJOY.INBOX' | translate"></p>
-  </div>
-  <div class="content-footer">
-    <div class="separator right">
-      <span (click)="new()">
-        <mat-icon>add_circle_outline</mat-icon> {{'NEW' | translate}}
-      </span>
-    </div>
-  </div>
+<ng-template #noInbox>
+  <app-inbox-welcome [show]="show"
+                     (new)="new()">
+  </app-inbox-welcome>
 </ng-template>

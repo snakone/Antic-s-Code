@@ -1,0 +1,37 @@
+.content-footer {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  left: 0;
+  bottom: 0;
+
+  & .separator {
+    width: 90%;
+    border-top: 1px solid var(--new-color-border);
+    margin: 0 auto;
+    padding: 1.2rem 0;
+    display: flex;
+    justify-content: space-between;
+
+    & span {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      & mat-icon {
+        margin-right: .8rem;
+      }
+
+      &:hover {
+        & mat-icon { color: var(--primary-color) }
+      }
+    }
+
+    &.right { justify-content: flex-end }
+
+    & mat-checkbox {
+      display: flex;
+      margin: 0;
+    }
+  }
+}

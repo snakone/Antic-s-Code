@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { UsersFacade } from '@store/users/users.facade';
 import { InboxMessage, User } from '@shared/interfaces/interfaces';
 import { Observable, Subject } from 'rxjs';
-import { filter, map, takeUntil } from 'rxjs/operators';
+import { filter, takeUntil } from 'rxjs/operators';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CrafterService } from '@core/services/crafter/crafter.service';
 import { InboxFacade } from '@store/inbox/inbox.facade';
@@ -45,7 +45,7 @@ export class NewInboxComponent implements OnInit, OnDestroy {
   private search(): void {
     this.filterCtrl.valueChanges
     .pipe(takeUntil(this.unsubscribe$))
-    .subscribe(e => {
+    .subscribe((e: string) => {
       if (!e || e === '') {
         this.users$ = this.usersFacade.users$;
         return;
@@ -58,7 +58,7 @@ export class NewInboxComponent implements OnInit, OnDestroy {
   private getMessage(): void {
     this.inboxFacade.message$
     .pipe(takeUntil(this.unsubscribe$))
-     .subscribe((res: string) => this.newInboxForm(res));
+     .subscribe(res => this.newInboxForm(res));
   }
 
   private newInboxForm(msg: string): void {
@@ -91,8 +91,7 @@ export class NewInboxComponent implements OnInit, OnDestroy {
       receiver: this.form.getRawValue().to,
       subject: this.form.getRawValue().subject,
       message: this.form.value.message,
-      date: moment().format('LLL'),
-      read: false
+      date: moment().format('ll')
     };
 
     this.inboxFacade.send(message);
@@ -107,10 +106,6 @@ export class NewInboxComponent implements OnInit, OnDestroy {
        filter(res => !res)
       )
      .subscribe(_ => this.usersFacade.get());
-  }
-
-  public filter(e: string): void {
-
   }
 
   public close(): void {

@@ -13,18 +13,6 @@ export const getFailure =
   createAction('[Inbox API] Get Inbox Failure',
   props<{ error: string }>());
 
-// GET INBOX
-export const getNew =
-  createAction('[Inbox API] Get New Inbox');
-
-export const getNewSuccess =
-  createAction('[Inbox API] Get New Inbox Success',
-  props<{ inbox: Inbox[] }>());
-
-export const getNewFailure =
-  createAction('[Inbox API] Get New Inbox Failure',
-  props<{ error: string }>());
-
 // SEND MESSAGE
 export const send =
   createAction('[Inbox API] Send Inbox',
@@ -38,14 +26,14 @@ export const sendFailure =
   createAction('[Inbox API] Send Inbox Failure',
   props<{ error: string }>());
 
-// SET INBOX MESSAGE
+// SET INBOX
 export const set =
   createAction('[Inbox API] Set Inbox Message',
-  props<{ message: InboxMessage }>());
+  props<{ inbox: Inbox }>());
 
 export const setSuccess =
   createAction('[Inbox API] Set Inbox Success',
-  props<{ selected: InboxMessage }>());
+  props<{ selected: Inbox }>());
 
 export const setFailure =
   createAction('[Inbox API] Set Inbox Failure',
@@ -65,6 +53,13 @@ export const filter =
 export const markUnread =
   createAction('[Inbox API] Mark Unread Message',
   props<{ id: string, mark: boolean }>());
+
+export const markUnreadSuccess =
+  createAction('[Inbox API] Mark Unread Message Success');
+
+export const markUnreadFailure =
+  createAction('[Inbox API] Mark Unread Message Failure',
+  props<{ error: string }>());
 
 // RELOAD INBOX
 export const reload =

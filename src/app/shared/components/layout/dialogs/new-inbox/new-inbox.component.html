@@ -6,7 +6,7 @@
     <mat-label>{{'TO' | translate}}</mat-label>
     <mat-select formControlName="to"
                 aria-label="Select a User">
-      <mat-option>
+      <mat-option *ngIf="!data">
         <ngx-mat-select-search [formControl]="filterCtrl"
                                [placeholderLabel]="'SEARCH' | translate"
                                [noEntriesFoundLabel]="'NOT.FOUND' | translate"

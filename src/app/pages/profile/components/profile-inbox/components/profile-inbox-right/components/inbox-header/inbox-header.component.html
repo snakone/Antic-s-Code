@@ -1,0 +1,16 @@
+<div class="content-header">
+  <div class="avatar">
+    <img [src]="inbox.sender?.profile?.avatar || 'assets/img/profile/no-photo.jpg'"
+         #img
+         (error)="img.src = 'assets/img/profile/no-photo.jpg'; img.alt='No Image'">
+      <div class="avatar-data">
+        <span>{{inbox.sender.name | titlecase}}</span>
+        <p>
+          <span>{{'TO' | translate}}:</span> {{inbox.receiver.name}}
+        </p>
+      </div>
+  </div>
+  <div class="date">
+    {{inbox.created}}
+  </div>
+</div>
