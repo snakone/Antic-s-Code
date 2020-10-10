@@ -247,7 +247,7 @@
     p:first-child { margin-top: 10px }
   }
 
-  @media(max-width: 992px) {
+  @media(max-width: 993px) {
     p {
       font-size: 1rem;
       margin-top: 25px;
@@ -267,7 +267,7 @@
       margin-bottom: 1.333rem;
       font-size: 1rem;
       color: var(--p-color);
-      max-height: 68%;
+      max-height: 150px;
 
       @media(max-width: 855px) {
         margin-bottom: 1.5rem;

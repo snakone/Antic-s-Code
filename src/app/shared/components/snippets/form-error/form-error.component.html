@@ -1,0 +1,4 @@
+<div *ngIf="control.invalid && (control.dirty || control.touched) &&
+            control.errors[validator]" class="form-error">
+  {{ message }}
+</div>

@@ -8,7 +8,7 @@ import { DigitsPipe } from './digits/digits.pipe';
 import { LogoPipe } from './logo/logo.pipe';
 import { LevelPipe } from './level/level.pipe';
 import { BadgePipe } from './badge/badge.pipe';
-import { ShortDatePipe } from './short-date/short-date.pipe';
+import { RemoveMyselfPipe } from './remove-myself/remove-myself.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { ShortDatePipe } from './short-date/short-date.pipe';
     LogoPipe,
     LevelPipe,
     BadgePipe,
-    ShortDatePipe
+    RemoveMyselfPipe
   ],
   exports: [
     ImagePipe,
@@ -31,7 +31,7 @@ import { ShortDatePipe } from './short-date/short-date.pipe';
     LogoPipe,
     LevelPipe,
     BadgePipe,
-    ShortDatePipe
+    RemoveMyselfPipe
   ]
 })
 

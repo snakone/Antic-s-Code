@@ -2,14 +2,21 @@
   <div class="col-lg-12">
     <app-content-box title="Inbox"
                     icon="email"
-                    [border]="true">
-    <div class="inbox">
-      <app-profile-inbox-left [filtered]="(inbox$ | async)"
-                              [selected]="selected$ | async">
+                    [border]="true"
+                    [inbox]="true">
+      <div class="inbox-desktop" *onlyDesktop>
+        <app-profile-inbox-left [filtered]="(inbox$ | async)"
+                                [selected]="selected$ | async">
         </app-profile-inbox-left>
-      <app-profile-inbox-right [inbox]="selected$ | async">
+        <app-profile-inbox-right [inbox]="selected$ | async">
         </app-profile-inbox-right>
-    </div>
+      </div>
+      <div class="inbox-mobile" *onlyMobile>
+        <app-profile-inbox-mobile [filtered]="(inbox$ | async)"
+                                  [selected]="selected$ | async">
+        </app-profile-inbox-mobile>
+      </div>
     </app-content-box>
   </div>
 </div>
+

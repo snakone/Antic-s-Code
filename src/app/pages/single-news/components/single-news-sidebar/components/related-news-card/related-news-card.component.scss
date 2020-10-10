@@ -26,6 +26,7 @@
   padding: 0 1.22rem;
   transition: all .3s ease-in-out;
   cursor: pointer;
+  outline: none;
 
   &:not(.last) {
     border-bottom: 1px solid var(--new-color-border);

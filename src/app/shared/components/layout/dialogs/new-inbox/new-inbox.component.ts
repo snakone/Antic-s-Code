@@ -1,15 +1,16 @@
 import { Component, OnInit, ChangeDetectionStrategy, Inject, OnDestroy } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsersFacade } from '@store/users/users.facade';
 import { InboxMessage, User } from '@shared/interfaces/interfaces';
 import { Observable, Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CrafterService } from '@core/services/crafter/crafter.service';
 import { InboxFacade } from '@store/inbox/inbox.facade';
 import { UserService } from '@core/services/user/user.service';
-import * as moment from 'moment';
 import { LanguageService } from '@core/language/services/language.service';
+import * as moment from 'moment';
+import { INBOX_MAX_LENGTH } from '@shared/data/forms';
 
 @Component({
   selector: 'app-new-inbox',
@@ -21,9 +22,13 @@ import { LanguageService } from '@core/language/services/language.service';
 export class NewInboxComponent implements OnInit, OnDestroy {
 
   users$: Observable<User[]>;
-  private unsubscribe$ = new Subject<void>();
+  user: User;
   form: FormGroup;
-  public filterCtrl: FormControl = new FormControl();
+  maxLength = INBOX_MAX_LENGTH;
+  filterCtrl: FormControl = new FormControl();
+  private unsubscribe$ = new Subject<void>();
+
+  get msgCtrl() { return this.form.get('message'); }
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: InboxMessage,
@@ -37,8 +42,9 @@ export class NewInboxComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.users$ = this.usersFacade.filtered$;
+    this.user = this.userSrv.getUser();
     this.checkData();
-    this.getMessage();
+    this.newInboxForm();
     this.search();
   }
 
@@ -55,16 +61,10 @@ export class NewInboxComponent implements OnInit, OnDestroy {
     });
   }
 
-  private getMessage(): void {
-    this.inboxFacade.message$
-    .pipe(takeUntil(this.unsubscribe$))
-     .subscribe(res => this.newInboxForm(res));
-  }
-
-  private newInboxForm(msg: string): void {
+  private newInboxForm(): void {
     this.form = new FormGroup({
        to: new FormControl({
-         value: this.data?.sender._id || null,
+         value: this.checkSender() || null,
          disabled: this.data?.sender ? true : false
        }, [Validators.required]),
        subject: new FormControl({
@@ -74,10 +74,10 @@ export class NewInboxComponent implements OnInit, OnDestroy {
          Validators.required,
          Validators.minLength(3)
        ]),
-       message: new FormControl(msg || null, [
+       message: new FormControl('' || null, [
          Validators.required,
          Validators.minLength(3),
-         Validators.maxLength(200),
+         Validators.maxLength(INBOX_MAX_LENGTH),
        ]),
     });
   }
@@ -87,11 +87,11 @@ export class NewInboxComponent implements OnInit, OnDestroy {
 
     moment.locale(this.language.getCurrent());
     const message: InboxMessage = {
-      sender: this.userSrv.getUser(),
+      sender: this.user,
       receiver: this.form.getRawValue().to,
       subject: this.form.getRawValue().subject,
       message: this.form.value.message,
-      date: moment().format('ll')
+      date: moment().format('D/MM/YY, h:mm')
     };
 
     this.inboxFacade.send(message);
@@ -108,15 +108,19 @@ export class NewInboxComponent implements OnInit, OnDestroy {
      .subscribe(_ => this.usersFacade.get());
   }
 
+  private checkSender(): string {
+    if (!this.data) { return null; }
+    return this.user._id === this.data.sender._id ?
+           this.data.receiver._id : this.data.sender._id;
+  }
+
   public close(): void {
-    this.inboxFacade.resetMessage();
     this.dialogRef.close();
   }
 
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
-    this.inboxFacade.setMessage(this.form.value.message);
   }
 
 }

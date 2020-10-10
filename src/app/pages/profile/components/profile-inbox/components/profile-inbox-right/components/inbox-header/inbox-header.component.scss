@@ -4,7 +4,7 @@
   align-items: center;
   background: rgb(43, 48, 80);
   width: 100%;
-  height: 75px;
+  height: var(--navbar-height);
   padding: 0 1.666rem;
   box-sizing: border-box;
   & .avatar {
@@ -15,15 +15,18 @@
       position: relative;
       top: -1px;
 
+      & span, p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 110px;
+      }
+
       & span { color: var(--light-color) }
 
       & p {
         color: #f3f3f3;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
         opacity: .7;
-        max-width: 200px;
         & span { color: #c9cfe4 }
       }
     }
@@ -42,6 +45,7 @@
   & .date {
     color: #c9cfe4;
     opacity: .7;
+    @media(max-width: 993px) { font-size: .8rem !important }
 
   }
 

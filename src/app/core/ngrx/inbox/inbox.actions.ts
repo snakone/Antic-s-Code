@@ -39,11 +39,6 @@ export const setFailure =
   createAction('[Inbox API] Set Inbox Failure',
   props<{ error: string }>());
 
-// SET MESSAGE
-export const setMessage =
-  createAction('[Inbox API] Set Single Message',
-  props<{ message: string }>());
-
 // FILTER INBOX
 export const filter =
   createAction('[Inbox API] Filter Inbox Message',
@@ -69,6 +64,3 @@ export const reload =
 export const reset =
   createAction('[Inbox API] Reset Inbox');
 
-// RESET MESSAGE
-export const resetMessage =
-  createAction('[Inbox API] Reset Single Message');

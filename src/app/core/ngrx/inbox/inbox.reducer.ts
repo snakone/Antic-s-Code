@@ -7,7 +7,6 @@ export interface InboxState {
   inboxLoaded: boolean;
   filtered: Inbox[];
   selected: Inbox;
-  message: string;
   unread: number;
 }
 
@@ -16,7 +15,6 @@ export const inititalState: InboxState = {
   inboxLoaded: false,
   filtered: [],
   selected: null,
-  message: null,
   unread: 0
 };
 
@@ -53,14 +51,6 @@ const featureReducer = createReducer(
   on(InboxActions.setFailure, (state, { error }) => (
     { ...state, selected: null, error }
   )),
-  // SET SINGLE MESSAGE
-  on(InboxActions.setMessage, (state, { message }) => (
-    {
-      ...state,
-      error: null,
-      message
-    }
-  )),
   // MARK UNREAD
   on(InboxActions.markUnread, (state, { id, mark }) => (
     {
@@ -88,13 +78,6 @@ const featureReducer = createReducer(
       selected: null,
       inboxLoaded: false
     }
-  )),
-  // RESET SINGLE MESSAGE
-  on(InboxActions.resetMessage, (state) => (
-    {
-      ...state,
-      message: null
-    }
   ))
 );
 
@@ -102,7 +85,6 @@ export const getInbox = (state: InboxState) => state.inbox;
 export const getInboxLoaded = (state: InboxState) => state.inboxLoaded;
 export const getFiltered = (state: InboxState) => state.filtered;
 export const getSelected = (state: InboxState) => state.selected;
-export const getMessage = (state: InboxState) => state.message;
 export const getUnread = (state: InboxState) => state.unread;
 
 export function reducer(state: InboxState | undefined, action: Action) {

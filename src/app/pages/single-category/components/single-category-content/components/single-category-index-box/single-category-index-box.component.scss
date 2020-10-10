@@ -10,7 +10,7 @@ ul {
   margin: 0 auto;
   margin-bottom: 0;
 
-  @media(max-width: 992px) {
+  @media(max-width: 993px) {
     margin-bottom: 4rem;
   }
 }
@@ -33,5 +33,5 @@ h2 {
   margin-top: 0;
   line-height: 1.2;
   @media(min-width: 1280px) { font-size: 35px }
-  @media(max-width: 992px) { margin-top: 1rem }
+  @media(max-width: 993px) { margin-top: 1rem }
 }

@@ -1,11 +1,9 @@
 <div class="row" *ngIf="(user$ | async) as user">
   <div class="col-lg-8 col-md-8">  <!-- CONTENT -->
     <app-profile-info-box [user]="user"></app-profile-info-box>
-    <app-user-articles-box [user]="user"></app-user-articles-box>
-    <div class="m-top">
-      <app-profile-actions [user]="user" *onlyMobile></app-profile-actions>
-    </div>
     <app-settings-box [user]="user" *onlyMobile></app-settings-box>
+    <app-profile-actions [user]="user" *onlyMobile></app-profile-actions>
+    <app-user-articles-box [user]="user"></app-user-articles-box>
   </div>
   <div class="col-lg-4 col-md-4" *onlyDesktop>  <!-- SIDEBAR -->
     <app-profile-actions [user]="user"></app-profile-actions>

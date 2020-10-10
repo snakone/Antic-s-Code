@@ -1,11 +1,10 @@
-import { Component, OnInit, ChangeDetectionStrategy, EventEmitter, Input, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { Inbox } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-inbox-footer',
   templateUrl: './inbox-footer.component.html',
-  styleUrls: ['./inbox-footer.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./inbox-footer.component.scss']
 })
 export class InboxFooterComponent implements OnInit {
 

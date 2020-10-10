@@ -21,9 +21,9 @@
     <h6>{{'TEST.AVAILABLE' | translate}}</h6>
     <div *ngIf="test.entries?.length; else noTest">
       <p *ngFor="let e of test.entries | slice:0:3"
-          [routerLink]="'./' + e.category + '/' + e.uid">
+          (click)="go(e)"
+          [ngClass]="{'done': e.done}">
         {{e.title}}
-        <mat-icon *ngIf="e.done">check</mat-icon>
       </p>
     </div>
     <ng-template #noTest>

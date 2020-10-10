@@ -10,9 +10,15 @@
       font-weight: bold;
       font-size: 1.1rem;
       margin: 0;
+      position: relative;
+      top: 2px;
     }
 
-    & span { color: var(--p-color) }
+    & span {
+      color: var(--p-color);
+      position: relative;
+      @media(max-width: 550px) { top: -3px }
+    }
   }
 
   & .sort {

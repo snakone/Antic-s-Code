@@ -14,6 +14,7 @@ export class ContentBoxComponent {
   @Input() border: boolean;
   @Input() margin = true;
   @Input() news: boolean; // news sidebar margin
+  @Input() inbox: boolean; // border-radius
 
   constructor() { }
 

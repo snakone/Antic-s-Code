@@ -7,7 +7,7 @@ h3 { margin-top: 0 }
 p { padding-right: 4rem }
 
 .mobileRight {
-  @media(min-width: 992px) {
+  @media(min-width: 993px) {
     text-align: right;
     & .m-top { margin-top: 0 }
 
@@ -30,7 +30,7 @@ p { padding-right: 4rem }
     padding-left: 15px;
   }
 
-  @media(max-width: 992px) {
+  @media(max-width: 993px) {
     max-width: 100% !important;
     width: 100%;
   }
@@ -66,7 +66,7 @@ p { padding-right: 4rem }
   }
 }
 
-@media(max-width: 992px) {
+@media(max-width: 993px) {
   .row {
     max-width: 720px;
     margin: 0 auto;

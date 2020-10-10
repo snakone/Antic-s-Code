@@ -56,7 +56,7 @@
     }
 
     @media(max-width: 425px) {
-      input, button span { font-size: .8rem }
+      input, button span { font-size: .8rem !important }
     }
   }
 

@@ -54,6 +54,7 @@
   box-sizing: border-box;
   animation: fadeUp 0.3s forwards;
 
+  & p { font-size: .9rem }
   & span { font-size: 1.3rem }
 }
 

@@ -33,7 +33,11 @@ const Material = [
     SpinnerModule,
     ...Material
   ],
-  exports: [ProfileInboxLeftComponent]
+  exports: [
+    ProfileInboxLeftComponent,
+    InboxSearchComponent,
+    InboxCardComponent
+  ]
 })
 
 export class ProfileInboxLeftModule { }

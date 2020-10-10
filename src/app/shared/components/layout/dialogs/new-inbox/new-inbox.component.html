@@ -14,7 +14,7 @@
                                ariaLabel="Search User">
         </ngx-mat-select-search>
       </mat-option>
-      <mat-option *ngFor="let user of (users$ | async).sort()"
+      <mat-option *ngFor="let user of (users$ | async).sort() | removeMyself: user._id"
                   [value]="user._id"
                   role="option"
                   class="category">
@@ -35,11 +35,16 @@
            autocomplete="off">
     </textarea>
   </mat-form-field>
+
+  <app-form-error [message]="'MAX.STRING' | translate:{number: maxLength}"
+                  [control]="msgCtrl"
+                  validator="maxlength">
+  </app-form-error>
+
   <div style="text-align: right">
     <button mat-button
             class="btn-disabled"
             aria-label="Cancel"
-            type="submit"
             (click)="close()">{{'CANCEL' | translate}}
     </button>
     <button mat-button

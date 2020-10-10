@@ -1,5 +1,13 @@
 <div class="content-message"
     [ngClass]="{'last': last,
-                'other': user._id !== inbox.receiver._id}">
-  <p>{{inbox.message}}</p>
+                'other': user._id !== inbox.sender._id}">
+  <div class="user">
+    <img [src]="inbox.sender?.profile?.avatar || 'assets/img/profile/no-photo.jpg'"
+         #img
+         (error)="img.src = 'assets/img/profile/no-photo.jpg'; img.alt='No Image'">
+         <span>{{inbox.sender.name | titlecase}}</span>
+  </div>
+  <p>
+    <span>{{inbox.date}}</span>
+    {{inbox.message}}</p>
 </div>

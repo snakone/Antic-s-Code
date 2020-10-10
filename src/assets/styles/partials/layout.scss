@@ -27,7 +27,31 @@
 }
 
 .desktop {
-  @media(max-width: 992px) { display: none }
+  @media(max-width: 993px) { display: none }
+}
+
+.min-width {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 90vh;
+  overflow: hidden;
+  background: var(--light-color);
+  color: var(--new-color);
+  place-content: center;
+  display: none;
+  z-index: 666;
+  padding: 2rem;
+
+  & h2 {
+    font-size: 2rem;
+    position: relative;
+    top: -1rem;
+
+    & span { font-size: inherit !important }
+  }
+
+  @media(max-width: 319px) { display: grid }
 }
 
 .time-img {

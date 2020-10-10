@@ -6,19 +6,33 @@
   position: relative;
 
   &-messages {
-    max-height: 320px;
-    min-height: 320px;
-    overflow: auto;
+    max-height: 305px;
+    min-height: 305px;
+    overflow-y: auto;
     animation: fadeUp 0.3s forwards;
+    padding: 2rem 2rem 0 2rem;
+  }
+
+  @media(max-width: 993px) {
+    max-height: 100vh;
+    height: 100vh;
+    &-messages { max-height: calc(100vh - 161px)}
+  }
+
+  @media(max-width: 993px) and (min-width: 550px) {
+    &-messages { padding: 1.5rem 2rem 0 2rem }
+  }
+
+  @media(max-width: 550px) {
+    &-messages { padding: 1.5rem 1rem 0 1rem }
   }
 
   & .subject {
-    padding-left: 2rem;
     & h5 {
       font-size: 1.3rem;
       font-weight: normal;
-      margin-top: 1.8rem;
-      margin-bottom: 1.4rem;
+      margin-top: 0;
+      margin-bottom: 1.7rem;
     }
   }
 }

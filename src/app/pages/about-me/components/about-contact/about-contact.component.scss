@@ -15,7 +15,7 @@
     padding-left: 15px;
   }
 
-  @media(max-width: 992px) {
+  @media(max-width: 993px) {
     max-width: 100% !important;
     width: 100%;
   }
@@ -36,7 +36,7 @@ ul {
 form {
   margin-top: 1rem;
   padding-top: .5rem;
-  @media(max-width: 992px) { margin-top: 2rem }
+  @media(max-width: 993px) { margin-top: 2rem }
 }
 
 mat-form-field {
@@ -59,7 +59,7 @@ textarea {
 button {
   width: 100%;
   margin: 1rem auto 0 auto;
-  @media(max-width: 992px) and (min-width: 550px) {
+  @media(max-width: 993px) and (min-width: 550px) {
     width: 50%;
     margin: 1rem 0 0 auto;
     display: block;

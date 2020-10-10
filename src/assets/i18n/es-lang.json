@@ -13,9 +13,11 @@
   "ALMOST.THERE": "¡Casi lo consigues! La próxima vez seguro que apruebas.",
   "ALRIGHT.YOU.MADE": "¡Has <strong>aprobado</strong> por los pelos! Está bien, enhorabuena.",
   "AND.NOW": "Ahora también",
-   "NOT.FOUND": "Sin Resultados",
+  "NOT.FOUND": "Sin Resultados",
+  "MAX.STRING": "Máximo {{number}} caracteres de largo",
   "DENO.SERVER": "Servidor Deno",
   "ANDROID.NATIVE": "Android Nativo",
+  "MIN.WIDTH": "Lo sentimos, esta aplicación necesita al menos <span class='bold'>320px de ancho</span>. Prueba más tarde con otro dispositivo.",
   "ANTICS.INTRO": "Presentamos Antic's Code Desktop un programa de <strong>escritorio</strong> con el cual serás capaz de crear contenido para este mismo portal. Es más fácil de lo que crees, para ello sigue estos sencillos pasos:",
   "ANTICS.CREATE": "Aprovecha esta oportunidad y únete a una emergente comunidad de desarrolladores. <strong>Crea</strong>, <strong>Comparte</strong>, <strong>Aprende</strong> y <strong>Conoce</strong> a nuevas personas interesadas en la profesión que más crece del mundo.",
   "ANTICS.APP": "Esta aplicación se creó especialmente para escribir artículos, así que tu experiencia mientras escribes será genial y satisfactoria.",
@@ -88,7 +90,7 @@
   "COLLABORATE": "Colaborar",
   "COMPLETED": "Completado",
   "LAST.USER": "Último en Unirse",
-  "MY.INBOX": "Correo",
+  "MY.INBOX": "Mi Correo",
   "SEARCH.INBOX": "Buscar mensajes",
   "CONFIG.SAVE": "Configuración guardada",
   "CONNECT.ME": "Conecta Conmigo",
@@ -324,11 +326,11 @@
                   "MESSAGE": "Limpio, Ecmascript, lógica, reactivo, legible, async-wait, operaciones."
               },
               "MONGO": {
-                  "AREA": "Base de Datos no Relacional",
+                  "AREA": "Base de Datos NoSQL",
                   "MESSAGE": "Diseñar y administrar bases de datos no relacionales basadas en documentos JSON."
               },
               "NODE": {
-                  "AREA": "Servidor Web con Javascript",
+                  "AREA": "Servidor con Javascript",
                   "MESSAGE": "Entorno, uso de paquetes de npm, dependencias, actualizaciones, librerías."
               },
               "PHP": {
@@ -429,8 +431,8 @@
   "NAV.SEARCH": "¿Buscas algo en particular?",
   "NEXT": "Siguiente",
   "NO.ACCOUNT": "¿No tienes Cuenta?",
-  "NO.TEST.YET": "No hay Test de esta Categoría",
-  "NO.ENTRY.YET": "No hay Entradas de esta Categoría",
+  "NO.TEST.YET": "No hay test de esta categoría",
+  "NO.ENTRY.YET": "No hay entradas de esta categoría",
   "NO.RESULTS": "No se han encontrado resultados",
   "WRITE.BY": "Escrito por",
   "NO.UPDATED": "Sin actualizar",
@@ -509,7 +511,7 @@
   "TAGS": {
       "ANTICS": "Antic's",
       "BACKEND": "Backend",
-      "CONFIG": "Configuración",
+      "CONFIG": "Config",
       "CONSOLE": "Consola",
       "DATABASE": "Base de Datos",
       "DESIGN": "Diseño",
@@ -578,7 +580,7 @@
   "USING": "usando",
   "VALUE": "Valor",
   "VERSION": "Versión:",
-  "VIEW.TEST": "Ver todos los test",
+  "VIEW.TEST": "Ver todos",
   "VIEWS": "Visitas",
   "VISIT": "Visitar",
   "VISIT.PUBLIC.PROFILE": "Visita tu Perfil público",

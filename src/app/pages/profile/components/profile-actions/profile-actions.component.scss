@@ -19,7 +19,20 @@
     user-select: none;
     outline: none;
     margin: 0 .6rem;
-    @media(max-width: 350px) { margin: 0 .4rem }
+
+    @media(max-width: 1075px) and (min-width: 993px) {
+      width: 35px;
+      height: 35px;
+      padding: .9rem;
+      margin: 0 .5rem;
+    }
+
+    @media(max-width: 350px) {
+      width: 35px;
+      height: 35px;
+      padding: .9rem;
+      margin: 0 .5rem;
+    }
 
     &:hover {
       cursor: pointer;
@@ -28,6 +41,18 @@
       box-shadow: 0 0 6px rgba(0, 0, 0, .8);
     }
 
-    &:last-child { color: var(--angular-color) }
+    &.close { color: var(--angular-color) }
+  }
+
+  & span {
+    margin-right: .8rem;
+    font-size: .8rem !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 80px;
+    display: none;
+
+    @media(max-width: 993px) and (min-width: 725px) {display: inline }
   }
 }
