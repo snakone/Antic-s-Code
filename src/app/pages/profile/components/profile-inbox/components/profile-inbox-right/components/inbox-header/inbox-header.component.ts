@@ -1,10 +1,11 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
-import { Inbox } from '@app/shared/interfaces/interfaces';
+import { Inbox } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-inbox-header',
   templateUrl: './inbox-header.component.html',
-  styleUrls: ['./inbox-header.component.scss']
+  styleUrls: ['./inbox-header.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class InboxHeaderComponent {

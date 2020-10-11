@@ -1,4 +1,4 @@
-import { Input } from '@angular/core';
+import { ChangeDetectionStrategy, Input } from '@angular/core';
 import { Component } from '@angular/core';
 import { CrafterService } from '@core/services/crafter/crafter.service';
 import { InboxFacade } from '@store/inbox/inbox.facade';
@@ -8,7 +8,8 @@ import { NewInboxComponent } from '@layout/dialogs/new-inbox/new-inbox.component
 @Component({
   selector: 'app-profile-inbox-left',
   templateUrl: './profile-inbox-left.component.html',
-  styleUrls: ['./profile-inbox-left.component.scss']
+  styleUrls: ['./profile-inbox-left.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class ProfileInboxLeftComponent {

@@ -1,14 +1,26 @@
-<mat-dialog-content class="antics-dialog">
-  <ng-container *ngIf="(data.result$ | async) as result; else noResult">
-    <h3>{{result.title}}</h3>
-    <p [innerHTML]="'RESULT.INTRO' | translate"></p>
-    {{makeSentence(result) | translate}}
-    <br>
-
-    {{result | json}}
-  </ng-container>
-  <ng-container *ngIf="(data.entry$ | async) as entry">
-    {{entry | json}}
+<mat-dialog-content class="result-dialog">
+  <mat-icon (click)="close()">close</mat-icon>
+  <ng-container *ngIf="(combined$ | async) as foo; else noResult">
+    <div *ngIf="foo; else noResult">
+      <h3>{{foo.request.title}}</h3>
+      <p [innerHTML]="'RESULT.INTRO' | translate"></p>
+      <div *ngIf="foo.request.result.correct < 10">
+        <h4>{{'FAILURE' | translate}}</h4>
+        <p [innerHTML]="'YOU.FAIL' | translate"></p>
+        <div *ngFor="let bad of makeResult(foo.request, foo.entry)">
+          <h5>{{bad.question}}</h5>
+          <p class="red">{{bad.wrong}}</p>
+          <p class="green">{{bad.good}}</p>
+        </div>
+      </div>
+      <hr>
+      <h4 [innerHTML]="'YOU.CORRECT' | translate: {
+                                                    correct: foo.request.result.correct,
+                                                    total: foo.request.request.length
+                                                  }">
+      </h4>
+      <h4 class="last" [innerHTML]="makeSentence(foo.request) | translate"></h4>
+    </div>
   </ng-container>
   <ng-template #noResult>
     <app-spinner></app-spinner>

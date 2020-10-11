@@ -28,16 +28,17 @@
   }
 }
 
+button { margin-right: .8rem }
+
 .text-left {
   margin-top: 1.666rem;
   text-align: left;
-}
 
-button { margin-right: .8rem }
+  @media(max-width: 750px) { margin-top: 2rem }
+}
 
 @media(max-width: 993px) {
   .radio-group { margin: 0 }
-  .text-left { margin-top: 1.5rem }
 
   .radio-button {
     margin: .4rem 0;
@@ -47,5 +48,18 @@ button { margin-right: .8rem }
       display: inline-flex;
     }
   }
-
 }
+
+@media(max-width: 400px) {
+  .last {
+    position: relative;
+    left: -26px;
+    width: 250px;
+
+    & button {
+      margin-right: 0.3rem;
+      padding: 0 14px !important;
+    }
+  }
+}
+

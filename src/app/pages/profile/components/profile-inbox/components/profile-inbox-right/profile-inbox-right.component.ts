@@ -1,22 +1,21 @@
-import { OnInit, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, OnInit, SimpleChanges } from '@angular/core';
 import { Component, OnChanges, Input } from '@angular/core';
 import { NewInboxComponent } from '@layout/dialogs/new-inbox/new-inbox.component';
 import { CrafterService } from '@core/services/crafter/crafter.service';
 import { Inbox, User } from '@shared/interfaces/interfaces';
 import { InboxFacade } from '@store/inbox/inbox.facade';
-import { UserService } from '@app/core/services/user/user.service';
+import { UserService } from '@core/services/user/user.service';
 
 @Component({
   selector: 'app-profile-inbox-right',
   templateUrl: './profile-inbox-right.component.html',
-  styleUrls: ['./profile-inbox-right.component.scss']
+  styleUrls: ['./profile-inbox-right.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class ProfileInboxRightComponent implements OnInit, OnChanges {
 
   @Input() inbox: Inbox;
-  show = false;
-  lastMark: boolean;
   user: User;
 
   constructor(
@@ -34,11 +33,6 @@ export class ProfileInboxRightComponent implements OnInit, OnChanges {
        !e.inbox.currentValue.last.read) {
       this.inboxFacade.markUnread(this.inbox?.last._id, true);
     }
-
-    this.show = false;
-    setTimeout(() => {
-      this.show = true;
-    }, 10);
   }
 
   public reply(): void {

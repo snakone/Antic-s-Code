@@ -35,9 +35,9 @@ export class SingleTestContentComponent implements OnInit {
   public checkResult(entry: TestEntry): void {
     this.testFacade.getResultByUid(entry.uid);
     this.crafter.dialog(TestResultComponent, {
-      result$: this.result$,
-      entry: of(entry)
-    });
+      request$: this.result$,
+      entry$: of(entry)
+    }, 'test-result');
   }
 
 

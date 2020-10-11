@@ -276,6 +276,18 @@ export interface TestRequest {
   level?: string;
   request?: string[];
   created?: string;
+  result?: TestRawRequest;
+  raw?: TestRawResult;
+}
+
+export interface TestRawRequest {
+  answer?: boolean[];
+  correct?: number;
+}
+
+export interface TestRawResult {
+  uid?: string;
+  result?: string[];
 }
 
 export interface TestAnswerResult {
@@ -283,8 +295,14 @@ export interface TestAnswerResult {
   result?: boolean[];
 }
 
+export interface TestUserResult {
+  question?: string;
+  good?: string;
+  wrong?: string;
+}
+
 export interface TestResultDialog {
-  result$: Observable<TestResult>;
+  request$: Observable<TestResult>;
   entry$: Observable<TestEntry>;
 }
 

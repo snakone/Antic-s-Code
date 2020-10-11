@@ -1,5 +1,12 @@
-.antics-dialog {
+.result-dialog {
   overflow: inherit !important;
+}
+
+mat-icon {
+  position: absolute;
+  top: -.9rem;
+  right: -.9rem;
+  cursor: pointer;
 }
 
 h3 {
@@ -7,3 +14,24 @@ h3 {
   margin-top: 0;
   margin-bottom: 1rem;
 }
+
+h4 {
+  font-size: 1.2rem;
+  margin-top: 1.4rem;
+  margin-bottom: 1rem;
+
+  & span { font-size: inherit !important }
+  &.last { margin-bottom: 2rem }
+}
+
+h5 { margin-bottom: 1rem }
+
+p { margin: .666rem 0 }
+
+hr {
+  margin-top: 2.4rem;
+  margin-bottom: 1.666rem;
+}
+
+.red { color:red }
+.green { color:green }

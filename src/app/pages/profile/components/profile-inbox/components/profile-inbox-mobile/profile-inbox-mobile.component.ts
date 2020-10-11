@@ -12,7 +12,7 @@ import { Inbox, InboxMessage } from '@shared/interfaces/interfaces';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class ProfileInboxMobileComponent implements OnInit {
+export class ProfileInboxMobileComponent {
 
   @Input() filtered: Inbox[];
   @Input() selected: InboxMessage;
@@ -22,14 +22,12 @@ export class ProfileInboxMobileComponent implements OnInit {
     private crafter: CrafterService
   ) { }
 
-  ngOnInit(): void {
-  }
-
   public search(e: string): void {
     this.inboxFacade.filter(e);
   }
 
   public set(m: Inbox): void {
+    this.inboxFacade.set(m);
     this.crafter.dialog(InboxMessagesComponent, m, 'inbox-messages');
   }
 

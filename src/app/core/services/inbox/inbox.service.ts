@@ -29,7 +29,10 @@ export class InboxService {
       .get<InboxResponse>(this.API_INBOX)
       .pipe(
         filter(res => res && !!res.ok),
-        map(res => res.inbox)
+        map(res => {
+          res.inbox.forEach(i => i.messages.reverse());
+          return res.inbox;
+        })
       );
   }
 

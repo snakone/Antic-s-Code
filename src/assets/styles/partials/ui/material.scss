@@ -89,8 +89,13 @@ mat-option.all {
 
   & .content-box-body {
     overflow-y: auto;
-    max-height: 67vh;
-    @media(max-width: 700px) { height: 67vh !important }
+    max-height: 77vh;
+  }
+}
+
+#test-result.mat-dialog-container {
+  @media(max-width: 550px) {
+    padding: 24px 1.2rem 24px 1rem !important;
   }
 }
 
@@ -114,7 +119,15 @@ mat-option.all {
 
 .mat-vertical-stepper-header {
   padding: 24px 4px !important;
-  height: 17px !important;
+  height: 20px !important;
+  @media(max-width: 750px) { height: 30px !important }
+  @media(max-width: 550px) { height: 47px !important }
+}
+
+.mat-step-text-label {
+  overflow: visible !important;
+  @media(max-width: 993px) { line-height: 1.4rem }
+  @media(max-width: 550px) { font-size: .9rem !important }
 }
 
 .mat-vertical-content {
@@ -129,9 +142,8 @@ mat-option.all {
   margin-left: 14.5px !important;
 }
 
-.mobile .mat-step-label {
+.mat-step-label {
   white-space: normal !important;
-  font-size: .85rem;
   line-height: 1rem;
   font-weight: bold;
 }
@@ -150,7 +162,7 @@ mat-option.all {
   padding: 0 .5rem !important;
   margin: 0 !important;
   max-width: 50vh;
-  max-height: 71vh !important;
+  max-height: 77vh !important;
 
   & h4 {
     margin-top: 0;
@@ -177,6 +189,15 @@ mat-option.all {
   margin: 0 !important;
   max-width: 100%;
   max-height: 100% !important;
+}
+
+.result-dialog {
+  position: relative;
+  overflow: hidden !important;
+  padding: 0 .5rem !important;
+  margin: 0 !important;
+  max-width: 90vh;
+  max-height: 77vh !important;
 }
 
 .mat-select-value,
