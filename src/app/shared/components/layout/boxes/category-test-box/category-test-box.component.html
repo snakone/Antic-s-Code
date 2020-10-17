@@ -1,0 +1,23 @@
+<app-content-box title="TEST.CATEGORY" icon="fact_check">
+  <ng-container *ngIf="(tests$ | async) as tests; else noTest">
+    <ul>
+      <li *ngFor="let t of tests">
+        <div class="category">
+          <img [src]="(t.category | logo) | image: 'logos'"
+              [alt]="t.category"/>
+          <strong [routerLink]="'/test/' + t.category">{{t.category}}</strong>
+        </div>
+        <p *ngFor="let e of t.entries.slice(0,3)"
+            (click)="navigate(e)"
+            [ngClass]="{'done': e.done}">
+          {{e.title}}
+          <mat-icon *ngIf="e.done">check</mat-icon>
+        </p>
+      </li>
+    </ul>
+  </ng-container>
+</app-content-box>
+
+<ng-template #noTest>
+  NO TEST
+</ng-template>

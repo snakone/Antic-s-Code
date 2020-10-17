@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import * as TestActions from './test.actions';
 import * as fromTest from './test.selectors';
 import { TestPartialState } from '../ngrx.config';
-import { TestRequest } from '@shared/interfaces/interfaces';
+import { TestResult } from '@shared/interfaces/interfaces';
 
 @Injectable()
 
@@ -16,6 +16,9 @@ export class TestFacade {
   public entryLoaded$ = this.store.select(fromTest.getEntryLoaded);
   public byCategory$ = this.store.select(fromTest.getByCategory);
   public result$ = this.store.select(fromTest.getResult);
+  public resultLoaded$ = this.store.select(fromTest.getResultLoaded);
+  public questions$ = this.store.select(fromTest.getQuestions);
+  public entries$ = this.store.select(fromTest.getEntries);
 
   constructor(private store: Store<TestPartialState>) { }
 
@@ -27,7 +30,7 @@ export class TestFacade {
     this.store.dispatch(TestActions.getByCategory({category}));
   }
 
-  public saveRequest(request: TestRequest): void {
+  public saveRequest(request: TestResult): void {
     this.store.dispatch(TestActions.saveRequest({request}));
   }
 
@@ -45,6 +48,10 @@ export class TestFacade {
 
   public resetEntry(): void {
     this.store.dispatch(TestActions.resetEntry());
+  }
+
+    public resetResult(): void {
+    this.store.dispatch(TestActions.resetResult());
   }
 
 }

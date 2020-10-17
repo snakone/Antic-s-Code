@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { UsersFacade } from '@store/users/users.facade';
-import { User } from '@shared/interfaces/interfaces';
+import { ChangeDetectionStrategy, Component, AfterContentInit } from '@angular/core';
+import { User, UserStats } from '@shared/interfaces/interfaces';
 import { Observable } from 'rxjs';
+import { StatsFacade } from '@store/stats/stats.facade';
+import { UserService } from '@core/services/user/user.service';
 
 @Component({
   selector: 'app-profile-content',
@@ -10,14 +11,19 @@ import { Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class ProfileContentComponent implements OnInit {
+export class ProfileContentComponent implements AfterContentInit {
 
-  user$: Observable<User>;
+  user: User;
+  stats$: Observable<UserStats>;
 
-  constructor(private usersFacade: UsersFacade) { }
+  constructor(
+    private userSrv: UserService,
+    private statsFacade: StatsFacade
+  ) { }
 
-  ngOnInit() {
-    this.user$ = this.usersFacade.user$;
+  ngAfterContentInit() {
+    this.user = this.userSrv.getUser();
+    this.stats$ = this.statsFacade.byUser$;
   }
 
 }

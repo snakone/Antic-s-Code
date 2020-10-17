@@ -4,15 +4,15 @@ import { HttpService } from '../http/http.service';
 import {
   Test,
   TestResponse,
-  TestRequest,
+  TestResult,
   TestEntry,
-  TestEntryResponse,
-  TestResult
+  TestEntryResponse
 } from '@shared/interfaces/interfaces';
 
 import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
 import { filter, map } from 'rxjs/operators';
+import { ServerResponse } from '../../../shared/interfaces/interfaces';
 
 @Injectable({providedIn: 'root'})
 
@@ -58,13 +58,19 @@ export class TestService {
       );
   }
 
-  public saveTestRequest(request: TestRequest): Observable<TestResult> {
+  public saveTestRequest(request: TestResult): Observable<TestResult> {
     return this.http
       .post<TestEntryResponse>(this.API_TEST + 'results/', request)
       .pipe(
         filter(res => res && !!res.ok),
         map(_ => _.result)
       );
+  }
+
+  public checkDone(uid: string): Observable<boolean> {
+    return this.http
+    .get<ServerResponse>(this.API_TEST + 'done/' + uid)
+    .pipe(map(_ => _.ok));
   }
 
 

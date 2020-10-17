@@ -18,11 +18,13 @@ import * as fromChat from './chat/chat.reducer';
 import * as fromTest from './test/test.reducer';
 import * as fromNews from './news/news.reducer';
 import * as fromInbox from './inbox/inbox.reducer';
+import * as fromStats from './stats/stats.reducer';
 
 export const reducers: ActionReducerMap<AppState> = {
   articles: fromArticles.reducer,
   users: fromUsers.reducer,
-  search: fromSearch.reducer
+  search: fromSearch.reducer,
+  stats: fromStats.reducer
 };
 
 export const categoryReducers:
@@ -66,3 +68,4 @@ export const getNewsPartialState =
 
 export const getInboxPartialState =
   createFeatureSelector<InboxPartialState>('InboxState');
+

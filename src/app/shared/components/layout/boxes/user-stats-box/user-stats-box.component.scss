@@ -1,0 +1,57 @@
+ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+
+  & li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 1.2rem;
+
+    &:last-child {
+      margin-bottom: 0;
+      &:after { border-bottom: none }
+    }
+
+    & > div {
+      display: flex;
+      align-items: center;
+      & span { color: var(--p-color) }
+    }
+
+    & mat-icon {
+      font-size: 1.666rem;
+      margin-right: 1.2rem;
+    }
+
+    & .stars {
+      margin-right: 0;
+      margin-left: .5rem;
+      font-size: 1.4rem;
+      color: #fdd316;
+      position: relative;
+      left: -2px;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -.6rem;
+      width: 100%;
+      border-bottom: 1px solid var(--p-color);
+      opacity: 0.3;
+    }
+  }
+
+  &.skeleton {
+    & li {
+      line-height: 1.6rem;
+      display: inline-block;
+      background: var(--skeleton-color-tint);
+      width: 100%;
+      height: 1.4rem;
+    }
+  }
+}

@@ -26,12 +26,15 @@
   "ANTICS.APP": "Esta aplicación se creó especialmente para escribir artículos, así que tu experiencia mientras escribes será genial y satisfactoria.",
   "APPLY": "Aplicar",
   "ARTICLE": "Artículo",
+  "SCORE.RANKING": "Ranking",
+  "REACTIONS": "Interacciones",
   "ARTICLE.CREATE": "Creación de Artículos",
   "ARTICLE.LOOKING": "¿Qué tipo de Artículos estás buscando?",
   "ARTICLE.RATE": "Puntúa este Artículo",
   "ARTICLE.USEFUL": "¿Te ha parecido útil?",
   "ARTICLES": "Artículos",
   "ARTICLES.OF": "Artículos de {{name}}",
+  "SCORE.OF": "Puntuación de {{name}}",
   "BACK": "Volver",
   "ANY": "Cualquiera",
   "BACK.DEV": "Backend",
@@ -157,6 +160,7 @@
   "DESIGN.WEB": "Diseñador Web",
   "DESKTOP.INTRO": "¿Te resulta interesante? ¿Quieres unirte a una comunidad de programadores? ¡Descarga Antic's Code ya! Es totalmente gratuito. Necesitarás una cuenta de Antic's Code para poder entrar.",
   "DISCOVER": "Descubre",
+  "TEST.CATEGORY": "Test por Categoría",
   "DISCOVER.ARTICLES": "Descubre y aprende con artículos de programación y ejemplos ordenados por categorías",
   "DISCOVER.LAST": "Descubre lo último sobre Antic's Code de primera mano",
   "DISCOVER.WORKS": "Descubre como usar Antic's",
@@ -186,6 +190,10 @@
       "CODE": {
           "MESSAGE": "Lo sentimos, hubo un error de ejecución en el código. Por favor, prueba de refrescar la página si el error continúa, sino ponte en contacto con nosotros. Disculpa las molestias.",
           "TITLE": "Error de código"
+      },
+      "ENTRY_DONE": {
+          "MESSAGE": "¡Hey hola! Parece ser que ya has realizado este test. Lo sentimos, prueba con otro si lo deseas.",
+          "TITLE": "Test ya realizado"
       },
       "REGISTER": {
           "MESSAGE": "Si de verdad quieres registrar una nueva cuenta a parte de la que ya tienes, por favor desconéctate primero y vuelve a probar de nuevo.",
@@ -239,6 +247,8 @@
   "GIT.SYSTEM": "Sistema Git",
   "GITHUB.PAGE": "Tu perfil en Github",
   "GIVE.LIKE": "Dar Like",
+  "TOTAL.QUESTIONS": "Hay un total de <strong>{{total}}</strong> preguntas.",
+  "CORRECT.QUESTIONS": "Preguntas Correctas",
   "GOOD.SCORE": "¡Felicidades! Has <strong>aprobado</strong> con una buena puntuación. Sigue así.",
   "GOODBYE": "Hasta siempre",
   "GREAT.SCORE": "¡Woah! ¿Esto se te da bastante bien no? Has <strong>aprobado</strong> con una gran puntuación. ¡Genial!",
@@ -342,7 +352,7 @@
               },
               "RXJS": {
                   "AREA": "Programación Reactiva",
-                  "MESSAGE": "Observables, flujo de datos, pipes, operadores, manejo del flujo."
+                  "MESSAGE": "Observables, flujo de datos, pipes, operadores, funcional, manejo del flujo."
               },
               "SQL": {
                   "AREA": "Base de Datos Relacional",
@@ -358,7 +368,7 @@
               },
               "WORDPRESS": {
                   "AREA": "Gestor de Contenido",
-                  "MESSAGE": "Instalación, administración, edición, diseño, escribir contenido."
+                  "MESSAGE": "Instalación, administración, edición, matenimiento, diseño, escribir contenido."
               }
           },
           "SOFT": {
@@ -542,6 +552,8 @@
   "TEST": "Prueba",
   "TEST.AVAILABLE": "Test disponibles",
   "TEST.DONE": "Test completados",
+  "ENTRY.DONE": "Test Completados",
+  "MORE.TEST": "Otros Test",
   "TEST.INTRO": "Prueba tus habilidades con estos <strong>Test</strong> sobre nuestras Categorías. Puedes comprobar el resultado después de hacer el test o en tu perfil. Otras personas sabrán de qué estás hecho.",
   "TEST.OF": "Test sobre {{name}}",
   "TEST.PAGE": "Prueba tus habilidades",
@@ -569,6 +581,7 @@
   "TWITTER": "Twitter",
   "TWITTER.PAGE": "Tu Twitter",
   "TYPE": "Tipo",
+  "RATE": "Aciertos",
   "UPDATED": "Actualizado",
   "URL.AVATAR": "URL del Avatar",
   "USEFUL.LINKS": "Enlaces Útiles",

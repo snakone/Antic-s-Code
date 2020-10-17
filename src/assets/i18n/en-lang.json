@@ -155,8 +155,12 @@
   "DELETE.ACCOUNT.P": "if you delete your account, your information that belongs to this portal will be <span class='bold'>erased</span>, this includes your profile, your likes and article scores. This process cannot be undone.<br>Are you really sure you want to delete your account?",
   "DELETE.SENTENCE": "I am sure to delete my account, go ahead.",
   "DESIGN": "Diseño",
+  "SCORE.RANKING": "Score Ranking",
+  "REACTIONS": "Interactions",
   "DESIGN.DEV": "Designer",
   "DESIGN.WEB": "Web Designer",
+  "SCORE.OF": "{{name}}'s Score",
+  "TEST.CATEGORY": "Test by Category",
   "DESKTOP.INTRO": "Do you find it interesting? Do you want to join a community of developers? Download Antic's Code now! It is totally free. You will need an Antic's Code account to enter.",
   "DISCOVER": "Discover",
   "DISCOVER.ARTICLES": "Find, discover and learn with Articles and examples sorted by categories.",
@@ -188,6 +192,10 @@
       "CODE": {
           "MESSAGE": "Sorry, there was a runtime error in the code. Please try to refresh the page if the error continues, otherwise contact us. Sorry for the disturbances.",
           "TITLE": "Code Error"
+      },
+      "ENTRY_DONE": {
+          "MESSAGE": "Hey hello! It's seems you already made this Test! Sorry, try with another if you wish.",
+          "TITLE": "Test already made"
       },
       "REGISTER": {
           "MESSAGE": "If you really want to sign up for a new account other than the one you already have, please log out first and try again.",
@@ -236,8 +244,12 @@
   "FINISH": "Finish",
   "FRAMEWORK": "Framework",
   "FRONT.DEV": "Frontend",
+  "ENTRY.DONE": "Test Completed",
+  "TOTAL.QUESTIONS": "There's a total of <strong>{{total}}</strong> questions.",
+  "CORRECT.QUESTIONS": "Correct Questions",
   "FULL.DEV": "Full-Stack",
   "GET.HELP": "Get help",
+  "MORE.TEST": "Other Test",
   "GET.SUPPORT": "Get Support",
   "GIT.SYSTEM": "Git System",
   "GITHUB.PAGE": "Your Github Profile",
@@ -345,7 +357,7 @@
               },
               "RXJS": {
                   "AREA": "Reactive Programming",
-                  "MESSAGE": "Observables, data flow, pipes, operators, flow management."
+                  "MESSAGE": "Observables, data flow, pipes, operators, functional, flow management."
               },
               "SQL": {
                   "AREA": "Relational Database",
@@ -361,7 +373,7 @@
               },
               "WORDPRESS": {
                   "AREA": "Content Manager",
-                  "MESSAGE": "Installation, administration, editing, design, writing content."
+                  "MESSAGE": "Installation, administration, maintenance, editing, design, writing content."
               }
           },
           "SOFT": {
@@ -465,6 +477,7 @@
   "PUBLIC.PROFILE": "Public Profile",
   "PUBLISHED": "Published:",
   "PUT.SENTENCE": "Write the sentence here again...",
+  "QUESTION": "Questions",
   "QUESTIONS": "questions",
   "RANK": "Rank",
   "CREATE.ACCOUNT": "Create an account to interact",
@@ -582,8 +595,9 @@
   "USING": "using",
   "VALUE": "Value",
   "VERSION": "Version:",
-  "VIEW.TEST": "View all test",
+  "VIEW.TEST": "See all",
   "VIEWS": "Views",
+  "RATE": "Rate",
   "VISIT": "Visit",
   "VISIT.PUBLIC.PROFILE": "Visit your public Profile",
   "WEB.DESIGN": "Web Design",

@@ -11,7 +11,7 @@
     <p class="info" [innerHTML]="entry.message"></p>
 
     <app-test-stepper [entry]="entry"
-                      (completed)="onCompleted($event)">
+                      (completed)="onCompleted($event, entry)">
     </app-test-stepper>
   </app-content-box>
 </ng-container>

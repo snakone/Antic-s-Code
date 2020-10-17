@@ -64,9 +64,7 @@
     }
 
     &:last-of-type {
-      &:after {
-        border-bottom: none;
-      }
+      &:after { border-bottom: none }
     }
   }
 }

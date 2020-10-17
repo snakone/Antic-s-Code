@@ -1,11 +1,26 @@
 <ng-container *ngIf="test; else noTest">
-  <app-content-box title="Sidebar" icon="person">
-    Sidebar
-  </app-content-box>
+  <app-more-entries-box [test]="test"></app-more-entries-box>
+  <app-category-test-box></app-category-test-box>
 </ng-container>
 
 <ng-template #noTest>
-  <app-content-box title="Sidebar" icon="person">
-    NO TEST
+  <app-content-box title="MORE.TEST" icon="playlist_add_check">
+    <ul class="skeleton">
+      <li *ngFor="let i of [1,2,3]">
+        <span></span>
+        <p></p>
+      </li>
+    </ul>
+  </app-content-box>
+  <app-content-box title="TEST.CATEGORY" icon="fact_check">
+    <ul class="skeleton">
+      <li *ngFor="let i of [1,2,3]" class="category">
+        <span></span>
+        <div>
+          <p></p>
+          <p></p>
+        </div>
+      </li>
+    </ul>
   </app-content-box>
 </ng-template>

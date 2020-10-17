@@ -9,8 +9,11 @@ export interface TestState {
   testLoaded: boolean;
   entry: TestEntry;
   entryLoaded: boolean;
+  entries: TestEntry[];
   result: TestResult;
+  resultLoaded: boolean;
   error: string;
+  questions: number;
 }
 
 export const inititalState: TestState = {
@@ -20,8 +23,11 @@ export const inititalState: TestState = {
   testLoaded: false,
   entry: null,
   entryLoaded: false,
+  entries: null,
   result: null,
-  error: null
+  resultLoaded: false,
+  error: null,
+  questions: 0
 };
 
 const featureReducer = createReducer(
@@ -35,13 +41,16 @@ const featureReducer = createReducer(
       ...state,
       error: null,
       tests,
-      loaded: true
+      loaded: true,
+      entries: [].concat(...tests.map(t => t.entries)).filter(x => x && !!x),
+      questions: tests.reduce((acc, curr) => acc +
+                      ((curr.entries?.length * 10) || 0), 0)
     }
   )),
   on(TestActions.getFailure, (state, { error }) => (
     { ...state, loaded: false, error }
   )),
-    // GET BY CATEGORY
+  // GET BY CATEGORY
   on(TestActions.getByCategory, (state) => (
     { ...state, testLoaded: false, error: null }
   )),
@@ -58,7 +67,7 @@ const featureReducer = createReducer(
   )),
   // GET ENTRY BY UID
   on(TestActions.getEntryByUid, (state) => (
-    { ...state, entryLoaded: false, error: null }
+    { ...state, error: null }
   )),
   on(TestActions.getEntryByUidSuccess, (state, { entry }) => (
     {
@@ -73,13 +82,14 @@ const featureReducer = createReducer(
   )),
   // GET RESULT BY UID
   on(TestActions.getResultByUid, (state) => (
-    { ...state, result: null, error: null }
+    { ...state, error: null }
   )),
   on(TestActions.getResultByUidSuccess, (state, { result }) => (
     {
       ...state,
       error: null,
-      result
+      result,
+      resultLoaded: true
     }
   )),
   on(TestActions.getResultByUidFailure, (state, { error }) => (
@@ -87,13 +97,14 @@ const featureReducer = createReducer(
   )),
   // SAVE TEST REQUEST
   on(TestActions.saveRequest, (state) => (
-    { ...state, resultLoaded: false, error: null, result: null }
+    { ...state, error: null, result: null }
   )),
   on(TestActions.saveRequestSuccess, (state, { result }) => (
     {
       ...state,
       error: null,
-      result
+      result,
+      resultLoaded: true
     }
   )),
   on(TestActions.saveRequestFailure, (state, { error }) => (
@@ -117,6 +128,14 @@ const featureReducer = createReducer(
       entryLoaded: false
     }
   )),
+    // RESET RESULT
+  on(TestActions.resetResult, (state) => (
+    {
+      ...state,
+      result: null,
+      resultLoaded: false
+    }
+  )),
 );
 
 export const getTests = (state: TestState) => state.tests;
@@ -125,6 +144,9 @@ export const getLoaded = (state: TestState) => state.loaded;
 export const getEntry = (state: TestState) => state.entry;
 export const getEntryLoaded = (state: TestState) => state.entryLoaded;
 export const getResult = (state: TestState) => state.result;
+export const getResultLoaded = (state: TestState) => state.resultLoaded;
+export const getQuestions = (state: TestState) => state.questions;
+export const getEntries = (state: TestState) => state.entries;
 
 export function reducer(state: TestState | undefined, action: Action) {
   return featureReducer(state, action);

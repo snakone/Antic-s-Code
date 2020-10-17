@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { TestGuard } from '@core/guards/test.guard';
+import { EntryGuard } from '@core/guards/entry.guard';
 
 import { SingleTestComponent } from './single-test.component';
 import { DoSingleTestComponent } from './components/do-single-test/do-single-test.component';
@@ -18,7 +18,7 @@ const routes: Routes = [
       {
         path: ':uid',
         component: DoSingleTestComponent,
-        canActivate: [TestGuard]
+        canActivate: [EntryGuard]
       }
     ]
   }

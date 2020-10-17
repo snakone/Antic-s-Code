@@ -267,7 +267,10 @@
       margin-bottom: 1.333rem;
       font-size: 1rem;
       color: var(--p-color);
-      max-height: 150px;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
 
       @media(max-width: 855px) {
         margin-bottom: 1.5rem;

@@ -1,6 +1,6 @@
 <app-content-box title="USERS.LIST" icon="person">
   <div [innerHTML]="'USERS.INTRO' | translate: {
-                                      count: (users$ | async).length || 0
+                                      count: (users$ | async)?.length || 0
                                     }">
   </div>
   <div class="search-user">

@@ -1,0 +1,43 @@
+<app-content-box [title]="'SCORE.OF' | translate: { name: user?.name ?
+                                                              user.name :
+                                                              ('USER' | translate)}"
+                 icon="stars">
+          <ul *ngIf="stats; else noStats">
+            <li>
+              <div>
+                <mat-icon>article</mat-icon>
+                <span>{{'ARTICLES' | translate}}</span>
+              </div>
+              <div>
+                {{stats.score.articles.score}}
+                <mat-icon class="stars">star_rate</mat-icon>
+              </div>
+            </li>
+            <li>
+              <div>
+                <mat-icon>rule</mat-icon>
+                <span>{{'TEST' | translate}}</span>
+              </div>
+              <div>
+                {{stats.score.test.score}}
+                <mat-icon class="stars">star_rate</mat-icon>
+              </div>
+            </li>
+            <li>
+              <div>
+                <mat-icon>play_for_work</mat-icon>
+                <span>{{'REACTIONS' | translate}}</span>
+              </div>
+              <div>
+                {{stats.score.reaction.score}}
+                <mat-icon class="stars">star_rate</mat-icon>
+              </div>
+            </li>
+          </ul>
+</app-content-box>
+
+<ng-template #noStats>
+  <ul class="skeleton">
+    <li *ngFor="let i of [1,2,3,4]"></li>
+  </ul>
+</ng-template>

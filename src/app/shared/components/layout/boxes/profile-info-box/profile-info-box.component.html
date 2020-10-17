@@ -6,10 +6,10 @@
             alt="Avatar"
             loading="lazy"/>
       <h3>{{user.name}}</h3>
-      <p *ngIf="user.email && user.showEmail">{{user.email}}</p>
       <p *ngIf="user.profile?.language" class="bold">
         {{user.profile?.language}}
       </p>
+      <p *ngIf="user.email && user.showEmail">{{user.email}}</p>
       <button mat-button class="btn-purple" aria-label="Rol">
         {{(user.profile?.rol | translate) || ('NOT.DEFINED' | translate)}}
       </button>
@@ -48,6 +48,10 @@
         <div class="total" *ngIf="user">
           <li *ngFor="let t of total">{{user[t.name] || 0}}
             <mat-icon [class]="t.name">{{t.icon}}</mat-icon>
+          </li>
+          <li>
+            {{user.score || 0}}
+            <mat-icon class="stars">star_rate</mat-icon>
           </li>
         </div>
       </ul>

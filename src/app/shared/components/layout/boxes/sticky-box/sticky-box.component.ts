@@ -37,18 +37,18 @@ export class StickyBoxComponent implements OnInit, OnDestroy {
 
   private onScroll(): void {
     try {
-      const width = window.document.body.clientWidth;
-      const div = document.getElementById(this.selector)
-                          .getBoundingClientRect().height;
-
-      if (width < 985 || div < 799) {
+      const bodyW = window.document.body.clientWidth;
+      const div = document.getElementById(this.selector);
+      let elementH: number;
+      div ? elementH = div.getBoundingClientRect().height : elementH = 0;
+      if (bodyW < 985 || elementH < 799) {
         this.display = true;
         return;
       }
 
-      const height = window.document.body.clientHeight;
-      const scroll = window.scrollY;
-      this.display = !((scroll / height) * 100 > 84);  // 84% SCROLL
+      const bodyH = window.document.body.clientHeight;
+      const scrollY = window.scrollY;
+      this.display = !((scrollY / bodyH) * 100 > 85);  // 84% SCROLL
     } catch (err) {
       console.log(err);
     }

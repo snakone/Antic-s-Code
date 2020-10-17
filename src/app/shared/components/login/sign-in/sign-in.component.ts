@@ -12,7 +12,6 @@ import { Subject, Observable } from 'rxjs';
 import { takeUntil, switchMap, filter, tap } from 'rxjs/operators';
 
 import { UserResponse } from '@shared/interfaces/interfaces';
-
 import { LoginComponent } from '../login.component';
 
 @Component({

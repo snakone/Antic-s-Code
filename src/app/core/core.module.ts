@@ -24,6 +24,7 @@ import { StoreModule } from '@ngrx/store';
 import { ArticleEffects } from './ngrx/articles/article.effects';
 import { UserEffects } from './ngrx/users/user.effects';
 import { SearchEffects } from './ngrx/search/search.effects';
+import { StatsEffects } from './ngrx/stats/stats.effects';
 import { reducers } from './ngrx/ngrx.index';
 
 import { ToastrModule } from 'ngx-toastr';
@@ -53,7 +54,8 @@ const Material = [
     EffectsModule.forRoot([
       ArticleEffects,
       UserEffects,
-      SearchEffects
+      SearchEffects,
+      StatsEffects
     ]),
     LanguageModule.forRoot(),
     TranslateModule.forRoot({

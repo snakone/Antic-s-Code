@@ -1,5 +1,3 @@
-import { Observable } from 'rxjs';
-
 interface Content {
   _id?: string;
   title?: string;
@@ -136,6 +134,7 @@ export interface User {
   showEmail?: boolean;
   likes?: number;
   views?: number;
+  score?: number;
 }
 
 interface UserProfile {
@@ -232,17 +231,6 @@ export interface TestEntry {
   done?: boolean;
 }
 
-export interface TestResult {
-  uid?: string;
-  title?: string;
-  category?: string;
-  level?: string;
-  message?: string;
-  questions: TestQuestion[];
-  request?: string[];
-  result?: TestAnswerResult;
-}
-
 export interface TestQuestion {
   uid?: string;
   category?: string;
@@ -268,7 +256,7 @@ export interface TestEntryResponse extends ServerResponse {
   result?: TestResult;
 }
 
-export interface TestRequest {
+export interface TestResult {
   uid?: string;
   title?: string;
   category?: string;
@@ -299,11 +287,6 @@ export interface TestUserResult {
   question?: string;
   good?: string;
   wrong?: string;
-}
-
-export interface TestResultDialog {
-  request$: Observable<TestResult>;
-  entry$: Observable<TestEntry>;
 }
 
 export interface List {
@@ -487,4 +470,38 @@ interface NotificationData {
 interface NotificationAction {
   action: string;
   title: string;
+}
+
+export interface UserStats {
+  user: User;
+  score: ScoreStats;
+}
+
+export interface UserStatsResponse extends ServerResponse {
+  stats: UserStats[];
+  statsByUser?: UserStats;
+}
+
+export interface ArticleStats {
+  written?: number;
+  score?: number;
+}
+
+export interface TestStats {
+  correct: number;
+  done?: number;
+  score?: number;
+}
+
+export interface ReactionStats {
+  likes?: number;
+  stars?: number;
+  score?: number;
+}
+
+export interface ScoreStats {
+  total?: number;
+  articles?: ArticleStats;
+  test?: TestStats;
+  reaction?: ReactionStats;
 }

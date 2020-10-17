@@ -3,9 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Subject, Observable } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { User } from '@shared/interfaces/interfaces';
+import { User, UserStats } from '@shared/interfaces/interfaces';
 
 import { UsersFacade } from '@store/users/users.facade';
+import { StatsFacade } from '@app/core/ngrx/stats/stats.facade';
 
 @Component({
   selector: 'app-public-profile',
@@ -16,15 +17,18 @@ import { UsersFacade } from '@store/users/users.facade';
 export class PublicProfileComponent implements OnInit, OnDestroy {
 
   user$: Observable<User>;
+  stats$: Observable<UserStats>;
   private unsubscribe$ = new Subject<void>();
 
   constructor(
     private userFacade: UsersFacade,
+    private statsFacade: StatsFacade,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
     this.user$ = this.userFacade.byName$;
+    this.stats$ = this.statsFacade.byUserPublic$;
     this.getUserByName();
   }
 

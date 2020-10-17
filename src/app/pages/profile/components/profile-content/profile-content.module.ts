@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '@shared/shared.module';
 
 import { BoxesModule } from '@layout/boxes/boxes.module';
+import { UserStatsBoxModule } from '@layout/boxes/user-stats-box/user-stats-box.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
@@ -35,6 +36,7 @@ const Material = [
     SharedModule,
     BoxesModule,
     RouterModule,
+    UserStatsBoxModule,
     ...Material
   ],
   exports: [ProfileContentComponent]

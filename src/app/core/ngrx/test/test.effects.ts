@@ -53,7 +53,7 @@ export class TestEffects {
     ))))
   );
 
-  // GET ENTRY BY UID
+  // GET RESULT BY UID
   getResultByUidEffect$ = createEffect(() => this.actions
     .pipe(
       ofType(TestActions.getResultByUid),

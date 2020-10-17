@@ -1,8 +1,14 @@
-import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { TestRequest, TestEntry, TestResult, TestResultDialog, TestUserResult } from '@shared/interfaces/interfaces';
-import { combineLatest, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { TestFacade } from '@store/test/test.facade';
+
+import {
+  TestResult,
+  TestEntry,
+  TestUserResult
+} from '@shared/interfaces/interfaces';
+
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-test-result',
@@ -11,55 +17,55 @@ import { map } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class TestResultComponent {
+export class TestResultComponent implements OnInit, OnDestroy {
+
+  result$: Observable<TestResult>;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: TestResultDialog,
+    @Inject(MAT_DIALOG_DATA) public entry: TestEntry,
+    private testFacade: TestFacade,
     public dialogRef: MatDialogRef<TestResultComponent>
   ) { }
 
-  get combined$(): Observable<any> {
-    return combineLatest([
-      this.data.request$,
-      this.data.entry$
-    ]).pipe(map(([request, entry]) =>  !!request && !!entry ? {request, entry} : null));
+  ngOnInit() {
+    this.result$ = this.testFacade.result$;
   }
 
-  public makeResult(test: TestRequest, entry: TestEntry): TestUserResult[] {
-    console.log({test, entry});
+  public makeResult(
+    request: TestResult
+  ): TestUserResult[] {
     const result: TestUserResult[] = [];
-    test.result.answer.forEach((a, i) => {
-      if (!a) {
+    request.result.answer.forEach((a: boolean, i) => {
+      if (!a) { // Wrong Answer
         result.push({
-          question: entry.questions[i].question,
-          wrong: entry.questions[i].answers.find(_ => _.key === test.request[i]).value,
-          good: entry.questions[i].answers.find(_ => _.key === test.raw.result[i]).value
+          question: this.entry.questions[i].question,
+          wrong: this.entry.questions[i].answers
+                 .find(_ => _.key === request.request[i]).value,
+          good: this.entry.questions[i].answers
+                 .find(_ => _.key === request.raw.result[i]).value
         });
       }
     });
-
     return result;
   }
 
   public makeSentence(test: TestResult): string {
     switch (test.result?.correct) {
-      case 1: case 2: case 3:
-        return 'BAD.SCORE';
-      case 4:
-        return 'ALMOST.THERE';
-      case 5:
-        return 'ALRIGHT.YOU.MADE';
-      case 6: case 7:
-        return 'GOOD.SCORE';
-      case 8: case 9:
-        return 'GREAT.SCORE';
-      case 10:
-        return 'PERFECT.SCORE';
+      case 1: case 2: case 3: return 'BAD.SCORE';
+      case 4: return 'ALMOST.THERE';
+      case 5: return 'ALRIGHT.YOU.MADE';
+      case 6: case 7: return 'GOOD.SCORE';
+      case 8: case 9: return 'GREAT.SCORE';
+      case 10: return 'PERFECT.SCORE';
     }
   }
 
   public close(): void {
     this.dialogRef.close();
+  }
+
+  ngOnDestroy() {
+    this.testFacade.resetResult();
   }
 
 }

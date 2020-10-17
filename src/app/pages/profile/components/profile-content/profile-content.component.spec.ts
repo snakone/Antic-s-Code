@@ -6,7 +6,7 @@ describe('ProfileContentComponent', () => {
   let component: ProfileContentComponent;
   let fixture: ComponentFixture<ProfileContentComponent>;
 
-  beforeEach(async(() => {
+  beforeEach((() => {
     TestBed.configureTestingModule({
       declarations: [ ProfileContentComponent ]
     })

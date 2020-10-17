@@ -2,7 +2,7 @@
   <div class="entry-content">
     <h5 class="title">
       <img [src]="(entry.category | logo) | image: 'logos'"
-         [alt]="entry.category"/>
+           [alt]="entry.category"/>
       {{entry.title}}
       <mat-icon *ngIf="entry.done">check</mat-icon>
     </h5>

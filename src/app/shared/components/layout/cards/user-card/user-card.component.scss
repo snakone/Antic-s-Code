@@ -23,6 +23,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem 1.5rem 1.1rem 1.5rem;
+  @media(max-width: 550px) { padding: .8rem 1rem .8rem 1rem }
 
   &-flex {
     display: flex;
@@ -42,6 +43,24 @@
     font-size: 1.3rem;
     outline: none;
     @media(max-width: 550px) { font-size: 1.2rem }
+  }
+
+  & .stars {
+    display: flex;
+    font-size: .8rem;
+    position: relative;
+    top: 2.5px;
+    left: -2px;
+
+    & mat-icon {
+      color: #fdd316;
+      font-size: 1.1rem;
+      margin-right: .3rem;
+      position: relative;
+      top: 1.6px;
+      height: auto;
+      width: auto;
+    }
   }
 
   & img {

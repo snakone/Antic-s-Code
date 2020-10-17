@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { TestEntry, TestRequest } from '@shared/interfaces/interfaces';
+import { TestEntry, TestResult } from '@shared/interfaces/interfaces';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
 import { UserService } from '@core/services/user/user.service';
@@ -19,7 +19,7 @@ export class TestStepperComponent implements OnInit {
   orientation: string;
   selected: string[];
   @Input() entry: TestEntry;
-  @Output() completed = new EventEmitter<TestRequest>();
+  @Output() completed = new EventEmitter<TestResult>();
 
   constructor(private userSrv: UserService) { }
 
@@ -34,7 +34,7 @@ export class TestStepperComponent implements OnInit {
   public finish(): void {
     const values: string[] = JSON.parse(JSON.stringify(this.selected));
 
-    const request: TestRequest = {
+    const request: TestResult = {
       uid: this.entry.uid,
       title: this.entry.title,
       category: this.entry.category,

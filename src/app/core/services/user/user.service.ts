@@ -7,7 +7,9 @@ import {
   UserResponse,
   MostActiveResponse,
   MostActive,
-  MessageRequest
+  MessageRequest,
+  UserStats,
+  UserStatsResponse
  } from '@shared/interfaces/interfaces';
 
 import { Observable } from 'rxjs';
@@ -56,6 +58,24 @@ export class UserService {
       .pipe(
         filter(res => res && !!res.ok),
         map(_ => _.users)
+      );
+  }
+
+  public getStats(): Observable<UserStats[]> {
+    return this.http
+      .get<UserStatsResponse>(this.API_USERS + '/stats')
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.stats)
+      );
+  }
+
+  public getStatsByUser(id: string): Observable<UserStats> {
+    return this.http
+      .get<UserStatsResponse>(environment.api + 'user/stats/' + id)
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.statsByUser)
       );
   }
 

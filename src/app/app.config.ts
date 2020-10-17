@@ -4,6 +4,7 @@ import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import * as fromArticles from '@store/articles/article.reducer';
 import * as fromUsers from '@store/users/user.reducer';
 import * as fromSearch from '@store/search/search.reducer';
+import * as fromStats from '@store/stats/stats.reducer';
 
 export const URI = 'https://anticscode.netlify.com';
 const APP_VERSION = '0.9.5';
@@ -14,6 +15,7 @@ export interface AppState {
   articles: fromArticles.ArticleState;
   users: fromUsers.UserState;
   search: fromSearch.SearchState;
+  stats: fromStats.StatsState;
 }
 
 export interface AppConfig {

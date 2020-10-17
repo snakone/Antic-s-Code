@@ -3,7 +3,7 @@
  <ng-container *ngIf="(user$ | async) as user; else noUser">
    <div class="last">
     <mat-icon>star_outline</mat-icon>
-      <h4 [routerLink]="'/profile/' + user.name">{{user.name}}</h4>
+      <h4 [routerLink]="'/profile/' + user.name">{{user.name | titlecase}}</h4>
    </div>
  </ng-container>
 </app-content-box>

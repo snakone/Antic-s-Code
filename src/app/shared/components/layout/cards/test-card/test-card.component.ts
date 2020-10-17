@@ -25,7 +25,7 @@ export class TestCardComponent {
 
   public go(e: TestEntry): void {
     if (e.done) { return; }
-    this.router.navigateByUrl('/test/' + e.category);
+    this.router.navigateByUrl('/test/' + e.category + '/' + e.uid);
   }
 
 }

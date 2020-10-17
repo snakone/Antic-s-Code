@@ -90,7 +90,9 @@
     position: relative;
     line-height: 1.4;
     margin: 0;
+    margin-bottom: .4rem;
     color: black;
+    &:last-child { margin-bottom: 0 }
 
     @media(max-width: 350px) { font-size: .8rem !important }
     &:not(.no-test) {
@@ -100,6 +102,7 @@
     }
 
     &.done {
+      pointer-events: none;
       &::before {
         content: '';
         position: absolute;

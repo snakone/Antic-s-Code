@@ -1,12 +1,20 @@
-<div class="row" *ngIf="(user$ | async) as user">
+<div class="row" *ngIf="user">
   <div class="col-lg-8 col-md-8">  <!-- CONTENT -->
-    <app-profile-info-box [user]="user"></app-profile-info-box>
-    <app-settings-box [user]="user" *onlyMobile></app-settings-box>
+    <app-profile-info-box [user]="user">
+    </app-profile-info-box>
     <app-profile-actions [user]="user" *onlyMobile></app-profile-actions>
+    <app-settings-box [user]="user" *onlyMobile></app-settings-box>
+    <app-user-stats-box [stats]="stats$ | async"
+                        [user]="user"
+                        *onlyMobile>
+    </app-user-stats-box>
     <app-user-articles-box [user]="user"></app-user-articles-box>
   </div>
   <div class="col-lg-4 col-md-4" *onlyDesktop>  <!-- SIDEBAR -->
     <app-profile-actions [user]="user"></app-profile-actions>
     <app-settings-box [user]="user"></app-settings-box>
+    <app-user-stats-box [stats]="stats$ | async"
+                        [user]="user">
+    </app-user-stats-box>
   </div>
 </div>

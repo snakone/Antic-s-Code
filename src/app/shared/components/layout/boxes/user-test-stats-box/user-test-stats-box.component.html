@@ -1,0 +1,40 @@
+<app-content-box title="BEST.SCORE" icon="done_outline">
+  <ng-container *ngIf="(stats$ | async) as stats; else noStats">
+    <ul class="default">
+      <li *ngFor="let s of stats">
+        <img [src]="s.user.profile?.avatar ||
+                   'assets/img/profile/no-photo.jpg'"
+             #img
+             (error)="img.src = 'assets/img/profile/no-photo.jpg'; img.alt='No Image'">
+        <div class="user">
+          <strong [routerLink]="'/profile/' + s.user.name">
+            {{s.user.name | titlecase}}
+          </strong>
+          <p>
+            {{'ENTRY.DONE' | translate}}:
+            <span>{{s.score.test.done}}</span>
+          </p>
+          <p>
+            {{'CORRECT.QUESTIONS' | translate}}:
+            <span>{{s.score.test.correct}}</span>
+          </p>
+          <p>
+            {{'RATE' | translate}}:
+            <span>{{ calculateRate(s.score.test) }}</span>
+          </p>
+        </div>
+      </li>
+    </ul>
+    <p class="last" [innerHTML]="'TOTAL.QUESTIONS' | translate: {total: questions$ | async}"></p>
+  </ng-container>
+
+  <ng-template #noStats>
+    <ul class="skeleton">
+      <li *ngFor="let i of [1,2,3]">
+        <p></p>
+        <p></p>
+      </li>
+    </ul>
+  </ng-template>
+</app-content-box>
+

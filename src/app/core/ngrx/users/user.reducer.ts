@@ -19,8 +19,8 @@ export interface UserState {
 
 export const inititalState: UserState = {
   user: null,
-  users: [],
-  filtered: [],
+  users: null,
+  filtered: null,
   loaded: false,
   mostActive: null,
   mostActiveLoaded: false,
@@ -35,7 +35,7 @@ export const inititalState: UserState = {
 const featureReducer = createReducer(
   inititalState,
   // SET USER
-  on(UserActions.set, (state) => (
+    on(UserActions.set, (state) => (
       { ...state, error: null }
   )),
   on(UserActions.setSuccess, (state, { user }) => (
@@ -143,7 +143,7 @@ const featureReducer = createReducer(
   )),
   // REFRESH TOKEN
   on(UserActions.refreshToken, (state) => (
-    { ...state, loaded: false, error: null }
+    { ...state, error: null }
   )),
   on(UserActions.refreshTokenSuccess, (state, { user }) => (
     { ...state, error: null, user }

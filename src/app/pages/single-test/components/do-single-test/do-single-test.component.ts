@@ -5,7 +5,7 @@ import { TestFacade } from '@store/test/test.facade';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { TestEntry, TestResult, TestRequest } from '@shared/interfaces/interfaces';
+import { TestEntry, TestResult } from '@shared/interfaces/interfaces';
 import { TestResultComponent } from '@layout/dialogs/test-result/test-result.component';
 
 @Component({
@@ -17,7 +17,6 @@ import { TestResultComponent } from '@layout/dialogs/test-result/test-result.com
 export class DoSingleTestComponent implements OnInit, OnDestroy {
 
   entry$: Observable<TestEntry>;
-  result$: Observable<TestResult>;
   private unsubscribe$ = new Subject<void>();
 
   constructor(
@@ -30,7 +29,6 @@ export class DoSingleTestComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.getEntryByUid();
     this.entry$ = this.testFacade.entry$;
-    this.result$ = this.testFacade.result$;
   }
 
   private getEntryByUid(): void {
@@ -39,26 +37,15 @@ export class DoSingleTestComponent implements OnInit, OnDestroy {
      .subscribe(params => this.testFacade.getEntryByUid(params.uid));
   }
 
-  public onCompleted(request: TestRequest): void {
+  public onCompleted(request: TestResult, entry: TestEntry): void {
     this.testFacade.saveRequest(request);
     this.router.navigate(['/test']);
-
-    setTimeout(() => {
-      this.crafter.dialog(
-        TestResultComponent,
-        {
-          result: this.result$,
-          entry: this.entry$
-        },
-        'test-result'
-      );
-    }, 2000);
+    this.crafter.dialog(TestResultComponent, entry, 'test-result');
   }
 
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
-    this.testFacade.reset();
     this.testFacade.resetEntry();
   }
 
