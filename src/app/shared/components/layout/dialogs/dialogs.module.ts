@@ -12,6 +12,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { SpinnerModule } from '../../snippets/spinner/spinner.module';
 import { InboxAccessModule } from '@store/inbox/data-access/inbox-access.module';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { ProfileInboxRightModule } from '@pages/profile/components/profile-inbox/components/profile-inbox-right/profile-inbox-right.module';
 
 import { DeleteAccountComponent } from './delete-account/delete-account.component';
 import { NoAccountComponent } from './no-account/no-account.component';
@@ -20,6 +22,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { TestResultComponent } from './test-result/test-result.component';
 import { NewInboxComponent } from './new-inbox/new-inbox.component';
+import { SnippetsModule } from '../../snippets/snippets.module';
+import { InboxMessagesComponent } from './inbox-messages/inbox-messages.component';
 
 const Material = [
   MatDialogModule,
@@ -38,7 +42,8 @@ const Material = [
     EditProfileComponent,
     ConfirmationComponent,
     TestResultComponent,
-    NewInboxComponent
+    NewInboxComponent,
+    InboxMessagesComponent
   ],
   imports: [
     CommonModule,
@@ -46,6 +51,9 @@ const Material = [
     ContentBoxModule,
     SpinnerModule,
     InboxAccessModule,
+    SnippetsModule,
+    NgxMatSelectSearchModule,
+    ProfileInboxRightModule,
     ...Material
   ]
 })

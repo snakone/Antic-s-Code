@@ -30,9 +30,9 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    window.onload = () => this.onLoad();
     this.checkUserToken();
     this.setTheme();
-    window.onload = () => this.onLoad();
   }
 
   private onLoad(): void {

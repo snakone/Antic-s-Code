@@ -76,6 +76,7 @@
     padding: 10px 100px 14px 24px;
     margin-bottom: 40px;
     transition: all .3s ease-in;
+    @media(max-width: 550px) { padding: 10px 92px 14px 14px }
 
     & .area {
       color: var(--p-color);
@@ -85,9 +86,9 @@
     & img {
       position: absolute;
       right: -35px;
-      top: 24%;
-      width: 100px;
-      height: 100px;
+      top: 26%;
+      width: 95px;
+      height: 95px;
       transition: all .3s ease-in;
       opacity: .8;
     }
@@ -106,17 +107,6 @@
     }
 
     & .primary { color: #b52559 }
-
-    @media(max-width: 800px) {
-      margin-bottom: 20px;
-
-      & img {
-        transform: translateX(15px);
-        top: 23%;
-        width: 110px;
-        height: 110px;
-      }
-    }
 
     @media(max-width: 550px) {
       & h3 { font-size: 1.3rem }

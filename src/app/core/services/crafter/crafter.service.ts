@@ -86,9 +86,7 @@ export class CrafterService {
                            'ERRORS.REQUEST.MESSAGE',
                            'help');
                 break;
-      case 401: this.modal('ERRORS.TOKEN.TITLE',
-                           'ERRORS.TOKEN.MESSAGE',
-                           'info');
+      case 401: return null;
                 break;
       case 403: this.modal('ERRORS.ACCESS.TITLE',
                            'ERRORS.ACCESS.MESSAGE');

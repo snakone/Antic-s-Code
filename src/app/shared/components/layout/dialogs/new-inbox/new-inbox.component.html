@@ -6,7 +6,15 @@
     <mat-label>{{'TO' | translate}}</mat-label>
     <mat-select formControlName="to"
                 aria-label="Select a User">
-      <mat-option *ngFor="let user of (users$ | async).sort()"
+      <mat-option *ngIf="!data">
+        <ngx-mat-select-search [formControl]="filterCtrl"
+                               [placeholderLabel]="'SEARCH' | translate"
+                               [noEntriesFoundLabel]="'NOT.FOUND' | translate"
+                               [searching]="true"
+                               ariaLabel="Search User">
+        </ngx-mat-select-search>
+      </mat-option>
+      <mat-option *ngFor="let user of (users$ | async).sort() | removeMyself: user._id"
                   [value]="user._id"
                   role="option"
                   class="category">
@@ -27,7 +35,18 @@
            autocomplete="off">
     </textarea>
   </mat-form-field>
+
+  <app-form-error [message]="'MAX.STRING' | translate:{number: maxLength}"
+                  [control]="msgCtrl"
+                  validator="maxlength">
+  </app-form-error>
+
   <div style="text-align: right">
+    <button mat-button
+            class="btn-disabled"
+            aria-label="Cancel"
+            (click)="close()">{{'CANCEL' | translate}}
+    </button>
     <button mat-button
             class="btn-pink"
             aria-label="Search"

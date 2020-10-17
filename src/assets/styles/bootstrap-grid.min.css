@@ -306,7 +306,7 @@
     margin-left: 0;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 993px) {
   .col-md-1,
   .col-md-10,
   .col-md-11,
@@ -413,7 +413,7 @@
 
 
 
-@media(max-width: 992px) {
+@media(max-width: 993px) {
   .col-lg-8, .col-lg-4 {
     width: 100%;
     max-width: 100%;

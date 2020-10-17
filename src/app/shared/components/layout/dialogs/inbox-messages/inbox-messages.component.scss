@@ -1,0 +1,12 @@
+.fab-button {
+  display: block !important;
+  bottom: 94px !important;
+  right: 35px !important;
+
+  @media(max-width: 550px) {
+    bottom: 85px !important;
+    right: 25px !important;
+  }
+}
+
+

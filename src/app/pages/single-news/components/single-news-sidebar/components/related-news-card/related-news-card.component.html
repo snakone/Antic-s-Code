@@ -2,7 +2,8 @@
   <div class="wrapper"
       [style.background-image]="'url('+ notice.image +')' | sanitizer: 'style'">
     <div class="related-card"
-        [ngClass]="{'last': last}">
+         [ngClass]="{'last': last}"
+         [routerLink]="'/news/' + notice.slug">
       <div class="related-card-category">
         <span>
           <img [src]="(notice.category | logo) | image: 'logos'"

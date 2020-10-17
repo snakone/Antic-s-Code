@@ -77,14 +77,17 @@ li {
 .col-lg-12 {
   padding-right: 0;
   padding-left: 0;
+  position: relative;
+  @media(max-width: 550px) { top: -5px }
 }
 
 .container.news {
   position: relative;
   top: 10px;
+  @media(max-width: 550px) { top: 2px }
 
   & h1 {
-      @media(min-width: 1200px) { max-width: 45% }
+      @media(min-width: 1200px) { max-width: 55% }
       @media(min-width: 815px) and (max-width: 1200px) { max-width: 60% }
       @media(min-width: 750px) and (max-width: 815px) { max-width: 65% }
       @media(min-width: 650px) and (max-width: 750px) { max-width: 75% }

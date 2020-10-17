@@ -2,7 +2,7 @@
 
 blockquote {
   margin: 4rem 0 3rem 0;
-  @media(max-width: 992px) { margin: 1rem 0 2rem 0 }
+  @media(max-width: 993px) { margin: 1rem 0 2rem 0 }
 
   & p { font-size: 1rem}
 }
@@ -31,7 +31,7 @@ blockquote {
     padding-left: 15px;
   }
 
-  @media(max-width: 992px) {
+  @media(max-width: 993px) {
     max-width: 100% !important;
     width: 100%;
 
@@ -43,12 +43,12 @@ blockquote {
 }
 
 .image {
-  @media(max-width: 992px) {
+  @media(max-width: 993px) {
     display: none;
   }
 }
 
 .text {
   padding-left: 4rem;
-  @media(max-width: 992px) { padding-left: 0 }
+  @media(max-width: 993px) { padding-left: 0 }
 }

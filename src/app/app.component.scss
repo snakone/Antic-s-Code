@@ -1,2 +1,8 @@
 .outlet { margin-top: var(--navbar-height) } // NavBar Height
 .hide { display: none }
+
+#app {
+  @media(max-width: 319px) { display: none }
+}
+
+

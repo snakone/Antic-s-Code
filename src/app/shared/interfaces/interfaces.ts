@@ -60,10 +60,13 @@ export interface News {
 }
 
 export interface Inbox {
-  sender?: string;
-  receiver?: string;
+  _id?: string;
+  sender?: User;
+  receiver?: User;
+  subject?: string;
   messages?: InboxMessage[];
   created?: string;
+  last?: InboxMessage;
 }
 
 export interface InboxMessage {
@@ -71,7 +74,7 @@ export interface InboxMessage {
   subject?: string;
   message?: string;
   sender?: User;
-  receiver?: string;
+  receiver?: User;
   date?: string;
   read?: boolean;
 }
@@ -101,7 +104,7 @@ export interface CategoryCountResponse extends ServerResponse {
 }
 
 export interface InboxResponse extends ServerResponse {
-  inbox?: InboxMessage[];
+  inbox?: Inbox[];
 }
 
 export interface NewsResponse extends ServerResponse {
@@ -273,6 +276,18 @@ export interface TestRequest {
   level?: string;
   request?: string[];
   created?: string;
+  result?: TestRawRequest;
+  raw?: TestRawResult;
+}
+
+export interface TestRawRequest {
+  answer?: boolean[];
+  correct?: number;
+}
+
+export interface TestRawResult {
+  uid?: string;
+  result?: string[];
 }
 
 export interface TestAnswerResult {
@@ -280,8 +295,14 @@ export interface TestAnswerResult {
   result?: boolean[];
 }
 
+export interface TestUserResult {
+  question?: string;
+  good?: string;
+  wrong?: string;
+}
+
 export interface TestResultDialog {
-  result$: Observable<TestResult>;
+  request$: Observable<TestResult>;
   entry$: Observable<TestEntry>;
 }
 

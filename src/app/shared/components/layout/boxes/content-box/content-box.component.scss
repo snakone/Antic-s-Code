@@ -10,7 +10,7 @@
       box-shadow: none;
       & .content-box-body {
         padding: 0 !important;
-        @media(max-width: 992px) {
+        @media(max-width: 993px) {
           padding-top: 0 !important;
           padding-left: 0 !important;
           padding-bottom: .8rem !important;
@@ -20,10 +20,19 @@
 
     &-on-news {
       & .content-box-body {
-        @media(max-width: 992px) {
+        @media(max-width: 993px) {
           padding-left: 0 !important;
         }
       }
+    }
+
+    &-on-inbox {
+      @media(max-width: 350px) {
+        & .content-box-header {
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+        }
+       }
     }
 
     &-no-margin { margin-bottom: 0 }

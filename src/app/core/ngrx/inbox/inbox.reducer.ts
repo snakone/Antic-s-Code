@@ -1,14 +1,13 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import * as InboxActions from './inbox.actions';
-import { Inbox, InboxMessage } from '@shared/interfaces/interfaces';
+import { Inbox } from '@shared/interfaces/interfaces';
 
 export interface InboxState {
-  inbox: InboxMessage[];
+  inbox: Inbox[];
   inboxLoaded: boolean;
-  filtered: InboxMessage[];
-  selected: InboxMessage;
-  message: string;
-  new: Inbox[];
+  filtered: Inbox[];
+  selected: Inbox;
+  unread: number;
 }
 
 export const inititalState: InboxState = {
@@ -16,8 +15,7 @@ export const inititalState: InboxState = {
   inboxLoaded: false,
   filtered: [],
   selected: null,
-  message: null,
-  new: []
+  unread: 0
 };
 
 const featureReducer = createReducer(
@@ -30,27 +28,14 @@ const featureReducer = createReducer(
     {
       ...state,
       error: null,
-      inbox: [...state.inbox, ...inbox],
+      inbox,
+      filtered: inbox,
       inboxLoaded: true,
-      filtered: inbox
+      unread: [...inbox].reduce((acc, curr) => acc + (curr.last.read ? 0 : 1), 0)
     }
   )),
   on(InboxActions.getFailure, (state, { error }) => (
     { ...state, inboxLoaded: false, error }
-  )),
-  // GET INBOX
-  on(InboxActions.getNew, (state) => (
-    { ...state, error: null }
-  )),
-  on(InboxActions.getNewSuccess, (state, { inbox }) => (
-    {
-      ...state,
-      error: null,
-      new: inbox
-    }
-  )),
-  on(InboxActions.getNewFailure, (state, { error }) => (
-    { ...state, error }
   )),
   // SET INBOX MESSAGE
   on(InboxActions.set, (state) => (
@@ -66,19 +51,11 @@ const featureReducer = createReducer(
   on(InboxActions.setFailure, (state, { error }) => (
     { ...state, selected: null, error }
   )),
-  // SET SINGLE MESSAGE
-  on(InboxActions.setMessage, (state, { message }) => (
-    {
-      ...state,
-      error: null,
-      message
-    }
-  )),
   // MARK UNREAD
   on(InboxActions.markUnread, (state, { id, mark }) => (
     {
       ...state,
-      inbox: [...state.inbox].map(i => i._id === id ? (i.read = mark, i) : i),
+      inbox: [...state.inbox].map(i => i.last._id === id ? (i.last.read = mark, i) : i),
       error: null
     }
   )),
@@ -86,7 +63,8 @@ const featureReducer = createReducer(
   on(InboxActions.filter, (state, { value }) => (
     {
       ...state,
-      filtered: [...[...state.inbox].filter(i => i.subject.match(new RegExp(value, 'i')))],
+      filtered: [...[...state.inbox]
+                  .filter(i => i.last.subject.match(new RegExp(value, 'i')))],
       error: null
     }
   )),
@@ -100,13 +78,6 @@ const featureReducer = createReducer(
       selected: null,
       inboxLoaded: false
     }
-  )),
-  // RESET SINGLE MESSAGE
-  on(InboxActions.resetMessage, (state) => (
-    {
-      ...state,
-      message: null
-    }
   ))
 );
 
@@ -114,8 +85,7 @@ export const getInbox = (state: InboxState) => state.inbox;
 export const getInboxLoaded = (state: InboxState) => state.inboxLoaded;
 export const getFiltered = (state: InboxState) => state.filtered;
 export const getSelected = (state: InboxState) => state.selected;
-export const getMessage = (state: InboxState) => state.message;
-export const getNew = (state: InboxState) => state.new;
+export const getUnread = (state: InboxState) => state.unread;
 
 export function reducer(state: InboxState | undefined, action: Action) {
   return featureReducer(state, action);

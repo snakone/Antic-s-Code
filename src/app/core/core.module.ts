@@ -30,7 +30,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { NgMarkdownModule } from './markdown/markdown.module';
-import { DeviceDetectorModule } from 'ngx-device-detector';
 import { SocketsModule } from './sockets/sockets.module';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -49,7 +48,6 @@ const Material = [
     NgMarkdownModule,
     SocketsModule,
     LoadingBarHttpClientModule,
-    DeviceDetectorModule.forRoot(),
     NgxWebstorageModule.forRoot(CORE_MODULE_CONSTANTS.WEBSTORAGE_CONFIG),
     StoreModule.forFeature('AppState', reducers),
     EffectsModule.forRoot([

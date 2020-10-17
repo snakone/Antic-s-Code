@@ -3,23 +3,32 @@
   <div class="icons">
     <mat-icon [matTooltip]="'MY.INBOX' | translate"
               matTooltipPosition="above"
-              [routerLink]="'/profile/inbox'">email
+              [routerLink]="'/profile/inbox'"
+              [matBadge]="unread$ | async"
+              matBadgeColor="accent"
+              [matBadgeHidden]="(unread$ | async) === 0">email
     </mat-icon>
+    <span>{{'MY.INBOX' | translate}}</span>
     <mat-icon [matTooltip]="'PUBLIC.PROFILE' | translate"
               matTooltipPosition="above"
               [routerLink]="'/profile/' + user.name">assignment_ind
     </mat-icon>
+    <span>{{'PUBLIC.PROFILE' | translate}}</span>
     <mat-icon [matTooltip]="'EDIT.PROFILE' | translate"
               matTooltipPosition="above"
               (click)="openModal()">edit
     </mat-icon>
+    <span>{{'EDIT.PROFILE' | translate}}</span>
     <mat-icon [matTooltip]="'LOG.OUT' | translate"
               matTooltipPosition="above"
               (click)="logOut()">exit_to_app
     </mat-icon>
+    <span>{{'LOG.OUT' | translate}}</span>
     <mat-icon [matTooltip]="'DELETE.ACC' | translate"
               matTooltipPosition="above"
+              class="close"
               (click)="delete()">delete_outline
     </mat-icon>
+    <span>{{'DELETE.ACC' | translate}}</span>
   </div>
 </app-content-box>

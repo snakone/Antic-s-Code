@@ -31,13 +31,11 @@ export class TopButtonDirective implements AfterViewInit, OnDestroy {
   private onScroll(): void {
     try {
       const scroll = document.documentElement.scrollTop;
-      if (scroll > 550 && this.displayed) return;
+      if (scroll > 550 && this.displayed) { return; }
       scroll > 550 ?
       (this.button.display = 'block', this.displayed = true) :
       (this.button.display = 'none', this.displayed = false);
-    } catch(err) {
-      console.log(err);
-     }
+    } catch (err) { console.log(err); }
   }
 
   ngOnDestroy(): void {

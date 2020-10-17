@@ -1,0 +1,28 @@
+<div class="content-header">
+  <div class="avatar">
+    <img src="https://anticscode.netlify.com/assets/img/logo.png">
+      <div class="avatar-data">
+        <span>Allison</span>
+        <p>
+          <span>{{'TO' | translate}}:</span> {{user}}
+        </p>
+      </div>
+  </div>
+  <div class="date">
+    {{'JUST.NOW' | translate}}
+  </div>
+</div>
+<div class="content-message">
+  <span>{{'INBOX' | translate}}</span>
+  <p [innerHTML]="'WELCOME.INBOX' | translate"></p>
+  <p [innerHTML]="'USE.INBOX' | translate"></p>
+  <p [innerHTML]="'REFRESH.INBOX' | translate"></p>
+  <p [innerHTML]="'ENJOY.INBOX' | translate"></p>
+</div>
+<div class="content-footer">
+  <div class="separator right">
+    <span (click)="emitNew()">
+      <mat-icon>add_circle_outline</mat-icon> {{'NEW' | translate}}
+    </span>
+  </div>
+</div>

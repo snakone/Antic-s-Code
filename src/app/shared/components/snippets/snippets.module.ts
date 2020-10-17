@@ -9,6 +9,7 @@ import { PipesModule } from '@shared/pipes/pipes.module';
 import { StarRatingComponent } from './star-rating/star-rating.component';
 import { StarFilterComponent } from './star-filter/star-filter.component';
 import { LevelBarComponent } from './level-bar/level-bar.component';
+import { FormErrorComponent } from './form-error/form-error.component';
 
 const Material = [
   MatCheckboxModule,
@@ -25,12 +26,14 @@ const Material = [
   declarations: [
     StarRatingComponent,
     StarFilterComponent,
-    LevelBarComponent
+    LevelBarComponent,
+    FormErrorComponent
   ],
   exports: [
     StarRatingComponent,
     StarFilterComponent,
-    LevelBarComponent
+    LevelBarComponent,
+    FormErrorComponent
   ]
 })
 

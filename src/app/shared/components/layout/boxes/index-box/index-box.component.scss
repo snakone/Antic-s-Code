@@ -1,13 +1,13 @@
 ul {
   list-style-type: none;
-  padding-left: 2rem;
+  padding-left: 1.5rem;
   margin: 0 auto;
 
   &.right {
     text-align: right;
     margin-right: 2rem;
 
-    @media(min-width: 992px) {
+    @media(min-width: 993px) {
       & li {
         position: relative;
         &:after {
@@ -27,7 +27,7 @@ ul {
 
 
 
-@media(max-width: 992px) {
+@media(max-width: 993px) {
   li:before {
     content: "\f101"; /* FontAwesome Unicode */
     font-family: FontAwesome;
