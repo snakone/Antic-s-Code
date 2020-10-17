@@ -20,14 +20,6 @@ export const getUsersLoaded = createSelector(
   getUserState, fromUsers.getUsersLoaded
 );
 
-export const getMostActive = createSelector(
-  getUserState, fromUsers.getMostActive
-);
-
-export const getMostActiveLoaded = createSelector(
-  getUserState, fromUsers.getMostActiveLoaded
-);
-
 export const getEmail = createSelector(
   getUserState, fromUsers.getEmail
 );

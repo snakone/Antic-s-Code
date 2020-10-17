@@ -22,7 +22,7 @@ const featureReducer = createReducer(
   inititalState,
   // GET INBOX
   on(InboxActions.get, (state) => (
-    { ...state, error: null }
+    { ...state, error: null, filtered: [] }
   )),
   on(InboxActions.getSuccess, (state, { inbox }) => (
     {

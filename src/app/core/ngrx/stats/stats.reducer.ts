@@ -6,6 +6,7 @@ export interface StatsState {
   stats: UserStats[];
   loaded: boolean;
   test: UserStats[];
+  articles: UserStats[];
   userStats: UserStats;
   publicStats: UserStats;
   publicLoaded: boolean;
@@ -19,6 +20,7 @@ export const inititalState: StatsState = {
   publicStats: null,
   publicLoaded: false,
   test: null,
+  articles: null,
   error: null
 };
 
@@ -36,6 +38,9 @@ const featureReducer = createReducer(
       test: stats.filter(s => s.score.test.done > 0)
                  .sort((a, b) => b.score.test.correct - a.score.test.correct)
                  .slice(0, 3),
+      articles: stats.filter(s => s.score.articles.written > 0)
+                     .sort((a, b) => b.score.articles.written - a.score.articles.written)
+                     .slice(0, 5),
       error: null
     }
   )),
@@ -97,6 +102,7 @@ export function reducer(state: StatsState | undefined, action: Action) {
 export const getStats = (state: StatsState) => state.stats;
 export const getStatsLoaded = (state: StatsState) => state.loaded;
 export const getTest = (state: StatsState) => state.test;
+export const getArticles = (state: StatsState) => state.articles;
 export const getByUser = (state: StatsState) => state.userStats;
 export const getByUserPublic = (state: StatsState) => state.publicStats;
 export const getPublicLoaded = (state: StatsState) => state.publicLoaded;

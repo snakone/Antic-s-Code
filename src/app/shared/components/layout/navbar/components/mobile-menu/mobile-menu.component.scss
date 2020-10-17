@@ -5,7 +5,6 @@
   align-items: center;
   width: var(--menu-width);
   min-height: 100vh;
-  text-align: center;
   z-index: 550;
   border: 0;
   top: 0;
@@ -20,8 +19,8 @@
     width: 100%;
 
     & li {
-      margin-top: 1.1rem;
-      margin-bottom: 1.1rem;
+      margin-top: 3.4vh;
+      margin-bottom: 3.4vh;
       font-size: .9rem;
       outline: none;
       display: flex;
@@ -29,6 +28,11 @@
       justify-content: flex-start;
       padding-left: 1rem;
       cursor: pointer;
+
+      @media(min-height: 700px) {
+        margin-top: 3.8vh;
+        margin-bottom: 3.8vh;
+      }
 
       & mat-icon {
         margin-right: 1rem;

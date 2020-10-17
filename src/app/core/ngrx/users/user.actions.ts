@@ -1,5 +1,5 @@
 import { props, createAction } from '@ngrx/store';
-import { User, MostActive } from '@shared/interfaces/interfaces';
+import { User } from '@shared/interfaces/interfaces';
 
 // GET ALL USERS
 export const get =
@@ -24,18 +24,6 @@ export const getByNameSuccess =
 
 export const getByNameFailure =
   createAction('[Users API] Get User By Name Failure',
-  props<{ error: string }>());
-
-// GET MOST ACTIVE USERS
-export const getMostActive =
-  createAction('[Users API] Get Most Active Users');
-
-export const getMostActiveSuccess =
-  createAction('[Users API] Get Most Active Users Success',
-  props<{ active: MostActive[] }>());
-
-export const getMostActiveFailure =
-  createAction('[Users API] Get Most Active Users Failure',
   props<{ error: string }>());
 
 // GET LAST USER

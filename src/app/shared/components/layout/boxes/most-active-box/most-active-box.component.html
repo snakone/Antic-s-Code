@@ -1,7 +1,7 @@
 <app-content-box title="MOST.ACTIVE" icon="thumb_up">
-  <ng-container *ngIf="(activeUsers$ | async) as users; else noUsers">
+  <ng-container *ngIf="(stats$ | async) as stats; else noStats">
     <ul>
-      <li *ngFor="let user of users; let i = index">
+      <li *ngFor="let s of stats; let i = index">
         <span>
           <span class="medal" *ngIf="i === 0">
             <img [src]="'first-place.png' | image:'unicode'">
@@ -16,17 +16,19 @@
             <img [src]="'seedling.png' | image:'unicode'">
           </span>
           <span class="name"
-                [routerLink]="'/profile/' + user.name">{{user.name | titlecase}}
+                [routerLink]="'/profile/' + s.user.name">{{s.user.name | titlecase}}
           </span>
-          <span class="count">{{user.count}}
-            {{'ARTICLE' | translate}}<span class="s" *ngIf="user.count > 1">s</span>
+          <span class="count">{{s.score.articles.written}}
+            {{'ARTICLE' | translate}}<span class="s"
+                                           *ngIf="s.score.articles.written > 1">s
+                                     </span>
           </span>
         </span>
       </li>
     </ul>
   </ng-container>
 
-  <ng-template #noUsers>
+  <ng-template #noStats>
     <ul>
       <li *ngFor="let u of [0,1,2,3,4]">
         <span>

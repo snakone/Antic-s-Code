@@ -400,15 +400,6 @@ export interface TimeLine {
   fade: string;
 }
 
-export interface MostActive {
-  name: string;
-  count: number;
-}
-
-export interface MostActiveResponse extends ServerResponse {
-  users: MostActive[];
-}
-
 export interface ChatMessage {
   _id?: string;
   user: string;

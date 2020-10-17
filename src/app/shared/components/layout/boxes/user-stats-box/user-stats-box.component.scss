@@ -19,6 +19,7 @@ ul {
       display: flex;
       align-items: center;
       & span { color: var(--p-color) }
+      @media(max-width: 550px) { font-size: .9rem }
     }
 
     & mat-icon {

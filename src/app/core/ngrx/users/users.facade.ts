@@ -18,8 +18,6 @@ export class UsersFacade {
   public last$ = this.store.select(fromUsers.getLast);
   public lastLoaded$ = this.store.select(fromUsers.getLastLoaded);
   public usersLoaded$ = this.store.select(fromUsers.getUsersLoaded);
-  public mostActive$ = this.store.select(fromUsers.getMostActive);
-  public mostActiveLoaded$ = this.store.select(fromUsers.getMostActiveLoaded);
 
   constructor(private store: Store<AppState>) { }
 
@@ -37,10 +35,6 @@ export class UsersFacade {
 
   public getByName(name: string): void {
     this.store.dispatch(UserActions.getByName({name}));
-  }
-
-  public getMostActive(): void {
-    this.store.dispatch(UserActions.getMostActive());
   }
 
   public getLast(): void {

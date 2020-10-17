@@ -16,6 +16,10 @@ export const getStatsLoaded = createSelector(
   getStatsState, fromStats.getStatsLoaded
 );
 
+export const getArticles = createSelector(
+  getStatsState, fromStats.getArticles
+);
+
 export const getTest = createSelector(
   getStatsState, fromStats.getTest
 );

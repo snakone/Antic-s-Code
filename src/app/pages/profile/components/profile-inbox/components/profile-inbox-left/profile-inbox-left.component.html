@@ -4,12 +4,16 @@
                     (search)="search($event)">
   </app-inbox-search>
   <div class="wrapper-card">
-    <ng-container *ngIf="filtered.length > 0; else noMessages">
+    <ng-container *ngIf="filtered; else noMessages">
       <app-inbox-card *ngFor="let m of filtered"
                         [inbox]="m.last"
                         (click)="set(m)"
                         [selected]="selected">
       </app-inbox-card>
+      <div *ngIf="filtered.length === 0"
+            class="empty">
+        {{'NO.MESSAGES' | translate}}
+      </div>
     </ng-container>
   </div>
 </div>

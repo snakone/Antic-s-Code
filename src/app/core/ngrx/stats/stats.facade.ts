@@ -13,6 +13,7 @@ export class StatsFacade {
   public stats$ = this.store.select(fromStats.getStats);
   public loaded$ = this.store.select(fromStats.getStatsLoaded);
   public test$ = this.store.select(fromStats.getTest);
+  public articles$ = this.store.select(fromStats.getArticles);
   public byUser$ = this.store.select(fromStats.getByUser);
   public byUserPublic$ = this.store.select(fromStats.getByUserPublic);
   public publicLoaded$ = this.store.select(fromStats.getPublicLoaded);

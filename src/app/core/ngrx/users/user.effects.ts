@@ -52,19 +52,6 @@ export class UserEffects {
     ))))
   );
 
-  // GET MOST ACTIVE USERS
-  getMostActiveUsersEffect$ = createEffect(() => this.actions
-    .pipe(
-      ofType(UserActions.getMostActive),
-      concatMap(() =>
-      this.userSrv.getMostActive()
-        .pipe(
-          map(users => UserActions.getMostActiveSuccess({ active: users })),
-          catchError(error =>
-              of(UserActions.getMostActiveFailure({ error: error.message }))
-    ))))
-  );
-
   // GET ALL USER
   getLastUserEffect$ = createEffect(() => this.actions
     .pipe(

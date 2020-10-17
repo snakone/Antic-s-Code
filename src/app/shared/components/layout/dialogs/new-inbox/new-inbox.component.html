@@ -14,7 +14,7 @@
                                ariaLabel="Search User">
         </ngx-mat-select-search>
       </mat-option>
-      <mat-option *ngFor="let user of (users$ | async).sort() | removeMyself: user._id"
+      <mat-option *ngFor="let user of (users$ | async)?.sort() | removeMyself: user._id"
                   [value]="user._id"
                   role="option"
                   class="category">

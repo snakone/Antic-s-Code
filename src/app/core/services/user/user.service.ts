@@ -5,8 +5,6 @@ import { environment } from '@env/environment';
 import {
   User,
   UserResponse,
-  MostActiveResponse,
-  MostActive,
   MessageRequest,
   UserStats,
   UserStatsResponse
@@ -17,6 +15,7 @@ import { StorageService } from '@core/storage/storage.service';
 import { map, filter, tap } from 'rxjs/operators';
 import { PushService } from '../push/push.service';
 import { UsersFacade } from '@store/users/users.facade';
+import { StatsFacade } from '@store/stats/stats.facade';
 
 @Injectable({providedIn: 'root'})
 
@@ -31,6 +30,7 @@ export class UserService {
     private http: HttpService,
     private ls: StorageService,
     private userFacade: UsersFacade,
+    private statsFacade: StatsFacade,
     private sw: PushService
   ) { }
 
@@ -100,15 +100,6 @@ export class UserService {
       );
   }
 
-  public getMostActive(): Observable<MostActive[]> {
-    return this.http
-      .get<MostActiveResponse>(this.API_USERS + '/active')
-      .pipe(
-        filter(res => res && !!res.ok),
-        map(_ => _.users)
-      );
-  }
-
   public getLast(): Observable<User> {
     return this.http
       .get<UserResponse>(this.API_USERS + '/last')
@@ -168,6 +159,7 @@ export class UserService {
   ): void {
       this.ls.userLogIn(data, remember);
       this.userFacade.set(data.user);
+      this.statsFacade.getByUser(data.user._id);
       this.setUser(data.user);
       this.sw.showPrompt();
   }

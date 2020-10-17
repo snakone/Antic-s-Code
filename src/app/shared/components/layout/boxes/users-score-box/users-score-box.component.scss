@@ -18,6 +18,8 @@ ul {
     & > div {
       display: flex;
       align-items: center;
+      @media(max-width: 550px) { font-size: .9rem }
+
       & span {
         color: var(--p-color);
         font-weight: bold;

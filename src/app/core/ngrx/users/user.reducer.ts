@@ -1,14 +1,12 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import * as UserActions from './user.actions';
-import { User, MostActive } from '@shared/interfaces/interfaces';
+import { User } from '@shared/interfaces/interfaces';
 
 export interface UserState {
   user: User;
   users: User[];
   filtered: User[];
   loaded: boolean;
-  mostActive: MostActive[];
-  mostActiveLoaded: boolean;
   public: User;
   publicLoaded: boolean;
   last: User;
@@ -19,11 +17,9 @@ export interface UserState {
 
 export const inititalState: UserState = {
   user: null,
-  users: null,
-  filtered: null,
+  users: [],
+  filtered: [],
   loaded: false,
-  mostActive: null,
-  mostActiveLoaded: false,
   public: null,
   publicLoaded: false,
   last: null,
@@ -75,23 +71,8 @@ const featureReducer = createReducer(
   on(UserActions.getByNameFailure, (state, { error }) => (
     { ...state, publicLoaded: false, error }
   )),
-  // GET MOST ACTIVE USERS
-  on(UserActions.getMostActive, (state) => (
-    { ...state, mostActiveLoaded: false, error: null }
-  )),
-  on(UserActions.getMostActiveSuccess, (state, { active }) => (
-    {
-      ...state,
-      mostActive: active,
-      mostActiveLoaded: true,
-      error: null
-    }
-  )),
-  on(UserActions.getMostActiveFailure, (state, { error }) => (
-    { ...state, mostActiveLoaded: false, error }
-  )),
-    // GET LAST USER
-   on(UserActions.getLast, (state) => (
+  // GET LAST USER
+  on(UserActions.getLast, (state) => (
     { ...state, error: null }
   )),
   on(UserActions.getLastSuccess, (state, { user }) => (
@@ -173,8 +154,6 @@ export function reducer(state: UserState | undefined, action: Action) {
 export const getUser = (state: UserState) => state.user;
 export const getUsers = (state: UserState) => state.users;
 export const getUsersLoaded = (state: UserState) => state.loaded;
-export const getMostActive = (state: UserState) => state.mostActive;
-export const getMostActiveLoaded = (state: UserState) => state.mostActiveLoaded;
 export const getUserByName = (state: UserState) => state.public;
 export const getUserByNameLoaded = (state: UserState) => state.publicLoaded;
 export const getLastUser = (state: UserState) => state.last;
