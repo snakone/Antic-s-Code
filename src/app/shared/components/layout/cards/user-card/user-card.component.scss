@@ -60,6 +60,7 @@
       top: 1.9px;
       height: auto;
       width: auto;
+      @media(max-width: 550px) { top: 1.5px }
     }
   }
 

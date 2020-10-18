@@ -11,12 +11,12 @@
 
   <span class="meta-type meta-type-like"
         *ngIf="!content.userLiked; else isLiked"
-        (click)="doLike(1); content.userLiked = !content.userLiked">
+        (click)="doLike(1)">
     <mat-icon>favorite_outline</mat-icon> {{'LIKE' | translate}}
   </span>
   <ng-template #isLiked>
     <span class="meta-type meta-type-like liked"
-          (click)="doLike(-1); content.userLiked = !content.userLiked">
+          (click)="doLike(-1)">
       <mat-icon>favorite</mat-icon> {{'LIKE' | translate}}
     </span>
   </ng-template>

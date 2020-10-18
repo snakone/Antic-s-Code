@@ -66,6 +66,7 @@
            position: relative;
            left: -2px;
            top: -1px;
+           @media(max-width: 550px) { top: -3px }
          }
         }
 

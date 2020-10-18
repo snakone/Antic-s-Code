@@ -80,9 +80,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 90%;
-    @media(max-width: 415px) and (min-width: 550px) { max-width: 170px }
-    @media(max-width: 375px) and (min-width: 340px) { max-width: 135px }
-    @media(max-width: 340px) and (min-width: 320px) { max-width: 115px }
+    @media(min-width: 415px) and (max-width: 450px) { max-width: 170px }
+    @media(min-width: 380px) and (max-width: 414px) { max-width: 160px }
+    @media(min-width: 345px) and (max-width: 379px) { max-width: 145px }
+    @media(min-width: 320px) and (max-width: 344px) { max-width: 125px }
   }
 
   & p {
@@ -170,7 +171,7 @@
 }
 
 @media(max-width: 550px) {
-  .course-preview, .course-info { padding: 20px }
+  .course-preview, .course-info { padding: 18px }
   .course-preview img { left: -6px }
   .course h6 { font-size: .8rem }
   .course-preview h6 { left: 2px }

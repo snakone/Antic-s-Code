@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
-import { News } from '@app/shared/interfaces/interfaces';
+import { News } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-related-news-card',

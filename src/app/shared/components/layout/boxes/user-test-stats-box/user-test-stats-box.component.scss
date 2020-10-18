@@ -51,18 +51,29 @@ ul {
   }
 
   &.skeleton {
-    margin-left: 0;
     padding-left: 0;
     margin-bottom: 0;
-
+    margin-left: 2rem;
     & li {
       margin-bottom: 1.333rem;
       &:last-child { margin-bottom: 0 }
+
       & p {
         background: var(--skeleton-color-tint);
-        height: 1.2rem;
+        height: 1rem;
         width: 14rem;
         margin: .5rem;
+
+        &:first-child {
+          height: 1.2rem;
+          width: 6rem;
+          background: var(--skeleton-color);
+          margin-bottom: .3rem;
+        }
+
+        &:nth-child(2) { width: 8rem }
+        &:nth-child(3) { width: 10rem }
+        &:nth-child(4) { width: 5rem }
       }
     }
   }

@@ -50,6 +50,7 @@ export class UserArticlesBoxComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+    this.articlesFacade.resetByUser();
   }
 
 }

@@ -2,15 +2,33 @@
   <div class="notice-content">
     <img [src]="notice.image" class="image" [alt]="notice.slug"/>
     <div class="data">
+      <div class="like-desktop">
+        <mat-icon *ngIf="!notice.userLiked"
+                  (click)="doLike(1)">favorite_outline
+        </mat-icon>
+        <mat-icon *ngIf="notice.userLiked"
+                  class="active"
+                  (click)="doLike(-1)">favorite
+        </mat-icon>
+      </div>
       <img [src]="(notice.category | logo) | image: 'logos'"
            [alt]="notice.category"
            class="category"
            loading="lazy"/>
-           <span>{{notice.category}}</span> <span class="separator">-</span>
-           <span class="data-notice">
+      <span>{{notice.category}}</span> <span class="separator">-</span>
+      <span class="data-notice">
              {{notice.views}} {{'VIEWS' | translate}} <span class="dot">·</span>
              {{notice.likes}} {{'LIKES' | translate}}
-           </span>
+      </span>
+      <div class="like-mobile">
+      <mat-icon *ngIf="!notice.userLiked"
+                (click)="doLike(1)">favorite_outline
+      </mat-icon>
+      <mat-icon *ngIf="notice.userLiked"
+                class="active"
+                (click)="doLike(-1)">favorite
+      </mat-icon>
+    </div>
     </div>
     <app-content-maker [template]="notice.message"></app-content-maker>
   </div>

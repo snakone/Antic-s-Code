@@ -5,7 +5,7 @@ ul {
 
   &.skeleton {
     & li {
-      margin-bottom: .6rem;
+      margin-bottom: 1rem;
       display: flex;
       justify-content: flex-start;
       position: relative;
@@ -24,10 +24,17 @@ ul {
       & p {
         background: var(--skeleton-color-tint);
         height: 1.3rem;
-        width: 10rem;
+        width: 12rem;
         margin: .5rem .5rem .8rem 1rem;
         &:last-child { margin-bottom: 0 }
       }
+    }
+  }
+
+  &.no-m {
+    & li {
+      margin-bottom: 0;
+      & p { width: 14rem }
     }
   }
 }

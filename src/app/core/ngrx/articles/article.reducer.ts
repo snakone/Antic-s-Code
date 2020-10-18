@@ -108,7 +108,7 @@ const featureReducer = createReducer(
   on(ArticleActions.getBySlugFailure, (state, { error }) => (
     { ...state, bySlugLoaded: false, error }
   )),
-  // ARTICLE BY USER
+  // ARTICLES BY USER
   on(ArticleActions.getByUser, (state) => (
     { ...state, byUserLoaded: false, error: null }
   )),

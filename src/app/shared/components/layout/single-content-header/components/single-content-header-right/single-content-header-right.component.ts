@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { URI } from '@app/app.config';
 import { CrafterService } from '@core/services/crafter/crafter.service';
 import { PushService } from '@core/services/push/push.service';
@@ -16,7 +16,7 @@ import { NoAccountComponent } from '@layout/dialogs/no-account/no-account.compon
   styleUrls: ['./single-content-header-right.component.scss']
 })
 
-export class SingleContentHeaderRightComponent implements OnInit {
+export class SingleContentHeaderRightComponent implements OnInit, OnDestroy {
 
   @Input() content: Article | Category;
   @Input() type: string;
@@ -35,6 +35,7 @@ export class SingleContentHeaderRightComponent implements OnInit {
   }
 
   public doLike(value: number): void {
+    this.content.userLiked = !this.content.userLiked;
     if (this.type === 'category') { return; }
     if (!this.user) {
       this.crafter.dialog(NoAccountComponent, {
@@ -69,6 +70,11 @@ export class SingleContentHeaderRightComponent implements OnInit {
     payload.data.url = `${URI}/article/${this.content.slug}`;
     payload.user = this.content.user;
     return payload;
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
 }

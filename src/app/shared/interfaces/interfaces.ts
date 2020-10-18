@@ -45,6 +45,7 @@ export interface Category extends Content {
 }
 
 export interface News {
+  _id?: string;
   title: string;
   image: string;
   message: string;
@@ -55,6 +56,7 @@ export interface News {
   slug?: string;
   links?: Link[];
   likes?: number;
+  userLiked?: boolean;
 }
 
 export interface Inbox {

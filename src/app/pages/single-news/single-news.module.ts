@@ -9,9 +9,14 @@ import { SingleNewsSidebarModule } from './components/single-news-sidebar/single
 import { PipesModule } from '@shared/pipes/pipes.module';
 import { ComponentsModule } from '@shared/components/components.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { MatIconModule } from '@angular/material/icon';
 
 import { SingleNewsComponent } from './single-news.component';
 import { SingleNewsContentComponent } from './components/single-news-content/single-news-content.component';
+
+const Material = [
+  MatIconModule
+];
 
 @NgModule({
   declarations: [
@@ -27,7 +32,8 @@ import { SingleNewsContentComponent } from './components/single-news-content/sin
     PipesModule,
     TranslateModule,
     SingleNewsSidebarModule,
-    ComponentsModule
+    ComponentsModule,
+    ...Material
   ]
 })
 
