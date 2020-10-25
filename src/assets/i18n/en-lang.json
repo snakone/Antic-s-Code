@@ -28,7 +28,7 @@
   "ARTICLE": "Article",
   "ARTICLE.CREATE": "Article Creation",
   "ARTICLE.LOOKING": "What sort of Articles are You Looking for?",
-  "ARTICLE.RATE": "Rate this Article",
+  "RATE.STARS": "Rate this content",
   "ARTICLE.USEFUL": "Have You found it useful?",
   "ARTICLES": "Articles",
   "ARTICLES.OF": "{{name}}'s Articles",
@@ -160,6 +160,8 @@
   "DESIGN.DEV": "Designer",
   "DESIGN.WEB": "Web Designer",
   "SCORE.OF": "{{name}}'s Score",
+  "MY.SCORE": "My Score",
+  "MY.ARTICLES": "My Articles",
   "TEST.CATEGORY": "Test by Category",
   "DESKTOP.INTRO": "Do you find it interesting? Do you want to join a community of developers? Download Antic's Code now! It is totally free. You will need an Antic's Code account to enter.",
   "DISCOVER": "Discover",
@@ -204,6 +206,10 @@
       "REQUEST": {
           "MESSAGE": "There was an error verifying the data. Please check the entered data and try again. If the problem persists, contact us.",
           "TITLE": "Data Error"
+      },
+      "SHARE": {
+        "MESSAGE": "We are sorry. This device doesn't support the Web API Share. Please try again with another device, this usually works on mobile devices.",
+        "TITLE": "Share Not Available"
       },
       "SERVER": {
           "MESSAGE": "There has been an internal error on the server. If the error continues, please try again later or contact us. Sorry for the disturbances.",

@@ -20,7 +20,8 @@
       <mat-icon>favorite</mat-icon> {{'LIKE' | translate}}
     </span>
   </ng-template>
-  <span class="meta-type meta-type-like">
+  <span class="meta-type meta-type-like"
+        (click)="share()">
     <mat-icon>share</mat-icon> {{'SHARE' | translate}}
   </span>
 </div>

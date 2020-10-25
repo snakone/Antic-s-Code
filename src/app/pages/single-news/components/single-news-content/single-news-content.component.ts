@@ -9,6 +9,8 @@ import { LIKE_NEWS_PUSH } from '@shared/data/notifications';
 import { News, NotificationPayload, Reaction, User } from '@shared/interfaces/interfaces';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { environment } from '@env/environment';
+import { ShareService } from '@core/services/share/share.service';
 
 @Component({
   selector: 'app-single-news-content',
@@ -26,7 +28,8 @@ export class SingleNewsContentComponent implements OnInit, OnDestroy {
     private userSrv: UserService,
     private crafter: CrafterService,
     private reactionSrv: ReactionService,
-    private sw: PushService
+    private sw: PushService,
+    private shareSrv: ShareService
   ) { }
 
   ngOnInit() {
@@ -66,8 +69,18 @@ export class SingleNewsContentComponent implements OnInit, OnDestroy {
   private setNotification(payload: NotificationPayload): NotificationPayload {
     payload.body = payload.body.concat(`.\n${this.notice.title}`);
     payload.data.url = `${URI}/news/${this.notice.slug}`;
-    payload.user = '5d7b56610d35cc0017f4ef9c';
+    payload.user = environment.id;
     return payload;
+  }
+
+  public async share(): Promise<void> {
+    const payload: ShareData = {
+      title: `Antic\'s Code - ${this.notice.title}`,
+      url: `${URI}/news/${this.notice.slug}`,
+      text: `Antic\'s Code - ${this.notice.title}`
+    };
+
+    await this.shareSrv.share(payload);
   }
 
   ngOnDestroy() {

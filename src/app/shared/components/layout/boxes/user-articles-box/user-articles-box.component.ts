@@ -16,6 +16,7 @@ import { Article, User } from '@shared/interfaces/interfaces';
 export class UserArticlesBoxComponent implements OnInit, OnDestroy {
 
   @Input() user: User;
+  @Input() title: string;
   articles$: Observable<Article[]>;
   private unsubscribe$ = new Subject<void>();
   page = 1;

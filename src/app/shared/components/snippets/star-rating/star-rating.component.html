@@ -1,12 +1,12 @@
 <div class="stars">
-  <h3>{{'ARTICLE.RATE' | translate}}</h3>
+  <h3>{{'RATE.STARS' | translate }}</h3>
   <div class="stars-select">
     <ng-container *ngFor="let s of [5,4,3,2,1]">
       <input [class]="'star star-' + s"
              [id]="'star-' + s"
              [value]="s"
              type="radio"
-             [checked]="s === article.stars"
+             [checked]="s === content.stars"
              name="star"/>
       <label [class]="'star star-' + s"
              [for]="'star-' + s"

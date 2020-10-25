@@ -1,7 +1,7 @@
 <div class="user-articles">
   <span id="user-articles"></span>
 </div>
-<app-content-box [title]="'ARTICLES.OF' | translate: {
+<app-content-box [title]="title | translate: {
                                             name: user?.name ?
                                                   user.name :
                                                   ('USER' | translate)

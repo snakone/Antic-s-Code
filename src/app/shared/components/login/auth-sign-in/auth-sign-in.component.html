@@ -2,14 +2,12 @@
 
 <div class="google-in">
   <button mat-button type="button"
-          [ngClass]="{'disabled': true}"
-          [disabled]="true">
+          (click)="github()">
     <img src="assets/icons/github.svg">
      Github
   </button>
   <button mat-button type="button"
-          data-toggle="tooltip"
-          id="google">
+          (click)="google()">
     <img src="assets/icons/google.svg">
      Google
   </button>

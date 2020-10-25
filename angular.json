@@ -27,7 +27,10 @@
               "hammerjs",
               "socket.io-client",
               "debug",
-              "socket.io-parser"
+              "socket.io-parser",
+              "firebase",
+              "firebase/app",
+              "firebase/auth"
             ],
             "assets": [
               "src/assets",

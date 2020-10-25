@@ -9,6 +9,8 @@ import { Article, Category, NotificationPayload, Reaction, User } from '@shared/
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { NoAccountComponent } from '@layout/dialogs/no-account/no-account.component';
+import { ShareService } from '@core/services/share/share.service';
+import { environment } from '@env/environment';
 
 @Component({
   selector: 'app-single-content-header-right',
@@ -27,7 +29,8 @@ export class SingleContentHeaderRightComponent implements OnInit, OnDestroy {
     private crafter: CrafterService,
     private userSrv: UserService,
     private reactionSrv: ReactionService,
-    private sw: PushService
+    private sw: PushService,
+    private shareSrv: ShareService
   ) { }
 
   ngOnInit() {
@@ -36,11 +39,12 @@ export class SingleContentHeaderRightComponent implements OnInit, OnDestroy {
 
   public doLike(value: number): void {
     this.content.userLiked = !this.content.userLiked;
-    if (this.type === 'category') { return; }
     if (!this.user) {
       this.crafter.dialog(NoAccountComponent, {
         type: 'like',
-        author: this.content.author
+        author: this.type === 'article' ?
+                this.content.author :
+                'Antic\'s Code'
       });
       return;
     }
@@ -67,9 +71,35 @@ export class SingleContentHeaderRightComponent implements OnInit, OnDestroy {
 
   private setNotification(payload: NotificationPayload): NotificationPayload {
     payload.body = payload.body.concat(`.\n${this.content.title}`);
-    payload.data.url = `${URI}/article/${this.content.slug}`;
-    payload.user = this.content.user;
+
+    switch (this.type) {
+      case 'article':
+        payload.data.url = `${URI}/article/${this.content.slug}`;
+        payload.user = this.content.user;
+        break;
+      case 'category':
+        payload.data.url = `${URI}/category/${this.content.category}`;
+        payload.user = environment.id;
+        payload.body = `Nuevo Like en la categoría ${this.content.category}`;
+    }
+
     return payload;
+  }
+
+  public async share(): Promise<void> {
+    const payload: ShareData = {
+      title: this.type === 'article' ?
+             `Antic\'s Code - ${this.content.title}` :
+             `Antic\'s Code - ${this.content.category}`,
+      url: this.type === 'article' ?
+           `${URI}/article/${this.content.slug}` :
+           `${URI}/category/${this.content.category}`,
+      text: this.type === ' article' ?
+            `Antic\'s Code - ${this.content.title}` :
+            `Antic\'s Code - ${this.content.category}`
+    };
+
+    await this.shareSrv.share(payload);
   }
 
   ngOnDestroy(): void {

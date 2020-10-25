@@ -35,6 +35,9 @@ import { SocketsModule } from './sockets/sockets.module';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '@env/environment';
 
 const Material = [
   MatSnackBarModule,
@@ -66,6 +69,8 @@ const Material = [
       }
     }),
     ToastrModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     ...Material
   ],
   providers: [

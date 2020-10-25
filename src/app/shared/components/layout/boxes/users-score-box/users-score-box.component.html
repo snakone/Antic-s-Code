@@ -4,8 +4,8 @@
       <ul>
         <li *ngFor="let s of stats.slice(0,5)">
           <div>
-            <img [src]="s.user.profile?.avatar ||
-                   'assets/img/profile/no-photo.jpg'"
+            <img [src]="s.user?.profile?.avatar ||
+                       'assets/img/profile/no-photo.jpg'"
                  #img
                 (error)="img.src = 'assets/img/profile/no-photo.jpg'; img.alt='No Image'">
               <span>{{s.user.name | titlecase}}</span>

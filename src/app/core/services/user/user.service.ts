@@ -13,6 +13,7 @@ import {
 import { Observable } from 'rxjs';
 import { StorageService } from '@core/storage/storage.service';
 import { map, filter, tap } from 'rxjs/operators';
+import { AuthService } from '../login/auth.service';
 import { PushService } from '../push/push.service';
 import { UsersFacade } from '@store/users/users.facade';
 import { StatsFacade } from '@store/stats/stats.facade';
@@ -31,7 +32,8 @@ export class UserService {
     private ls: StorageService,
     private userFacade: UsersFacade,
     private statsFacade: StatsFacade,
-    private sw: PushService
+    private sw: PushService,
+    private auth: AuthService
   ) { }
 
   public getById(id: string): Observable<User> {
@@ -159,14 +161,17 @@ export class UserService {
   ): void {
       this.ls.userLogIn(data, remember);
       this.userFacade.set(data.user);
-      this.statsFacade.getByUser(data.user._id);
       this.setUser(data.user);
       this.sw.showPrompt();
+      setTimeout(() => {
+        this.statsFacade.getByUser(data.user._id);
+      }, 3000);
   }
 
   public logOut(): void {
     this.ls.userLogOut();
     this.userFacade.logOut();
+    this.auth.logOut();
     this.user = null;
     this.chatUser = null;
   }

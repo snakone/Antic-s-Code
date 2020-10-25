@@ -79,6 +79,13 @@ export interface InboxMessage {
   read?: boolean;
 }
 
+export interface SharePayload {
+  url: string;
+  text?: string;
+  title: string;
+  files?: any[];
+}
+
 export interface ArticleResponse extends ServerResponse {
   article?: Article;
   articles?: Article[];
@@ -130,8 +137,8 @@ export interface User {
   _id?: string;
   name: string;
   email: string;
-  password: string;
-  account: string;
+  password?: string;
+  account?: string;
   profile?: UserProfile;
   showEmail?: boolean;
   likes?: number;

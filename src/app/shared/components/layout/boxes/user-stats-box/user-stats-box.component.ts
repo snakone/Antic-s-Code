@@ -10,6 +10,7 @@ import { User, UserStats } from '@app/shared/interfaces/interfaces';
 
 export class UserStatsBoxComponent {
 
+  @Input() title: string;
   @Input() user: User;
   @Input() stats: UserStats;
   objectKeys = Object.keys;

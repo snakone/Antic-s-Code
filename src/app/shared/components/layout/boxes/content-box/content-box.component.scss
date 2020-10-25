@@ -38,7 +38,7 @@
     &-no-margin { margin-bottom: 0 }
 
     &-header {
-      padding: 1rem 2rem;
+      padding: calc(1rem - 2px) 2rem;
       background-color: var(--new-color);
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
@@ -51,18 +51,30 @@
       font-weight: 700;
       line-height: 1.2;
       color: var(--light-color);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      padding-bottom: 2px;
+      font-size: 1.2rem !important;
+      position: relative;
+      top: -1px;
+      @media(max-width: 359px) { font-size: 1rem !important }
+      @media(min-width: 1080px) { font-size: 1.4rem !important }
 
       & mat-icon {
         margin-right: var(--small-padding);
         color: var(--light-color);
         position: relative;
-        top: 2px;
+        top: 4px;
       }
      }
     }
 
     &-title {
-      justify-content: space-between;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
       flex-wrap: wrap;
     }
 
@@ -73,8 +85,3 @@
   }
 }
 
-.title {
-  font-size: 1.2rem !important;
-  @media(max-width: 359px) { font-size: 1rem !important }
-  @media(min-width: 1080px) { font-size: 1.4rem !important }
- }

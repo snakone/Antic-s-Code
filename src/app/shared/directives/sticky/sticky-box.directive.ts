@@ -32,7 +32,10 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
   }
 
   private startSticky(): void {
-    setTimeout(() => { this.makeSticky(); }, 2000); // Wait Content to Load
+    setTimeout(() => {
+      this.makeSticky();
+      window.dispatchEvent(new Event('resize'));
+    }, 3000); // Wait Content to Load
   }
 
   private subscribeToResize(): void {

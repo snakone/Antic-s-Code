@@ -30,13 +30,14 @@
   "REACTIONS": "Interacciones",
   "ARTICLE.CREATE": "Creación de Artículos",
   "ARTICLE.LOOKING": "¿Qué tipo de Artículos estás buscando?",
-  "ARTICLE.RATE": "Puntúa este Artículo",
+  "RATE.STARS": "Puntúa este contenido",
   "ARTICLE.USEFUL": "¿Te ha parecido útil?",
   "ARTICLES": "Artículos",
   "ARTICLES.OF": "Artículos de {{name}}",
-  "SCORE.OF": "Puntuación de {{name}}",
+  "SCORE.OF": "Puntos de {{name}}",
   "BACK": "Volver",
   "ANY": "Cualquiera",
+  "MY.ARTICLES": "Mis Artículos",
   "BACK.DEV": "Backend",
   "BAD.SCORE": "Tu puntuación es <strong>bastante mala</strong>, quizá tengas que estudiar un poco más.",
   "BADGE": {
@@ -159,6 +160,7 @@
   "DESIGN": "Diseño",
   "DESIGN.DEV": "Diseñador",
   "DESIGN.WEB": "Diseñador Web",
+  "MY.SCORE": "Mis Puntos",
   "DESKTOP.INTRO": "¿Te resulta interesante? ¿Quieres unirte a una comunidad de programadores? ¡Descarga Antic's Code ya! Es totalmente gratuito. Necesitarás una cuenta de Antic's Code para poder entrar.",
   "DISCOVER": "Descubre",
   "TEST.CATEGORY": "Test por Categoría",
@@ -203,6 +205,10 @@
       "REQUEST": {
           "MESSAGE": "Ha habido un error al verificar los datos. Por favor comprueba los datos introducidos y vuelve a probar de nuevo. Si el problema persiste ponte en contacto con nosotros.",
           "TITLE": "Error de datos"
+      },
+      "SHARE": {
+        "MESSAGE": "Lo sentimos. Este dispositivo no soporta Web Share. Por favor inténtalo en otro dispositivo, esto suele funcionar en dispositivos móviles.",
+        "TITLE": "No se puede compartir"
       },
       "SERVER": {
           "MESSAGE": "Ha habido un error interno en el servidor. Si el error continúa, por favor prueba más tarde o ponte en contacto con nosotros. Disculpa las molestias.",
