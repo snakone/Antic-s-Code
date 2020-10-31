@@ -34,6 +34,13 @@
   "ARTICLES.OF": "{{name}}'s Articles",
   "BACK": "Back",
   "BACK.DEV": "Backend",
+  "LOST.PASSWORD": "Lost Password?",
+  "RECOVER.PASSWORD": "Recover Password",
+  "RECOVER.INTRO": "Have You forget your Password? Do not worry, here You can generate a <strong>new</strong> password. Simply use the button and We will send You a message into your <strong>mailbox</strong>. Check your <strong>junk</strong> if You cannot find the email.",
+  "SEND.RECOVER": "I want to recover my Password",
+  "INPUT.EMAIL": "Type your email",
+  "EMAIL.SEND": "Email Send!",
+  "EMAIL.NOT.REGISTER": "Email not registered",
   "BAD.SCORE": "Your score is <strong>a bit bad</strong>, maybe you should keep studying.",
   "BADGE": {
       "HOT": "Hot",
@@ -172,6 +179,7 @@
   "DOWNLOAD": "Download",
   "DOWNLOADS": "Downloads",
   "DOWNLOAD.APP": "Download the App",
+  "PASSWORD.CHANGED": "Password changed!",
   "DOWNLOAD.STEPS": {
       "SIX": "Once approved, your Article is ready!",
       "FOUR": "Follow the instructions",
@@ -183,6 +191,8 @@
   "EDIT.PROFILE": "Edit Profile",
   "EDIT.YOUR.PROFILE": "Edit your Profile",
   "EMAIL": "Email",
+  "CREATE.PASSWORD": "Create a new Password",
+  "NEW.PASSWORD": "Welcome, from here You can create a <strong>new password</strong> for your account. Fill the form below. Then the next time use the same password to login.",
   "EMAIL.UNIQUE": "Email must be unique",
   "ENTER.EMAIL": "Enter your Email",
   "ENTER.WITH": "Or enter with...",
@@ -202,6 +212,10 @@
       "REGISTER": {
           "MESSAGE": "If you really want to sign up for a new account other than the one you already have, please log out first and try again.",
           "TITLE": "Already registered"
+      },
+      "EMAIL_TOKEN": {
+        "MESSAGE": "The code is invalid. Try again with another code.",
+        "TITLE": "Access Denied"
       },
       "REQUEST": {
           "MESSAGE": "There was an error verifying the data. Please check the entered data and try again. If the problem persists, contact us.",

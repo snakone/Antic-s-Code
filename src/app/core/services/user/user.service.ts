@@ -7,7 +7,8 @@ import {
   UserResponse,
   MessageRequest,
   UserStats,
-  UserStatsResponse
+  UserStatsResponse,
+  NewPassword
  } from '@shared/interfaces/interfaces';
 
 import { Observable } from 'rxjs';
@@ -17,6 +18,7 @@ import { AuthService } from '../login/auth.service';
 import { PushService } from '../push/push.service';
 import { UsersFacade } from '@store/users/users.facade';
 import { StatsFacade } from '@store/stats/stats.facade';
+import { ServerResponse } from '@shared/interfaces/interfaces';
 
 @Injectable({providedIn: 'root'})
 
@@ -130,6 +132,35 @@ export class UserService {
       );
   }
 
+  public verifyEmailToken(token: string): Observable<boolean> {
+    return this.http
+      .get<ServerResponse>(this.API_TOKEN + '/email/' + token)
+      .pipe(
+        map(res => res.ok)
+      );
+  }
+
+  public recoverPassword(email: string): Observable<ServerResponse> {
+    return this.http
+    .get<ServerResponse>(this.API_USERS + '/recover/' + email)
+    .pipe(
+      filter(res => res && !!res.ok)
+    );
+  }
+
+  public createNewPassword(data: NewPassword): Observable<ServerResponse> {
+    return this.http
+    .post<ServerResponse>(this.API_USERS + '/new', data)
+    .pipe(
+      filter(res => res && !!res.ok)
+    );
+  }
+
+  public isEmailTaken(email: string): Observable<ServerResponse> {
+    return this.http
+    .get<ServerResponse>(this.API_USERS + '/email/' + email);
+  }
+
   public sendMeAMessage(request: MessageRequest): Observable<UserResponse> {
     return this.http
     .post<UserResponse>(environment.api + 'message', request)
@@ -149,6 +180,7 @@ export class UserService {
   private setUser(user: User): void {
     this.user = user;
     this.chatUser = user.name;
+    this.userFacade.set(user);
   }
 
   public setChatUser(name: string): void {
@@ -160,7 +192,6 @@ export class UserService {
     remember: boolean = false
   ): void {
       this.ls.userLogIn(data, remember);
-      this.userFacade.set(data.user);
       this.setUser(data.user);
       this.sw.showPrompt();
       setTimeout(() => {

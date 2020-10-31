@@ -79,6 +79,11 @@ export class SignInComponent implements OnInit, OnDestroy {
     this.router.navigateByUrl('/profile');
   }
 
+  public recover(): void {
+    this.dialogRef.close();
+    this.router.navigateByUrl('/help/recover');
+  }
+
   public signUp(): void {
     this.changed.emit(true);
   }

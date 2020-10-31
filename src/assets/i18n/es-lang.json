@@ -36,9 +36,16 @@
   "ARTICLES.OF": "Artículos de {{name}}",
   "SCORE.OF": "Puntos de {{name}}",
   "BACK": "Volver",
+  "LOST.PASSWORD": "¿Has perdido la Contraseña?",
   "ANY": "Cualquiera",
   "MY.ARTICLES": "Mis Artículos",
+  "RECOVER.PASSWORD": "Recuperar Contraseña",
+  "RECOVER.INTRO": "¿Has olvidado tu contraseña? No te preocupes, desde aquí podrás generar una <strong>nueva</strong> contraseña. Simplemente usa el botón y te enviaremos un correo a tu <strong>bandeja de entrada</strong>. Comprueba tu correo <strong>no deseado</strong> si no encuentras el email.",
+  "SEND.RECOVER": "Quiero recuperar mi Contraseña",
+  "INPUT.EMAIL": "Escribe tu correo",
   "BACK.DEV": "Backend",
+  "EMAIL.SEND": "¡Correo Enviado!",
+  "EMAIL.NOT.REGISTER": "Email no registrado",
   "BAD.SCORE": "Tu puntuación es <strong>bastante mala</strong>, quizá tengas que estudiar un poco más.",
   "BADGE": {
       "HOT": "Popular",
@@ -170,6 +177,7 @@
   "DO.TEST": "Test de nuestras Categorías",
   "DOWNLOAD": "Descargar",
   "DOWNLOADS": "Descargas",
+  "PASSWORD.CHANGED": "Contraseña cambiada",
   "DOWNLOAD.APP": "Descarga la App",
   "DOWNLOAD.STEPS": {
       "SIX": "Al aprobarse, tu Artículo está listo!",
@@ -182,7 +190,9 @@
   "EDIT.PROFILE": "Editar Perfil",
   "EDIT.YOUR.PROFILE": "Edita tu Perfil",
   "EMAIL": "Correo",
+  "CREATE.PASSWORD": "Crea una nueva Contraseña",
   "EMAIL.UNIQUE": "El Correo debe ser único",
+  "NEW.PASSWORD": "Bienvenido/a, desde aquí puedes crear una <strong>nueva contraseña</strong> para tu cuenta. Rellena el formulario. La próxima vez usa el mismo password para entrar.",
   "ENTER.EMAIL": "Introduce tu Correo",
   "ENTER.WITH": "O entra con...",
   "ERRORS": {
@@ -197,6 +207,10 @@
       "ENTRY_DONE": {
           "MESSAGE": "¡Hey hola! Parece ser que ya has realizado este test. Lo sentimos, prueba con otro si lo deseas.",
           "TITLE": "Test ya realizado"
+      },
+      "EMAIL_TOKEN": {
+        "MESSAGE": "EL código es erróneo. Prueba de nuevo con otro código.",
+        "TITLE": "Acceso denegado"
       },
       "REGISTER": {
           "MESSAGE": "Si de verdad quieres registrar una nueva cuenta a parte de la que ya tienes, por favor desconéctate primero y vuelve a probar de nuevo.",

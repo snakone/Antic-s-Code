@@ -30,7 +30,8 @@
               "socket.io-parser",
               "firebase",
               "firebase/app",
-              "firebase/auth"
+              "firebase/auth",
+              "@firebase/auth"
             ],
             "assets": [
               "src/assets",

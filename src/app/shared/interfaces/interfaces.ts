@@ -135,8 +135,8 @@ export interface SWResponse extends ServerResponse {}
 
 export interface User {
   _id?: string;
-  name: string;
-  email: string;
+  name?: string;
+  email?: string;
   password?: string;
   account?: string;
   profile?: UserProfile;
@@ -163,6 +163,11 @@ export interface Reaction {
   type: string;
   value: number;
   target?: string;
+}
+
+export interface NewPassword {
+  password: string;
+  token: string;
 }
 
 export interface ReactionResponse extends ServerResponse {
@@ -456,10 +461,13 @@ export interface NotificationPayload {
   icon?: string;
   vibrate?: number[];
   requireInteraction?: boolean;
+  image?: string;
   data?: NotificationData;
   actions: NotificationAction[];
   user?: string;
   broadcast?: boolean;
+  admin?: boolean;
+  device?: string | RegExp;
 }
 
 interface NotificationData {

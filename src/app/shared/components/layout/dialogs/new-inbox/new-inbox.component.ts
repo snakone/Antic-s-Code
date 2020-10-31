@@ -4,7 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsersFacade } from '@store/users/users.facade';
 import { InboxMessage, User } from '@shared/interfaces/interfaces';
 import { Observable, Subject } from 'rxjs';
-import { filter, takeUntil } from 'rxjs/operators';
+import { filter, takeUntil, throttleTime } from 'rxjs/operators';
 import { CrafterService } from '@core/services/crafter/crafter.service';
 import { InboxFacade } from '@store/inbox/inbox.facade';
 import { UserService } from '@core/services/user/user.service';
@@ -50,7 +50,10 @@ export class NewInboxComponent implements OnInit, OnDestroy {
 
   private search(): void {
     this.filterCtrl.valueChanges
-    .pipe(takeUntil(this.unsubscribe$))
+    .pipe(
+      takeUntil(this.unsubscribe$),
+      throttleTime(300)
+    )
     .subscribe((e: string) => {
       if (!e || e === '') {
         this.users$ = this.usersFacade.users$;

@@ -37,6 +37,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+
+import { RecaptchaModule } from 'ng-recaptcha';
+import { RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
 import { environment } from '@env/environment';
 
 const Material = [
@@ -77,7 +80,11 @@ const Material = [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: CORE_MODULE_CONFIG, useValue: CORE_MODULE_CONSTANTS },
     { provide: ErrorHandler, useClass: ErrorHandlerService },
-    { provide: DISQUS_SHORTNAME, useValue: APP_CONSTANTS.DISQUS }
+    { provide: DISQUS_SHORTNAME, useValue: APP_CONSTANTS.DISQUS },
+    {
+      provide: RECAPTCHA_SETTINGS,
+      useValue: { siteKey: environment.captcha } as RecaptchaSettings,
+    },
   ],
   exports: [LoadingBarModule]
 })
