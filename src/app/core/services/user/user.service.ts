@@ -113,12 +113,13 @@ export class UserService {
       );
   }
 
-  public refreshToken(id: string): Observable<UserResponse> {
+  public refreshToken(id: string): Observable<User> {
     return this.http
       .post<UserResponse>(this.API_TOKEN + `/${id}`, null)
       .pipe(
         filter(res => res && !!res.ok),
-        tap(res => this.setToken(res))
+        tap(res => this.setToken(res)),
+        map(res => res.user)
       );
   }
 

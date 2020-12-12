@@ -80,6 +80,8 @@
           "ANGULAR": "The Google's Framework",
           "ANTICS": "Content Creator",
           "CSS": "Art on the Web",
+          "REACT": "The Facebook UI library",
+          "VUE": "The Open Framework",
           "DENO": "Node Reformed",
           "DESIGN": "Style and Design",
           "GIT": "Version Control",
@@ -544,6 +546,7 @@
   "SUBSCRIBE.SUB": "Subscribe to get update and information. Don't worry, we won't send spam!",
   "SUCCESS": "Success",
   "SUPPORT": "Support",
+  "REACT.LIBRARY": "React Library",
   "TAGS": {
       "ANTICS": "Antic's",
       "BACKEND": "Backend",

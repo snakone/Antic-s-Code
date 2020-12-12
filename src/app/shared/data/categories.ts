@@ -32,6 +32,18 @@ export const MAIN_CATEGORIES: List[] = [
     class: 'even.jpg'
   },
   {
+    name: 'REACT.LIBRARY',
+    icon: 'react-logo.png',
+    category: 'React',
+    class: 'odd.jpg'
+  },
+  {
+    name: 'Vue Framework',
+    icon: 'vue-logo.png',
+    category: 'Vue',
+    class: 'even.jpg'
+  },
+  {
     name: 'Server Javascript',
     icon: 'node-logo.png',
     category: 'Nodejs',

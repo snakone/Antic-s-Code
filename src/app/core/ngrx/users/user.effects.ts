@@ -96,7 +96,7 @@ export class UserEffects {
       concatMap((action) =>
       this.userSrv.refreshToken(action.id)
         .pipe(
-          map(res => UserActions.refreshTokenSuccess({ user: res.user })),
+          map(user => UserActions.refreshTokenSuccess({ user })),
           catchError(error =>
               of(UserActions.refreshTokenFailure({ error: error.message }))
     ))))

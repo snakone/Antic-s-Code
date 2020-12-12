@@ -41,12 +41,12 @@ export const getMostViewed = createSelector(
   getArticlesState, fromArticles.getMostViewed
 );
 
-export const getFull = createSelector(
-  getArticlesState, fromArticles.getFull
-);
-
 export const getCount = createSelector(
   getArticlesState, fromArticles.getCount
+);
+
+export const getFull = createSelector(
+  getArticlesState, fromArticles.getFull
 );
 
 export const getByCategory = createSelector(

@@ -25,7 +25,7 @@ export function markedOptionsFactory(): MarkedOptions {
 
   renderer.heading = (text, level, raw, selector) => {
     if (level >= 3 || level === 1) { return `<h${level}>${text}</h${level}>`; }
-    const id = selector.slug(text);
+    const id = slugify(text);
     return `
       <div class="anchor" id="${id}"></div>
       <h${level}>${text}</h${level}>
@@ -47,3 +47,16 @@ export function markedOptionsFactory(): MarkedOptions {
 })
 
 export class NgMarkdownModule { }
+
+const slugify = ( text: string ) => {
+  return text
+  .toString()
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '')
+  .toLowerCase()
+  .trim()
+  .replace('.', '-')
+  .replace(/\s+/g, '-')
+  .replace(/[^\w\-]+/g, '')
+  .replace(/\-\-+/g, '-');
+};

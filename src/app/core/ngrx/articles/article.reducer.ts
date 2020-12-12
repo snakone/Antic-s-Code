@@ -211,5 +211,5 @@ export const getDataLoaded = (state: ArticleState | undefined): boolean => {
 };
 
 function completed(articles: Article[]): boolean {
-  return articles.length === 0 ? true : false;
+  return articles.length === 0;
 }

@@ -36,6 +36,7 @@ export interface Article extends Content {
   views?: number;
   summary?: string;
   status?: string;
+  type?: string;
 }
 
 export interface Category extends Content {
