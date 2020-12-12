@@ -15,10 +15,10 @@
   </div>
   <div class="col-lg-4 col-md-4" *onlyDesktop>  <!-- SIDEBAR -->
     <app-profile-actions [user]="user"></app-profile-actions>
-    <app-settings-box [user]="user"></app-settings-box>
     <app-user-stats-box [stats]="stats$ | async"
                         [user]="user"
                         [title]="'MY.SCORE'">
     </app-user-stats-box>
+    <app-settings-box [user]="user"></app-settings-box>
   </div>
 </div>
