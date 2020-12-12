@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SingleCategoryInfoBoxComponent } from './single-category-info-box.component';
 
@@ -6,7 +6,7 @@ describe('SingleCategoryInfoBoxComponent', () => {
   let component: SingleCategoryInfoBoxComponent;
   let fixture: ComponentFixture<SingleCategoryInfoBoxComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ SingleCategoryInfoBoxComponent ]
     })

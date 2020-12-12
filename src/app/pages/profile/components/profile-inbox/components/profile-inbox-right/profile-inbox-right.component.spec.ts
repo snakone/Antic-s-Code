@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ProfileInboxRightComponent } from './profile-inbox-right.component';
 
@@ -6,7 +6,7 @@ describe('ProfileInboxRightComponent', () => {
   let component: ProfileInboxRightComponent;
   let fixture: ComponentFixture<ProfileInboxRightComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ProfileInboxRightComponent ]
     })

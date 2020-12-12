@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { LastUserBoxComponent } from './last-user-box.component';
 
@@ -6,7 +6,7 @@ describe('LastUserBoxComponent', () => {
   let component: LastUserBoxComponent;
   let fixture: ComponentFixture<LastUserBoxComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ LastUserBoxComponent ]
     })

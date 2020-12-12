@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NoAccountComponent } from './no-account.component';
 
@@ -6,7 +6,7 @@ describe('NoAccountComponent', () => {
   let component: NoAccountComponent;
   let fixture: ComponentFixture<NoAccountComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ NoAccountComponent ]
     })

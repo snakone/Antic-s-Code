@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { LinksBoxComponent } from './links-box.component';
 
@@ -6,7 +6,7 @@ describe('LinksBoxComponent', () => {
   let component: LinksBoxComponent;
   let fixture: ComponentFixture<LinksBoxComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ LinksBoxComponent ]
     })

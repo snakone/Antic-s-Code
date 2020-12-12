@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { StickyBoxComponent } from './sticky-box.component';
 
@@ -6,7 +6,7 @@ describe('StickyBoxComponent', () => {
   let component: StickyBoxComponent;
   let fixture: ComponentFixture<StickyBoxComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ StickyBoxComponent ]
     })

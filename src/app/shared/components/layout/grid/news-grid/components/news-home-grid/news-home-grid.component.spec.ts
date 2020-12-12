@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NewsHomeGridComponent } from './news-home-grid.component';
 
@@ -6,7 +6,7 @@ describe('NewsHomeGridComponent', () => {
   let component: NewsHomeGridComponent;
   let fixture: ComponentFixture<NewsHomeGridComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ NewsHomeGridComponent ]
     })

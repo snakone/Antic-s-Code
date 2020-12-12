@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MostViewedBoxComponent } from './most-viewed-box.component';
 
@@ -6,7 +6,7 @@ describe('MostViewedBoxComponent', () => {
   let component: MostViewedBoxComponent;
   let fixture: ComponentFixture<MostViewedBoxComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ MostViewedBoxComponent ]
     })
