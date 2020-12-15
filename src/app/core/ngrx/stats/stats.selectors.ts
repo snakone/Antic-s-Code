@@ -24,16 +24,4 @@ export const getTest = createSelector(
   getStatsState, fromStats.getTest
 );
 
-export const getByUser = createSelector(
-  getStatsState, fromStats.getByUser
-);
-
-export const getByUserPublic = createSelector(
-  getStatsState, fromStats.getByUserPublic
-);
-
-export const getPublicLoaded = createSelector(
-  getStatsState, fromStats.getPublicLoaded
-);
-
 

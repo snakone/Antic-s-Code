@@ -4,8 +4,7 @@
     </app-profile-info-box>
     <app-profile-actions [user]="user" *onlyMobile></app-profile-actions>
     <app-settings-box [user]="user" *onlyMobile></app-settings-box>
-    <app-user-stats-box [stats]="stats$ | async"
-                        [user]="user"
+    <app-user-stats-box [user]="user"
                         *onlyMobile
                         [title]="'MY.SCORE'">
     </app-user-stats-box>
@@ -15,8 +14,7 @@
   </div>
   <div class="col-lg-4 col-md-4" *onlyDesktop>  <!-- SIDEBAR -->
     <app-profile-actions [user]="user"></app-profile-actions>
-    <app-user-stats-box [stats]="stats$ | async"
-                        [user]="user"
+    <app-user-stats-box [user]="user"
                         [title]="'MY.SCORE'">
     </app-user-stats-box>
     <app-settings-box [user]="user"></app-settings-box>

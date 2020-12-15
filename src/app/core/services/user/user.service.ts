@@ -17,7 +17,6 @@ import { map, filter, tap } from 'rxjs/operators';
 import { AuthService } from '../login/auth.service';
 import { PushService } from '../push/push.service';
 import { UsersFacade } from '@store/users/users.facade';
-import { StatsFacade } from '@store/stats/stats.facade';
 import { ServerResponse } from '@shared/interfaces/interfaces';
 
 @Injectable({providedIn: 'root'})
@@ -33,7 +32,6 @@ export class UserService {
     private http: HttpService,
     private ls: StorageService,
     private userFacade: UsersFacade,
-    private statsFacade: StatsFacade,
     private sw: PushService,
     private auth: AuthService
   ) { }
@@ -71,15 +69,6 @@ export class UserService {
       .pipe(
         filter(res => res && !!res.ok),
         map(_ => _.stats)
-      );
-  }
-
-  public getStatsByUser(id: string): Observable<UserStats> {
-    return this.http
-      .get<UserStatsResponse>(environment.api + 'user/stats/' + id)
-      .pipe(
-        filter(res => res && !!res.ok),
-        map(_ => _.statsByUser)
       );
   }
 
@@ -195,9 +184,6 @@ export class UserService {
       this.ls.userLogIn(data, remember);
       this.setUser(data.user);
       this.sw.showPrompt();
-      setTimeout(() => {
-        this.statsFacade.getByUser(data.user._id);
-      }, 3000);
   }
 
   public logOut(): void {

@@ -102,43 +102,4 @@ export class UserEffects {
     ))))
   );
 
-  // RESET STAT ON LOGOUT
-  resetStatsEffect$ = createEffect(() => this.actions
-    .pipe(
-      ofType(UserActions.userLogOut),
-      concatMap(_ => of(StatsActions.reset()))
-    )
-  );
-
-  // GET STATS
-  getStatsOnVerifyEffect$ = createEffect(() => this.actions
-    .pipe(
-      ofType(
-        UserActions.verifyTokenSuccess,
-        UserActions.refreshTokenSuccess
-      ),
-      concatMap((action) =>
-       of(StatsActions.getByUser({id: action.user._id}))
-      )
-    )
-  );
-
-  // GET PUBLIC STATS
-  getStatsPublicEffect$ = createEffect(() => this.actions
-    .pipe(
-      ofType(UserActions.getByNameSuccess),
-      concatMap((action) =>
-       of(StatsActions.getByUserPublic({id: action.user._id}))
-      )
-    )
-  );
-
-  // RESET STAT PUBLIC
-  resetStatsPublicEffect$ = createEffect(() => this.actions
-    .pipe(
-      ofType(UserActions.resetUserName),
-      concatMap(_ => of(StatsActions.resetPublic()))
-    )
-  );
-
 }

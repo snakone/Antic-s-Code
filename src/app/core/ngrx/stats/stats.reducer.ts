@@ -7,18 +7,12 @@ export interface StatsState {
   loaded: boolean;
   test: UserStats[];
   articles: UserStats[];
-  userStats: UserStats;
-  publicStats: UserStats;
-  publicLoaded: boolean;
   error: string;
 }
 
 export const inititalState: StatsState = {
   stats: null,
   loaded: false,
-  userStats: null,
-  publicStats: null,
-  publicLoaded: false,
   test: null,
   articles: null,
   error: null
@@ -47,35 +41,6 @@ const featureReducer = createReducer(
   on(StatsActions.getFailure, (state, { error }) => (
     { ...state, loaded: false, error }
   )),
-  // GET STATS BY USER
-  on(StatsActions.getByUser, (state) => (
-    { ...state, error: null }
-  )),
-  on(StatsActions.getByUserSuccess, (state, { stats }) => (
-    {
-      ...state,
-      userStats: stats,
-      error: null
-    }
-  )),
-  on(StatsActions.getByUserFailure, (state, { error }) => (
-    { ...state, error }
-  )),
-  // GET STATS BY USER PUBLIC
-  on(StatsActions.getByUserPublic, (state) => (
-    { ...state, error: null }
-  )),
-  on(StatsActions.getByUserPublicSuccess, (state, { stats }) => (
-    {
-      ...state,
-      publicStats: stats,
-      publicLoaded: true,
-      error: null
-    }
-  )),
-  on(StatsActions.getByUserPublicFailure, (state, { error }) => (
-    { ...state, error }
-  )),
   // RESET STATS
   on(StatsActions.reset, (state) => (
     {
@@ -83,14 +48,6 @@ const featureReducer = createReducer(
       stats: [],
       test: null,
       loaded: false
-    }
-  )),
-  // RESET STATS PUBLIC
-  on(StatsActions.resetPublic, (state) => (
-    {
-      ...state,
-      publicStats: null,
-      publicLoaded: false
     }
   ))
 );
@@ -103,6 +60,3 @@ export const getStats = (state: StatsState) => state.stats;
 export const getStatsLoaded = (state: StatsState) => state.loaded;
 export const getTest = (state: StatsState) => state.test;
 export const getArticles = (state: StatsState) => state.articles;
-export const getByUser = (state: StatsState) => state.userStats;
-export const getByUserPublic = (state: StatsState) => state.publicStats;
-export const getPublicLoaded = (state: StatsState) => state.publicLoaded;

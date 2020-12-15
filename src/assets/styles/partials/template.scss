@@ -5,6 +5,7 @@
     line-height: 1.7 !important;
     color: black;
     &:first-child { margin-top: 20px }
+    &.pdf-page-break { display: none }
   }
 
   ul, ol {

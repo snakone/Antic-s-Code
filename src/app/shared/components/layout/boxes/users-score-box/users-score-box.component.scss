@@ -23,6 +23,8 @@ ul {
       & span {
         color: var(--p-color);
         font-weight: bold;
+        cursor: pointer;
+        outline: none;
       }
     }
 

@@ -142,9 +142,8 @@ export interface User {
   account?: string;
   profile?: UserProfile;
   showEmail?: boolean;
-  likes?: number;
-  views?: number;
-  score?: number;
+  stats?: UserStats;
+  auth?: boolean;
 }
 
 interface UserProfile {
@@ -488,7 +487,6 @@ export interface UserStats {
 
 export interface UserStatsResponse extends ServerResponse {
   stats: UserStats[];
-  statsByUser?: UserStats;
 }
 
 export interface ArticleStats {
@@ -510,6 +508,7 @@ export interface ReactionStats {
 
 export interface ScoreStats {
   total?: number;
+  views?: number;
   articles?: ArticleStats;
   test?: TestStats;
   reaction?: ReactionStats;

@@ -14,7 +14,6 @@ import { UserService } from '@core/services/user/user.service';
 export class ProfileContentComponent implements AfterContentInit {
 
   user: User;
-  stats$: Observable<UserStats>;
 
   constructor(
     private userSrv: UserService,
@@ -23,7 +22,6 @@ export class ProfileContentComponent implements AfterContentInit {
 
   ngAfterContentInit() {
     this.user = this.userSrv.getUser();
-    this.stats$ = this.statsFacade.byUser$;
   }
 
 }

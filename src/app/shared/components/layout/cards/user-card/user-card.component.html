@@ -11,7 +11,7 @@
         <div>
           <h4 [routerLink]="'/profile/' + user.name">{{user.name | titlecase}}</h4>
           <span class="stars">
-            <mat-icon>star_rate</mat-icon> {{user.score || 0}}
+            <mat-icon>star_rate</mat-icon> {{user.stats?.score.total || 0}}
           </span>
           <span>{{(user.profile?.rol | translate) || 'NOT.DEFINED' | translate}}</span>
           <span *ngIf="user.profile?.language"> |

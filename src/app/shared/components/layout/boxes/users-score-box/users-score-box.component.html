@@ -8,7 +8,7 @@
                        'assets/img/profile/no-photo.jpg'"
                  #img
                 (error)="img.src = 'assets/img/profile/no-photo.jpg'; img.alt='No Image'">
-              <span>{{s.user.name | titlecase}}</span>
+              <span [routerLink]="'/profile/' + s.user.name">{{s.user.name | titlecase}}</span>
           </div>
           <div>
             {{s.score.total}}

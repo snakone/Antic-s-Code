@@ -48,11 +48,14 @@
           </li>
         </div>
         <div class="total" *ngIf="user">
-          <li *ngFor="let t of total">{{user[t.name] || 0}}
-            <mat-icon [class]="t.name">{{t.icon}}</mat-icon>
+          <li>{{user.stats?.score.reaction.likes || 0}}
+            <mat-icon class="likes">favorite</mat-icon>
+          </li>
+          <li>{{user.stats?.score.views || 0}}
+            <mat-icon class="views">visibility</mat-icon>
           </li>
           <li>
-            {{user.score || 0}}
+            {{user.stats?.score.total || 0}}
             <mat-icon class="stars">star_rate</mat-icon>
           </li>
         </div>

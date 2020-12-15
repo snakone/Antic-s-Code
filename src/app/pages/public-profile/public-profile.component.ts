@@ -17,7 +17,6 @@ import { StatsFacade } from '@app/core/ngrx/stats/stats.facade';
 export class PublicProfileComponent implements OnInit, OnDestroy {
 
   user$: Observable<User>;
-  stats$: Observable<UserStats>;
   private unsubscribe$ = new Subject<void>();
 
   constructor(
@@ -28,7 +27,6 @@ export class PublicProfileComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.user$ = this.userFacade.byName$;
-    this.stats$ = this.statsFacade.byUserPublic$;
     this.getUserByName();
   }
 

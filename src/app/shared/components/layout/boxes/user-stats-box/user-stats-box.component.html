@@ -2,14 +2,14 @@
                                                               user.name :
                                                               ('USER' | translate)}"
                  icon="stars">
-          <ul *ngIf="stats; else noStats">
+          <ul *ngIf="user.stats; else noStats">
             <li>
               <div>
                 <mat-icon>article</mat-icon>
                 <span>{{'ARTICLES' | translate}}</span>
               </div>
               <div>
-                {{stats.score.articles.score}}
+                {{user.stats.score.articles.score}}
                 <mat-icon class="stars">star_rate</mat-icon>
               </div>
             </li>
@@ -19,7 +19,7 @@
                 <span>{{'TESTS' | translate}}</span>
               </div>
               <div>
-                {{stats.score.test.score}}
+                {{user.stats.score.test.score}}
                 <mat-icon class="stars">star_rate</mat-icon>
               </div>
             </li>
@@ -29,7 +29,7 @@
                 <span>{{'REACTIONS' | translate}}</span>
               </div>
               <div>
-                {{stats.score.reaction.score}}
+                {{user.stats.score.reaction.score}}
                 <mat-icon class="stars">star_rate</mat-icon>
               </div>
             </li>
