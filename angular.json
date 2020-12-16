@@ -31,7 +31,8 @@
               "firebase",
               "firebase/app",
               "firebase/auth",
-              "@firebase/auth"
+              "@firebase/auth",
+              "ngx-swiper-wrapper"
             ],
             "assets": [
               "src/assets",
