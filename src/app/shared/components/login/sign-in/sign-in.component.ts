@@ -91,16 +91,17 @@ export class SignInComponent implements OnInit, OnDestroy {
   private rememberMe(): void {
     const id = this.ls.get('user');
     const re = this.ls.get('remember');
+    const token = this.ls.get('token');
 
-    if (re && id) {
+    if (re && id && !token) {
       this.usersFacade.email$
         .pipe(
           takeUntil(this.unsubscribe$),
           tap(res => this.setRemember(res)),
           filter(res => !res),
-          switchMap(() => this.userSrv.getById(id))
+          switchMap(() => this.userSrv.getUserEmailById(id))
         )
-        .subscribe(_ => this.usersFacade.setEmail(_.email));
+        .subscribe(email => this.usersFacade.setEmail(email));
     }
   }
 

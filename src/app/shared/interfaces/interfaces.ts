@@ -506,10 +506,16 @@ export interface ReactionStats {
   score?: number;
 }
 
+export interface ProfileStats {
+  likes?: number;
+  stars?: number;
+  views?: number;
+}
+
 export interface ScoreStats {
   total?: number;
-  views?: number;
   articles?: ArticleStats;
   test?: TestStats;
   reaction?: ReactionStats;
+  user?: ProfileStats;
 }

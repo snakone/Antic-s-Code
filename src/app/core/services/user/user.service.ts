@@ -23,6 +23,7 @@ import { ServerResponse } from '@shared/interfaces/interfaces';
 
 export class UserService {
 
+  readonly API_USER = environment.api + 'user';
   readonly API_USERS = environment.api + 'users';
   readonly API_TOKEN = environment.api + 'token';
   private user: User;
@@ -38,7 +39,7 @@ export class UserService {
 
   public getById(id: string): Observable<User> {
     return this.http
-      .get<UserResponse>(environment.api + `user/${id}`)
+      .get<UserResponse>(this.API_USER + `/${id}`)
       .pipe(
         filter(res => res && !!res.ok),
         map(_ => _.user)
@@ -99,6 +100,15 @@ export class UserService {
       .pipe(
         filter(res => res && !!res.ok),
         map(_ => _.user)
+      );
+  }
+
+  public getUserEmailById(id: string): Observable<string> {
+    return this.http
+      .get<UserResponse>(this.API_USER + '/email/' + id)
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(res => res.user.email)
       );
   }
 
