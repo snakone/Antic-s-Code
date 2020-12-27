@@ -55,6 +55,11 @@ p { padding-right: 4rem }
       display: block;
     }
 
+    &[disabled] {
+      pointer-events: none;
+      opacity: .4;
+    }
+
     & .default {
       text-decoration: none !important;
       color: initial !important;

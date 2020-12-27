@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { CreateCarouselComponent } from './create-carousel.component';
+import { CreateIntroDesktopComponent } from './create-intro-desktop.component';
 
-describe('CreateCarouselComponent', () => {
-  let component: CreateCarouselComponent;
-  let fixture: ComponentFixture<CreateCarouselComponent>;
+describe('CreateIntroDesktopComponent', () => {
+  let component: CreateIntroDesktopComponent;
+  let fixture: ComponentFixture<CreateIntroDesktopComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateCarouselComponent ]
+      declarations: [ CreateIntroDesktopComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreateCarouselComponent);
+    fixture = TestBed.createComponent(CreateIntroDesktopComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

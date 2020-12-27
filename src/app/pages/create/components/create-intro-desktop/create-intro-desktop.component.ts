@@ -2,13 +2,13 @@ import { ChangeDetectionStrategy, Component, } from '@angular/core';
 import { CREATE_STEPS } from '@shared/data/download';
 
 @Component({
-  selector: 'app-create-intro',
-  templateUrl: './create-intro.component.html',
-  styleUrls: ['./create-intro.component.scss'],
+  selector: 'app-create-intro-desktop',
+  templateUrl: './create-intro-desktop.component.html',
+  styleUrls: ['./create-intro-desktop.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class CreateIntroComponent {
+export class CreateIntroDesktopComponent {
 
   steps = CREATE_STEPS;
 

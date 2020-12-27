@@ -3,11 +3,20 @@
 </app-page-header>
 <app-section input="#f5f7fc">
   <div class="row">
-    <div class="col-lg-8 col-md-8">  <!-- CONTENT -->
-      Content
+    <div class="col-lg-8 col-md-8 single" id="politics-section">  <!-- CONTENT -->
+      <div class="index" *onlyMobile>
+        <app-index-box [index]="index"
+                       selector="politics-section">
+        </app-index-box>
+      </div>
+      <markdown class="template" [data]="privacy"></markdown>
     </div>
     <div class="col-lg-4 col-md-4">   <!-- SIDEBAR -->
-      Sidebar
+      <app-index-box *onlyDesktop
+                       [index]="index"
+                       [right]="true"
+                       selector="politics-section">
+      </app-index-box>
     </div>
   </div>
 </app-section>

@@ -4,13 +4,12 @@ import { Observable, of } from 'rxjs';
 import { environment } from '@env/environment';
 import { filter, map } from 'rxjs/operators';
 import { Inbox, InboxMessage, InboxResponse, ServerResponse } from '@shared/interfaces/interfaces';
-import { UserService } from '../user/user.service';
 
 @Injectable({ providedIn: 'root'})
 
 export class InboxService {
 
-  readonly API_INBOX = environment.api + 'inbox/';
+  readonly API_INBOX = environment.api + 'mail/';
 
   constructor(private http: HttpService) { }
 
@@ -30,8 +29,8 @@ export class InboxService {
       .pipe(
         filter(res => res && !!res.ok),
         map(res => {
-          res.inbox.forEach(i => i.messages.reverse());
-          return res.inbox;
+          res.mail.forEach(i => i.messages.reverse());
+          return res.mail;
         })
       );
   }

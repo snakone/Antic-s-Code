@@ -43,12 +43,12 @@ export class NavbarDirective implements AfterViewInit, OnDestroy {
   private onScroll(): void {
     try {
       const scroll = document.scrollingElement.scrollTop;
-      if (scroll >= 10 && this.displayed) return;
+      if (scroll >= 10 && this.displayed) { return; }
       scroll >= 10 || this.dialog.openDialogs.length > 0 ||
                       this.sheet._openedBottomSheetRef ?
       (this.renderer.addClass(this.el.nativeElement, 'sticky'), this.displayed = true) :
       (this.renderer.removeClass(this.el.nativeElement, 'sticky'), this.displayed = false);
-    } catch(err) {
+    } catch (err) {
       console.log(err);
     }
   }

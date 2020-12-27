@@ -1,0 +1,11 @@
+<app-carousel [array]="slides">
+  <div class="swiper-slide" *ngFor="let s of slides">
+    <div class="slide">
+      <img [src]="s.image | image:'create'"
+           [alt]="s.title | translate"/>
+      <h4>{{s.title | translate}}</h4>
+      <span>{{s.subtitle | translate}}</span>
+      <p>{{s.message | translate}}</p>
+    </div>
+  </div>
+</app-carousel>

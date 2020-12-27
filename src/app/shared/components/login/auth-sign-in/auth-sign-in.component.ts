@@ -79,7 +79,9 @@ export class AuthSignInComponent implements OnInit, OnDestroy {
       email: user.email,
       profile: {
         avatar: user.photoURL
-      }
+      },
+      auth: true,
+      password: 'AuthUsersDoesntNeedPassword'
     };
 
     return authUser;

@@ -4,7 +4,7 @@ const DOWNLOAD_URI: any = {
   windows: 'https://mega.nz/file/koh20bQT#nB84yHZXzWlNZYu6_GLYm9DMiKvezc3LvFVKgrAKaH0',
   mac: 'https://mega.nz/file/RgpwWJjA#9Nm9ICa737vmhEao-Bnhr42vPfXsJ_JFGq-ITE4JloE',
   linux: 'https://mega.nz/file/c5wSlRBJ#gQP6Cdx2HlkPY_BycmRbTdPLWw3KbtjhYYOZ-Zoz6OA',
-  android: 'https://mega.nz/file/Bo40ED4Z#rUEL-UbPnvsXGuRyX7QalZgU3Zz6E8Vvzr9Wd4Umfs4',
+  android: 'https://play.google.com/store/apps/details?id=io.antics.mobile.com',
   ios: ''
 };
 
@@ -43,6 +43,14 @@ export const CREATE_STEPS: string[] = [
   'DOWNLOAD.STEPS.ONE',
   'DOWNLOAD.STEPS.TWO',
   'DOWNLOAD.STEPS.THREE',
+  'DOWNLOAD.STEPS.FOUR',
+  'DOWNLOAD.STEPS.FIVE',
+  'DOWNLOAD.STEPS.SIX',
+];
+
+export const CREATE_STEPS_MOBILE: string[] = [
+  'DOWNLOAD.STEPS.ONE',
+  'DOWNLOAD.STEPS.TWO',
   'DOWNLOAD.STEPS.FOUR',
   'DOWNLOAD.STEPS.FIVE',
   'DOWNLOAD.STEPS.SIX',

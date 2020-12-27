@@ -2,13 +2,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CREATE_SLIDES } from '@shared/data/carousel';
 
 @Component({
-  selector: 'app-create-carousel',
-  templateUrl: './create-carousel.component.html',
-  styleUrls: ['./create-carousel.component.scss'],
+  selector: 'app-create-carousel-desktop',
+  templateUrl: './create-carousel-desktop.component.html',
+  styleUrls: ['./create-carousel-desktop.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class CreateCarouselComponent {
+export class CreateCarouselDesktopComponent {
 
   slides = CREATE_SLIDES;
 

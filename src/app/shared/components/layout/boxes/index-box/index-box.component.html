@@ -1,5 +1,4 @@
-<app-sticky-box [selector]="index?.length > 0 ?
-                           'single-article-section' : null">
+<app-sticky-box [selector]="index?.length > 0 ? selector : null">
   <app-content-box [border]="true">
       <ul [ngClass]="{'right': right}">
         <div *ngIf="index?.length > 0">

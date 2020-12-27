@@ -52,7 +52,7 @@ export class UserEffects {
     ))))
   );
 
-  // GET ALL USER
+  // GET LAST USER
   getLastUserEffect$ = createEffect(() => this.actions
     .pipe(
       ofType(UserActions.getLast),

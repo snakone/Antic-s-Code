@@ -112,7 +112,7 @@ export interface CategoryCountResponse extends ServerResponse {
 }
 
 export interface InboxResponse extends ServerResponse {
-  inbox?: Inbox[];
+  mail?: Inbox[];
 }
 
 export interface NewsResponse extends ServerResponse {

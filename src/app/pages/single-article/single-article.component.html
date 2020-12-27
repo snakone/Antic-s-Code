@@ -10,7 +10,9 @@
                           [article]="article"
                           [single]="true">
             <div class="index" *onlyMobile>
-              <app-index-box [index]="article.index"></app-index-box>
+              <app-index-box [index]="article.index"
+                             selector="single-article-section">
+              </app-index-box>
             </div>
             <app-content-maker [template]="article.message"></app-content-maker>
         </app-article-card>
@@ -27,7 +29,8 @@
       <div class="col-lg-4 col-md-4">  <!-- SIDEBAR -->
         <app-index-box *onlyDesktop
                        [index]="article.index"
-                       [right]="true">
+                       [right]="true"
+                       selector="single-article-section">
         </app-index-box>
       </div>
     </div>
@@ -46,7 +49,8 @@
       </div>
       <div class="col-lg-4 col-md-4">
         <app-index-box *onlyDesktop
-                        [right]="true">
+                        [right]="true"
+                        selector="single-article-section">
         </app-index-box>
       </div>
     </div>

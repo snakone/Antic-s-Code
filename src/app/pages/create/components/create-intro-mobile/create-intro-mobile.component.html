@@ -1,0 +1,15 @@
+<div class="create">
+  <h3>Antic's Code <span>Mobile</span></h3>
+  <p>{{'ARTICLE.CREATE' | translate}}</p>
+</div>
+
+<div class="intro">
+  <p [innerHTML]="'ANTICS.INTRO.MOBILE' | translate"></p>
+  <p [innerHTML]="'ANTICS.CREATE' | translate"></p>
+  <p>{{'ANTICS.APP' | translate}}</p>
+  <ul class="none">
+    <li *ngFor="let s of steps" [innerHTML]="s | translate"></li>
+  </ul>
+</div>
+
+

@@ -11,6 +11,7 @@ export class IndexBoxComponent implements AfterContentInit {
 
   @Input() index: Index[];
   @Input() right: boolean;
+  @Input() selector: string;
   public scrollSpy: string;
 
   constructor() { }

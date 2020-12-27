@@ -4,9 +4,7 @@
       <h3>Antic's Code <span>Desktop</span></h3>
       <p>{{'CREATE.ANYTHING' | translate}}</p>
     </div>
-    <p>
-      {{'DESKTOP.INTRO' | translate}}
-    </p>
+    <p [innerHTML]="'DESKTOP.INTRO' | translate"></p>
     <p>{{'VERSION' | translate}}
       <strong>{{ desktopVersion }}</strong>
     </p>
@@ -28,7 +26,8 @@
     <p>{{'VERSION' | translate}} <strong>{{ mobileVersion }}</strong></p>
     <div class="download">
       <button *ngFor="let m of mobileButtons"
-              mat-button>
+               mat-button
+              [disabled]="m.platform === 'IOS'">
             <a [href]="m.link" target="NEW" class="default">
               <img [src]="m.icon | image:'buttons'" [alt]="m.platform"/>
             </a>
