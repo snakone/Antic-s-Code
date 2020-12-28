@@ -1,6 +1,7 @@
 <div class="swiper-container"
     [swiper]="config"
-    [(index)]="index">
+    [(index)]="index"
+    (init)="swiperInit()">
   <div class="swiper-wrapper">
     <ng-content></ng-content>
   </div>

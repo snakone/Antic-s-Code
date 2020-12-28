@@ -1,6 +1,6 @@
 * { box-sizing: border-box }
 
-@media(min-width: 993px) { div { padding-left: 2rem } }
+@media(min-width: 993px) { div { padding-left: 1rem } }
 
 .col-md-6 {
   width: 100%;
@@ -9,3 +9,5 @@
     float: left;
   }
 }
+
+@media(max-width: 992px) { .row { margin-top: 3rem } }

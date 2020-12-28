@@ -62,7 +62,7 @@ export const CREATE_SLIDES: CarouselSlide[] = [
 
 export const CREATE_SLIDES_MOBILE: CarouselSlide[] = [
   {
-    image: 'start_mobile.png',
+    image: 'start_mobile.jpg',
     title: 'CREATE.SLIDES.START_MOBILE.TITLE',
     subtitle: 'CREATE.SLIDES.START_MOBILE.SUBTITLE',
     message: 'CREATE.SLIDES.START_MOBILE.MESSAGE'

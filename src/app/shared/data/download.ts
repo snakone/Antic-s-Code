@@ -1,10 +1,10 @@
 import { DownloadButton } from '../interfaces/interfaces';
 
-const DOWNLOAD_URI: any = {
+export const DOWNLOAD_URI: any = {
   windows: 'https://mega.nz/file/koh20bQT#nB84yHZXzWlNZYu6_GLYm9DMiKvezc3LvFVKgrAKaH0',
   mac: 'https://mega.nz/file/RgpwWJjA#9Nm9ICa737vmhEao-Bnhr42vPfXsJ_JFGq-ITE4JloE',
   linux: 'https://mega.nz/file/c5wSlRBJ#gQP6Cdx2HlkPY_BycmRbTdPLWw3KbtjhYYOZ-Zoz6OA',
-  android: 'https://play.google.com/store/apps/details?id=io.antics.mobile.com',
+  android: 'http://play.google.com/store/apps/details?id=io.antics.mobile.com&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1',
   ios: ''
 };
 
