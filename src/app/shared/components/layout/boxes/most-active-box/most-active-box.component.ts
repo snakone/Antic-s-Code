@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { User, UserStats } from '@shared/interfaces/interfaces';
+import { UserStats } from '@shared/interfaces/interfaces';
 import { StatsFacade } from '@core/ngrx/stats/stats.facade';
-import { UserService } from '@core/services/user/user.service';
 
 @Component({
   selector: 'app-most-active-box',
