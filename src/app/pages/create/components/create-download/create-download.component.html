@@ -5,7 +5,7 @@
       <p>{{'CREATE.ANYTHING' | translate}}</p>
     </div>
     <p [innerHTML]="'DESKTOP.INTRO' | translate"></p>
-    <p>{{'VERSION' | translate}}
+    <p class="version">{{'VERSION' | translate}}
       <strong>{{ desktopVersion }}</strong>
     </p>
     <div class="download">
@@ -23,7 +23,9 @@
       <p>{{'CREATE.ANYWHERE' | translate}}</p>
     </div>
     <p [innerHTML]="'MOBILE.INTRO' | translate"></p>
-    <p>{{'VERSION' | translate}} <strong>{{ mobileVersion }}</strong></p>
+    <p class="version">{{'VERSION' | translate}}
+      <strong>{{ mobileVersion }}</strong>
+    </p>
     <div class="download">
       <button *ngFor="let m of mobileButtons"
                mat-button

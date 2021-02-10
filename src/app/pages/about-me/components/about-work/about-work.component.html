@@ -1,5 +1,5 @@
 <div class="about-me">
-  <h3 [innerHTML]="'JOB.WORLD' | translate"></h3> <!-- WORK -->
+  <h3 [innerHTML]="'JOB.WORLD' | translate"></h3>  <!-- WORK -->
   <p>{{'EXPERIENCE' | translate}}</p>
 </div>
 <div class="wrapper">
@@ -23,13 +23,18 @@
             <span class="primary">{{'TASK.DONE' | translate}}</span>:
              <span *ngFor="let t of c.tasks">{{t | translate}} </span>
           </li>
-          <li>
-            <span class="primary">{{'FEATURED.CLIENTS' | translate}}</span>:
-             <span *ngFor="let cl of c.clients; let last = last">
-               {{cl}}<span *ngIf="!last">,</span>
-            </span>
-          </li>
         </ul>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="card">
+        <div class="companies">   <!-- COMPANIES -->
+          <div *ngFor="let c of list" class="item">
+            <a [href]="c.link" class="default" target="_blank">
+              <img [src]="c.icon"/>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

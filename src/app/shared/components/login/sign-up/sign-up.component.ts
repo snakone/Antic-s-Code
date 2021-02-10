@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ValidatorFn } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
@@ -98,7 +98,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
     this.router.navigateByUrl('/profile');
   }
 
-  private theyMatchError(one: string, two: string) {
+  private theyMatchError(one: string, two: string): ValidatorFn {
     return (group: FormGroup) => {
       const p = group.controls[one].value;
       const m = group.controls[two].value;

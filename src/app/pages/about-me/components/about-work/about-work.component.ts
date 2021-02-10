@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { MY_COMPANIES } from '@shared/data/me';
+import { COMPANY_LIST, MY_COMPANIES } from '@shared/data/me';
 
 @Component({
   selector: 'app-about-work',
@@ -11,6 +11,7 @@ import { MY_COMPANIES } from '@shared/data/me';
 export class AboutWorkComponent {
 
   companies = MY_COMPANIES;
+  list = COMPANY_LIST;
 
   constructor() { }
 

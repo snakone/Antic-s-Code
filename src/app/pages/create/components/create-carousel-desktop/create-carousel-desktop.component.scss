@@ -32,8 +32,10 @@ h3 { margin-top: 5rem }
     width: auto;
     max-width: 50%;
     border-radius: 4px;
-    margin: 0 auto 2rem auto;
-    @media(max-width: 550px) { max-width: 100%; }
+    margin: 0 auto 2.3rem auto;
+    @media(max-width: 993px) { max-width: 70% }
+    @media(max-width: 750px) { max-width: 85% }
+    @media(max-width: 550px) { max-width: 100% }
   }
 
   & h4 {

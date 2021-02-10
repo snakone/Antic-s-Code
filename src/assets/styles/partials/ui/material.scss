@@ -84,7 +84,7 @@ mat-option.all {
 
 .edit-dialog .mat-dialog-container {
   padding: 0 !important;
-  border-radius: 10px;
+  border-radius: var(--content-border-radius);
   max-width: 993px;
 
   & .content-box-body {

@@ -308,10 +308,11 @@
       "MEDIUM": "Medio",
       "NAME": "Dificultad"
   },
-  "LIKE": "Me gusta",
+  "LIKE": "Like",
   "LIKED.ARTICLES": "Los Artículos más gustados",
   "LIKED.WHY": "Descubre por qué estos artículos son los preferidos del público",
   "LIKES": "Likes",
+  "I.WORKED": "He trabajado en...",
   "LIST": "Lista",
   "LIVE.CHAT": "Chat en Vivo",
   "LOADING.NEWS": "Cargando la Noticia...",
@@ -382,7 +383,7 @@
               },
               "RXJS": {
                   "AREA": "Programación Reactiva",
-                  "MESSAGE": "Observables, flujo de datos, pipes, operadores, funcional, manejo del flujo."
+                  "MESSAGE": "Observables, flujo de datos, operadores, manejo del flujo."
               },
               "SQL": {
                   "AREA": "Base de Datos Relacional",
@@ -398,7 +399,7 @@
               },
               "WORDPRESS": {
                   "AREA": "Gestor de Contenido",
-                  "MESSAGE": "Instalación, administración, edición, matenimiento, diseño, escribir contenido."
+                  "MESSAGE": "Instalación, administración, edición, matenimiento, diseño."
               }
           },
           "SOFT": {

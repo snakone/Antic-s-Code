@@ -3,7 +3,7 @@
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
     background: var(--light-color);
     margin-bottom: 2rem;
-    border-radius: 10px;
+    border-radius: var(--content-border-radius);
 
     &-no-border {
       background: none;
@@ -40,8 +40,8 @@
     &-header {
       padding: calc(1rem - 2px) 2rem;
       background-color: var(--new-color);
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
+      border-top-left-radius: var(--content-border-radius);
+      border-top-right-radius: var(--content-border-radius);
       @media(max-width: 550px) { padding: 1rem 1.2rem }
       &-modal { border-top-right-radius: 0 }
 

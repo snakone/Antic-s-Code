@@ -29,6 +29,7 @@ p {
     margin-top: -.1rem;
     outline: none;
     cursor: pointer;
+    &:hover { font-weight: bold }
   }
 
   @media(max-width: 550px) {

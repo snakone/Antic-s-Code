@@ -2,7 +2,7 @@
   &-content {
     background: var(--light-color);
     margin-bottom: 2rem;
-    border-radius: 10px;
+    border-radius: var(--content-border-radius);
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   }
 
@@ -19,8 +19,8 @@
       -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
       border-bottom: 1px solid var(--new-color-border);
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
+      border-top-left-radius: var(--content-border-radius);
+      border-top-right-radius: var(--content-border-radius);
 
       &:hover {
         cursor: pointer;

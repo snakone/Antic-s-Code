@@ -16,8 +16,8 @@
     display: flex;
     align-items: center;
     background: var(--new-color);
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-top-left-radius: var(--content-border-radius);
+    border-bottom-left-radius: var(--content-border-radius);
     height: 100%;
     color: var(--light-color);
     padding: 0 1rem;
@@ -47,9 +47,9 @@
     & .user {
       height: auto;
       padding: .333rem 1rem;
-      border-top-left-radius: 5px;
+      border-top-left-radius: var(--content-border-radius);
       border-bottom-left-radius: 0;
-      border-top-right-radius: 5px;
+      border-top-right-radius: var(--content-border-radius);
     }
   }
 

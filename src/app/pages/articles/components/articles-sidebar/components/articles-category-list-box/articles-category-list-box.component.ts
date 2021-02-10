@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MAIN_CATEGORIES } from '@shared/data/categories';
+import { RandomizerPipe } from '@shared/pipes/randomizer/randomizer.pipe';
 
 @Component({
   selector: 'app-articles-category-list-box',
@@ -10,7 +11,7 @@ import { MAIN_CATEGORIES } from '@shared/data/categories';
 
 export class ArticlesCategoryListBoxComponent {
 
-  categories = [...MAIN_CATEGORIES.slice(0, 6)];
+  categories = this.random.transform(MAIN_CATEGORIES).slice(0, 6);
 
-  constructor() { }
+  constructor(private random: RandomizerPipe) { }
 }

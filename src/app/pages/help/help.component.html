@@ -7,7 +7,9 @@
       <router-outlet></router-outlet>
     </div>
     <div class="col-lg-4 col-md-4">   <!-- SIDEBAR -->
-      Sidebar
+      <app-articles-sidebar [block]="true"
+                            [viewed]="false">
+      </app-articles-sidebar>
     </div>
   </div>
 </app-section>
