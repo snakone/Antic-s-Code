@@ -1,7 +1,5 @@
 import { ChangeDetectionStrategy, Component, AfterContentInit } from '@angular/core';
-import { User, UserStats } from '@shared/interfaces/interfaces';
-import { Observable } from 'rxjs';
-import { StatsFacade } from '@store/stats/stats.facade';
+import { User } from '@shared/interfaces/interfaces';
 import { UserService } from '@core/services/user/user.service';
 
 @Component({
@@ -15,10 +13,7 @@ export class ProfileContentComponent implements AfterContentInit {
 
   user: User;
 
-  constructor(
-    private userSrv: UserService,
-    private statsFacade: StatsFacade
-  ) { }
+  constructor(private userSrv: UserService) { }
 
   ngAfterContentInit() {
     this.user = this.userSrv.getUser();

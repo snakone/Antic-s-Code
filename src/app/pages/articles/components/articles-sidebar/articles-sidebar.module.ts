@@ -10,7 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { ArticlesSidebarComponent } from './articles-sidebar.component';
 import { ArticlesCategoryListBoxComponent } from './components/articles-category-list-box/articles-category-list-box.component';
-
+import { RandomizerPipe } from '@shared/pipes/randomizer/randomizer.pipe';
 
 const Material = [
   MatFormFieldModule,
@@ -31,6 +31,9 @@ const Material = [
   ],
   exports: [
     ArticlesSidebarComponent
+  ],
+  providers: [
+    RandomizerPipe
   ]
 })
 

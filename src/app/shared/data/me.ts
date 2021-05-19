@@ -1,4 +1,4 @@
-import { TimeLine, Skill, WorkCompany } from '../interfaces/interfaces';
+import { TimeLine, Skill, WorkCompany, List } from '../interfaces/interfaces';
 
 export const TIME_LINE: TimeLine[] = [
   {
@@ -222,11 +222,6 @@ export const MY_COMPANIES: WorkCompany[] = [
       'ME.WORK.SLASH.TASK.ONE',
       'ME.WORK.SLASH.TASK.TWO'
     ],
-    clients: [
-      'Catalana Occidente',
-      'Bank Sabadell',
-      'Accenture'
-    ],
     link: 'https://www.slashmobility.com',
     now: false
   },
@@ -238,10 +233,35 @@ export const MY_COMPANIES: WorkCompany[] = [
       'ME.WORK.ATS.TASK.ONE',
       'ME.WORK.ATS.TASK.TWO'
     ],
-    clients: [
-      'Generali'
-    ],
     link: 'https://www.atsistemas.com/es',
     now: true
   }
+];
+
+export const COMPANY_LIST: List[] = [
+  {
+    name: 'Catalana Occidente',
+    icon: 'assets/img/companies/catalana.png',
+    link: 'https://www.seguroscatalanaoccidente.com/'
+  },
+  {
+    name: 'Banc Sababell',
+    icon: 'assets/img/companies/sabadell.jpg',
+    link: 'https://www.bancsabadell.com/'
+  },
+  {
+    name: 'Accenture',
+    icon: 'assets/img/companies/accenture.jpg',
+    link: 'https://www.accenture.com/'
+  },
+  {
+    name: 'Generali',
+    icon: 'assets/img/companies/generali.png',
+    link: 'https://www.generali.es/'
+  },
+    {
+    name: 'Boehringer Ingelheim',
+    icon: 'assets/img/companies/boehringer.png',
+    link: 'https://www.boehringer-ingelheim.es/'
+  },
 ];

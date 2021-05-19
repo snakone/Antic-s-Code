@@ -10,8 +10,8 @@ h2 {
 
 .related {
   margin-bottom: 1rem;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-top-left-radius: var(--content-border-radius);
+  border-top-right-radius: var(--content-border-radius);
 
   & figure {
     position: relative;
@@ -21,8 +21,8 @@ h2 {
       width: 100%;
       vertical-align: middle;
       border-style: none;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
+      border-top-left-radius: var(--content-border-radius);
+      border-top-right-radius: var(--content-border-radius);
       opacity: .7;
       transition: opacity .3s ease-in;
 

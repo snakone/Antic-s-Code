@@ -23,6 +23,11 @@ p { padding-right: 4rem }
   }
 }
 
+.version {
+  margin-top: 1.5rem;
+  margin-bottom: .333rem !important;
+}
+
 .col-lg-6 {
   max-width: 576px;
   @media(max-width: 550px) {
@@ -76,8 +81,18 @@ p { padding-right: 4rem }
     max-width: 720px;
     margin: 0 auto;
   }
+
   .col-lg-6 { text-align: center }
-  p { padding-right: 0 }
+
+  p {
+    padding: 0 3rem;
+    margin-bottom: 1.666rem;
+  }
+
+  .version {
+    margin-top: initial !important;
+  }
+
   .download {
     justify-content: center;
     & button { margin: .8rem .4rem 1.4rem .4rem }

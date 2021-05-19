@@ -2,21 +2,23 @@
                  icon="cached">
       <p [innerHTML]="'RECOVER.INTRO' | translate"></p>
       <form [formGroup]="recoverForm" (ngSubmit)="onSubmit()">
-        <mat-form-field appearance="outline"
-                        color="accent">  <!-- VALUE -->
-          <mat-label>{{'INPUT.EMAIL' | translate}}</mat-label>
-          <mat-icon matSuffix>email</mat-icon>
-          <input matInput
-                 autocomplete="off"
-                 type="email"
-                 formControlName="email">
-        </mat-form-field>
-        <app-form-error [message]="'EMAIL.NOT.REGISTER'"
-                        [control]="emailCtrl"
-                        validator="taken">
-        </app-form-error>
-        <div class="captcha">
-          <re-captcha formControlName="recaptcha"></re-captcha>
+        <div class="flex-content">
+          <mat-form-field appearance="outline"
+                          color="accent">  <!-- VALUE -->
+            <mat-label>{{'INPUT.EMAIL' | translate}}</mat-label>
+            <mat-icon matSuffix>email</mat-icon>
+            <input matInput
+                  autocomplete="off"
+                  type="email"
+                  formControlName="email">
+          </mat-form-field>
+          <app-form-error [message]="'EMAIL.NOT.REGISTER'"
+                          [control]="emailCtrl"
+                          validator="taken">
+          </app-form-error>
+          <div class="captcha">
+            <re-captcha formControlName="recaptcha"></re-captcha>
+          </div>
         </div>
         <button class="btn-pink"
                 aria-label="Recover Password"

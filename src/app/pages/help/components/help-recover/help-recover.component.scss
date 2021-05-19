@@ -3,15 +3,23 @@
 p { margin: 0 }
 
 button {
-  margin: 1.5rem 0 .666rem;
+  margin: .5rem 0 .3rem;
   display: block;
+}
+
+.flex-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: .666rem;
 }
 
 mat-form-field {
   width: 50%;
   display: block;
   max-width: 100%;
-  margin-top: 1.888rem;
+  margin-top: 1.666rem;
+  height: 73px;
 }
 
 mat-icon {
@@ -23,12 +31,12 @@ mat-icon {
 
 @media(max-width: 750px) {
   mat-form-field { width: 100% }
+  .flex-content { display: block }
 }
 
 .captcha {
-  transform-origin: 0;
-  margin-top: .666rem;
-  @media(max-width: 550px) { transform: scale(0.9) }
+  transform: scale(.9);
+  cursor: pointer;
 }
 
 

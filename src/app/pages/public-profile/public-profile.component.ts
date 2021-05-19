@@ -6,7 +6,6 @@ import { takeUntil } from 'rxjs/operators';
 import { User, UserStats } from '@shared/interfaces/interfaces';
 
 import { UsersFacade } from '@store/users/users.facade';
-import { StatsFacade } from '@app/core/ngrx/stats/stats.facade';
 
 @Component({
   selector: 'app-public-profile',
@@ -21,7 +20,6 @@ export class PublicProfileComponent implements OnInit, OnDestroy {
 
   constructor(
     private userFacade: UsersFacade,
-    private statsFacade: StatsFacade,
     private route: ActivatedRoute
   ) { }
 

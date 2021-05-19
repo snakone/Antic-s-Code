@@ -1,5 +1,10 @@
 * { box-sizing: border-box }
 
+.row {
+  max-width: 1055px;
+  margin: 0 auto;
+}
+
 .col-lg-12 {
   max-width: 100%;
   @media(max-width: 993px) {

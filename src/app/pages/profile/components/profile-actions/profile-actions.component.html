@@ -1,14 +1,14 @@
 <app-content-box title="ACTIONS"
                  icon="check">
   <div class="icons">
-    <mat-icon [matTooltip]="'MY.INBOX' | translate"
+    <!-- <mat-icon [matTooltip]="'MY.INBOX' | translate"
               matTooltipPosition="above"
               [routerLink]="'/profile/inbox'"
               [matBadge]="unread$ | async"
               matBadgeColor="accent"
               [matBadgeHidden]="(unread$ | async) === 0">email
     </mat-icon>
-    <span>{{'MY.INBOX' | translate}}</span>
+    <span>{{'MY.INBOX' | translate}}</span> -->
     <mat-icon [matTooltip]="'PUBLIC.PROFILE' | translate"
               matTooltipPosition="above"
               [routerLink]="'/profile/' + user.name">assignment_ind

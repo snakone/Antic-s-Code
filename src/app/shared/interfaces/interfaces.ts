@@ -217,7 +217,6 @@ export interface WorkCompany {
   type: string;
   rank: string;
   tasks: string[];
-  clients: string[];
   link: string;
   now: boolean;
 }

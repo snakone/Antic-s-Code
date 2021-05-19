@@ -18,6 +18,7 @@ import { HelpComponent } from './help.component';
 import { HelpIntroComponent } from './components/help-intro/help-intro.component';
 import { HelpRecoverComponent } from './components/help-recover/help-recover.component';
 import { HelpNewPasswordComponent } from './components/help-new-password/help-new-password.component';
+import { ArticlesSidebarModule } from '../articles/components/articles-sidebar/articles-sidebar.module';
 
 const Material = [
   MatButtonModule,
@@ -42,6 +43,7 @@ const Material = [
     SnippetsModule,
     RecaptchaModule,
     RecaptchaFormsModule,
+    ArticlesSidebarModule,
     ...Material
   ]
 })

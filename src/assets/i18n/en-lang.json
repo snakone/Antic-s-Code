@@ -317,6 +317,7 @@
   "LOG.OUT": "Log Out",
   "LOST.PASSWORD": "Lost Password?",
   "MADE.WITH": "Made with",
+  "I.WORKED": "I've work on...",
   "MARK.READ": "Mark as unread",
   "MAX.STRING": "Max {{number}} characters long",
   "ME": {
@@ -381,7 +382,7 @@
               },
               "RXJS": {
                   "AREA": "Reactive Programming",
-                  "MESSAGE": "Observables, data flow, pipes, operators, functional, flow management."
+                  "MESSAGE": "Observables, data flow, pipes, operators, flow management."
               },
               "SQL": {
                   "AREA": "Relational Database",
@@ -397,7 +398,7 @@
               },
               "WORDPRESS": {
                   "AREA": "Content Manager",
-                  "MESSAGE": "Installation, administration, maintenance, editing, design, writing content."
+                  "MESSAGE": "Installation, administration, maintenance, editing, design."
               }
           },
           "SOFT": {

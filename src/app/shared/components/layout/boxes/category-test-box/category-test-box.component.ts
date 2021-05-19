@@ -1,9 +1,9 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
-import { TestFacade } from '@app/core/ngrx/test/test.facade';
-import { Test, TestEntry } from '@app/shared/interfaces/interfaces';
+import { TestFacade } from '@store/test/test.facade';
+import { Test, TestEntry } from '@shared/interfaces/interfaces';
 import { Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-category-test-box',
@@ -11,6 +11,7 @@ import { filter, map } from 'rxjs/operators';
   styleUrls: ['./category-test-box.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class CategoryTestBoxComponent implements OnInit {
 
   tests$: Observable<Test[]>;

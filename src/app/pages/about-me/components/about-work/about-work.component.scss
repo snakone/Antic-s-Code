@@ -23,6 +23,11 @@
   }
 }
 
+.col-12 {
+  margin: 1rem 15px 0 15px;
+  width: 100%;
+}
+
 .card {
   position: relative;
   overflow: hidden;
@@ -30,7 +35,7 @@
   background: #fff;
   box-shadow: 0 6px 10px rgba(0,0,0,.08),
               0 0 6px rgba(0,0,0,.05);
-  padding: 10px 24px 14px 24px;
+  padding: 14px 24px;
   margin-bottom: 20px;
   transition: all .3s ease-in;
 
@@ -48,6 +53,29 @@
     list-style: none;
     padding: 0;
     & li { margin: .666rem auto }
+  }
+}
+
+.companies {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  padding: 0 10px;
+  margin: .5rem 0;
+
+  & .item {
+    text-align: center;
+    & a { display: block }
+  }
+
+  & img {
+    width: 150px;
+    height: 75px;
+  }
+
+  @media(max-width: 550px) {
+    display: block;
+    & img { margin: .5rem 0 }
   }
 }
 
