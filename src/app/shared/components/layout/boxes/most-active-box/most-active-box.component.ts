@@ -1,9 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { UsersFacade } from '@store/users/users.facade';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
-import { takeUntil, filter } from 'rxjs/operators';
-import { MostActive } from '@shared/interfaces/interfaces';
+import { UserStats } from '@shared/interfaces/interfaces';
+import { StatsFacade } from '@core/ngrx/stats/stats.facade';
 
 @Component({
   selector: 'app-most-active-box',
@@ -11,30 +10,14 @@ import { MostActive } from '@shared/interfaces/interfaces';
   styleUrls: ['./most-active-box.component.scss']
 })
 
-export class MostActiveBoxComponent implements OnInit, OnDestroy {
+export class MostActiveBoxComponent implements OnInit {
 
-  activeUsers$: Observable<MostActive[]> | undefined;
-  private unsubscribe$ = new Subject<void>();
+  stats$: Observable<UserStats[]>;
 
-  constructor(private usersFacade: UsersFacade) { }
+  constructor(private statsFacade: StatsFacade) { }
 
   ngOnInit() {
-   this.checkData();
-   this.activeUsers$ = this.usersFacade.mostActive$;
-  }
-
-  private checkData(): void {
-    this.usersFacade.mostActiveLoaded$
-     .pipe(
-       takeUntil(this.unsubscribe$),
-       filter(res => !res)
-      )
-     .subscribe(_ => this.usersFacade.getMostActive());
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
+   this.stats$ = this.statsFacade.articles$;
   }
 
 }

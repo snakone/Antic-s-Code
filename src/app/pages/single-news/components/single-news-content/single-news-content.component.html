@@ -1,0 +1,41 @@
+<div class="notice">
+  <div class="notice-content">
+    <img [src]="notice.image" class="image" [alt]="notice.slug"/>
+    <div class="likes">
+      <span>{{notice.likes}}</span>
+      <mat-icon>favorite</mat-icon>
+    </div>
+    <div class="data">
+      <div class="reaction-desktop">
+        <mat-icon *ngIf="!notice.userLiked"
+                  (click)="doLike(1)">favorite_outline
+        </mat-icon>
+        <mat-icon *ngIf="notice.userLiked"
+                  class="active"
+                  (click)="doLike(-1)">favorite
+        </mat-icon>
+        <mat-icon (click)="share()" class="share">share</mat-icon>
+      </div>
+      <img [src]="(notice.category | logo) | image: 'logos'"
+           [alt]="notice.category"
+           class="category"
+           loading="lazy"/>
+      <span>{{notice.category}}</span> <span class="separator">-</span>
+      <span class="data-notice">
+             {{notice.views}} {{'VIEWS' | translate}}
+      </span>
+      <div class="reaction-mobile">
+      <mat-icon *ngIf="!notice.userLiked"
+                (click)="doLike(1)">favorite_outline
+      </mat-icon>
+      <mat-icon *ngIf="notice.userLiked"
+                class="active"
+                (click)="doLike(-1)">favorite
+      </mat-icon>
+      <mat-icon (click)="share()" class="share">share</mat-icon>
+    </div>
+    </div>
+    <app-content-maker [template]="notice.message"></app-content-maker>
+  </div>
+  <app-disqus [identifier]="notice.slug"></app-disqus>
+</div>

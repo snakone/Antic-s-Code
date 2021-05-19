@@ -7,12 +7,17 @@
       <div class="col-lg-8 col-md-8">  <!-- CONTENT -->
         <app-profile-info-box [user]="user">
         </app-profile-info-box>
-        <app-user-articles-box [user]="user"></app-user-articles-box>
+        <app-user-articles-box [user]="user"
+                               [title]="'ARTICLES.OF'">
+        </app-user-articles-box>
       </div>
       <div class="col-lg-4 col-md-4">   <!-- SIDEBAR -->
         <app-articles-sidebar [block]="true"
                               *onlyDesktop>
         </app-articles-sidebar>
+        <app-user-stats-box [user]="user"
+                            [title]="'SCORE.OF'">
+        </app-user-stats-box>
       </div>
     </div>
   </app-section>

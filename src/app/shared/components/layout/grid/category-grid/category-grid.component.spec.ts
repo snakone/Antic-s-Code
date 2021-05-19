@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { CategoryGridComponent } from './category-grid.component';
 
@@ -6,7 +6,7 @@ describe('CategoryGridComponent', () => {
   let component: CategoryGridComponent;
   let fixture: ComponentFixture<CategoryGridComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ CategoryGridComponent ]
     })

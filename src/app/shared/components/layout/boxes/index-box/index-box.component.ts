@@ -10,6 +10,8 @@ import { Index } from '@shared/interfaces/interfaces';
 export class IndexBoxComponent implements AfterContentInit {
 
   @Input() index: Index[];
+  @Input() right: boolean;
+  @Input() selector: string;
   public scrollSpy: string;
 
   constructor() { }
@@ -36,7 +38,7 @@ export class IndexBoxComponent implements AfterContentInit {
           inter.observe(el);
         });
       } catch (err) { console.log(err); }
-    }, 2500);
+    }, 2500);  // wait anchors to load
 
   }
 

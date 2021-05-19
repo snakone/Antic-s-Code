@@ -4,12 +4,14 @@
     <div class="profile-data" *ngIf="user; else noUser">
       <img [src]="user.profile?.avatar || 'assets/img/profile/no-photo.jpg'"
             alt="Avatar"
-            loading="lazy"/>
+            loading="lazy"
+            #img
+            (error)="img.src = 'assets/img/no-image.png'; img.alt='No Image'"/>
       <h3>{{user.name}}</h3>
-      <p *ngIf="user.email && user.showEmail">{{user.email}}</p>
       <p *ngIf="user.profile?.language" class="bold">
         {{user.profile?.language}}
       </p>
+      <p *ngIf="user.email && user.showEmail">{{user.email}}</p>
       <button mat-button class="btn-purple" aria-label="Rol">
         {{(user.profile?.rol | translate) || ('NOT.DEFINED' | translate)}}
       </button>
@@ -46,8 +48,15 @@
           </li>
         </div>
         <div class="total" *ngIf="user">
-          <li *ngFor="let t of total">{{user[t.name] || 0}}
-            <mat-icon [class]="t.name">{{t.icon}}</mat-icon>
+          <li>{{user.stats?.score.user?.likes || 0}}
+            <mat-icon class="likes">favorite</mat-icon>
+          </li>
+          <li>{{user.stats?.score.user?.views || 0}}
+            <mat-icon class="views">visibility</mat-icon>
+          </li>
+          <li>
+            {{user.stats?.score?.total || 0}}
+            <mat-icon class="stars">star_rate</mat-icon>
           </li>
         </div>
       </ul>

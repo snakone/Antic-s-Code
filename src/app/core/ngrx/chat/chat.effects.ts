@@ -18,8 +18,7 @@ export class ChatEffects {
   sendMessageEffect$ = createEffect(() => this.actions
     .pipe(
       ofType(ChatActions.send),
-      concatMap((action) =>
-        of(this.chatSrv.send(action.message))
+      concatMap((action) => of(this.chatSrv.send(action.message))
         .pipe(
           map(message => ChatActions.sendSuccess({ message })),
           catchError(error =>
@@ -31,8 +30,7 @@ export class ChatEffects {
   getMessagesEffect$ = createEffect(() => this.actions
   .pipe(
     ofType(ChatActions.listenMessages),
-    concatMap(_ =>
-      this.chatSrv.listen()
+    concatMap(_ => this.chatSrv.listen()
       .pipe(
         map(message => ChatActions.listenMessagesSuccess({ message })),
         catchError(error =>
@@ -44,8 +42,7 @@ export class ChatEffects {
   getFirstEffect$ = createEffect(() => this.actions
   .pipe(
     ofType(ChatActions.getMessages),
-    concatMap(_ =>
-      this.chatSrv.getMessages()
+    concatMap(_ => this.chatSrv.getMessages()
       .pipe(
         map(messages => ChatActions.getMessagesSuccess({ messages })),
         catchError(error =>
@@ -57,8 +54,7 @@ export class ChatEffects {
   deleteByIdEffect$ = createEffect(() => this.actions
   .pipe(
     ofType(ChatActions.deleteById),
-    concatMap((action) =>
-      this.chatSrv.deleteById(action.id)
+    concatMap((action) => this.chatSrv.deleteById(action.id)
       .pipe(
         map(_ => ChatActions.deleteByIdSuccess({id: action.id})),
         catchError(error =>

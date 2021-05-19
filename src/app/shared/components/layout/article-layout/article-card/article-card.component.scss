@@ -1,12 +1,11 @@
 .article {
   &-wrapper { margin-bottom: 3rem }
   &-card {
-    -webkit-border-radius: .26667rem;
     border: 0 none;
     -webkit-transition: all .3s ease;
     -o-transition: all .3s ease;
     transition: all .3s ease;
-    border-radius: 10px;
+    border-radius: var(--content-border-radius);
 
     &-shadow {
       box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
@@ -21,8 +20,8 @@
         vertical-align: middle;
         margin-top: 1px;  // Border of SideBar
         border-bottom: 1px solid var(--new-color-border);
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
+        border-top-left-radius: var(--content-border-radius);
+        border-top-right-radius: var(--content-border-radius);
         &:hover {
           cursor: pointer;
           filter: brightness(1.1);
@@ -34,15 +33,16 @@
       padding: 1.8rem 2rem;
       position: relative;
       background: var(--light-color);
-      @media(max-width: 700px) { padding: 1.5rem; }
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
+      border-bottom-left-radius: var(--content-border-radius);
+      border-bottom-right-radius: var(--content-border-radius);
+      @media(max-width: 700px) { padding: 1.5rem }
 
       & ul {
         padding-left: 0;
         list-style: none;
-        margin-bottom: .7rem;
+        margin-bottom: .5rem;
         margin-top: 0;
+        display: inline-block;
       }
 
       & li {
@@ -60,7 +60,7 @@
       }
 
       & h3 {
-        margin-bottom: 1rem;
+        margin-bottom: .6rem;
         margin-top: 0;
         outline: none;
         font-size: 1.66rem;
@@ -69,6 +69,7 @@
         @media(max-width: 650px) {
           font-size: 1.33rem;
           line-height: 1.7rem;
+          margin-bottom: .4rem;
         }
 
         &:hover {
@@ -79,12 +80,6 @@
 
       &-tags {
         margin-top: .6rem;
-        margin-bottom: 1.2rem;
-        @media(max-width: 700px) {
-          margin-top: .5rem;
-          margin-bottom: 0;
-        }
-
         @media (max-width: 550px) {
           .category-tag {
             font-size: 0.8rem !important;
@@ -92,12 +87,18 @@
         }
       }
     }
+
+    &-stats {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
   }
 }
 
-.basic-flex {
-  display: flex;
-  @media(max-width: 700px) { display: inline-block }
+.levels {
+  position: relative;
+  top: -8px;
 }
 
 .author { color: var(--tag-color) }
@@ -113,7 +114,7 @@
   }
 
   .article-card-body {
-    padding: 1.8rem 0 !important;
+    padding: 0 0 1.8rem 0 !important;
     padding-bottom: 2rem !important;
     background: none;
     & ul { margin-top: .7rem !important }
@@ -128,16 +129,4 @@
   outline: none;
   font-weight: normal !important;
   &:hover { font-weight: bold !important }
-}
-
-.reaction-desktop {
-  @media(max-width: 700px) { display: none }
-}
-
-.reaction-mobile {
-  @media(min-width: 701px) { display: none }
-}
-
-.split {
-  @media(max-width: 700px) { margin-bottom: 2rem }
 }

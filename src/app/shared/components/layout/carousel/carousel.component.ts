@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DEFAULT_SWIPER_CONFIG } from '@app/app.config';
 
 @Component({
@@ -7,19 +7,13 @@ import { DEFAULT_SWIPER_CONFIG } from '@app/app.config';
   styleUrls: ['./carousel.component.scss']
 })
 
-export class CarouselComponent implements OnInit {
+export class CarouselComponent {
 
   @Input() array: any[];
   index = 0;
   config = DEFAULT_SWIPER_CONFIG;
 
   constructor() { }
-
-  ngOnInit() {
-    setTimeout(() => {
-      window.dispatchEvent(new Event('resize'));  // Temporally fix
-    }, 2000);
-  }
 
   public navigate(value: number): void {
     const i = this.index + value;
@@ -36,6 +30,12 @@ export class CarouselComponent implements OnInit {
     }
 
     this.index = i;
+  }
+
+  public swiperInit(): void {
+    setTimeout(() => {
+      window.dispatchEvent(new Event('resize'));  // Temporally fix
+    }, 2000);
   }
 
 }

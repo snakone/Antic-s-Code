@@ -10,6 +10,7 @@ import { PublicProfileComponent } from './public-profile.component';
 import { BoxesModule } from '@layout/boxes/boxes.module';
 import { PageHeaderModule } from '@layout/page-header/page-header.module';
 import { SectionModule } from '@layout/section/section.module';
+import { UserStatsBoxModule } from '@layout/boxes/user-stats-box/user-stats-box.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SectionModule } from '@layout/section/section.module';
     PageHeaderModule,
     SectionModule,
     BoxesModule,
-    ArticlesSidebarModule
+    ArticlesSidebarModule,
+    UserStatsBoxModule
   ]
 })
 

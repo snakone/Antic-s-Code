@@ -1,0 +1,22 @@
+<app-sticky-box selector="news-section">
+  <app-content-box [border]="true" [news]="true">
+    <ng-container *ngIf="(byCategory$ | async) as news; else noNews">
+      <div class="row">
+        <div class="col-md-6"
+            *ngFor="let n of news; let last = last">
+          <app-related-news-card [notice]="n"
+                                 [last]="last">
+          </app-related-news-card>
+        </div>
+      </div>
+    </ng-container>
+  </app-content-box>
+</app-sticky-box>
+
+<ng-template #noNews>
+  <div>
+    <app-related-news-card *ngFor="let i of [1,2,3,4]; let last = last"
+                            [last]="last">
+    </app-related-news-card>
+  </div>
+</ng-template>

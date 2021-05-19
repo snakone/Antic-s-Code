@@ -1,0 +1,40 @@
+ul {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+
+  &.skeleton {
+    & li {
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: flex-start;
+      position: relative;
+
+      &:last-child { margin-bottom: 0 }
+      &.category { align-items: flex-start }
+
+      & span {
+        background: var(--skeleton-color-tint);
+        height: 1.3rem;
+        width: 2.2rem;
+        margin: .5rem .5rem .5rem 0;
+        pointer-events: none;
+      }
+
+      & p {
+        background: var(--skeleton-color-tint);
+        height: 1.3rem;
+        width: 12rem;
+        margin: .5rem .5rem .8rem 1rem;
+        &:last-child { margin-bottom: 0 }
+      }
+    }
+  }
+
+  &.no-m {
+    & li {
+      margin-bottom: 0;
+      & p { width: 14rem }
+    }
+  }
+}

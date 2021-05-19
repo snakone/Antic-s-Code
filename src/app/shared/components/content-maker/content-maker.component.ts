@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-content-maker',
-  templateUrl: './content-maker.component.html'
+  templateUrl: './content-maker.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class ContentMakerComponent {

@@ -1,6 +1,6 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import * as TestActions from './test.actions';
-import { Test, TestEntry, TestRequestResult } from '@shared/interfaces/interfaces';
+import { Test, TestEntry, TestResult } from '@shared/interfaces/interfaces';
 
 export interface TestState {
   tests: Test[];
@@ -9,11 +9,11 @@ export interface TestState {
   testLoaded: boolean;
   entry: TestEntry;
   entryLoaded: boolean;
-  result: TestRequestResult;
+  entries: TestEntry[];
+  result: TestResult;
   resultLoaded: boolean;
   error: string;
-  entriesByUser: TestEntry[];
-  entriesByUserLoaded: boolean;
+  questions: number;
 }
 
 export const inititalState: TestState = {
@@ -23,11 +23,11 @@ export const inititalState: TestState = {
   testLoaded: false,
   entry: null,
   entryLoaded: false,
+  entries: null,
   result: null,
   resultLoaded: false,
   error: null,
-  entriesByUser: null,
-  entriesByUserLoaded: false
+  questions: 0
 };
 
 const featureReducer = createReducer(
@@ -41,13 +41,16 @@ const featureReducer = createReducer(
       ...state,
       error: null,
       tests,
-      loaded: true
+      loaded: true,
+      entries: [].concat(...tests.map(t => t.entries)).filter(x => x && !!x),
+      questions: tests.reduce((acc, curr) => acc +
+                      ((curr.entries?.length * 10) || 0), 0)
     }
   )),
   on(TestActions.getFailure, (state, { error }) => (
     { ...state, loaded: false, error }
   )),
-    // GET BY CATEGORY
+  // GET BY CATEGORY
   on(TestActions.getByCategory, (state) => (
     { ...state, testLoaded: false, error: null }
   )),
@@ -62,31 +65,39 @@ const featureReducer = createReducer(
   on(TestActions.getByCategoryFailure, (state, { error }) => (
     { ...state, testLoaded: false, error }
   )),
-     // GET ENTRIES BY USER
-  on(TestActions.getEntriesByUser, (state) => (
-    { ...state, entriesByUserLoaded: false, error: null }
+  // GET ENTRY BY UID
+  on(TestActions.getEntryByUid, (state) => (
+    { ...state, error: null }
   )),
-  on(TestActions.getEntriesByUserSuccess, (state, { entries }) => (
+  on(TestActions.getEntryByUidSuccess, (state, { entry }) => (
     {
       ...state,
       error: null,
-      entriesByUser: entries,
-      entriesByUserLoaded: true
+      entry,
+      entryLoaded: true
     }
   )),
-  on(TestActions.getEntriesByUserFailure, (state, { error }) => (
-    { ...state, entriesByUserLoaded: false, error }
-  )),
-   // SET ENTRY
-  on(TestActions.setEntry, (state, { entry }) => (
-    { ...state, entryLoaded: true, entry, error: null }
-  )),
-  on(TestActions.setEntryFailure, (state, { error }) => (
+  on(TestActions.getEntryByUidFailure, (state, { error }) => (
     { ...state, entryLoaded: false, error }
+  )),
+  // GET RESULT BY UID
+  on(TestActions.getResultByUid, (state) => (
+    { ...state, error: null }
+  )),
+  on(TestActions.getResultByUidSuccess, (state, { result }) => (
+    {
+      ...state,
+      error: null,
+      result,
+      resultLoaded: true
+    }
+  )),
+  on(TestActions.getResultByUidFailure, (state, { error }) => (
+    { ...state, result: null, error }
   )),
   // SAVE TEST REQUEST
   on(TestActions.saveRequest, (state) => (
-    { ...state, resultLoaded: false, error: null }
+    { ...state, error: null, result: null }
   )),
   on(TestActions.saveRequestSuccess, (state, { result }) => (
     {
@@ -103,9 +114,10 @@ const featureReducer = createReducer(
   on(TestActions.reset, (state) => (
     {
       ...state,
+      tests: [],
+      loaded: false,
       testLoaded: false,
-      test: null,
-      error: null
+      test: null
     }
   )),
   // RESET ENTRY
@@ -113,19 +125,15 @@ const featureReducer = createReducer(
     {
       ...state,
       entry: null,
-      entryLoaded: false,
-      result: null,
-      resultLoaded: false,
-      error: null
+      entryLoaded: false
     }
   )),
-  // RESET ENTRIES BY USER
-  on(TestActions.resetEntriesByUser, (state) => (
+    // RESET RESULT
+  on(TestActions.resetResult, (state) => (
     {
       ...state,
-      entriesByUser: null,
-      entriesByUserLoaded: false,
-      error: null
+      result: null,
+      resultLoaded: false
     }
   )),
 );
@@ -137,9 +145,8 @@ export const getEntry = (state: TestState) => state.entry;
 export const getEntryLoaded = (state: TestState) => state.entryLoaded;
 export const getResult = (state: TestState) => state.result;
 export const getResultLoaded = (state: TestState) => state.resultLoaded;
-export const getEntriesByUser = (state: TestState) => state.entriesByUser;
-export const getEntriesByUserLoaded = (state: TestState) => state.entriesByUserLoaded;
-
+export const getQuestions = (state: TestState) => state.questions;
+export const getEntries = (state: TestState) => state.entries;
 
 export function reducer(state: TestState | undefined, action: Action) {
   return featureReducer(state, action);

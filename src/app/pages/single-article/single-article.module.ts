@@ -7,6 +7,7 @@ import { SingleArticleRouting } from './single-article.routing';
 import { SingleArticleComponent } from './single-article.component';
 import { ArticlesSidebarModule } from '../articles/components/articles-sidebar/articles-sidebar.module';
 
+import { SingleContentHeaderModule } from '@layout/single-content-header/single-content-header.module';
 import { BoxesModule } from '@layout/boxes/boxes.module';
 import { PageHeaderModule } from '@layout/page-header/page-header.module';
 import { SectionModule } from '@layout/section/section.module';
@@ -24,6 +25,7 @@ import { ArticleLayoutModule } from '@layout/article-layout/article-layout.modul
     BoxesModule,
     ArticlesSidebarModule,
     PageHeaderModule,
+    SingleContentHeaderModule,
     SectionModule,
     ArticleLayoutModule
   ]

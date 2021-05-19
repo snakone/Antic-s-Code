@@ -10,16 +10,19 @@
   "ALL.A": "All",
   "ALL.ARTICLES": "All the Articles",
   "ALL.CATEGORIES": "All the Categories",
+  "ALL.NEWS": "All the News",
   "ALMOST.THERE": "Almost there! Next time You'll got it.",
   "ALRIGHT.YOU.MADE": "You made it! Not bad, on time.",
   "AND.NOW": "And now",
   "ANDROID.NATIVE": "Native Android",
-  "ANTICS.INTRO": "We introduce Antic's Code Desktop a <strong>desktop</strong> program with which you will be able to create content for this same portal. It is easier than you think, for this follow these simple steps:",
+  "ANTICS.APP": "This application was made specially to write articles, so your experience while writing and sharing will be great and satisfactory. We can't wait for you to try it!",
+  "ANTICS.CREATE": "Take advantage of this opportunity and join an emerging community of developer. <strong>Create</strong>, <strong>Share</strong>, <strong>Learn</strong> and <strong>Meet</strong> new people interested in the fastest growing profession.",
+  "ANTICS.INTRO": "We introduce Antic's Code Desktop a program with which you will be able to create content for this same portal. It is easier than you think, for this follow these simple steps:",
+  "ANY": "Any",
   "APPLY": "Apply",
   "ARTICLE": "Article",
   "ARTICLE.CREATE": "Article Creation",
   "ARTICLE.LOOKING": "What sort of Articles are You Looking for?",
-  "ARTICLE.RATE": "Rate this Article",
   "ARTICLE.USEFUL": "Have You found it useful?",
   "ARTICLES": "Articles",
   "ARTICLES.OF": "{{name}}'s Articles",
@@ -27,7 +30,9 @@
   "BACK.DEV": "Backend",
   "BAD.SCORE": "Your score is <strong>a bit bad</strong>, maybe you should keep studying.",
   "BADGE": {
+      "CLASSIC": "Classic",
       "HOT": "Hot",
+      "LOVED": "Loved",
       "NEW": "New",
       "PRO": "Prominent"
   },
@@ -70,7 +75,10 @@
           "JS": "Scripting Language",
           "MONGO": "NOSQL Database",
           "NODE": "Javascript on the Server side",
-          "PYTHON": "The Free Language"
+          "PHP": "The Flexible Language",
+          "PYTHON": "The Free Language",
+          "REACT": "The Facebook UI library",
+          "VUE": "The Open Framework"
       }
   },
   "CHARS": "Characters",
@@ -84,15 +92,25 @@
   "CONTACT": "Contact",
   "CONTENT.FOUND": "Items Found",
   "CONTENT.INDEX": "Index Content",
+  "CORRECT.QUESTIONS": "Correct Questions",
   "CREATE": "Create",
+  "CREATE.ACCOUNT": "Create an account to interact",
   "CREATE.ANYTHING": "Create all kinds of content",
-  "CREATE.ANYWHERE": "Create content from wherever you want",
+  "CREATE.ANYWHERE": "Create content anywhere you want",
   "CREATE.ARTICLE": "Create Content",
+  "CREATE.PASSWORD": "Create a new Password",
   "CREATE.SLIDES": {
       "ARTICLE": {
           "MESSAGE": "When the moderation team approves your Article, it will be listed along with the others. From that moment, any user will be able to read and learn from your content.",
           "SUBTITLE": "Create and share content with other people interested in programming.",
           "TITLE": "Your content"
+      },
+      "ARTICLE_MOBILE": {
+          "MESSAGE": "You can track your content at any time and edit it's content. You can differentiate between approved content (the same one that appears in Antic's Code) and your drafts."
+      },
+      "EDIT_MOBILE": {
+          "MESSAGE": "Edit the content you have created at any time. However, keep in mind that if you edit content that is already approved, it will be automatically sketched to avoid inappropriate content.",
+          "TITLE": "Edit content"
       },
       "FORM": {
           "MESSAGE": "Take your time to fill in the details of the Article. It is important to know how to choose well. The title will serve to create a unique link with which you can share the content.",
@@ -114,41 +132,68 @@
           "SUBTITLE": "Use Markdown to write a rich Article.",
           "TITLE": "Let's do it"
       },
+      "OPTIONS_MOBILE": {
+          "MESSAGE": "We are passionate about making you comfortable in the application, that is why you have at your disposal a series of options so that you can personalize your experience while you are here. Go ahead, you're home!",
+          "SUBTITLE": "Customize your experience",
+          "TITLE": "Additional options"
+      },
       "START": {
           "MESSAGE": "One of the few requirements for writing in Antic's Code is knowing Markdown, everything else is up to you. Articles will be visible both here and in Antic's Code Desktop. What are you waiting to capture your knowledge?",
           "SUBTITLE": "Basic concepts for good writing.",
           "TITLE": "Write an Article"
+      },
+      "START_MOBILE": {
+          "MESSAGE": "The only requirements to get started is that you have an Antic's Code account and know something about Markdown. We need an account so we can know who created the article and so you can manage them later.",
+          "SUBTITLE": "Welcome to the content creator",
+          "TITLE": "Antic's Mobile"
+      },
+      "USERS_MOBILE": {
+          "MESSAGE": "Use your profile to grow within the community. The more you use the application, the more points you will get. Add friends, have fun, teach and share knowledge with other people. Only in Antic's Mobile!",
+          "SUBTITLE": "Make yourself known thanks to Antic's",
+          "TITLE": "Growing community"
       }
   },
   "CREATED.ON": "Created in",
   "CRONO": "Chronology",
+  "DATA.HELPS": {
+      "LIKES": "Giving a Like helps <span class='bold'>{{author}}</span> to write more articles.",
+      "STARS": "Giving a Star helps <span class='bold'>{{author}}</span> to be more respected."
+  },
   "DELETE.ACC": "Delete Account",
   "DELETE.ACCOUNT.P": "if you delete your account, your information that belongs to this portal will be <span class='bold'>erased</span>, this includes your profile, your likes and article scores. This process cannot be undone.<br>Are you really sure you want to delete your account?",
+  "DELETE.CHAT.MESSAGE": "Do You want to delete the message <span class='bold'>{{message}}</span>?",
   "DELETE.SENTENCE": "I am sure to delete my account, go ahead.",
+  "DENO.SERVER": "Deno Server",
   "DESIGN": "Diseño",
   "DESIGN.DEV": "Designer",
   "DESIGN.WEB": "Web Designer",
-  "DESKTOP.INTRO": "Do you find it interesting? Do you want to join a community of developers? Download Antic's Code now! It is totally free. You will need an Antic's Code account to enter.",
+  "DESKTOP.INTRO": "Do you find it interesting? Do you want to join a community of developers? Download <strong>Antic's Code Desktop</strong> now! It is totally free. You will need an Antic's Code account to enter.",
   "DISCOVER": "Discover",
   "DISCOVER.ARTICLES": "Find, discover and learn with Articles and examples sorted by categories.",
   "DISCOVER.LAST": "Discover the latest of Antic's Code",
   "DISCOVER.WORKS": "Discover how to use Antic's",
-  "DO.TEST": "Test about our categories",
+  "DO.TEST": "Test about our Categories",
   "DOWNLOAD": "Download",
   "DOWNLOAD.APP": "Download the App",
   "DOWNLOAD.STEPS": {
-      "FIVE": "Once approved, your Article is ready!",
+      "FIVE": "Take your time to write something amazing.",
       "FOUR": "Follow the instructions",
       "ONE": "Download the application.",
+      "SIX": "Once approved, your Article is ready!",
       "THREE": "Enter into the <strong>Create</strong> section.",
       "TWO": "Login with your Antic's Code account"
   },
+  "DOWNLOADS": "Downloads",
   "EDIT.PROFILE": "Edit Profile",
   "EDIT.YOUR.PROFILE": "Edit your Profile",
   "EMAIL": "Email",
+  "EMAIL.NOT.REGISTER": "Email not registered",
+  "EMAIL.SEND": "Email Send!",
   "EMAIL.UNIQUE": "Email must be unique",
+  "ENJOY.INBOX": "We hope you will make many contacts by using this <strong>service</strong>.",
   "ENTER.EMAIL": "Enter your Email",
   "ENTER.WITH": "Or enter with...",
+  "ENTRY.DONE": "Test Completed",
   "ERRORS": {
       "ACCESS": {
           "MESSAGE": "Access to this service has been denied for preventing from an unknown origin. Sorry for the inconvenience, if the problem persists, contact us.",
@@ -157,6 +202,14 @@
       "CODE": {
           "MESSAGE": "Sorry, there was a runtime error in the code. Please try to refresh the page if the error continues, otherwise contact us. Sorry for the disturbances.",
           "TITLE": "Code Error"
+      },
+      "EMAIL_TOKEN": {
+          "MESSAGE": "The code is invalid. Try again with another code.",
+          "TITLE": "Access Denied"
+      },
+      "ENTRY_DONE": {
+          "MESSAGE": "Hey hello! It's seems you already made this Test! Sorry, try with another if you wish.",
+          "TITLE": "Test already made"
       },
       "REGISTER": {
           "MESSAGE": "If you really want to sign up for a new account other than the one you already have, please log out first and try again.",
@@ -170,6 +223,10 @@
           "MESSAGE": "There has been an internal error on the server. If the error continues, please try again later or contact us. Sorry for the disturbances.",
           "TITLE": "Server Error"
       },
+      "SHARE": {
+          "MESSAGE": "We are sorry. This device doesn't support the Web API Share. Please try again with another device, this usually works on mobile devices.",
+          "TITLE": "Share Not Available"
+      },
       "TEST": {
           "MESSAGE": "We apologize, this feature makes use of your information as a user. You must be registered to access it.",
           "TITLE": "Access Denied"
@@ -182,6 +239,10 @@
           "MESSAGE": "We don't know yet but something bad happened. Sorry for the inconvenience, if the problem persists, contact us.",
           "TITLE": "Unkown error"
       },
+      "USER_ALREADY": {
+          "MESSAGE": "We are sorry, this email is already in use. Please use another one.",
+          "TITLE": "User registered"
+      },
       "WEB": {
           "MESSAGE": "There seems to be a network error. Check that you have Internet access and try again. If the problem persists, contact us.",
           "TITLE": "Network Error"
@@ -190,6 +251,7 @@
   "EXAMPLES": "Examples",
   "EXPERIENCE": "Experience",
   "FACEBOOK": "Facebook",
+  "FAILURE": "Failures",
   "FAQ": "Questions and Answers",
   "FAVORITE": "Favorite",
   "FAVORITE.LANG": "Your favorite Language",
@@ -202,6 +264,7 @@
   "FRONT.DEV": "Frontend",
   "FULL.DEV": "Full-Stack",
   "GET.HELP": "Get help",
+  "GET.NEWS": "Find out about the News",
   "GET.SUPPORT": "Get Support",
   "GIT.SYSTEM": "Git System",
   "GITHUB.PAGE": "Your Github Profile",
@@ -210,6 +273,7 @@
   "GOODBYE": "Farewell",
   "GREAT.SCORE": "Woah! This is good enough for you, isn't it? You <strong>approved</string> with a great score. Awesome!",
   "GRID": "Grid",
+  "GUEST": "Guest",
   "HELP": "Help",
   "HERE": "here",
   "HIDE": "Hide",
@@ -217,10 +281,13 @@
   "HOW.IT.WORKS": "How it works?",
   "I.ACCEPT": "I accept the",
   "IN.TOUCH": "We are in <span>Contact</span>",
+  "INBOX": "Your Inbox",
   "INCORRECT.ANSWER": "Incorrect answers",
   "INCORRECT.LOGIN": "Incorrect credentials",
   "INFO": "Information",
+  "INPUT.EMAIL": "Type your email",
   "JOB.WORLD": "World of <span>Work</span>",
+  "JUST.NOW": "Just now",
   "KNOW.ME": "Behind the Scenes",
   "LABEL": "Label",
   "LANG": {
@@ -230,6 +297,7 @@
   },
   "LANGUAGE": "Language",
   "LAST.ARTICLES": "The Last Articles",
+  "LAST.USER": "Last to Join",
   "LEARN": "Learn Development",
   "LEARNED.ON": "I learned it on",
   "LETS.TALK": "Let's Talk!",
@@ -245,8 +313,13 @@
   "LIKES": "Likes",
   "LIST": "List",
   "LIVE.CHAT": "Live Chat",
+  "LOADING.NEWS": "Loading the Notice...",
   "LOG.OUT": "Log Out",
+  "LOST.PASSWORD": "Lost Password?",
   "MADE.WITH": "Made with",
+  "I.WORKED": "I've work on...",
+  "MARK.READ": "Mark as unread",
+  "MAX.STRING": "Max {{number}} characters long",
   "ME": {
       "BUILD": "I personally built this site to help myself share content in a simple and beautiful way with other people interested in programming. <br> Do you think I did a good job? If you think so, surely you can <strong>benefit</strong> from my knowledge and experience in one way or another. <br> If you want to contact me you can do so at the bottom of this page or using the button in the lower left corner.",
       "HISTORY": "<span> History </span> of a Developer",
@@ -325,7 +398,7 @@
               },
               "WORDPRESS": {
                   "AREA": "Content Manager",
-                  "MESSAGE": "Installation, administration, editing, design, writing content."
+                  "MESSAGE": "Installation, administration, maintenance, editing, design."
               }
           },
           "SOFT": {
@@ -378,11 +451,13 @@
   },
   "MENU": "Menu",
   "MESSAGE": "Message",
+  "MESSAGE.DELETED": "Message deleted",
   "MESSAGE.SEND": "Message send",
   "META.CLIENT": "Goals and Benefits for clients",
+  "MIN.WIDTH": "We're sorry, this application needs at least <span class='bold'>320px width</span>. <br>Try later with another device.",
   "MISS.YOU": "We'll miss You",
   "MOBILE.DEV": "Mobile Developer",
-  "MOBILE.INTRO": "Do you want to create content from anywhere? Now with Antic's Code <strong>Mobile</strong> it is possible. Download the application, you can create and edit your content on any place. What are you waiting for?",
+  "MOBILE.INTRO": "Do you want to create content from anywhere? Now with <strong>Antic's Code Mobile</strong> it is possible. Download the application, you can create, read, share and edit your content at any place.",
   "MODALS": {
       "MAINTENANCE": {
           "MESSAGE": "We are working on improving the page and some parts may not work properly. Sorry for the inconvenience, we continue to develop so that everything returns to normal as soon as possible. Thanks for your understanding.",
@@ -390,18 +465,29 @@
       }
   },
   "MONGO.DB": "Mongo Database",
+  "MORE.TEST": "Other Test",
   "MOST.ACTIVE": "Most Active",
   "MOST.VIEWED": "The most Viewed",
+  "MY.ARTICLES": "My Articles",
   "MY.BIO": "Your Presentation",
+  "MY.INBOX": "My Inbox",
+  "MY.SCORE": "My Score",
   "NAME": "Name",
   "NAV.SEARCH": "What are You looking for?",
+  "NEW": "New",
+  "NEW.MESSAGE": "New message",
+  "NEW.PASSWORD": "Welcome, from here You can create a <strong>new password</strong> for your account. Fill the form below. Then the next time use the same password to login.",
+  "NEWS": "News",
   "NEXT": "Next",
   "NO.ACCOUNT": "No Account?",
-  "NO.ENTRY.YET": "There's no entries for this Test",
+  "NO.ENTRY.YET": "There's no Entries for this category",
+  "NO.MESSAGES": "You don't have messages.",
   "NO.RESULTS": "No results found",
+  "NO.TEST.YET": "There's no test for this category",
   "NO.UPDATED": "Not updated",
   "NO.WRITE.YET": "I ain't write anything yet. I'm on it!",
   "NOT.DEFINED": "Not Defined",
+  "NOT.FOUND": "No Results",
   "NOW.WORKING": "(Currently exercising)",
   "OF": "of",
   "ON.DESKTOP": "Antic's Desktop",
@@ -413,38 +499,52 @@
   "OUR.POLITICS": "Our Policies",
   "OUR.USERS": "Our Users",
   "PASSWORD": "Password",
+  "PASSWORD.CHANGED": "Password changed!",
   "PERFECT.SCORE": "I ain't have words to say. You <strong>approved</strong> with a <strong>perfect</strong> score. Unbelievable!",
   "PICK.THREAD": "Pick a thread",
   "POLITICS": "Policies",
+  "POPULAR.NEWS": "The Most Popular News",
   "POPULAR.THREAD": "Popular Threads",
   "PORTFOLIO.PAGE": "Your personal Portfolio",
+  "PREVIEW.NEWS": "Don't miss out Anything",
   "PRO.OBJ": "Career <span>Goals</span>",
   "PROFILE": "Profile",
   "PROFILE.UPDATED": "Profile updated",
   "PUBLIC.PROFILE": "Public Profile",
   "PUBLISHED": "Published:",
   "PUT.SENTENCE": "Write the sentence here again...",
+  "QUESTION": "Questions",
   "QUESTIONS": "questions",
   "RANK": "Rank",
-  "CREATE.ACCOUNT": "Create an account to interact",
-  "DATA.HELPS": {
-    "STARS": "Giving a Star helps <span class='bold'>{{author}}</span> to be more respected.",
-    "LIKES": "Giving a Like helps <span class='bold'>{{author}}</span> to write more articles."
-  },
+  "RATE": "Rate",
+  "RATE.STARS": "Rate this content",
+  "REACT.LIBRARY": "React Library",
+  "REACTIONS": "Interactions",
+  "READ.MORE": "Read more...",
+  "RECOVER.INTRO": "Have You forget your Password? Do not worry, here You can generate a <strong>new</strong> password. Simply use the button and We will send You a message into your <strong>mailbox</strong>. Check your <strong>junk</strong> if You cannot find the email.",
+  "RECOVER.PASSWORD": "Recover Password",
+  "REFRESH.INBOX": "The messages do not arrive live, so you will have to refresh them by using the <strong>green</strong> button.",
   "REGISTER": "Register",
   "REGISTER.NOW": "Register now!",
   "RELATED.ARTICLES": "Related Articles",
   "RELATED.LINKS": "Related Links",
+  "RELOAD": "Reload",
   "REMEMBER": "Remember Me?",
   "REPEAT.PASSWORD": "Repeat Password",
+  "REPLY": "Reply",
   "REQUEST.CRITERIA": "Request provided",
   "RESULT": "Result",
+  "RESULT.INTRO": "Below you can see the <strong> result </strong> of the test you have done. These data are merely informative so don't take it too seriously.",
+  "RESULTS": "Results",
   "SAVE": "Save",
   "SCORE": "Score",
+  "SCORE.OF": "{{name}}'s Score",
+  "SCORE.RANKING": "Score Ranking",
   "SEARCH": "Search",
   "SEARCH.ANY": "Search for anything...",
   "SEARCH.CONTENT": "Search Content",
   "SEARCH.FOR": "I'm looking for...",
+  "SEARCH.INBOX": "Search messages",
   "SEARCH.USERS": "Search for Users",
   "SEARCHER": "Searcher",
   "SEE.ALL": "See All",
@@ -454,6 +554,7 @@
   "SELECT.ROL": "Select your Rol",
   "SEND": "Send",
   "SEND.MESSAGE": "Send Message",
+  "SEND.RECOVER": "I want to recover my Password",
   "SETTINGS": "Settings",
   "SHARE": "Share",
   "SHOW": "Show",
@@ -466,6 +567,7 @@
   "STARS": "Stars",
   "START": "Start",
   "START.HERE": "Start right here",
+  "SUBJECT": "Subject",
   "SUBSCRIBE": "Subscribe to Newsletter",
   "SUBSCRIBE.SUB": "Subscribe to get update and information. Don't worry, we won't send spam!",
   "SUCCESS": "Success",
@@ -476,7 +578,7 @@
       "CONFIG": "Config",
       "CONSOLE": "Console",
       "DATABASE": "Database",
-      "DESIGN": "Desgin",
+      "DESIGN": "Design",
       "DEVELOP": "Develop",
       "FRONTEND": "Frontend",
       "GIT": "Git",
@@ -486,7 +588,7 @@
       "NAME": "Tags",
       "TYPESCRIPT": "Typescript"
   },
-  "TAKE.LOOK": "Take a look to our categories",
+  "TAKE.LOOK": "Take a look to our Categories",
   "TASK.DONE": "Completed tasks",
   "TECH.SKILLS": "Quality <span>Techniques</span>",
   "TERMS": {
@@ -499,8 +601,9 @@
   },
   "TEST": "Test",
   "TEST.AVAILABLE": "Test available",
+  "TEST.CATEGORY": "Test by Category",
   "TEST.DONE": "Test completed",
-  "TEST.INTRO": "Prove your skills with the following <strong>test</strong> about our categories. You can check the result after the test or in your Profile. Other people will know of what are You made!",
+  "TEST.INTRO": "Prove your skills with the following <strong>Test</strong> about our Categories. You can check the result after the test or in your Profile. Other people will know of what are You made!",
   "TEST.OF": "Test about {{name}}",
   "TEST.PAGE": "Prove your Skills",
   "TEST.RESULT": "Test Result",
@@ -510,6 +613,7 @@
       "TWO": "Using Antic's Code is really easy, I have found all the necessary items without getting lost. It is the best place to write your Article."
   },
   "TESTING": "Testing",
+  "TESTS": "Tests",
   "THANKS.MUCH": "Thank You so much!",
   "THEME": {
       "DARKRED": "Dark Red",
@@ -521,7 +625,9 @@
       "SUPERORANGE": "Super Orange"
   },
   "THREAD": "Thread",
+  "TO": "To",
   "TOTAL.ARTICLES": "Total Articles",
+  "TOTAL.QUESTIONS": "There's a total of <strong>{{total}}</strong> questions.",
   "TRY.AGAIN": "Try again",
   "TUTORIALS": "Tutorials",
   "TWITTER": "Twitter",
@@ -529,6 +635,7 @@
   "TYPE": "Type",
   "UPDATED": "Updated",
   "URL.AVATAR": "Avatar URL",
+  "USE.INBOX": "Select the message you want to read on the <strong>left panel</strong>. Send a message back or just create a new one. Remember to keep in contact with your friends!",
   "USEFUL.LINKS": "Useful Links",
   "USER": "User",
   "USER.EMAIL": "Your Email",
@@ -541,29 +648,25 @@
   "USING": "using",
   "VALUE": "Value",
   "VERSION": "Version:",
-  "VIEW.TEST": "View all test",
+  "VIEW.TEST": "See all",
+  "VIEWED.NEWS": "Find out before anyone else",
   "VIEWS": "Views",
   "VISIT": "Visit",
   "VISIT.PUBLIC.PROFILE": "Visit your public Profile",
+  "VISUAL": "Display",
   "WEB.DESIGN": "Web Design",
   "WEB.DEV": "Web",
   "WELCOME": "Welcome",
+  "WELCOME.INBOX": "Welcome. Here you can send messages to other users and also read their messages. Take this opportunity to make <strong>contacts</strong> and <strong>friends</strong> who like the same as you. You never know where a good deal might come from.",
   "WELCOME.PROFILE": "Welcome to your Profile",
   "WITH.ACCOUNT": "Already have an account?",
+  "WRITE.BY": "Written by",
   "WRITTEN": "Written:",
   "YES": "Yes",
+  "YOU.CORRECT": "You got <span class='bold'>{{correct}}</span> out of {{total}} <strong>questions</strong> right.",
+  "YOU.FAIL": "You had some <strong>wrong</strong> answers, take a look at which they are.",
   "YOU.GUESS": "You guess right",
   "YOU.SURE": "Are You sure?",
   "YOUR.PROFILE": "My Profile",
-  "YOUTUBE": "Youtube",
-  "GUEST": "Guest",
-  "DELETE.CHAT.MESSAGE": "Do You want to delete the message <span class='bold'>{{message}}</span>?",
-  "MESSAGE.DELETED": "Message deleted",
-  "NEWS": "News",
-  "GET.NEWS": "Find out about the News",
-  "READ.MORE": "Read more...",
-  "POPULAR.NEWS": "The Most Popular News",
-  "VIEWED.NEWS": "Find out before anyone else",
-  "ALL.NEWS": "All the News",
-  "PREVIEW.NEWS": "Don't miss out Anything"
+  "YOUTUBE": "Youtube"
 }

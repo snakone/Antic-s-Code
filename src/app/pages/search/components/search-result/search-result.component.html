@@ -1,11 +1,11 @@
-<ng-container *ngIf="(articles$ | async) as articles; else noResult">
+<ng-container *ngIf="articles; else noResult">
   <div *ngIf="grid" class="row animated fadeIn">  <!-- GRID -->
     <div class="col-sm-6"
         *ngFor="let a of articles | paginate: { itemsPerPage: itemsPerPage,
                                                 currentPage: page,
                                                 id: 'result-pagination' }">
       <app-article-grid-card [article]="a"
-                              [title]="true">
+                             [title]="true">
       </app-article-grid-card>
     </div>
   </div>

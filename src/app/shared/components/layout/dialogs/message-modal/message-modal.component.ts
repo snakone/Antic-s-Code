@@ -1,11 +1,12 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MessageModalData } from '@shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-message-modal',
   templateUrl: './message-modal.component.html',
-  styleUrls: ['./message-modal.component.scss']
+  styleUrls: ['./message-modal.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class MessageModalComponent implements OnInit {

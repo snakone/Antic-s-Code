@@ -68,3 +68,10 @@ export const SHOW_HIDE: ShowHide[] = [
   { text: 'SHOW', show: true },
   { text: 'HIDE', show: false }
 ];
+
+export const VISUAL_OPTS: ShowHide[] = [
+  { text: 'LIST', show: false },
+  { text: 'GRID', show: true }
+];
+
+

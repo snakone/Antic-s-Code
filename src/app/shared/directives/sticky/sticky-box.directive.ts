@@ -32,7 +32,10 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
   }
 
   private startSticky(): void {
-    setTimeout(() => { this.makeSticky(); }, 2000); // Wait Content to Load
+    setTimeout(() => {
+      this.makeSticky();
+      window.dispatchEvent(new Event('resize'));
+    }, 3000); // Wait Content to Load
   }
 
   private subscribeToResize(): void {
@@ -49,7 +52,7 @@ export class StickyBoxDirective implements AfterViewInit, OnDestroy {
     if (!this.element || height === 0) { return; }
 
     const width = window.document.body.clientWidth;
-    if (width < 985) {  // 992px - Scrollbar 8px
+    if (width < 985) {  // 993px - Scrollbar 8px
       this.setAutoHeight(this.element);
       return;
     }

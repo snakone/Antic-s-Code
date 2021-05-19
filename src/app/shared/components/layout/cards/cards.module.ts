@@ -6,6 +6,7 @@ import { SharedModule } from '@shared/shared.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { SnippetsModule } from '../../snippets/snippets.module';
 
 import { UserCardComponent } from './user-card/user-card.component';
 import { TestCardComponent } from './test-card/test-card.component';
@@ -27,6 +28,7 @@ const Material = [
     CommonModule,
     SharedModule,
     RouterModule,
+    SnippetsModule,
     ...Material
   ],
   exports: [

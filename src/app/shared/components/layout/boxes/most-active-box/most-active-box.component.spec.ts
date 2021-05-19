@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { MostActiveBoxComponent } from './most-active-box.component';
 
@@ -6,7 +6,7 @@ describe('MostActiveBoxComponent', () => {
   let component: MostActiveBoxComponent;
   let fixture: ComponentFixture<MostActiveBoxComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ MostActiveBoxComponent ]
     })

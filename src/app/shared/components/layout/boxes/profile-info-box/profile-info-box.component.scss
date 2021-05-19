@@ -3,7 +3,7 @@
     position: relative;
     margin-top: .5rem;
     margin-bottom: 1.3rem;
-    & p { margin-top: .3rem }
+    & p { margin-top: 0 }
   }
 
   &-data {
@@ -17,6 +17,7 @@
     & h3 {
       font-size: 1.5rem;
       margin-bottom: 0;
+      @media(max-width: 550px) { margin-top: 1.8rem }
     }
 
     & button {
@@ -55,8 +56,21 @@
        margin-top: 1.5rem;
        & mat-icon {
          margin-left: 1rem;
+
          &.likes { color: var(--primary-color) }
          &.views { color: var(--p-color) }
+
+         &.stars {
+           color: #fdd316;
+           font-size: 1.666rem;
+           position: relative;
+           left: -2px;
+           top: -1px;
+           @media(max-width: 550px) {
+             top: -3.5px;
+             left: -1.5px;
+           }
+         }
         }
 
       @media(max-width: 550px) {
@@ -66,7 +80,10 @@
      }
   }
 
-  &-bio { margin-bottom: 1rem }
+  &-bio {
+    margin-bottom: .333rem;
+    & p { margin-bottom: 0 }
+  }
 }
 
 .bright:hover {

@@ -2,27 +2,17 @@
              title="ALL.NEWS"
              description="PREVIEW.NEWS">  <!-- NEWS PREVIEW -->
   <div class="row">
-    <div class="col-lg-12">
-      <div class="news-card"
-            *ngFor="let n of news">
-            <img [src]="n.image" alt="News Image"/>
-            <div class="news-card-category">
-              <span>
-                <img [src]="(n.category | logo) | image: 'logos'"
-                    [alt]="n.category"
-                    loading="lazy"
-                    class="logo"/>
-                {{n.category}}
-              </span>
-            </div>
-            <div class="news-card-content">
-              <h4>{{n.title}}</h4>
-              <app-content-maker [template]="n.preview"
-                                  args="notice">
-              </app-content-maker>
-              <span>{{'READ.MORE' | translate}}</span>
-            </div>
-      </div>
+    <div class="col-lg-12" id="news-content">
+      <ng-container *ngIf="news.length > 0; else noNews">
+        <app-news-preview-card *ngFor="let n of news"
+                               [notice]="n">
+        </app-news-preview-card>
+      </ng-container>
+      <ng-template #noNews>
+        <app-news-preview-skeleton *ngFor="let i of [1,2,3,4]">
+        </app-news-preview-skeleton>
+      </ng-template>
     </div>
   </div>
 </app-section>
+

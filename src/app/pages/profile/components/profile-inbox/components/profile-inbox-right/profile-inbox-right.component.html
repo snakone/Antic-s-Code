@@ -1,0 +1,24 @@
+<div class="wrapper animated fadeIn">
+  <ng-container *ngIf="inbox; else noInbox">
+    <app-inbox-header [inbox]="inbox"></app-inbox-header>
+      <div class="wrapper-messages"> <!-- MESSAGE -->
+            <div class="subject">
+            <h5>{{inbox.subject}}</h5>
+          </div>
+        <app-inbox-reply *ngFor="let m of inbox.messages; let last = last"
+                          [inbox]="m"
+                          [last]="last"
+                          [user]="user">
+        </app-inbox-reply>
+      </div>
+    <app-inbox-footer [inbox]="inbox"
+                      (marked)="mark($event)"
+                      (reply)="reply()">
+    </app-inbox-footer>
+  </ng-container>
+</div>
+
+<ng-template #noInbox>
+  <app-inbox-welcome (new)="new()">
+  </app-inbox-welcome>
+</ng-template>

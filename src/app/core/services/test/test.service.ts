@@ -4,18 +4,15 @@ import { HttpService } from '../http/http.service';
 import {
   Test,
   TestResponse,
-  TestRequest,
-  TestResultResponse,
-  TestRequestResult,
-  EntryResponse,
+  TestResult,
   TestEntry,
-  TestRawResponse,
-  TestRawResult
+  TestEntryResponse
 } from '@shared/interfaces/interfaces';
 
 import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
 import { filter, map } from 'rxjs/operators';
+import { ServerResponse } from '../../../shared/interfaces/interfaces';
 
 @Injectable({providedIn: 'root'})
 
@@ -43,31 +40,37 @@ export class TestService {
       );
   }
 
-  public getEntriesByUser(): Observable<TestEntry[]> {
+  public getEntryByUid(uid: string): Observable<TestEntry> {
     return this.http
-      .get<EntryResponse>(this.API_TEST + 'user/entry')
+      .get<TestEntryResponse>(this.API_TEST + 'entries/' + uid)
       .pipe(
         filter(res => res && !!res.ok),
-        map(_ => _.entries)
+        map(_ => _.entry)
       );
   }
 
-  public saveTestRequest(entry: TestRequest): Observable<TestRequestResult> {
+  public getResultByUid(uid: string): Observable<TestResult> {
     return this.http
-      .post<TestResultResponse>(this.API_TEST + 'entries/', entry)
+      .get<TestEntryResponse>(this.API_TEST + 'results/' + uid)
       .pipe(
         filter(res => res && !!res.ok),
         map(_ => _.result)
       );
   }
 
-  public getResultByEntry(uid: string): Observable<TestRawResult> {
+  public saveTestRequest(request: TestResult): Observable<TestResult> {
     return this.http
-      .get<TestRawResponse>(this.API_TEST + 'entries/' + uid)
+      .post<TestEntryResponse>(this.API_TEST + 'results/', request)
       .pipe(
         filter(res => res && !!res.ok),
         map(_ => _.result)
       );
+  }
+
+  public checkDone(uid: string): Observable<boolean> {
+    return this.http
+    .get<ServerResponse>(this.API_TEST + 'done/' + uid)
+    .pipe(map(_ => _.ok));
   }
 
 

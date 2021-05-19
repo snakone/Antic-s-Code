@@ -5,13 +5,16 @@ import { SharedModule } from '@app/shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { BoxesModule } from '@layout/boxes/boxes.module';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+
 import { ArticlesSidebarComponent } from './articles-sidebar.component';
 import { ArticlesCategoryListBoxComponent } from './components/articles-category-list-box/articles-category-list-box.component';
-
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { RandomizerPipe } from '@shared/pipes/randomizer/randomizer.pipe';
 
 const Material = [
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatIconModule
 ];
 
 @NgModule({
@@ -28,6 +31,9 @@ const Material = [
   ],
   exports: [
     ArticlesSidebarComponent
+  ],
+  providers: [
+    RandomizerPipe
   ]
 })
 

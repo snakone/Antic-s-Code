@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PRIVACY, PRIVACY_INDEX } from '@shared/data/privacy';
 
 @Component({
   selector: 'app-politics',
@@ -7,6 +8,9 @@ import { Component } from '@angular/core';
 })
 
 export class PoliticsComponent {
+
+  privacy = PRIVACY;
+  index = PRIVACY_INDEX;
 
   constructor() { }
 

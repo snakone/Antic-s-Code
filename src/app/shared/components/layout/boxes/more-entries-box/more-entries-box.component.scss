@@ -1,0 +1,54 @@
+ul {
+  padding-left: 0;
+  margin: 0;
+
+  & li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1rem;
+    position: relative;
+    outline: none;
+
+    &.done { pointer-events: none }
+
+    & span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 70%;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        background: var(--primary-color);
+        height: .2rem;
+        left: 0;
+        bottom: 0;
+        border-radius: 4px;
+        transition: all .3s ease;
+      }
+    }
+
+    & img {
+      width: 25px;
+      height: 25px;
+      margin-right: 1.2rem;
+    }
+
+    & mat-icon {
+      color: var(--success-color);
+      position: absolute;
+      right: 0;
+    }
+
+    &:last-child { margin-bottom: 0 }
+
+    &:hover span {
+      cursor: pointer;
+      &::after { width: 2rem }
+    }
+  }
+}

@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c4b181e6-e1fb-43f4-9522-b13271108267/deploy-status)](https://app.netlify.com/sites/anticscode/deploys)
+
 # Antic's Code
 
 https://anticscode.netlify.com/

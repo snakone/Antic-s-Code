@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { StorageService } from '@core/storage/storage.service';
@@ -9,12 +9,13 @@ import { UserService } from '@core/services/user/user.service';
 
 import { User } from '@shared/interfaces/interfaces';
 import { LANGUAGES, THEMES } from '@shared/data/app';
-import { SHOW_HIDE } from '@shared/data/user';
+import { SHOW_HIDE, VISUAL_OPTS } from '@shared/data/user';
 
 @Component({
   selector: 'app-settings-box',
   templateUrl: './settings-box.component.html',
-  styleUrls: ['./settings-box.component.scss']
+  styleUrls: ['./settings-box.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class SettingsBoxComponent implements OnInit {
@@ -25,6 +26,7 @@ export class SettingsBoxComponent implements OnInit {
   languages = LANGUAGES;
   themes = THEMES;
   show = SHOW_HIDE;
+  visual = VISUAL_OPTS;
 
   constructor(
     private theme: ThemeService,
@@ -55,6 +57,9 @@ export class SettingsBoxComponent implements OnInit {
         ]),
         chat: new FormControl(this.ls.get('chat'), [
           Validators.required
+        ]),
+        visual: new FormControl(this.ls.get('visual'), [
+          Validators.required
         ])
       }
     );
@@ -62,13 +67,19 @@ export class SettingsBoxComponent implements OnInit {
 
   public onSubmit(): void {
     if (this.settingsForm.invalid) { return; }
-    const { language, theme, email, chat } = this.settingsForm.value;
+    const { language, theme, email, chat, visual } = this.settingsForm.value;
     this.theme.set(theme);
     this.language.change(language);
-    this.user.showEmail = email;
     this.ls.setKey('chat', chat);
-    this.userSrv.update(this.user).toPromise()
-     .then(_ => this.crafter.toaster('UPDATED', 'CONFIG.SAVE', 'info'));
+    this.ls.setKey('visual', visual);
+
+    if (this.user.showEmail !== email) {
+      this.user.showEmail = email;
+      this.userSrv.update(this.user).toPromise()
+      .then(_ => this.crafter.toaster('UPDATED', 'CONFIG.SAVE', 'info'));
+    } else {
+      this.crafter.toaster('UPDATED', 'CONFIG.SAVE', 'info');
+    }
   }
 
 }

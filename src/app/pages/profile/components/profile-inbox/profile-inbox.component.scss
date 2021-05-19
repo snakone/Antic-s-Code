@@ -1,0 +1,17 @@
+* { box-sizing: border-box }
+
+.inbox {
+  &-desktop {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+
+  &-mobile {
+    display: block;
+    width: 100%;
+  }
+}
+
+.col-lg-12 {
+  @media(max-width: 350px) { margin: 0 -1.2rem }
+}

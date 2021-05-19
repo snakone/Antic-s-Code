@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Subject, Observable } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { User } from '@shared/interfaces/interfaces';
+import { User, UserStats } from '@shared/interfaces/interfaces';
 
 import { UsersFacade } from '@store/users/users.facade';
 

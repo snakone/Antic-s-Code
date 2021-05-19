@@ -1,7 +1,7 @@
 <ng-container *ngIf="(article$ | async) as article; else noArticle">
-  <app-page-header [title]="article.title"
-                   subTitle="ARTICLE">
-  </app-page-header>
+  <app-single-content-header [content]="article"
+                              type="article">
+  </app-single-content-header>
   <app-section input="#f5f7fc">
     <div class="row">  <!-- ARTICLE CONTENT -->
       <div class="col-lg-8 col-md-8">
@@ -9,21 +9,28 @@
         <app-article-card id="single-article-section"
                           [article]="article"
                           [single]="true">
-            <hr class="mobile" *ngIf="article.index">
             <div class="index" *onlyMobile>
-              <app-index-box [index]="article.index"></app-index-box>
+              <app-index-box [index]="article.index"
+                             selector="single-article-section">
+              </app-index-box>
             </div>
             <app-content-maker [template]="article.message"></app-content-maker>
         </app-article-card>
 
         <app-links-box [links]="article.links"></app-links-box>
-        <app-related-tags-box [article]="article"></app-related-tags-box>
-        <app-star-rating [article]="article"></app-star-rating>
+        <app-related-tags-box [article]="article"
+                              [related]="byTags$ | async">
+        </app-related-tags-box>
+        <app-star-rating [content]="article"
+                         type="article">
+        </app-star-rating>
         <app-disqus [identifier]="article.slug"></app-disqus>
       </div>
       <div class="col-lg-4 col-md-4">  <!-- SIDEBAR -->
         <app-index-box *onlyDesktop
-                       [index]="article.index">
+                       [index]="article.index"
+                       [right]="true"
+                       selector="single-article-section">
         </app-index-box>
       </div>
     </div>
@@ -31,9 +38,9 @@
 </ng-container>
 
 <ng-template #noArticle>
-  <app-page-header title="ARTICLE"
-                   subTitle="ARTICLE">
-  </app-page-header>
+  <app-single-content-header title="ARTICLE"
+                             subTitle="ARTICLE">
+  </app-single-content-header>
   <app-section input="#f5f7fc">
     <div class="row">
       <div class="col-lg-8 col-md-8">
@@ -41,7 +48,9 @@
         </app-article-card-skeleton>
       </div>
       <div class="col-lg-4 col-md-4">
-        <app-index-box *onlyDesktop>
+        <app-index-box *onlyDesktop
+                        [right]="true"
+                        selector="single-article-section">
         </app-index-box>
       </div>
     </div>

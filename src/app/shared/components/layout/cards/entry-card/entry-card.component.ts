@@ -1,9 +1,7 @@
-import { Component, OnInit, Input, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
-import { TestEntry } from '@shared/interfaces/interfaces';
-import { TestFacade } from '@store/test/test.facade';
+import { Component, Input, ChangeDetectionStrategy, EventEmitter, Output } from '@angular/core';
+import { TestEntry, TestResult } from '@shared/interfaces/interfaces';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Subject } from 'rxjs';
-import { TestService } from '@core/services/test/test.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-entry-card',
@@ -12,39 +10,23 @@ import { TestService } from '@core/services/test/test.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class EntryCardComponent implements OnInit, OnDestroy {
+export class EntryCardComponent {
 
+  result$: Observable<TestResult>;
   @Input() entry: TestEntry;
-  @Input() entriesByUser: TestEntry[];
-  private unsubscribe$ = new Subject<void>();
-  done: boolean;
+  @Output() check = new EventEmitter<TestEntry>();
 
   constructor(
-    private testFacade: TestFacade,
     private router: Router,
-    private route: ActivatedRoute,
-    private testSrv: TestService
+    private route: ActivatedRoute
   ) { }
 
-  ngOnInit(): void {
-    this.checkEntry();
-  }
-
   public navigate(entry: TestEntry): void {
-    this.testFacade.setEntry(entry);
-    this.router.navigate(['./do'], { relativeTo: this.route });
+    this.router.navigate(['./', entry.uid], { relativeTo: this.route });
   }
 
-  private checkEntry(): void {
-    if (this.entriesByUser) {
-      const cb = (e: TestEntry) => e.uid === this.entry.uid;
-      this.done = this.entriesByUser.some(cb);
-    }
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
+  public checkResult(entry: TestEntry): void {
+    this.check.emit(entry);
   }
 
 }

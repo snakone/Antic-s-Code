@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { StorageService } from '@core/storage/storage.service';
+import { ArticleService } from '@core/services/article/article.service';
+import { Article } from '@shared/interfaces/interfaces';
 import { ArticlesFacade } from '@store/articles/article.facade';
-import { UsersFacade } from '@store/users/users.facade';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 
 @Component({
@@ -12,16 +14,21 @@ import { filter, takeUntil } from 'rxjs/operators';
 
 export class ArticlesComponent implements OnInit, OnDestroy {
 
-  grid: false;
+  grid: boolean;
   private unsubscribe$ = new Subject<void>();
+  articles$: Observable<Article[]>;
+  count$: Observable<number>;
 
   constructor(
-    private userFacade: UsersFacade,
-    private articleFacade: ArticlesFacade
+    private articleSrv: ArticleService,
+    private articleFacade: ArticlesFacade,
+    private ls: StorageService
   ) { }
 
   ngOnInit() {
     this.checkData();
+    this.articles$ = this.articleFacade.articles$;
+    this.grid = this.ls.get('visual');
   }
 
   private checkData(): void {
@@ -36,6 +43,8 @@ export class ArticlesComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+    this.articleSrv.resetPage();
+    this.articleFacade.reset();
   }
 
 }

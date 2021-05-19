@@ -1,16 +1,21 @@
-<div class="stepper" [class]="orientation">
+<div class="stepper">
   <div *ngIf="!orientation">
     <app-spinner></app-spinner>
   </div>
-  <ng-template onlyDesktop (orientation)="orientation = $event">
+  <ng-template onlyDesktop
+              (orientation)="orientation = $event">
     <mat-horizontal-stepper [linear]="true"
                             #stepper
                             labelPosition="bottom">
       <mat-step *ngFor="let step of entry.questions; let i = index; trackBy: trackByIdx"
-                [state]="i === 0 ? 'start' : (i + 1) === entry.questions.length ? 'end' : 'number'"
-                [completed]="selected[i].key">
+                [state]="i === 0 ? 'start' :
+                        (i + 1) === entry.questions.length ? 'end' :
+                        'number'"
+                [completed]="!!selected[i]">
         <ng-template matStepLabel *ngIf="i === 0">Start</ng-template>
-        <ng-template matStepLabel *ngIf="i + 1 === entry.questions.length">Done</ng-template>
+        <ng-template matStepLabel
+                    *ngIf="i + 1 === entry.questions.length">Done
+        </ng-template>
         <div class="stepper-question">
           <mat-label>{{step.question}}</mat-label>
             <mat-radio-group aria-labelledby="radio-group-label"
@@ -19,7 +24,7 @@
                              color="accent">
               <mat-radio-button class="radio-button"
                                 *ngFor="let answer of step.answers"
-                                [value]="answer">
+                                [value]="answer.key">
                 <span>{{answer.value}}</span>
               </mat-radio-button>
             </mat-radio-group>
@@ -28,24 +33,36 @@
           <button mat-button
                   matStepperNext
                   class="btn-pink"
-                  [disabled]="!selected[i].key">{{'NEXT' | translate}}</button>
+                  [disabled]="!selected[i]">{{'NEXT' | translate}}
+          </button>
         </div>
         <div *ngIf="i !== 0 && i + 1 !== entry.questions.length"
               class="text-left">
-          <button mat-button matStepperPrevious>{{'BACK' | translate}}</button>
+          <button mat-button
+                  matStepperPrevious
+                  class="btn-disabled">{{'BACK' | translate}}
+          </button>
           <button mat-button
                   matStepperNext
                   class="btn-pink"
-                  [disabled]="!selected[i].key">{{'NEXT' | translate}}</button>
+                  [disabled]="!selected[i]">{{'NEXT' | translate}}
+          </button>
         </div>
         <div *ngIf="i + 1 === entry.questions.length"
               class="text-left">
-          <button mat-button matStepperPrevious>{{'BACK' | translate}}</button>
-          <button mat-button (click)="stepper.reset(); selected = makeStepSelector()">Reset</button>
           <button mat-button
-                  (click)="finish();"
+                  matStepperPrevious
+                  class="btn-disabled">{{'BACK' | translate}}
+          </button>
+          <button mat-button
+                 (click)="stepper.reset();
+                          selected = makeStepSelector()">Reset
+          </button>
+          <button mat-button
+                  (click)="finish()"
                   class="btn-pink"
-                  [disabled]="!selected[i].key">{{'FINISH' | translate}}</button>
+                  [disabled]="!selected[i]">{{'FINISH' | translate}}
+          </button>
         </div>
       </mat-step>
 
@@ -61,13 +78,17 @@
     </mat-horizontal-stepper>
   </ng-template>
 
-  <ng-template onlyMobile (orientation)="orientation = $event">
+  <ng-template onlyMobile
+              (orientation)="orientation = $event">
     <mat-vertical-stepper [linear]="true"
                            #stepper
-                           labelPosition="bottom">
+                           labelPosition="bottom"
+                           VerticalStep>
       <mat-step *ngFor="let step of entry.questions; let i = index; trackBy: trackByIdx"
-                [state]="i === 0 ? 'start' : (i + 1) === entry.questions.length ? 'end' : 'number'"
-                [completed]="selected[i].key">
+                [state]="i === 0 ? 'start' :
+                        (i + 1) === entry.questions.length ? 'end' :
+                        'number'"
+                [completed]="!!selected[i]">
         <ng-template matStepLabel>{{step.question}}</ng-template>
         <div class="stepper-question">
             <mat-radio-group aria-labelledby="radio-group-label"
@@ -76,32 +97,45 @@
                              color="accent">
               <mat-radio-button class="radio-button"
                                 *ngFor="let answer of step.answers"
-                                [value]="answer">
+                                [value]="answer.key">
                 <span>{{answer.value}}</span>
               </mat-radio-button>
             </mat-radio-group>
         </div>
         <div *ngIf="i === 0" class="text-left">
           <button mat-button
+                  matStepperNext
                   class="btn-pink"
-                  [disabled]="!selected[i].key">{{'NEXT' | translate}}</button>
+                  [disabled]="!selected[i]">{{'NEXT' | translate}}
+          </button>
         </div>
         <div *ngIf="i !== 0 && i + 1 !== entry.questions.length"
               class="text-left">
-          <button mat-button matStepperPrevious>{{'BACK' | translate}}</button>
+          <button mat-button
+                  matStepperPrevious
+                  class="btn-disabled">{{'BACK' | translate}}
+          </button>
           <button mat-button
                   matStepperNext
                   class="btn-pink"
-                  [disabled]="!selected[i].key">{{'NEXT' | translate}}</button>
+                  [disabled]="!selected[i]">{{'NEXT' | translate}}
+          </button>
         </div>
         <div *ngIf="i + 1 === entry.questions.length"
-              class="text-left">
-          <button mat-button matStepperPrevious>{{'BACK' | translate}}</button>
-          <button mat-button (click)="stepper.reset(); selected = makeStepSelector()">Reset</button>
+              class="text-left last">
+          <button mat-button
+                  matStepperPrevious
+                  class="btn-disabled">{{'BACK' | translate}}
+          </button>
+          <button mat-button
+                  (click)="stepper.reset();
+                           selected = makeStepSelector()">Reset
+          </button>
           <button mat-button
                   (click)="finish()"
                   class="btn-pink"
-                  [disabled]="!selected[i].key">{{'FINISH' | translate}}</button>
+                  [disabled]="!selected[i]">{{'FINISH' | translate}}
+          </button>
         </div>
       </mat-step>
 

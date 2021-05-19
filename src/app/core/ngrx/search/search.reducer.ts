@@ -12,7 +12,7 @@ export interface SearchState {
 }
 
 export const inititalState: SearchState = {
-  result: [],
+  result: null,
   request: null,
   loaded: false,
   error: null,
@@ -27,7 +27,6 @@ const featureReducer = createReducer(
     {
       ...state,
       error: null,
-      result: null,
       request,
       searched: true
     }

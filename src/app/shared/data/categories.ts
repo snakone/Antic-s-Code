@@ -32,6 +32,18 @@ export const MAIN_CATEGORIES: List[] = [
     class: 'even.jpg'
   },
   {
+    name: 'REACT.LIBRARY',
+    icon: 'react-logo.png',
+    category: 'React',
+    class: 'odd.jpg'
+  },
+  {
+    name: 'Vue Framework',
+    icon: 'vue-logo.png',
+    category: 'Vue',
+    class: 'even.jpg'
+  },
+  {
     name: 'Server Javascript',
     icon: 'node-logo.png',
     category: 'Nodejs',
@@ -74,10 +86,16 @@ export const MAIN_CATEGORIES: List[] = [
     class: 'odd.jpg'
   },
   {
-    name: 'Server Typescript',
+    name: 'DENO.SERVER',
     icon: 'deno-logo.png',
     category: 'Deno',
     class: 'even.jpg'
+  },
+  {
+    name: 'PHP',
+    icon: 'php-logo.png',
+    category: 'PHP',
+    class: 'odd.jpg'
   }
 ];
 

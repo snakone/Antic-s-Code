@@ -1,0 +1,42 @@
+* { box-sizing: border-box }
+
+p { margin: 0 }
+
+button {
+  margin: .5rem 0 .3rem;
+  display: block;
+}
+
+.flex-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: .666rem;
+}
+
+mat-form-field {
+  width: 50%;
+  display: block;
+  max-width: 100%;
+  margin-top: 1.666rem;
+  height: 73px;
+}
+
+mat-icon {
+  position: relative;
+  top: -3px;
+  color: var(--primary-color);
+  margin-left: .8rem;
+}
+
+@media(max-width: 750px) {
+  mat-form-field { width: 100% }
+  .flex-content { display: block }
+}
+
+.captcha {
+  transform: scale(.9);
+  cursor: pointer;
+}
+
+

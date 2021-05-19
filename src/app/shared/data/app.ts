@@ -7,7 +7,6 @@ export const LANGUAGES: Config[] = [
   { name: 'Català', selector: 'cat', translate: 'LANG.CAT' }
 ];
 
-
 export const THEMES: Config[] = [
   { name: 'Default', selector: 'default', translate: 'THEME.DEFAULT' },
   { name: 'Deep Blue', selector: 'deepblue', translate: 'THEME.DEEPBLUE' },
@@ -36,7 +35,8 @@ export const PAGE_BG = {
   works: 'assets/img/page_bg/works.mp4',
   tests: 'assets/img/page_bg/tests.mp4',
   test: 'assets/img/page_bg/test.mp4',
-  news: 'assets/img/page_bg/news.mp4'
+  news: 'assets/img/page_bg/news.mp4',
+  notice: 'assets/img/page_bg/notice.mp4'
 };
 
 export const CONDITIONS: string[] = [

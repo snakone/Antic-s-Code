@@ -1,0 +1,62 @@
+.result-dialog {
+  overflow: inherit !important;
+}
+
+mat-icon {
+  position: absolute;
+  top: -.9rem;
+  right: -.9rem;
+  cursor: pointer;
+}
+
+h3 {
+  font-size: 1.4rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+img {
+  max-width: 50%;
+  border-radius: 5px;
+  margin: 1.8rem auto 0;
+  display: block;
+  @media(max-width: 750px) {
+    max-width: 100%;
+    margin: 1rem auto 0;
+  }
+}
+
+.last {
+    @media(max-width: 750px) {
+      margin-bottom: 1.5rem;
+    }
+}
+
+h4 {
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  font-size: 1.1rem;
+
+  &.fail {
+    font-size: 1.2rem;
+    margin-top: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  & span { font-size: inherit !important }
+}
+
+h5 { margin-bottom: 1rem }
+
+p {
+  margin: .5rem 0;
+  font-size: .9rem;
+}
+
+hr {
+  margin-top: 2.4rem;
+  margin-bottom: 1.666rem;
+}
+
+.red { color:red }
+.green { color:green }

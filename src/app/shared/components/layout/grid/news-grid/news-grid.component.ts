@@ -6,6 +6,7 @@ import { News } from '@shared/interfaces/interfaces';
   templateUrl: './news-grid.component.html',
   styleUrls: ['./news-grid.component.scss']
 })
+
 export class NewsGridComponent {
 
   @Input() news: News[];

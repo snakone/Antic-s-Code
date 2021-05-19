@@ -4,10 +4,12 @@
 <app-section input="#f5f7fc">
   <div class="row">
     <div class="col-lg-8 col-md-8">  <!-- CONTENT -->
-      Content
+      <router-outlet></router-outlet>
     </div>
     <div class="col-lg-4 col-md-4">   <!-- SIDEBAR -->
-      Sidebar
+      <app-articles-sidebar [block]="true"
+                            [viewed]="false">
+      </app-articles-sidebar>
     </div>
   </div>
 </app-section>

@@ -6,7 +6,8 @@ export const WELCOME_PUSH: NotificationPayload = {
   actions: [
     { action: 'explore', title: 'Gracias por visitarnos' }
   ],
-  broadcast: false
+  broadcast: false,
+  admin: false,
 };
 
 export const NEW_USER_PUSH: NotificationPayload = {
@@ -15,7 +16,8 @@ export const NEW_USER_PUSH: NotificationPayload = {
   actions: [
     { action: 'explore', title: 'Aceptar' }
   ],
-  broadcast: true
+  broadcast: true,
+  admin: false,
 };
 
 export const LIKE_PUSH: NotificationPayload = {
@@ -25,7 +27,19 @@ export const LIKE_PUSH: NotificationPayload = {
     { action: 'explore', title: '¡Genial!' }
   ],
   data: {},
-  broadcast: false
+  broadcast: false,
+  admin: false,
+};
+
+export const LIKE_NEWS_PUSH: NotificationPayload = {
+  body: 'Nuevo Like en una Noticia',
+  requireInteraction: false,
+  actions: [
+    { action: 'explore', title: '¡Genial!' }
+  ],
+  data: {},
+  broadcast: false,
+  admin: false,
 };
 
 export const STAR_PUSH: NotificationPayload = {
@@ -35,6 +49,7 @@ export const STAR_PUSH: NotificationPayload = {
     { action: 'explore', title: '¡Genial!' }
   ],
   data: {},
-  broadcast: false
+  broadcast: false,
+  admin: false,
 };
 

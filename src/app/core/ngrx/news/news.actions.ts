@@ -38,10 +38,26 @@ export const getBySlugFailure =
   createAction('[News API] Get News by Slug Failure',
   props<{ error: string }>());
 
+// GET NOTICE BY CATEGORY
+export const getByCategory =
+  createAction('[Articles API] Get News by Category',
+  props<{ category: string }>());
+
+export const getByCategorySuccess =
+  createAction('[Articles API] Get News by Category Success',
+  props<{ news: News[] }>());
+
+export const getByCategoryFailure =
+  createAction('[News API] Get News by Category Failure',
+  props<{ error: string }>());
+
 // RESET NEWS
 export const reset =
   createAction('[News API] Reset News');
 
 export const resetSlug =
   createAction('[News API] Reset News Slug');
+
+export const resetCategory =
+  createAction('[News API] Reset News Category');
 

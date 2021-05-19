@@ -1,5 +1,5 @@
 import { props, createAction } from '@ngrx/store';
-import { Test, TestEntry, TestRequest, TestRequestResult } from '@shared/interfaces/interfaces';
+import { Test, TestEntry, TestResult } from '@shared/interfaces/interfaces';
 
 // GET TEST
 export const get =
@@ -26,35 +26,40 @@ export const getByCategoryFailure =
   createAction('[Test API] Get Test by Category Failure',
   props<{ error: string }>());
 
-// GET ENTRIES BY USER
-export const getEntriesByUser =
-  createAction('[Test API] Get Entries by User');
+// GET ENTRY BY UID
+export const getEntryByUid =
+  createAction('[Test API] Get Entry by UID',
+  props<{ uid: string }>());
 
-export const getEntriesByUserSuccess =
-  createAction('[Test API] Get Entries by User Success',
-  props<{ entries: TestEntry[] }>());
-
-export const getEntriesByUserFailure =
-  createAction('[Test API] Get Entries by User Failure',
-  props<{ error: string }>());
-
-// SET ENTRY
-export const setEntry =
-  createAction('[Test API] Set Entry Test Success',
+export const getEntryByUidSuccess =
+  createAction('[Test API] Get Entry by UID Success',
   props<{ entry: TestEntry }>());
 
-export const setEntryFailure =
-  createAction('[Test API] Set Entry Test Failure',
+export const getEntryByUidFailure =
+  createAction('[Test API] Get Entry by UID Failure',
+  props<{ error: string }>());
+
+// GET RESULT BY UID
+export const getResultByUid =
+  createAction('[Test API] Get Result by UID',
+  props<{ uid: string }>());
+
+export const getResultByUidSuccess =
+  createAction('[Test API] Get Result by UID Success',
+  props<{ result: TestResult }>());
+
+export const getResultByUidFailure =
+  createAction('[Test API] Get Result by UID Failure',
   props<{ error: string }>());
 
 // SAVE TEST REQUEST
 export const saveRequest =
   createAction('[Test API] Save Test Request',
-  props<{ request: TestRequest }>());
+  props<{ request: TestResult }>());
 
 export const saveRequestSuccess =
   createAction('[Test API] Save Test Request Success',
-  props<{ result: TestRequestResult }>());
+  props<{ result: TestResult }>());
 
 export const saveRequestFailure =
   createAction('[Test API] Save Test Request Failure',
@@ -64,12 +69,13 @@ export const saveRequestFailure =
 export const reset =
   createAction('[Test API] Reset Test');
 
+// RESET BY CATEGORY
+export const resetResult =
+  createAction('[Test API] Reset Test Result');
+
 // RESET ENTRY
 export const resetEntry =
-  createAction('[Test API] Reset Entry');
+  createAction('[Test API] Reset Test Entry');
 
-// RESET ENTRIES BY USER
-export const resetEntriesByUser =
-  createAction('[Test API] Reset Entries by User');
 
 

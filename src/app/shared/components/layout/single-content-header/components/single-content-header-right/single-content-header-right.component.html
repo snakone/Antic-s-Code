@@ -1,0 +1,27 @@
+<div class="right-buttons">
+  <a [href]="content.githubLink"
+       target="_blank"
+       class="default">
+    <span class="meta-type meta-type-like git"
+          *ngIf="content.github">
+      <mat-icon>cloud_download</mat-icon>
+        <span class="active">{{'CODE' | translate}}</span>
+    </span>
+  </a>
+
+  <span class="meta-type meta-type-like"
+        *ngIf="!content.userLiked; else isLiked"
+        (click)="doLike(1)">
+    <mat-icon>favorite_outline</mat-icon> {{'LIKE' | translate}}
+  </span>
+  <ng-template #isLiked>
+    <span class="meta-type meta-type-like liked"
+          (click)="doLike(-1)">
+      <mat-icon>favorite</mat-icon> {{'LIKE' | translate}}
+    </span>
+  </ng-template>
+  <span class="meta-type meta-type-like"
+        (click)="share()">
+    <mat-icon>share</mat-icon> {{'SHARE' | translate}}
+  </span>
+</div>

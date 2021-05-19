@@ -1,27 +1,34 @@
-p {
-  margin-top: 0 !important;
-  margin-bottom: 2rem;
-  color: var(--p-color) !important;
-}
-
 .category {
-  margin-top: .5rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 
    & img {
      width: 50px;
-     margin: 0 1rem 2rem -.3rem;
-   }
-
-   & p {
-
-    & span {
-      font-weight: bold;
-      font-size: 1.1rem;
-    }
+     position: relative;
+     top: -4px;
    }
 }
 
-br { margin-top: 3px }
+span {
+  color: var(--p-color) !important;
+  font-weight: bold;
+  font-size: 1.1rem;
+  position: relative;
+  top: 5px;
+}
+
+.right {
+  width: 100%;
+  margin-left: 1.666rem;
+}
+
+.info {
+  margin-top: 1rem;
+  margin-bottom: 1.3rem;
+}
+
+app-level-bar {
+  position: relative;
+  top: -2px;
+}

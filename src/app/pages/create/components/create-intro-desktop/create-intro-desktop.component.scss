@@ -1,0 +1,34 @@
+h3 { margin-top: 0 !important }
+.create, .intro { text-align: center }
+.create { margin-bottom: 2.2rem }
+
+.intro {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+li {
+  margin: .666rem auto;
+  font-size: 1.1rem;
+  &:before {
+    content: "\f101"; /* FontAwesome Unicode */
+    font-family: FontAwesome;
+    display: inline-block;
+    width: 1.5em;
+    font-weight: bold;
+    left: -5px;
+    position: relative;
+    color: var(--primary-color);
+  }
+}
+
+
+ul {
+  margin-top: 3rem;
+  list-style: none;
+}
+
+@media(max-width: 550px) {
+  .create { margin-bottom: 1.8rem }
+}
+

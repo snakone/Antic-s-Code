@@ -1,0 +1,31 @@
+<mat-dialog-content class="result-dialog">
+  <mat-icon (click)="close()">close</mat-icon>
+  <ng-container *ngIf="(result$ | async) as request; else noResult">
+    <div *ngIf="request; else noResult">
+      <h3>{{request.title}}</h3>
+      <p [innerHTML]="'RESULT.INTRO' | translate"></p>
+      <div *ngIf="request.result.correct < 10">
+        <h4 class="fail">{{'FAILURE' | translate}}</h4>
+        <p [innerHTML]="'YOU.FAIL' | translate"></p>
+        <div *ngFor="let bad of makeResult(request)">
+          <h5>{{bad.question}}</h5>
+          <p class="red">{{bad.wrong}}</p>
+          <p class="green">{{bad.good}}</p>
+        </div>
+      </div>
+      <div *ngIf="request.result.correct === 10">
+        <img src="https://s.wsj.net/public/resources/images/BN-OA698_mcmani_P_20160516115635.jpg">
+      </div>
+      <hr>
+      <h4 [innerHTML]="'YOU.CORRECT' | translate: {
+                                                    correct: request.result.correct,
+                                                    total: request.request.length
+                                                  }">
+      </h4>
+      <h4 class="last" [innerHTML]="makeSentence(request) | translate"></h4>
+    </div>
+  </ng-container>
+  <ng-template #noResult>
+    <app-spinner></app-spinner>
+  </ng-template>
+</mat-dialog-content>

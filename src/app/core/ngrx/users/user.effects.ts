@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import * as UserActions from './user.actions';
-import { map, concatMap, catchError } from 'rxjs/operators';
-import { StorageService } from '@core/storage/storage.service';
+import * as StatsActions from '../stats/stats.actions';
+import { map, concatMap, catchError, tap } from 'rxjs/operators';
 import { UserService } from '@core/services/user/user.service';
 
 @Injectable()
@@ -12,20 +12,8 @@ export class UserEffects {
 
   constructor(
     private actions: Actions,
-    private userSrv: UserService,
-    private ls: StorageService
+    private userSrv: UserService
   ) { }
-
-  // SET USER
-  setUserEffect$ = createEffect(() => this.actions
-    .pipe(
-      ofType(UserActions.set),
-      concatMap((action) =>
-         of(UserActions.setSuccess({user: action.user}))),
-          catchError(error =>
-              of(UserActions.setFailure({ error: error.message }))
-    ))
-  );
 
   // GET ALL USER
   getUsersEffect$ = createEffect(() => this.actions
@@ -38,6 +26,17 @@ export class UserEffects {
           catchError(error =>
               of(UserActions.getFailure({ error: error.message }))
     ))))
+  );
+
+  // SET USER
+  setUserEffect$ = createEffect(() => this.actions
+    .pipe(
+      ofType(UserActions.set),
+      concatMap((action) =>
+         of(UserActions.setSuccess({user: action.user}))),
+          catchError(error =>
+              of(UserActions.setFailure({ error: error.message }))
+    ))
   );
 
   // GET USER BY NAME
@@ -53,16 +52,16 @@ export class UserEffects {
     ))))
   );
 
-  // GET MOST ACTIVE USERS
-  getMostActiveUsersEffect$ = createEffect(() => this.actions
+  // GET LAST USER
+  getLastUserEffect$ = createEffect(() => this.actions
     .pipe(
-      ofType(UserActions.getMostActive),
+      ofType(UserActions.getLast),
       concatMap(() =>
-      this.userSrv.getMostActive()
-        .pipe(
-          map(users => UserActions.getMostActiveSuccess({ active: users })),
+      this.userSrv.getLast()
+      .pipe(
+        map(user => UserActions.getLastSuccess({ user })),
           catchError(error =>
-              of(UserActions.getMostActiveFailure({ error: error.message }))
+              of(UserActions.getLastFailure({ error: error.message }))
     ))))
   );
 
@@ -97,7 +96,7 @@ export class UserEffects {
       concatMap((action) =>
       this.userSrv.refreshToken(action.id)
         .pipe(
-          map(res => UserActions.refreshTokenSuccess({ user: res.user })),
+          map(user => UserActions.refreshTokenSuccess({ user })),
           catchError(error =>
               of(UserActions.refreshTokenFailure({ error: error.message }))
     ))))

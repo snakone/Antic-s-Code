@@ -1,0 +1,35 @@
+.last {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  left: -3px;
+
+  & h4 {
+    margin: 0 0 0 1.6rem;
+    font-size: 1.3rem;
+    outline: none;
+    cursor: pointer;
+  }
+}
+
+.skeleton {
+  display: flex;
+  justify-content: flex-start;
+  & p {
+    background: var(--skeleton-color-tint);
+    height: 1.4rem;
+    width: 10rem;
+    margin: 0 0 0 1.5rem;
+  }
+
+  & mat-icon {
+    top: -5px;
+    left: -4px;
+  }
+}
+
+mat-icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+  position: relative;
+}

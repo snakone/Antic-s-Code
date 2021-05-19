@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { Test, TestEntry } from '@shared/interfaces/interfaces';
+import { Test } from '@shared/interfaces/interfaces';
 import { TestFacade } from '@store/test/test.facade';
-import { filter, takeUntil, tap } from 'rxjs/operators';
+import { filter, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-test',
@@ -13,7 +13,6 @@ import { filter, takeUntil, tap } from 'rxjs/operators';
 export class TestComponent implements OnInit, OnDestroy {
 
   tests$: Observable<Test[]>;
-  entriesByUser$ = this.testFacade.entriesByUser$;
   private unsubscribe$ = new Subject<void>();
 
   constructor(private testFacade: TestFacade) { }
@@ -21,7 +20,6 @@ export class TestComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.tests$ = this.testFacade.tests$;
     this.checkData();
-    this.checkEntries();
   }
 
   private checkData(): void {
@@ -31,15 +29,6 @@ export class TestComponent implements OnInit, OnDestroy {
        takeUntil(this.unsubscribe$)
       )
      .subscribe(_ => this.testFacade.get());
-  }
-
-  private checkEntries(): void {
-    this.testFacade.entriesByUserLoaded$
-     .pipe(
-       filter(res => !res),
-       takeUntil(this.unsubscribe$)
-      )
-     .subscribe(_ => this.testFacade.getEntriesByUser());
   }
 
   ngOnDestroy(): void {

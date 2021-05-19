@@ -5,7 +5,6 @@
   align-items: center;
   width: var(--menu-width);
   min-height: 100vh;
-  text-align: center;
   z-index: 550;
   border: 0;
   top: 0;
@@ -16,14 +15,29 @@
   & ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
     width: 100%;
 
     & li {
-      margin-top: 20px;
-      margin-bottom: 20px;
+      margin-top: 3.4vh;
+      margin-bottom: 3.4vh;
       font-size: .9rem;
       outline: none;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 1rem;
       cursor: pointer;
+
+      @media(min-height: 700px) {
+        margin-top: 3.8vh;
+        margin-bottom: 3.8vh;
+      }
+
+      & mat-icon {
+        margin-right: 1rem;
+        padding-left: .5rem;
+      }
     }
   }
 
@@ -35,13 +49,14 @@
 
 .division {
   max-width: 33%;
-  margin: 0 auto;
-  margin-bottom: 26px;
+  margin: 1.33rem 0 1.33rem 1.666rem;
 
   & hr {
     background-color: var(--primary-color);
     border: none;
     height: 2px;
     border-radius: 50px;
+    position: relative;
+    top: 1px;
   }
 }

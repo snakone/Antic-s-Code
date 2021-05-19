@@ -1,5 +1,5 @@
 import { props, createAction } from '@ngrx/store';
-import { User, MostActive } from '@shared/interfaces/interfaces';
+import { User } from '@shared/interfaces/interfaces';
 
 // GET ALL USERS
 export const get =
@@ -26,16 +26,16 @@ export const getByNameFailure =
   createAction('[Users API] Get User By Name Failure',
   props<{ error: string }>());
 
-// GET MOST ACTIVE USERS
-export const getMostActive =
-  createAction('[Users API] Get Most Active Users');
+// GET LAST USER
+export const getLast =
+  createAction('[Users API] Get Last User');
 
-export const getMostActiveSuccess =
-  createAction('[Users API] Get Most Active Users Success',
-  props<{ active: MostActive[] }>());
+export const getLastSuccess =
+  createAction('[Users API] Get Last User Success',
+  props<{ user: User }>());
 
-export const getMostActiveFailure =
-  createAction('[Users API] Get Most Active Users Failure',
+export const getLastFailure =
+  createAction('[Users API] Get Last User Failure',
   props<{ error: string }>());
 
 // SET USER
@@ -50,6 +50,16 @@ export const setSuccess =
 export const setFailure =
   createAction('[Users API] Set User Failure',
   props<{ error: string }>());
+
+// SORT USERS
+export const sort =
+  createAction('[Users API] Sort Users',
+  props<{ rol: string }>());
+
+// SEARCH USERS
+export const search =
+  createAction('[Users API] Search Users',
+  props<{ value: string }>());
 
 // SET USER EMAIL
 export const setEmail =

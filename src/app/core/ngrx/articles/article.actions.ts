@@ -65,10 +65,6 @@ export const getByCategoryFailure =
   props<{ error: string }>());
 
 // GET ARTICLES BY TAGS
-export const getByTags =
-  createAction('[Articles API] Get Articles by Tags',
-  props<{ request: TagRequest }>());
-
 export const getByTagsSuccess =
   createAction('[Articles API] Get Articles by Tags Success',
   props<{ articles: Article[] }>());
@@ -89,8 +85,5 @@ export const resetByUser =
 
 export const resetByCategory =
   createAction('[Articles API] Reset Articles By Category');
-
-export const resetByTags =
-  createAction('[Articles API] Reset Articles By Tags');
 
 

@@ -6,6 +6,9 @@ import { RandomizerPipe } from './randomizer/randomizer.pipe';
 import { SanitizerPipe } from './sanitizer/sanitizer.pipe';
 import { DigitsPipe } from './digits/digits.pipe';
 import { LogoPipe } from './logo/logo.pipe';
+import { LevelPipe } from './level/level.pipe';
+import { BadgePipe } from './badge/badge.pipe';
+import { RemoveMyselfPipe } from './remove-myself/remove-myself.pipe';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { LogoPipe } from './logo/logo.pipe';
     RandomizerPipe,
     SanitizerPipe,
     DigitsPipe,
-    LogoPipe
+    LogoPipe,
+    LevelPipe,
+    BadgePipe,
+    RemoveMyselfPipe
   ],
   exports: [
     ImagePipe,
@@ -22,7 +28,10 @@ import { LogoPipe } from './logo/logo.pipe';
     RandomizerPipe,
     SanitizerPipe,
     DigitsPipe,
-    LogoPipe
+    LogoPipe,
+    LevelPipe,
+    BadgePipe,
+    RemoveMyselfPipe
   ]
 })
 

@@ -4,7 +4,7 @@ import { ROUTES } from './app.routes';
 
 @NgModule({
   imports: [RouterModule.forRoot(
-    ROUTES, { scrollPositionRestoration: 'top' }
+    ROUTES, { scrollPositionRestoration: 'top', relativeLinkResolution: 'legacy' }
   )],
   exports: [RouterModule]
 })

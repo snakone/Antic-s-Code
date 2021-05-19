@@ -2,17 +2,5 @@
                  subTitle="WELCOME.PROFILE">
 </app-page-header>
 <app-section input="#f5f7fc">
-  <div class="row" *ngIf="(user$ | async) as user">
-    <div class="col-lg-8 col-md-8">  <!-- CONTENT -->
-      <app-profile-content [user]="user"></app-profile-content>
-      <div class="m-top">
-        <app-profile-actions [user]="user" *onlyMobile></app-profile-actions>
-      </div>
-      <app-settings-box [user]="user" *onlyMobile></app-settings-box>
-    </div>
-    <div class="col-lg-4 col-md-4" *onlyDesktop>  <!-- SIDEBAR -->
-      <app-profile-actions [user]="user"></app-profile-actions>
-      <app-settings-box [user]="user"></app-settings-box>
-    </div>
-  </div>
+  <router-outlet></router-outlet>
 </app-section>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { DOWNLOAD_URI } from '@shared/data/download';
 
 import { CrafterService } from '@core/services/crafter/crafter.service';
 import { UserService } from '@core/services/user/user.service';
@@ -18,6 +19,7 @@ import { MessageModalComponent } from '../dialogs/message-modal/message-modal.co
 export class FooterComponent {
 
   list = FOOTER_LIST;
+  androidURL = DOWNLOAD_URI.android;
 
   constructor(
     private crafter: CrafterService,

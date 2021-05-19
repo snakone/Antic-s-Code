@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-articles-sidebar',
   templateUrl: './articles-sidebar.component.html',
-  styleUrls: ['./articles-sidebar.component.scss']
+  styleUrls: ['./articles-sidebar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class ArticlesSidebarComponent {
@@ -12,4 +13,5 @@ export class ArticlesSidebarComponent {
   @Input() viewed: boolean;
 
   constructor() { }
+
 }

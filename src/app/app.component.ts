@@ -30,27 +30,9 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    window.onload = () => this.onLoad();
     this.checkUserToken();
     this.setTheme();
-    window.onload = () => this.onLoad();
-  }
-
-  private checkUserToken(): void {
-    if (this.ls.get('token')) { this.usersFacade.verifyToken(); }
-  }
-
-  private openLanguageSnack(): void {
-    const lang = this.ls.get('lang') !== 'es';
-    const user = this.ls.get('user_lang');
-
-    if (lang || user) { return; }
-    setTimeout(() => {
-      this.crafter.snack(LanguageSnackComponent, -1);
-    }, 8000);
-  }
-
-  private setTheme(): void {
-    this.theme.set(this.ls.get('theme'));
   }
 
   private onLoad(): void {
@@ -61,6 +43,24 @@ export class AppComponent implements OnInit {
     this.sw.updateSW();
     this.openLanguageSnack();
     if (environment.maintenance) { this.showMaintenance(); }
+  }
+
+  private checkUserToken(): void {
+    if (this.ls.get('token')) { this.usersFacade.verifyToken(); }
+  }
+
+  private openLanguageSnack(): void {
+    const lang = this.ls.get('lang') !== 'es';
+    const skip = this.ls.get('skip_lang');
+
+    if (lang || skip) { return; }
+    setTimeout(() => {
+      this.crafter.snack(LanguageSnackComponent, -1);
+    }, 8000);
+  }
+
+  private setTheme(): void {
+    this.theme.set(this.ls.get('theme'));
   }
 
   private showMaintenance(): void {

@@ -8,5 +8,9 @@
              [alt]="c.category"/>  <!-- LOGO LIST -->
       <span>{{c.name | translate}}</span>
     </li>
+    <li routerLink="/categories">
+      <mat-icon>forward</mat-icon>
+      <a>{{'SEE.MORE' | translate}}</a>
+    </li>
   </ul>
 </app-content-box>

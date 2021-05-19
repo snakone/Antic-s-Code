@@ -1,0 +1,9 @@
+* { box-sizing: border-box }
+
+.col-lg-4 {
+  max-width: 100%;
+  @media(max-width: 993px) {
+    width: 100%;
+    max-width: 100%;
+   }
+}

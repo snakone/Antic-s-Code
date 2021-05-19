@@ -1,4 +1,4 @@
-@mixin button-animated($color1, $color2, $color3) {
+@mixin button-animated($color1, $color2, $color3, $font) {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,7 +6,7 @@
   background-image: linear-gradient(90deg, $color1, $color2, $color3, $color1);
   background-size: 400%;
   position: relative;
-  color: var(--button-color);
+  color: $font;
 
   &:before {
     content: "";

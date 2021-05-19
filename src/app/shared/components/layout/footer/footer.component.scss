@@ -53,12 +53,10 @@
       & p {
         color: var(--p-color);
         margin-top: -2px;
-        margin-bottom: 1rem;
+        margin-bottom: .8rem;
       }
 
       & button {
-        margin-top: 4px;
-
         & mat-icon {
           position: relative;
           right: 4px;
@@ -66,6 +64,17 @@
         }
       }
     }
+  }
+}
+
+a {
+  display: block;
+
+  & img {
+    width: 107.92px;
+    height: 34px;
+    position: relative;
+    top: 12px;
   }
 }
 

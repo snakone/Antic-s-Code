@@ -1,6 +1,6 @@
 <div class="card-content"
     [ngClass]="{'first': first}"
-    *ngIf="!skeleton">
+    *ngIf="user">
   <div class="user-card">
       <div class="user-card-flex">
         <img [src]="user.profile?.avatar || 'assets/img/profile/no-photo.jpg'"
@@ -9,7 +9,10 @@
              #img
              (error)="img.src = 'assets/img/profile/no-photo.jpg'; img.alt='No Avatar'"/>
         <div>
-          <h4 [routerLink]="'/profile/' + user.name">{{user.name}}</h4>
+          <h4 [routerLink]="'/profile/' + user.name">{{user.name | titlecase}}</h4>
+          <span class="stars">
+            <mat-icon>star_rate</mat-icon> {{user.stats?.score.total || 0}}
+          </span>
           <span>{{(user.profile?.rol | translate) || 'NOT.DEFINED' | translate}}</span>
           <span *ngIf="user.profile?.language"> |
             <span class="primary">{{user.profile?.language}}</span>
@@ -34,9 +37,6 @@
   </div>
 </div>
 
-<div *ngIf="skeleton" class="skeleton">
+<div *ngIf="!user" class="skeleton">
   <h4></h4>
-  <div class="info">
-    <h3></h3>
-  </div>
 </div>

@@ -12,7 +12,6 @@ import { Subject, Observable } from 'rxjs';
 import { takeUntil, switchMap, filter, tap } from 'rxjs/operators';
 
 import { UserResponse } from '@shared/interfaces/interfaces';
-
 import { LoginComponent } from '../login.component';
 
 @Component({
@@ -80,6 +79,11 @@ export class SignInComponent implements OnInit, OnDestroy {
     this.router.navigateByUrl('/profile');
   }
 
+  public recover(): void {
+    this.dialogRef.close();
+    this.router.navigateByUrl('/help/recover');
+  }
+
   public signUp(): void {
     this.changed.emit(true);
   }
@@ -87,16 +91,17 @@ export class SignInComponent implements OnInit, OnDestroy {
   private rememberMe(): void {
     const id = this.ls.get('user');
     const re = this.ls.get('remember');
+    const token = this.ls.get('token');
 
-    if (re && id) {
+    if (re && id && !token) {
       this.usersFacade.email$
         .pipe(
           takeUntil(this.unsubscribe$),
           tap(res => this.setRemember(res)),
           filter(res => !res),
-          switchMap(() => this.userSrv.getById(id))
+          switchMap(() => this.userSrv.getUserEmailById(id))
         )
-        .subscribe(_ => this.usersFacade.setEmail(_.email));
+        .subscribe(email => this.usersFacade.setEmail(email));
     }
   }
 

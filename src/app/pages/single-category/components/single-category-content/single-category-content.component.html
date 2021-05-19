@@ -5,8 +5,11 @@
 </div>
 
 <app-single-category-faq-box [category]="category"></app-single-category-faq-box>
-
 <app-links-box *ngIf="category?.links.length > 0"
                [links]="category?.links">
 </app-links-box>
-
+<div class="margin"></div>
+<app-star-rating [content]="category"
+                 type="category">
+</app-star-rating>
+<app-disqus [identifier]="category.category"></app-disqus>

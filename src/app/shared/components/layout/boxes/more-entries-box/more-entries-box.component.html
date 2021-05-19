@@ -1,0 +1,15 @@
+<app-content-box title="MORE.TEST" icon="playlist_add_check">
+  <ng-container *ngIf="(entries$ | async) as entries">
+    <ul>
+      <li *ngFor="let e of entries"
+          (click)="navigate(e)"
+          [ngClass]="{'done': e.done}">
+        <img [src]="(e.category | logo) | image: 'logos'"
+             [alt]="e.category"/>
+        <span>{{e.title}}</span>
+        <mat-icon *ngIf="e.done">check</mat-icon>
+      </li>
+    </ul>
+  </ng-container>
+</app-content-box>
+

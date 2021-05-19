@@ -1,7 +1,7 @@
 .section {
   position: relative;
   padding: 4.4444rem 1rem 3.6666rem;
-  min-height: 360px;
+  min-height: 300px;
 
   &-container {
     padding-right: 15px;
@@ -40,7 +40,7 @@
     }
   }
 
-  @media (max-width: 992px) { padding: 3.06667rem 1rem 2.66667rem }
+  @media (max-width: 993px) { padding: 3.06667rem 1rem 2.66667rem }
   @media (max-width: 550px) { padding: 2.56667rem 1.2rem 1.36667rem }
 }
 
@@ -76,7 +76,7 @@
 
 .margin-top {
   margin-top: -50px;
-  @media(max-width: 992px) { margin-top: -40px }
+  @media(max-width: 993px) { margin-top: -40px }
   @media(max-width: 550px) { margin-top: -10px }
 }
 

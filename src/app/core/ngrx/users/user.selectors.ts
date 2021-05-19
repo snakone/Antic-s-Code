@@ -12,20 +12,12 @@ export const get = createSelector(
   getUserState, fromUsers.getUser
 );
 
-export const getAll = createSelector(
-  getUserState, fromUsers.getAllUsers
+export const getUsers = createSelector(
+  getUserState, fromUsers.getUsers
 );
 
-export const getAllLoaded = createSelector(
-  getUserState, fromUsers.getAllUsersLoaded
-);
-
-export const getMostActive = createSelector(
-  getUserState, fromUsers.getMostActive
-);
-
-export const getMostActiveLoaded = createSelector(
-  getUserState, fromUsers.getMostActiveLoaded
+export const getUsersLoaded = createSelector(
+  getUserState, fromUsers.getUsersLoaded
 );
 
 export const getEmail = createSelector(
@@ -38,6 +30,18 @@ export const getByName = createSelector(
 
 export const getByNameLoaded = createSelector(
   getUserState, fromUsers.getUserByNameLoaded
+);
+
+export const getLast = createSelector(
+  getUserState, fromUsers.getLastUser
+);
+
+export const getLastLoaded = createSelector(
+  getUserState, fromUsers.getLastUserLoaded
+);
+
+export const getFiltered = createSelector(
+  getUserState, fromUsers.getFiltered
 );
 
 

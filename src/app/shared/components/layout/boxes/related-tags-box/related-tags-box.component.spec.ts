@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { RelatedTagsBoxComponent } from './related-tags-box.component';
 
@@ -6,7 +6,7 @@ describe('RelatedTagsBoxComponent', () => {
   let component: RelatedTagsBoxComponent;
   let fixture: ComponentFixture<RelatedTagsBoxComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ RelatedTagsBoxComponent ]
     })

@@ -21,6 +21,8 @@ import { MostActiveBoxModule } from '@layout/boxes/most-active-box/most-active-b
 import { UsersContentComponent } from './components/users-content/users-content.component';
 import { UsersSidebarComponent } from './components/users-sidebar/users-sidebar.component';
 import { UsersComponent } from './users.component';
+import { LastUserBoxModule } from '@layout/boxes/last-user-box/last-user-box.module';
+import { UsersScoreBoxModule } from '@layout/boxes/users-score-box/users-score-box.module';
 
 const Material = [
   MatIconModule,
@@ -47,6 +49,8 @@ const Material = [
     CardsModule,
     PaginationModule,
     MostActiveBoxModule,
+    LastUserBoxModule,
+    UsersScoreBoxModule,
     ...Material
   ]
 })

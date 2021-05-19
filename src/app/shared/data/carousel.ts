@@ -59,3 +59,42 @@ export const CREATE_SLIDES: CarouselSlide[] = [
     message: 'CREATE.SLIDES.ARTICLE.MESSAGE'
   }
 ];
+
+export const CREATE_SLIDES_MOBILE: CarouselSlide[] = [
+  {
+    image: 'start_mobile.jpg',
+    title: 'CREATE.SLIDES.START_MOBILE.TITLE',
+    subtitle: 'CREATE.SLIDES.START_MOBILE.SUBTITLE',
+    message: 'CREATE.SLIDES.START_MOBILE.MESSAGE'
+  },
+  {
+    image: 'article_mobile.jpg',
+    title: 'CREATE.SLIDES.ARTICLE.TITLE',
+    subtitle: 'CREATE.SLIDES.ARTICLE.SUBTITLE',
+    message: 'CREATE.SLIDES.ARTICLE_MOBILE.MESSAGE'
+  },
+  {
+    image: 'create_mobile.jpg',
+    title: 'CREATE.SLIDES.START.TITLE',
+    subtitle: 'CREATE.SLIDES.START.SUBTITLE',
+    message: 'CREATE.SLIDES.START.MESSAGE'
+  },
+  {
+    image: 'edit_mobile.jpg',
+    title: 'CREATE.SLIDES.EDIT_MOBILE.TITLE',
+    subtitle: 'CREATE.SLIDES.FORM.SUBTITLE',
+    message: 'CREATE.SLIDES.EDIT_MOBILE.MESSAGE'
+  },
+  {
+    image: 'users_mobile.jpg',
+    title: 'CREATE.SLIDES.USERS_MOBILE.TITLE',
+    subtitle: 'CREATE.SLIDES.USERS_MOBILE.SUBTITLE',
+    message: 'CREATE.SLIDES.USERS_MOBILE.MESSAGE'
+  },
+  {
+    image: 'options_mobile.jpg',
+    title: 'CREATE.SLIDES.OPTIONS_MOBILE.TITLE',
+    subtitle: 'CREATE.SLIDES.OPTIONS_MOBILE.SUBTITLE',
+    message: 'CREATE.SLIDES.OPTIONS_MOBILE.MESSAGE'
+  },
+];

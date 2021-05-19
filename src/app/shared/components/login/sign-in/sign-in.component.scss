@@ -24,7 +24,26 @@ p {
   margin-top: 2rem;
   margin-bottom: 0;
   font-size: .9rem;
-  @media(max-width: 550px) { margin-bottom: -.8rem }
+
+  &.recover {
+    margin-top: -.1rem;
+    outline: none;
+    cursor: pointer;
+    &:hover { font-weight: bold }
+  }
+
+  @media(max-width: 550px) {
+    margin-bottom: -.8rem;
+
+    &.recover {
+      margin-top: .75rem;
+    }
+  }
+}
+
+.bottom {
+  position: relative;
+  top: 6.66px;
 }
 
 .bold { font-size: .9rem }

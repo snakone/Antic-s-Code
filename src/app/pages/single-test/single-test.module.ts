@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RippleGlobalOptions, MAT_RIPPLE_GLOBAL_OPTIONS } from '@angular/material/core';
 
 import { SingleTestRoutingModule } from './single-test.routing';
 import { PageHeaderModule } from '@layout/page-header/page-header.module';
@@ -13,16 +14,17 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatIconModule } from '@angular/material/icon';
 import { SpinnerModule } from '@snippets/spinner/spinner.module';
-import { RippleGlobalOptions, MAT_RIPPLE_GLOBAL_OPTIONS } from '@angular/material/core';
 import { CardsModule } from '@layout/cards/cards.module';
+import { DirectivesModule } from '@shared/directives/directives.module';
+import { SnippetsModule } from '@shared/components/snippets/snippets.module';
+import { MoreEntriesBoxModule } from '@layout/boxes/more-entries-box/more-entries-box.module';
+import { CategoryTestBoxModule } from '@layout/boxes/category-test-box/category-test-box.module';
 
 import { SingleTestComponent } from './single-test.component';
 import { SingleTestContentComponent } from './components/single-test-content/single-test-content.component';
 import { SingleTestSidebarComponent } from './components/single-test-sidebar/single-test-sidebar.component';
 import { DoSingleTestComponent } from './components/do-single-test/do-single-test.component';
 import { TestStepperComponent } from './components/test-stepper/test-stepper.component';
-import { TestResultComponent } from './components/test-result/test-result.component';
-import { EntryGuard } from '@app/core/guards/entry.guard';
 
 const globalRippleConfig: RippleGlobalOptions = {
   disabled: true,
@@ -46,8 +48,7 @@ const Material = [
     SingleTestContentComponent,
     SingleTestSidebarComponent,
     DoSingleTestComponent,
-    TestStepperComponent,
-    TestResultComponent
+    TestStepperComponent
   ],
   imports: [
     CommonModule,
@@ -59,11 +60,14 @@ const Material = [
     SharedModule,
     SpinnerModule,
     CardsModule,
+    DirectivesModule,
+    SnippetsModule,
+    MoreEntriesBoxModule,
+    CategoryTestBoxModule,
     ...Material
   ],
   providers: [
-    { provide: MAT_RIPPLE_GLOBAL_OPTIONS, useValue: globalRippleConfig },
-    EntryGuard
+    { provide: MAT_RIPPLE_GLOBAL_OPTIONS, useValue: globalRippleConfig }
   ]
 })
 

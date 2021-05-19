@@ -46,6 +46,8 @@
       z-index: 1;
       padding-left: 1.2rem;
       padding-right: 1.3rem;
+      outline: none;
+      cursor: pointer;
 
       & span {
         position: relative;
@@ -54,7 +56,7 @@
     }
 
     @media(max-width: 425px) {
-      input, button span { font-size: .8rem }
+      input, button span { font-size: .8rem !important }
     }
   }
 

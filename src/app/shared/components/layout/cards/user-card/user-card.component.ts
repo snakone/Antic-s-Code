@@ -11,7 +11,6 @@ import { CrafterService } from '@core/services/crafter/crafter.service';
 export class UserCardComponent {
 
   @Input() user: User;
-  @Input() skeleton: boolean;
   @Input() first: boolean;
 
   constructor(private crafter: CrafterService) { }

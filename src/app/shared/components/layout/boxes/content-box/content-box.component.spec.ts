@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ContentBoxComponent } from './content-box.component';
 
@@ -6,7 +6,7 @@ describe('ContentBoxComponent', () => {
   let component: ContentBoxComponent;
   let fixture: ComponentFixture<ContentBoxComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ContentBoxComponent ]
     })

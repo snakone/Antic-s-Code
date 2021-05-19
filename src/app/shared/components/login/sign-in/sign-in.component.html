@@ -27,12 +27,18 @@
       {{'SIGN.IN' | translate}}
     </button>
 
-    <app-google-in></app-google-in>
+    <app-auth-sign-in></app-auth-sign-in>
 
-    <p>{{'NO.ACCOUNT' | translate}}
-      <span class="bold" (click)="signUp()">
-        {{'REGISTER.NOW' | translate}}
-      </span>
-    </p>
+    <div class="bottom">
+      <p>{{'NO.ACCOUNT' | translate}}
+        <span class="bold" (click)="signUp()">
+          {{'REGISTER.NOW' | translate}}
+        </span>
+      </p>
+      <p class="recover"
+         (click)="recover()">
+        {{'LOST.PASSWORD' | translate}}
+      </p>
+    </div>
   </form>
 </div>

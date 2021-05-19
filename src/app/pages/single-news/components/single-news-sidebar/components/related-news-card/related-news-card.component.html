@@ -1,0 +1,40 @@
+<ng-container *ngIf="notice; else noNotice">
+  <div class="wrapper"
+      [style.background-image]="'url('+ notice.image +')' | sanitizer: 'style'">
+    <div class="related-card"
+         [ngClass]="{'last': last}"
+         [routerLink]="'/news/' + notice.slug">
+      <div class="related-card-category">
+        <span>
+          <img [src]="(notice.category | logo) | image: 'logos'"
+              [alt]="notice.category"
+              loading="lazy"/>
+        </span>
+      </div>
+      <div class="related-card-info">
+        <h5>{{notice.title}}</h5>
+        <p>{{notice.views}} {{'VIEWS' | translate}} ·
+        {{notice.likes}} {{'LIKES' | translate}}</p>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #noNotice>
+  <div class="wrapper">
+    <div class="related-card skeleton"
+        [ngClass]="{'last': last}">
+      <div class="related-card-category">
+        <span>
+          <img [src]="('Antic\'s' | logo) | image: 'logos'"
+               alt="Antic\'s"
+               loading="lazy"/>
+        </span>
+      </div>
+      <div class="related-card-info">
+        <h5></h5>
+        <p></p>
+      </div>
+    </div>
+  </div>
+</ng-template>

@@ -1,7 +1,6 @@
-<app-sticky-box [selector]="index?.length > 0 ?
-                           'single-article-section' : null">
+<app-sticky-box [selector]="index?.length > 0 ? selector : null">
   <app-content-box [border]="true">
-      <ul>
+      <ul [ngClass]="{'right': right}">
         <div *ngIf="index?.length > 0">
           <li *ngFor="let i of index"
               (click)="scroll(i.id)"
@@ -13,7 +12,7 @@
         <div *ngIf="!index">
           <li *ngFor="let s of [1,2,3,4,5]" class="skeleton">
             <span></span>
-            <p></p>
+            <span></span>
           </li>
         </div>
       </ul>

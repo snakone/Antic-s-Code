@@ -16,7 +16,7 @@ const routes: Routes = [
         component: SingleTestContentComponent
       },
       {
-        path: 'do',
+        path: ':uid',
         component: DoSingleTestComponent,
         canActivate: [EntryGuard]
       }

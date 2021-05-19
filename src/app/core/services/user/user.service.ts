@@ -5,21 +5,25 @@ import { environment } from '@env/environment';
 import {
   User,
   UserResponse,
-  MostActiveResponse,
-  MostActive,
-  MessageRequest
+  MessageRequest,
+  UserStats,
+  UserStatsResponse,
+  NewPassword
  } from '@shared/interfaces/interfaces';
 
 import { Observable } from 'rxjs';
 import { StorageService } from '@core/storage/storage.service';
 import { map, filter, tap } from 'rxjs/operators';
+import { AuthService } from '../login/auth.service';
 import { PushService } from '../push/push.service';
 import { UsersFacade } from '@store/users/users.facade';
+import { ServerResponse } from '@shared/interfaces/interfaces';
 
 @Injectable({providedIn: 'root'})
 
 export class UserService {
 
+  readonly API_USER = environment.api + 'user';
   readonly API_USERS = environment.api + 'users';
   readonly API_TOKEN = environment.api + 'token';
   private user: User;
@@ -29,12 +33,13 @@ export class UserService {
     private http: HttpService,
     private ls: StorageService,
     private userFacade: UsersFacade,
-    private sw: PushService
+    private sw: PushService,
+    private auth: AuthService
   ) { }
 
   public getById(id: string): Observable<User> {
     return this.http
-      .get<UserResponse>(environment.api + `user/${id}`)
+      .get<UserResponse>(this.API_USER + `/${id}`)
       .pipe(
         filter(res => res && !!res.ok),
         map(_ => _.user)
@@ -59,6 +64,15 @@ export class UserService {
       );
   }
 
+  public getStats(): Observable<UserStats[]> {
+    return this.http
+      .get<UserStatsResponse>(this.API_USERS + '/stats')
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(_ => _.stats)
+      );
+  }
+
   public update(user: User): Observable<UserResponse> {
     return this.http
       .put<UserResponse>(this.API_USERS, user)
@@ -80,21 +94,31 @@ export class UserService {
       );
   }
 
-  public getMostActive(): Observable<MostActive[]> {
+  public getLast(): Observable<User> {
     return this.http
-      .get<MostActiveResponse>(this.API_USERS + '/active')
+      .get<UserResponse>(this.API_USERS + '/last')
       .pipe(
         filter(res => res && !!res.ok),
-        map(_ => _.users)
+        map(_ => _.user)
       );
   }
 
-  public refreshToken(id: string): Observable<UserResponse> {
+  public getUserEmailById(id: string): Observable<string> {
+    return this.http
+      .get<UserResponse>(this.API_USER + '/email/' + id)
+      .pipe(
+        filter(res => res && !!res.ok),
+        map(res => res.user.email)
+      );
+  }
+
+  public refreshToken(id: string): Observable<User> {
     return this.http
       .post<UserResponse>(this.API_TOKEN + `/${id}`, null)
       .pipe(
         filter(res => res && !!res.ok),
-        tap(res => this.setToken(res))
+        tap(res => this.setToken(res)),
+        map(res => res.user)
       );
   }
 
@@ -106,6 +130,35 @@ export class UserService {
         map(res => res.user),
         tap(res => this.setUser(res))
       );
+  }
+
+  public verifyEmailToken(token: string): Observable<boolean> {
+    return this.http
+      .get<ServerResponse>(this.API_TOKEN + '/email/' + token)
+      .pipe(
+        map(res => res.ok)
+      );
+  }
+
+  public recoverPassword(email: string): Observable<ServerResponse> {
+    return this.http
+    .get<ServerResponse>(this.API_USERS + '/recover/' + email)
+    .pipe(
+      filter(res => res && !!res.ok)
+    );
+  }
+
+  public createNewPassword(data: NewPassword): Observable<ServerResponse> {
+    return this.http
+    .post<ServerResponse>(this.API_USERS + '/new', data)
+    .pipe(
+      filter(res => res && !!res.ok)
+    );
+  }
+
+  public isEmailTaken(email: string): Observable<ServerResponse> {
+    return this.http
+    .get<ServerResponse>(this.API_USERS + '/email/' + email);
   }
 
   public sendMeAMessage(request: MessageRequest): Observable<UserResponse> {
@@ -127,6 +180,7 @@ export class UserService {
   private setUser(user: User): void {
     this.user = user;
     this.chatUser = user.name;
+    this.userFacade.set(user);
   }
 
   public setChatUser(name: string): void {
@@ -138,7 +192,6 @@ export class UserService {
     remember: boolean = false
   ): void {
       this.ls.userLogIn(data, remember);
-      this.userFacade.set(data.user);
       this.setUser(data.user);
       this.sw.showPrompt();
   }
@@ -146,6 +199,7 @@ export class UserService {
   public logOut(): void {
     this.ls.userLogOut();
     this.userFacade.logOut();
+    this.auth.logOut();
     this.user = null;
     this.chatUser = null;
   }

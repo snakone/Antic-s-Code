@@ -1,5 +1,6 @@
 <ngx-loading-bar [includeSpinner]="false"
-                 height="4px">
+                 height="4px"
+                 ref="http">
 </ngx-loading-bar>
 
 <div id="app" class="hide">
@@ -15,3 +16,7 @@
 <ng-container *ngIf="!loaded">
   <app-loading></app-loading>
 </ng-container>
+
+<div class="min-width">
+  <h2 [innerHTML]="'MIN.WIDTH' | translate"></h2>
+</div>

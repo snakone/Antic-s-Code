@@ -1,7 +1,6 @@
-import { Component, OnInit, Output, EventEmitter, OnDestroy, Input } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Observable } from 'rxjs';
 
-import { takeUntil, filter } from 'rxjs/operators';
 import { ArticlesFacade } from '@store/articles/article.facade';
 
 @Component({
@@ -12,8 +11,8 @@ import { ArticlesFacade } from '@store/articles/article.facade';
 
 export class ArticlesSortBarComponent implements OnInit {
 
-  @Output() grid = new EventEmitter<boolean>();
   @Input() active = false;
+  @Output() grid = new EventEmitter<boolean>();
   count$: Observable<number>;
 
   constructor(private articleFacade: ArticlesFacade) { }

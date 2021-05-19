@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 
 import { Observable, Subject } from 'rxjs';
 import { takeUntil, filter } from 'rxjs/operators';
@@ -9,16 +9,18 @@ import { Article, User } from '@shared/interfaces/interfaces';
 @Component({
   selector: 'app-user-articles-box',
   templateUrl: './user-articles-box.component.html',
-  styleUrls: ['./user-articles-box.component.scss']
+  styleUrls: ['./user-articles-box.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class UserArticlesBoxComponent implements OnInit, OnDestroy {
 
   @Input() user: User;
+  @Input() title: string;
   articles$: Observable<Article[]>;
   private unsubscribe$ = new Subject<void>();
   page = 1;
-  itemsPerPage = 5;
+  itemsPerPage = 6;
 
   constructor(private articlesFacade: ArticlesFacade) { }
 
@@ -49,6 +51,7 @@ export class UserArticlesBoxComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+    this.articlesFacade.resetByUser();
   }
 
 }

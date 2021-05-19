@@ -3,15 +3,16 @@ import { URI } from '@app/app.config';
 
 import { UserService } from '@core/services/user/user.service';
 import { CrafterService } from '@core/services/crafter/crafter.service';
-import { IntersService } from '@core/services/inters/inters.service';
 import { PushService } from '@core/services/push/push.service';
+import { ReactionService } from '@core/services/reaction/reaction.service';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { STAR_PUSH } from '@shared/data/notifications';
-import { Article, User, Interaction, NotificationPayload } from '@shared/interfaces/interfaces';
+import { Article, User, Reaction, NotificationPayload, Category } from '@shared/interfaces/interfaces';
 
 import { NoAccountComponent } from '@layout/dialogs/no-account/no-account.component';
+import { environment } from '@env/environment';
 
 @Component({
   selector: 'app-star-rating',
@@ -21,7 +22,8 @@ import { NoAccountComponent } from '@layout/dialogs/no-account/no-account.compon
 
 export class StarRatingComponent implements OnInit, OnDestroy {
 
-  @Input() article: Article;
+  @Input() content: Article | Category;
+  @Input() type: string;
   stars: number;
   user: User;
   private unsubscribe$ = new Subject<void>();
@@ -29,7 +31,7 @@ export class StarRatingComponent implements OnInit, OnDestroy {
   constructor(
     private userSrv: UserService,
     private crafter: CrafterService,
-    private intersSrv: IntersService,
+    private reactionSrv: ReactionService,
     private sw: PushService
   ) { }
 
@@ -41,33 +43,45 @@ export class StarRatingComponent implements OnInit, OnDestroy {
     if (!this.user) {
       this.crafter.dialog(NoAccountComponent, {
         type: 'star',
-        author: this.article.author
+        author: this.type === 'article' ?
+                this.content.author :
+                'Antic\'s Code'
       });
       return;
     }
-    if (star) {
-      const int: Interaction = {
-        content: this.article._id,
-        user: this.user._id,
-        type: 'star',
-        value: star
-      };
 
-      this.intersSrv.make(int)
-        .pipe(takeUntil(this.unsubscribe$))
-        .subscribe(_ => {
-            this.crafter.toaster('SUCCESS', 'THANKS.MUCH', 'info');
-            this.sw.sendNotification(
-              this.setNotification(Object.assign({}, STAR_PUSH))
-            ).toPromise().then();
-        });
-    }
+    const react: Reaction = {
+      source: this.content._id,
+      user: this.user._id,
+      type: 'star',
+      value: star,
+      target: this.type
+    };
+
+    this.reactionSrv.make(react)
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(_ => {
+          this.crafter.toaster('SUCCESS', 'THANKS.MUCH', 'info');
+          this.sw.send(
+            this.setNotification(Object.assign({}, STAR_PUSH))
+          ).toPromise().then();
+      });
   }
 
   setNotification(payload: NotificationPayload): NotificationPayload {
-    payload.body = payload.body.concat(`.\n${this.article.title}`);
-    payload.data.url = `${URI}/article/${this.article.slug}`;
-    payload.user = this.article.user;
+    payload.body = payload.body.concat(`.\n${this.content.title}`);
+
+    switch (this.type) {
+      case 'article':
+        payload.data.url = `${URI}/article/${this.content.slug}`;
+        payload.user = this.content.user;
+        break;
+      case 'category':
+        payload.data.url = `${URI}/category/${this.content.category}`;
+        payload.user = environment.id;
+        payload.body = `Nueva Puntuación en la categoría ${this.content.category}`;
+    }
+
     return payload;
   }
 

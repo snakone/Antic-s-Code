@@ -26,7 +26,8 @@ import { MarkdownModule } from 'ngx-markdown';
     ContentMakerComponent,
     DisqusComponent,
     LoginModule,
-    SnippetsModule
+    SnippetsModule,
+    MarkdownModule
   ]
 })
 

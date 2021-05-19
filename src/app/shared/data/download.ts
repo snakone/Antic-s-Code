@@ -1,10 +1,10 @@
 import { DownloadButton } from '../interfaces/interfaces';
 
-const DOWNLOAD_URI: any = {
-  windows: 'https://mega.nz/file/M5h1RDiC#AHlXr1bjUrxJInW1ZKwtDbNGp-F--vRoqHjN0QZwOJo',
-  mac: 'https://mega.nz/file/JopxlLJI#wq6Ny2HCoAcXvKe8udOYxEeiuj5lW-ZZDucKW9tmDM8',
-  linux: 'https://mega.nz/file/44gH2bxA#5VEO5mcyqO7Ru3Mqjrq3mAAF7tx3plcE3kO27bYhFR0',
-  android: 'https://mega.nz/file/Bp5HARzT#E01oeW744ZaF3cgik1NsrEuQAcovrNMXJZLGKaH2-qs',
+export const DOWNLOAD_URI: any = {
+  windows: 'https://mega.nz/file/koh20bQT#nB84yHZXzWlNZYu6_GLYm9DMiKvezc3LvFVKgrAKaH0',
+  mac: 'https://mega.nz/file/RgpwWJjA#9Nm9ICa737vmhEao-Bnhr42vPfXsJ_JFGq-ITE4JloE',
+  linux: 'https://mega.nz/file/c5wSlRBJ#gQP6Cdx2HlkPY_BycmRbTdPLWw3KbtjhYYOZ-Zoz6OA',
+  android: 'http://play.google.com/store/apps/details?id=io.antics.mobile.com&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1',
   ios: ''
 };
 
@@ -45,5 +45,14 @@ export const CREATE_STEPS: string[] = [
   'DOWNLOAD.STEPS.THREE',
   'DOWNLOAD.STEPS.FOUR',
   'DOWNLOAD.STEPS.FIVE',
+  'DOWNLOAD.STEPS.SIX',
+];
+
+export const CREATE_STEPS_MOBILE: string[] = [
+  'DOWNLOAD.STEPS.ONE',
+  'DOWNLOAD.STEPS.TWO',
+  'DOWNLOAD.STEPS.FOUR',
+  'DOWNLOAD.STEPS.FIVE',
+  'DOWNLOAD.STEPS.SIX',
 ];
 

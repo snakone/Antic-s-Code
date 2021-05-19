@@ -79,17 +79,23 @@ mat-option.all {
   background: transparent !important;
 }
 
-.mat-checkbox-inner-container { top: 2px }
+.mat-checkbox-inner-container { top: 1px }
 .p-left .mat-option-text { padding-left: .4rem }
 
 .edit-dialog .mat-dialog-container {
   padding: 0 !important;
-  border-radius: 10px;
+  border-radius: var(--content-border-radius);
   max-width: 993px;
 
   & .content-box-body {
-    overflow: auto;
-    @media(max-width: 700px) { height: 80vh !important }
+    overflow-y: auto;
+    max-height: 77vh;
+  }
+}
+
+#test-result.mat-dialog-container {
+  @media(max-width: 550px) {
+    padding: 24px 1.2rem 24px 1rem !important;
   }
 }
 
@@ -113,6 +119,15 @@ mat-option.all {
 
 .mat-vertical-stepper-header {
   padding: 24px 4px !important;
+  height: 20px !important;
+  @media(max-width: 750px) { height: 30px !important }
+  @media(max-width: 550px) { height: 47px !important }
+}
+
+.mat-step-text-label {
+  overflow: visible !important;
+  @media(max-width: 993px) { line-height: 1.4rem }
+  @media(max-width: 550px) { font-size: .9rem !important }
 }
 
 .mat-vertical-content {
@@ -127,9 +142,8 @@ mat-option.all {
   margin-left: 14.5px !important;
 }
 
-.mobile .mat-step-label {
+.mat-step-label {
   white-space: normal !important;
-  font-size: .85rem;
   line-height: 1rem;
   font-weight: bold;
 }
@@ -148,6 +162,7 @@ mat-option.all {
   padding: 0 .5rem !important;
   margin: 0 !important;
   max-width: 50vh;
+  max-height: 77vh !important;
 
   & h4 {
     margin-top: 0;
@@ -167,4 +182,56 @@ mat-option.all {
   }
 }
 
+.inbox-dialog {
+  position: relative;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: 100%;
+  max-height: 100% !important;
+}
 
+.result-dialog {
+  position: relative;
+  overflow: hidden !important;
+  padding: 0 .5rem !important;
+  margin: 0 !important;
+  max-width: 69vh;
+}
+
+.mat-select-value,
+.mat-form-field-label,
+.mat-step-label { overflow: visible !important }
+.mat-step-label { white-space: break-spaces !important }
+
+.mat-step-header .mat-step-label.mat-step-label-active {
+  font-weight: bold;
+}
+
+.search-inbox.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: var(--border-color) !important;
+}
+
+.search-inbox .mat-input-element {
+  color: white !important;
+  height: 100%;
+}
+
+.search-inbox .mat-form-field-infix {
+  width: auto !important;
+}
+
+#inbox-messages {
+  padding: 0 !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  & .antics-dialog { padding: 0 !important }
+}
+
+.cdk-global-scrollblock {
+  overflow: hidden !important;
+}

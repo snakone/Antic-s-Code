@@ -12,6 +12,7 @@ import { TestAccessModule } from '@store/test/data-access/test-access.module';
 import { ContentBoxModule } from '@layout/boxes/content-box/content-box.module';
 import { StickyBoxModule } from '@layout/boxes/sticky-box/sticky-box.module';
 import { SpinnerModule } from '@snippets/spinner/spinner.module';
+import { UserTestStatsBoxModule } from '@layout/boxes/user-test-stats-box/user-test-stats-box.module';
 
 import { TestContentComponent } from './components/test-content/test-content.component';
 import { TestSidebarComponent } from './components/test-sidebar/test-sidebar.component';
@@ -37,6 +38,7 @@ const Material = [
     SharedModule,
     CardsModule,
     SpinnerModule,
+    UserTestStatsBoxModule,
     ...Material
   ]
 })

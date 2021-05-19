@@ -1,0 +1,23 @@
+.wrapper {
+  background: rgb(48, 53, 87);
+  border-bottom-left-radius: 10px;
+  width: 360px;
+
+  &-card {
+    max-height: 400px;
+    min-height: 400px;
+    overflow: auto;
+    padding: 0 1.2rem 1.2rem;
+  }
+}
+
+.empty {
+  height: 375px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light-color);
+  font-size: 1.1rem;
+}
+
+
